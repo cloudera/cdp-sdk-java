@@ -1,0 +1,42 @@
+target
+dependency-reduced-pom.xml
+mvnvm.properties
+AggregateViewer.html
+
+#OS X files
+.DS_Store
+.java-version
+
+# Eclipse files
+eclipse-classes
+maven-eclipse.xml
+.classpath
+.settings
+.project
+.xml
+.bpmn
+.externalToolBuilders
+
+# Idea files
+*.swp
+*.iml
+*.ipr
+*.iws
+*.class
+.idea
+
+# VS Code config
+.vscode
+
+# emacs backup files
+*~
+
+# emacs tern files
+*.tern-port
+
+# emacs autosave files
+\#*#
+
+# Publishing cruft
+pom.xml.versionsBackup
+scripts/
