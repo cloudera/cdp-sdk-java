@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2017 Cloudera, Inc. All Rights Reserved.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~ http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<FindBugsFilter
+ xmlns="https://github.com/spotbugs/filter/3.0.0"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="https://github.com/spotbugs/filter/3.0.0 https://raw.githubusercontent.com/spotbugs/spotbugs/3.1.0/spotbugs/etc/findbugsfilter.xsd">
+  <Match>
+	<Bug pattern="NM_CONFUSING"/>
+  </Match>
+
+  <Match>
+    <Bug pattern="SIC_INNER_SHOULD_BE_STATIC_ANON, BC_UNCONFIRMED_CAST_OF_RETURN_VALUE" />
+    <Class name="~com\.cloudera\.cdp\..*\.api\..*" />
+  </Match>
+
+  <Match>
+    <Bug pattern="UPM_UNCALLED_PRIVATE_METHOD" />
+    <Class name="~com\.cloudera\.cdp\..*\.model\..*" />
+    <Method name="toIndentedString" />
+  </Match>
+
+  <Match>
+    <Bug pattern="RCN_REDUNDANT_NULLCHECK_WOULD_HAVE_BEEN_A_NPE" />
+    <Class name="com.cloudera.cdp.client.CdpClient" />
+    <Method name="invokeAPI" />
+  </Match>
+</FindBugsFilter>

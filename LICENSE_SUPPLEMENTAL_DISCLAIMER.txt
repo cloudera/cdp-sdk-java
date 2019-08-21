@@ -1,0 +1,43 @@
+Cloudera, Inc.’s Apache License, Version 2 –Supplemental Disclaimer
+
+
+This Supplemental Disclaimer supplements and is incorporated into the Apache
+License, Version 2.0, pursuant to which You have agreed to use this
+distribution.  Any terms used in this Supplemental Disclaimer but not defined
+herein shall have the meanings ascribed to them in the License.
+
+As may be evidenced, at least in part, by the third party notices document
+accompanying this distribution, the Work may be distributed in conjunction with
+software received from third parties (“Third Party Code”).   This Third
+Party Code is licensed to You directly from those third parties under the
+various applicable third party licenses.
+
+Disclaimer of Warranty.  Unless required by applicable law, Cloudera, Inc.
+(“Cloudera”) provides the Third Party Code, on an "as is" or “as
+available” basis, without any representations, warranties, covenants or
+conditions of any kind, either express or implied, including, without
+limitation, any warranties or conditions of title, non-infringement,
+merchantability, or fitness or suitability for a particular purpose (whether or
+not Cloudera knows, has reason to know, has been advised, or is otherwise aware
+of any such purpose).  Cloudera and its suppliers do not warrant that the Third
+Party Code will be free from all bugs, errors, or omissions.  You are solely
+responsible for determining the appropriateness of using the Third Party Code,
+and assume any risks associated with Your exercise of permissions under the
+License and the third party licenses.
+
+Limitation of liability.  In no event and under no legal theory, whether in
+contract, tort, strict liability or otherwise, shall Cloudera be liable to You
+for damages, including any direct, indirect, special, incidental, exemplary,
+punitive, or consequential damages of any character, arising out of or in
+connection with this License, the Third Party Code, or related to Your use or
+inability to use the Third Party Code, including but not limited to damages for
+loss of profits, loss of data, loss of use, loss of revenue, loss of goodwill,
+work stoppage, computer failure or malfunction, or any and all other commercial
+damages or losses, even if Cloudera has been advised of the possibility of such
+damages.
+
+
+
+DL
+19$01$18
+

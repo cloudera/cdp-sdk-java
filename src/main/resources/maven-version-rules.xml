@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset xmlns="http://mojo.codehaus.org/versions-maven-plugin/rule/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" comparisonMethod="maven" xsi:schemaLocation="http://mojo.codehaus.org/versions-maven-plugin/rule/2.0.0 http://mojo.codehaus.org/versions-maven-plugin/xsd/rule-2.0.0.xsd">
+  <ignoreVersions>
+    <!-- Ignore Alpha's, Beta's, release candidates and milestones -->
+    <ignoreVersion type="regex">(?i).*Alpha(?:-?\d+)?</ignoreVersion>
+    <ignoreVersion type="regex">(?i).*Beta(?:-?\d+)?</ignoreVersion>
+    <ignoreVersion type="regex">(?i).*-B(?:-?\d+)?</ignoreVersion>
+    <ignoreVersion type="regex">(?i).*RC(?:-?\d+)?</ignoreVersion>
+    <ignoreVersion type="regex">(?i).*CR(?:-?\d+)?</ignoreVersion>
+    <ignoreVersion type="regex">(?i).*M(?:-?\d+)?</ignoreVersion>
+    <ignoreVersion type="regex">(?i).*MISTAKE(?:-?\d+)?</ignoreVersion>
+    <ignoreVersion type="regex">(?i).*EA(?:-?\d+)?</ignoreVersion>
+    <ignoreVersion type="regex">(?i).*preview(?:-?\d+)?</ignoreVersion>
+  </ignoreVersions>
+  <rules>
+    <!-- Obvious mismatches -->
+    <rule groupId="commons-collections" artifactId="commons-collections">
+      <ignoreVersions>
+        <ignoreVersion type="regex">^200.*$</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+    <rule groupId="commons-logging" artifactId="commons-logging">
+      <ignoreVersions>
+        <ignoreVersion>99.0-does-not-exist</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+    <rule groupId="org.hamcrest">
+      <ignoreVersions>
+        <ignoreVersion>1.4-atlassian-1</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+    <!-- Some random datestamped release -->
+    <rule groupId="antlr">
+      <ignoreVersions>
+        <ignoreVersion>20030911</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+    <rule groupId="com.github.vbmacher" artifactId="java-cup-runtime">
+      <ignoreVersions>
+        <ignoreVersion>11b-20151001</ignoreVersion>
+        <ignoreVersion>11b-20160615</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+    <!-- There are strange pre-release versions like 7.5.0.t018 -->
+    <rule groupId="org.kie">
+      <ignoreVersions>
+        <ignoreVersion type="regex">.*\.t(\d+)</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+    <!-- MySQL connector 6.x and 8.x releases are development. WTF? -->
+    <rule groupId="mysql" artifactId="mysql-connector-java">
+      <ignoreVersions>
+        <ignoreVersion type="regex">(6|8).*</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+    <rule groupId="org.postgresql" artifactId="postgresql">
+      <ignoreVersions>
+        <ignoreVersion type="regex">.*jre.*</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+    <!-- Random jboss pollution -->
+    <rule groupId="org.apache.maven" artifactId="maven-compiler-plugin">
+      <ignoreVersions>
+        <ignoreVersion type="regex">.*-jboss-.*</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+    <!-- Cloudera pollution! -->
+    <rule groupId="org.apache.avro" artifactId="avro">
+      <ignoreVersions>
+        <ignoreVersion>1.8.2-cdh6.0.0</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+    <!-- Known broken artifact versions -->
+    <rule groupId="org.codehaus.mojo" artifactId="exec-maven-plugin">
+      <ignoreVersions>
+        <!-- Bug causes crashes when exec'ing stuff. -->
+        <ignoreVersion>1.6.0</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+    <rule groupId="org.apache.maven" artifactId="maven-assembly-plugin">
+      <ignoreVersions>
+        <!-- 3.x releases are way slower than 2.x -->
+        <ignoreVersion>3.0.0</ignoreVersion>
+        <ignoreVersion>3.1.0</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+    <!-- How did we publish a spotbugs plugin release? -->
+    <rule groupId="com.github.spotbugs" artifactId="spotbugs-maven-plugin">
+      <ignoreVersions>
+        <ignoreVersion>3.1.9-cloudera.1</ignoreVersion>
+      </ignoreVersions>
+    </rule>
+  </rules>
+</ruleset>
+
