@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for create AWS datalake request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T14:31:31.941-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T15:22:35.562-07:00")
 public class CreateAWSDatalakeRequest  {
 
   /**
@@ -52,6 +52,11 @@ public class CreateAWSDatalakeRequest  {
    * Tags to be added to Datalake related resources.
    **/
   private List<DatalakeResourceTagRequest> tags = new ArrayList<DatalakeResourceTagRequest>();
+
+  /**
+   * The scale of the datalake.
+   **/
+  private String scale = null;
 
   /**
    * Getter for datalakeName.
@@ -121,6 +126,23 @@ public class CreateAWSDatalakeRequest  {
     this.tags = tags;
   }
 
+  /**
+   * Getter for scale.
+   * The scale of the datalake.
+   **/
+  @JsonProperty("scale")
+  public String getScale() {
+    return scale;
+  }
+
+  /**
+   * Setter for scale.
+   * The scale of the datalake.
+   **/
+  public void setScale(String scale) {
+    this.scale = scale;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -142,12 +164,15 @@ public class CreateAWSDatalakeRequest  {
     if (!Objects.equals(this.tags, createAWSDatalakeRequest.tags)) {
       return false;
     }
+    if (!Objects.equals(this.scale, createAWSDatalakeRequest.scale)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, tags);
+    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, tags, scale);
   }
 
   @Override
@@ -158,6 +183,7 @@ public class CreateAWSDatalakeRequest  {
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    cloudProviderConfiguration: ").append(toIndentedString(cloudProviderConfiguration)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    scale: ").append(toIndentedString(scale)).append("\n");
     sb.append("}");
     return sb.toString();
   }

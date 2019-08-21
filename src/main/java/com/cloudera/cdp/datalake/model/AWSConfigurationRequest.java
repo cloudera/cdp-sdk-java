@@ -27,13 +27,13 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for AWS configuration.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T14:31:31.941-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T15:22:35.562-07:00")
 public class AWSConfigurationRequest  {
 
   /**
-   * The name of the IAM instance profile.
+   * The ARN of an IAM instance profile.
    **/
-  private String instanceProfileName = null;
+  private String instanceProfile = null;
 
   /**
    * The location of the S3 bucket to be used as storage. The location has to start with s3a:// followed by the bucket name.
@@ -41,20 +41,20 @@ public class AWSConfigurationRequest  {
   private String storageBucketLocation = null;
 
   /**
-   * Getter for instanceProfileName.
-   * The name of the IAM instance profile.
+   * Getter for instanceProfile.
+   * The ARN of an IAM instance profile.
    **/
-  @JsonProperty("instanceProfileName")
-  public String getInstanceProfileName() {
-    return instanceProfileName;
+  @JsonProperty("instanceProfile")
+  public String getInstanceProfile() {
+    return instanceProfile;
   }
 
   /**
-   * Setter for instanceProfileName.
-   * The name of the IAM instance profile.
+   * Setter for instanceProfile.
+   * The ARN of an IAM instance profile.
    **/
-  public void setInstanceProfileName(String instanceProfileName) {
-    this.instanceProfileName = instanceProfileName;
+  public void setInstanceProfile(String instanceProfile) {
+    this.instanceProfile = instanceProfile;
   }
 
   /**
@@ -83,7 +83,7 @@ public class AWSConfigurationRequest  {
       return false;
     }
     AWSConfigurationRequest aWSConfigurationRequest = (AWSConfigurationRequest) o;
-    if (!Objects.equals(this.instanceProfileName, aWSConfigurationRequest.instanceProfileName)) {
+    if (!Objects.equals(this.instanceProfile, aWSConfigurationRequest.instanceProfile)) {
       return false;
     }
     if (!Objects.equals(this.storageBucketLocation, aWSConfigurationRequest.storageBucketLocation)) {
@@ -94,14 +94,14 @@ public class AWSConfigurationRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceProfileName, storageBucketLocation);
+    return Objects.hash(instanceProfile, storageBucketLocation);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AWSConfigurationRequest {\n");
-    sb.append("    instanceProfileName: ").append(toIndentedString(instanceProfileName)).append("\n");
+    sb.append("    instanceProfile: ").append(toIndentedString(instanceProfile)).append("\n");
     sb.append("    storageBucketLocation: ").append(toIndentedString(storageBucketLocation)).append("\n");
     sb.append("}");
     return sb.toString();

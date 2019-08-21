@@ -29,12 +29,16 @@ import com.cloudera.cdp.ml.model.CreateWorkspaceResponse;
 import com.cloudera.cdp.ml.model.DeleteWorkspaceRequest;
 import com.cloudera.cdp.ml.model.DeleteWorkspaceResponse;
 import com.cloudera.cdp.ml.model.Error;
+import com.cloudera.cdp.ml.model.GrantWorkspaceAccessRequest;
+import com.cloudera.cdp.ml.model.GrantWorkspaceAccessResponse;
 import com.cloudera.cdp.ml.model.ListWorkspacesRequest;
 import com.cloudera.cdp.ml.model.ListWorkspacesResponse;
+import com.cloudera.cdp.ml.model.RevokeWorkspaceAccessRequest;
+import com.cloudera.cdp.ml.model.RevokeWorkspaceAccessResponse;
 import com.cloudera.cdp.ml.model.UpgradeWorkspaceRequest;
 import com.cloudera.cdp.ml.model.UpgradeWorkspaceResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T14:31:31.858-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T15:22:35.462-07:00")
 public class MlClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";
@@ -71,6 +75,18 @@ public class MlClient extends CdpClient {
   }
 
   /**
+   * GrantWorkspaceAccess Cloudera Machine Learning Workspace.
+   * @param input
+   * @return GrantWorkspaceAccessResponse
+   */
+  public GrantWorkspaceAccessResponse grantWorkspaceAccess(GrantWorkspaceAccessRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling grantWorkspaceAccess");
+     }
+    return this.invokeAPI("/api/v1/ml/grantWorkspaceAccess", input, new GenericType<GrantWorkspaceAccessResponse>(){});
+  }
+
+  /**
    * List Cloudera Machine Learnings workspaces.
    * @param input
    * @return ListWorkspacesResponse
@@ -80,6 +96,18 @@ public class MlClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling listWorkspaces");
      }
     return this.invokeAPI("/api/v1/ml/listWorkspaces", input, new GenericType<ListWorkspacesResponse>(){});
+  }
+
+  /**
+   * RevokeWorkspaceAccess Cloudera Machine Learning Workspace.
+   * @param input
+   * @return RevokeWorkspaceAccessResponse
+   */
+  public RevokeWorkspaceAccessResponse revokeWorkspaceAccess(RevokeWorkspaceAccessRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling revokeWorkspaceAccess");
+     }
+    return this.invokeAPI("/api/v1/ml/revokeWorkspaceAccess", input, new GenericType<RevokeWorkspaceAccessResponse>(){});
   }
 
   /**

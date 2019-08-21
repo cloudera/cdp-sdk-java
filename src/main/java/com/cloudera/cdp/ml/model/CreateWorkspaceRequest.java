@@ -28,8 +28,13 @@ import com.cloudera.cdp.ml.model.ProvisionK8sRequest;
 /**
  * Request object for the CreateWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T14:31:31.858-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T15:22:35.462-07:00")
 public class CreateWorkspaceRequest  {
+
+  /**
+   * The boolean flag to disable TLS setup for workspace. By default the TLS is enabled.
+   **/
+  private Boolean disableTLS = null;
 
   /**
    * The environment for the workspace to create.
@@ -47,9 +52,31 @@ public class CreateWorkspaceRequest  {
   private ProvisionK8sRequest provisionK8sRequest = null;
 
   /**
+   * The boolean flag to request public load balancer. By default private load balancer is used.
+   **/
+  private Boolean usePublicLoadBalancer = null;
+
+  /**
    * The name of the workspace to create.
    **/
   private String workspaceName = null;
+
+  /**
+   * Getter for disableTLS.
+   * The boolean flag to disable TLS setup for workspace. By default the TLS is enabled.
+   **/
+  @JsonProperty("disableTLS")
+  public Boolean getDisableTLS() {
+    return disableTLS;
+  }
+
+  /**
+   * Setter for disableTLS.
+   * The boolean flag to disable TLS setup for workspace. By default the TLS is enabled.
+   **/
+  public void setDisableTLS(Boolean disableTLS) {
+    this.disableTLS = disableTLS;
+  }
 
   /**
    * Getter for environmentName.
@@ -103,6 +130,23 @@ public class CreateWorkspaceRequest  {
   }
 
   /**
+   * Getter for usePublicLoadBalancer.
+   * The boolean flag to request public load balancer. By default private load balancer is used.
+   **/
+  @JsonProperty("usePublicLoadBalancer")
+  public Boolean getUsePublicLoadBalancer() {
+    return usePublicLoadBalancer;
+  }
+
+  /**
+   * Setter for usePublicLoadBalancer.
+   * The boolean flag to request public load balancer. By default private load balancer is used.
+   **/
+  public void setUsePublicLoadBalancer(Boolean usePublicLoadBalancer) {
+    this.usePublicLoadBalancer = usePublicLoadBalancer;
+  }
+
+  /**
    * Getter for workspaceName.
    * The name of the workspace to create.
    **/
@@ -128,6 +172,9 @@ public class CreateWorkspaceRequest  {
       return false;
     }
     CreateWorkspaceRequest createWorkspaceRequest = (CreateWorkspaceRequest) o;
+    if (!Objects.equals(this.disableTLS, createWorkspaceRequest.disableTLS)) {
+      return false;
+    }
     if (!Objects.equals(this.environmentName, createWorkspaceRequest.environmentName)) {
       return false;
     }
@@ -135,6 +182,9 @@ public class CreateWorkspaceRequest  {
       return false;
     }
     if (!Objects.equals(this.provisionK8sRequest, createWorkspaceRequest.provisionK8sRequest)) {
+      return false;
+    }
+    if (!Objects.equals(this.usePublicLoadBalancer, createWorkspaceRequest.usePublicLoadBalancer)) {
       return false;
     }
     if (!Objects.equals(this.workspaceName, createWorkspaceRequest.workspaceName)) {
@@ -145,16 +195,18 @@ public class CreateWorkspaceRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, mlVersion, provisionK8sRequest, workspaceName);
+    return Objects.hash(disableTLS, environmentName, mlVersion, provisionK8sRequest, usePublicLoadBalancer, workspaceName);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateWorkspaceRequest {\n");
+    sb.append("    disableTLS: ").append(toIndentedString(disableTLS)).append("\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    mlVersion: ").append(toIndentedString(mlVersion)).append("\n");
     sb.append("    provisionK8sRequest: ").append(toIndentedString(provisionK8sRequest)).append("\n");
+    sb.append("    usePublicLoadBalancer: ").append(toIndentedString(usePublicLoadBalancer)).append("\n");
     sb.append("    workspaceName: ").append(toIndentedString(workspaceName)).append("\n");
     sb.append("}");
     return sb.toString();

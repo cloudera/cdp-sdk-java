@@ -27,8 +27,13 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * A ML workspace, which includes the cluster / storage.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T14:31:31.858-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T15:22:35.462-07:00")
 public class Workspace  {
+
+  /**
+   * CRN of the environment
+   **/
+  private String environmentCrn = null;
 
   /**
    * The name of the workspace's environment.
@@ -49,6 +54,23 @@ public class Workspace  {
    * URL of the workspace's user interface.
    **/
   private String instanceUrl = null;
+
+  /**
+   * Getter for environmentCrn.
+   * CRN of the environment
+   **/
+  @JsonProperty("environmentCrn")
+  public String getEnvironmentCrn() {
+    return environmentCrn;
+  }
+
+  /**
+   * Setter for environmentCrn.
+   * CRN of the environment
+   **/
+  public void setEnvironmentCrn(String environmentCrn) {
+    this.environmentCrn = environmentCrn;
+  }
 
   /**
    * Getter for environmentName.
@@ -127,6 +149,9 @@ public class Workspace  {
       return false;
     }
     Workspace workspace = (Workspace) o;
+    if (!Objects.equals(this.environmentCrn, workspace.environmentCrn)) {
+      return false;
+    }
     if (!Objects.equals(this.environmentName, workspace.environmentName)) {
       return false;
     }
@@ -144,13 +169,14 @@ public class Workspace  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, instanceName, instanceStatus, instanceUrl);
+    return Objects.hash(environmentCrn, environmentName, instanceName, instanceStatus, instanceUrl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Workspace {\n");
+    sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");

@@ -61,6 +61,8 @@ import com.cloudera.cdp.datahub.model.ListClustersRequest;
 import com.cloudera.cdp.datahub.model.ListClustersResponse;
 import com.cloudera.cdp.datahub.model.ListRecipesRequest;
 import com.cloudera.cdp.datahub.model.ListRecipesResponse;
+import com.cloudera.cdp.datahub.model.RepairClusterRequest;
+import com.cloudera.cdp.datahub.model.RepairClusterResponse;
 import com.cloudera.cdp.datahub.model.RetryClusterRequest;
 import com.cloudera.cdp.datahub.model.RetryClusterResponse;
 import com.cloudera.cdp.datahub.model.ScaleClusterRequest;
@@ -72,7 +74,7 @@ import com.cloudera.cdp.datahub.model.StopClusterResponse;
 import com.cloudera.cdp.datahub.model.SyncClusterRequest;
 import com.cloudera.cdp.datahub.model.SyncClusterResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T14:31:31.470-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T15:22:35.104-07:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";
@@ -298,6 +300,18 @@ public class DatahubClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling listRecipes");
      }
     return this.invokeAPI("/api/v1/datahub/listRecipes", input, new GenericType<ListRecipesResponse>(){});
+  }
+
+  /**
+   * Repairs a cluster.
+   * @param input
+   * @return RepairClusterResponse
+   */
+  public RepairClusterResponse repairCluster(RepairClusterRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling repairCluster");
+     }
+    return this.invokeAPI("/api/v1/datahub/repairCluster", input, new GenericType<RepairClusterResponse>(){});
   }
 
   /**

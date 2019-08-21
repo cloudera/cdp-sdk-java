@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for set password request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T14:31:32.070-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T15:22:35.696-07:00")
 public class SetPasswordResponse extends CdpResponse {
 
   /**

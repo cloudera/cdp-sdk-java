@@ -24,12 +24,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.datahub.model.AttachedVolumeRequest;
+import com.cloudera.cdp.datahub.model.VolumeEncryptionRequest;
 import java.util.*;
 
 /**
  * Configurations for instance group
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T14:31:31.470-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T15:22:35.104-07:00")
 public class InstanceGroupRequest  {
 
   /**
@@ -71,6 +72,11 @@ public class InstanceGroupRequest  {
    * Recovery mode for the instance group.
    **/
   private String recoveryMode = null;
+
+  /**
+   * The volume encryption settings.
+   **/
+  private VolumeEncryptionRequest volumeEncryption = null;
 
   /**
    * Getter for nodeCount.
@@ -208,6 +214,23 @@ public class InstanceGroupRequest  {
     this.recoveryMode = recoveryMode;
   }
 
+  /**
+   * Getter for volumeEncryption.
+   * The volume encryption settings.
+   **/
+  @JsonProperty("volumeEncryption")
+  public VolumeEncryptionRequest getVolumeEncryption() {
+    return volumeEncryption;
+  }
+
+  /**
+   * Setter for volumeEncryption.
+   * The volume encryption settings.
+   **/
+  public void setVolumeEncryption(VolumeEncryptionRequest volumeEncryption) {
+    this.volumeEncryption = volumeEncryption;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -241,12 +264,15 @@ public class InstanceGroupRequest  {
     if (!Objects.equals(this.recoveryMode, instanceGroupRequest.recoveryMode)) {
       return false;
     }
+    if (!Objects.equals(this.volumeEncryption, instanceGroupRequest.volumeEncryption)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(nodeCount, instanceGroupName, instanceGroupType, instanceType, rootVolumeSize, attachedVolumeConfiguration, recipeNames, recoveryMode);
+    return Objects.hash(nodeCount, instanceGroupName, instanceGroupType, instanceType, rootVolumeSize, attachedVolumeConfiguration, recipeNames, recoveryMode, volumeEncryption);
   }
 
   @Override
@@ -261,6 +287,7 @@ public class InstanceGroupRequest  {
     sb.append("    attachedVolumeConfiguration: ").append(toIndentedString(attachedVolumeConfiguration)).append("\n");
     sb.append("    recipeNames: ").append(toIndentedString(recipeNames)).append("\n");
     sb.append("    recoveryMode: ").append(toIndentedString(recoveryMode)).append("\n");
+    sb.append("    volumeEncryption: ").append(toIndentedString(volumeEncryption)).append("\n");
     sb.append("}");
     return sb.toString();
   }

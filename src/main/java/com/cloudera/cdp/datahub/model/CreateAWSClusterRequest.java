@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object for create AWS cluster request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T14:31:31.470-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T15:22:35.104-07:00")
 public class CreateAWSClusterRequest  {
 
   /**
@@ -83,6 +83,11 @@ public class CreateAWSClusterRequest  {
    * Tags to be added to Datahub related resources.
    **/
   private List<DatahubResourceTagRequest> tags = new ArrayList<DatahubResourceTagRequest>();
+
+  /**
+   * JSON template to use for cluster creation.
+   **/
+  private String clusterTemplate = null;
 
   /**
    * Getter for clusterName.
@@ -254,6 +259,23 @@ public class CreateAWSClusterRequest  {
     this.tags = tags;
   }
 
+  /**
+   * Getter for clusterTemplate.
+   * JSON template to use for cluster creation.
+   **/
+  @JsonProperty("clusterTemplate")
+  public String getClusterTemplate() {
+    return clusterTemplate;
+  }
+
+  /**
+   * Setter for clusterTemplate.
+   * JSON template to use for cluster creation.
+   **/
+  public void setClusterTemplate(String clusterTemplate) {
+    this.clusterTemplate = clusterTemplate;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -293,12 +315,15 @@ public class CreateAWSClusterRequest  {
     if (!Objects.equals(this.tags, createAWSClusterRequest.tags)) {
       return false;
     }
+    if (!Objects.equals(this.clusterTemplate, createAWSClusterRequest.clusterTemplate)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, clouderaManagerUsername, clouderaManagerPassword, clusterDefinitionName, environmentName, blueprintName, instanceGroups, subnetId, image, tags);
+    return Objects.hash(clusterName, clouderaManagerUsername, clouderaManagerPassword, clusterDefinitionName, environmentName, blueprintName, instanceGroups, subnetId, image, tags, clusterTemplate);
   }
 
   @Override
@@ -315,6 +340,7 @@ public class CreateAWSClusterRequest  {
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    clusterTemplate: ").append(toIndentedString(clusterTemplate)).append("\n");
     sb.append("}");
     return sb.toString();
   }
