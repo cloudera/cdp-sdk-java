@@ -23,35 +23,35 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
-import com.cloudera.cdp.datahub.model.Blueprint;
+import com.cloudera.cdp.datahub.model.ClusterTemplateSummary;
 import java.util.*;
 
 /**
- * Response object for delete blueprint request.
+ * Response object for list cluster templates request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T15:22:35.104-07:00")
-public class DeleteBlueprintsResponse extends CdpResponse {
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-23T16:36:40.169-07:00")
+public class ListClusterTemplatesResponse extends CdpResponse {
 
   /**
-   * The blueprints.
+   * The cluster templates.
    **/
-  private List<Blueprint> blueprints = new ArrayList<Blueprint>();
+  private List<ClusterTemplateSummary> clusterTemplates = new ArrayList<ClusterTemplateSummary>();
 
   /**
-   * Getter for blueprints.
-   * The blueprints.
+   * Getter for clusterTemplates.
+   * The cluster templates.
    **/
-  @JsonProperty("blueprints")
-  public List<Blueprint> getBlueprints() {
-    return blueprints;
+  @JsonProperty("clusterTemplates")
+  public List<ClusterTemplateSummary> getClusterTemplates() {
+    return clusterTemplates;
   }
 
   /**
-   * Setter for blueprints.
-   * The blueprints.
+   * Setter for clusterTemplates.
+   * The cluster templates.
    **/
-  public void setBlueprints(List<Blueprint> blueprints) {
-    this.blueprints = blueprints;
+  public void setClusterTemplates(List<ClusterTemplateSummary> clusterTemplates) {
+    this.clusterTemplates = clusterTemplates;
   }
 
   @Override
@@ -62,8 +62,8 @@ public class DeleteBlueprintsResponse extends CdpResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteBlueprintsResponse deleteBlueprintsResponse = (DeleteBlueprintsResponse) o;
-    if (!Objects.equals(this.blueprints, deleteBlueprintsResponse.blueprints)) {
+    ListClusterTemplatesResponse listClusterTemplatesResponse = (ListClusterTemplatesResponse) o;
+    if (!Objects.equals(this.clusterTemplates, listClusterTemplatesResponse.clusterTemplates)) {
       return false;
     }
     if (!super.equals(o)) {
@@ -74,15 +74,15 @@ public class DeleteBlueprintsResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(blueprints, super.hashCode());
+    return Objects.hash(clusterTemplates, super.hashCode());
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteBlueprintsResponse {\n");
+    sb.append("class ListClusterTemplatesResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    blueprints: ").append(toIndentedString(blueprints)).append("\n");
+    sb.append("    clusterTemplates: ").append(toIndentedString(clusterTemplates)).append("\n");
     sb.append("}");
     return sb.toString();
   }

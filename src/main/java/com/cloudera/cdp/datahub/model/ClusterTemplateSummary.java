@@ -27,23 +27,23 @@ import com.cloudera.cdp.datahub.model.DatahubResourceTag;
 import java.util.*;
 
 /**
- * Information about blueprint.
+ * Information about a cluster template.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T15:22:35.104-07:00")
-public class BlueprintSummary  {
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-23T16:36:40.169-07:00")
+public class ClusterTemplateSummary  {
 
   /**
-   * The name of the blueprint.
+   * The name of the cluster template.
    **/
-  private String blueprintName = null;
+  private String clusterTemplateName = null;
 
   /**
-   * The CRN of the blueprint.
+   * The CRN of the cluster template.
    **/
   private String crn = null;
 
   /**
-   * The description of the blueprint.
+   * The description of the cluster template.
    **/
   private String description = null;
 
@@ -58,35 +58,35 @@ public class BlueprintSummary  {
   private Integer instanceGroupCount = null;
 
   /**
-   * The status of the blueprint.
+   * The status of the cluster template.
    **/
   private String status = null;
 
   /**
-   * Tags added to the blueprint.
+   * Tags added to the cluster template.
    **/
   private List<DatahubResourceTag> tags = new ArrayList<DatahubResourceTag>();
 
   /**
-   * Getter for blueprintName.
-   * The name of the blueprint.
+   * Getter for clusterTemplateName.
+   * The name of the cluster template.
    **/
-  @JsonProperty("blueprintName")
-  public String getBlueprintName() {
-    return blueprintName;
+  @JsonProperty("clusterTemplateName")
+  public String getClusterTemplateName() {
+    return clusterTemplateName;
   }
 
   /**
-   * Setter for blueprintName.
-   * The name of the blueprint.
+   * Setter for clusterTemplateName.
+   * The name of the cluster template.
    **/
-  public void setBlueprintName(String blueprintName) {
-    this.blueprintName = blueprintName;
+  public void setClusterTemplateName(String clusterTemplateName) {
+    this.clusterTemplateName = clusterTemplateName;
   }
 
   /**
    * Getter for crn.
-   * The CRN of the blueprint.
+   * The CRN of the cluster template.
    **/
   @JsonProperty("crn")
   public String getCrn() {
@@ -95,7 +95,7 @@ public class BlueprintSummary  {
 
   /**
    * Setter for crn.
-   * The CRN of the blueprint.
+   * The CRN of the cluster template.
    **/
   public void setCrn(String crn) {
     this.crn = crn;
@@ -103,7 +103,7 @@ public class BlueprintSummary  {
 
   /**
    * Getter for description.
-   * The description of the blueprint.
+   * The description of the cluster template.
    **/
   @JsonProperty("description")
   public String getDescription() {
@@ -112,7 +112,7 @@ public class BlueprintSummary  {
 
   /**
    * Setter for description.
-   * The description of the blueprint.
+   * The description of the cluster template.
    **/
   public void setDescription(String description) {
     this.description = description;
@@ -154,7 +154,7 @@ public class BlueprintSummary  {
 
   /**
    * Getter for status.
-   * The status of the blueprint.
+   * The status of the cluster template.
    **/
   @JsonProperty("status")
   public String getStatus() {
@@ -163,7 +163,7 @@ public class BlueprintSummary  {
 
   /**
    * Setter for status.
-   * The status of the blueprint.
+   * The status of the cluster template.
    **/
   public void setStatus(String status) {
     this.status = status;
@@ -171,7 +171,7 @@ public class BlueprintSummary  {
 
   /**
    * Getter for tags.
-   * Tags added to the blueprint.
+   * Tags added to the cluster template.
    **/
   @JsonProperty("tags")
   public List<DatahubResourceTag> getTags() {
@@ -180,7 +180,7 @@ public class BlueprintSummary  {
 
   /**
    * Setter for tags.
-   * Tags added to the blueprint.
+   * Tags added to the cluster template.
    **/
   public void setTags(List<DatahubResourceTag> tags) {
     this.tags = tags;
@@ -194,26 +194,26 @@ public class BlueprintSummary  {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    BlueprintSummary blueprintSummary = (BlueprintSummary) o;
-    if (!Objects.equals(this.blueprintName, blueprintSummary.blueprintName)) {
+    ClusterTemplateSummary clusterTemplateSummary = (ClusterTemplateSummary) o;
+    if (!Objects.equals(this.clusterTemplateName, clusterTemplateSummary.clusterTemplateName)) {
       return false;
     }
-    if (!Objects.equals(this.crn, blueprintSummary.crn)) {
+    if (!Objects.equals(this.crn, clusterTemplateSummary.crn)) {
       return false;
     }
-    if (!Objects.equals(this.description, blueprintSummary.description)) {
+    if (!Objects.equals(this.description, clusterTemplateSummary.description)) {
       return false;
     }
-    if (!Objects.equals(this.productVersion, blueprintSummary.productVersion)) {
+    if (!Objects.equals(this.productVersion, clusterTemplateSummary.productVersion)) {
       return false;
     }
-    if (!Objects.equals(this.instanceGroupCount, blueprintSummary.instanceGroupCount)) {
+    if (!Objects.equals(this.instanceGroupCount, clusterTemplateSummary.instanceGroupCount)) {
       return false;
     }
-    if (!Objects.equals(this.status, blueprintSummary.status)) {
+    if (!Objects.equals(this.status, clusterTemplateSummary.status)) {
       return false;
     }
-    if (!Objects.equals(this.tags, blueprintSummary.tags)) {
+    if (!Objects.equals(this.tags, clusterTemplateSummary.tags)) {
       return false;
     }
     return true;
@@ -221,14 +221,14 @@ public class BlueprintSummary  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(blueprintName, crn, description, productVersion, instanceGroupCount, status, tags);
+    return Objects.hash(clusterTemplateName, crn, description, productVersion, instanceGroupCount, status, tags);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class BlueprintSummary {\n");
-    sb.append("    blueprintName: ").append(toIndentedString(blueprintName)).append("\n");
+    sb.append("class ClusterTemplateSummary {\n");
+    sb.append("    clusterTemplateName: ").append(toIndentedString(clusterTemplateName)).append("\n");
     sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    productVersion: ").append(toIndentedString(productVersion)).append("\n");

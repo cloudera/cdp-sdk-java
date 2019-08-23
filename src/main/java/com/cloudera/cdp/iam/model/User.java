@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Information about a Cloudera Altus user.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T15:22:35.976-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-23T16:36:41.076-07:00")
 public class User  {
 
   /**
@@ -67,9 +67,19 @@ public class User  {
   private Boolean accountAdmin = null;
 
   /**
+   * The identity provider that the user belongs to. It can be \"Cloudera-Default\", \"Cloudera-Administration\", or a customer defined IdP.
+   **/
+  private String identityProviderCrn = null;
+
+  /**
    * The date of the user's last interactive login.
    **/
   private ZonedDateTime lastInteractiveLogin = null;
+
+  /**
+   * The username used in all the workload clusters of the user.
+   **/
+  private String workloadUsername = null;
 
   /**
    * Getter for userId.
@@ -191,6 +201,23 @@ public class User  {
   }
 
   /**
+   * Getter for identityProviderCrn.
+   * The identity provider that the user belongs to. It can be \&quot;Cloudera-Default\&quot;, \&quot;Cloudera-Administration\&quot;, or a customer defined IdP.
+   **/
+  @JsonProperty("identityProviderCrn")
+  public String getIdentityProviderCrn() {
+    return identityProviderCrn;
+  }
+
+  /**
+   * Setter for identityProviderCrn.
+   * The identity provider that the user belongs to. It can be \&quot;Cloudera-Default\&quot;, \&quot;Cloudera-Administration\&quot;, or a customer defined IdP.
+   **/
+  public void setIdentityProviderCrn(String identityProviderCrn) {
+    this.identityProviderCrn = identityProviderCrn;
+  }
+
+  /**
    * Getter for lastInteractiveLogin.
    * The date of the user&#39;s last interactive login.
    **/
@@ -205,6 +232,23 @@ public class User  {
    **/
   public void setLastInteractiveLogin(ZonedDateTime lastInteractiveLogin) {
     this.lastInteractiveLogin = lastInteractiveLogin;
+  }
+
+  /**
+   * Getter for workloadUsername.
+   * The username used in all the workload clusters of the user.
+   **/
+  @JsonProperty("workloadUsername")
+  public String getWorkloadUsername() {
+    return workloadUsername;
+  }
+
+  /**
+   * Setter for workloadUsername.
+   * The username used in all the workload clusters of the user.
+   **/
+  public void setWorkloadUsername(String workloadUsername) {
+    this.workloadUsername = workloadUsername;
   }
 
   @Override
@@ -237,7 +281,13 @@ public class User  {
     if (!Objects.equals(this.accountAdmin, user.accountAdmin)) {
       return false;
     }
+    if (!Objects.equals(this.identityProviderCrn, user.identityProviderCrn)) {
+      return false;
+    }
     if (!Objects.equals(this.lastInteractiveLogin, user.lastInteractiveLogin)) {
+      return false;
+    }
+    if (!Objects.equals(this.workloadUsername, user.workloadUsername)) {
       return false;
     }
     return true;
@@ -245,7 +295,7 @@ public class User  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(userId, crn, email, firstName, lastName, creationDate, accountAdmin, lastInteractiveLogin);
+    return Objects.hash(userId, crn, email, firstName, lastName, creationDate, accountAdmin, identityProviderCrn, lastInteractiveLogin, workloadUsername);
   }
 
   @Override
@@ -259,7 +309,9 @@ public class User  {
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    accountAdmin: ").append(toIndentedString(accountAdmin)).append("\n");
+    sb.append("    identityProviderCrn: ").append(toIndentedString(identityProviderCrn)).append("\n");
     sb.append("    lastInteractiveLogin: ").append(toIndentedString(lastInteractiveLogin)).append("\n");
+    sb.append("    workloadUsername: ").append(toIndentedString(workloadUsername)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -27,13 +27,18 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for create group request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T15:22:35.976-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-23T16:36:41.076-07:00")
 public class CreateGroupRequest  {
 
   /**
    * The name of the group. This name must be unique, must have a maximum of 32 characters, and must contain only alphanumeric characters, \"-\" and \"_\". Also, the first character of the name must be alphabetic or an underscore. Names are are not case-sensitive. The group named administrators is reserved.
    **/
   private String groupName = null;
+
+  /**
+   * Whether group membership is synced when a user logs in. The default is to sync group membership.
+   **/
+  private Boolean syncMembershipOnUserLogin = null;
 
   /**
    * Getter for groupName.
@@ -52,6 +57,23 @@ public class CreateGroupRequest  {
     this.groupName = groupName;
   }
 
+  /**
+   * Getter for syncMembershipOnUserLogin.
+   * Whether group membership is synced when a user logs in. The default is to sync group membership.
+   **/
+  @JsonProperty("syncMembershipOnUserLogin")
+  public Boolean getSyncMembershipOnUserLogin() {
+    return syncMembershipOnUserLogin;
+  }
+
+  /**
+   * Setter for syncMembershipOnUserLogin.
+   * Whether group membership is synced when a user logs in. The default is to sync group membership.
+   **/
+  public void setSyncMembershipOnUserLogin(Boolean syncMembershipOnUserLogin) {
+    this.syncMembershipOnUserLogin = syncMembershipOnUserLogin;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -64,12 +86,15 @@ public class CreateGroupRequest  {
     if (!Objects.equals(this.groupName, createGroupRequest.groupName)) {
       return false;
     }
+    if (!Objects.equals(this.syncMembershipOnUserLogin, createGroupRequest.syncMembershipOnUserLogin)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(groupName);
+    return Objects.hash(groupName, syncMembershipOnUserLogin);
   }
 
   @Override
@@ -77,6 +102,7 @@ public class CreateGroupRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateGroupRequest {\n");
     sb.append("    groupName: ").append(toIndentedString(groupName)).append("\n");
+    sb.append("    syncMembershipOnUserLogin: ").append(toIndentedString(syncMembershipOnUserLogin)).append("\n");
     sb.append("}");
     return sb.toString();
   }

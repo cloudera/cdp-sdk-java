@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Information about a Cloudera Altus machine user.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T15:22:35.976-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-23T16:36:41.076-07:00")
 public class MachineUser  {
 
   /**
@@ -45,6 +45,11 @@ public class MachineUser  {
    * The date when this machine user record was created.
    **/
   private ZonedDateTime creationDate = null;
+
+  /**
+   * The username used in all the workload clusters of the machine user.
+   **/
+  private String workloadUsername = null;
 
   /**
    * Getter for machineUserName.
@@ -97,6 +102,23 @@ public class MachineUser  {
     this.creationDate = creationDate;
   }
 
+  /**
+   * Getter for workloadUsername.
+   * The username used in all the workload clusters of the machine user.
+   **/
+  @JsonProperty("workloadUsername")
+  public String getWorkloadUsername() {
+    return workloadUsername;
+  }
+
+  /**
+   * Setter for workloadUsername.
+   * The username used in all the workload clusters of the machine user.
+   **/
+  public void setWorkloadUsername(String workloadUsername) {
+    this.workloadUsername = workloadUsername;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -115,12 +137,15 @@ public class MachineUser  {
     if (!Objects.equals(this.creationDate, machineUser.creationDate)) {
       return false;
     }
+    if (!Objects.equals(this.workloadUsername, machineUser.workloadUsername)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(machineUserName, crn, creationDate);
+    return Objects.hash(machineUserName, crn, creationDate, workloadUsername);
   }
 
   @Override
@@ -130,6 +155,7 @@ public class MachineUser  {
     sb.append("    machineUserName: ").append(toIndentedString(machineUserName)).append("\n");
     sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
+    sb.append("    workloadUsername: ").append(toIndentedString(workloadUsername)).append("\n");
     sb.append("}");
     return sb.toString();
   }

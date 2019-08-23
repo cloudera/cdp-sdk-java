@@ -46,17 +46,29 @@ import com.cloudera.cdp.iam.model.CreateMachineUserAccessKeyRequest;
 import com.cloudera.cdp.iam.model.CreateMachineUserAccessKeyResponse;
 import com.cloudera.cdp.iam.model.CreateMachineUserRequest;
 import com.cloudera.cdp.iam.model.CreateMachineUserResponse;
+import com.cloudera.cdp.iam.model.CreateSamlProviderRequest;
+import com.cloudera.cdp.iam.model.CreateSamlProviderResponse;
 import com.cloudera.cdp.iam.model.CreateUserAccessKeyRequest;
 import com.cloudera.cdp.iam.model.CreateUserAccessKeyResponse;
+import com.cloudera.cdp.iam.model.CreateUserRequest;
+import com.cloudera.cdp.iam.model.CreateUserResponse;
 import com.cloudera.cdp.iam.model.DeleteAccessKeyRequest;
 import com.cloudera.cdp.iam.model.DeleteAccessKeyResponse;
 import com.cloudera.cdp.iam.model.DeleteGroupRequest;
 import com.cloudera.cdp.iam.model.DeleteGroupResponse;
 import com.cloudera.cdp.iam.model.DeleteMachineUserRequest;
 import com.cloudera.cdp.iam.model.DeleteMachineUserResponse;
+import com.cloudera.cdp.iam.model.DeleteSamlProviderRequest;
+import com.cloudera.cdp.iam.model.DeleteSamlProviderResponse;
+import com.cloudera.cdp.iam.model.DisableClouderaSSOLoginRequest;
+import com.cloudera.cdp.iam.model.DisableClouderaSSOLoginResponse;
+import com.cloudera.cdp.iam.model.EnableClouderaSSOLoginRequest;
+import com.cloudera.cdp.iam.model.EnableClouderaSSOLoginResponse;
 import com.cloudera.cdp.iam.model.Error;
 import com.cloudera.cdp.iam.model.GetAccessKeyRequest;
 import com.cloudera.cdp.iam.model.GetAccessKeyResponse;
+import com.cloudera.cdp.iam.model.GetAccountRequest;
+import com.cloudera.cdp.iam.model.GetAccountResponse;
 import com.cloudera.cdp.iam.model.GetUserRequest;
 import com.cloudera.cdp.iam.model.GetUserResponse;
 import com.cloudera.cdp.iam.model.ListAccessKeysRequest;
@@ -85,6 +97,8 @@ import com.cloudera.cdp.iam.model.ListResourceRolesRequest;
 import com.cloudera.cdp.iam.model.ListResourceRolesResponse;
 import com.cloudera.cdp.iam.model.ListRolesRequest;
 import com.cloudera.cdp.iam.model.ListRolesResponse;
+import com.cloudera.cdp.iam.model.ListSamlProvidersRequest;
+import com.cloudera.cdp.iam.model.ListSamlProvidersResponse;
 import com.cloudera.cdp.iam.model.ListUserAssignedResourceRolesRequest;
 import com.cloudera.cdp.iam.model.ListUserAssignedResourceRolesResponse;
 import com.cloudera.cdp.iam.model.ListUserAssignedRolesRequest;
@@ -109,8 +123,12 @@ import com.cloudera.cdp.iam.model.UnassignUserRoleRequest;
 import com.cloudera.cdp.iam.model.UnassignUserRoleResponse;
 import com.cloudera.cdp.iam.model.UpdateAccessKeyRequest;
 import com.cloudera.cdp.iam.model.UpdateAccessKeyResponse;
+import com.cloudera.cdp.iam.model.UpdateGroupRequest;
+import com.cloudera.cdp.iam.model.UpdateGroupResponse;
+import com.cloudera.cdp.iam.model.UpdateSamlProviderRequest;
+import com.cloudera.cdp.iam.model.UpdateSamlProviderResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T15:22:35.976-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-23T16:36:41.076-07:00")
 public class IamClient extends CdpClient {
 
   public static final String SERVICE_NAME = "iam";
@@ -255,6 +273,30 @@ public class IamClient extends CdpClient {
   }
 
   /**
+   * Creates a SAML provider in Altus.
+   * @param input
+   * @return CreateSamlProviderResponse
+   */
+  public CreateSamlProviderResponse createSamlProvider(CreateSamlProviderRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling createSamlProvider");
+     }
+    return this.invokeAPI("/iam/createSamlProvider", input, new GenericType<CreateSamlProviderResponse>(){});
+  }
+
+  /**
+   * Creates a user in Altus.
+   * @param input
+   * @return CreateUserResponse
+   */
+  public CreateUserResponse createUser(CreateUserRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling createUser");
+     }
+    return this.invokeAPI("/iam/createUser", input, new GenericType<CreateUserResponse>(){});
+  }
+
+  /**
    * Creates a new access key for a user.
    * @param input
    * @return CreateUserAccessKeyResponse
@@ -303,6 +345,42 @@ public class IamClient extends CdpClient {
   }
 
   /**
+   * Deletes a SAML provider in Altus account.
+   * @param input
+   * @return DeleteSamlProviderResponse
+   */
+  public DeleteSamlProviderResponse deleteSamlProvider(DeleteSamlProviderRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling deleteSamlProvider");
+     }
+    return this.invokeAPI("/iam/deleteSamlProvider", input, new GenericType<DeleteSamlProviderResponse>(){});
+  }
+
+  /**
+   * Disables interactive login using Cloudera SSO for this account.
+   * @param input
+   * @return DisableClouderaSSOLoginResponse
+   */
+  public DisableClouderaSSOLoginResponse disableClouderaSSOLogin(DisableClouderaSSOLoginRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling disableClouderaSSOLogin");
+     }
+    return this.invokeAPI("/iam/disableClouderaSSOLogin", input, new GenericType<DisableClouderaSSOLoginResponse>(){});
+  }
+
+  /**
+   * Enables interactive login using Cloudera SSO for this account.
+   * @param input
+   * @return EnableClouderaSSOLoginResponse
+   */
+  public EnableClouderaSSOLoginResponse enableClouderaSSOLogin(EnableClouderaSSOLoginRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling enableClouderaSSOLogin");
+     }
+    return this.invokeAPI("/iam/enableClouderaSSOLogin", input, new GenericType<EnableClouderaSSOLoginResponse>(){});
+  }
+
+  /**
    * Gets information on an access key.
    * @param input
    * @return GetAccessKeyResponse
@@ -312,6 +390,18 @@ public class IamClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling getAccessKey");
      }
     return this.invokeAPI("/iam/getAccessKey", input, new GenericType<GetAccessKeyResponse>(){});
+  }
+
+  /**
+   * Retrieves information about the Altus account.
+   * @param input
+   * @return GetAccountResponse
+   */
+  public GetAccountResponse getAccount(GetAccountRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling getAccount");
+     }
+    return this.invokeAPI("/iam/getAccount", input, new GenericType<GetAccountResponse>(){});
   }
 
   /**
@@ -483,6 +573,18 @@ public class IamClient extends CdpClient {
   }
 
   /**
+   * Lists SAML providers in Altus account.
+   * @param input
+   * @return ListSamlProvidersResponse
+   */
+  public ListSamlProvidersResponse listSamlProviders(ListSamlProvidersRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling listSamlProviders");
+     }
+    return this.invokeAPI("/iam/listSamlProviders", input, new GenericType<ListSamlProvidersResponse>(){});
+  }
+
+  /**
    * Lists a user&#39;s assigned resource roles.
    * @param input
    * @return ListUserAssignedResourceRolesResponse
@@ -624,5 +726,29 @@ public class IamClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling updateAccessKey");
      }
     return this.invokeAPI("/iam/updateAccessKey", input, new GenericType<UpdateAccessKeyResponse>(){});
+  }
+
+  /**
+   * Update a group.
+   * @param input
+   * @return UpdateGroupResponse
+   */
+  public UpdateGroupResponse updateGroup(UpdateGroupRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling updateGroup");
+     }
+    return this.invokeAPI("/iam/updateGroup", input, new GenericType<UpdateGroupResponse>(){});
+  }
+
+  /**
+   * Updates a SAML provider in Altus.
+   * @param input
+   * @return UpdateSamlProviderResponse
+   */
+  public UpdateSamlProviderResponse updateSamlProvider(UpdateSamlProviderRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling updateSamlProvider");
+     }
+    return this.invokeAPI("/iam/updateSamlProvider", input, new GenericType<UpdateSamlProviderResponse>(){});
   }
 }

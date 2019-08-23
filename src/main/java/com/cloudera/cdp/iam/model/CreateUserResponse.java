@@ -17,40 +17,40 @@
  * limitations under the License.
  */
 
-package com.cloudera.cdp.datahub.model;
+package com.cloudera.cdp.iam.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
-import java.util.*;
+import com.cloudera.cdp.iam.model.User;
 
 /**
- * Request object for delete blueprint request.
+ * Response object for a create user request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T15:22:35.104-07:00")
-public class DeleteBlueprintsRequest  {
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-23T16:36:41.076-07:00")
+public class CreateUserResponse extends CdpResponse {
 
   /**
-   * The name or CRNs of the blueprints to be deleted.
+   * Information about the user.
    **/
-  private List<String> blueprintNames = new ArrayList<String>();
+  private User user = null;
 
   /**
-   * Getter for blueprintNames.
-   * The name or CRNs of the blueprints to be deleted.
+   * Getter for user.
+   * Information about the user.
    **/
-  @JsonProperty("blueprintNames")
-  public List<String> getBlueprintNames() {
-    return blueprintNames;
+  @JsonProperty("user")
+  public User getUser() {
+    return user;
   }
 
   /**
-   * Setter for blueprintNames.
-   * The name or CRNs of the blueprints to be deleted.
+   * Setter for user.
+   * Information about the user.
    **/
-  public void setBlueprintNames(List<String> blueprintNames) {
-    this.blueprintNames = blueprintNames;
+  public void setUser(User user) {
+    this.user = user;
   }
 
   @Override
@@ -61,8 +61,11 @@ public class DeleteBlueprintsRequest  {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeleteBlueprintsRequest deleteBlueprintsRequest = (DeleteBlueprintsRequest) o;
-    if (!Objects.equals(this.blueprintNames, deleteBlueprintsRequest.blueprintNames)) {
+    CreateUserResponse createUserResponse = (CreateUserResponse) o;
+    if (!Objects.equals(this.user, createUserResponse.user)) {
+      return false;
+    }
+    if (!super.equals(o)) {
       return false;
     }
     return true;
@@ -70,14 +73,15 @@ public class DeleteBlueprintsRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(blueprintNames);
+    return Objects.hash(user, super.hashCode());
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeleteBlueprintsRequest {\n");
-    sb.append("    blueprintNames: ").append(toIndentedString(blueprintNames)).append("\n");
+    sb.append("class CreateUserResponse {\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("}");
     return sb.toString();
   }

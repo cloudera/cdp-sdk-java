@@ -17,40 +17,40 @@
  * limitations under the License.
  */
 
-package com.cloudera.cdp.datahub.model;
+package com.cloudera.cdp.iam.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
-import com.cloudera.cdp.datahub.model.Blueprint;
+import com.cloudera.cdp.iam.model.Group;
 
 /**
- * Response object for describe blueprint request.
+ * Response object for update group request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T15:22:35.104-07:00")
-public class DescribeBlueprintResponse extends CdpResponse {
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-23T16:36:41.076-07:00")
+public class UpdateGroupResponse extends CdpResponse {
 
   /**
-   * The blueprint.
+   * Information about the updated group.
    **/
-  private Blueprint blueprint = null;
+  private Group group = null;
 
   /**
-   * Getter for blueprint.
-   * The blueprint.
+   * Getter for group.
+   * Information about the updated group.
    **/
-  @JsonProperty("blueprint")
-  public Blueprint getBlueprint() {
-    return blueprint;
+  @JsonProperty("group")
+  public Group getGroup() {
+    return group;
   }
 
   /**
-   * Setter for blueprint.
-   * The blueprint.
+   * Setter for group.
+   * Information about the updated group.
    **/
-  public void setBlueprint(Blueprint blueprint) {
-    this.blueprint = blueprint;
+  public void setGroup(Group group) {
+    this.group = group;
   }
 
   @Override
@@ -61,8 +61,8 @@ public class DescribeBlueprintResponse extends CdpResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeBlueprintResponse describeBlueprintResponse = (DescribeBlueprintResponse) o;
-    if (!Objects.equals(this.blueprint, describeBlueprintResponse.blueprint)) {
+    UpdateGroupResponse updateGroupResponse = (UpdateGroupResponse) o;
+    if (!Objects.equals(this.group, updateGroupResponse.group)) {
       return false;
     }
     if (!super.equals(o)) {
@@ -73,15 +73,15 @@ public class DescribeBlueprintResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(blueprint, super.hashCode());
+    return Objects.hash(group, super.hashCode());
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeBlueprintResponse {\n");
+    sb.append("class UpdateGroupResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    blueprint: ").append(toIndentedString(blueprint)).append("\n");
+    sb.append("    group: ").append(toIndentedString(group)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-package com.cloudera.cdp.datahub.model;
+package com.cloudera.cdp.iam.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -25,10 +25,32 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * Request object for list blueprints request.
+ * Information about a Cloudera Altus account.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T15:22:35.104-07:00")
-public class ListBlueprintsRequest  {
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-23T16:36:41.076-07:00")
+public class Account  {
+
+  /**
+   * Whether interactive login using Cloudera SSO is enabled.
+   **/
+  private Boolean clouderaSSOLoginEnabled = null;
+
+  /**
+   * Getter for clouderaSSOLoginEnabled.
+   * Whether interactive login using Cloudera SSO is enabled.
+   **/
+  @JsonProperty("clouderaSSOLoginEnabled")
+  public Boolean getClouderaSSOLoginEnabled() {
+    return clouderaSSOLoginEnabled;
+  }
+
+  /**
+   * Setter for clouderaSSOLoginEnabled.
+   * Whether interactive login using Cloudera SSO is enabled.
+   **/
+  public void setClouderaSSOLoginEnabled(Boolean clouderaSSOLoginEnabled) {
+    this.clouderaSSOLoginEnabled = clouderaSSOLoginEnabled;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -38,18 +60,23 @@ public class ListBlueprintsRequest  {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
+    Account account = (Account) o;
+    if (!Objects.equals(this.clouderaSSOLoginEnabled, account.clouderaSSOLoginEnabled)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(clouderaSSOLoginEnabled);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListBlueprintsRequest {\n");
+    sb.append("class Account {\n");
+    sb.append("    clouderaSSOLoginEnabled: ").append(toIndentedString(clouderaSSOLoginEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }

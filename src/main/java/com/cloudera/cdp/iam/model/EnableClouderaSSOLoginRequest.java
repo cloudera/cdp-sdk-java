@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-package com.cloudera.cdp.datahub.model;
+package com.cloudera.cdp.iam.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -25,32 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * Request object for describe blueprint request.
+ * Request object for an enable Cloudera SSO login request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T15:22:35.104-07:00")
-public class DescribeBlueprintRequest  {
-
-  /**
-   * The name or CRN of the blueprint.
-   **/
-  private String blueprintName = null;
-
-  /**
-   * Getter for blueprintName.
-   * The name or CRN of the blueprint.
-   **/
-  @JsonProperty("blueprintName")
-  public String getBlueprintName() {
-    return blueprintName;
-  }
-
-  /**
-   * Setter for blueprintName.
-   * The name or CRN of the blueprint.
-   **/
-  public void setBlueprintName(String blueprintName) {
-    this.blueprintName = blueprintName;
-  }
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-23T16:36:41.076-07:00")
+public class EnableClouderaSSOLoginRequest  {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -60,23 +38,18 @@ public class DescribeBlueprintRequest  {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeBlueprintRequest describeBlueprintRequest = (DescribeBlueprintRequest) o;
-    if (!Objects.equals(this.blueprintName, describeBlueprintRequest.blueprintName)) {
-      return false;
-    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(blueprintName);
+    return Objects.hash();
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeBlueprintRequest {\n");
-    sb.append("    blueprintName: ").append(toIndentedString(blueprintName)).append("\n");
+    sb.append("class EnableClouderaSSOLoginRequest {\n");
     sb.append("}");
     return sb.toString();
   }

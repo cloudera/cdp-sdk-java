@@ -26,26 +26,26 @@ import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
 import com.cloudera.cdp.datahub.model.CreateAWSClusterRequest;
 import com.cloudera.cdp.datahub.model.CreateAWSClusterResponse;
-import com.cloudera.cdp.datahub.model.CreateBlueprintRequest;
-import com.cloudera.cdp.datahub.model.CreateBlueprintResponse;
 import com.cloudera.cdp.datahub.model.CreateClusterDefinitionRequest;
 import com.cloudera.cdp.datahub.model.CreateClusterDefinitionResponse;
+import com.cloudera.cdp.datahub.model.CreateClusterTemplateRequest;
+import com.cloudera.cdp.datahub.model.CreateClusterTemplateResponse;
 import com.cloudera.cdp.datahub.model.CreateRecipeRequest;
 import com.cloudera.cdp.datahub.model.CreateRecipeResponse;
-import com.cloudera.cdp.datahub.model.DeleteBlueprintsRequest;
-import com.cloudera.cdp.datahub.model.DeleteBlueprintsResponse;
 import com.cloudera.cdp.datahub.model.DeleteClusterDefinitionsRequest;
 import com.cloudera.cdp.datahub.model.DeleteClusterDefinitionsResponse;
 import com.cloudera.cdp.datahub.model.DeleteClusterRequest;
 import com.cloudera.cdp.datahub.model.DeleteClusterResponse;
+import com.cloudera.cdp.datahub.model.DeleteClusterTemplatesRequest;
+import com.cloudera.cdp.datahub.model.DeleteClusterTemplatesResponse;
 import com.cloudera.cdp.datahub.model.DeleteRecipesRequest;
 import com.cloudera.cdp.datahub.model.DeleteRecipesResponse;
-import com.cloudera.cdp.datahub.model.DescribeBlueprintRequest;
-import com.cloudera.cdp.datahub.model.DescribeBlueprintResponse;
 import com.cloudera.cdp.datahub.model.DescribeClusterDefinitionRequest;
 import com.cloudera.cdp.datahub.model.DescribeClusterDefinitionResponse;
 import com.cloudera.cdp.datahub.model.DescribeClusterRequest;
 import com.cloudera.cdp.datahub.model.DescribeClusterResponse;
+import com.cloudera.cdp.datahub.model.DescribeClusterTemplateRequest;
+import com.cloudera.cdp.datahub.model.DescribeClusterTemplateResponse;
 import com.cloudera.cdp.datahub.model.DescribeRecipeRequest;
 import com.cloudera.cdp.datahub.model.DescribeRecipeResponse;
 import com.cloudera.cdp.datahub.model.Error;
@@ -53,10 +53,10 @@ import com.cloudera.cdp.datahub.model.GetClusterHostStatusRequest;
 import com.cloudera.cdp.datahub.model.GetClusterHostStatusResponse;
 import com.cloudera.cdp.datahub.model.GetClusterServiceStatusRequest;
 import com.cloudera.cdp.datahub.model.GetClusterServiceStatusResponse;
-import com.cloudera.cdp.datahub.model.ListBlueprintsRequest;
-import com.cloudera.cdp.datahub.model.ListBlueprintsResponse;
 import com.cloudera.cdp.datahub.model.ListClusterDefinitionsRequest;
 import com.cloudera.cdp.datahub.model.ListClusterDefinitionsResponse;
+import com.cloudera.cdp.datahub.model.ListClusterTemplatesRequest;
+import com.cloudera.cdp.datahub.model.ListClusterTemplatesResponse;
 import com.cloudera.cdp.datahub.model.ListClustersRequest;
 import com.cloudera.cdp.datahub.model.ListClustersResponse;
 import com.cloudera.cdp.datahub.model.ListRecipesRequest;
@@ -74,7 +74,7 @@ import com.cloudera.cdp.datahub.model.StopClusterResponse;
 import com.cloudera.cdp.datahub.model.SyncClusterRequest;
 import com.cloudera.cdp.datahub.model.SyncClusterResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T15:22:35.104-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-23T16:36:40.169-07:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";
@@ -99,19 +99,7 @@ public class DatahubClient extends CdpClient {
   }
 
   /**
-   * Creates a blueprint.
-   * @param input
-   * @return CreateBlueprintResponse
-   */
-  public CreateBlueprintResponse createBlueprint(CreateBlueprintRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling createBlueprint");
-     }
-    return this.invokeAPI("/api/v1/datahub/createBlueprint", input, new GenericType<CreateBlueprintResponse>(){});
-  }
-
-  /**
-   * Creates a cluster definition. A cluster definition is a reusable cluster template in JSON format that can be used for creating multiple Data Hub clusters with identical cloud provider settings.
+   * Creates a cluster definition. A cluster definition is a reusable template in JSON format that can be used for creating multiple Data Hub clusters with identical cloud provider settings.
    * @param input
    * @return CreateClusterDefinitionResponse
    */
@@ -120,6 +108,18 @@ public class DatahubClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling createClusterDefinition");
      }
     return this.invokeAPI("/api/v1/datahub/createClusterDefinition", input, new GenericType<CreateClusterDefinitionResponse>(){});
+  }
+
+  /**
+   * Creates a cluster template. A cluster template is a reusable template in JSON format that can be used for creating multiple Data Hub clusters with identical Cloudera Runtime settings.
+   * @param input
+   * @return CreateClusterTemplateResponse
+   */
+  public CreateClusterTemplateResponse createClusterTemplate(CreateClusterTemplateRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling createClusterTemplate");
+     }
+    return this.invokeAPI("/api/v1/datahub/createClusterTemplate", input, new GenericType<CreateClusterTemplateResponse>(){});
   }
 
   /**
@@ -135,18 +135,6 @@ public class DatahubClient extends CdpClient {
   }
 
   /**
-   * Deletes blueprints.
-   * @param input
-   * @return DeleteBlueprintsResponse
-   */
-  public DeleteBlueprintsResponse deleteBlueprints(DeleteBlueprintsRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling deleteBlueprints");
-     }
-    return this.invokeAPI("/api/v1/datahub/deleteBlueprints", input, new GenericType<DeleteBlueprintsResponse>(){});
-  }
-
-  /**
    * Deletes a workload cluster.
    * @param input
    * @return DeleteClusterResponse
@@ -159,7 +147,7 @@ public class DatahubClient extends CdpClient {
   }
 
   /**
-   * Deletes cluster definitions. A cluster definition is a reusable cluster template in JSON format that can be used for creating multiple Data Hub clusters with identical cloud provider settings.
+   * Deletes cluster definitions. A cluster definition is a reusable template in JSON format that can be used for creating multiple Data Hub clusters with identical cloud provider settings.
    * @param input
    * @return DeleteClusterDefinitionsResponse
    */
@@ -168,6 +156,18 @@ public class DatahubClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling deleteClusterDefinitions");
      }
     return this.invokeAPI("/api/v1/datahub/deleteClusterDefinitions", input, new GenericType<DeleteClusterDefinitionsResponse>(){});
+  }
+
+  /**
+   * Deletes cluster templates. A cluster template is a reusable template in JSON format that can be used for creating multiple Data Hub clusters with identical Cloudera Runtime settings.
+   * @param input
+   * @return DeleteClusterTemplatesResponse
+   */
+  public DeleteClusterTemplatesResponse deleteClusterTemplates(DeleteClusterTemplatesRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling deleteClusterTemplates");
+     }
+    return this.invokeAPI("/api/v1/datahub/deleteClusterTemplates", input, new GenericType<DeleteClusterTemplatesResponse>(){});
   }
 
   /**
@@ -183,18 +183,6 @@ public class DatahubClient extends CdpClient {
   }
 
   /**
-   * Describes a blueprint.
-   * @param input
-   * @return DescribeBlueprintResponse
-   */
-  public DescribeBlueprintResponse describeBlueprint(DescribeBlueprintRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling describeBlueprint");
-     }
-    return this.invokeAPI("/api/v1/datahub/describeBlueprint", input, new GenericType<DescribeBlueprintResponse>(){});
-  }
-
-  /**
    * Describes a workload cluster.
    * @param input
    * @return DescribeClusterResponse
@@ -207,7 +195,7 @@ public class DatahubClient extends CdpClient {
   }
 
   /**
-   * Describes a cluster definition. A cluster definition is a reusable cluster template in JSON format that can be used for creating multiple Data Hub clusters with identical cloud provider settings.
+   * Describes a cluster definition. A cluster definition is a reusable template in JSON format that can be used for creating multiple Data Hub clusters with identical cloud provider settings.
    * @param input
    * @return DescribeClusterDefinitionResponse
    */
@@ -216,6 +204,18 @@ public class DatahubClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling describeClusterDefinition");
      }
     return this.invokeAPI("/api/v1/datahub/describeClusterDefinition", input, new GenericType<DescribeClusterDefinitionResponse>(){});
+  }
+
+  /**
+   * Describes a cluster template. A cluster template is a reusable template in JSON format that can be used for creating multiple Data Hub clusters with identical Cloudera Runtime settings.
+   * @param input
+   * @return DescribeClusterTemplateResponse
+   */
+  public DescribeClusterTemplateResponse describeClusterTemplate(DescribeClusterTemplateRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling describeClusterTemplate");
+     }
+    return this.invokeAPI("/api/v1/datahub/describeClusterTemplate", input, new GenericType<DescribeClusterTemplateResponse>(){});
   }
 
   /**
@@ -255,19 +255,7 @@ public class DatahubClient extends CdpClient {
   }
 
   /**
-   * Lists blueprints.
-   * @param input
-   * @return ListBlueprintsResponse
-   */
-  public ListBlueprintsResponse listBlueprints(ListBlueprintsRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listBlueprints");
-     }
-    return this.invokeAPI("/api/v1/datahub/listBlueprints", input, new GenericType<ListBlueprintsResponse>(){});
-  }
-
-  /**
-   * Lists cluster definitions. A cluster definition is a reusable cluster template in JSON format that can be used for creating multiple Data Hub clusters with identical cloud provider settings.
+   * Lists cluster definitions. A cluster definition is a reusable template in JSON format that can be used for creating multiple Data Hub clusters with identical cloud provider settings.
    * @param input
    * @return ListClusterDefinitionsResponse
    */
@@ -276,6 +264,18 @@ public class DatahubClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling listClusterDefinitions");
      }
     return this.invokeAPI("/api/v1/datahub/listClusterDefinitions", input, new GenericType<ListClusterDefinitionsResponse>(){});
+  }
+
+  /**
+   * Lists cluster templates. A cluster template is a reusable template in JSON format that can be used for creating multiple Data Hub clusters with identical Cloudera Runtime settings.
+   * @param input
+   * @return ListClusterTemplatesResponse
+   */
+  public ListClusterTemplatesResponse listClusterTemplates(ListClusterTemplatesRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling listClusterTemplates");
+     }
+    return this.invokeAPI("/api/v1/datahub/listClusterTemplates", input, new GenericType<ListClusterTemplatesResponse>(){});
   }
 
   /**

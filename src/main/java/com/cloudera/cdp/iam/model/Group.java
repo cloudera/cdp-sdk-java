@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Information about a group.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T15:22:35.976-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-23T16:36:41.076-07:00")
 public class Group  {
 
   /**
@@ -45,6 +45,11 @@ public class Group  {
    * The date when this group record was created.
    **/
   private ZonedDateTime creationDate = null;
+
+  /**
+   * Whether group membership is synced when a user logs in. The default is to sync group membership.
+   **/
+  private Boolean syncMembershipOnUserLogin = null;
 
   /**
    * Getter for groupName.
@@ -97,6 +102,23 @@ public class Group  {
     this.creationDate = creationDate;
   }
 
+  /**
+   * Getter for syncMembershipOnUserLogin.
+   * Whether group membership is synced when a user logs in. The default is to sync group membership.
+   **/
+  @JsonProperty("syncMembershipOnUserLogin")
+  public Boolean getSyncMembershipOnUserLogin() {
+    return syncMembershipOnUserLogin;
+  }
+
+  /**
+   * Setter for syncMembershipOnUserLogin.
+   * Whether group membership is synced when a user logs in. The default is to sync group membership.
+   **/
+  public void setSyncMembershipOnUserLogin(Boolean syncMembershipOnUserLogin) {
+    this.syncMembershipOnUserLogin = syncMembershipOnUserLogin;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -115,12 +137,15 @@ public class Group  {
     if (!Objects.equals(this.creationDate, group.creationDate)) {
       return false;
     }
+    if (!Objects.equals(this.syncMembershipOnUserLogin, group.syncMembershipOnUserLogin)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(groupName, crn, creationDate);
+    return Objects.hash(groupName, crn, creationDate, syncMembershipOnUserLogin);
   }
 
   @Override
@@ -130,6 +155,7 @@ public class Group  {
     sb.append("    groupName: ").append(toIndentedString(groupName)).append("\n");
     sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
+    sb.append("    syncMembershipOnUserLogin: ").append(toIndentedString(syncMembershipOnUserLogin)).append("\n");
     sb.append("}");
     return sb.toString();
   }

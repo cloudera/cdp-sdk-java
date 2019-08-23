@@ -56,7 +56,7 @@ import com.cloudera.cdp.environments.model.SyncStatusResponse;
 import com.cloudera.cdp.environments.model.SyncUserRequest;
 import com.cloudera.cdp.environments.model.SyncUserResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T15:22:35.696-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-23T16:36:40.789-07:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";

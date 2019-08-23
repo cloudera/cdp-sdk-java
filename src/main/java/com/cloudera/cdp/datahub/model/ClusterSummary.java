@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Information about a cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T15:22:35.104-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-23T16:36:40.169-07:00")
 public class ClusterSummary  {
 
   /**
@@ -77,9 +77,9 @@ public class ClusterSummary  {
   private String datalakeCrn = null;
 
   /**
-   * The CRN of the blueprint used for the cluster creation.
+   * The CRN of the cluster template used for the cluster creation.
    **/
-  private String blueprintCrn = null;
+  private String clusterTemplateCrn = null;
 
   /**
    * Getter for clusterName.
@@ -235,20 +235,20 @@ public class ClusterSummary  {
   }
 
   /**
-   * Getter for blueprintCrn.
-   * The CRN of the blueprint used for the cluster creation.
+   * Getter for clusterTemplateCrn.
+   * The CRN of the cluster template used for the cluster creation.
    **/
-  @JsonProperty("blueprintCrn")
-  public String getBlueprintCrn() {
-    return blueprintCrn;
+  @JsonProperty("clusterTemplateCrn")
+  public String getClusterTemplateCrn() {
+    return clusterTemplateCrn;
   }
 
   /**
-   * Setter for blueprintCrn.
-   * The CRN of the blueprint used for the cluster creation.
+   * Setter for clusterTemplateCrn.
+   * The CRN of the cluster template used for the cluster creation.
    **/
-  public void setBlueprintCrn(String blueprintCrn) {
-    this.blueprintCrn = blueprintCrn;
+  public void setClusterTemplateCrn(String clusterTemplateCrn) {
+    this.clusterTemplateCrn = clusterTemplateCrn;
   }
 
   @Override
@@ -287,7 +287,7 @@ public class ClusterSummary  {
     if (!Objects.equals(this.datalakeCrn, clusterSummary.datalakeCrn)) {
       return false;
     }
-    if (!Objects.equals(this.blueprintCrn, clusterSummary.blueprintCrn)) {
+    if (!Objects.equals(this.clusterTemplateCrn, clusterSummary.clusterTemplateCrn)) {
       return false;
     }
     return true;
@@ -295,7 +295,7 @@ public class ClusterSummary  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, crn, status, workloadType, environmentCrn, cloudPlatform, nodeCount, creationDate, datalakeCrn, blueprintCrn);
+    return Objects.hash(clusterName, crn, status, workloadType, environmentCrn, cloudPlatform, nodeCount, creationDate, datalakeCrn, clusterTemplateCrn);
   }
 
   @Override
@@ -311,7 +311,7 @@ public class ClusterSummary  {
     sb.append("    nodeCount: ").append(toIndentedString(nodeCount)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    datalakeCrn: ").append(toIndentedString(datalakeCrn)).append("\n");
-    sb.append("    blueprintCrn: ").append(toIndentedString(blueprintCrn)).append("\n");
+    sb.append("    clusterTemplateCrn: ").append(toIndentedString(clusterTemplateCrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

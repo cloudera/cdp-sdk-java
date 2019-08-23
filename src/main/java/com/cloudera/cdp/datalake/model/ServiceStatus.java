@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Information about a cluster service.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T15:22:35.562-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-23T16:36:40.668-07:00")
 public class ServiceStatus  {
 
   /**

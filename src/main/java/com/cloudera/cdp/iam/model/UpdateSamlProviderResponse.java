@@ -17,40 +17,40 @@
  * limitations under the License.
  */
 
-package com.cloudera.cdp.datahub.model;
+package com.cloudera.cdp.iam.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
-import com.cloudera.cdp.datahub.model.Blueprint;
+import com.cloudera.cdp.iam.model.SamlProvider;
 
 /**
- * Response object for create blueprint request.
+ * Response object for an updating SAML provider request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-21T15:22:35.104-07:00")
-public class CreateBlueprintResponse extends CdpResponse {
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-23T16:36:41.076-07:00")
+public class UpdateSamlProviderResponse extends CdpResponse {
 
   /**
-   * The blueprint.
+   * The SAML provider.
    **/
-  private Blueprint blueprint = null;
+  private SamlProvider samlProvider = null;
 
   /**
-   * Getter for blueprint.
-   * The blueprint.
+   * Getter for samlProvider.
+   * The SAML provider.
    **/
-  @JsonProperty("blueprint")
-  public Blueprint getBlueprint() {
-    return blueprint;
+  @JsonProperty("samlProvider")
+  public SamlProvider getSamlProvider() {
+    return samlProvider;
   }
 
   /**
-   * Setter for blueprint.
-   * The blueprint.
+   * Setter for samlProvider.
+   * The SAML provider.
    **/
-  public void setBlueprint(Blueprint blueprint) {
-    this.blueprint = blueprint;
+  public void setSamlProvider(SamlProvider samlProvider) {
+    this.samlProvider = samlProvider;
   }
 
   @Override
@@ -61,8 +61,8 @@ public class CreateBlueprintResponse extends CdpResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateBlueprintResponse createBlueprintResponse = (CreateBlueprintResponse) o;
-    if (!Objects.equals(this.blueprint, createBlueprintResponse.blueprint)) {
+    UpdateSamlProviderResponse updateSamlProviderResponse = (UpdateSamlProviderResponse) o;
+    if (!Objects.equals(this.samlProvider, updateSamlProviderResponse.samlProvider)) {
       return false;
     }
     if (!super.equals(o)) {
@@ -73,15 +73,15 @@ public class CreateBlueprintResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(blueprint, super.hashCode());
+    return Objects.hash(samlProvider, super.hashCode());
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateBlueprintResponse {\n");
+    sb.append("class UpdateSamlProviderResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    blueprint: ").append(toIndentedString(blueprint)).append("\n");
+    sb.append("    samlProvider: ").append(toIndentedString(samlProvider)).append("\n");
     sb.append("}");
     return sb.toString();
   }
