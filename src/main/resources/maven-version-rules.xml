@@ -11,6 +11,7 @@
     <ignoreVersion type="regex">(?i).*MISTAKE(?:-?\d+)?</ignoreVersion>
     <ignoreVersion type="regex">(?i).*EA(?:-?\d+)?</ignoreVersion>
     <ignoreVersion type="regex">(?i).*preview(?:-?\d+)?</ignoreVersion>
+    <ignoreVersion type="regex">(?i).*pr(?:-?\d+)?</ignoreVersion>
   </ignoreVersions>
   <rules>
     <!-- Obvious mismatches -->

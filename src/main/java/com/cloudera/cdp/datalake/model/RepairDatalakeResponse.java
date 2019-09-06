@@ -17,41 +17,18 @@
  * limitations under the License.
  */
 
-package com.cloudera.cdp.datahub.model;
+package com.cloudera.cdp.datalake.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
-import com.cloudera.cdp.datahub.model.ClusterTemplate;
 
 /**
- * Response object for create cluster template request.
+ * Response object for repair datalake request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-05T21:16:02.783-07:00")
-public class CreateClusterTemplateResponse extends CdpResponse {
-
-  /**
-   * The cluster template.
-   **/
-  private ClusterTemplate clusterTemplate = null;
-
-  /**
-   * Getter for clusterTemplate.
-   * The cluster template.
-   **/
-  @JsonProperty("clusterTemplate")
-  public ClusterTemplate getClusterTemplate() {
-    return clusterTemplate;
-  }
-
-  /**
-   * Setter for clusterTemplate.
-   * The cluster template.
-   **/
-  public void setClusterTemplate(ClusterTemplate clusterTemplate) {
-    this.clusterTemplate = clusterTemplate;
-  }
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-05T21:16:03.263-07:00")
+public class RepairDatalakeResponse extends CdpResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -59,10 +36,6 @@ public class CreateClusterTemplateResponse extends CdpResponse {
       return true;
     }
     if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    CreateClusterTemplateResponse createClusterTemplateResponse = (CreateClusterTemplateResponse) o;
-    if (!Objects.equals(this.clusterTemplate, createClusterTemplateResponse.clusterTemplate)) {
       return false;
     }
     if (!super.equals(o)) {
@@ -73,15 +46,14 @@ public class CreateClusterTemplateResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterTemplate, super.hashCode());
+    return Objects.hash( super.hashCode());
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateClusterTemplateResponse {\n");
+    sb.append("class RepairDatalakeResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    clusterTemplate: ").append(toIndentedString(clusterTemplate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

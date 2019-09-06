@@ -37,8 +37,10 @@ import com.cloudera.cdp.datalake.model.GetClusterServiceStatusRequest;
 import com.cloudera.cdp.datalake.model.GetClusterServiceStatusResponse;
 import com.cloudera.cdp.datalake.model.ListDatalakesRequest;
 import com.cloudera.cdp.datalake.model.ListDatalakesResponse;
+import com.cloudera.cdp.datalake.model.RepairDatalakeRequest;
+import com.cloudera.cdp.datalake.model.RepairDatalakeResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-23T16:36:40.668-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-05T21:16:03.263-07:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";
@@ -120,5 +122,17 @@ public class DatalakeClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling listDatalakes");
      }
     return this.invokeAPI("/api/v1/datalake/listDatalakes", input, new GenericType<ListDatalakesResponse>(){});
+  }
+
+  /**
+   * Repairs a datalake.
+   * @param input
+   * @return RepairDatalakeResponse
+   */
+  public RepairDatalakeResponse repairDatalake(RepairDatalakeRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling repairDatalake");
+     }
+    return this.invokeAPI("/api/v1/datalake/repairDatalake", input, new GenericType<RepairDatalakeResponse>(){});
   }
 }

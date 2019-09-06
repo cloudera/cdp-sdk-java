@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object for create cluster template request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-08-23T16:36:40.169-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-05T21:16:02.783-07:00")
 public class CreateClusterTemplateRequest  {
 
   /**
@@ -41,11 +41,6 @@ public class CreateClusterTemplateRequest  {
    * The cluster template content.
    **/
   private String clusterTemplateContent = null;
-
-  /**
-   * The cluster template source URL.
-   **/
-  private String clusterTemplateSourceURL = null;
 
   /**
    * The description of the cluster template. The description can have a maximum of 1000 characters.
@@ -89,23 +84,6 @@ public class CreateClusterTemplateRequest  {
    **/
   public void setClusterTemplateContent(String clusterTemplateContent) {
     this.clusterTemplateContent = clusterTemplateContent;
-  }
-
-  /**
-   * Getter for clusterTemplateSourceURL.
-   * The cluster template source URL.
-   **/
-  @JsonProperty("clusterTemplateSourceURL")
-  public String getClusterTemplateSourceURL() {
-    return clusterTemplateSourceURL;
-  }
-
-  /**
-   * Setter for clusterTemplateSourceURL.
-   * The cluster template source URL.
-   **/
-  public void setClusterTemplateSourceURL(String clusterTemplateSourceURL) {
-    this.clusterTemplateSourceURL = clusterTemplateSourceURL;
   }
 
   /**
@@ -157,9 +135,6 @@ public class CreateClusterTemplateRequest  {
     if (!Objects.equals(this.clusterTemplateContent, createClusterTemplateRequest.clusterTemplateContent)) {
       return false;
     }
-    if (!Objects.equals(this.clusterTemplateSourceURL, createClusterTemplateRequest.clusterTemplateSourceURL)) {
-      return false;
-    }
     if (!Objects.equals(this.description, createClusterTemplateRequest.description)) {
       return false;
     }
@@ -171,7 +146,7 @@ public class CreateClusterTemplateRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterTemplateName, clusterTemplateContent, clusterTemplateSourceURL, description, tags);
+    return Objects.hash(clusterTemplateName, clusterTemplateContent, description, tags);
   }
 
   @Override
@@ -180,7 +155,6 @@ public class CreateClusterTemplateRequest  {
     sb.append("class CreateClusterTemplateRequest {\n");
     sb.append("    clusterTemplateName: ").append(toIndentedString(clusterTemplateName)).append("\n");
     sb.append("    clusterTemplateContent: ").append(toIndentedString(clusterTemplateContent)).append("\n");
-    sb.append("    clusterTemplateSourceURL: ").append(toIndentedString(clusterTemplateSourceURL)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");

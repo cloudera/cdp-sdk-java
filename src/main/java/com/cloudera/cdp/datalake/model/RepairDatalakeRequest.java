@@ -25,15 +25,20 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * Request object for describe datalake request.
+ * Request object for repair datalake request.
  **/
 @javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-05T21:16:03.263-07:00")
-public class DescribeDatalakeRequest  {
+public class RepairDatalakeRequest  {
 
   /**
    * The name or CRN of the datalake.
    **/
   private String datalakeName = null;
+
+  /**
+   * The instance group where the failed instances will be repaired.
+   **/
+  private String instanceGroupName = null;
 
   /**
    * Getter for datalakeName.
@@ -52,6 +57,23 @@ public class DescribeDatalakeRequest  {
     this.datalakeName = datalakeName;
   }
 
+  /**
+   * Getter for instanceGroupName.
+   * The instance group where the failed instances will be repaired.
+   **/
+  @JsonProperty("instanceGroupName")
+  public String getInstanceGroupName() {
+    return instanceGroupName;
+  }
+
+  /**
+   * Setter for instanceGroupName.
+   * The instance group where the failed instances will be repaired.
+   **/
+  public void setInstanceGroupName(String instanceGroupName) {
+    this.instanceGroupName = instanceGroupName;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -60,8 +82,11 @@ public class DescribeDatalakeRequest  {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DescribeDatalakeRequest describeDatalakeRequest = (DescribeDatalakeRequest) o;
-    if (!Objects.equals(this.datalakeName, describeDatalakeRequest.datalakeName)) {
+    RepairDatalakeRequest repairDatalakeRequest = (RepairDatalakeRequest) o;
+    if (!Objects.equals(this.datalakeName, repairDatalakeRequest.datalakeName)) {
+      return false;
+    }
+    if (!Objects.equals(this.instanceGroupName, repairDatalakeRequest.instanceGroupName)) {
       return false;
     }
     return true;
@@ -69,14 +94,15 @@ public class DescribeDatalakeRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName);
+    return Objects.hash(datalakeName, instanceGroupName);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DescribeDatalakeRequest {\n");
+    sb.append("class RepairDatalakeRequest {\n");
     sb.append("    datalakeName: ").append(toIndentedString(datalakeName)).append("\n");
+    sb.append("    instanceGroupName: ").append(toIndentedString(instanceGroupName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
