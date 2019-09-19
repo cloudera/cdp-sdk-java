@@ -39,6 +39,8 @@ import com.cloudera.cdp.environments.model.DescribeEnvironmentResponse;
 import com.cloudera.cdp.environments.model.Error;
 import com.cloudera.cdp.environments.model.GetIdBrokerMappingsRequest;
 import com.cloudera.cdp.environments.model.GetIdBrokerMappingsResponse;
+import com.cloudera.cdp.environments.model.GetIdBrokerMappingsSyncStatusRequest;
+import com.cloudera.cdp.environments.model.GetIdBrokerMappingsSyncStatusResponse;
 import com.cloudera.cdp.environments.model.GetRootCertificateRequest;
 import com.cloudera.cdp.environments.model.GetRootCertificateResponse;
 import com.cloudera.cdp.environments.model.ListCredentialsRequest;
@@ -51,12 +53,14 @@ import com.cloudera.cdp.environments.model.SetPasswordRequest;
 import com.cloudera.cdp.environments.model.SetPasswordResponse;
 import com.cloudera.cdp.environments.model.SyncAllUsersRequest;
 import com.cloudera.cdp.environments.model.SyncAllUsersResponse;
+import com.cloudera.cdp.environments.model.SyncIdBrokerMappingsRequest;
+import com.cloudera.cdp.environments.model.SyncIdBrokerMappingsResponse;
 import com.cloudera.cdp.environments.model.SyncStatusRequest;
 import com.cloudera.cdp.environments.model.SyncStatusResponse;
 import com.cloudera.cdp.environments.model.SyncUserRequest;
 import com.cloudera.cdp.environments.model.SyncUserResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-05T21:16:03.385-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.694-07:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";
@@ -153,6 +157,18 @@ public class EnvironmentsClient extends CdpClient {
   }
 
   /**
+   * Gets ID Broker mappings sync status.
+   * @param input
+   * @return GetIdBrokerMappingsSyncStatusResponse
+   */
+  public GetIdBrokerMappingsSyncStatusResponse getIdBrokerMappingsSyncStatus(GetIdBrokerMappingsSyncStatusRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling getIdBrokerMappingsSyncStatus");
+     }
+    return this.invokeAPI("/api/v1/environments2/getIdBrokerMappingsSyncStatus", input, new GenericType<GetIdBrokerMappingsSyncStatusResponse>(){});
+  }
+
+  /**
    * This API provides contents of public certificate for an environment.
    * @param input
    * @return GetRootCertificateResponse
@@ -222,6 +238,18 @@ public class EnvironmentsClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling syncAllUsers");
      }
     return this.invokeAPI("/api/v1/environments2/syncAllUsers", input, new GenericType<SyncAllUsersResponse>(){});
+  }
+
+  /**
+   * Syncs all ID Broker mappings for an environment.
+   * @param input
+   * @return SyncIdBrokerMappingsResponse
+   */
+  public SyncIdBrokerMappingsResponse syncIdBrokerMappings(SyncIdBrokerMappingsRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling syncIdBrokerMappings");
+     }
+    return this.invokeAPI("/api/v1/environments2/syncIdBrokerMappings", input, new GenericType<SyncIdBrokerMappingsResponse>(){});
   }
 
   /**

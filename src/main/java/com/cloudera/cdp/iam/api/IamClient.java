@@ -128,7 +128,7 @@ import com.cloudera.cdp.iam.model.UpdateGroupResponse;
 import com.cloudera.cdp.iam.model.UpdateSamlProviderRequest;
 import com.cloudera.cdp.iam.model.UpdateSamlProviderResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-05T21:16:03.585-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.933-07:00")
 public class IamClient extends CdpClient {
 
   public static final String SERVICE_NAME = "iam";

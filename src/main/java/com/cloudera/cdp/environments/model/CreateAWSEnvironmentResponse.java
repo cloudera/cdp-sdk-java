@@ -28,7 +28,7 @@ import com.cloudera.cdp.environments.model.Environment;
 /**
  * Response object for a create AWS environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-05T21:16:03.385-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.694-07:00")
 public class CreateAWSEnvironmentResponse extends CdpResponse {
 
   /**

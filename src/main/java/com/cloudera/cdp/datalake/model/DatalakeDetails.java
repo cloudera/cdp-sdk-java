@@ -23,6 +23,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.datalake.model.AWSConfiguration;
 import com.cloudera.cdp.datalake.model.ClouderaManagerDetails;
 import com.cloudera.cdp.datalake.model.ProductVersion;
 import java.time.ZonedDateTime;
@@ -31,7 +32,7 @@ import java.util.*;
 /**
  * Details about a datalake
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-05T21:16:03.263-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.529-07:00")
 public class DatalakeDetails  {
 
   /**
@@ -88,6 +89,11 @@ public class DatalakeDetails  {
    * The reason for the status of the datalake.
    **/
   private String statusReason = null;
+
+  /**
+   * The AWS configuration.
+   **/
+  private AWSConfiguration awsConfiguration = null;
 
   /**
    * Getter for crn.
@@ -276,6 +282,23 @@ public class DatalakeDetails  {
     this.statusReason = statusReason;
   }
 
+  /**
+   * Getter for awsConfiguration.
+   * The AWS configuration.
+   **/
+  @JsonProperty("awsConfiguration")
+  public AWSConfiguration getAwsConfiguration() {
+    return awsConfiguration;
+  }
+
+  /**
+   * Setter for awsConfiguration.
+   * The AWS configuration.
+   **/
+  public void setAwsConfiguration(AWSConfiguration awsConfiguration) {
+    this.awsConfiguration = awsConfiguration;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -318,12 +341,15 @@ public class DatalakeDetails  {
     if (!Objects.equals(this.statusReason, datalakeDetails.statusReason)) {
       return false;
     }
+    if (!Objects.equals(this.awsConfiguration, datalakeDetails.awsConfiguration)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, datalakeName, status, environmentCrn, credentialCrn, cloudPlatform, creationDate, clouderaManager, productVersions, region, statusReason);
+    return Objects.hash(crn, datalakeName, status, environmentCrn, credentialCrn, cloudPlatform, creationDate, clouderaManager, productVersions, region, statusReason, awsConfiguration);
   }
 
   @Override
@@ -341,6 +367,7 @@ public class DatalakeDetails  {
     sb.append("    productVersions: ").append(toIndentedString(productVersions)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
+    sb.append("    awsConfiguration: ").append(toIndentedString(awsConfiguration)).append("\n");
     sb.append("}");
     return sb.toString();
   }

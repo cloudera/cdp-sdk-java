@@ -28,7 +28,11 @@ import com.cloudera.cdp.ml.model.CreateWorkspaceRequest;
 import com.cloudera.cdp.ml.model.CreateWorkspaceResponse;
 import com.cloudera.cdp.ml.model.DeleteWorkspaceRequest;
 import com.cloudera.cdp.ml.model.DeleteWorkspaceResponse;
+import com.cloudera.cdp.ml.model.DescribeWorkspaceRequest;
+import com.cloudera.cdp.ml.model.DescribeWorkspaceResponse;
 import com.cloudera.cdp.ml.model.Error;
+import com.cloudera.cdp.ml.model.GetLatestWorkspaceVersionRequest;
+import com.cloudera.cdp.ml.model.GetLatestWorkspaceVersionResponse;
 import com.cloudera.cdp.ml.model.GrantWorkspaceAccessRequest;
 import com.cloudera.cdp.ml.model.GrantWorkspaceAccessResponse;
 import com.cloudera.cdp.ml.model.ListWorkspacesRequest;
@@ -38,7 +42,7 @@ import com.cloudera.cdp.ml.model.RevokeWorkspaceAccessResponse;
 import com.cloudera.cdp.ml.model.UpgradeWorkspaceRequest;
 import com.cloudera.cdp.ml.model.UpgradeWorkspaceResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-05T21:16:03.171-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.417-07:00")
 public class MlClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";
@@ -72,6 +76,30 @@ public class MlClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling deleteWorkspace");
      }
     return this.invokeAPI("/api/v1/ml/deleteWorkspace", input, new GenericType<DeleteWorkspaceResponse>(){});
+  }
+
+  /**
+   * Describe Cloudera Machine Learning Workspace.
+   * @param input
+   * @return DescribeWorkspaceResponse
+   */
+  public DescribeWorkspaceResponse describeWorkspace(DescribeWorkspaceRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling describeWorkspace");
+     }
+    return this.invokeAPI("/api/v1/ml/describeWorkspace", input, new GenericType<DescribeWorkspaceResponse>(){});
+  }
+
+  /**
+   * GetLatestWorkspaceVersion Cloudera Machine Learning Workspace.
+   * @param input
+   * @return GetLatestWorkspaceVersionResponse
+   */
+  public GetLatestWorkspaceVersionResponse getLatestWorkspaceVersion(GetLatestWorkspaceVersionRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling getLatestWorkspaceVersion");
+     }
+    return this.invokeAPI("/api/v1/ml/getLatestWorkspaceVersion", input, new GenericType<GetLatestWorkspaceVersionResponse>(){});
   }
 
   /**

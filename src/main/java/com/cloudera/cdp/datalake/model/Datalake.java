@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Information about a datalake.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-05T21:16:03.263-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.529-07:00")
 public class Datalake  {
 
   /**

@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Contains the necessary info for an instance group.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-05T21:16:03.171-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.417-07:00")
 public class InstanceGroup  {
 
   /**
@@ -41,7 +41,7 @@ public class InstanceGroup  {
   /**
    * The networking rules for the ingress.
    **/
-  private List<String> ingressRuless = new ArrayList<String>();
+  private List<String> ingressRules = new ArrayList<String>();
 
   /**
    * The initial number of instance node.
@@ -86,20 +86,20 @@ public class InstanceGroup  {
   }
 
   /**
-   * Getter for ingressRuless.
+   * Getter for ingressRules.
    * The networking rules for the ingress.
    **/
-  @JsonProperty("ingressRuless")
-  public List<String> getIngressRuless() {
-    return ingressRuless;
+  @JsonProperty("ingressRules")
+  public List<String> getIngressRules() {
+    return ingressRules;
   }
 
   /**
-   * Setter for ingressRuless.
+   * Setter for ingressRules.
    * The networking rules for the ingress.
    **/
-  public void setIngressRuless(List<String> ingressRuless) {
-    this.ingressRuless = ingressRuless;
+  public void setIngressRules(List<String> ingressRules) {
+    this.ingressRules = ingressRules;
   }
 
   /**
@@ -199,7 +199,7 @@ public class InstanceGroup  {
     if (!Objects.equals(this.autoscaling, instanceGroup.autoscaling)) {
       return false;
     }
-    if (!Objects.equals(this.ingressRuless, instanceGroup.ingressRuless)) {
+    if (!Objects.equals(this.ingressRules, instanceGroup.ingressRules)) {
       return false;
     }
     if (!Objects.equals(this.instanceCount, instanceGroup.instanceCount)) {
@@ -222,7 +222,7 @@ public class InstanceGroup  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoscaling, ingressRuless, instanceCount, instanceTier, instanceType, name, rootVolume);
+    return Objects.hash(autoscaling, ingressRules, instanceCount, instanceTier, instanceType, name, rootVolume);
   }
 
   @Override
@@ -230,7 +230,7 @@ public class InstanceGroup  {
     StringBuilder sb = new StringBuilder();
     sb.append("class InstanceGroup {\n");
     sb.append("    autoscaling: ").append(toIndentedString(autoscaling)).append("\n");
-    sb.append("    ingressRuless: ").append(toIndentedString(ingressRuless)).append("\n");
+    sb.append("    ingressRules: ").append(toIndentedString(ingressRules)).append("\n");
     sb.append("    instanceCount: ").append(toIndentedString(instanceCount)).append("\n");
     sb.append("    instanceTier: ").append(toIndentedString(instanceTier)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");

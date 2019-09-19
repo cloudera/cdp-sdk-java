@@ -24,12 +24,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.ml.model.InstanceGroup;
+import com.cloudera.cdp.ml.model.Tag;
 import java.util.*;
 
 /**
  * Request object for workspace provision.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-05T21:16:03.171-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.417-07:00")
 public class ProvisionK8sRequest  {
 
   /**
@@ -40,7 +41,12 @@ public class ProvisionK8sRequest  {
   /**
    * The instance groups.
    **/
-  private List<InstanceGroup> instanceGroupss = new ArrayList<InstanceGroup>();
+  private List<InstanceGroup> instanceGroups = new ArrayList<InstanceGroup>();
+
+  /**
+   * Tags to add to the cloud provider resources created. This is in addition to any tags added by Cloudera.
+   **/
+  private List<Tag> tags = new ArrayList<Tag>();
 
   /**
    * Getter for environmentName.
@@ -60,20 +66,37 @@ public class ProvisionK8sRequest  {
   }
 
   /**
-   * Getter for instanceGroupss.
+   * Getter for instanceGroups.
    * The instance groups.
    **/
-  @JsonProperty("instanceGroupss")
-  public List<InstanceGroup> getInstanceGroupss() {
-    return instanceGroupss;
+  @JsonProperty("instanceGroups")
+  public List<InstanceGroup> getInstanceGroups() {
+    return instanceGroups;
   }
 
   /**
-   * Setter for instanceGroupss.
+   * Setter for instanceGroups.
    * The instance groups.
    **/
-  public void setInstanceGroupss(List<InstanceGroup> instanceGroupss) {
-    this.instanceGroupss = instanceGroupss;
+  public void setInstanceGroups(List<InstanceGroup> instanceGroups) {
+    this.instanceGroups = instanceGroups;
+  }
+
+  /**
+   * Getter for tags.
+   * Tags to add to the cloud provider resources created. This is in addition to any tags added by Cloudera.
+   **/
+  @JsonProperty("tags")
+  public List<Tag> getTags() {
+    return tags;
+  }
+
+  /**
+   * Setter for tags.
+   * Tags to add to the cloud provider resources created. This is in addition to any tags added by Cloudera.
+   **/
+  public void setTags(List<Tag> tags) {
+    this.tags = tags;
   }
 
   @Override
@@ -88,7 +111,10 @@ public class ProvisionK8sRequest  {
     if (!Objects.equals(this.environmentName, provisionK8sRequest.environmentName)) {
       return false;
     }
-    if (!Objects.equals(this.instanceGroupss, provisionK8sRequest.instanceGroupss)) {
+    if (!Objects.equals(this.instanceGroups, provisionK8sRequest.instanceGroups)) {
+      return false;
+    }
+    if (!Objects.equals(this.tags, provisionK8sRequest.tags)) {
       return false;
     }
     return true;
@@ -96,7 +122,7 @@ public class ProvisionK8sRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, instanceGroupss);
+    return Objects.hash(environmentName, instanceGroups, tags);
   }
 
   @Override
@@ -104,7 +130,8 @@ public class ProvisionK8sRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProvisionK8sRequest {\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
-    sb.append("    instanceGroupss: ").append(toIndentedString(instanceGroupss)).append("\n");
+    sb.append("    instanceGroups: ").append(toIndentedString(instanceGroups)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

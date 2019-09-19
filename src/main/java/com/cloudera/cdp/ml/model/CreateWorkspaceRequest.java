@@ -28,7 +28,7 @@ import com.cloudera.cdp.ml.model.ProvisionK8sRequest;
 /**
  * Request object for the CreateWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-05T21:16:03.171-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.417-07:00")
 public class CreateWorkspaceRequest  {
 
   /**
@@ -47,7 +47,7 @@ public class CreateWorkspaceRequest  {
   private String mlVersion = null;
 
   /**
-   * The request for k8s workspace provision.
+   * The request for Kubernetes workspace provision.
    **/
   private ProvisionK8sRequest provisionK8sRequest = null;
 
@@ -114,7 +114,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Getter for provisionK8sRequest.
-   * The request for k8s workspace provision.
+   * The request for Kubernetes workspace provision.
    **/
   @JsonProperty("provisionK8sRequest")
   public ProvisionK8sRequest getProvisionK8sRequest() {
@@ -123,7 +123,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Setter for provisionK8sRequest.
-   * The request for k8s workspace provision.
+   * The request for Kubernetes workspace provision.
    **/
   public void setProvisionK8sRequest(ProvisionK8sRequest provisionK8sRequest) {
     this.provisionK8sRequest = provisionK8sRequest;

@@ -28,7 +28,7 @@ import com.cloudera.cdp.datalake.model.DatalakeDetails;
 /**
  * Response object for describe datalake request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-05T21:16:03.263-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.529-07:00")
 public class DescribeDatalakeResponse extends CdpResponse {
 
   /**
@@ -40,7 +40,7 @@ public class DescribeDatalakeResponse extends CdpResponse {
    * Getter for datalake.
    * The datalake.
    **/
-  @JsonProperty("Datalake")
+  @JsonProperty("datalake")
   public DatalakeDetails getDatalake() {
     return datalake;
   }

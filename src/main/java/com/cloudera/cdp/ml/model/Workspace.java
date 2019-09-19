@@ -23,15 +23,31 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import java.time.ZonedDateTime;
 
 /**
- * A ML workspace, which includes the cluster / storage.
+ * A ML workspace, which includes the cluster and storage.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-05T21:16:03.171-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.417-07:00")
 public class Workspace  {
 
   /**
-   * CRN of the environment
+   * Creation date of workspace.
+   **/
+  private ZonedDateTime creationDate = null;
+
+  /**
+   * The CRN of the creator of the workspace.
+   **/
+  private String creatorCrn = null;
+
+  /**
+   * The CRN of the workspace.
+   **/
+  private String crn = null;
+
+  /**
+   * CRN of the environment.
    **/
   private String environmentCrn = null;
 
@@ -56,8 +72,69 @@ public class Workspace  {
   private String instanceUrl = null;
 
   /**
+   * The Kubernetes cluster name.
+   **/
+  private String k8sClusterName = null;
+
+  /**
+   * The version of Clouder Machine Learning that was installed on the workspace.
+   **/
+  private String version = null;
+
+  /**
+   * Getter for creationDate.
+   * Creation date of workspace.
+   **/
+  @JsonProperty("creationDate")
+  public ZonedDateTime getCreationDate() {
+    return creationDate;
+  }
+
+  /**
+   * Setter for creationDate.
+   * Creation date of workspace.
+   **/
+  public void setCreationDate(ZonedDateTime creationDate) {
+    this.creationDate = creationDate;
+  }
+
+  /**
+   * Getter for creatorCrn.
+   * The CRN of the creator of the workspace.
+   **/
+  @JsonProperty("creatorCrn")
+  public String getCreatorCrn() {
+    return creatorCrn;
+  }
+
+  /**
+   * Setter for creatorCrn.
+   * The CRN of the creator of the workspace.
+   **/
+  public void setCreatorCrn(String creatorCrn) {
+    this.creatorCrn = creatorCrn;
+  }
+
+  /**
+   * Getter for crn.
+   * The CRN of the workspace.
+   **/
+  @JsonProperty("crn")
+  public String getCrn() {
+    return crn;
+  }
+
+  /**
+   * Setter for crn.
+   * The CRN of the workspace.
+   **/
+  public void setCrn(String crn) {
+    this.crn = crn;
+  }
+
+  /**
    * Getter for environmentCrn.
-   * CRN of the environment
+   * CRN of the environment.
    **/
   @JsonProperty("environmentCrn")
   public String getEnvironmentCrn() {
@@ -66,7 +143,7 @@ public class Workspace  {
 
   /**
    * Setter for environmentCrn.
-   * CRN of the environment
+   * CRN of the environment.
    **/
   public void setEnvironmentCrn(String environmentCrn) {
     this.environmentCrn = environmentCrn;
@@ -140,6 +217,40 @@ public class Workspace  {
     this.instanceUrl = instanceUrl;
   }
 
+  /**
+   * Getter for k8sClusterName.
+   * The Kubernetes cluster name.
+   **/
+  @JsonProperty("k8sClusterName")
+  public String getK8sClusterName() {
+    return k8sClusterName;
+  }
+
+  /**
+   * Setter for k8sClusterName.
+   * The Kubernetes cluster name.
+   **/
+  public void setK8sClusterName(String k8sClusterName) {
+    this.k8sClusterName = k8sClusterName;
+  }
+
+  /**
+   * Getter for version.
+   * The version of Clouder Machine Learning that was installed on the workspace.
+   **/
+  @JsonProperty("version")
+  public String getVersion() {
+    return version;
+  }
+
+  /**
+   * Setter for version.
+   * The version of Clouder Machine Learning that was installed on the workspace.
+   **/
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -149,6 +260,15 @@ public class Workspace  {
       return false;
     }
     Workspace workspace = (Workspace) o;
+    if (!Objects.equals(this.creationDate, workspace.creationDate)) {
+      return false;
+    }
+    if (!Objects.equals(this.creatorCrn, workspace.creatorCrn)) {
+      return false;
+    }
+    if (!Objects.equals(this.crn, workspace.crn)) {
+      return false;
+    }
     if (!Objects.equals(this.environmentCrn, workspace.environmentCrn)) {
       return false;
     }
@@ -164,23 +284,34 @@ public class Workspace  {
     if (!Objects.equals(this.instanceUrl, workspace.instanceUrl)) {
       return false;
     }
+    if (!Objects.equals(this.k8sClusterName, workspace.k8sClusterName)) {
+      return false;
+    }
+    if (!Objects.equals(this.version, workspace.version)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, environmentName, instanceName, instanceStatus, instanceUrl);
+    return Objects.hash(creationDate, creatorCrn, crn, environmentCrn, environmentName, instanceName, instanceStatus, instanceUrl, k8sClusterName, version);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Workspace {\n");
+    sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
+    sb.append("    creatorCrn: ").append(toIndentedString(creatorCrn)).append("\n");
+    sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
     sb.append("    instanceUrl: ").append(toIndentedString(instanceUrl)).append("\n");
+    sb.append("    k8sClusterName: ").append(toIndentedString(k8sClusterName)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }

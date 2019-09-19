@@ -25,9 +25,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * Request object for the UpgradeWorkspace method.
+ * Response object for the UpgradeWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-05T21:16:03.171-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.417-07:00")
 public class UpgradeWorkspaceResponse extends CdpResponse {
 
   @Override

@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Information about a group.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-05T21:16:03.585-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.933-07:00")
 public class Group  {
 
   /**

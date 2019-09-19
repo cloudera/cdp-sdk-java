@@ -27,13 +27,23 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the DeleteWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-05T21:16:03.171-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.417-07:00")
 public class DeleteWorkspaceRequest  {
 
   /**
    * The environment for the workspace to delete.
    **/
   private String environmentName = null;
+
+  /**
+   * Force delete a workspace even if errors occur during deletion. Force delete removes the guarantee that resources in your cloud account will be cleaned up.
+   **/
+  private Boolean force = null;
+
+  /**
+   * The remove storage flag indicates weather to keep the backing workspace filesystem storage or remove it during delete.
+   **/
+  private Boolean removeStorage = null;
 
   /**
    * The name of the workspace to delete.
@@ -55,6 +65,40 @@ public class DeleteWorkspaceRequest  {
    **/
   public void setEnvironmentName(String environmentName) {
     this.environmentName = environmentName;
+  }
+
+  /**
+   * Getter for force.
+   * Force delete a workspace even if errors occur during deletion. Force delete removes the guarantee that resources in your cloud account will be cleaned up.
+   **/
+  @JsonProperty("force")
+  public Boolean getForce() {
+    return force;
+  }
+
+  /**
+   * Setter for force.
+   * Force delete a workspace even if errors occur during deletion. Force delete removes the guarantee that resources in your cloud account will be cleaned up.
+   **/
+  public void setForce(Boolean force) {
+    this.force = force;
+  }
+
+  /**
+   * Getter for removeStorage.
+   * The remove storage flag indicates weather to keep the backing workspace filesystem storage or remove it during delete.
+   **/
+  @JsonProperty("removeStorage")
+  public Boolean getRemoveStorage() {
+    return removeStorage;
+  }
+
+  /**
+   * Setter for removeStorage.
+   * The remove storage flag indicates weather to keep the backing workspace filesystem storage or remove it during delete.
+   **/
+  public void setRemoveStorage(Boolean removeStorage) {
+    this.removeStorage = removeStorage;
   }
 
   /**
@@ -86,6 +130,12 @@ public class DeleteWorkspaceRequest  {
     if (!Objects.equals(this.environmentName, deleteWorkspaceRequest.environmentName)) {
       return false;
     }
+    if (!Objects.equals(this.force, deleteWorkspaceRequest.force)) {
+      return false;
+    }
+    if (!Objects.equals(this.removeStorage, deleteWorkspaceRequest.removeStorage)) {
+      return false;
+    }
     if (!Objects.equals(this.workspaceName, deleteWorkspaceRequest.workspaceName)) {
       return false;
     }
@@ -94,7 +144,7 @@ public class DeleteWorkspaceRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, workspaceName);
+    return Objects.hash(environmentName, force, removeStorage, workspaceName);
   }
 
   @Override
@@ -102,6 +152,8 @@ public class DeleteWorkspaceRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteWorkspaceRequest {\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
+    sb.append("    force: ").append(toIndentedString(force)).append("\n");
+    sb.append("    removeStorage: ").append(toIndentedString(removeStorage)).append("\n");
     sb.append("    workspaceName: ").append(toIndentedString(workspaceName)).append("\n");
     sb.append("}");
     return sb.toString();

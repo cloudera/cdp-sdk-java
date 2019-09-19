@@ -28,7 +28,7 @@ import com.cloudera.cdp.datahub.model.Cluster;
 /**
  * Response object for create AWS cluster request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-05T21:16:02.783-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:01.940-07:00")
 public class CreateAWSClusterResponse extends CdpResponse {
 
   /**

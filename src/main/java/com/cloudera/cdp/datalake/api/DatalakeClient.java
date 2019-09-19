@@ -40,7 +40,7 @@ import com.cloudera.cdp.datalake.model.ListDatalakesResponse;
 import com.cloudera.cdp.datalake.model.RepairDatalakeRequest;
 import com.cloudera.cdp.datalake.model.RepairDatalakeResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-05T21:16:03.263-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.529-07:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";

@@ -25,19 +25,19 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * Request object for the DeleteWorkspace method.
+ * Response object for the GrantWorkspaceAccess method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-05T21:16:03.171-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.417-07:00")
 public class GrantWorkspaceAccessResponse extends CdpResponse {
 
   /**
-   * The kubernetes config file
+   * The Kubernetes config file
    **/
   private String kubeconfig = null;
 
   /**
    * Getter for kubeconfig.
-   * The kubernetes config file
+   * The Kubernetes config file
    **/
   @JsonProperty("kubeconfig")
   public String getKubeconfig() {
@@ -46,7 +46,7 @@ public class GrantWorkspaceAccessResponse extends CdpResponse {
 
   /**
    * Setter for kubeconfig.
-   * The kubernetes config file
+   * The Kubernetes config file
    **/
   public void setKubeconfig(String kubeconfig) {
     this.kubeconfig = kubeconfig;
