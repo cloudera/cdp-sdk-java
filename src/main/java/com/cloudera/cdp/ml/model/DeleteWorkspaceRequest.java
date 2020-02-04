@@ -27,13 +27,8 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the DeleteWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.417-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-02-04T12:48:01.506-08:00")
 public class DeleteWorkspaceRequest  {
-
-  /**
-   * The environment for the workspace to delete.
-   **/
-  private String environmentName = null;
 
   /**
    * Force delete a workspace even if errors occur during deletion. Force delete removes the guarantee that resources in your cloud account will be cleaned up.
@@ -46,26 +41,19 @@ public class DeleteWorkspaceRequest  {
   private Boolean removeStorage = null;
 
   /**
+   * The environment for the workspace to delete.
+   **/
+  private String environmentName = null;
+
+  /**
    * The name of the workspace to delete.
    **/
   private String workspaceName = null;
 
   /**
-   * Getter for environmentName.
-   * The environment for the workspace to delete.
+   * The CRN of the workspace to delete. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.
    **/
-  @JsonProperty("environmentName")
-  public String getEnvironmentName() {
-    return environmentName;
-  }
-
-  /**
-   * Setter for environmentName.
-   * The environment for the workspace to delete.
-   **/
-  public void setEnvironmentName(String environmentName) {
-    this.environmentName = environmentName;
-  }
+  private String workspaceCrn = null;
 
   /**
    * Getter for force.
@@ -102,6 +90,23 @@ public class DeleteWorkspaceRequest  {
   }
 
   /**
+   * Getter for environmentName.
+   * The environment for the workspace to delete.
+   **/
+  @JsonProperty("environmentName")
+  public String getEnvironmentName() {
+    return environmentName;
+  }
+
+  /**
+   * Setter for environmentName.
+   * The environment for the workspace to delete.
+   **/
+  public void setEnvironmentName(String environmentName) {
+    this.environmentName = environmentName;
+  }
+
+  /**
    * Getter for workspaceName.
    * The name of the workspace to delete.
    **/
@@ -118,6 +123,23 @@ public class DeleteWorkspaceRequest  {
     this.workspaceName = workspaceName;
   }
 
+  /**
+   * Getter for workspaceCrn.
+   * The CRN of the workspace to delete. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.
+   **/
+  @JsonProperty("workspaceCrn")
+  public String getWorkspaceCrn() {
+    return workspaceCrn;
+  }
+
+  /**
+   * Setter for workspaceCrn.
+   * The CRN of the workspace to delete. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.
+   **/
+  public void setWorkspaceCrn(String workspaceCrn) {
+    this.workspaceCrn = workspaceCrn;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -127,16 +149,19 @@ public class DeleteWorkspaceRequest  {
       return false;
     }
     DeleteWorkspaceRequest deleteWorkspaceRequest = (DeleteWorkspaceRequest) o;
-    if (!Objects.equals(this.environmentName, deleteWorkspaceRequest.environmentName)) {
-      return false;
-    }
     if (!Objects.equals(this.force, deleteWorkspaceRequest.force)) {
       return false;
     }
     if (!Objects.equals(this.removeStorage, deleteWorkspaceRequest.removeStorage)) {
       return false;
     }
+    if (!Objects.equals(this.environmentName, deleteWorkspaceRequest.environmentName)) {
+      return false;
+    }
     if (!Objects.equals(this.workspaceName, deleteWorkspaceRequest.workspaceName)) {
+      return false;
+    }
+    if (!Objects.equals(this.workspaceCrn, deleteWorkspaceRequest.workspaceCrn)) {
       return false;
     }
     return true;
@@ -144,17 +169,18 @@ public class DeleteWorkspaceRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, force, removeStorage, workspaceName);
+    return Objects.hash(force, removeStorage, environmentName, workspaceName, workspaceCrn);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteWorkspaceRequest {\n");
-    sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    force: ").append(toIndentedString(force)).append("\n");
     sb.append("    removeStorage: ").append(toIndentedString(removeStorage)).append("\n");
+    sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    workspaceName: ").append(toIndentedString(workspaceName)).append("\n");
+    sb.append("    workspaceCrn: ").append(toIndentedString(workspaceCrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

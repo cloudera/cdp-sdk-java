@@ -24,11 +24,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.environments.model.LogStorageAwsDetails;
+import com.cloudera.cdp.environments.model.LogStorageAzureDetails;
 
 /**
  * Storage configuration for cluster and audit logs.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.694-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-02-04T12:48:01.814-08:00")
 public class LogStorage  {
 
   /**
@@ -40,6 +41,11 @@ public class LogStorage  {
    * 
    **/
   private LogStorageAwsDetails awsDetails = null;
+
+  /**
+   * 
+   **/
+  private LogStorageAzureDetails azureDetails = null;
 
   /**
    * Getter for enabled.
@@ -75,6 +81,23 @@ public class LogStorage  {
     this.awsDetails = awsDetails;
   }
 
+  /**
+   * Getter for azureDetails.
+   * 
+   **/
+  @JsonProperty("azureDetails")
+  public LogStorageAzureDetails getAzureDetails() {
+    return azureDetails;
+  }
+
+  /**
+   * Setter for azureDetails.
+   * 
+   **/
+  public void setAzureDetails(LogStorageAzureDetails azureDetails) {
+    this.azureDetails = azureDetails;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -90,12 +113,15 @@ public class LogStorage  {
     if (!Objects.equals(this.awsDetails, logStorage.awsDetails)) {
       return false;
     }
+    if (!Objects.equals(this.azureDetails, logStorage.azureDetails)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, awsDetails);
+    return Objects.hash(enabled, awsDetails, azureDetails);
   }
 
   @Override
@@ -104,6 +130,7 @@ public class LogStorage  {
     sb.append("class LogStorage {\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("    awsDetails: ").append(toIndentedString(awsDetails)).append("\n");
+    sb.append("    azureDetails: ").append(toIndentedString(azureDetails)).append("\n");
     sb.append("}");
     return sb.toString();
   }

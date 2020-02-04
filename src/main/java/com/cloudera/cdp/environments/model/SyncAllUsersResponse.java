@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * All Users and Groups Sync Response Object
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.694-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-02-04T12:48:01.814-08:00")
 public class SyncAllUsersResponse extends CdpResponse {
 
   /**
@@ -43,7 +43,7 @@ public class SyncAllUsersResponse extends CdpResponse {
   private String operationType = null;
 
   /**
-   * Status of this operation. Can be of values (RUNNING, COMPLETED, FAILED)
+   * Status of this operation. Status can be one of these values (REQUESTED, RUNNING, COMPLETED, FAILED, REJECTED, TIMEDOUT)
    **/
   private String status = null;
 
@@ -108,7 +108,7 @@ public class SyncAllUsersResponse extends CdpResponse {
 
   /**
    * Getter for status.
-   * Status of this operation. Can be of values (RUNNING, COMPLETED, FAILED)
+   * Status of this operation. Status can be one of these values (REQUESTED, RUNNING, COMPLETED, FAILED, REJECTED, TIMEDOUT)
    **/
   @JsonProperty("status")
   public String getStatus() {
@@ -117,7 +117,7 @@ public class SyncAllUsersResponse extends CdpResponse {
 
   /**
    * Setter for status.
-   * Status of this operation. Can be of values (RUNNING, COMPLETED, FAILED)
+   * Status of this operation. Status can be one of these values (REQUESTED, RUNNING, COMPLETED, FAILED, REJECTED, TIMEDOUT)
    **/
   public void setStatus(String status) {
     this.status = status;

@@ -26,6 +26,8 @@ import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
 import com.cloudera.cdp.datahub.model.CreateAWSClusterRequest;
 import com.cloudera.cdp.datahub.model.CreateAWSClusterResponse;
+import com.cloudera.cdp.datahub.model.CreateAzureClusterRequest;
+import com.cloudera.cdp.datahub.model.CreateAzureClusterResponse;
 import com.cloudera.cdp.datahub.model.CreateClusterDefinitionRequest;
 import com.cloudera.cdp.datahub.model.CreateClusterDefinitionResponse;
 import com.cloudera.cdp.datahub.model.CreateClusterTemplateRequest;
@@ -74,7 +76,7 @@ import com.cloudera.cdp.datahub.model.StopClusterResponse;
 import com.cloudera.cdp.datahub.model.SyncClusterRequest;
 import com.cloudera.cdp.datahub.model.SyncClusterResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:01.940-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-02-04T12:48:01.068-08:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";
@@ -96,6 +98,18 @@ public class DatahubClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling createAWSCluster");
      }
     return this.invokeAPI("/api/v1/datahub/createAWSCluster", input, new GenericType<CreateAWSClusterResponse>(){});
+  }
+
+  /**
+   * Creates an Azure workload cluster.
+   * @param input
+   * @return CreateAzureClusterResponse
+   */
+  public CreateAzureClusterResponse createAzureCluster(CreateAzureClusterRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling createAzureCluster");
+     }
+    return this.invokeAPI("/api/v1/datahub/createAzureCluster", input, new GenericType<CreateAzureClusterResponse>(){});
   }
 
   /**

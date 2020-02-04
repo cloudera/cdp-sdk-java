@@ -30,28 +30,8 @@ import java.util.*;
 /**
  * Contains the necessary info for an instance group.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.417-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-02-04T12:48:01.506-08:00")
 public class InstanceGroup  {
-
-  /**
-   * The auto scaling configuration.
-   **/
-  private Autoscaling autoscaling = null;
-
-  /**
-   * The networking rules for the ingress.
-   **/
-  private List<String> ingressRules = new ArrayList<String>();
-
-  /**
-   * The initial number of instance node.
-   **/
-  private Integer instanceCount = null;
-
-  /**
-   * The tier of the instance i.e. on-demand/spot.
-   **/
-  private String instanceTier = null;
 
   /**
    * The cloud provider instance type for the node instance.
@@ -59,9 +39,24 @@ public class InstanceGroup  {
   private String instanceType = null;
 
   /**
+   * The tier of the instance i.e. on-demand/spot.
+   **/
+  private String instanceTier = null;
+
+  /**
+   * The initial number of instance node.
+   **/
+  private Integer instanceCount = null;
+
+  /**
    * The unique name of the instance group.
    **/
   private String name = null;
+
+  /**
+   * The networking rules for the ingress.
+   **/
+  private List<String> ingressRules = new ArrayList<String>();
 
   /**
    * The root volume of the instance.
@@ -69,54 +64,25 @@ public class InstanceGroup  {
   private RootVolume rootVolume = null;
 
   /**
-   * Getter for autoscaling.
    * The auto scaling configuration.
    **/
-  @JsonProperty("autoscaling")
-  public Autoscaling getAutoscaling() {
-    return autoscaling;
+  private Autoscaling autoscaling = null;
+
+  /**
+   * Getter for instanceType.
+   * The cloud provider instance type for the node instance.
+   **/
+  @JsonProperty("instanceType")
+  public String getInstanceType() {
+    return instanceType;
   }
 
   /**
-   * Setter for autoscaling.
-   * The auto scaling configuration.
+   * Setter for instanceType.
+   * The cloud provider instance type for the node instance.
    **/
-  public void setAutoscaling(Autoscaling autoscaling) {
-    this.autoscaling = autoscaling;
-  }
-
-  /**
-   * Getter for ingressRules.
-   * The networking rules for the ingress.
-   **/
-  @JsonProperty("ingressRules")
-  public List<String> getIngressRules() {
-    return ingressRules;
-  }
-
-  /**
-   * Setter for ingressRules.
-   * The networking rules for the ingress.
-   **/
-  public void setIngressRules(List<String> ingressRules) {
-    this.ingressRules = ingressRules;
-  }
-
-  /**
-   * Getter for instanceCount.
-   * The initial number of instance node.
-   **/
-  @JsonProperty("instanceCount")
-  public Integer getInstanceCount() {
-    return instanceCount;
-  }
-
-  /**
-   * Setter for instanceCount.
-   * The initial number of instance node.
-   **/
-  public void setInstanceCount(Integer instanceCount) {
-    this.instanceCount = instanceCount;
+  public void setInstanceType(String instanceType) {
+    this.instanceType = instanceType;
   }
 
   /**
@@ -137,20 +103,20 @@ public class InstanceGroup  {
   }
 
   /**
-   * Getter for instanceType.
-   * The cloud provider instance type for the node instance.
+   * Getter for instanceCount.
+   * The initial number of instance node.
    **/
-  @JsonProperty("instanceType")
-  public String getInstanceType() {
-    return instanceType;
+  @JsonProperty("instanceCount")
+  public Integer getInstanceCount() {
+    return instanceCount;
   }
 
   /**
-   * Setter for instanceType.
-   * The cloud provider instance type for the node instance.
+   * Setter for instanceCount.
+   * The initial number of instance node.
    **/
-  public void setInstanceType(String instanceType) {
-    this.instanceType = instanceType;
+  public void setInstanceCount(Integer instanceCount) {
+    this.instanceCount = instanceCount;
   }
 
   /**
@@ -171,6 +137,23 @@ public class InstanceGroup  {
   }
 
   /**
+   * Getter for ingressRules.
+   * The networking rules for the ingress.
+   **/
+  @JsonProperty("ingressRules")
+  public List<String> getIngressRules() {
+    return ingressRules;
+  }
+
+  /**
+   * Setter for ingressRules.
+   * The networking rules for the ingress.
+   **/
+  public void setIngressRules(List<String> ingressRules) {
+    this.ingressRules = ingressRules;
+  }
+
+  /**
    * Getter for rootVolume.
    * The root volume of the instance.
    **/
@@ -187,6 +170,23 @@ public class InstanceGroup  {
     this.rootVolume = rootVolume;
   }
 
+  /**
+   * Getter for autoscaling.
+   * The auto scaling configuration.
+   **/
+  @JsonProperty("autoscaling")
+  public Autoscaling getAutoscaling() {
+    return autoscaling;
+  }
+
+  /**
+   * Setter for autoscaling.
+   * The auto scaling configuration.
+   **/
+  public void setAutoscaling(Autoscaling autoscaling) {
+    this.autoscaling = autoscaling;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -196,25 +196,25 @@ public class InstanceGroup  {
       return false;
     }
     InstanceGroup instanceGroup = (InstanceGroup) o;
-    if (!Objects.equals(this.autoscaling, instanceGroup.autoscaling)) {
-      return false;
-    }
-    if (!Objects.equals(this.ingressRules, instanceGroup.ingressRules)) {
-      return false;
-    }
-    if (!Objects.equals(this.instanceCount, instanceGroup.instanceCount)) {
+    if (!Objects.equals(this.instanceType, instanceGroup.instanceType)) {
       return false;
     }
     if (!Objects.equals(this.instanceTier, instanceGroup.instanceTier)) {
       return false;
     }
-    if (!Objects.equals(this.instanceType, instanceGroup.instanceType)) {
+    if (!Objects.equals(this.instanceCount, instanceGroup.instanceCount)) {
       return false;
     }
     if (!Objects.equals(this.name, instanceGroup.name)) {
       return false;
     }
+    if (!Objects.equals(this.ingressRules, instanceGroup.ingressRules)) {
+      return false;
+    }
     if (!Objects.equals(this.rootVolume, instanceGroup.rootVolume)) {
+      return false;
+    }
+    if (!Objects.equals(this.autoscaling, instanceGroup.autoscaling)) {
       return false;
     }
     return true;
@@ -222,20 +222,20 @@ public class InstanceGroup  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoscaling, ingressRules, instanceCount, instanceTier, instanceType, name, rootVolume);
+    return Objects.hash(instanceType, instanceTier, instanceCount, name, ingressRules, rootVolume, autoscaling);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class InstanceGroup {\n");
-    sb.append("    autoscaling: ").append(toIndentedString(autoscaling)).append("\n");
-    sb.append("    ingressRules: ").append(toIndentedString(ingressRules)).append("\n");
-    sb.append("    instanceCount: ").append(toIndentedString(instanceCount)).append("\n");
-    sb.append("    instanceTier: ").append(toIndentedString(instanceTier)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
+    sb.append("    instanceTier: ").append(toIndentedString(instanceTier)).append("\n");
+    sb.append("    instanceCount: ").append(toIndentedString(instanceCount)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    ingressRules: ").append(toIndentedString(ingressRules)).append("\n");
     sb.append("    rootVolume: ").append(toIndentedString(rootVolume)).append("\n");
+    sb.append("    autoscaling: ").append(toIndentedString(autoscaling)).append("\n");
     sb.append("}");
     return sb.toString();
   }

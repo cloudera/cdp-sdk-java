@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the DescribeWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.417-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-02-04T12:48:01.506-08:00")
 public class DescribeWorkspaceRequest  {
 
   /**
@@ -39,6 +39,11 @@ public class DescribeWorkspaceRequest  {
    * The name of the workspace to describe.
    **/
   private String workspaceName = null;
+
+  /**
+   * The CRN of the workspace to describe. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.
+   **/
+  private String workspaceCrn = null;
 
   /**
    * Getter for environmentName.
@@ -74,6 +79,23 @@ public class DescribeWorkspaceRequest  {
     this.workspaceName = workspaceName;
   }
 
+  /**
+   * Getter for workspaceCrn.
+   * The CRN of the workspace to describe. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.
+   **/
+  @JsonProperty("workspaceCrn")
+  public String getWorkspaceCrn() {
+    return workspaceCrn;
+  }
+
+  /**
+   * Setter for workspaceCrn.
+   * The CRN of the workspace to describe. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.
+   **/
+  public void setWorkspaceCrn(String workspaceCrn) {
+    this.workspaceCrn = workspaceCrn;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -89,12 +111,15 @@ public class DescribeWorkspaceRequest  {
     if (!Objects.equals(this.workspaceName, describeWorkspaceRequest.workspaceName)) {
       return false;
     }
+    if (!Objects.equals(this.workspaceCrn, describeWorkspaceRequest.workspaceCrn)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, workspaceName);
+    return Objects.hash(environmentName, workspaceName, workspaceCrn);
   }
 
   @Override
@@ -103,6 +128,7 @@ public class DescribeWorkspaceRequest  {
     sb.append("class DescribeWorkspaceRequest {\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    workspaceName: ").append(toIndentedString(workspaceName)).append("\n");
+    sb.append("    workspaceCrn: ").append(toIndentedString(workspaceCrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

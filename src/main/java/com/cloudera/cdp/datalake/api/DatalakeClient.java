@@ -26,6 +26,8 @@ import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
 import com.cloudera.cdp.datalake.model.CreateAWSDatalakeRequest;
 import com.cloudera.cdp.datalake.model.CreateAWSDatalakeResponse;
+import com.cloudera.cdp.datalake.model.CreateAzureDatalakeRequest;
+import com.cloudera.cdp.datalake.model.CreateAzureDatalakeResponse;
 import com.cloudera.cdp.datalake.model.DeleteDatalakeRequest;
 import com.cloudera.cdp.datalake.model.DeleteDatalakeResponse;
 import com.cloudera.cdp.datalake.model.DescribeDatalakeRequest;
@@ -40,7 +42,7 @@ import com.cloudera.cdp.datalake.model.ListDatalakesResponse;
 import com.cloudera.cdp.datalake.model.RepairDatalakeRequest;
 import com.cloudera.cdp.datalake.model.RepairDatalakeResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.529-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-02-04T12:48:01.660-08:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";
@@ -62,6 +64,18 @@ public class DatalakeClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling createAWSDatalake");
      }
     return this.invokeAPI("/api/v1/datalake/createAWSDatalake", input, new GenericType<CreateAWSDatalakeResponse>(){});
+  }
+
+  /**
+   * Creates an Azure datalake.
+   * @param input
+   * @return CreateAzureDatalakeResponse
+   */
+  public CreateAzureDatalakeResponse createAzureDatalake(CreateAzureDatalakeRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling createAzureDatalake");
+     }
+    return this.invokeAPI("/api/v1/datalake/createAzureDatalake", input, new GenericType<CreateAzureDatalakeResponse>(){});
   }
 
   /**

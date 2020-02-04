@@ -31,8 +31,12 @@ import com.cloudera.cdp.ml.model.DeleteWorkspaceResponse;
 import com.cloudera.cdp.ml.model.DescribeWorkspaceRequest;
 import com.cloudera.cdp.ml.model.DescribeWorkspaceResponse;
 import com.cloudera.cdp.ml.model.Error;
+import com.cloudera.cdp.ml.model.GetAuditEventsRequest;
+import com.cloudera.cdp.ml.model.GetAuditEventsResponse;
 import com.cloudera.cdp.ml.model.GetLatestWorkspaceVersionRequest;
 import com.cloudera.cdp.ml.model.GetLatestWorkspaceVersionResponse;
+import com.cloudera.cdp.ml.model.GetLogsRequest;
+import com.cloudera.cdp.ml.model.GetLogsResponse;
 import com.cloudera.cdp.ml.model.GrantWorkspaceAccessRequest;
 import com.cloudera.cdp.ml.model.GrantWorkspaceAccessResponse;
 import com.cloudera.cdp.ml.model.ListWorkspacesRequest;
@@ -42,7 +46,7 @@ import com.cloudera.cdp.ml.model.RevokeWorkspaceAccessResponse;
 import com.cloudera.cdp.ml.model.UpgradeWorkspaceRequest;
 import com.cloudera.cdp.ml.model.UpgradeWorkspaceResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.417-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-02-04T12:48:01.506-08:00")
 public class MlClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";
@@ -91,6 +95,18 @@ public class MlClient extends CdpClient {
   }
 
   /**
+   * Gets all the events belong to a workspace crn.
+   * @param input
+   * @return GetAuditEventsResponse
+   */
+  public GetAuditEventsResponse getAuditEvents(GetAuditEventsRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling getAuditEvents");
+     }
+    return this.invokeAPI("/api/v1/ml/getAuditEvents", input, new GenericType<GetAuditEventsResponse>(){});
+  }
+
+  /**
    * GetLatestWorkspaceVersion Cloudera Machine Learning Workspace.
    * @param input
    * @return GetLatestWorkspaceVersionResponse
@@ -100,6 +116,18 @@ public class MlClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling getLatestWorkspaceVersion");
      }
     return this.invokeAPI("/api/v1/ml/getLatestWorkspaceVersion", input, new GenericType<GetLatestWorkspaceVersionResponse>(){});
+  }
+
+  /**
+   * Gets all the logs belong to a request id.
+   * @param input
+   * @return GetLogsResponse
+   */
+  public GetLogsResponse getLogs(GetLogsRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling getLogs");
+     }
+    return this.invokeAPI("/api/v1/ml/getLogs", input, new GenericType<GetLogsResponse>(){});
   }
 
   /**

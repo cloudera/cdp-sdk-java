@@ -18,6 +18,7 @@
  */
 package com.cloudera.cdp.client;
 
+import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.cloudera.cdp.http.SimpleRetryHandler;
@@ -32,8 +33,14 @@ public class CdpClientConfigurationTest {
   public void testWithDefaultConfiguration() {
     CdpClientConfiguration config =
         CdpClientConfigurationBuilder.defaultBuilder().build();
+    assertEquals(20, config.getMaxConnections());
+    assertNull(config.getProxyUri());
+    assertNull(config.getProxyUsername());
+    assertNull(config.getProxyPassword());
     assertEquals(Duration.ofMinutes(1), config.getConnectionTimeout());
     assertEquals(Duration.ofMinutes(1), config.getReadTimeout());
+    assertEquals(Duration.ofSeconds(50), config.getConnectionMaxIdle());
+    assertEquals(Duration.ofSeconds(2), config.getValidateAfterInactivity());
     assertEquals(SimpleRetryHandler.class,config.getRetryHandler().getClass());
   }
 

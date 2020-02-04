@@ -32,43 +32,97 @@ import org.junit.jupiter.api.Test;
 public class CdpClientConfigurationBuilderTest {
 
   @Test
+  public void testDefaultMaxConnections() {
+    CdpClientConfigurationBuilder builder =
+        CdpClientConfigurationBuilder.defaultBuilder();
+    assertEquals(20, builder.getMaxConnections());
+  }
+
+  @Test
+  public void testInvalidMaxConnections() {
+    assertThrows(CdpClientException.class, () -> {
+      CdpClientConfigurationBuilder.defaultBuilder()
+          .withMaxConnections(0);
+    });
+    assertThrows(CdpClientException.class, () -> {
+      CdpClientConfigurationBuilder.defaultBuilder()
+          .withMaxConnections(-1);
+    });
+  }
+
+  @Test
+  public void testDefaultConnectionMaxIdle() {
+    CdpClientConfigurationBuilder builder =
+        CdpClientConfigurationBuilder.defaultBuilder();
+    assertEquals(Duration.ofSeconds(50), builder.getConnectionMaxIdle());
+  }
+
+  @Test
+  public void testInvalidConnectionMaxIdle() {
+    assertThrows(CdpClientException.class, () -> {
+      CdpClientConfigurationBuilder.defaultBuilder()
+          .withConnectionMaxIdle(null);
+    });
+  }
+
+  @Test
+  public void testDefaultValidateAfterInactivity() {
+    CdpClientConfigurationBuilder builder =
+        CdpClientConfigurationBuilder.defaultBuilder();
+    assertEquals(Duration.ofSeconds(2), builder.getValidateAfterInactivity());
+  }
+
+  @Test
+  public void testInvalidValidateAfterInactivity() {
+    assertThrows(CdpClientException.class, () -> {
+      CdpClientConfigurationBuilder.defaultBuilder()
+          .withValidateAfterInactivity(null);
+    });
+  }
+
+  @Test
   public void testDefaultReadTimeout() {
-    CdpClientConfigurationBuilder builder = CdpClientConfigurationBuilder.defaultBuilder();
+    CdpClientConfigurationBuilder builder =
+        CdpClientConfigurationBuilder.defaultBuilder();
     assertEquals(Duration.ofMinutes(1), builder.getReadTimeout());
   }
 
   @Test
   public void testDefaultConnectionTimeout() {
-    CdpClientConfigurationBuilder builder = CdpClientConfigurationBuilder.defaultBuilder();
+    CdpClientConfigurationBuilder builder =
+        CdpClientConfigurationBuilder.defaultBuilder();
     assertEquals(Duration.ofMinutes(1), builder.getConnectionTimeout());
   }
 
   @Test
   public void testDefaultApplicationName() {
-    CdpClientConfigurationBuilder builder = CdpClientConfigurationBuilder.defaultBuilder();
+    CdpClientConfigurationBuilder builder =
+        CdpClientConfigurationBuilder.defaultBuilder();
     assertEquals(null, builder.getClientApplicationName());
   }
 
   @Test
   public void testDefaultRetryHandler() {
-    CdpClientConfigurationBuilder builder = CdpClientConfigurationBuilder.defaultBuilder();
+    CdpClientConfigurationBuilder builder =
+        CdpClientConfigurationBuilder.defaultBuilder();
     builder.build();
-    assertEquals(builder.getRetryHandler().getClass(), SimpleRetryHandler.class);
+    assertEquals(builder.getRetryHandler().getClass(),
+                 SimpleRetryHandler.class);
   }
 
   @Test
   public void testInvalidConnectionTimeout() {
     assertThrows(CdpClientException.class, () -> {
       CdpClientConfigurationBuilder.defaultBuilder()
-        .withConnectionTimeout(Duration.ofMillis(0));
+          .withConnectionTimeout(Duration.ofMillis(0));
     });
-}
+  }
 
   @Test
   public void testInvalidReadTimeout() {
     assertThrows(CdpClientException.class, () -> {
       CdpClientConfigurationBuilder.defaultBuilder()
-        .withReadTimeout(Duration.ofMillis(0));
+          .withReadTimeout(Duration.ofMillis(0));
     });
   }
 
@@ -76,7 +130,7 @@ public class CdpClientConfigurationBuilderTest {
   public void testInvalidClientApplicationName() {
     assertThrows(CdpClientException.class, () -> {
       CdpClientConfigurationBuilder.defaultBuilder()
-        .withClientApplicationName(null);
+          .withClientApplicationName(null);
     });
   }
 
@@ -84,13 +138,14 @@ public class CdpClientConfigurationBuilderTest {
   public void testInvalidRetryHandler() {
     assertThrows(CdpClientException.class, () -> {
       CdpClientConfigurationBuilder.defaultBuilder()
-        .withRetryHandler(null);
+          .withRetryHandler(null);
     });
   }
 
   @Test
   public void testDefaultProxyConfig() {
-    CdpClientConfigurationBuilder builder = CdpClientConfigurationBuilder.defaultBuilder();
+    CdpClientConfigurationBuilder builder =
+        CdpClientConfigurationBuilder.defaultBuilder();
     assertEquals(null, builder.getProxyUri());
     assertEquals(null, builder.getProxyUsername());
     assertEquals(null, builder.getProxyPassword());

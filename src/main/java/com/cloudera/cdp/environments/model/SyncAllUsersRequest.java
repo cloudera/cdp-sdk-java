@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for a All Users and Groups Sync.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.694-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-02-04T12:48:01.814-08:00")
 public class SyncAllUsersRequest  {
 
   /**

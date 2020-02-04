@@ -23,26 +23,26 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
-import com.cloudera.cdp.ml.model.Workspace;
+import com.cloudera.cdp.ml.model.WorkspaceSummary;
 import java.util.*;
 
 /**
  * Response object for the ListWorkspaces method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.417-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-02-04T12:48:01.506-08:00")
 public class ListWorkspacesResponse extends CdpResponse {
 
   /**
    * The list of workspaces.
    **/
-  private List<Workspace> workspaces = new ArrayList<Workspace>();
+  private List<WorkspaceSummary> workspaces = new ArrayList<WorkspaceSummary>();
 
   /**
    * Getter for workspaces.
    * The list of workspaces.
    **/
   @JsonProperty("workspaces")
-  public List<Workspace> getWorkspaces() {
+  public List<WorkspaceSummary> getWorkspaces() {
     return workspaces;
   }
 
@@ -50,7 +50,7 @@ public class ListWorkspacesResponse extends CdpResponse {
    * Setter for workspaces.
    * The list of workspaces.
    **/
-  public void setWorkspaces(List<Workspace> workspaces) {
+  public void setWorkspaces(List<WorkspaceSummary> workspaces) {
     this.workspaces = workspaces;
   }
 

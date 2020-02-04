@@ -109,6 +109,10 @@ import com.cloudera.cdp.iam.model.RemoveMachineUserFromGroupRequest;
 import com.cloudera.cdp.iam.model.RemoveMachineUserFromGroupResponse;
 import com.cloudera.cdp.iam.model.RemoveUserFromGroupRequest;
 import com.cloudera.cdp.iam.model.RemoveUserFromGroupResponse;
+import com.cloudera.cdp.iam.model.SetWorkloadPasswordPolicyRequest;
+import com.cloudera.cdp.iam.model.SetWorkloadPasswordPolicyResponse;
+import com.cloudera.cdp.iam.model.SetWorkloadPasswordRequest;
+import com.cloudera.cdp.iam.model.SetWorkloadPasswordResponse;
 import com.cloudera.cdp.iam.model.UnassignGroupResourceRoleRequest;
 import com.cloudera.cdp.iam.model.UnassignGroupResourceRoleResponse;
 import com.cloudera.cdp.iam.model.UnassignGroupRoleRequest;
@@ -128,7 +132,7 @@ import com.cloudera.cdp.iam.model.UpdateGroupResponse;
 import com.cloudera.cdp.iam.model.UpdateSamlProviderRequest;
 import com.cloudera.cdp.iam.model.UpdateSamlProviderResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.933-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-02-04T12:48:02.078-08:00")
 public class IamClient extends CdpClient {
 
   public static final String SERVICE_NAME = "iam";
@@ -642,6 +646,30 @@ public class IamClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling removeUserFromGroup");
      }
     return this.invokeAPI("/iam/removeUserFromGroup", input, new GenericType<RemoveUserFromGroupResponse>(){});
+  }
+
+  /**
+   * Set the workload password for an actor.
+   * @param input
+   * @return SetWorkloadPasswordResponse
+   */
+  public SetWorkloadPasswordResponse setWorkloadPassword(SetWorkloadPasswordRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling setWorkloadPassword");
+     }
+    return this.invokeAPI("/iam/setWorkloadPassword", input, new GenericType<SetWorkloadPasswordResponse>(){});
+  }
+
+  /**
+   * Set the workload password policy for the account.
+   * @param input
+   * @return SetWorkloadPasswordPolicyResponse
+   */
+  public SetWorkloadPasswordPolicyResponse setWorkloadPasswordPolicy(SetWorkloadPasswordPolicyRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling setWorkloadPasswordPolicy");
+     }
+    return this.invokeAPI("/iam/setWorkloadPasswordPolicy", input, new GenericType<SetWorkloadPasswordPolicyResponse>(){});
   }
 
   /**

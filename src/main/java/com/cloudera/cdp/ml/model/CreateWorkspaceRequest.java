@@ -24,17 +24,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.ml.model.ProvisionK8sRequest;
+import java.util.*;
 
 /**
  * Request object for the CreateWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.417-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-02-04T12:48:01.506-08:00")
 public class CreateWorkspaceRequest  {
-
-  /**
-   * The boolean flag to disable TLS setup for workspace. By default the TLS is enabled.
-   **/
-  private Boolean disableTLS = null;
 
   /**
    * The environment for the workspace to create.
@@ -42,9 +38,9 @@ public class CreateWorkspaceRequest  {
   private String environmentName = null;
 
   /**
-   * The version of ML workload app to install.
+   * The name of the workspace to create.
    **/
-  private String mlVersion = null;
+  private String workspaceName = null;
 
   /**
    * The request for Kubernetes workspace provision.
@@ -57,26 +53,14 @@ public class CreateWorkspaceRequest  {
   private Boolean usePublicLoadBalancer = null;
 
   /**
-   * The name of the workspace to create.
-   **/
-  private String workspaceName = null;
-
-  /**
-   * Getter for disableTLS.
    * The boolean flag to disable TLS setup for workspace. By default the TLS is enabled.
    **/
-  @JsonProperty("disableTLS")
-  public Boolean getDisableTLS() {
-    return disableTLS;
-  }
+  private Boolean disableTLS = null;
 
   /**
-   * Setter for disableTLS.
-   * The boolean flag to disable TLS setup for workspace. By default the TLS is enabled.
+   * The whitelist of ips for loadBalancer.
    **/
-  public void setDisableTLS(Boolean disableTLS) {
-    this.disableTLS = disableTLS;
-  }
+  private List<String> loadBalancerIPWhitelists = new ArrayList<String>();
 
   /**
    * Getter for environmentName.
@@ -96,20 +80,20 @@ public class CreateWorkspaceRequest  {
   }
 
   /**
-   * Getter for mlVersion.
-   * The version of ML workload app to install.
+   * Getter for workspaceName.
+   * The name of the workspace to create.
    **/
-  @JsonProperty("mlVersion")
-  public String getMlVersion() {
-    return mlVersion;
+  @JsonProperty("workspaceName")
+  public String getWorkspaceName() {
+    return workspaceName;
   }
 
   /**
-   * Setter for mlVersion.
-   * The version of ML workload app to install.
+   * Setter for workspaceName.
+   * The name of the workspace to create.
    **/
-  public void setMlVersion(String mlVersion) {
-    this.mlVersion = mlVersion;
+  public void setWorkspaceName(String workspaceName) {
+    this.workspaceName = workspaceName;
   }
 
   /**
@@ -147,20 +131,37 @@ public class CreateWorkspaceRequest  {
   }
 
   /**
-   * Getter for workspaceName.
-   * The name of the workspace to create.
+   * Getter for disableTLS.
+   * The boolean flag to disable TLS setup for workspace. By default the TLS is enabled.
    **/
-  @JsonProperty("workspaceName")
-  public String getWorkspaceName() {
-    return workspaceName;
+  @JsonProperty("disableTLS")
+  public Boolean getDisableTLS() {
+    return disableTLS;
   }
 
   /**
-   * Setter for workspaceName.
-   * The name of the workspace to create.
+   * Setter for disableTLS.
+   * The boolean flag to disable TLS setup for workspace. By default the TLS is enabled.
    **/
-  public void setWorkspaceName(String workspaceName) {
-    this.workspaceName = workspaceName;
+  public void setDisableTLS(Boolean disableTLS) {
+    this.disableTLS = disableTLS;
+  }
+
+  /**
+   * Getter for loadBalancerIPWhitelists.
+   * The whitelist of ips for loadBalancer.
+   **/
+  @JsonProperty("loadBalancerIPWhitelists")
+  public List<String> getLoadBalancerIPWhitelists() {
+    return loadBalancerIPWhitelists;
+  }
+
+  /**
+   * Setter for loadBalancerIPWhitelists.
+   * The whitelist of ips for loadBalancer.
+   **/
+  public void setLoadBalancerIPWhitelists(List<String> loadBalancerIPWhitelists) {
+    this.loadBalancerIPWhitelists = loadBalancerIPWhitelists;
   }
 
   @Override
@@ -172,13 +173,10 @@ public class CreateWorkspaceRequest  {
       return false;
     }
     CreateWorkspaceRequest createWorkspaceRequest = (CreateWorkspaceRequest) o;
-    if (!Objects.equals(this.disableTLS, createWorkspaceRequest.disableTLS)) {
-      return false;
-    }
     if (!Objects.equals(this.environmentName, createWorkspaceRequest.environmentName)) {
       return false;
     }
-    if (!Objects.equals(this.mlVersion, createWorkspaceRequest.mlVersion)) {
+    if (!Objects.equals(this.workspaceName, createWorkspaceRequest.workspaceName)) {
       return false;
     }
     if (!Objects.equals(this.provisionK8sRequest, createWorkspaceRequest.provisionK8sRequest)) {
@@ -187,7 +185,10 @@ public class CreateWorkspaceRequest  {
     if (!Objects.equals(this.usePublicLoadBalancer, createWorkspaceRequest.usePublicLoadBalancer)) {
       return false;
     }
-    if (!Objects.equals(this.workspaceName, createWorkspaceRequest.workspaceName)) {
+    if (!Objects.equals(this.disableTLS, createWorkspaceRequest.disableTLS)) {
+      return false;
+    }
+    if (!Objects.equals(this.loadBalancerIPWhitelists, createWorkspaceRequest.loadBalancerIPWhitelists)) {
       return false;
     }
     return true;
@@ -195,19 +196,19 @@ public class CreateWorkspaceRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(disableTLS, environmentName, mlVersion, provisionK8sRequest, usePublicLoadBalancer, workspaceName);
+    return Objects.hash(environmentName, workspaceName, provisionK8sRequest, usePublicLoadBalancer, disableTLS, loadBalancerIPWhitelists);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateWorkspaceRequest {\n");
-    sb.append("    disableTLS: ").append(toIndentedString(disableTLS)).append("\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
-    sb.append("    mlVersion: ").append(toIndentedString(mlVersion)).append("\n");
+    sb.append("    workspaceName: ").append(toIndentedString(workspaceName)).append("\n");
     sb.append("    provisionK8sRequest: ").append(toIndentedString(provisionK8sRequest)).append("\n");
     sb.append("    usePublicLoadBalancer: ").append(toIndentedString(usePublicLoadBalancer)).append("\n");
-    sb.append("    workspaceName: ").append(toIndentedString(workspaceName)).append("\n");
+    sb.append("    disableTLS: ").append(toIndentedString(disableTLS)).append("\n");
+    sb.append("    loadBalancerIPWhitelists: ").append(toIndentedString(loadBalancerIPWhitelists)).append("\n");
     sb.append("}");
     return sb.toString();
   }

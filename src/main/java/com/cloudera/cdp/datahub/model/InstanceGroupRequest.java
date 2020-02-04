@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Configurations for instance group
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:01.940-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-02-04T12:48:01.068-08:00")
 public class InstanceGroupRequest  {
 
   /**
@@ -49,7 +49,7 @@ public class InstanceGroupRequest  {
   private String instanceGroupType = null;
 
   /**
-   * The AWS instance type to be used.
+   * The cloud provider specific instance type to be used.
    **/
   private String instanceType = null;
 
@@ -74,7 +74,7 @@ public class InstanceGroupRequest  {
   private String recoveryMode = null;
 
   /**
-   * The volume encryption settings.
+   * The volume encryption settings. This setting does not apply to Azure which always encrypts volumes.
    **/
   private VolumeEncryptionRequest volumeEncryption = null;
 
@@ -131,7 +131,7 @@ public class InstanceGroupRequest  {
 
   /**
    * Getter for instanceType.
-   * The AWS instance type to be used.
+   * The cloud provider specific instance type to be used.
    **/
   @JsonProperty("instanceType")
   public String getInstanceType() {
@@ -140,7 +140,7 @@ public class InstanceGroupRequest  {
 
   /**
    * Setter for instanceType.
-   * The AWS instance type to be used.
+   * The cloud provider specific instance type to be used.
    **/
   public void setInstanceType(String instanceType) {
     this.instanceType = instanceType;
@@ -216,7 +216,7 @@ public class InstanceGroupRequest  {
 
   /**
    * Getter for volumeEncryption.
-   * The volume encryption settings.
+   * The volume encryption settings. This setting does not apply to Azure which always encrypts volumes.
    **/
   @JsonProperty("volumeEncryption")
   public VolumeEncryptionRequest getVolumeEncryption() {
@@ -225,7 +225,7 @@ public class InstanceGroupRequest  {
 
   /**
    * Setter for volumeEncryption.
-   * The volume encryption settings.
+   * The volume encryption settings. This setting does not apply to Azure which always encrypts volumes.
    **/
   public void setVolumeEncryption(VolumeEncryptionRequest volumeEncryption) {
     this.volumeEncryption = volumeEncryption;

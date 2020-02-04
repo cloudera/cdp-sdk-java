@@ -20,6 +20,7 @@
 package com.cloudera.cdp.client;
 
 import static com.google.common.base.Preconditions.checkNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -47,7 +48,9 @@ import java.util.Map;
 
 import javax.annotation.Nullable;
 import javax.ws.rs.core.GenericType;
+import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MultivaluedHashMap;
+import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.StatusType;
 
@@ -281,5 +284,27 @@ public class CdpClientTest {
     TestClient client = new TestClient(mockResponse);
     client.shutdown();
     client.shutdown();
+  }
+
+
+  @Test
+  public void testUserAgent() throws Exception {
+    Response mockResponse = mockResponse(200, "requestId");
+    TestCdpResponse altusResponse = new TestCdpResponse();
+    when(mockResponse.readEntity(any(GenericType.class))).thenReturn(
+        altusResponse);
+    TestClient client = new TestClient(mockResponse) {
+      @Override
+      protected MultivaluedMap<String, Object> computeHeaders(String path) {
+        MultivaluedMap<String, Object> headers = super.computeHeaders(path);
+        assertTrue(headers.containsKey(HttpHeaders.USER_AGENT));
+        assertEquals(buildUserAgent(), headers.get(HttpHeaders.USER_AGENT));
+        return headers;
+      }
+    };
+    TestCdpResponse response =
+        client.invokeAPI("somePath", "", new GenericType<TestCdpResponse>(){});
+    assertEquals("requestId", response.getRequestId());
+    assertEquals(1, client.apiCalls);
   }
 }

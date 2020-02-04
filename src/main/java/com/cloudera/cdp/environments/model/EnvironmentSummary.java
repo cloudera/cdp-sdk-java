@@ -27,21 +27,21 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * The environment summary.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.694-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-02-04T12:48:01.814-08:00")
 public class EnvironmentSummary  {
 
   /**
-   * Name of the environment
+   * Name of the environment.
    **/
   private String environmentName = null;
 
   /**
-   * CRN of the environment
+   * CRN of the environment.
    **/
   private String crn = null;
 
   /**
-   * Status of the environment.
+   * Status of the environment,
    **/
   private String status = null;
 
@@ -61,13 +61,13 @@ public class EnvironmentSummary  {
   private String credentialName = null;
 
   /**
-   * Description of the environment
+   * Description of the environment.
    **/
   private String description = null;
 
   /**
    * Getter for environmentName.
-   * Name of the environment
+   * Name of the environment.
    **/
   @JsonProperty("environmentName")
   public String getEnvironmentName() {
@@ -76,7 +76,7 @@ public class EnvironmentSummary  {
 
   /**
    * Setter for environmentName.
-   * Name of the environment
+   * Name of the environment.
    **/
   public void setEnvironmentName(String environmentName) {
     this.environmentName = environmentName;
@@ -84,7 +84,7 @@ public class EnvironmentSummary  {
 
   /**
    * Getter for crn.
-   * CRN of the environment
+   * CRN of the environment.
    **/
   @JsonProperty("crn")
   public String getCrn() {
@@ -93,7 +93,7 @@ public class EnvironmentSummary  {
 
   /**
    * Setter for crn.
-   * CRN of the environment
+   * CRN of the environment.
    **/
   public void setCrn(String crn) {
     this.crn = crn;
@@ -101,7 +101,7 @@ public class EnvironmentSummary  {
 
   /**
    * Getter for status.
-   * Status of the environment.
+   * Status of the environment,
    **/
   @JsonProperty("status")
   public String getStatus() {
@@ -110,7 +110,7 @@ public class EnvironmentSummary  {
 
   /**
    * Setter for status.
-   * Status of the environment.
+   * Status of the environment,
    **/
   public void setStatus(String status) {
     this.status = status;
@@ -169,7 +169,7 @@ public class EnvironmentSummary  {
 
   /**
    * Getter for description.
-   * Description of the environment
+   * Description of the environment.
    **/
   @JsonProperty("description")
   public String getDescription() {
@@ -178,7 +178,7 @@ public class EnvironmentSummary  {
 
   /**
    * Setter for description.
-   * Description of the environment
+   * Description of the environment.
    **/
   public void setDescription(String description) {
     this.description = description;

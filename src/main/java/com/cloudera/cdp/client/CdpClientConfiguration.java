@@ -30,8 +30,11 @@ import java.time.Duration;
  */
 public class CdpClientConfiguration {
 
+  private final int maxConnections;
   private final Duration readTimeout;
   private final Duration connectionTimeout;
+  private final Duration connectionMaxIdle;
+  private final Duration validateAfterInactivity;
   private final RetryHandler retryHandler;
   private final String clientApplicationName;
   private final String proxyUri;
@@ -44,13 +47,23 @@ public class CdpClientConfiguration {
    */
   public CdpClientConfiguration(CdpClientConfigurationBuilder builder) {
     checkNotNull(builder);
+    maxConnections = builder.getMaxConnections();
     readTimeout = builder.getReadTimeout();
     connectionTimeout = builder.getConnectionTimeout();
+    connectionMaxIdle = builder.getConnectionMaxIdle();
+    validateAfterInactivity = builder.getValidateAfterInactivity();
     retryHandler = builder.getRetryHandler();
     clientApplicationName = builder.getClientApplicationName();
     proxyUri = builder.getProxyUri();
     proxyUsername = builder.getProxyUsername();
     proxyPassword = builder.getProxyPassword();
+  }
+
+  /**
+   * see: {@link CdpClientConfigurationBuilder#getMaxConnections()}.
+   */
+  public int getMaxConnections() {
+    return this.maxConnections;
   }
 
   /**
@@ -65,6 +78,20 @@ public class CdpClientConfiguration {
    */
   public Duration getReadTimeout() {
     return this.readTimeout;
+  }
+
+  /**
+   * see: {@link CdpClientConfigurationBuilder#getConnectionMaxIdle()}.
+   */
+  public Duration getConnectionMaxIdle() {
+    return this.connectionMaxIdle;
+  }
+
+  /**
+   * see: {@link CdpClientConfigurationBuilder#getValidateAfterInactivity()}.
+   */
+  public Duration getValidateAfterInactivity() {
+    return this.validateAfterInactivity;
   }
 
   /**

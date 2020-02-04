@@ -37,12 +37,15 @@ import javax.annotation.Nullable;
  */
 public class CdpClientConfigurationBuilder {
 
+  private int maxConnections = 20;
   private String clientApplicationName = null;
   private String proxyUri = null;
   private String proxyUsername = null;
   private String proxyPassword = null;
   private Duration readTimeout = Duration.ofMinutes(1);
   private Duration connectionTimeout = Duration.ofMinutes(1);
+  private Duration connectionMaxIdle = Duration.ofSeconds(50);
+  private Duration validateAfterInactivity = Duration.ofSeconds(2);
   private RetryHandler retryHandler = new SimpleRetryHandler(
       new HttpCodesRetryChecker(HttpCodesRetryChecker.DEFAULT_RETRY_CODES),
       /**
@@ -53,6 +56,26 @@ public class CdpClientConfigurationBuilder {
       13);
 
   private CdpClientConfigurationBuilder() {}
+
+  /**
+   * Sets the maximum number of allowed open HTTP connections.
+   * @param maxConnections The maximum number of allowed open HTTP connections.
+   * @return a reference to the CdpClientConfiguration object so that method calls
+   * can be chained together.
+   */
+  public CdpClientConfigurationBuilder withMaxConnections(int maxConnections) {
+    checkArgumentAndThrow(maxConnections > 0);
+    this.maxConnections = maxConnections;
+    return this;
+  }
+
+  /**
+   * Returns the maximum number of allowed open HTTP connections.
+   * @return The maximum number of allowed open HTTP connections.
+   */
+  public int getMaxConnections() {
+    return this.maxConnections;
+  }
 
   /**
    * Sets the client application name.
@@ -113,6 +136,79 @@ public class CdpClientConfigurationBuilder {
    */
   public Duration getReadTimeout() {
     return this.readTimeout;
+  }
+
+  /**
+   * Sets the maximum amount of time that an idle connection may sit in the
+   * connection pool and still be eligible for reuse. When retrieving a
+   * connection from the pool to make a request, the amount of time the
+   * connection has been idle is compared against this value. Connections which
+   * have been idle for longer are discarded, and if needed a new connection is
+   * created. Tuning this setting down reduces the likelihood of a race
+   * condition (wherein you begin sending a request down a connection which
+   * appears to be healthy, but before it arrives the service decides the
+   * connection has been idle for too long and closes it) at the cost of
+   * having to re-establish new connections more frequently. A non positive
+   * value disables this check.
+   * @param connectionMaxIdle the connectionMaxIdle value
+   * @return the builder.
+   */
+  public CdpClientConfigurationBuilder withConnectionMaxIdle(
+      Duration connectionMaxIdle) {
+    checkNotNullAndThrow(connectionMaxIdle);
+    this.connectionMaxIdle = connectionMaxIdle;
+    return this;
+  }
+
+  /**
+   * Returns the maximum amount of time that an idle connection may sit in the
+   * connection pool and still be eligible for reuse. When retrieving a
+   * connection from the pool to make a request, the amount of time the
+   * connection has been idle is compared against this value. Connections which
+   * have been idle for longer are discarded, and if needed a new connection is
+   * created. Tuning this setting down reduces the likelihood of a race
+   * condition (wherein you begin sending a request down a connection which
+   * appears to be healthy, but before it arrives the service decides the
+   * connection has been idle for too long and closes it) at the cost of
+   * having to re-establish new connections more frequently.
+   * @return the connection maximum idle time
+   */
+  public Duration getConnectionMaxIdle() {
+    return connectionMaxIdle;
+  }
+
+  /**
+   * Sets the amount of time that a connection can be idle in the connection
+   * pool before it must be validated to ensure it's still open. This "stale
+   * connection check" adds a small bit of overhead to validate the connection.
+   * Setting this value to larger values may increase the likelihood that the
+   * connection is not usable, potentially resulting in a
+   * {@link org.apache.http.NoHttpResponseException}. Lowering this setting
+   * increases the overhead when leasing connections from the connection pool.
+   * A non positive value disables validation of connections.
+   * @param validateAfterInactivity the validateAfterInactivity value
+   * @return the builder.
+   */
+  public CdpClientConfigurationBuilder withValidateAfterInactivity(
+      Duration validateAfterInactivity) {
+    checkNotNullAndThrow(validateAfterInactivity);
+    this.validateAfterInactivity = validateAfterInactivity;
+    return this;
+  }
+
+  /**
+   * Returns the amount of time that a connection can be idle in the connection
+   * pool before it must be validated to ensure it's still open. This "stale
+   * connection check" adds a small bit of overhead to validate the connection.
+   * Setting this value to larger values may increase the likelihood that the
+   * connection is not usable, potentially resulting in a
+   * {@link org.apache.http.NoHttpResponseException}. Lowering this setting
+   * increases the overhead when leasing connections from the connection pool.
+   * A non positive value disables validation of connections.
+   * @return the validate after inactivity duration
+   */
+  public Duration getValidateAfterInactivity() {
+    return this.validateAfterInactivity;
   }
 
   /**

@@ -25,13 +25,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.environments.model.CloudSubnet;
 import com.cloudera.cdp.environments.model.NetworkAwsParams;
+import com.cloudera.cdp.environments.model.NetworkAzureParams;
 import java.util.*;
 import java.util.Map;
 
 /**
  * The network.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.694-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-02-04T12:48:01.814-08:00")
 public class Network  {
 
   /**
@@ -48,6 +49,16 @@ public class Network  {
    * AWS network parameters.
    **/
   private NetworkAwsParams aws = null;
+
+  /**
+   * Azure network parameters.
+   **/
+  private NetworkAzureParams azure = null;
+
+  /**
+   * The range of private IPv4 addresses that resources will use under this network.
+   **/
+  private String networkCidr = null;
 
   /**
    * Additional subnet metadata of the network.
@@ -106,6 +117,40 @@ public class Network  {
   }
 
   /**
+   * Getter for azure.
+   * Azure network parameters.
+   **/
+  @JsonProperty("azure")
+  public NetworkAzureParams getAzure() {
+    return azure;
+  }
+
+  /**
+   * Setter for azure.
+   * Azure network parameters.
+   **/
+  public void setAzure(NetworkAzureParams azure) {
+    this.azure = azure;
+  }
+
+  /**
+   * Getter for networkCidr.
+   * The range of private IPv4 addresses that resources will use under this network.
+   **/
+  @JsonProperty("networkCidr")
+  public String getNetworkCidr() {
+    return networkCidr;
+  }
+
+  /**
+   * Setter for networkCidr.
+   * The range of private IPv4 addresses that resources will use under this network.
+   **/
+  public void setNetworkCidr(String networkCidr) {
+    this.networkCidr = networkCidr;
+  }
+
+  /**
    * Getter for subnetMetadata.
    * Additional subnet metadata of the network.
    **/
@@ -140,6 +185,12 @@ public class Network  {
     if (!Objects.equals(this.aws, network.aws)) {
       return false;
     }
+    if (!Objects.equals(this.azure, network.azure)) {
+      return false;
+    }
+    if (!Objects.equals(this.networkCidr, network.networkCidr)) {
+      return false;
+    }
     if (!Objects.equals(this.subnetMetadata, network.subnetMetadata)) {
       return false;
     }
@@ -148,7 +199,7 @@ public class Network  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(networkName, subnetIds, aws, subnetMetadata);
+    return Objects.hash(networkName, subnetIds, aws, azure, networkCidr, subnetMetadata);
   }
 
   @Override
@@ -158,6 +209,8 @@ public class Network  {
     sb.append("    networkName: ").append(toIndentedString(networkName)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
     sb.append("    aws: ").append(toIndentedString(aws)).append("\n");
+    sb.append("    azure: ").append(toIndentedString(azure)).append("\n");
+    sb.append("    networkCidr: ").append(toIndentedString(networkCidr)).append("\n");
     sb.append("    subnetMetadata: ").append(toIndentedString(subnetMetadata)).append("\n");
     sb.append("}");
     return sb.toString();

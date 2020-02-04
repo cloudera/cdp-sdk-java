@@ -23,43 +23,27 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.ml.model.HealthInfo;
+import com.cloudera.cdp.ml.model.Tag;
+import com.cloudera.cdp.ml.model.WorkspaceInstanceGroup;
 import java.time.ZonedDateTime;
+import java.util.*;
 
 /**
  * A ML workspace, which includes the cluster and storage.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.417-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-02-04T12:48:01.506-08:00")
 public class Workspace  {
-
-  /**
-   * Creation date of workspace.
-   **/
-  private ZonedDateTime creationDate = null;
-
-  /**
-   * The CRN of the creator of the workspace.
-   **/
-  private String creatorCrn = null;
-
-  /**
-   * The CRN of the workspace.
-   **/
-  private String crn = null;
-
-  /**
-   * CRN of the environment.
-   **/
-  private String environmentCrn = null;
-
-  /**
-   * The name of the workspace's environment.
-   **/
-  private String environmentName = null;
 
   /**
    * The name of the workspace.
    **/
   private String instanceName = null;
+
+  /**
+   * The name of the workspace's environment.
+   **/
+  private String environmentName = null;
 
   /**
    * The workspace's current status.
@@ -72,81 +56,100 @@ public class Workspace  {
   private String instanceUrl = null;
 
   /**
+   * CRN of the environment.
+   **/
+  private String environmentCrn = null;
+
+  /**
+   * The CRN of the workspace.
+   **/
+  private String crn = null;
+
+  /**
    * The Kubernetes cluster name.
    **/
   private String k8sClusterName = null;
 
   /**
-   * The version of Clouder Machine Learning that was installed on the workspace.
+   * The CRN of the creator of the workspace.
+   **/
+  private String creatorCrn = null;
+
+  /**
+   * The version of Cloudera Machine Learning that was installed on the workspace.
    **/
   private String version = null;
 
   /**
-   * Getter for creationDate.
+   * To Display if Https is enabled or not.
+   **/
+  private Boolean httpsEnabled = null;
+
+  /**
+   * To check if the cluster is publicly accessible or not.
+   **/
+  private Boolean endpointPublicAccess = null;
+
+  /**
+   * filesystemID used by the workspace
+   **/
+  private String filesystemID = null;
+
+  /**
+   * Tags provided by the user at the time of workspace creation.
+   **/
+  private List<Tag> tags = new ArrayList<Tag>();
+
+  /**
+   * The instance groups.
+   **/
+  private List<WorkspaceInstanceGroup> instanceGroups = new ArrayList<WorkspaceInstanceGroup>();
+
+  /**
+   * The cloud platform of the environment that was used to create this workspace.
+   **/
+  private String cloudPlatform = null;
+
+  /**
+   * If usage monitoring is enabled or not on this workspace.
+   **/
+  private Boolean monitoringEnabled = null;
+
+  /**
+   * IP whitelist for loadBalancer.
+   **/
+  private List<String> loadBalancerIPWhitelists = new ArrayList<String>();
+
+  /**
    * Creation date of workspace.
    **/
-  @JsonProperty("creationDate")
-  public ZonedDateTime getCreationDate() {
-    return creationDate;
+  private ZonedDateTime creationDate = null;
+
+  /**
+   * The health info information of the workspace.
+   **/
+  private List<HealthInfo> healthInfoLists = new ArrayList<HealthInfo>();
+
+  /**
+   * Failure message from the most recent failure that has occurred during workspace provisioning.
+   **/
+  private String failureMessage = null;
+
+  /**
+   * Getter for instanceName.
+   * The name of the workspace.
+   **/
+  @JsonProperty("instanceName")
+  public String getInstanceName() {
+    return instanceName;
   }
 
   /**
-   * Setter for creationDate.
-   * Creation date of workspace.
+   * Setter for instanceName.
+   * The name of the workspace.
    **/
-  public void setCreationDate(ZonedDateTime creationDate) {
-    this.creationDate = creationDate;
-  }
-
-  /**
-   * Getter for creatorCrn.
-   * The CRN of the creator of the workspace.
-   **/
-  @JsonProperty("creatorCrn")
-  public String getCreatorCrn() {
-    return creatorCrn;
-  }
-
-  /**
-   * Setter for creatorCrn.
-   * The CRN of the creator of the workspace.
-   **/
-  public void setCreatorCrn(String creatorCrn) {
-    this.creatorCrn = creatorCrn;
-  }
-
-  /**
-   * Getter for crn.
-   * The CRN of the workspace.
-   **/
-  @JsonProperty("crn")
-  public String getCrn() {
-    return crn;
-  }
-
-  /**
-   * Setter for crn.
-   * The CRN of the workspace.
-   **/
-  public void setCrn(String crn) {
-    this.crn = crn;
-  }
-
-  /**
-   * Getter for environmentCrn.
-   * CRN of the environment.
-   **/
-  @JsonProperty("environmentCrn")
-  public String getEnvironmentCrn() {
-    return environmentCrn;
-  }
-
-  /**
-   * Setter for environmentCrn.
-   * CRN of the environment.
-   **/
-  public void setEnvironmentCrn(String environmentCrn) {
-    this.environmentCrn = environmentCrn;
+  public void setInstanceName(String instanceName) {
+    this.instanceName = instanceName;
   }
 
   /**
@@ -164,23 +167,6 @@ public class Workspace  {
    **/
   public void setEnvironmentName(String environmentName) {
     this.environmentName = environmentName;
-  }
-
-  /**
-   * Getter for instanceName.
-   * The name of the workspace.
-   **/
-  @JsonProperty("instanceName")
-  public String getInstanceName() {
-    return instanceName;
-  }
-
-  /**
-   * Setter for instanceName.
-   * The name of the workspace.
-   **/
-  public void setInstanceName(String instanceName) {
-    this.instanceName = instanceName;
   }
 
   /**
@@ -218,6 +204,40 @@ public class Workspace  {
   }
 
   /**
+   * Getter for environmentCrn.
+   * CRN of the environment.
+   **/
+  @JsonProperty("environmentCrn")
+  public String getEnvironmentCrn() {
+    return environmentCrn;
+  }
+
+  /**
+   * Setter for environmentCrn.
+   * CRN of the environment.
+   **/
+  public void setEnvironmentCrn(String environmentCrn) {
+    this.environmentCrn = environmentCrn;
+  }
+
+  /**
+   * Getter for crn.
+   * The CRN of the workspace.
+   **/
+  @JsonProperty("crn")
+  public String getCrn() {
+    return crn;
+  }
+
+  /**
+   * Setter for crn.
+   * The CRN of the workspace.
+   **/
+  public void setCrn(String crn) {
+    this.crn = crn;
+  }
+
+  /**
    * Getter for k8sClusterName.
    * The Kubernetes cluster name.
    **/
@@ -235,8 +255,25 @@ public class Workspace  {
   }
 
   /**
+   * Getter for creatorCrn.
+   * The CRN of the creator of the workspace.
+   **/
+  @JsonProperty("creatorCrn")
+  public String getCreatorCrn() {
+    return creatorCrn;
+  }
+
+  /**
+   * Setter for creatorCrn.
+   * The CRN of the creator of the workspace.
+   **/
+  public void setCreatorCrn(String creatorCrn) {
+    this.creatorCrn = creatorCrn;
+  }
+
+  /**
    * Getter for version.
-   * The version of Clouder Machine Learning that was installed on the workspace.
+   * The version of Cloudera Machine Learning that was installed on the workspace.
    **/
   @JsonProperty("version")
   public String getVersion() {
@@ -245,10 +282,197 @@ public class Workspace  {
 
   /**
    * Setter for version.
-   * The version of Clouder Machine Learning that was installed on the workspace.
+   * The version of Cloudera Machine Learning that was installed on the workspace.
    **/
   public void setVersion(String version) {
     this.version = version;
+  }
+
+  /**
+   * Getter for httpsEnabled.
+   * To Display if Https is enabled or not.
+   **/
+  @JsonProperty("httpsEnabled")
+  public Boolean getHttpsEnabled() {
+    return httpsEnabled;
+  }
+
+  /**
+   * Setter for httpsEnabled.
+   * To Display if Https is enabled or not.
+   **/
+  public void setHttpsEnabled(Boolean httpsEnabled) {
+    this.httpsEnabled = httpsEnabled;
+  }
+
+  /**
+   * Getter for endpointPublicAccess.
+   * To check if the cluster is publicly accessible or not.
+   **/
+  @JsonProperty("endpointPublicAccess")
+  public Boolean getEndpointPublicAccess() {
+    return endpointPublicAccess;
+  }
+
+  /**
+   * Setter for endpointPublicAccess.
+   * To check if the cluster is publicly accessible or not.
+   **/
+  public void setEndpointPublicAccess(Boolean endpointPublicAccess) {
+    this.endpointPublicAccess = endpointPublicAccess;
+  }
+
+  /**
+   * Getter for filesystemID.
+   * filesystemID used by the workspace
+   **/
+  @JsonProperty("filesystemID")
+  public String getFilesystemID() {
+    return filesystemID;
+  }
+
+  /**
+   * Setter for filesystemID.
+   * filesystemID used by the workspace
+   **/
+  public void setFilesystemID(String filesystemID) {
+    this.filesystemID = filesystemID;
+  }
+
+  /**
+   * Getter for tags.
+   * Tags provided by the user at the time of workspace creation.
+   **/
+  @JsonProperty("tags")
+  public List<Tag> getTags() {
+    return tags;
+  }
+
+  /**
+   * Setter for tags.
+   * Tags provided by the user at the time of workspace creation.
+   **/
+  public void setTags(List<Tag> tags) {
+    this.tags = tags;
+  }
+
+  /**
+   * Getter for instanceGroups.
+   * The instance groups.
+   **/
+  @JsonProperty("instanceGroups")
+  public List<WorkspaceInstanceGroup> getInstanceGroups() {
+    return instanceGroups;
+  }
+
+  /**
+   * Setter for instanceGroups.
+   * The instance groups.
+   **/
+  public void setInstanceGroups(List<WorkspaceInstanceGroup> instanceGroups) {
+    this.instanceGroups = instanceGroups;
+  }
+
+  /**
+   * Getter for cloudPlatform.
+   * The cloud platform of the environment that was used to create this workspace.
+   **/
+  @JsonProperty("cloudPlatform")
+  public String getCloudPlatform() {
+    return cloudPlatform;
+  }
+
+  /**
+   * Setter for cloudPlatform.
+   * The cloud platform of the environment that was used to create this workspace.
+   **/
+  public void setCloudPlatform(String cloudPlatform) {
+    this.cloudPlatform = cloudPlatform;
+  }
+
+  /**
+   * Getter for monitoringEnabled.
+   * If usage monitoring is enabled or not on this workspace.
+   **/
+  @JsonProperty("monitoringEnabled")
+  public Boolean getMonitoringEnabled() {
+    return monitoringEnabled;
+  }
+
+  /**
+   * Setter for monitoringEnabled.
+   * If usage monitoring is enabled or not on this workspace.
+   **/
+  public void setMonitoringEnabled(Boolean monitoringEnabled) {
+    this.monitoringEnabled = monitoringEnabled;
+  }
+
+  /**
+   * Getter for loadBalancerIPWhitelists.
+   * IP whitelist for loadBalancer.
+   **/
+  @JsonProperty("loadBalancerIPWhitelists")
+  public List<String> getLoadBalancerIPWhitelists() {
+    return loadBalancerIPWhitelists;
+  }
+
+  /**
+   * Setter for loadBalancerIPWhitelists.
+   * IP whitelist for loadBalancer.
+   **/
+  public void setLoadBalancerIPWhitelists(List<String> loadBalancerIPWhitelists) {
+    this.loadBalancerIPWhitelists = loadBalancerIPWhitelists;
+  }
+
+  /**
+   * Getter for creationDate.
+   * Creation date of workspace.
+   **/
+  @JsonProperty("creationDate")
+  public ZonedDateTime getCreationDate() {
+    return creationDate;
+  }
+
+  /**
+   * Setter for creationDate.
+   * Creation date of workspace.
+   **/
+  public void setCreationDate(ZonedDateTime creationDate) {
+    this.creationDate = creationDate;
+  }
+
+  /**
+   * Getter for healthInfoLists.
+   * The health info information of the workspace.
+   **/
+  @JsonProperty("healthInfoLists")
+  public List<HealthInfo> getHealthInfoLists() {
+    return healthInfoLists;
+  }
+
+  /**
+   * Setter for healthInfoLists.
+   * The health info information of the workspace.
+   **/
+  public void setHealthInfoLists(List<HealthInfo> healthInfoLists) {
+    this.healthInfoLists = healthInfoLists;
+  }
+
+  /**
+   * Getter for failureMessage.
+   * Failure message from the most recent failure that has occurred during workspace provisioning.
+   **/
+  @JsonProperty("failureMessage")
+  public String getFailureMessage() {
+    return failureMessage;
+  }
+
+  /**
+   * Setter for failureMessage.
+   * Failure message from the most recent failure that has occurred during workspace provisioning.
+   **/
+  public void setFailureMessage(String failureMessage) {
+    this.failureMessage = failureMessage;
   }
 
   @Override
@@ -260,22 +484,10 @@ public class Workspace  {
       return false;
     }
     Workspace workspace = (Workspace) o;
-    if (!Objects.equals(this.creationDate, workspace.creationDate)) {
-      return false;
-    }
-    if (!Objects.equals(this.creatorCrn, workspace.creatorCrn)) {
-      return false;
-    }
-    if (!Objects.equals(this.crn, workspace.crn)) {
-      return false;
-    }
-    if (!Objects.equals(this.environmentCrn, workspace.environmentCrn)) {
+    if (!Objects.equals(this.instanceName, workspace.instanceName)) {
       return false;
     }
     if (!Objects.equals(this.environmentName, workspace.environmentName)) {
-      return false;
-    }
-    if (!Objects.equals(this.instanceName, workspace.instanceName)) {
       return false;
     }
     if (!Objects.equals(this.instanceStatus, workspace.instanceStatus)) {
@@ -284,10 +496,52 @@ public class Workspace  {
     if (!Objects.equals(this.instanceUrl, workspace.instanceUrl)) {
       return false;
     }
+    if (!Objects.equals(this.environmentCrn, workspace.environmentCrn)) {
+      return false;
+    }
+    if (!Objects.equals(this.crn, workspace.crn)) {
+      return false;
+    }
     if (!Objects.equals(this.k8sClusterName, workspace.k8sClusterName)) {
       return false;
     }
+    if (!Objects.equals(this.creatorCrn, workspace.creatorCrn)) {
+      return false;
+    }
     if (!Objects.equals(this.version, workspace.version)) {
+      return false;
+    }
+    if (!Objects.equals(this.httpsEnabled, workspace.httpsEnabled)) {
+      return false;
+    }
+    if (!Objects.equals(this.endpointPublicAccess, workspace.endpointPublicAccess)) {
+      return false;
+    }
+    if (!Objects.equals(this.filesystemID, workspace.filesystemID)) {
+      return false;
+    }
+    if (!Objects.equals(this.tags, workspace.tags)) {
+      return false;
+    }
+    if (!Objects.equals(this.instanceGroups, workspace.instanceGroups)) {
+      return false;
+    }
+    if (!Objects.equals(this.cloudPlatform, workspace.cloudPlatform)) {
+      return false;
+    }
+    if (!Objects.equals(this.monitoringEnabled, workspace.monitoringEnabled)) {
+      return false;
+    }
+    if (!Objects.equals(this.loadBalancerIPWhitelists, workspace.loadBalancerIPWhitelists)) {
+      return false;
+    }
+    if (!Objects.equals(this.creationDate, workspace.creationDate)) {
+      return false;
+    }
+    if (!Objects.equals(this.healthInfoLists, workspace.healthInfoLists)) {
+      return false;
+    }
+    if (!Objects.equals(this.failureMessage, workspace.failureMessage)) {
       return false;
     }
     return true;
@@ -295,23 +549,33 @@ public class Workspace  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(creationDate, creatorCrn, crn, environmentCrn, environmentName, instanceName, instanceStatus, instanceUrl, k8sClusterName, version);
+    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, endpointPublicAccess, filesystemID, tags, instanceGroups, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, healthInfoLists, failureMessage);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Workspace {\n");
-    sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
-    sb.append("    creatorCrn: ").append(toIndentedString(creatorCrn)).append("\n");
-    sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
-    sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
-    sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    instanceName: ").append(toIndentedString(instanceName)).append("\n");
+    sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
     sb.append("    instanceUrl: ").append(toIndentedString(instanceUrl)).append("\n");
+    sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
+    sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
     sb.append("    k8sClusterName: ").append(toIndentedString(k8sClusterName)).append("\n");
+    sb.append("    creatorCrn: ").append(toIndentedString(creatorCrn)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    httpsEnabled: ").append(toIndentedString(httpsEnabled)).append("\n");
+    sb.append("    endpointPublicAccess: ").append(toIndentedString(endpointPublicAccess)).append("\n");
+    sb.append("    filesystemID: ").append(toIndentedString(filesystemID)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    instanceGroups: ").append(toIndentedString(instanceGroups)).append("\n");
+    sb.append("    cloudPlatform: ").append(toIndentedString(cloudPlatform)).append("\n");
+    sb.append("    monitoringEnabled: ").append(toIndentedString(monitoringEnabled)).append("\n");
+    sb.append("    loadBalancerIPWhitelists: ").append(toIndentedString(loadBalancerIPWhitelists)).append("\n");
+    sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
+    sb.append("    healthInfoLists: ").append(toIndentedString(healthInfoLists)).append("\n");
+    sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -33,11 +33,13 @@ import com.cloudera.cdp.http.RetryHandler;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.annotations.VisibleForTesting;
+import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Iterables;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.time.Duration;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -45,44 +47,77 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Properties;
 
 import javax.ws.rs.ProcessingException;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.GenericType;
+import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.MultivaluedHashMap;
+import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Abstract base class for all API client classes. This should not be
  * referenced directly.
+ *
+ * All subclasses of this class are intended to be generated code and are safe
+ * to share across threads. Each CdpClient instance has a dedicated HTTP
+ * connection pool used to back its requests. The properties of that pool are
+ * configured per-CdpClient using the CdpClientConfiguration passed at
+ * creation time.
  */
 @SdkInternalApi
 public abstract class CdpClient {
 
-  private static final ObjectMapper MAPPER = new ObjectMapper();
+  private static final Logger LOG =
+      LoggerFactory.getLogger(CdpClient.class);
 
   private static class MapReference extends TypeReference<Map<String, String>> {
+  }
+
+  private static final ObjectMapper MAPPER = new ObjectMapper();
+  private static final ClientFactory CLIENT_FACTORY = new ClientFactory();
+  private static final String VERSION_PROPERTIES_FILE = "version.properties";
+  private static final Properties VERSION_PROPERTIES = loadVersionProperties();
+
+  private static Properties loadVersionProperties() {
+    Properties props = new Properties();
+    try (InputStream stream =
+             CdpClient.class.getResourceAsStream(VERSION_PROPERTIES_FILE)) {
+      props.load(stream);
+    } catch (IOException | RuntimeException e) {
+      props.put("version", "Unknown");
+      LOG.warn("Failed to read CDP SDK Version.", e);
+    }
+    return props;
   }
 
   private final CdpCredentials credentials;
   private final String endPoint;
   private final RetryHandler retryHandler;
-  private final ClientConnectionWrapper clientConnectionWrapper;
+  private final CdpClientConfiguration config;
+  private final Client client;
 
   /**
    * Constructor.
    * @param credentials the CDP credentials
    * @param endpoint the CDP service endpoint
-   * @param clientConfiguration the client configuration
+   * @param config the client configuration
    */
   protected CdpClient(CdpCredentials credentials,
                       String endpoint,
-                      CdpClientConfiguration clientConfiguration) {
-    checkNotNullAndThrow(clientConfiguration);
-    checkNotNullAndThrow(clientConfiguration.getRetryHandler());
+                      CdpClientConfiguration config) {
+    this.config = checkNotNullAndThrow(config);
+    this.retryHandler = checkNotNullAndThrow(config.getRetryHandler());
     this.credentials = checkNotNullAndThrow(credentials);
     this.endPoint = checkNotNullAndThrow(endpoint);
-    this.retryHandler = clientConfiguration.getRetryHandler();
-    this.clientConnectionWrapper = new ClientConnectionWrapper(clientConfiguration);
+    this.client = CLIENT_FACTORY.create(config);
   }
 
   /**
@@ -122,15 +157,11 @@ public abstract class CdpClient {
     } while (true);
   }
 
-  /**
-   * Builds the authentication header and then calls the doPost method on the ClientConnectionWrapper.
-   * @param path - the path on the URI of the request
-   * @param requestBody - the request object containing the full request (e.g. ListClusterRequest).
-   * @return response The Response object received from the CDP server
-   */
   @VisibleForTesting
-  protected Response getAPIResponse(String path, Object requestBody)
-      throws CdpServiceException {
+  protected MultivaluedMap<String, Object> computeHeaders(String path) {
+    MultivaluedMap<String, Object> headers =
+        new MultivaluedHashMap<String, Object>();
+
     String date = ZonedDateTime.now(ZoneId.of("GMT")).format(
         DateTimeFormatter.RFC_1123_DATE_TIME);
 
@@ -142,7 +173,25 @@ public abstract class CdpClient {
         credentials.getAccessKeyId(),
         credentials.getPrivateKey());
 
-    return clientConnectionWrapper.doPost(endPoint, path, auth, date, requestBody);
+    headers.putSingle("x-altus-date", date);
+    headers.putSingle("x-altus-auth", auth);
+    headers.putSingle(HttpHeaders.USER_AGENT, buildUserAgent());
+    headers.putSingle("content-type", MediaType.APPLICATION_JSON);
+    String altusClientApp = config.getClientApplicationName();
+    if (!Strings.isNullOrEmpty(altusClientApp)) {
+      headers.putSingle("x-altus-client-app", altusClientApp);
+    }
+
+    return headers;
+  }
+
+  @VisibleForTesting
+  protected Response getAPIResponse(String path, Object requestBody) {
+    return client.target(endPoint + path).request()
+        .accept(MediaType.APPLICATION_JSON)
+        .headers(computeHeaders(path))
+        .post(Entity.entity(requestBody,
+                            MediaType.APPLICATION_JSON));
   }
 
   private <T extends CdpResponse> T parse(
@@ -214,12 +263,21 @@ public abstract class CdpClient {
    * can if they want to explicitly release any open resources.
    */
   public void shutdown() {
-    if (clientConnectionWrapper != null) {
+    if (client != null) {
       try {
-        clientConnectionWrapper.close();
+        client.close();
       } catch (Exception e) {
         throw new CdpClientException("Error closing client", e);
       }
     }
+  }
+
+  @VisibleForTesting
+  String buildUserAgent() {
+    return String.format("CDPSDK/%s Java/%s %s/%s",
+                         VERSION_PROPERTIES.get("version"),
+                         System.getProperty("java.version"),
+                         System.getProperty("os.name"),
+                         System.getProperty("os.version"));
   }
 }

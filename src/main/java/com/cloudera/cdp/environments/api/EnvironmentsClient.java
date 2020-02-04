@@ -30,6 +30,10 @@ import com.cloudera.cdp.environments.model.CreateAWSCredentialRequest;
 import com.cloudera.cdp.environments.model.CreateAWSCredentialResponse;
 import com.cloudera.cdp.environments.model.CreateAWSEnvironmentRequest;
 import com.cloudera.cdp.environments.model.CreateAWSEnvironmentResponse;
+import com.cloudera.cdp.environments.model.CreateAzureCredentialRequest;
+import com.cloudera.cdp.environments.model.CreateAzureCredentialResponse;
+import com.cloudera.cdp.environments.model.CreateAzureEnvironmentRequest;
+import com.cloudera.cdp.environments.model.CreateAzureEnvironmentResponse;
 import com.cloudera.cdp.environments.model.DeleteCredentialRequest;
 import com.cloudera.cdp.environments.model.DeleteCredentialResponse;
 import com.cloudera.cdp.environments.model.DeleteEnvironmentRequest;
@@ -60,7 +64,7 @@ import com.cloudera.cdp.environments.model.SyncStatusResponse;
 import com.cloudera.cdp.environments.model.SyncUserRequest;
 import com.cloudera.cdp.environments.model.SyncUserResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.694-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-02-04T12:48:01.814-08:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";
@@ -106,6 +110,30 @@ public class EnvironmentsClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling createAWSEnvironment");
      }
     return this.invokeAPI("/api/v1/environments2/createAWSEnvironment", input, new GenericType<CreateAWSEnvironmentResponse>(){});
+  }
+
+  /**
+   * Creates a new Azure credential that can be attatched to an environment. The credential is used for authorization to provision resources such as compute instances within your cloud provider account.
+   * @param input
+   * @return CreateAzureCredentialResponse
+   */
+  public CreateAzureCredentialResponse createAzureCredential(CreateAzureCredentialRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling createAzureCredential");
+     }
+    return this.invokeAPI("/api/v1/environments2/createAzureCredential", input, new GenericType<CreateAzureCredentialResponse>(){});
+  }
+
+  /**
+   * Creates a new Azure environment by providing the cloud provider access and network information. A FreeIPA server will be automatically provisioned when an environment is created.
+   * @param input
+   * @return CreateAzureEnvironmentResponse
+   */
+  public CreateAzureEnvironmentResponse createAzureEnvironment(CreateAzureEnvironmentRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling createAzureEnvironment");
+     }
+    return this.invokeAPI("/api/v1/environments2/createAzureEnvironment", input, new GenericType<CreateAzureEnvironmentResponse>(){});
   }
 
   /**

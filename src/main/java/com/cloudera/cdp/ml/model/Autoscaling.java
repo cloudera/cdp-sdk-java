@@ -27,18 +27,8 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Configuration for instance auto scaling.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.417-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-02-04T12:48:01.506-08:00")
 public class Autoscaling  {
-
-  /**
-   * The boolean flag to enable the auto scaling.
-   **/
-  private Boolean enabled = null;
-
-  /**
-   * The maximum number of instance for auto scaling.
-   **/
-  private Integer maxInstances = null;
 
   /**
    * The minimum number of instance for auto scaling.
@@ -46,20 +36,30 @@ public class Autoscaling  {
   private Integer minInstances = null;
 
   /**
-   * Getter for enabled.
+   * The maximum number of instance for auto scaling.
+   **/
+  private Integer maxInstances = null;
+
+  /**
    * The boolean flag to enable the auto scaling.
    **/
-  @JsonProperty("enabled")
-  public Boolean getEnabled() {
-    return enabled;
+  private Boolean enabled = null;
+
+  /**
+   * Getter for minInstances.
+   * The minimum number of instance for auto scaling.
+   **/
+  @JsonProperty("minInstances")
+  public Integer getMinInstances() {
+    return minInstances;
   }
 
   /**
-   * Setter for enabled.
-   * The boolean flag to enable the auto scaling.
+   * Setter for minInstances.
+   * The minimum number of instance for auto scaling.
    **/
-  public void setEnabled(Boolean enabled) {
-    this.enabled = enabled;
+  public void setMinInstances(Integer minInstances) {
+    this.minInstances = minInstances;
   }
 
   /**
@@ -80,20 +80,20 @@ public class Autoscaling  {
   }
 
   /**
-   * Getter for minInstances.
-   * The minimum number of instance for auto scaling.
+   * Getter for enabled.
+   * The boolean flag to enable the auto scaling.
    **/
-  @JsonProperty("minInstances")
-  public Integer getMinInstances() {
-    return minInstances;
+  @JsonProperty("enabled")
+  public Boolean getEnabled() {
+    return enabled;
   }
 
   /**
-   * Setter for minInstances.
-   * The minimum number of instance for auto scaling.
+   * Setter for enabled.
+   * The boolean flag to enable the auto scaling.
    **/
-  public void setMinInstances(Integer minInstances) {
-    this.minInstances = minInstances;
+  public void setEnabled(Boolean enabled) {
+    this.enabled = enabled;
   }
 
   @Override
@@ -105,13 +105,13 @@ public class Autoscaling  {
       return false;
     }
     Autoscaling autoscaling = (Autoscaling) o;
-    if (!Objects.equals(this.enabled, autoscaling.enabled)) {
+    if (!Objects.equals(this.minInstances, autoscaling.minInstances)) {
       return false;
     }
     if (!Objects.equals(this.maxInstances, autoscaling.maxInstances)) {
       return false;
     }
-    if (!Objects.equals(this.minInstances, autoscaling.minInstances)) {
+    if (!Objects.equals(this.enabled, autoscaling.enabled)) {
       return false;
     }
     return true;
@@ -119,16 +119,16 @@ public class Autoscaling  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enabled, maxInstances, minInstances);
+    return Objects.hash(minInstances, maxInstances, enabled);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Autoscaling {\n");
-    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-    sb.append("    maxInstances: ").append(toIndentedString(maxInstances)).append("\n");
     sb.append("    minInstances: ").append(toIndentedString(minInstances)).append("\n");
+    sb.append("    maxInstances: ").append(toIndentedString(maxInstances)).append("\n");
+    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }

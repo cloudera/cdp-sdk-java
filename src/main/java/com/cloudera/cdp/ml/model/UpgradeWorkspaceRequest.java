@@ -27,18 +27,13 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the UpgradeWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.417-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-02-04T12:48:01.506-08:00")
 public class UpgradeWorkspaceRequest  {
 
   /**
-   * The environment the workspace.
+   * The environment of the workspace.
    **/
   private String environmentName = null;
-
-  /**
-   * The version of workspace to upgrade to.
-   **/
-  private String mlVersion = null;
 
   /**
    * The name of the workspace.
@@ -46,8 +41,18 @@ public class UpgradeWorkspaceRequest  {
   private String workspaceName = null;
 
   /**
+   * The version of workspace to upgrade to.
+   **/
+  private String mlVersion = null;
+
+  /**
+   * The CRN of the workspace. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.
+   **/
+  private String workspaceCrn = null;
+
+  /**
    * Getter for environmentName.
-   * The environment the workspace.
+   * The environment of the workspace.
    **/
   @JsonProperty("environmentName")
   public String getEnvironmentName() {
@@ -56,10 +61,27 @@ public class UpgradeWorkspaceRequest  {
 
   /**
    * Setter for environmentName.
-   * The environment the workspace.
+   * The environment of the workspace.
    **/
   public void setEnvironmentName(String environmentName) {
     this.environmentName = environmentName;
+  }
+
+  /**
+   * Getter for workspaceName.
+   * The name of the workspace.
+   **/
+  @JsonProperty("workspaceName")
+  public String getWorkspaceName() {
+    return workspaceName;
+  }
+
+  /**
+   * Setter for workspaceName.
+   * The name of the workspace.
+   **/
+  public void setWorkspaceName(String workspaceName) {
+    this.workspaceName = workspaceName;
   }
 
   /**
@@ -80,20 +102,20 @@ public class UpgradeWorkspaceRequest  {
   }
 
   /**
-   * Getter for workspaceName.
-   * The name of the workspace.
+   * Getter for workspaceCrn.
+   * The CRN of the workspace. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.
    **/
-  @JsonProperty("workspaceName")
-  public String getWorkspaceName() {
-    return workspaceName;
+  @JsonProperty("workspaceCrn")
+  public String getWorkspaceCrn() {
+    return workspaceCrn;
   }
 
   /**
-   * Setter for workspaceName.
-   * The name of the workspace.
+   * Setter for workspaceCrn.
+   * The CRN of the workspace. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.
    **/
-  public void setWorkspaceName(String workspaceName) {
-    this.workspaceName = workspaceName;
+  public void setWorkspaceCrn(String workspaceCrn) {
+    this.workspaceCrn = workspaceCrn;
   }
 
   @Override
@@ -108,10 +130,13 @@ public class UpgradeWorkspaceRequest  {
     if (!Objects.equals(this.environmentName, upgradeWorkspaceRequest.environmentName)) {
       return false;
     }
+    if (!Objects.equals(this.workspaceName, upgradeWorkspaceRequest.workspaceName)) {
+      return false;
+    }
     if (!Objects.equals(this.mlVersion, upgradeWorkspaceRequest.mlVersion)) {
       return false;
     }
-    if (!Objects.equals(this.workspaceName, upgradeWorkspaceRequest.workspaceName)) {
+    if (!Objects.equals(this.workspaceCrn, upgradeWorkspaceRequest.workspaceCrn)) {
       return false;
     }
     return true;
@@ -119,7 +144,7 @@ public class UpgradeWorkspaceRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, mlVersion, workspaceName);
+    return Objects.hash(environmentName, workspaceName, mlVersion, workspaceCrn);
   }
 
   @Override
@@ -127,8 +152,9 @@ public class UpgradeWorkspaceRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpgradeWorkspaceRequest {\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
-    sb.append("    mlVersion: ").append(toIndentedString(mlVersion)).append("\n");
     sb.append("    workspaceName: ").append(toIndentedString(workspaceName)).append("\n");
+    sb.append("    mlVersion: ").append(toIndentedString(mlVersion)).append("\n");
+    sb.append("    workspaceCrn: ").append(toIndentedString(workspaceCrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -28,7 +28,7 @@ import com.cloudera.cdp.ml.model.Workspace;
 /**
  * Response object for the DescribeWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2019-09-19T14:17:02.417-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-02-04T12:48:01.506-08:00")
 public class DescribeWorkspaceResponse extends CdpResponse {
 
   /**
