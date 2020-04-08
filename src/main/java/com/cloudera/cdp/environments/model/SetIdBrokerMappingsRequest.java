@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object for setting ID Broker mappings for an environment. Overwrites all existing mappings.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-02-04T12:48:01.814-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-04-07T22:32:18.974-07:00")
 public class SetIdBrokerMappingsRequest  {
 
   /**
@@ -43,7 +43,12 @@ public class SetIdBrokerMappingsRequest  {
   private String dataAccessRole = null;
 
   /**
-   * The cloud provider role associated with the baseline instance identity (e.g., an ARN in AWS, a Resource ID in Azure). Non-data access services that write to cloud storage will be mapped to this role.
+   * The cloud provider role to which services that write to Ranger audit logs will be mapped (e.g. an ARN in AWS, a Resource ID in Azure). Note that some data access services also write to Ranger audit logs; such services will be mapped to the dataAccessRole, not the rangerAuditRole. ``THIS PARAMETER IS REQUIRED.``
+   **/
+  private String rangerAuditRole = null;
+
+  /**
+   * Deprecated. Please use rangerAuditRole instead.
    **/
   private String baselineRole = null;
 
@@ -92,9 +97,27 @@ public class SetIdBrokerMappingsRequest  {
   }
 
   /**
-   * Getter for baselineRole.
-   * The cloud provider role associated with the baseline instance identity (e.g., an ARN in AWS, a Resource ID in Azure). Non-data access services that write to cloud storage will be mapped to this role.
+   * Getter for rangerAuditRole.
+   * The cloud provider role to which services that write to Ranger audit logs will be mapped (e.g. an ARN in AWS, a Resource ID in Azure). Note that some data access services also write to Ranger audit logs; such services will be mapped to the dataAccessRole, not the rangerAuditRole. &#x60;&#x60;THIS PARAMETER IS REQUIRED.&#x60;&#x60;
    **/
+  @JsonProperty("rangerAuditRole")
+  public String getRangerAuditRole() {
+    return rangerAuditRole;
+  }
+
+  /**
+   * Setter for rangerAuditRole.
+   * The cloud provider role to which services that write to Ranger audit logs will be mapped (e.g. an ARN in AWS, a Resource ID in Azure). Note that some data access services also write to Ranger audit logs; such services will be mapped to the dataAccessRole, not the rangerAuditRole. &#x60;&#x60;THIS PARAMETER IS REQUIRED.&#x60;&#x60;
+   **/
+  public void setRangerAuditRole(String rangerAuditRole) {
+    this.rangerAuditRole = rangerAuditRole;
+  }
+
+  /**
+   * Getter for baselineRole.
+   * Deprecated. Please use rangerAuditRole instead.
+   **/
+  @Deprecated
   @JsonProperty("baselineRole")
   public String getBaselineRole() {
     return baselineRole;
@@ -102,8 +125,9 @@ public class SetIdBrokerMappingsRequest  {
 
   /**
    * Setter for baselineRole.
-   * The cloud provider role associated with the baseline instance identity (e.g., an ARN in AWS, a Resource ID in Azure). Non-data access services that write to cloud storage will be mapped to this role.
+   * Deprecated. Please use rangerAuditRole instead.
    **/
+  @Deprecated
   public void setBaselineRole(String baselineRole) {
     this.baselineRole = baselineRole;
   }
@@ -157,6 +181,9 @@ public class SetIdBrokerMappingsRequest  {
     if (!Objects.equals(this.dataAccessRole, setIdBrokerMappingsRequest.dataAccessRole)) {
       return false;
     }
+    if (!Objects.equals(this.rangerAuditRole, setIdBrokerMappingsRequest.rangerAuditRole)) {
+      return false;
+    }
     if (!Objects.equals(this.baselineRole, setIdBrokerMappingsRequest.baselineRole)) {
       return false;
     }
@@ -171,7 +198,7 @@ public class SetIdBrokerMappingsRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, dataAccessRole, baselineRole, mappings, setEmptyMappings);
+    return Objects.hash(environmentName, dataAccessRole, rangerAuditRole, baselineRole, mappings, setEmptyMappings);
   }
 
   @Override
@@ -180,6 +207,7 @@ public class SetIdBrokerMappingsRequest  {
     sb.append("class SetIdBrokerMappingsRequest {\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    dataAccessRole: ").append(toIndentedString(dataAccessRole)).append("\n");
+    sb.append("    rangerAuditRole: ").append(toIndentedString(rangerAuditRole)).append("\n");
     sb.append("    baselineRole: ").append(toIndentedString(baselineRole)).append("\n");
     sb.append("    mappings: ").append(toIndentedString(mappings)).append("\n");
     sb.append("    setEmptyMappings: ").append(toIndentedString(setEmptyMappings)).append("\n");

@@ -27,11 +27,11 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the GrantWorkspaceAccess method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-02-04T12:48:01.506-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-04-07T22:32:18.631-07:00")
 public class GrantWorkspaceAccessRequest  {
 
   /**
-   * The aws user ARN to grant access to the corresponding EKS cluster.
+   * The aws user ARN to grant access to the corresponding EKS cluster. (Deprecated: Use identifier instead).
    **/
   private String arn = null;
 
@@ -51,9 +51,15 @@ public class GrantWorkspaceAccessRequest  {
   private String workspaceCrn = null;
 
   /**
-   * Getter for arn.
-   * The aws user ARN to grant access to the corresponding EKS cluster.
+   * The cloud provider user id which will be granted access to the workspace's kubernetes cluster.
    **/
+  private String identifier = null;
+
+  /**
+   * Getter for arn.
+   * The aws user ARN to grant access to the corresponding EKS cluster. (Deprecated: Use identifier instead).
+   **/
+  @Deprecated
   @JsonProperty("arn")
   public String getArn() {
     return arn;
@@ -61,8 +67,9 @@ public class GrantWorkspaceAccessRequest  {
 
   /**
    * Setter for arn.
-   * The aws user ARN to grant access to the corresponding EKS cluster.
+   * The aws user ARN to grant access to the corresponding EKS cluster. (Deprecated: Use identifier instead).
    **/
+  @Deprecated
   public void setArn(String arn) {
     this.arn = arn;
   }
@@ -118,6 +125,23 @@ public class GrantWorkspaceAccessRequest  {
     this.workspaceCrn = workspaceCrn;
   }
 
+  /**
+   * Getter for identifier.
+   * The cloud provider user id which will be granted access to the workspace&#39;s kubernetes cluster.
+   **/
+  @JsonProperty("identifier")
+  public String getIdentifier() {
+    return identifier;
+  }
+
+  /**
+   * Setter for identifier.
+   * The cloud provider user id which will be granted access to the workspace&#39;s kubernetes cluster.
+   **/
+  public void setIdentifier(String identifier) {
+    this.identifier = identifier;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -139,12 +163,15 @@ public class GrantWorkspaceAccessRequest  {
     if (!Objects.equals(this.workspaceCrn, grantWorkspaceAccessRequest.workspaceCrn)) {
       return false;
     }
+    if (!Objects.equals(this.identifier, grantWorkspaceAccessRequest.identifier)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(arn, environmentName, workspaceName, workspaceCrn);
+    return Objects.hash(arn, environmentName, workspaceName, workspaceCrn, identifier);
   }
 
   @Override
@@ -155,6 +182,7 @@ public class GrantWorkspaceAccessRequest  {
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    workspaceName: ").append(toIndentedString(workspaceName)).append("\n");
     sb.append("    workspaceCrn: ").append(toIndentedString(workspaceCrn)).append("\n");
+    sb.append("    identifier: ").append(toIndentedString(identifier)).append("\n");
     sb.append("}");
     return sb.toString();
   }

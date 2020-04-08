@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for setting ID Broker mappings for an environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-02-04T12:48:01.814-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-04-07T22:32:18.974-07:00")
 public class SetIdBrokerMappingsResponse extends CdpResponse {
 
   /**
@@ -43,7 +43,12 @@ public class SetIdBrokerMappingsResponse extends CdpResponse {
   private String dataAccessRole = null;
 
   /**
-   * The cloud provider role associated with the baseline instance identity (e.g., an ARN in AWS, a Resource ID in Azure). Non-data access services that write to cloud storage will be mapped to this role.
+   * The cloud provider role to which services that write to Ranger audit logs will be mapped (e.g. an ARN in AWS, a Resource ID in Azure). Note that some data access services also write to Ranger audit logs; such services will be mapped to the dataAccessRole, not the rangerAuditRole.
+   **/
+  private String rangerAuditRole = null;
+
+  /**
+   * Deprecated. Please use rangerAuditRole instead.
    **/
   private String baselineRole = null;
 
@@ -87,9 +92,27 @@ public class SetIdBrokerMappingsResponse extends CdpResponse {
   }
 
   /**
-   * Getter for baselineRole.
-   * The cloud provider role associated with the baseline instance identity (e.g., an ARN in AWS, a Resource ID in Azure). Non-data access services that write to cloud storage will be mapped to this role.
+   * Getter for rangerAuditRole.
+   * The cloud provider role to which services that write to Ranger audit logs will be mapped (e.g. an ARN in AWS, a Resource ID in Azure). Note that some data access services also write to Ranger audit logs; such services will be mapped to the dataAccessRole, not the rangerAuditRole.
    **/
+  @JsonProperty("rangerAuditRole")
+  public String getRangerAuditRole() {
+    return rangerAuditRole;
+  }
+
+  /**
+   * Setter for rangerAuditRole.
+   * The cloud provider role to which services that write to Ranger audit logs will be mapped (e.g. an ARN in AWS, a Resource ID in Azure). Note that some data access services also write to Ranger audit logs; such services will be mapped to the dataAccessRole, not the rangerAuditRole.
+   **/
+  public void setRangerAuditRole(String rangerAuditRole) {
+    this.rangerAuditRole = rangerAuditRole;
+  }
+
+  /**
+   * Getter for baselineRole.
+   * Deprecated. Please use rangerAuditRole instead.
+   **/
+  @Deprecated
   @JsonProperty("baselineRole")
   public String getBaselineRole() {
     return baselineRole;
@@ -97,8 +120,9 @@ public class SetIdBrokerMappingsResponse extends CdpResponse {
 
   /**
    * Setter for baselineRole.
-   * The cloud provider role associated with the baseline instance identity (e.g., an ARN in AWS, a Resource ID in Azure). Non-data access services that write to cloud storage will be mapped to this role.
+   * Deprecated. Please use rangerAuditRole instead.
    **/
+  @Deprecated
   public void setBaselineRole(String baselineRole) {
     this.baselineRole = baselineRole;
   }
@@ -135,6 +159,9 @@ public class SetIdBrokerMappingsResponse extends CdpResponse {
     if (!Objects.equals(this.dataAccessRole, setIdBrokerMappingsResponse.dataAccessRole)) {
       return false;
     }
+    if (!Objects.equals(this.rangerAuditRole, setIdBrokerMappingsResponse.rangerAuditRole)) {
+      return false;
+    }
     if (!Objects.equals(this.baselineRole, setIdBrokerMappingsResponse.baselineRole)) {
       return false;
     }
@@ -149,7 +176,7 @@ public class SetIdBrokerMappingsResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(mappingsVersion, dataAccessRole, baselineRole, mappings, super.hashCode());
+    return Objects.hash(mappingsVersion, dataAccessRole, rangerAuditRole, baselineRole, mappings, super.hashCode());
   }
 
   @Override
@@ -159,6 +186,7 @@ public class SetIdBrokerMappingsResponse extends CdpResponse {
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    mappingsVersion: ").append(toIndentedString(mappingsVersion)).append("\n");
     sb.append("    dataAccessRole: ").append(toIndentedString(dataAccessRole)).append("\n");
+    sb.append("    rangerAuditRole: ").append(toIndentedString(rangerAuditRole)).append("\n");
     sb.append("    baselineRole: ").append(toIndentedString(baselineRole)).append("\n");
     sb.append("    mappings: ").append(toIndentedString(mappings)).append("\n");
     sb.append("}");

@@ -23,15 +23,18 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.environments.model.AzureFreeIpaCreationRequest;
 import com.cloudera.cdp.environments.model.AzureLogStorageRequest;
 import com.cloudera.cdp.environments.model.CreateAzureEnvironmentRequestNewNetworkParams;
 import com.cloudera.cdp.environments.model.ExistingAzureNetworkRequest;
 import com.cloudera.cdp.environments.model.SecurityAccessRequest;
+import com.cloudera.cdp.environments.model.TagRequest;
+import java.util.*;
 
 /**
  * Request object for a create Azure environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-02-04T12:48:01.814-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-04-07T22:32:18.974-07:00")
 public class CreateAzureEnvironmentRequest  {
 
   /**
@@ -83,6 +86,16 @@ public class CreateAzureEnvironmentRequest  {
    * An description of the environment.
    **/
   private String description = null;
+
+  /**
+   * The FreeIPA creation request for the environment
+   **/
+  private AzureFreeIpaCreationRequest freeIpa = null;
+
+  /**
+   * Tags associated with the resources.
+   **/
+  private List<TagRequest> tags = new ArrayList<TagRequest>();
 
   /**
    * Getter for environmentName.
@@ -254,6 +267,40 @@ public class CreateAzureEnvironmentRequest  {
     this.description = description;
   }
 
+  /**
+   * Getter for freeIpa.
+   * The FreeIPA creation request for the environment
+   **/
+  @JsonProperty("freeIpa")
+  public AzureFreeIpaCreationRequest getFreeIpa() {
+    return freeIpa;
+  }
+
+  /**
+   * Setter for freeIpa.
+   * The FreeIPA creation request for the environment
+   **/
+  public void setFreeIpa(AzureFreeIpaCreationRequest freeIpa) {
+    this.freeIpa = freeIpa;
+  }
+
+  /**
+   * Getter for tags.
+   * Tags associated with the resources.
+   **/
+  @JsonProperty("tags")
+  public List<TagRequest> getTags() {
+    return tags;
+  }
+
+  /**
+   * Setter for tags.
+   * Tags associated with the resources.
+   **/
+  public void setTags(List<TagRequest> tags) {
+    this.tags = tags;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -293,12 +340,18 @@ public class CreateAzureEnvironmentRequest  {
     if (!Objects.equals(this.description, createAzureEnvironmentRequest.description)) {
       return false;
     }
+    if (!Objects.equals(this.freeIpa, createAzureEnvironmentRequest.freeIpa)) {
+      return false;
+    }
+    if (!Objects.equals(this.tags, createAzureEnvironmentRequest.tags)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description);
+    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, freeIpa, tags);
   }
 
   @Override
@@ -315,6 +368,8 @@ public class CreateAzureEnvironmentRequest  {
     sb.append("    existingNetworkParams: ").append(toIndentedString(existingNetworkParams)).append("\n");
     sb.append("    newNetworkParams: ").append(toIndentedString(newNetworkParams)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    freeIpa: ").append(toIndentedString(freeIpa)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

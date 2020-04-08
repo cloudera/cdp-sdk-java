@@ -41,6 +41,8 @@ import com.cloudera.cdp.environments.model.DeleteEnvironmentResponse;
 import com.cloudera.cdp.environments.model.DescribeEnvironmentRequest;
 import com.cloudera.cdp.environments.model.DescribeEnvironmentResponse;
 import com.cloudera.cdp.environments.model.Error;
+import com.cloudera.cdp.environments.model.GetFreeipaStatusRequest;
+import com.cloudera.cdp.environments.model.GetFreeipaStatusResponse;
 import com.cloudera.cdp.environments.model.GetIdBrokerMappingsRequest;
 import com.cloudera.cdp.environments.model.GetIdBrokerMappingsResponse;
 import com.cloudera.cdp.environments.model.GetIdBrokerMappingsSyncStatusRequest;
@@ -51,10 +53,16 @@ import com.cloudera.cdp.environments.model.ListCredentialsRequest;
 import com.cloudera.cdp.environments.model.ListCredentialsResponse;
 import com.cloudera.cdp.environments.model.ListEnvironmentsRequest;
 import com.cloudera.cdp.environments.model.ListEnvironmentsResponse;
+import com.cloudera.cdp.environments.model.RepairFreeipaRequest;
+import com.cloudera.cdp.environments.model.RepairFreeipaResponse;
 import com.cloudera.cdp.environments.model.SetIdBrokerMappingsRequest;
 import com.cloudera.cdp.environments.model.SetIdBrokerMappingsResponse;
 import com.cloudera.cdp.environments.model.SetPasswordRequest;
 import com.cloudera.cdp.environments.model.SetPasswordResponse;
+import com.cloudera.cdp.environments.model.StartEnvironmentRequest;
+import com.cloudera.cdp.environments.model.StartEnvironmentResponse;
+import com.cloudera.cdp.environments.model.StopEnvironmentRequest;
+import com.cloudera.cdp.environments.model.StopEnvironmentResponse;
 import com.cloudera.cdp.environments.model.SyncAllUsersRequest;
 import com.cloudera.cdp.environments.model.SyncAllUsersResponse;
 import com.cloudera.cdp.environments.model.SyncIdBrokerMappingsRequest;
@@ -64,7 +72,7 @@ import com.cloudera.cdp.environments.model.SyncStatusResponse;
 import com.cloudera.cdp.environments.model.SyncUserRequest;
 import com.cloudera.cdp.environments.model.SyncUserResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-02-04T12:48:01.814-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-04-07T22:32:18.974-07:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";
@@ -173,6 +181,18 @@ public class EnvironmentsClient extends CdpClient {
   }
 
   /**
+   * Get the status of the FreeIPA services
+   * @param input
+   * @return GetFreeipaStatusResponse
+   */
+  public GetFreeipaStatusResponse getFreeipaStatus(GetFreeipaStatusRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling getFreeipaStatus");
+     }
+    return this.invokeAPI("/api/v1/environments2/getFreeipaStatus", input, new GenericType<GetFreeipaStatusResponse>(){});
+  }
+
+  /**
    * Gets all ID Broker mappings for an environment.
    * @param input
    * @return GetIdBrokerMappingsResponse
@@ -233,6 +253,18 @@ public class EnvironmentsClient extends CdpClient {
   }
 
   /**
+   * Repairs the FreeIPA nodes.
+   * @param input
+   * @return RepairFreeipaResponse
+   */
+  public RepairFreeipaResponse repairFreeipa(RepairFreeipaRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling repairFreeipa");
+     }
+    return this.invokeAPI("/api/v1/environments2/repairFreeipa", input, new GenericType<RepairFreeipaResponse>(){});
+  }
+
+  /**
    * Sets all ID Broker mappings for an environment.
    * @param input
    * @return SetIdBrokerMappingsResponse
@@ -254,6 +286,30 @@ public class EnvironmentsClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling setPassword");
      }
     return this.invokeAPI("/api/v1/environments2/setPassword", input, new GenericType<SetPasswordResponse>(){});
+  }
+
+  /**
+   * Start an environment.
+   * @param input
+   * @return StartEnvironmentResponse
+   */
+  public StartEnvironmentResponse startEnvironment(StartEnvironmentRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling startEnvironment");
+     }
+    return this.invokeAPI("/api/v1/environments2/startEnvironment", input, new GenericType<StartEnvironmentResponse>(){});
+  }
+
+  /**
+   * Stop an environment.
+   * @param input
+   * @return StopEnvironmentResponse
+   */
+  public StopEnvironmentResponse stopEnvironment(StopEnvironmentRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling stopEnvironment");
+     }
+    return this.invokeAPI("/api/v1/environments2/stopEnvironment", input, new GenericType<StopEnvironmentResponse>(){});
   }
 
   /**

@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Information about a recipe.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-02-04T12:48:01.068-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-04-07T22:32:18.302-07:00")
 public class Recipe  {
 
   /**
@@ -46,7 +46,7 @@ public class Recipe  {
   private String recipeContent = null;
 
   /**
-   * The type of recipe.
+   * The type of recipe. Supported values are : PRE_CLOUDERA_MANAGER_START, PRE_TERMINATION, POST_CLOUDERA_MANAGER_START, POST_CLUSTER_INSTALL.
    **/
   private String type = null;
 
@@ -113,7 +113,7 @@ public class Recipe  {
 
   /**
    * Getter for type.
-   * The type of recipe.
+   * The type of recipe. Supported values are : PRE_CLOUDERA_MANAGER_START, PRE_TERMINATION, POST_CLOUDERA_MANAGER_START, POST_CLUSTER_INSTALL.
    **/
   @JsonProperty("type")
   public String getType() {
@@ -122,7 +122,7 @@ public class Recipe  {
 
   /**
    * Setter for type.
-   * The type of recipe.
+   * The type of recipe. Supported values are : PRE_CLOUDERA_MANAGER_START, PRE_TERMINATION, POST_CLOUDERA_MANAGER_START, POST_CLUSTER_INSTALL.
    **/
   public void setType(String type) {
     this.type = type;
