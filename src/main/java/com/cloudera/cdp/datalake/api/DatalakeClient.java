@@ -24,8 +24,6 @@ import com.cloudera.cdp.CdpClientException;
 import com.cloudera.cdp.authentication.credentials.CdpCredentials;
 import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
-import com.cloudera.cdp.datalake.model.CheckDatalakeUpgradeOptionsRequest;
-import com.cloudera.cdp.datalake.model.CheckDatalakeUpgradeOptionsResponse;
 import com.cloudera.cdp.datalake.model.CreateAWSDatalakeRequest;
 import com.cloudera.cdp.datalake.model.CreateAWSDatalakeResponse;
 import com.cloudera.cdp.datalake.model.CreateAzureDatalakeRequest;
@@ -41,6 +39,8 @@ import com.cloudera.cdp.datalake.model.GetClusterServiceStatusRequest;
 import com.cloudera.cdp.datalake.model.GetClusterServiceStatusResponse;
 import com.cloudera.cdp.datalake.model.ListDatalakesRequest;
 import com.cloudera.cdp.datalake.model.ListDatalakesResponse;
+import com.cloudera.cdp.datalake.model.ListRuntimesRequest;
+import com.cloudera.cdp.datalake.model.ListRuntimesResponse;
 import com.cloudera.cdp.datalake.model.RepairDatalakeRequest;
 import com.cloudera.cdp.datalake.model.RepairDatalakeResponse;
 import com.cloudera.cdp.datalake.model.StartDatalakeRequest;
@@ -50,7 +50,7 @@ import com.cloudera.cdp.datalake.model.StopDatalakeResponse;
 import com.cloudera.cdp.datalake.model.UpgradeDatalakeRequest;
 import com.cloudera.cdp.datalake.model.UpgradeDatalakeResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-04-07T22:32:18.772-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-05-14T15:10:08.365-07:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";
@@ -60,18 +60,6 @@ public class DatalakeClient extends CdpClient {
       String endPoint,
       CdpClientConfiguration clientConfiguration) {
     super(credentials, endPoint, clientConfiguration);
-  }
-
-  /**
-   * Check upgrade options.
-   * @param input
-   * @return CheckDatalakeUpgradeOptionsResponse
-   */
-  public CheckDatalakeUpgradeOptionsResponse checkDatalakeUpgradeOptions(CheckDatalakeUpgradeOptionsRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling checkDatalakeUpgradeOptions");
-     }
-    return this.invokeAPI("/api/v1/datalake/checkDatalakeUpgradeOptions", input, new GenericType<CheckDatalakeUpgradeOptionsResponse>(){});
   }
 
   /**
@@ -159,6 +147,18 @@ public class DatalakeClient extends CdpClient {
   }
 
   /**
+   * Lists the datalake versions.
+   * @param input
+   * @return ListRuntimesResponse
+   */
+  public ListRuntimesResponse listRuntimes(ListRuntimesRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling listRuntimes");
+     }
+    return this.invokeAPI("/api/v1/datalake/listRuntimes", input, new GenericType<ListRuntimesResponse>(){});
+  }
+
+  /**
    * Repairs a datalake.
    * @param input
    * @return RepairDatalakeResponse
@@ -195,7 +195,7 @@ public class DatalakeClient extends CdpClient {
   }
 
   /**
-   * Upgrade cluster OS.
+   * OS or data platform upgrade for the SDX cluster.
    * @param input
    * @return UpgradeDatalakeResponse
    */

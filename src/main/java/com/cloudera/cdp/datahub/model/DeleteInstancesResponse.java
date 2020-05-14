@@ -17,39 +17,40 @@
  * limitations under the License.
  */
 
-package com.cloudera.cdp.datalake.model;
+package com.cloudera.cdp.datahub.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.datahub.model.Cluster;
 
 /**
- * Request object to check datalake upgrade options.
+ * Response object for instance deletion.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-04-07T22:32:18.772-07:00")
-public class CheckDatalakeUpgradeOptionsRequest  {
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-05-14T15:10:07.937-07:00")
+public class DeleteInstancesResponse extends CdpResponse {
 
   /**
-   * The name or CRN of the datalake.
+   * The cluster.
    **/
-  private String datalakeName = null;
+  private Cluster cluster = null;
 
   /**
-   * Getter for datalakeName.
-   * The name or CRN of the datalake.
+   * Getter for cluster.
+   * The cluster.
    **/
-  @JsonProperty("datalakeName")
-  public String getDatalakeName() {
-    return datalakeName;
+  @JsonProperty("cluster")
+  public Cluster getCluster() {
+    return cluster;
   }
 
   /**
-   * Setter for datalakeName.
-   * The name or CRN of the datalake.
+   * Setter for cluster.
+   * The cluster.
    **/
-  public void setDatalakeName(String datalakeName) {
-    this.datalakeName = datalakeName;
+  public void setCluster(Cluster cluster) {
+    this.cluster = cluster;
   }
 
   @Override
@@ -60,8 +61,11 @@ public class CheckDatalakeUpgradeOptionsRequest  {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CheckDatalakeUpgradeOptionsRequest checkDatalakeUpgradeOptionsRequest = (CheckDatalakeUpgradeOptionsRequest) o;
-    if (!Objects.equals(this.datalakeName, checkDatalakeUpgradeOptionsRequest.datalakeName)) {
+    DeleteInstancesResponse deleteInstancesResponse = (DeleteInstancesResponse) o;
+    if (!Objects.equals(this.cluster, deleteInstancesResponse.cluster)) {
+      return false;
+    }
+    if (!super.equals(o)) {
       return false;
     }
     return true;
@@ -69,14 +73,15 @@ public class CheckDatalakeUpgradeOptionsRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName);
+    return Objects.hash(cluster, super.hashCode());
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CheckDatalakeUpgradeOptionsRequest {\n");
-    sb.append("    datalakeName: ").append(toIndentedString(datalakeName)).append("\n");
+    sb.append("class DeleteInstancesResponse {\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    cluster: ").append(toIndentedString(cluster)).append("\n");
     sb.append("}");
     return sb.toString();
   }

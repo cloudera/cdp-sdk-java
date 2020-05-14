@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object for create Azure cluster request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-04-07T22:32:18.302-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-05-14T15:10:07.937-07:00")
 public class CreateAzureClusterRequest  {
 
   /**
@@ -78,6 +78,11 @@ public class CreateAzureClusterRequest  {
    * JSON template to use for cluster creation. This is different from cluster template and would be removed in the future.
    **/
   private String requestTemplate = null;
+
+  /**
+   * Database type for datahub. Currently supported values: NONE, NON_HA, HA
+   **/
+  private String datahubDatabase = null;
 
   /**
    * Getter for clusterName.
@@ -232,6 +237,23 @@ public class CreateAzureClusterRequest  {
     this.requestTemplate = requestTemplate;
   }
 
+  /**
+   * Getter for datahubDatabase.
+   * Database type for datahub. Currently supported values: NONE, NON_HA, HA
+   **/
+  @JsonProperty("datahubDatabase")
+  public String getDatahubDatabase() {
+    return datahubDatabase;
+  }
+
+  /**
+   * Setter for datahubDatabase.
+   * Database type for datahub. Currently supported values: NONE, NON_HA, HA
+   **/
+  public void setDatahubDatabase(String datahubDatabase) {
+    this.datahubDatabase = datahubDatabase;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -268,12 +290,15 @@ public class CreateAzureClusterRequest  {
     if (!Objects.equals(this.requestTemplate, createAzureClusterRequest.requestTemplate)) {
       return false;
     }
+    if (!Objects.equals(this.datahubDatabase, createAzureClusterRequest.datahubDatabase)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, clusterDefinitionName, environmentName, clusterTemplateName, instanceGroups, subnetId, image, tags, requestTemplate);
+    return Objects.hash(clusterName, clusterDefinitionName, environmentName, clusterTemplateName, instanceGroups, subnetId, image, tags, requestTemplate, datahubDatabase);
   }
 
   @Override
@@ -289,6 +314,7 @@ public class CreateAzureClusterRequest  {
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    requestTemplate: ").append(toIndentedString(requestTemplate)).append("\n");
+    sb.append("    datahubDatabase: ").append(toIndentedString(datahubDatabase)).append("\n");
     sb.append("}");
     return sb.toString();
   }

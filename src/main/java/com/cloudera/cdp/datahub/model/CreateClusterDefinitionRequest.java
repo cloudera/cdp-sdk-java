@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for create cluster definition request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-04-07T22:32:18.302-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-05-14T15:10:07.937-07:00")
 public class CreateClusterDefinitionRequest  {
 
   /**
@@ -36,7 +36,7 @@ public class CreateClusterDefinitionRequest  {
   private String clusterDefinitionName = null;
 
   /**
-   * The workload template.
+   * The cluster creation JSON. This must contain the name of a running environment.
    **/
   private String workloadTemplate = null;
 
@@ -64,7 +64,7 @@ public class CreateClusterDefinitionRequest  {
 
   /**
    * Getter for workloadTemplate.
-   * The workload template.
+   * The cluster creation JSON. This must contain the name of a running environment.
    **/
   @JsonProperty("workloadTemplate")
   public String getWorkloadTemplate() {
@@ -73,7 +73,7 @@ public class CreateClusterDefinitionRequest  {
 
   /**
    * Setter for workloadTemplate.
-   * The workload template.
+   * The cluster creation JSON. This must contain the name of a running environment.
    **/
   public void setWorkloadTemplate(String workloadTemplate) {
     this.workloadTemplate = workloadTemplate;

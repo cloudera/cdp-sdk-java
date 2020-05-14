@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * Request object for a create Azure environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-04-07T22:32:18.974-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-05-14T15:10:08.504-07:00")
 public class CreateAzureEnvironmentRequest  {
 
   /**
@@ -88,6 +88,11 @@ public class CreateAzureEnvironmentRequest  {
   private String description = null;
 
   /**
+   * When this is enabled, diagnostic information about job and query execution is sent to Workload Manager for Data Hub clusters created within this environment.
+   **/
+  private Boolean workloadAnalytics = null;
+
+  /**
    * The FreeIPA creation request for the environment
    **/
   private AzureFreeIpaCreationRequest freeIpa = null;
@@ -96,6 +101,11 @@ public class CreateAzureEnvironmentRequest  {
    * Tags associated with the resources.
    **/
   private List<TagRequest> tags = new ArrayList<TagRequest>();
+
+  /**
+   * Name of the proxy config to use for the environment.
+   **/
+  private String proxyConfigName = null;
 
   /**
    * Getter for environmentName.
@@ -268,6 +278,23 @@ public class CreateAzureEnvironmentRequest  {
   }
 
   /**
+   * Getter for workloadAnalytics.
+   * When this is enabled, diagnostic information about job and query execution is sent to Workload Manager for Data Hub clusters created within this environment.
+   **/
+  @JsonProperty("workloadAnalytics")
+  public Boolean getWorkloadAnalytics() {
+    return workloadAnalytics;
+  }
+
+  /**
+   * Setter for workloadAnalytics.
+   * When this is enabled, diagnostic information about job and query execution is sent to Workload Manager for Data Hub clusters created within this environment.
+   **/
+  public void setWorkloadAnalytics(Boolean workloadAnalytics) {
+    this.workloadAnalytics = workloadAnalytics;
+  }
+
+  /**
    * Getter for freeIpa.
    * The FreeIPA creation request for the environment
    **/
@@ -299,6 +326,23 @@ public class CreateAzureEnvironmentRequest  {
    **/
   public void setTags(List<TagRequest> tags) {
     this.tags = tags;
+  }
+
+  /**
+   * Getter for proxyConfigName.
+   * Name of the proxy config to use for the environment.
+   **/
+  @JsonProperty("proxyConfigName")
+  public String getProxyConfigName() {
+    return proxyConfigName;
+  }
+
+  /**
+   * Setter for proxyConfigName.
+   * Name of the proxy config to use for the environment.
+   **/
+  public void setProxyConfigName(String proxyConfigName) {
+    this.proxyConfigName = proxyConfigName;
   }
 
   @Override
@@ -340,10 +384,16 @@ public class CreateAzureEnvironmentRequest  {
     if (!Objects.equals(this.description, createAzureEnvironmentRequest.description)) {
       return false;
     }
+    if (!Objects.equals(this.workloadAnalytics, createAzureEnvironmentRequest.workloadAnalytics)) {
+      return false;
+    }
     if (!Objects.equals(this.freeIpa, createAzureEnvironmentRequest.freeIpa)) {
       return false;
     }
     if (!Objects.equals(this.tags, createAzureEnvironmentRequest.tags)) {
+      return false;
+    }
+    if (!Objects.equals(this.proxyConfigName, createAzureEnvironmentRequest.proxyConfigName)) {
       return false;
     }
     return true;
@@ -351,7 +401,7 @@ public class CreateAzureEnvironmentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, freeIpa, tags);
+    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, workloadAnalytics, freeIpa, tags, proxyConfigName);
   }
 
   @Override
@@ -368,8 +418,10 @@ public class CreateAzureEnvironmentRequest  {
     sb.append("    existingNetworkParams: ").append(toIndentedString(existingNetworkParams)).append("\n");
     sb.append("    newNetworkParams: ").append(toIndentedString(newNetworkParams)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    workloadAnalytics: ").append(toIndentedString(workloadAnalytics)).append("\n");
     sb.append("    freeIpa: ").append(toIndentedString(freeIpa)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    proxyConfigName: ").append(toIndentedString(proxyConfigName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

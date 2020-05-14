@@ -25,14 +25,16 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.environments.model.Authentication;
 import com.cloudera.cdp.environments.model.EnvironmentAwsDetails;
+import com.cloudera.cdp.environments.model.FreeipaDetails;
 import com.cloudera.cdp.environments.model.LogStorage;
 import com.cloudera.cdp.environments.model.Network;
+import com.cloudera.cdp.environments.model.ProxyConfig;
 import com.cloudera.cdp.environments.model.SecurityAccess;
 
 /**
  * The environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-04-07T22:32:18.974-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-05-14T15:10:08.504-07:00")
 public class Environment  {
 
   /**
@@ -99,6 +101,16 @@ public class Environment  {
    * 
    **/
   private EnvironmentAwsDetails awsDetails = null;
+
+  /**
+   * Details of FreeIPA instance associated with this environment.
+   **/
+  private FreeipaDetails freeipa = null;
+
+  /**
+   * The proxy config.
+   **/
+  private ProxyConfig proxyConfig = null;
 
   /**
    * Getter for environmentName.
@@ -321,6 +333,40 @@ public class Environment  {
     this.awsDetails = awsDetails;
   }
 
+  /**
+   * Getter for freeipa.
+   * Details of FreeIPA instance associated with this environment.
+   **/
+  @JsonProperty("freeipa")
+  public FreeipaDetails getFreeipa() {
+    return freeipa;
+  }
+
+  /**
+   * Setter for freeipa.
+   * Details of FreeIPA instance associated with this environment.
+   **/
+  public void setFreeipa(FreeipaDetails freeipa) {
+    this.freeipa = freeipa;
+  }
+
+  /**
+   * Getter for proxyConfig.
+   * The proxy config.
+   **/
+  @JsonProperty("proxyConfig")
+  public ProxyConfig getProxyConfig() {
+    return proxyConfig;
+  }
+
+  /**
+   * Setter for proxyConfig.
+   * The proxy config.
+   **/
+  public void setProxyConfig(ProxyConfig proxyConfig) {
+    this.proxyConfig = proxyConfig;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -369,12 +415,18 @@ public class Environment  {
     if (!Objects.equals(this.awsDetails, environment.awsDetails)) {
       return false;
     }
+    if (!Objects.equals(this.freeipa, environment.freeipa)) {
+      return false;
+    }
+    if (!Objects.equals(this.proxyConfig, environment.proxyConfig)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, network, logStorage, authentication, securityAccess, description, statusReason, awsDetails);
+    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, network, logStorage, authentication, securityAccess, description, statusReason, awsDetails, freeipa, proxyConfig);
   }
 
   @Override
@@ -394,6 +446,8 @@ public class Environment  {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
     sb.append("    awsDetails: ").append(toIndentedString(awsDetails)).append("\n");
+    sb.append("    freeipa: ").append(toIndentedString(freeipa)).append("\n");
+    sb.append("    proxyConfig: ").append(toIndentedString(proxyConfig)).append("\n");
     sb.append("}");
     return sb.toString();
   }

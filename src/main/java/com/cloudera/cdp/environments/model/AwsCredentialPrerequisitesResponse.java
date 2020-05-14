@@ -17,62 +17,61 @@
  * limitations under the License.
  */
 
-package com.cloudera.cdp.datalake.model;
+package com.cloudera.cdp.environments.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
-import com.cloudera.cdp.datalake.model.ImageInfo;
 
 /**
- * Response object to check datalake upgrade options.
+ * Response object for getting AWS credential prerequisites.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-04-07T22:32:18.772-07:00")
-public class CheckDatalakeUpgradeOptionsResponse extends CdpResponse {
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-05-14T15:10:08.504-07:00")
+public class AwsCredentialPrerequisitesResponse extends CdpResponse {
 
   /**
-   * Details of the image, that datalake is currently uses.
+   * The cross-account external ID.
    **/
-  private ImageInfo current = null;
+  private String externalId = null;
 
   /**
-   * Details of the image, that datalake can be upgraded to.
+   * The related policy json encoded in base64
    **/
-  private ImageInfo upgrade = null;
+  private String policyJson = null;
 
   /**
-   * Getter for current.
-   * Details of the image, that datalake is currently uses.
+   * Getter for externalId.
+   * The cross-account external ID.
    **/
-  @JsonProperty("current")
-  public ImageInfo getCurrent() {
-    return current;
+  @JsonProperty("externalId")
+  public String getExternalId() {
+    return externalId;
   }
 
   /**
-   * Setter for current.
-   * Details of the image, that datalake is currently uses.
+   * Setter for externalId.
+   * The cross-account external ID.
    **/
-  public void setCurrent(ImageInfo current) {
-    this.current = current;
+  public void setExternalId(String externalId) {
+    this.externalId = externalId;
   }
 
   /**
-   * Getter for upgrade.
-   * Details of the image, that datalake can be upgraded to.
+   * Getter for policyJson.
+   * The related policy json encoded in base64
    **/
-  @JsonProperty("upgrade")
-  public ImageInfo getUpgrade() {
-    return upgrade;
+  @JsonProperty("policyJson")
+  public String getPolicyJson() {
+    return policyJson;
   }
 
   /**
-   * Setter for upgrade.
-   * Details of the image, that datalake can be upgraded to.
+   * Setter for policyJson.
+   * The related policy json encoded in base64
    **/
-  public void setUpgrade(ImageInfo upgrade) {
-    this.upgrade = upgrade;
+  public void setPolicyJson(String policyJson) {
+    this.policyJson = policyJson;
   }
 
   @Override
@@ -83,11 +82,11 @@ public class CheckDatalakeUpgradeOptionsResponse extends CdpResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CheckDatalakeUpgradeOptionsResponse checkDatalakeUpgradeOptionsResponse = (CheckDatalakeUpgradeOptionsResponse) o;
-    if (!Objects.equals(this.current, checkDatalakeUpgradeOptionsResponse.current)) {
+    AwsCredentialPrerequisitesResponse awsCredentialPrerequisitesResponse = (AwsCredentialPrerequisitesResponse) o;
+    if (!Objects.equals(this.externalId, awsCredentialPrerequisitesResponse.externalId)) {
       return false;
     }
-    if (!Objects.equals(this.upgrade, checkDatalakeUpgradeOptionsResponse.upgrade)) {
+    if (!Objects.equals(this.policyJson, awsCredentialPrerequisitesResponse.policyJson)) {
       return false;
     }
     if (!super.equals(o)) {
@@ -98,16 +97,16 @@ public class CheckDatalakeUpgradeOptionsResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(current, upgrade, super.hashCode());
+    return Objects.hash(externalId, policyJson, super.hashCode());
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CheckDatalakeUpgradeOptionsResponse {\n");
+    sb.append("class AwsCredentialPrerequisitesResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    current: ").append(toIndentedString(current)).append("\n");
-    sb.append("    upgrade: ").append(toIndentedString(upgrade)).append("\n");
+    sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
+    sb.append("    policyJson: ").append(toIndentedString(policyJson)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -23,13 +23,16 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.datahub.model.Endpoints;
 import com.cloudera.cdp.datahub.model.ImageDetails;
+import com.cloudera.cdp.datahub.model.InstanceGroup;
 import java.time.ZonedDateTime;
+import java.util.*;
 
 /**
  * Information about a cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-04-07T22:32:18.302-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-05-14T15:10:07.937-07:00")
 public class Cluster  {
 
   /**
@@ -48,7 +51,7 @@ public class Cluster  {
   private ZonedDateTime creationDate = null;
 
   /**
-   * The status of the cluster.
+   * The status of the stack.
    **/
   private String status = null;
 
@@ -56,6 +59,11 @@ public class Cluster  {
    * The cluster node count.
    **/
   private Integer nodeCount = null;
+
+  /**
+   * The instance details.
+   **/
+  private List<InstanceGroup> instanceGroups = new ArrayList<InstanceGroup>();
 
   /**
    * The workload type for the cluster.
@@ -96,6 +104,11 @@ public class Cluster  {
    * The status reason.
    **/
   private String statusReason = null;
+
+  /**
+   * The exposed service api endpoints.
+   **/
+  private Endpoints endpoints = null;
 
   /**
    * Getter for clusterName.
@@ -150,7 +163,7 @@ public class Cluster  {
 
   /**
    * Getter for status.
-   * The status of the cluster.
+   * The status of the stack.
    **/
   @JsonProperty("status")
   public String getStatus() {
@@ -159,7 +172,7 @@ public class Cluster  {
 
   /**
    * Setter for status.
-   * The status of the cluster.
+   * The status of the stack.
    **/
   public void setStatus(String status) {
     this.status = status;
@@ -180,6 +193,23 @@ public class Cluster  {
    **/
   public void setNodeCount(Integer nodeCount) {
     this.nodeCount = nodeCount;
+  }
+
+  /**
+   * Getter for instanceGroups.
+   * The instance details.
+   **/
+  @JsonProperty("instanceGroups")
+  public List<InstanceGroup> getInstanceGroups() {
+    return instanceGroups;
+  }
+
+  /**
+   * Setter for instanceGroups.
+   * The instance details.
+   **/
+  public void setInstanceGroups(List<InstanceGroup> instanceGroups) {
+    this.instanceGroups = instanceGroups;
   }
 
   /**
@@ -318,6 +348,23 @@ public class Cluster  {
     this.statusReason = statusReason;
   }
 
+  /**
+   * Getter for endpoints.
+   * The exposed service api endpoints.
+   **/
+  @JsonProperty("endpoints")
+  public Endpoints getEndpoints() {
+    return endpoints;
+  }
+
+  /**
+   * Setter for endpoints.
+   * The exposed service api endpoints.
+   **/
+  public void setEndpoints(Endpoints endpoints) {
+    this.endpoints = endpoints;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -340,6 +387,9 @@ public class Cluster  {
       return false;
     }
     if (!Objects.equals(this.nodeCount, cluster.nodeCount)) {
+      return false;
+    }
+    if (!Objects.equals(this.instanceGroups, cluster.instanceGroups)) {
       return false;
     }
     if (!Objects.equals(this.workloadType, cluster.workloadType)) {
@@ -366,12 +416,15 @@ public class Cluster  {
     if (!Objects.equals(this.statusReason, cluster.statusReason)) {
       return false;
     }
+    if (!Objects.equals(this.endpoints, cluster.endpoints)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, crn, creationDate, status, nodeCount, workloadType, cloudPlatform, imageDetails, environmentCrn, credentialCrn, datalakeCrn, clusterTemplateCrn, statusReason);
+    return Objects.hash(clusterName, crn, creationDate, status, nodeCount, instanceGroups, workloadType, cloudPlatform, imageDetails, environmentCrn, credentialCrn, datalakeCrn, clusterTemplateCrn, statusReason, endpoints);
   }
 
   @Override
@@ -383,6 +436,7 @@ public class Cluster  {
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    nodeCount: ").append(toIndentedString(nodeCount)).append("\n");
+    sb.append("    instanceGroups: ").append(toIndentedString(instanceGroups)).append("\n");
     sb.append("    workloadType: ").append(toIndentedString(workloadType)).append("\n");
     sb.append("    cloudPlatform: ").append(toIndentedString(cloudPlatform)).append("\n");
     sb.append("    imageDetails: ").append(toIndentedString(imageDetails)).append("\n");
@@ -391,6 +445,7 @@ public class Cluster  {
     sb.append("    datalakeCrn: ").append(toIndentedString(datalakeCrn)).append("\n");
     sb.append("    clusterTemplateCrn: ").append(toIndentedString(clusterTemplateCrn)).append("\n");
     sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
+    sb.append("    endpoints: ").append(toIndentedString(endpoints)).append("\n");
     sb.append("}");
     return sb.toString();
   }

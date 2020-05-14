@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * A ML workspace, which includes the cluster and storage.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-04-07T22:32:18.631-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-05-14T15:10:08.239-07:00")
 public class Workspace  {
 
   /**
@@ -134,6 +134,11 @@ public class Workspace  {
    * Failure message from the most recent failure that has occurred during workspace provisioning.
    **/
   private String failureMessage = null;
+
+  /**
+   * The basedomain of the cluster.
+   **/
+  private String clusterBaseDomain = null;
 
   /**
    * Getter for instanceName.
@@ -475,6 +480,23 @@ public class Workspace  {
     this.failureMessage = failureMessage;
   }
 
+  /**
+   * Getter for clusterBaseDomain.
+   * The basedomain of the cluster.
+   **/
+  @JsonProperty("clusterBaseDomain")
+  public String getClusterBaseDomain() {
+    return clusterBaseDomain;
+  }
+
+  /**
+   * Setter for clusterBaseDomain.
+   * The basedomain of the cluster.
+   **/
+  public void setClusterBaseDomain(String clusterBaseDomain) {
+    this.clusterBaseDomain = clusterBaseDomain;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -544,12 +566,15 @@ public class Workspace  {
     if (!Objects.equals(this.failureMessage, workspace.failureMessage)) {
       return false;
     }
+    if (!Objects.equals(this.clusterBaseDomain, workspace.clusterBaseDomain)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, endpointPublicAccess, filesystemID, tags, instanceGroups, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, healthInfoLists, failureMessage);
+    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, endpointPublicAccess, filesystemID, tags, instanceGroups, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, healthInfoLists, failureMessage, clusterBaseDomain);
   }
 
   @Override
@@ -576,6 +601,7 @@ public class Workspace  {
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    healthInfoLists: ").append(toIndentedString(healthInfoLists)).append("\n");
     sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
+    sb.append("    clusterBaseDomain: ").append(toIndentedString(clusterBaseDomain)).append("\n");
     sb.append("}");
     return sb.toString();
   }

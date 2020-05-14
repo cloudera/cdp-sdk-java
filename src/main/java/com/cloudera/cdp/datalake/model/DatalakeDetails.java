@@ -26,6 +26,8 @@ import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.datalake.model.AWSConfiguration;
 import com.cloudera.cdp.datalake.model.AzureConfiguration;
 import com.cloudera.cdp.datalake.model.ClouderaManagerDetails;
+import com.cloudera.cdp.datalake.model.Endpoints;
+import com.cloudera.cdp.datalake.model.InstanceGroup;
 import com.cloudera.cdp.datalake.model.ProductVersion;
 import java.time.ZonedDateTime;
 import java.util.*;
@@ -33,7 +35,7 @@ import java.util.*;
 /**
  * Details about a datalake
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-04-07T22:32:18.772-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-05-14T15:10:08.365-07:00")
 public class DatalakeDetails  {
 
   /**
@@ -65,6 +67,11 @@ public class DatalakeDetails  {
    * The cloud platform.
    **/
   private String cloudPlatform = null;
+
+  /**
+   * The instance details.
+   **/
+  private List<InstanceGroup> instanceGroups = new ArrayList<InstanceGroup>();
 
   /**
    * The date when the datalake was created.
@@ -100,6 +107,11 @@ public class DatalakeDetails  {
    * The Azure configuration.
    **/
   private AzureConfiguration azureConfiguration = null;
+
+  /**
+   * The exposed service api endpoints.
+   **/
+  private Endpoints endpoints = null;
 
   /**
    * Getter for crn.
@@ -201,6 +213,23 @@ public class DatalakeDetails  {
    **/
   public void setCloudPlatform(String cloudPlatform) {
     this.cloudPlatform = cloudPlatform;
+  }
+
+  /**
+   * Getter for instanceGroups.
+   * The instance details.
+   **/
+  @JsonProperty("instanceGroups")
+  public List<InstanceGroup> getInstanceGroups() {
+    return instanceGroups;
+  }
+
+  /**
+   * Setter for instanceGroups.
+   * The instance details.
+   **/
+  public void setInstanceGroups(List<InstanceGroup> instanceGroups) {
+    this.instanceGroups = instanceGroups;
   }
 
   /**
@@ -322,6 +351,23 @@ public class DatalakeDetails  {
     this.azureConfiguration = azureConfiguration;
   }
 
+  /**
+   * Getter for endpoints.
+   * The exposed service api endpoints.
+   **/
+  @JsonProperty("endpoints")
+  public Endpoints getEndpoints() {
+    return endpoints;
+  }
+
+  /**
+   * Setter for endpoints.
+   * The exposed service api endpoints.
+   **/
+  public void setEndpoints(Endpoints endpoints) {
+    this.endpoints = endpoints;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -349,6 +395,9 @@ public class DatalakeDetails  {
     if (!Objects.equals(this.cloudPlatform, datalakeDetails.cloudPlatform)) {
       return false;
     }
+    if (!Objects.equals(this.instanceGroups, datalakeDetails.instanceGroups)) {
+      return false;
+    }
     if (!Objects.equals(this.creationDate, datalakeDetails.creationDate)) {
       return false;
     }
@@ -370,12 +419,15 @@ public class DatalakeDetails  {
     if (!Objects.equals(this.azureConfiguration, datalakeDetails.azureConfiguration)) {
       return false;
     }
+    if (!Objects.equals(this.endpoints, datalakeDetails.endpoints)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, datalakeName, status, environmentCrn, credentialCrn, cloudPlatform, creationDate, clouderaManager, productVersions, region, statusReason, awsConfiguration, azureConfiguration);
+    return Objects.hash(crn, datalakeName, status, environmentCrn, credentialCrn, cloudPlatform, instanceGroups, creationDate, clouderaManager, productVersions, region, statusReason, awsConfiguration, azureConfiguration, endpoints);
   }
 
   @Override
@@ -388,6 +440,7 @@ public class DatalakeDetails  {
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
     sb.append("    credentialCrn: ").append(toIndentedString(credentialCrn)).append("\n");
     sb.append("    cloudPlatform: ").append(toIndentedString(cloudPlatform)).append("\n");
+    sb.append("    instanceGroups: ").append(toIndentedString(instanceGroups)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    clouderaManager: ").append(toIndentedString(clouderaManager)).append("\n");
     sb.append("    productVersions: ").append(toIndentedString(productVersions)).append("\n");
@@ -395,6 +448,7 @@ public class DatalakeDetails  {
     sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
     sb.append("    awsConfiguration: ").append(toIndentedString(awsConfiguration)).append("\n");
     sb.append("    azureConfiguration: ").append(toIndentedString(azureConfiguration)).append("\n");
+    sb.append("    endpoints: ").append(toIndentedString(endpoints)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -23,13 +23,14 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.ml.model.ExistingDatabaseConfig;
 import com.cloudera.cdp.ml.model.ProvisionK8sRequest;
 import java.util.*;
 
 /**
  * Request object for the CreateWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-04-07T22:32:18.631-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-05-14T15:10:08.239-07:00")
 public class CreateWorkspaceRequest  {
 
   /**
@@ -71,6 +72,11 @@ public class CreateWorkspaceRequest  {
    * The whitelist of ips for loadBalancer.
    **/
   private List<String> loadBalancerIPWhitelists = new ArrayList<String>();
+
+  /**
+   * Optional configurations for an existing Postgres to export model metrics to.
+   **/
+  private ExistingDatabaseConfig existingDatabaseConfig = null;
 
   /**
    * Getter for environmentName.
@@ -208,6 +214,23 @@ public class CreateWorkspaceRequest  {
     this.loadBalancerIPWhitelists = loadBalancerIPWhitelists;
   }
 
+  /**
+   * Getter for existingDatabaseConfig.
+   * Optional configurations for an existing Postgres to export model metrics to.
+   **/
+  @JsonProperty("existingDatabaseConfig")
+  public ExistingDatabaseConfig getExistingDatabaseConfig() {
+    return existingDatabaseConfig;
+  }
+
+  /**
+   * Setter for existingDatabaseConfig.
+   * Optional configurations for an existing Postgres to export model metrics to.
+   **/
+  public void setExistingDatabaseConfig(ExistingDatabaseConfig existingDatabaseConfig) {
+    this.existingDatabaseConfig = existingDatabaseConfig;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -241,12 +264,15 @@ public class CreateWorkspaceRequest  {
     if (!Objects.equals(this.loadBalancerIPWhitelists, createWorkspaceRequest.loadBalancerIPWhitelists)) {
       return false;
     }
+    if (!Objects.equals(this.existingDatabaseConfig, createWorkspaceRequest.existingDatabaseConfig)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, workspaceName, usePublicLoadBalancer, disableTLS, provisionK8sRequest, enableMonitoring, existingNFS, loadBalancerIPWhitelists);
+    return Objects.hash(environmentName, workspaceName, usePublicLoadBalancer, disableTLS, provisionK8sRequest, enableMonitoring, existingNFS, loadBalancerIPWhitelists, existingDatabaseConfig);
   }
 
   @Override
@@ -261,6 +287,7 @@ public class CreateWorkspaceRequest  {
     sb.append("    enableMonitoring: ").append(toIndentedString(enableMonitoring)).append("\n");
     sb.append("    existingNFS: ").append(toIndentedString(existingNFS)).append("\n");
     sb.append("    loadBalancerIPWhitelists: ").append(toIndentedString(loadBalancerIPWhitelists)).append("\n");
+    sb.append("    existingDatabaseConfig: ").append(toIndentedString(existingDatabaseConfig)).append("\n");
     sb.append("}");
     return sb.toString();
   }

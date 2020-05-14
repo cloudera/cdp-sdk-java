@@ -34,31 +34,43 @@ import com.cloudera.cdp.environments.model.CreateAzureCredentialRequest;
 import com.cloudera.cdp.environments.model.CreateAzureCredentialResponse;
 import com.cloudera.cdp.environments.model.CreateAzureEnvironmentRequest;
 import com.cloudera.cdp.environments.model.CreateAzureEnvironmentResponse;
+import com.cloudera.cdp.environments.model.CreateProxyConfigRequest;
+import com.cloudera.cdp.environments.model.CreateProxyConfigResponse;
 import com.cloudera.cdp.environments.model.DeleteCredentialRequest;
 import com.cloudera.cdp.environments.model.DeleteCredentialResponse;
 import com.cloudera.cdp.environments.model.DeleteEnvironmentRequest;
 import com.cloudera.cdp.environments.model.DeleteEnvironmentResponse;
+import com.cloudera.cdp.environments.model.DeleteProxyConfigRequest;
+import com.cloudera.cdp.environments.model.DeleteProxyConfigResponse;
 import com.cloudera.cdp.environments.model.DescribeEnvironmentRequest;
 import com.cloudera.cdp.environments.model.DescribeEnvironmentResponse;
 import com.cloudera.cdp.environments.model.Error;
+import com.cloudera.cdp.environments.model.GetCredentialPrerequisitesRequest;
+import com.cloudera.cdp.environments.model.GetCredentialPrerequisitesResponse;
 import com.cloudera.cdp.environments.model.GetFreeipaStatusRequest;
 import com.cloudera.cdp.environments.model.GetFreeipaStatusResponse;
 import com.cloudera.cdp.environments.model.GetIdBrokerMappingsRequest;
 import com.cloudera.cdp.environments.model.GetIdBrokerMappingsResponse;
 import com.cloudera.cdp.environments.model.GetIdBrokerMappingsSyncStatusRequest;
 import com.cloudera.cdp.environments.model.GetIdBrokerMappingsSyncStatusResponse;
+import com.cloudera.cdp.environments.model.GetKeytabRequest;
+import com.cloudera.cdp.environments.model.GetKeytabResponse;
 import com.cloudera.cdp.environments.model.GetRootCertificateRequest;
 import com.cloudera.cdp.environments.model.GetRootCertificateResponse;
 import com.cloudera.cdp.environments.model.ListCredentialsRequest;
 import com.cloudera.cdp.environments.model.ListCredentialsResponse;
 import com.cloudera.cdp.environments.model.ListEnvironmentsRequest;
 import com.cloudera.cdp.environments.model.ListEnvironmentsResponse;
+import com.cloudera.cdp.environments.model.ListProxyConfigsRequest;
+import com.cloudera.cdp.environments.model.ListProxyConfigsResponse;
 import com.cloudera.cdp.environments.model.RepairFreeipaRequest;
 import com.cloudera.cdp.environments.model.RepairFreeipaResponse;
 import com.cloudera.cdp.environments.model.SetIdBrokerMappingsRequest;
 import com.cloudera.cdp.environments.model.SetIdBrokerMappingsResponse;
 import com.cloudera.cdp.environments.model.SetPasswordRequest;
 import com.cloudera.cdp.environments.model.SetPasswordResponse;
+import com.cloudera.cdp.environments.model.SetTelemetryFeaturesRequest;
+import com.cloudera.cdp.environments.model.SetTelemetryFeaturesResponse;
 import com.cloudera.cdp.environments.model.StartEnvironmentRequest;
 import com.cloudera.cdp.environments.model.StartEnvironmentResponse;
 import com.cloudera.cdp.environments.model.StopEnvironmentRequest;
@@ -72,7 +84,7 @@ import com.cloudera.cdp.environments.model.SyncStatusResponse;
 import com.cloudera.cdp.environments.model.SyncUserRequest;
 import com.cloudera.cdp.environments.model.SyncUserResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-04-07T22:32:18.974-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-05-14T15:10:08.504-07:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";
@@ -145,6 +157,18 @@ public class EnvironmentsClient extends CdpClient {
   }
 
   /**
+   * Creates a new proxy config that can be attatched to an environment.
+   * @param input
+   * @return CreateProxyConfigResponse
+   */
+  public CreateProxyConfigResponse createProxyConfig(CreateProxyConfigRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling createProxyConfig");
+     }
+    return this.invokeAPI("/api/v1/environments2/createProxyConfig", input, new GenericType<CreateProxyConfigResponse>(){});
+  }
+
+  /**
    * Deletes a credential.
    * @param input
    * @return DeleteCredentialResponse
@@ -169,6 +193,18 @@ public class EnvironmentsClient extends CdpClient {
   }
 
   /**
+   * Deletes a proxy config.
+   * @param input
+   * @return DeleteProxyConfigResponse
+   */
+  public DeleteProxyConfigResponse deleteProxyConfig(DeleteProxyConfigRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling deleteProxyConfig");
+     }
+    return this.invokeAPI("/api/v1/environments2/deleteProxyConfig", input, new GenericType<DeleteProxyConfigResponse>(){});
+  }
+
+  /**
    * Describes an environment.
    * @param input
    * @return DescribeEnvironmentResponse
@@ -178,6 +214,18 @@ public class EnvironmentsClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling describeEnvironment");
      }
     return this.invokeAPI("/api/v1/environments2/describeEnvironment", input, new GenericType<DescribeEnvironmentResponse>(){});
+  }
+
+  /**
+   * This API provides the credential prerequisites for the given cloud provider.
+   * @param input
+   * @return GetCredentialPrerequisitesResponse
+   */
+  public GetCredentialPrerequisitesResponse getCredentialPrerequisites(GetCredentialPrerequisitesRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling getCredentialPrerequisites");
+     }
+    return this.invokeAPI("/api/v1/environments2/getCredentialPrerequisites", input, new GenericType<GetCredentialPrerequisitesResponse>(){});
   }
 
   /**
@@ -217,6 +265,18 @@ public class EnvironmentsClient extends CdpClient {
   }
 
   /**
+   * Retrieves a keytab for a user or machine user.
+   * @param input
+   * @return GetKeytabResponse
+   */
+  public GetKeytabResponse getKeytab(GetKeytabRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling getKeytab");
+     }
+    return this.invokeAPI("/api/v1/environments2/getKeytab", input, new GenericType<GetKeytabResponse>(){});
+  }
+
+  /**
    * This API provides contents of public certificate for an environment.
    * @param input
    * @return GetRootCertificateResponse
@@ -253,6 +313,18 @@ public class EnvironmentsClient extends CdpClient {
   }
 
   /**
+   * Lists proxy configs.
+   * @param input
+   * @return ListProxyConfigsResponse
+   */
+  public ListProxyConfigsResponse listProxyConfigs(ListProxyConfigsRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling listProxyConfigs");
+     }
+    return this.invokeAPI("/api/v1/environments2/listProxyConfigs", input, new GenericType<ListProxyConfigsResponse>(){});
+  }
+
+  /**
    * Repairs the FreeIPA nodes.
    * @param input
    * @return RepairFreeipaResponse
@@ -286,6 +358,18 @@ public class EnvironmentsClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling setPassword");
      }
     return this.invokeAPI("/api/v1/environments2/setPassword", input, new GenericType<SetPasswordResponse>(){});
+  }
+
+  /**
+   * Configure environment level telemetry feature setting.
+   * @param input
+   * @return SetTelemetryFeaturesResponse
+   */
+  public SetTelemetryFeaturesResponse setTelemetryFeatures(SetTelemetryFeaturesRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling setTelemetryFeatures");
+     }
+    return this.invokeAPI("/api/v1/environments2/setTelemetryFeatures", input, new GenericType<SetTelemetryFeaturesResponse>(){});
   }
 
   /**

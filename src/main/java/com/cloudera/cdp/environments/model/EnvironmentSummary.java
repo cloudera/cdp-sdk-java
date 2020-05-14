@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * The environment summary.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-04-07T22:32:18.974-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-05-14T15:10:08.504-07:00")
 public class EnvironmentSummary  {
 
   /**
@@ -64,6 +64,11 @@ public class EnvironmentSummary  {
    * Description of the environment.
    **/
   private String description = null;
+
+  /**
+   * Name of the proxy config of the environment.
+   **/
+  private String proxyConfigName = null;
 
   /**
    * Getter for environmentName.
@@ -184,6 +189,23 @@ public class EnvironmentSummary  {
     this.description = description;
   }
 
+  /**
+   * Getter for proxyConfigName.
+   * Name of the proxy config of the environment.
+   **/
+  @JsonProperty("proxyConfigName")
+  public String getProxyConfigName() {
+    return proxyConfigName;
+  }
+
+  /**
+   * Setter for proxyConfigName.
+   * Name of the proxy config of the environment.
+   **/
+  public void setProxyConfigName(String proxyConfigName) {
+    this.proxyConfigName = proxyConfigName;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -214,12 +236,15 @@ public class EnvironmentSummary  {
     if (!Objects.equals(this.description, environmentSummary.description)) {
       return false;
     }
+    if (!Objects.equals(this.proxyConfigName, environmentSummary.proxyConfigName)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, description);
+    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, description, proxyConfigName);
   }
 
   @Override
@@ -233,6 +258,7 @@ public class EnvironmentSummary  {
     sb.append("    cloudPlatform: ").append(toIndentedString(cloudPlatform)).append("\n");
     sb.append("    credentialName: ").append(toIndentedString(credentialName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    proxyConfigName: ").append(toIndentedString(proxyConfigName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

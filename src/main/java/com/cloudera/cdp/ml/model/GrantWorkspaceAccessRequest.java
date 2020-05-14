@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the GrantWorkspaceAccess method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-04-07T22:32:18.631-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-05-14T15:10:08.239-07:00")
 public class GrantWorkspaceAccessRequest  {
 
   /**
@@ -51,7 +51,7 @@ public class GrantWorkspaceAccessRequest  {
   private String workspaceCrn = null;
 
   /**
-   * The cloud provider user id which will be granted access to the workspace's kubernetes cluster.
+   * The cloud provider user id which will be granted access to the workspace's Kubernetes cluster.
    **/
   private String identifier = null;
 
@@ -127,7 +127,7 @@ public class GrantWorkspaceAccessRequest  {
 
   /**
    * Getter for identifier.
-   * The cloud provider user id which will be granted access to the workspace&#39;s kubernetes cluster.
+   * The cloud provider user id which will be granted access to the workspace&#39;s Kubernetes cluster.
    **/
   @JsonProperty("identifier")
   public String getIdentifier() {
@@ -136,7 +136,7 @@ public class GrantWorkspaceAccessRequest  {
 
   /**
    * Setter for identifier.
-   * The cloud provider user id which will be granted access to the workspace&#39;s kubernetes cluster.
+   * The cloud provider user id which will be granted access to the workspace&#39;s Kubernetes cluster.
    **/
   public void setIdentifier(String identifier) {
     this.identifier = identifier;

@@ -40,6 +40,8 @@ import com.cloudera.cdp.datahub.model.DeleteClusterRequest;
 import com.cloudera.cdp.datahub.model.DeleteClusterResponse;
 import com.cloudera.cdp.datahub.model.DeleteClusterTemplatesRequest;
 import com.cloudera.cdp.datahub.model.DeleteClusterTemplatesResponse;
+import com.cloudera.cdp.datahub.model.DeleteInstancesRequest;
+import com.cloudera.cdp.datahub.model.DeleteInstancesResponse;
 import com.cloudera.cdp.datahub.model.DeleteRecipesRequest;
 import com.cloudera.cdp.datahub.model.DeleteRecipesResponse;
 import com.cloudera.cdp.datahub.model.DescribeClusterDefinitionRequest;
@@ -76,7 +78,7 @@ import com.cloudera.cdp.datahub.model.StopClusterResponse;
 import com.cloudera.cdp.datahub.model.SyncClusterRequest;
 import com.cloudera.cdp.datahub.model.SyncClusterResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-04-07T22:32:18.302-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-05-14T15:10:07.937-07:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";
@@ -182,6 +184,18 @@ public class DatahubClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling deleteClusterTemplates");
      }
     return this.invokeAPI("/api/v1/datahub/deleteClusterTemplates", input, new GenericType<DeleteClusterTemplatesResponse>(){});
+  }
+
+  /**
+   * Deletes instances for the specified cluster.
+   * @param input
+   * @return DeleteInstancesResponse
+   */
+  public DeleteInstancesResponse deleteInstances(DeleteInstancesRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling deleteInstances");
+     }
+    return this.invokeAPI("/api/v1/datahub/deleteInstances", input, new GenericType<DeleteInstancesResponse>(){});
   }
 
   /**
