@@ -60,6 +60,8 @@ import com.cloudera.cdp.iam.model.DeleteMachineUserRequest;
 import com.cloudera.cdp.iam.model.DeleteMachineUserResponse;
 import com.cloudera.cdp.iam.model.DeleteSamlProviderRequest;
 import com.cloudera.cdp.iam.model.DeleteSamlProviderResponse;
+import com.cloudera.cdp.iam.model.DeleteUserRequest;
+import com.cloudera.cdp.iam.model.DeleteUserResponse;
 import com.cloudera.cdp.iam.model.DisableClouderaSSOLoginRequest;
 import com.cloudera.cdp.iam.model.DisableClouderaSSOLoginResponse;
 import com.cloudera.cdp.iam.model.EnableClouderaSSOLoginRequest;
@@ -132,7 +134,7 @@ import com.cloudera.cdp.iam.model.UpdateGroupResponse;
 import com.cloudera.cdp.iam.model.UpdateSamlProviderRequest;
 import com.cloudera.cdp.iam.model.UpdateSamlProviderResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-05-14T15:10:08.742-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-06T11:30:39.362-07:00")
 public class IamClient extends CdpClient {
 
   public static final String SERVICE_NAME = "iam";
@@ -358,6 +360,18 @@ public class IamClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling deleteSamlProvider");
      }
     return this.invokeAPI("/iam/deleteSamlProvider", input, new GenericType<DeleteSamlProviderResponse>(){});
+  }
+
+  /**
+   * Deletes a user and all associated resources.
+   * @param input
+   * @return DeleteUserResponse
+   */
+  public DeleteUserResponse deleteUser(DeleteUserRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling deleteUser");
+     }
+    return this.invokeAPI("/iam/deleteUser", input, new GenericType<DeleteUserResponse>(){});
   }
 
   /**

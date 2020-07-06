@@ -23,12 +23,102 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.iam.model.ResourceAssignment;
+import java.util.*;
 
 /**
  * Response object for delete machine user request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-05-14T15:10:08.742-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-06T11:30:39.362-07:00")
 public class DeleteMachineUserResponse extends CdpResponse {
+
+  /**
+   * The list of associated access key CRNs that were deleted.
+   **/
+  private List<String> accessKeysDeleted = new ArrayList<String>();
+
+  /**
+   * The list of group CRNs from which the user has been removed.
+   **/
+  private List<String> groupsModified = new ArrayList<String>();
+
+  /**
+   * The list of role CRNs unassigned from the user.
+   **/
+  private List<String> rolesUnassigned = new ArrayList<String>();
+
+  /**
+   * The list of resource role assignments that have been unassigned from the user.
+   **/
+  private List<ResourceAssignment> resourcesUnassigned = new ArrayList<ResourceAssignment>();
+
+  /**
+   * Getter for accessKeysDeleted.
+   * The list of associated access key CRNs that were deleted.
+   **/
+  @JsonProperty("accessKeysDeleted")
+  public List<String> getAccessKeysDeleted() {
+    return accessKeysDeleted;
+  }
+
+  /**
+   * Setter for accessKeysDeleted.
+   * The list of associated access key CRNs that were deleted.
+   **/
+  public void setAccessKeysDeleted(List<String> accessKeysDeleted) {
+    this.accessKeysDeleted = accessKeysDeleted;
+  }
+
+  /**
+   * Getter for groupsModified.
+   * The list of group CRNs from which the user has been removed.
+   **/
+  @JsonProperty("groupsModified")
+  public List<String> getGroupsModified() {
+    return groupsModified;
+  }
+
+  /**
+   * Setter for groupsModified.
+   * The list of group CRNs from which the user has been removed.
+   **/
+  public void setGroupsModified(List<String> groupsModified) {
+    this.groupsModified = groupsModified;
+  }
+
+  /**
+   * Getter for rolesUnassigned.
+   * The list of role CRNs unassigned from the user.
+   **/
+  @JsonProperty("rolesUnassigned")
+  public List<String> getRolesUnassigned() {
+    return rolesUnassigned;
+  }
+
+  /**
+   * Setter for rolesUnassigned.
+   * The list of role CRNs unassigned from the user.
+   **/
+  public void setRolesUnassigned(List<String> rolesUnassigned) {
+    this.rolesUnassigned = rolesUnassigned;
+  }
+
+  /**
+   * Getter for resourcesUnassigned.
+   * The list of resource role assignments that have been unassigned from the user.
+   **/
+  @JsonProperty("resourcesUnassigned")
+  public List<ResourceAssignment> getResourcesUnassigned() {
+    return resourcesUnassigned;
+  }
+
+  /**
+   * Setter for resourcesUnassigned.
+   * The list of resource role assignments that have been unassigned from the user.
+   **/
+  public void setResourcesUnassigned(List<ResourceAssignment> resourcesUnassigned) {
+    this.resourcesUnassigned = resourcesUnassigned;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -36,6 +126,19 @@ public class DeleteMachineUserResponse extends CdpResponse {
       return true;
     }
     if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    DeleteMachineUserResponse deleteMachineUserResponse = (DeleteMachineUserResponse) o;
+    if (!Objects.equals(this.accessKeysDeleted, deleteMachineUserResponse.accessKeysDeleted)) {
+      return false;
+    }
+    if (!Objects.equals(this.groupsModified, deleteMachineUserResponse.groupsModified)) {
+      return false;
+    }
+    if (!Objects.equals(this.rolesUnassigned, deleteMachineUserResponse.rolesUnassigned)) {
+      return false;
+    }
+    if (!Objects.equals(this.resourcesUnassigned, deleteMachineUserResponse.resourcesUnassigned)) {
       return false;
     }
     if (!super.equals(o)) {
@@ -46,7 +149,7 @@ public class DeleteMachineUserResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash( super.hashCode());
+    return Objects.hash(accessKeysDeleted, groupsModified, rolesUnassigned, resourcesUnassigned, super.hashCode());
   }
 
   @Override
@@ -54,6 +157,10 @@ public class DeleteMachineUserResponse extends CdpResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteMachineUserResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    accessKeysDeleted: ").append(toIndentedString(accessKeysDeleted)).append("\n");
+    sb.append("    groupsModified: ").append(toIndentedString(groupsModified)).append("\n");
+    sb.append("    rolesUnassigned: ").append(toIndentedString(rolesUnassigned)).append("\n");
+    sb.append("    resourcesUnassigned: ").append(toIndentedString(resourcesUnassigned)).append("\n");
     sb.append("}");
     return sb.toString();
   }

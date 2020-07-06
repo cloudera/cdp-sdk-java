@@ -23,15 +23,15 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.datahub.model.AzureInstanceGroupRequest;
 import com.cloudera.cdp.datahub.model.DatahubResourceTagRequest;
 import com.cloudera.cdp.datahub.model.ImageRequest;
-import com.cloudera.cdp.datahub.model.InstanceGroupRequest;
 import java.util.*;
 
 /**
  * Request object for create Azure cluster request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-05-14T15:10:07.937-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-06T11:30:38.416-07:00")
 public class CreateAzureClusterRequest  {
 
   /**
@@ -57,7 +57,7 @@ public class CreateAzureClusterRequest  {
   /**
    * Instance group details.
    **/
-  private List<InstanceGroupRequest> instanceGroups = new ArrayList<InstanceGroupRequest>();
+  private List<AzureInstanceGroupRequest> instanceGroups = new ArrayList<AzureInstanceGroupRequest>();
 
   /**
    * The subnet ID.
@@ -157,7 +157,7 @@ public class CreateAzureClusterRequest  {
    * Instance group details.
    **/
   @JsonProperty("instanceGroups")
-  public List<InstanceGroupRequest> getInstanceGroups() {
+  public List<AzureInstanceGroupRequest> getInstanceGroups() {
     return instanceGroups;
   }
 
@@ -165,7 +165,7 @@ public class CreateAzureClusterRequest  {
    * Setter for instanceGroups.
    * Instance group details.
    **/
-  public void setInstanceGroups(List<InstanceGroupRequest> instanceGroups) {
+  public void setInstanceGroups(List<AzureInstanceGroupRequest> instanceGroups) {
     this.instanceGroups = instanceGroups;
   }
 

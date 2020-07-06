@@ -28,7 +28,7 @@ import com.cloudera.cdp.iam.model.Group;
 /**
  * Response object for update group request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-05-14T15:10:08.742-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-06T11:30:39.362-07:00")
 public class UpdateGroupResponse extends CdpResponse {
 
   /**

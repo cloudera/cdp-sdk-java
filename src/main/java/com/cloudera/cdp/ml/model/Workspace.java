@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * A ML workspace, which includes the cluster and storage.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-05-14T15:10:08.239-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-06T11:30:38.720-07:00")
 public class Workspace  {
 
   /**
@@ -139,6 +139,16 @@ public class Workspace  {
    * The basedomain of the cluster.
    **/
   private String clusterBaseDomain = null;
+
+  /**
+   * Whether model metrics is enabled.
+   **/
+  private Boolean modelMetricsEnabled = null;
+
+  /**
+   * Whether governance is enabled.
+   **/
+  private Boolean governanceEnabled = null;
 
   /**
    * Getter for instanceName.
@@ -497,6 +507,40 @@ public class Workspace  {
     this.clusterBaseDomain = clusterBaseDomain;
   }
 
+  /**
+   * Getter for modelMetricsEnabled.
+   * Whether model metrics is enabled.
+   **/
+  @JsonProperty("modelMetricsEnabled")
+  public Boolean getModelMetricsEnabled() {
+    return modelMetricsEnabled;
+  }
+
+  /**
+   * Setter for modelMetricsEnabled.
+   * Whether model metrics is enabled.
+   **/
+  public void setModelMetricsEnabled(Boolean modelMetricsEnabled) {
+    this.modelMetricsEnabled = modelMetricsEnabled;
+  }
+
+  /**
+   * Getter for governanceEnabled.
+   * Whether governance is enabled.
+   **/
+  @JsonProperty("governanceEnabled")
+  public Boolean getGovernanceEnabled() {
+    return governanceEnabled;
+  }
+
+  /**
+   * Setter for governanceEnabled.
+   * Whether governance is enabled.
+   **/
+  public void setGovernanceEnabled(Boolean governanceEnabled) {
+    this.governanceEnabled = governanceEnabled;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -569,12 +613,18 @@ public class Workspace  {
     if (!Objects.equals(this.clusterBaseDomain, workspace.clusterBaseDomain)) {
       return false;
     }
+    if (!Objects.equals(this.modelMetricsEnabled, workspace.modelMetricsEnabled)) {
+      return false;
+    }
+    if (!Objects.equals(this.governanceEnabled, workspace.governanceEnabled)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, endpointPublicAccess, filesystemID, tags, instanceGroups, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, healthInfoLists, failureMessage, clusterBaseDomain);
+    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, endpointPublicAccess, filesystemID, tags, instanceGroups, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, healthInfoLists, failureMessage, clusterBaseDomain, modelMetricsEnabled, governanceEnabled);
   }
 
   @Override
@@ -602,6 +652,8 @@ public class Workspace  {
     sb.append("    healthInfoLists: ").append(toIndentedString(healthInfoLists)).append("\n");
     sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
     sb.append("    clusterBaseDomain: ").append(toIndentedString(clusterBaseDomain)).append("\n");
+    sb.append("    modelMetricsEnabled: ").append(toIndentedString(modelMetricsEnabled)).append("\n");
+    sb.append("    governanceEnabled: ").append(toIndentedString(governanceEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }

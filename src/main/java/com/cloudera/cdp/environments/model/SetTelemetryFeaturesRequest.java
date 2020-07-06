@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object to enable environment level telemetry features.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-05-14T15:10:08.504-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-06T11:30:39.026-07:00")
 public class SetTelemetryFeaturesRequest  {
 
   /**
@@ -39,6 +39,11 @@ public class SetTelemetryFeaturesRequest  {
    * Flag to enable environment level workload analytics.
    **/
   private Boolean workloadAnalytics = null;
+
+  /**
+   * Flag to enable environment level deployment log collection.
+   **/
+  private Boolean reportDeploymentLogs = null;
 
   /**
    * Getter for environmentName.
@@ -74,6 +79,23 @@ public class SetTelemetryFeaturesRequest  {
     this.workloadAnalytics = workloadAnalytics;
   }
 
+  /**
+   * Getter for reportDeploymentLogs.
+   * Flag to enable environment level deployment log collection.
+   **/
+  @JsonProperty("reportDeploymentLogs")
+  public Boolean getReportDeploymentLogs() {
+    return reportDeploymentLogs;
+  }
+
+  /**
+   * Setter for reportDeploymentLogs.
+   * Flag to enable environment level deployment log collection.
+   **/
+  public void setReportDeploymentLogs(Boolean reportDeploymentLogs) {
+    this.reportDeploymentLogs = reportDeploymentLogs;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -89,12 +111,15 @@ public class SetTelemetryFeaturesRequest  {
     if (!Objects.equals(this.workloadAnalytics, setTelemetryFeaturesRequest.workloadAnalytics)) {
       return false;
     }
+    if (!Objects.equals(this.reportDeploymentLogs, setTelemetryFeaturesRequest.reportDeploymentLogs)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, workloadAnalytics);
+    return Objects.hash(environmentName, workloadAnalytics, reportDeploymentLogs);
   }
 
   @Override
@@ -103,6 +128,7 @@ public class SetTelemetryFeaturesRequest  {
     sb.append("class SetTelemetryFeaturesRequest {\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    workloadAnalytics: ").append(toIndentedString(workloadAnalytics)).append("\n");
+    sb.append("    reportDeploymentLogs: ").append(toIndentedString(reportDeploymentLogs)).append("\n");
     sb.append("}");
     return sb.toString();
   }

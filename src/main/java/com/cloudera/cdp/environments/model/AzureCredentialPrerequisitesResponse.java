@@ -27,22 +27,22 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object for getting Azure credential prerequisites.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-05-14T15:10:08.504-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-06T11:30:39.026-07:00")
 public class AzureCredentialPrerequisitesResponse extends CdpResponse {
 
   /**
-   * Azure CLI command to create Azure AD Application.
+   * Azure CLI command to create Azure AD Application encoded in base64.
    **/
   private String appCreationCommand = null;
 
   /**
    * The related role definition json encoded in base64
    **/
-  private String roleDefitionJson = null;
+  private String roleDefinitionJson = null;
 
   /**
    * Getter for appCreationCommand.
-   * Azure CLI command to create Azure AD Application.
+   * Azure CLI command to create Azure AD Application encoded in base64.
    **/
   @JsonProperty("appCreationCommand")
   public String getAppCreationCommand() {
@@ -51,27 +51,27 @@ public class AzureCredentialPrerequisitesResponse extends CdpResponse {
 
   /**
    * Setter for appCreationCommand.
-   * Azure CLI command to create Azure AD Application.
+   * Azure CLI command to create Azure AD Application encoded in base64.
    **/
   public void setAppCreationCommand(String appCreationCommand) {
     this.appCreationCommand = appCreationCommand;
   }
 
   /**
-   * Getter for roleDefitionJson.
+   * Getter for roleDefinitionJson.
    * The related role definition json encoded in base64
    **/
-  @JsonProperty("roleDefitionJson")
-  public String getRoleDefitionJson() {
-    return roleDefitionJson;
+  @JsonProperty("roleDefinitionJson")
+  public String getRoleDefinitionJson() {
+    return roleDefinitionJson;
   }
 
   /**
-   * Setter for roleDefitionJson.
+   * Setter for roleDefinitionJson.
    * The related role definition json encoded in base64
    **/
-  public void setRoleDefitionJson(String roleDefitionJson) {
-    this.roleDefitionJson = roleDefitionJson;
+  public void setRoleDefinitionJson(String roleDefinitionJson) {
+    this.roleDefinitionJson = roleDefinitionJson;
   }
 
   @Override
@@ -86,7 +86,7 @@ public class AzureCredentialPrerequisitesResponse extends CdpResponse {
     if (!Objects.equals(this.appCreationCommand, azureCredentialPrerequisitesResponse.appCreationCommand)) {
       return false;
     }
-    if (!Objects.equals(this.roleDefitionJson, azureCredentialPrerequisitesResponse.roleDefitionJson)) {
+    if (!Objects.equals(this.roleDefinitionJson, azureCredentialPrerequisitesResponse.roleDefinitionJson)) {
       return false;
     }
     if (!super.equals(o)) {
@@ -97,7 +97,7 @@ public class AzureCredentialPrerequisitesResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appCreationCommand, roleDefitionJson, super.hashCode());
+    return Objects.hash(appCreationCommand, roleDefinitionJson, super.hashCode());
   }
 
   @Override
@@ -106,7 +106,7 @@ public class AzureCredentialPrerequisitesResponse extends CdpResponse {
     sb.append("class AzureCredentialPrerequisitesResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    appCreationCommand: ").append(toIndentedString(appCreationCommand)).append("\n");
-    sb.append("    roleDefitionJson: ").append(toIndentedString(roleDefitionJson)).append("\n");
+    sb.append("    roleDefinitionJson: ").append(toIndentedString(roleDefinitionJson)).append("\n");
     sb.append("}");
     return sb.toString();
   }

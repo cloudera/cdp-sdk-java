@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * Request object for a create AWS environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-05-14T15:10:08.504-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-06T11:30:39.026-07:00")
 public class CreateAWSEnvironmentRequest  {
 
   /**
@@ -90,6 +90,11 @@ public class CreateAWSEnvironmentRequest  {
    * An description of the environment.
    **/
   private String description = null;
+
+  /**
+   * Whether to enable SSH tunnelling for the environment.
+   **/
+  private Boolean enableTunnel = null;
 
   /**
    * When this is enabled, diagnostic information about job and query execution is sent to Workload Manager for Data Hub clusters created within this environment.
@@ -299,6 +304,23 @@ public class CreateAWSEnvironmentRequest  {
   }
 
   /**
+   * Getter for enableTunnel.
+   * Whether to enable SSH tunnelling for the environment.
+   **/
+  @JsonProperty("enableTunnel")
+  public Boolean getEnableTunnel() {
+    return enableTunnel;
+  }
+
+  /**
+   * Setter for enableTunnel.
+   * Whether to enable SSH tunnelling for the environment.
+   **/
+  public void setEnableTunnel(Boolean enableTunnel) {
+    this.enableTunnel = enableTunnel;
+  }
+
+  /**
    * Getter for workloadAnalytics.
    * When this is enabled, diagnostic information about job and query execution is sent to Workload Manager for Data Hub clusters created within this environment.
    **/
@@ -408,6 +430,9 @@ public class CreateAWSEnvironmentRequest  {
     if (!Objects.equals(this.description, createAWSEnvironmentRequest.description)) {
       return false;
     }
+    if (!Objects.equals(this.enableTunnel, createAWSEnvironmentRequest.enableTunnel)) {
+      return false;
+    }
     if (!Objects.equals(this.workloadAnalytics, createAWSEnvironmentRequest.workloadAnalytics)) {
       return false;
     }
@@ -425,7 +450,7 @@ public class CreateAWSEnvironmentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, securityAccess, authentication, logStorage, networkCidr, vpcId, subnetIds, s3GuardTableName, description, workloadAnalytics, freeIpa, tags, proxyConfigName);
+    return Objects.hash(environmentName, credentialName, region, securityAccess, authentication, logStorage, networkCidr, vpcId, subnetIds, s3GuardTableName, description, enableTunnel, workloadAnalytics, freeIpa, tags, proxyConfigName);
   }
 
   @Override
@@ -443,6 +468,7 @@ public class CreateAWSEnvironmentRequest  {
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
     sb.append("    s3GuardTableName: ").append(toIndentedString(s3GuardTableName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableTunnel: ").append(toIndentedString(enableTunnel)).append("\n");
     sb.append("    workloadAnalytics: ").append(toIndentedString(workloadAnalytics)).append("\n");
     sb.append("    freeIpa: ").append(toIndentedString(freeIpa)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

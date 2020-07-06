@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Object which holds some details of an instance for the given cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-05-14T15:10:07.937-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-06T11:30:38.416-07:00")
 public class Instance  {
 
   /**
@@ -46,7 +46,7 @@ public class Instance  {
   private String fqdn = null;
 
   /**
-   * The lifecycle status of the instance. Thie includes information like whether the instance is being provisioned, stopped, decommissioning failures etc.
+   * The status of the instance. This includes information like whether the instance is being provisioned, stopped, decommissioning failures etc.
    **/
   private String status = null;
 
@@ -103,7 +103,7 @@ public class Instance  {
 
   /**
    * Getter for status.
-   * The lifecycle status of the instance. Thie includes information like whether the instance is being provisioned, stopped, decommissioning failures etc.
+   * The status of the instance. This includes information like whether the instance is being provisioned, stopped, decommissioning failures etc.
    **/
   @JsonProperty("status")
   public String getStatus() {
@@ -112,7 +112,7 @@ public class Instance  {
 
   /**
    * Setter for status.
-   * The lifecycle status of the instance. Thie includes information like whether the instance is being provisioned, stopped, decommissioning failures etc.
+   * The status of the instance. This includes information like whether the instance is being provisioned, stopped, decommissioning failures etc.
    **/
   public void setStatus(String status) {
     this.status = status;

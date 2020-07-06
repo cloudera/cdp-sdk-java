@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object for setting ID Broker mappings for an environment. Overwrites all existing mappings.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-05-14T15:10:08.504-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-06T11:30:39.026-07:00")
 public class SetIdBrokerMappingsRequest  {
 
   /**
@@ -46,6 +46,11 @@ public class SetIdBrokerMappingsRequest  {
    * The cloud provider role to which services that write to Ranger audit logs will be mapped (e.g. an ARN in AWS, a Resource ID in Azure). Note that some data access services also write to Ranger audit logs; such services will be mapped to the dataAccessRole, not the rangerAuditRole. ``THIS PARAMETER IS REQUIRED.``
    **/
   private String rangerAuditRole = null;
+
+  /**
+   * The cloud provider role to which the Ranger RAZ service will be mapped (e.g. an ARN in AWS, a Resource ID in Azure). This is required in RAZ-enabled environments.
+   **/
+  private String rangerCloudAccessAuthorizerRole = null;
 
   /**
    * Deprecated. Please use rangerAuditRole instead.
@@ -111,6 +116,23 @@ public class SetIdBrokerMappingsRequest  {
    **/
   public void setRangerAuditRole(String rangerAuditRole) {
     this.rangerAuditRole = rangerAuditRole;
+  }
+
+  /**
+   * Getter for rangerCloudAccessAuthorizerRole.
+   * The cloud provider role to which the Ranger RAZ service will be mapped (e.g. an ARN in AWS, a Resource ID in Azure). This is required in RAZ-enabled environments.
+   **/
+  @JsonProperty("rangerCloudAccessAuthorizerRole")
+  public String getRangerCloudAccessAuthorizerRole() {
+    return rangerCloudAccessAuthorizerRole;
+  }
+
+  /**
+   * Setter for rangerCloudAccessAuthorizerRole.
+   * The cloud provider role to which the Ranger RAZ service will be mapped (e.g. an ARN in AWS, a Resource ID in Azure). This is required in RAZ-enabled environments.
+   **/
+  public void setRangerCloudAccessAuthorizerRole(String rangerCloudAccessAuthorizerRole) {
+    this.rangerCloudAccessAuthorizerRole = rangerCloudAccessAuthorizerRole;
   }
 
   /**
@@ -184,6 +206,9 @@ public class SetIdBrokerMappingsRequest  {
     if (!Objects.equals(this.rangerAuditRole, setIdBrokerMappingsRequest.rangerAuditRole)) {
       return false;
     }
+    if (!Objects.equals(this.rangerCloudAccessAuthorizerRole, setIdBrokerMappingsRequest.rangerCloudAccessAuthorizerRole)) {
+      return false;
+    }
     if (!Objects.equals(this.baselineRole, setIdBrokerMappingsRequest.baselineRole)) {
       return false;
     }
@@ -198,7 +223,7 @@ public class SetIdBrokerMappingsRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, dataAccessRole, rangerAuditRole, baselineRole, mappings, setEmptyMappings);
+    return Objects.hash(environmentName, dataAccessRole, rangerAuditRole, rangerCloudAccessAuthorizerRole, baselineRole, mappings, setEmptyMappings);
   }
 
   @Override
@@ -208,6 +233,7 @@ public class SetIdBrokerMappingsRequest  {
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    dataAccessRole: ").append(toIndentedString(dataAccessRole)).append("\n");
     sb.append("    rangerAuditRole: ").append(toIndentedString(rangerAuditRole)).append("\n");
+    sb.append("    rangerCloudAccessAuthorizerRole: ").append(toIndentedString(rangerCloudAccessAuthorizerRole)).append("\n");
     sb.append("    baselineRole: ").append(toIndentedString(baselineRole)).append("\n");
     sb.append("    mappings: ").append(toIndentedString(mappings)).append("\n");
     sb.append("    setEmptyMappings: ").append(toIndentedString(setEmptyMappings)).append("\n");

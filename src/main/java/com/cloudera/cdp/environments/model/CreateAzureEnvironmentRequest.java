@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * Request object for a create Azure environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-05-14T15:10:08.504-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-06T11:30:39.026-07:00")
 public class CreateAzureEnvironmentRequest  {
 
   /**
@@ -86,6 +86,11 @@ public class CreateAzureEnvironmentRequest  {
    * An description of the environment.
    **/
   private String description = null;
+
+  /**
+   * Whether to enable SSH tunnelling for the environment.
+   **/
+  private Boolean enableTunnel = null;
 
   /**
    * When this is enabled, diagnostic information about job and query execution is sent to Workload Manager for Data Hub clusters created within this environment.
@@ -278,6 +283,23 @@ public class CreateAzureEnvironmentRequest  {
   }
 
   /**
+   * Getter for enableTunnel.
+   * Whether to enable SSH tunnelling for the environment.
+   **/
+  @JsonProperty("enableTunnel")
+  public Boolean getEnableTunnel() {
+    return enableTunnel;
+  }
+
+  /**
+   * Setter for enableTunnel.
+   * Whether to enable SSH tunnelling for the environment.
+   **/
+  public void setEnableTunnel(Boolean enableTunnel) {
+    this.enableTunnel = enableTunnel;
+  }
+
+  /**
    * Getter for workloadAnalytics.
    * When this is enabled, diagnostic information about job and query execution is sent to Workload Manager for Data Hub clusters created within this environment.
    **/
@@ -384,6 +406,9 @@ public class CreateAzureEnvironmentRequest  {
     if (!Objects.equals(this.description, createAzureEnvironmentRequest.description)) {
       return false;
     }
+    if (!Objects.equals(this.enableTunnel, createAzureEnvironmentRequest.enableTunnel)) {
+      return false;
+    }
     if (!Objects.equals(this.workloadAnalytics, createAzureEnvironmentRequest.workloadAnalytics)) {
       return false;
     }
@@ -401,7 +426,7 @@ public class CreateAzureEnvironmentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, workloadAnalytics, freeIpa, tags, proxyConfigName);
+    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, freeIpa, tags, proxyConfigName);
   }
 
   @Override
@@ -418,6 +443,7 @@ public class CreateAzureEnvironmentRequest  {
     sb.append("    existingNetworkParams: ").append(toIndentedString(existingNetworkParams)).append("\n");
     sb.append("    newNetworkParams: ").append(toIndentedString(newNetworkParams)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    enableTunnel: ").append(toIndentedString(enableTunnel)).append("\n");
     sb.append("    workloadAnalytics: ").append(toIndentedString(workloadAnalytics)).append("\n");
     sb.append("    freeIpa: ").append(toIndentedString(freeIpa)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
