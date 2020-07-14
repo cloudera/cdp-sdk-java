@@ -1,0 +1,17 @@
+com.cloudera.cdp
+com.cloudera.cdp.annotation
+com.cloudera.cdp.authentication
+com.cloudera.cdp.authentication.credentials
+com.cloudera.cdp.authentication.credentials.profile
+com.cloudera.cdp.client
+com.cloudera.cdp.datahub.api
+com.cloudera.cdp.datahub.model
+com.cloudera.cdp.datalake.api
+com.cloudera.cdp.datalake.model
+com.cloudera.cdp.environments.api
+com.cloudera.cdp.environments.model
+com.cloudera.cdp.http
+com.cloudera.cdp.iam.api
+com.cloudera.cdp.iam.model
+com.cloudera.cdp.ml.api
+com.cloudera.cdp.ml.model
