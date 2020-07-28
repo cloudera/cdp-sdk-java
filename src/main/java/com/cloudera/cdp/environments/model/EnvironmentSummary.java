@@ -23,11 +23,12 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import java.time.ZonedDateTime;
 
 /**
  * The environment summary.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-06T11:30:39.026-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-28T12:49:36.051-07:00")
 public class EnvironmentSummary  {
 
   /**
@@ -64,6 +65,11 @@ public class EnvironmentSummary  {
    * Description of the environment.
    **/
   private String description = null;
+
+  /**
+   * Creation date
+   **/
+  private ZonedDateTime created = null;
 
   /**
    * Name of the proxy config of the environment.
@@ -190,6 +196,23 @@ public class EnvironmentSummary  {
   }
 
   /**
+   * Getter for created.
+   * Creation date
+   **/
+  @JsonProperty("created")
+  public ZonedDateTime getCreated() {
+    return created;
+  }
+
+  /**
+   * Setter for created.
+   * Creation date
+   **/
+  public void setCreated(ZonedDateTime created) {
+    this.created = created;
+  }
+
+  /**
    * Getter for proxyConfigName.
    * Name of the proxy config of the environment.
    **/
@@ -236,6 +259,9 @@ public class EnvironmentSummary  {
     if (!Objects.equals(this.description, environmentSummary.description)) {
       return false;
     }
+    if (!Objects.equals(this.created, environmentSummary.created)) {
+      return false;
+    }
     if (!Objects.equals(this.proxyConfigName, environmentSummary.proxyConfigName)) {
       return false;
     }
@@ -244,7 +270,7 @@ public class EnvironmentSummary  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, description, proxyConfigName);
+    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, description, created, proxyConfigName);
   }
 
   @Override
@@ -258,6 +284,7 @@ public class EnvironmentSummary  {
     sb.append("    cloudPlatform: ").append(toIndentedString(cloudPlatform)).append("\n");
     sb.append("    credentialName: ").append(toIndentedString(credentialName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    proxyConfigName: ").append(toIndentedString(proxyConfigName)).append("\n");
     sb.append("}");
     return sb.toString();

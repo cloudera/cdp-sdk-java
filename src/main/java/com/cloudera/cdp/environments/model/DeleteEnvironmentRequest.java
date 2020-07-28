@@ -27,13 +27,23 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for a delete environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-06T11:30:39.026-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-28T12:49:36.051-07:00")
 public class DeleteEnvironmentRequest  {
 
   /**
    * The name or CRN of the environment.
    **/
   private String environmentName = null;
+
+  /**
+   * Delete all connected resources too.
+   **/
+  private Boolean cascading = null;
+
+  /**
+   * Force delete action removes CDP resources and may leave cloud provider resources running even if the deletion did not succeed.
+   **/
+  private Boolean forced = null;
 
   /**
    * Getter for environmentName.
@@ -52,6 +62,40 @@ public class DeleteEnvironmentRequest  {
     this.environmentName = environmentName;
   }
 
+  /**
+   * Getter for cascading.
+   * Delete all connected resources too.
+   **/
+  @JsonProperty("cascading")
+  public Boolean getCascading() {
+    return cascading;
+  }
+
+  /**
+   * Setter for cascading.
+   * Delete all connected resources too.
+   **/
+  public void setCascading(Boolean cascading) {
+    this.cascading = cascading;
+  }
+
+  /**
+   * Getter for forced.
+   * Force delete action removes CDP resources and may leave cloud provider resources running even if the deletion did not succeed.
+   **/
+  @JsonProperty("forced")
+  public Boolean getForced() {
+    return forced;
+  }
+
+  /**
+   * Setter for forced.
+   * Force delete action removes CDP resources and may leave cloud provider resources running even if the deletion did not succeed.
+   **/
+  public void setForced(Boolean forced) {
+    this.forced = forced;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -64,12 +108,18 @@ public class DeleteEnvironmentRequest  {
     if (!Objects.equals(this.environmentName, deleteEnvironmentRequest.environmentName)) {
       return false;
     }
+    if (!Objects.equals(this.cascading, deleteEnvironmentRequest.cascading)) {
+      return false;
+    }
+    if (!Objects.equals(this.forced, deleteEnvironmentRequest.forced)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName);
+    return Objects.hash(environmentName, cascading, forced);
   }
 
   @Override
@@ -77,6 +127,8 @@ public class DeleteEnvironmentRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteEnvironmentRequest {\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
+    sb.append("    cascading: ").append(toIndentedString(cascading)).append("\n");
+    sb.append("    forced: ").append(toIndentedString(forced)).append("\n");
     sb.append("}");
     return sb.toString();
   }

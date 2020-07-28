@@ -23,6 +23,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.datahub.model.ClouderaManagerDetails;
 import com.cloudera.cdp.datahub.model.Endpoints;
 import com.cloudera.cdp.datahub.model.ImageDetails;
 import com.cloudera.cdp.datahub.model.InstanceGroup;
@@ -32,7 +33,7 @@ import java.util.*;
 /**
  * Information about a cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-06T11:30:38.416-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-28T12:49:35.271-07:00")
 public class Cluster  {
 
   /**
@@ -104,6 +105,11 @@ public class Cluster  {
    * The status reason.
    **/
   private String statusReason = null;
+
+  /**
+   * The Cloudera Manager details.
+   **/
+  private ClouderaManagerDetails clouderaManager = null;
 
   /**
    * The exposed service api endpoints.
@@ -349,6 +355,23 @@ public class Cluster  {
   }
 
   /**
+   * Getter for clouderaManager.
+   * The Cloudera Manager details.
+   **/
+  @JsonProperty("clouderaManager")
+  public ClouderaManagerDetails getClouderaManager() {
+    return clouderaManager;
+  }
+
+  /**
+   * Setter for clouderaManager.
+   * The Cloudera Manager details.
+   **/
+  public void setClouderaManager(ClouderaManagerDetails clouderaManager) {
+    this.clouderaManager = clouderaManager;
+  }
+
+  /**
    * Getter for endpoints.
    * The exposed service api endpoints.
    **/
@@ -416,6 +439,9 @@ public class Cluster  {
     if (!Objects.equals(this.statusReason, cluster.statusReason)) {
       return false;
     }
+    if (!Objects.equals(this.clouderaManager, cluster.clouderaManager)) {
+      return false;
+    }
     if (!Objects.equals(this.endpoints, cluster.endpoints)) {
       return false;
     }
@@ -424,7 +450,7 @@ public class Cluster  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, crn, creationDate, status, nodeCount, instanceGroups, workloadType, cloudPlatform, imageDetails, environmentCrn, credentialCrn, datalakeCrn, clusterTemplateCrn, statusReason, endpoints);
+    return Objects.hash(clusterName, crn, creationDate, status, nodeCount, instanceGroups, workloadType, cloudPlatform, imageDetails, environmentCrn, credentialCrn, datalakeCrn, clusterTemplateCrn, statusReason, clouderaManager, endpoints);
   }
 
   @Override
@@ -445,6 +471,7 @@ public class Cluster  {
     sb.append("    datalakeCrn: ").append(toIndentedString(datalakeCrn)).append("\n");
     sb.append("    clusterTemplateCrn: ").append(toIndentedString(clusterTemplateCrn)).append("\n");
     sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
+    sb.append("    clouderaManager: ").append(toIndentedString(clouderaManager)).append("\n");
     sb.append("    endpoints: ").append(toIndentedString(endpoints)).append("\n");
     sb.append("}");
     return sb.toString();

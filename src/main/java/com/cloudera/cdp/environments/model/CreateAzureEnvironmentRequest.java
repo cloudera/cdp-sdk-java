@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * Request object for a create Azure environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-06T11:30:39.026-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-28T12:49:36.051-07:00")
 public class CreateAzureEnvironmentRequest  {
 
   /**
@@ -111,6 +111,11 @@ public class CreateAzureEnvironmentRequest  {
    * Name of the proxy config to use for the environment.
    **/
   private String proxyConfigName = null;
+
+  /**
+   * Name of an existing Azure resource group to be used for the environment. If it is not specified then a new resource group will be generated.
+   **/
+  private String resourceGroupName = null;
 
   /**
    * Getter for environmentName.
@@ -367,6 +372,23 @@ public class CreateAzureEnvironmentRequest  {
     this.proxyConfigName = proxyConfigName;
   }
 
+  /**
+   * Getter for resourceGroupName.
+   * Name of an existing Azure resource group to be used for the environment. If it is not specified then a new resource group will be generated.
+   **/
+  @JsonProperty("resourceGroupName")
+  public String getResourceGroupName() {
+    return resourceGroupName;
+  }
+
+  /**
+   * Setter for resourceGroupName.
+   * Name of an existing Azure resource group to be used for the environment. If it is not specified then a new resource group will be generated.
+   **/
+  public void setResourceGroupName(String resourceGroupName) {
+    this.resourceGroupName = resourceGroupName;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -421,12 +443,15 @@ public class CreateAzureEnvironmentRequest  {
     if (!Objects.equals(this.proxyConfigName, createAzureEnvironmentRequest.proxyConfigName)) {
       return false;
     }
+    if (!Objects.equals(this.resourceGroupName, createAzureEnvironmentRequest.resourceGroupName)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, freeIpa, tags, proxyConfigName);
+    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, freeIpa, tags, proxyConfigName, resourceGroupName);
   }
 
   @Override
@@ -448,6 +473,7 @@ public class CreateAzureEnvironmentRequest  {
     sb.append("    freeIpa: ").append(toIndentedString(freeIpa)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    proxyConfigName: ").append(toIndentedString(proxyConfigName)).append("\n");
+    sb.append("    resourceGroupName: ").append(toIndentedString(resourceGroupName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

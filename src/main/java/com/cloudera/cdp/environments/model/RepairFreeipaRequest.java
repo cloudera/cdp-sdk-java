@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for repairing the FreeIPA servers.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-06T11:30:39.026-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-28T12:49:36.051-07:00")
 public class RepairFreeipaRequest  {
 
   /**
@@ -45,6 +45,11 @@ public class RepairFreeipaRequest  {
    * The instance Ids to repair. If not provided then all instances are looked at for repair.
    **/
   private List<String> instances = new ArrayList<String>();
+
+  /**
+   * The type of FreeIPA repair to perform. * AUTO - Currently, this is the same as reboot but this may change in the future. * REBOOT - Repair the failed instances by rebooting them. * REBUILD - Repair the failed instances by deleting them and creating new instances, then replicate data from an existing instance to the new instances.
+   **/
+  private String repairType = null;
 
   /**
    * Getter for environmentName.
@@ -97,6 +102,23 @@ public class RepairFreeipaRequest  {
     this.instances = instances;
   }
 
+  /**
+   * Getter for repairType.
+   * The type of FreeIPA repair to perform. * AUTO - Currently, this is the same as reboot but this may change in the future. * REBOOT - Repair the failed instances by rebooting them. * REBUILD - Repair the failed instances by deleting them and creating new instances, then replicate data from an existing instance to the new instances.
+   **/
+  @JsonProperty("repairType")
+  public String getRepairType() {
+    return repairType;
+  }
+
+  /**
+   * Setter for repairType.
+   * The type of FreeIPA repair to perform. * AUTO - Currently, this is the same as reboot but this may change in the future. * REBOOT - Repair the failed instances by rebooting them. * REBUILD - Repair the failed instances by deleting them and creating new instances, then replicate data from an existing instance to the new instances.
+   **/
+  public void setRepairType(String repairType) {
+    this.repairType = repairType;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -115,12 +137,15 @@ public class RepairFreeipaRequest  {
     if (!Objects.equals(this.instances, repairFreeipaRequest.instances)) {
       return false;
     }
+    if (!Objects.equals(this.repairType, repairFreeipaRequest.repairType)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, force, instances);
+    return Objects.hash(environmentName, force, instances, repairType);
   }
 
   @Override
@@ -130,6 +155,7 @@ public class RepairFreeipaRequest  {
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    force: ").append(toIndentedString(force)).append("\n");
     sb.append("    instances: ").append(toIndentedString(instances)).append("\n");
+    sb.append("    repairType: ").append(toIndentedString(repairType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

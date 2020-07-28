@@ -28,7 +28,7 @@ import com.cloudera.cdp.iam.model.WorkloadPasswordPolicy;
 /**
  * Information about a Cloudera Altus account.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-06T11:30:39.362-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-28T12:49:36.300-07:00")
 public class Account  {
 
   /**

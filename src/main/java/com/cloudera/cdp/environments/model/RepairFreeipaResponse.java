@@ -23,12 +23,169 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.environments.model.RepairOperationDetails;
+import java.time.ZonedDateTime;
+import java.util.*;
 
 /**
  * Response object for an FreeIPA repair request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-06T11:30:39.026-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-28T12:49:36.051-07:00")
 public class RepairFreeipaResponse extends CdpResponse {
+
+  /**
+   * Operation ID of the request for this operation. This ID can be used for geting status on the operation.
+   **/
+  private String operationId = null;
+
+  /**
+   * Status of this operation.
+   **/
+  private String status = null;
+
+  /**
+   * List of operation details for all successes. If the repair is only partially successful both successful and failure operation details will be populated.
+   **/
+  private List<RepairOperationDetails> successfulOperationDetails = new ArrayList<RepairOperationDetails>();
+
+  /**
+   * List of operation details for failures. If the repair is only partially successful both successful and failure operation details will be populated.
+   **/
+  private List<RepairOperationDetails> failureOperationDetails = new ArrayList<RepairOperationDetails>();
+
+  /**
+   * If there is any error associated. The error will be populated on any error and it may be populated when the operation failure details are empty. The error will typically contain the high level information such as the assocated repair failure phase.
+   **/
+  private String error = null;
+
+  /**
+   * Date when the operation started.
+   **/
+  private ZonedDateTime startDate = null;
+
+  /**
+   * Date when the operation ended. Omitted if operation has not ended.
+   **/
+  private ZonedDateTime endDate = null;
+
+  /**
+   * Getter for operationId.
+   * Operation ID of the request for this operation. This ID can be used for geting status on the operation.
+   **/
+  @JsonProperty("operationId")
+  public String getOperationId() {
+    return operationId;
+  }
+
+  /**
+   * Setter for operationId.
+   * Operation ID of the request for this operation. This ID can be used for geting status on the operation.
+   **/
+  public void setOperationId(String operationId) {
+    this.operationId = operationId;
+  }
+
+  /**
+   * Getter for status.
+   * Status of this operation.
+   **/
+  @JsonProperty("status")
+  public String getStatus() {
+    return status;
+  }
+
+  /**
+   * Setter for status.
+   * Status of this operation.
+   **/
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  /**
+   * Getter for successfulOperationDetails.
+   * List of operation details for all successes. If the repair is only partially successful both successful and failure operation details will be populated.
+   **/
+  @JsonProperty("successfulOperationDetails")
+  public List<RepairOperationDetails> getSuccessfulOperationDetails() {
+    return successfulOperationDetails;
+  }
+
+  /**
+   * Setter for successfulOperationDetails.
+   * List of operation details for all successes. If the repair is only partially successful both successful and failure operation details will be populated.
+   **/
+  public void setSuccessfulOperationDetails(List<RepairOperationDetails> successfulOperationDetails) {
+    this.successfulOperationDetails = successfulOperationDetails;
+  }
+
+  /**
+   * Getter for failureOperationDetails.
+   * List of operation details for failures. If the repair is only partially successful both successful and failure operation details will be populated.
+   **/
+  @JsonProperty("failureOperationDetails")
+  public List<RepairOperationDetails> getFailureOperationDetails() {
+    return failureOperationDetails;
+  }
+
+  /**
+   * Setter for failureOperationDetails.
+   * List of operation details for failures. If the repair is only partially successful both successful and failure operation details will be populated.
+   **/
+  public void setFailureOperationDetails(List<RepairOperationDetails> failureOperationDetails) {
+    this.failureOperationDetails = failureOperationDetails;
+  }
+
+  /**
+   * Getter for error.
+   * If there is any error associated. The error will be populated on any error and it may be populated when the operation failure details are empty. The error will typically contain the high level information such as the assocated repair failure phase.
+   **/
+  @JsonProperty("error")
+  public String getError() {
+    return error;
+  }
+
+  /**
+   * Setter for error.
+   * If there is any error associated. The error will be populated on any error and it may be populated when the operation failure details are empty. The error will typically contain the high level information such as the assocated repair failure phase.
+   **/
+  public void setError(String error) {
+    this.error = error;
+  }
+
+  /**
+   * Getter for startDate.
+   * Date when the operation started.
+   **/
+  @JsonProperty("startDate")
+  public ZonedDateTime getStartDate() {
+    return startDate;
+  }
+
+  /**
+   * Setter for startDate.
+   * Date when the operation started.
+   **/
+  public void setStartDate(ZonedDateTime startDate) {
+    this.startDate = startDate;
+  }
+
+  /**
+   * Getter for endDate.
+   * Date when the operation ended. Omitted if operation has not ended.
+   **/
+  @JsonProperty("endDate")
+  public ZonedDateTime getEndDate() {
+    return endDate;
+  }
+
+  /**
+   * Setter for endDate.
+   * Date when the operation ended. Omitted if operation has not ended.
+   **/
+  public void setEndDate(ZonedDateTime endDate) {
+    this.endDate = endDate;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -36,6 +193,28 @@ public class RepairFreeipaResponse extends CdpResponse {
       return true;
     }
     if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    RepairFreeipaResponse repairFreeipaResponse = (RepairFreeipaResponse) o;
+    if (!Objects.equals(this.operationId, repairFreeipaResponse.operationId)) {
+      return false;
+    }
+    if (!Objects.equals(this.status, repairFreeipaResponse.status)) {
+      return false;
+    }
+    if (!Objects.equals(this.successfulOperationDetails, repairFreeipaResponse.successfulOperationDetails)) {
+      return false;
+    }
+    if (!Objects.equals(this.failureOperationDetails, repairFreeipaResponse.failureOperationDetails)) {
+      return false;
+    }
+    if (!Objects.equals(this.error, repairFreeipaResponse.error)) {
+      return false;
+    }
+    if (!Objects.equals(this.startDate, repairFreeipaResponse.startDate)) {
+      return false;
+    }
+    if (!Objects.equals(this.endDate, repairFreeipaResponse.endDate)) {
       return false;
     }
     if (!super.equals(o)) {
@@ -46,7 +225,7 @@ public class RepairFreeipaResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash( super.hashCode());
+    return Objects.hash(operationId, status, successfulOperationDetails, failureOperationDetails, error, startDate, endDate, super.hashCode());
   }
 
   @Override
@@ -54,6 +233,13 @@ public class RepairFreeipaResponse extends CdpResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class RepairFreeipaResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    operationId: ").append(toIndentedString(operationId)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    successfulOperationDetails: ").append(toIndentedString(successfulOperationDetails)).append("\n");
+    sb.append("    failureOperationDetails: ").append(toIndentedString(failureOperationDetails)).append("\n");
+    sb.append("    error: ").append(toIndentedString(error)).append("\n");
+    sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
+    sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

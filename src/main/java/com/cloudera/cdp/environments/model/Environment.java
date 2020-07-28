@@ -30,11 +30,12 @@ import com.cloudera.cdp.environments.model.LogStorage;
 import com.cloudera.cdp.environments.model.Network;
 import com.cloudera.cdp.environments.model.ProxyConfig;
 import com.cloudera.cdp.environments.model.SecurityAccess;
+import java.time.ZonedDateTime;
 
 /**
  * The environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-06T11:30:39.026-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-28T12:49:36.051-07:00")
 public class Environment  {
 
   /**
@@ -96,6 +97,11 @@ public class Environment  {
    * The status reason.
    **/
   private String statusReason = null;
+
+  /**
+   * Creation date
+   **/
+  private ZonedDateTime created = null;
 
   /**
    * 
@@ -317,6 +323,23 @@ public class Environment  {
   }
 
   /**
+   * Getter for created.
+   * Creation date
+   **/
+  @JsonProperty("created")
+  public ZonedDateTime getCreated() {
+    return created;
+  }
+
+  /**
+   * Setter for created.
+   * Creation date
+   **/
+  public void setCreated(ZonedDateTime created) {
+    this.created = created;
+  }
+
+  /**
    * Getter for awsDetails.
    * 
    **/
@@ -412,6 +435,9 @@ public class Environment  {
     if (!Objects.equals(this.statusReason, environment.statusReason)) {
       return false;
     }
+    if (!Objects.equals(this.created, environment.created)) {
+      return false;
+    }
     if (!Objects.equals(this.awsDetails, environment.awsDetails)) {
       return false;
     }
@@ -426,7 +452,7 @@ public class Environment  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, network, logStorage, authentication, securityAccess, description, statusReason, awsDetails, freeipa, proxyConfig);
+    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, network, logStorage, authentication, securityAccess, description, statusReason, created, awsDetails, freeipa, proxyConfig);
   }
 
   @Override
@@ -445,6 +471,7 @@ public class Environment  {
     sb.append("    securityAccess: ").append(toIndentedString(securityAccess)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
+    sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    awsDetails: ").append(toIndentedString(awsDetails)).append("\n");
     sb.append("    freeipa: ").append(toIndentedString(freeipa)).append("\n");
     sb.append("    proxyConfig: ").append(toIndentedString(proxyConfig)).append("\n");

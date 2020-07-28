@@ -3,7 +3,7 @@
 
   <groupId>com.cloudera.cdp</groupId>
   <artifactId>cdp-sdk-java</artifactId>
-  <version>0.9.12</version>
+  <version>0.9.13</version>
   <name>Cloudera CDP Java SDK</name>
   <packaging>jar</packaging>
 
@@ -321,7 +321,7 @@
                   <version>${minSupportedJvmJavaVersion}</version>
                 </requireJavaVersion>
                 <requireMavenVersion>
-                  <version>3.5</version>
+                  <version>3.5.0</version>
                 </requireMavenVersion>
               </rules>
               <skip>${skip-dependency-convergence}</skip>

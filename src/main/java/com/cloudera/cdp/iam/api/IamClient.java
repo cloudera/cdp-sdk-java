@@ -26,6 +26,8 @@ import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
 import com.cloudera.cdp.iam.model.AddMachineUserToGroupRequest;
 import com.cloudera.cdp.iam.model.AddMachineUserToGroupResponse;
+import com.cloudera.cdp.iam.model.AddSshPublicKeyRequest;
+import com.cloudera.cdp.iam.model.AddSshPublicKeyResponse;
 import com.cloudera.cdp.iam.model.AddUserToGroupRequest;
 import com.cloudera.cdp.iam.model.AddUserToGroupResponse;
 import com.cloudera.cdp.iam.model.AssignGroupResourceRoleRequest;
@@ -60,8 +62,12 @@ import com.cloudera.cdp.iam.model.DeleteMachineUserRequest;
 import com.cloudera.cdp.iam.model.DeleteMachineUserResponse;
 import com.cloudera.cdp.iam.model.DeleteSamlProviderRequest;
 import com.cloudera.cdp.iam.model.DeleteSamlProviderResponse;
+import com.cloudera.cdp.iam.model.DeleteSshPublicKeyRequest;
+import com.cloudera.cdp.iam.model.DeleteSshPublicKeyResponse;
 import com.cloudera.cdp.iam.model.DeleteUserRequest;
 import com.cloudera.cdp.iam.model.DeleteUserResponse;
+import com.cloudera.cdp.iam.model.DescribeSshPublicKeyRequest;
+import com.cloudera.cdp.iam.model.DescribeSshPublicKeyResponse;
 import com.cloudera.cdp.iam.model.DisableClouderaSSOLoginRequest;
 import com.cloudera.cdp.iam.model.DisableClouderaSSOLoginResponse;
 import com.cloudera.cdp.iam.model.EnableClouderaSSOLoginRequest;
@@ -101,6 +107,8 @@ import com.cloudera.cdp.iam.model.ListRolesRequest;
 import com.cloudera.cdp.iam.model.ListRolesResponse;
 import com.cloudera.cdp.iam.model.ListSamlProvidersRequest;
 import com.cloudera.cdp.iam.model.ListSamlProvidersResponse;
+import com.cloudera.cdp.iam.model.ListSshPublicKeysRequest;
+import com.cloudera.cdp.iam.model.ListSshPublicKeysResponse;
 import com.cloudera.cdp.iam.model.ListUserAssignedResourceRolesRequest;
 import com.cloudera.cdp.iam.model.ListUserAssignedResourceRolesResponse;
 import com.cloudera.cdp.iam.model.ListUserAssignedRolesRequest;
@@ -134,7 +142,7 @@ import com.cloudera.cdp.iam.model.UpdateGroupResponse;
 import com.cloudera.cdp.iam.model.UpdateSamlProviderRequest;
 import com.cloudera.cdp.iam.model.UpdateSamlProviderResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-06T11:30:39.362-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-28T12:49:36.300-07:00")
 public class IamClient extends CdpClient {
 
   public static final String SERVICE_NAME = "iam";
@@ -156,6 +164,18 @@ public class IamClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling addMachineUserToGroup");
      }
     return this.invokeAPI("/iam/addMachineUserToGroup", input, new GenericType<AddMachineUserToGroupResponse>(){});
+  }
+
+  /**
+   * Adds an SSH public key for an actor.
+   * @param input
+   * @return AddSshPublicKeyResponse
+   */
+  public AddSshPublicKeyResponse addSshPublicKey(AddSshPublicKeyRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling addSshPublicKey");
+     }
+    return this.invokeAPI("/iam/addSshPublicKey", input, new GenericType<AddSshPublicKeyResponse>(){});
   }
 
   /**
@@ -363,6 +383,18 @@ public class IamClient extends CdpClient {
   }
 
   /**
+   * Deletes an SSH public key for an actor.
+   * @param input
+   * @return DeleteSshPublicKeyResponse
+   */
+  public DeleteSshPublicKeyResponse deleteSshPublicKey(DeleteSshPublicKeyRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling deleteSshPublicKey");
+     }
+    return this.invokeAPI("/iam/deleteSshPublicKey", input, new GenericType<DeleteSshPublicKeyResponse>(){});
+  }
+
+  /**
    * Deletes a user and all associated resources.
    * @param input
    * @return DeleteUserResponse
@@ -372,6 +404,18 @@ public class IamClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling deleteUser");
      }
     return this.invokeAPI("/iam/deleteUser", input, new GenericType<DeleteUserResponse>(){});
+  }
+
+  /**
+   * Describes an SSH public key for an actor.
+   * @param input
+   * @return DescribeSshPublicKeyResponse
+   */
+  public DescribeSshPublicKeyResponse describeSshPublicKey(DescribeSshPublicKeyRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling describeSshPublicKey");
+     }
+    return this.invokeAPI("/iam/describeSshPublicKey", input, new GenericType<DescribeSshPublicKeyResponse>(){});
   }
 
   /**
@@ -600,6 +644,18 @@ public class IamClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling listSamlProviders");
      }
     return this.invokeAPI("/iam/listSamlProviders", input, new GenericType<ListSamlProvidersResponse>(){});
+  }
+
+  /**
+   * Lists SSH public keys for an actor.
+   * @param input
+   * @return ListSshPublicKeysResponse
+   */
+  public ListSshPublicKeysResponse listSshPublicKeys(ListSshPublicKeysRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling listSshPublicKeys");
+     }
+    return this.invokeAPI("/iam/listSshPublicKeys", input, new GenericType<ListSshPublicKeysResponse>(){});
   }
 
   /**

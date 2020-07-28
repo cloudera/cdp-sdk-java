@@ -24,13 +24,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.ml.model.InstanceGroup;
+import com.cloudera.cdp.ml.model.OverlayNetwork;
 import com.cloudera.cdp.ml.model.ProvisionTag;
 import java.util.*;
 
 /**
  * Request object for workspace provision.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-06T11:30:38.720-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-28T12:49:35.627-07:00")
 public class ProvisionK8sRequest  {
 
   /**
@@ -47,6 +48,11 @@ public class ProvisionK8sRequest  {
    * Tags to add to the cloud provider resources created. This is in addition to any tags added by Cloudera.
    **/
   private List<ProvisionTag> tags = new ArrayList<ProvisionTag>();
+
+  /**
+   * The overlay network for an AWS Kubernetes cluster's CNI.
+   **/
+  private OverlayNetwork network = null;
 
   /**
    * Getter for instanceGroups.
@@ -99,6 +105,23 @@ public class ProvisionK8sRequest  {
     this.tags = tags;
   }
 
+  /**
+   * Getter for network.
+   * The overlay network for an AWS Kubernetes cluster&#39;s CNI.
+   **/
+  @JsonProperty("network")
+  public OverlayNetwork getNetwork() {
+    return network;
+  }
+
+  /**
+   * Setter for network.
+   * The overlay network for an AWS Kubernetes cluster&#39;s CNI.
+   **/
+  public void setNetwork(OverlayNetwork network) {
+    this.network = network;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -117,12 +140,15 @@ public class ProvisionK8sRequest  {
     if (!Objects.equals(this.tags, provisionK8sRequest.tags)) {
       return false;
     }
+    if (!Objects.equals(this.network, provisionK8sRequest.network)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceGroups, environmentName, tags);
+    return Objects.hash(instanceGroups, environmentName, tags, network);
   }
 
   @Override
@@ -132,6 +158,7 @@ public class ProvisionK8sRequest  {
     sb.append("    instanceGroups: ").append(toIndentedString(instanceGroups)).append("\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    network: ").append(toIndentedString(network)).append("\n");
     sb.append("}");
     return sb.toString();
   }
