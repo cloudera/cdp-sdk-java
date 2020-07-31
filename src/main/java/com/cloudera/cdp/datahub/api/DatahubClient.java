@@ -78,7 +78,7 @@ import com.cloudera.cdp.datahub.model.StopClusterResponse;
 import com.cloudera.cdp.datahub.model.SyncClusterRequest;
 import com.cloudera.cdp.datahub.model.SyncClusterResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-28T12:49:35.271-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-30T20:30:07.859-07:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";
