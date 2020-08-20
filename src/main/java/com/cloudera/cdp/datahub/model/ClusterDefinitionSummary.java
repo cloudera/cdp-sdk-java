@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Information about a cluster definition.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-30T20:30:07.859-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-08-20T08:11:34.592-07:00")
 public class ClusterDefinitionSummary  {
 
   /**

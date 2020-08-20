@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object for an assign machine user resource role request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-30T20:30:08.859-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-08-20T08:11:35.805-07:00")
 public class AssignMachineUserResourceRoleResponse extends CdpResponse {
 
   @Override

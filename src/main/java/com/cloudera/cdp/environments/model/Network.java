@@ -32,16 +32,16 @@ import java.util.Map;
 /**
  * The network.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-30T20:30:08.515-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-08-20T08:11:35.394-07:00")
 public class Network  {
 
   /**
-   * Name of the network
+   * Name or id of the network
    **/
   private String networkName = null;
 
   /**
-   * Subnet ids of the network.
+   * Subnet names or ids of the network.
    **/
   private List<String> subnetIds = new ArrayList<String>();
 
@@ -67,7 +67,7 @@ public class Network  {
 
   /**
    * Getter for networkName.
-   * Name of the network
+   * Name or id of the network
    **/
   @JsonProperty("networkName")
   public String getNetworkName() {
@@ -76,7 +76,7 @@ public class Network  {
 
   /**
    * Setter for networkName.
-   * Name of the network
+   * Name or id of the network
    **/
   public void setNetworkName(String networkName) {
     this.networkName = networkName;
@@ -84,7 +84,7 @@ public class Network  {
 
   /**
    * Getter for subnetIds.
-   * Subnet ids of the network.
+   * Subnet names or ids of the network.
    **/
   @JsonProperty("subnetIds")
   public List<String> getSubnetIds() {
@@ -93,7 +93,7 @@ public class Network  {
 
   /**
    * Setter for subnetIds.
-   * Subnet ids of the network.
+   * Subnet names or ids of the network.
    **/
   public void setSubnetIds(List<String> subnetIds) {
     this.subnetIds = subnetIds;

@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for create Azure datalake request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-30T20:30:08.300-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-08-20T08:11:35.141-07:00")
 public class CreateAzureDatalakeRequest  {
 
   /**
@@ -57,6 +57,11 @@ public class CreateAzureDatalakeRequest  {
    * The scale of the datalake.
    **/
   private String scale = null;
+
+  /**
+   * Cloudera Runtime version.
+   **/
+  private String runtime = null;
 
   /**
    * Getter for datalakeName.
@@ -143,6 +148,23 @@ public class CreateAzureDatalakeRequest  {
     this.scale = scale;
   }
 
+  /**
+   * Getter for runtime.
+   * Cloudera Runtime version.
+   **/
+  @JsonProperty("runtime")
+  public String getRuntime() {
+    return runtime;
+  }
+
+  /**
+   * Setter for runtime.
+   * Cloudera Runtime version.
+   **/
+  public void setRuntime(String runtime) {
+    this.runtime = runtime;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -167,12 +189,15 @@ public class CreateAzureDatalakeRequest  {
     if (!Objects.equals(this.scale, createAzureDatalakeRequest.scale)) {
       return false;
     }
+    if (!Objects.equals(this.runtime, createAzureDatalakeRequest.runtime)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, tags, scale);
+    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, tags, scale, runtime);
   }
 
   @Override
@@ -184,6 +209,7 @@ public class CreateAzureDatalakeRequest  {
     sb.append("    cloudProviderConfiguration: ").append(toIndentedString(cloudProviderConfiguration)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    scale: ").append(toIndentedString(scale)).append("\n");
+    sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
     sb.append("}");
     return sb.toString();
   }

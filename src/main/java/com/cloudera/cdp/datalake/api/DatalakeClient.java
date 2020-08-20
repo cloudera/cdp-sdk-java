@@ -24,6 +24,10 @@ import com.cloudera.cdp.CdpClientException;
 import com.cloudera.cdp.authentication.credentials.CdpCredentials;
 import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
+import com.cloudera.cdp.datalake.model.BackupDatalakeRequest;
+import com.cloudera.cdp.datalake.model.BackupDatalakeResponse;
+import com.cloudera.cdp.datalake.model.BackupDatalakeStatusRequest;
+import com.cloudera.cdp.datalake.model.BackupDatalakeStatusResponse;
 import com.cloudera.cdp.datalake.model.CreateAWSDatalakeRequest;
 import com.cloudera.cdp.datalake.model.CreateAWSDatalakeResponse;
 import com.cloudera.cdp.datalake.model.CreateAzureDatalakeRequest;
@@ -37,12 +41,18 @@ import com.cloudera.cdp.datalake.model.GetClusterHostStatusRequest;
 import com.cloudera.cdp.datalake.model.GetClusterHostStatusResponse;
 import com.cloudera.cdp.datalake.model.GetClusterServiceStatusRequest;
 import com.cloudera.cdp.datalake.model.GetClusterServiceStatusResponse;
+import com.cloudera.cdp.datalake.model.ListDatalakeBackupsRequest;
+import com.cloudera.cdp.datalake.model.ListDatalakeBackupsResponse;
 import com.cloudera.cdp.datalake.model.ListDatalakesRequest;
 import com.cloudera.cdp.datalake.model.ListDatalakesResponse;
 import com.cloudera.cdp.datalake.model.ListRuntimesRequest;
 import com.cloudera.cdp.datalake.model.ListRuntimesResponse;
 import com.cloudera.cdp.datalake.model.RepairDatalakeRequest;
 import com.cloudera.cdp.datalake.model.RepairDatalakeResponse;
+import com.cloudera.cdp.datalake.model.RestoreDatalakeRequest;
+import com.cloudera.cdp.datalake.model.RestoreDatalakeResponse;
+import com.cloudera.cdp.datalake.model.RestoreDatalakeStatusRequest;
+import com.cloudera.cdp.datalake.model.RestoreDatalakeStatusResponse;
 import com.cloudera.cdp.datalake.model.StartDatalakeRequest;
 import com.cloudera.cdp.datalake.model.StartDatalakeResponse;
 import com.cloudera.cdp.datalake.model.StopDatalakeRequest;
@@ -50,7 +60,7 @@ import com.cloudera.cdp.datalake.model.StopDatalakeResponse;
 import com.cloudera.cdp.datalake.model.UpgradeDatalakeRequest;
 import com.cloudera.cdp.datalake.model.UpgradeDatalakeResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-30T20:30:08.300-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-08-20T08:11:35.141-07:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";
@@ -60,6 +70,30 @@ public class DatalakeClient extends CdpClient {
       String endPoint,
       CdpClientConfiguration clientConfiguration) {
     super(credentials, endPoint, clientConfiguration);
+  }
+
+  /**
+   * Create backup of datalake.
+   * @param input
+   * @return BackupDatalakeResponse
+   */
+  public BackupDatalakeResponse backupDatalake(BackupDatalakeRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling backupDatalake");
+     }
+    return this.invokeAPI("/api/v1/datalake/backupDatalake", input, new GenericType<BackupDatalakeResponse>(){});
+  }
+
+  /**
+   * Check the status of a datalake backup operation performed.
+   * @param input
+   * @return BackupDatalakeStatusResponse
+   */
+  public BackupDatalakeStatusResponse backupDatalakeStatus(BackupDatalakeStatusRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling backupDatalakeStatus");
+     }
+    return this.invokeAPI("/api/v1/datalake/backupDatalakeStatus", input, new GenericType<BackupDatalakeStatusResponse>(){});
   }
 
   /**
@@ -135,6 +169,18 @@ public class DatalakeClient extends CdpClient {
   }
 
   /**
+   * List all the backup operations that were performed on the datalake.
+   * @param input
+   * @return ListDatalakeBackupsResponse
+   */
+  public ListDatalakeBackupsResponse listDatalakeBackups(ListDatalakeBackupsRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling listDatalakeBackups");
+     }
+    return this.invokeAPI("/api/v1/datalake/listDatalakeBackups", input, new GenericType<ListDatalakeBackupsResponse>(){});
+  }
+
+  /**
    * Lists datalakes.
    * @param input
    * @return ListDatalakesResponse
@@ -168,6 +214,30 @@ public class DatalakeClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling repairDatalake");
      }
     return this.invokeAPI("/api/v1/datalake/repairDatalake", input, new GenericType<RepairDatalakeResponse>(){});
+  }
+
+  /**
+   * Restore the datalake from backup taken.
+   * @param input
+   * @return RestoreDatalakeResponse
+   */
+  public RestoreDatalakeResponse restoreDatalake(RestoreDatalakeRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling restoreDatalake");
+     }
+    return this.invokeAPI("/api/v1/datalake/restoreDatalake", input, new GenericType<RestoreDatalakeResponse>(){});
+  }
+
+  /**
+   * Check the status of datalake restore operation.
+   * @param input
+   * @return RestoreDatalakeStatusResponse
+   */
+  public RestoreDatalakeStatusResponse restoreDatalakeStatus(RestoreDatalakeStatusRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling restoreDatalakeStatus");
+     }
+    return this.invokeAPI("/api/v1/datalake/restoreDatalakeStatus", input, new GenericType<RestoreDatalakeStatusResponse>(){});
   }
 
   /**

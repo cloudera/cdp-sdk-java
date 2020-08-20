@@ -35,7 +35,7 @@ import java.time.ZonedDateTime;
 /**
  * The environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-30T20:30:08.515-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-08-20T08:11:35.394-07:00")
 public class Environment  {
 
   /**
@@ -102,6 +102,11 @@ public class Environment  {
    * Creation date
    **/
   private ZonedDateTime created = null;
+
+  /**
+   * The CRN of the user who has created the given environment.
+   **/
+  private String creator = null;
 
   /**
    * 
@@ -340,6 +345,23 @@ public class Environment  {
   }
 
   /**
+   * Getter for creator.
+   * The CRN of the user who has created the given environment.
+   **/
+  @JsonProperty("creator")
+  public String getCreator() {
+    return creator;
+  }
+
+  /**
+   * Setter for creator.
+   * The CRN of the user who has created the given environment.
+   **/
+  public void setCreator(String creator) {
+    this.creator = creator;
+  }
+
+  /**
    * Getter for awsDetails.
    * 
    **/
@@ -438,6 +460,9 @@ public class Environment  {
     if (!Objects.equals(this.created, environment.created)) {
       return false;
     }
+    if (!Objects.equals(this.creator, environment.creator)) {
+      return false;
+    }
     if (!Objects.equals(this.awsDetails, environment.awsDetails)) {
       return false;
     }
@@ -452,7 +477,7 @@ public class Environment  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, network, logStorage, authentication, securityAccess, description, statusReason, created, awsDetails, freeipa, proxyConfig);
+    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, network, logStorage, authentication, securityAccess, description, statusReason, created, creator, awsDetails, freeipa, proxyConfig);
   }
 
   @Override
@@ -472,6 +497,7 @@ public class Environment  {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
+    sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    awsDetails: ").append(toIndentedString(awsDetails)).append("\n");
     sb.append("    freeipa: ").append(toIndentedString(freeipa)).append("\n");
     sb.append("    proxyConfig: ").append(toIndentedString(proxyConfig)).append("\n");

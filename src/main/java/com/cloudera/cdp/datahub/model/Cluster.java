@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * Information about a cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-07-30T20:30:07.859-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-08-20T08:11:34.592-07:00")
 public class Cluster  {
 
   /**
@@ -55,6 +55,11 @@ public class Cluster  {
    * The status of the stack.
    **/
   private String status = null;
+
+  /**
+   * The status of the cluster.
+   **/
+  private String clusterStatus = null;
 
   /**
    * The cluster node count.
@@ -182,6 +187,23 @@ public class Cluster  {
    **/
   public void setStatus(String status) {
     this.status = status;
+  }
+
+  /**
+   * Getter for clusterStatus.
+   * The status of the cluster.
+   **/
+  @JsonProperty("clusterStatus")
+  public String getClusterStatus() {
+    return clusterStatus;
+  }
+
+  /**
+   * Setter for clusterStatus.
+   * The status of the cluster.
+   **/
+  public void setClusterStatus(String clusterStatus) {
+    this.clusterStatus = clusterStatus;
   }
 
   /**
@@ -409,6 +431,9 @@ public class Cluster  {
     if (!Objects.equals(this.status, cluster.status)) {
       return false;
     }
+    if (!Objects.equals(this.clusterStatus, cluster.clusterStatus)) {
+      return false;
+    }
     if (!Objects.equals(this.nodeCount, cluster.nodeCount)) {
       return false;
     }
@@ -450,7 +475,7 @@ public class Cluster  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, crn, creationDate, status, nodeCount, instanceGroups, workloadType, cloudPlatform, imageDetails, environmentCrn, credentialCrn, datalakeCrn, clusterTemplateCrn, statusReason, clouderaManager, endpoints);
+    return Objects.hash(clusterName, crn, creationDate, status, clusterStatus, nodeCount, instanceGroups, workloadType, cloudPlatform, imageDetails, environmentCrn, credentialCrn, datalakeCrn, clusterTemplateCrn, statusReason, clouderaManager, endpoints);
   }
 
   @Override
@@ -461,6 +486,7 @@ public class Cluster  {
     sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    clusterStatus: ").append(toIndentedString(clusterStatus)).append("\n");
     sb.append("    nodeCount: ").append(toIndentedString(nodeCount)).append("\n");
     sb.append("    instanceGroups: ").append(toIndentedString(instanceGroups)).append("\n");
     sb.append("    workloadType: ").append(toIndentedString(workloadType)).append("\n");
