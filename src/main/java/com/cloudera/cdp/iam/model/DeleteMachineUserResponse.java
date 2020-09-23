@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for delete machine user request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-08-20T08:11:35.805-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-09-23T14:13:41.590-07:00")
 public class DeleteMachineUserResponse extends CdpResponse {
 
   /**
@@ -38,17 +38,17 @@ public class DeleteMachineUserResponse extends CdpResponse {
   private List<String> accessKeysDeleted = new ArrayList<String>();
 
   /**
-   * The list of group CRNs from which the user has been removed.
+   * The list of group CRNs from which the machine user has been removed.
    **/
   private List<String> groupsModified = new ArrayList<String>();
 
   /**
-   * The list of role CRNs unassigned from the user.
+   * The list of role CRNs unassigned from the machine user.
    **/
   private List<String> rolesUnassigned = new ArrayList<String>();
 
   /**
-   * The list of resource role assignments that have been unassigned from the user.
+   * The list of resource role assignments that have been unassigned from the machine user.
    **/
   private List<ResourceAssignment> resourcesUnassigned = new ArrayList<ResourceAssignment>();
 
@@ -71,7 +71,7 @@ public class DeleteMachineUserResponse extends CdpResponse {
 
   /**
    * Getter for groupsModified.
-   * The list of group CRNs from which the user has been removed.
+   * The list of group CRNs from which the machine user has been removed.
    **/
   @JsonProperty("groupsModified")
   public List<String> getGroupsModified() {
@@ -80,7 +80,7 @@ public class DeleteMachineUserResponse extends CdpResponse {
 
   /**
    * Setter for groupsModified.
-   * The list of group CRNs from which the user has been removed.
+   * The list of group CRNs from which the machine user has been removed.
    **/
   public void setGroupsModified(List<String> groupsModified) {
     this.groupsModified = groupsModified;
@@ -88,7 +88,7 @@ public class DeleteMachineUserResponse extends CdpResponse {
 
   /**
    * Getter for rolesUnassigned.
-   * The list of role CRNs unassigned from the user.
+   * The list of role CRNs unassigned from the machine user.
    **/
   @JsonProperty("rolesUnassigned")
   public List<String> getRolesUnassigned() {
@@ -97,7 +97,7 @@ public class DeleteMachineUserResponse extends CdpResponse {
 
   /**
    * Setter for rolesUnassigned.
-   * The list of role CRNs unassigned from the user.
+   * The list of role CRNs unassigned from the machine user.
    **/
   public void setRolesUnassigned(List<String> rolesUnassigned) {
     this.rolesUnassigned = rolesUnassigned;
@@ -105,7 +105,7 @@ public class DeleteMachineUserResponse extends CdpResponse {
 
   /**
    * Getter for resourcesUnassigned.
-   * The list of resource role assignments that have been unassigned from the user.
+   * The list of resource role assignments that have been unassigned from the machine user.
    **/
   @JsonProperty("resourcesUnassigned")
   public List<ResourceAssignment> getResourcesUnassigned() {
@@ -114,7 +114,7 @@ public class DeleteMachineUserResponse extends CdpResponse {
 
   /**
    * Setter for resourcesUnassigned.
-   * The list of resource role assignments that have been unassigned from the user.
+   * The list of resource role assignments that have been unassigned from the machine user.
    **/
   public void setResourcesUnassigned(List<ResourceAssignment> resourcesUnassigned) {
     this.resourcesUnassigned = resourcesUnassigned;

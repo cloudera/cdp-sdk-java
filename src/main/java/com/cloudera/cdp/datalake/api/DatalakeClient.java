@@ -53,6 +53,8 @@ import com.cloudera.cdp.datalake.model.RestoreDatalakeRequest;
 import com.cloudera.cdp.datalake.model.RestoreDatalakeResponse;
 import com.cloudera.cdp.datalake.model.RestoreDatalakeStatusRequest;
 import com.cloudera.cdp.datalake.model.RestoreDatalakeStatusResponse;
+import com.cloudera.cdp.datalake.model.RetryDatalakeRequest;
+import com.cloudera.cdp.datalake.model.RetryDatalakeResponse;
 import com.cloudera.cdp.datalake.model.StartDatalakeRequest;
 import com.cloudera.cdp.datalake.model.StartDatalakeResponse;
 import com.cloudera.cdp.datalake.model.StopDatalakeRequest;
@@ -60,7 +62,7 @@ import com.cloudera.cdp.datalake.model.StopDatalakeResponse;
 import com.cloudera.cdp.datalake.model.UpgradeDatalakeRequest;
 import com.cloudera.cdp.datalake.model.UpgradeDatalakeResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-08-20T08:11:35.141-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-09-23T14:13:41.105-07:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";
@@ -238,6 +240,18 @@ public class DatalakeClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling restoreDatalakeStatus");
      }
     return this.invokeAPI("/api/v1/datalake/restoreDatalakeStatus", input, new GenericType<RestoreDatalakeStatusResponse>(){});
+  }
+
+  /**
+   * Retry last failed operation on a datalake.
+   * @param input
+   * @return RetryDatalakeResponse
+   */
+  public RetryDatalakeResponse retryDatalake(RetryDatalakeRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling retryDatalake");
+     }
+    return this.invokeAPI("/api/v1/datalake/retryDatalake", input, new GenericType<RetryDatalakeResponse>(){});
   }
 
   /**

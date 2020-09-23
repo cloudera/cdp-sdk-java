@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for create Azure datalake request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-08-20T08:11:35.141-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-09-23T14:13:41.105-07:00")
 public class CreateAzureDatalakeRequest  {
 
   /**
@@ -54,7 +54,7 @@ public class CreateAzureDatalakeRequest  {
   private List<DatalakeResourceTagRequest> tags = new ArrayList<DatalakeResourceTagRequest>();
 
   /**
-   * The scale of the datalake.
+   * The scale of the datalake. Allowed values are \"LIGHT_DUTY\" or \"MEDIUM_DUTY_HA\".
    **/
   private String scale = null;
 
@@ -133,7 +133,7 @@ public class CreateAzureDatalakeRequest  {
 
   /**
    * Getter for scale.
-   * The scale of the datalake.
+   * The scale of the datalake. Allowed values are \&quot;LIGHT_DUTY\&quot; or \&quot;MEDIUM_DUTY_HA\&quot;.
    **/
   @JsonProperty("scale")
   public String getScale() {
@@ -142,7 +142,7 @@ public class CreateAzureDatalakeRequest  {
 
   /**
    * Setter for scale.
-   * The scale of the datalake.
+   * The scale of the datalake. Allowed values are \&quot;LIGHT_DUTY\&quot; or \&quot;MEDIUM_DUTY_HA\&quot;.
    **/
   public void setScale(String scale) {
     this.scale = scale;

@@ -25,29 +25,24 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * Request object to get the status of last restore operation that matches the inputs provided.
+ * Request object to get the status of a restore operation.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-08-20T08:11:35.141-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-09-23T14:13:41.105-07:00")
 public class RestoreDatalakeStatusRequest  {
 
   /**
-   * The name of the datalake. When backupName and restoreId are not provided, status request will get the status of the latest restore operation performed on the given datalake.
+   * The name of the Data Lake for which the most recent restore status will be retrieved.
    **/
   private String datalakeName = null;
 
   /**
-   * The name of the backup. When provided, the status request will get the status of the latest restore operation performed using the provided backupname on the given datalake.
-   **/
-  private String backupName = null;
-
-  /**
-   * Unique identifier of the restore operation performed. When provided, the status request will get the status of a specific restore that has the unique identifier.
+   * Unique identifier of the restore operation performed.
    **/
   private String restoreId = null;
 
   /**
    * Getter for datalakeName.
-   * The name of the datalake. When backupName and restoreId are not provided, status request will get the status of the latest restore operation performed on the given datalake.
+   * The name of the Data Lake for which the most recent restore status will be retrieved.
    **/
   @JsonProperty("datalakeName")
   public String getDatalakeName() {
@@ -56,32 +51,15 @@ public class RestoreDatalakeStatusRequest  {
 
   /**
    * Setter for datalakeName.
-   * The name of the datalake. When backupName and restoreId are not provided, status request will get the status of the latest restore operation performed on the given datalake.
+   * The name of the Data Lake for which the most recent restore status will be retrieved.
    **/
   public void setDatalakeName(String datalakeName) {
     this.datalakeName = datalakeName;
   }
 
   /**
-   * Getter for backupName.
-   * The name of the backup. When provided, the status request will get the status of the latest restore operation performed using the provided backupname on the given datalake.
-   **/
-  @JsonProperty("backupName")
-  public String getBackupName() {
-    return backupName;
-  }
-
-  /**
-   * Setter for backupName.
-   * The name of the backup. When provided, the status request will get the status of the latest restore operation performed using the provided backupname on the given datalake.
-   **/
-  public void setBackupName(String backupName) {
-    this.backupName = backupName;
-  }
-
-  /**
    * Getter for restoreId.
-   * Unique identifier of the restore operation performed. When provided, the status request will get the status of a specific restore that has the unique identifier.
+   * Unique identifier of the restore operation performed.
    **/
   @JsonProperty("restoreId")
   public String getRestoreId() {
@@ -90,7 +68,7 @@ public class RestoreDatalakeStatusRequest  {
 
   /**
    * Setter for restoreId.
-   * Unique identifier of the restore operation performed. When provided, the status request will get the status of a specific restore that has the unique identifier.
+   * Unique identifier of the restore operation performed.
    **/
   public void setRestoreId(String restoreId) {
     this.restoreId = restoreId;
@@ -108,9 +86,6 @@ public class RestoreDatalakeStatusRequest  {
     if (!Objects.equals(this.datalakeName, restoreDatalakeStatusRequest.datalakeName)) {
       return false;
     }
-    if (!Objects.equals(this.backupName, restoreDatalakeStatusRequest.backupName)) {
-      return false;
-    }
     if (!Objects.equals(this.restoreId, restoreDatalakeStatusRequest.restoreId)) {
       return false;
     }
@@ -119,7 +94,7 @@ public class RestoreDatalakeStatusRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, backupName, restoreId);
+    return Objects.hash(datalakeName, restoreId);
   }
 
   @Override
@@ -127,7 +102,6 @@ public class RestoreDatalakeStatusRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class RestoreDatalakeStatusRequest {\n");
     sb.append("    datalakeName: ").append(toIndentedString(datalakeName)).append("\n");
-    sb.append("    backupName: ").append(toIndentedString(backupName)).append("\n");
     sb.append("    restoreId: ").append(toIndentedString(restoreId)).append("\n");
     sb.append("}");
     return sb.toString();

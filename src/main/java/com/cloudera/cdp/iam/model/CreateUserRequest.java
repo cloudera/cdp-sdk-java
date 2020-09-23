@@ -28,13 +28,8 @@ import java.util.*;
 /**
  * Request object for creating user request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-08-20T08:11:35.805-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-09-23T14:13:41.590-07:00")
 public class CreateUserRequest  {
-
-  /**
-   * The name or CRN of the SAML provider the user will use for login.
-   **/
-  private String samlProviderName = null;
 
   /**
    * The identity provider user id for the user. This ID must match the NameId attribute value that will be passed for the user in the SAML response using the associated SAML provider.
@@ -45,6 +40,11 @@ public class CreateUserRequest  {
    * The email address for the user. Used for display purposes only.
    **/
   private String email = null;
+
+  /**
+   * The name or CRN of the SAML provider the user will use for login.
+   **/
+  private String samlProviderName = null;
 
   /**
    * The list of groups the user belongs to. The groups will be created if they do not exist.
@@ -60,23 +60,6 @@ public class CreateUserRequest  {
    * The user last name.
    **/
   private String lastName = null;
-
-  /**
-   * Getter for samlProviderName.
-   * The name or CRN of the SAML provider the user will use for login.
-   **/
-  @JsonProperty("samlProviderName")
-  public String getSamlProviderName() {
-    return samlProviderName;
-  }
-
-  /**
-   * Setter for samlProviderName.
-   * The name or CRN of the SAML provider the user will use for login.
-   **/
-  public void setSamlProviderName(String samlProviderName) {
-    this.samlProviderName = samlProviderName;
-  }
 
   /**
    * Getter for identityProviderUserId.
@@ -110,6 +93,23 @@ public class CreateUserRequest  {
    **/
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  /**
+   * Getter for samlProviderName.
+   * The name or CRN of the SAML provider the user will use for login.
+   **/
+  @JsonProperty("samlProviderName")
+  public String getSamlProviderName() {
+    return samlProviderName;
+  }
+
+  /**
+   * Setter for samlProviderName.
+   * The name or CRN of the SAML provider the user will use for login.
+   **/
+  public void setSamlProviderName(String samlProviderName) {
+    this.samlProviderName = samlProviderName;
   }
 
   /**
@@ -172,13 +172,13 @@ public class CreateUserRequest  {
       return false;
     }
     CreateUserRequest createUserRequest = (CreateUserRequest) o;
-    if (!Objects.equals(this.samlProviderName, createUserRequest.samlProviderName)) {
-      return false;
-    }
     if (!Objects.equals(this.identityProviderUserId, createUserRequest.identityProviderUserId)) {
       return false;
     }
     if (!Objects.equals(this.email, createUserRequest.email)) {
+      return false;
+    }
+    if (!Objects.equals(this.samlProviderName, createUserRequest.samlProviderName)) {
       return false;
     }
     if (!Objects.equals(this.groups, createUserRequest.groups)) {
@@ -195,16 +195,16 @@ public class CreateUserRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(samlProviderName, identityProviderUserId, email, groups, firstName, lastName);
+    return Objects.hash(identityProviderUserId, email, samlProviderName, groups, firstName, lastName);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateUserRequest {\n");
-    sb.append("    samlProviderName: ").append(toIndentedString(samlProviderName)).append("\n");
     sb.append("    identityProviderUserId: ").append(toIndentedString(identityProviderUserId)).append("\n");
     sb.append("    email: ").append(toIndentedString(email)).append("\n");
+    sb.append("    samlProviderName: ").append(toIndentedString(samlProviderName)).append("\n");
     sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
     sb.append("    firstName: ").append(toIndentedString(firstName)).append("\n");
     sb.append("    lastName: ").append(toIndentedString(lastName)).append("\n");

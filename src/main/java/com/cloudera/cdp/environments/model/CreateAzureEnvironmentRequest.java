@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * Request object for a create Azure environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-08-20T08:11:35.394-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-09-23T14:13:41.296-07:00")
 public class CreateAzureEnvironmentRequest  {
 
   /**
@@ -113,7 +113,7 @@ public class CreateAzureEnvironmentRequest  {
   private String proxyConfigName = null;
 
   /**
-   * Name of an existing Azure resource group to be used for the environment. If it is not specified then a new resource group will be generated.
+   * Name of an existing Azure resource group to be used for the environment. If it is not specified then new resource groups will be generated.
    **/
   private String resourceGroupName = null;
 
@@ -374,7 +374,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Getter for resourceGroupName.
-   * Name of an existing Azure resource group to be used for the environment. If it is not specified then a new resource group will be generated.
+   * Name of an existing Azure resource group to be used for the environment. If it is not specified then new resource groups will be generated.
    **/
   @JsonProperty("resourceGroupName")
   public String getResourceGroupName() {
@@ -383,7 +383,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Setter for resourceGroupName.
-   * Name of an existing Azure resource group to be used for the environment. If it is not specified then a new resource group will be generated.
+   * Name of an existing Azure resource group to be used for the environment. If it is not specified then new resource groups will be generated.
    **/
   public void setResourceGroupName(String resourceGroupName) {
     this.resourceGroupName = resourceGroupName;

@@ -26,34 +26,34 @@ import com.cloudera.cdp.client.CdpResponse;
 import java.util.*;
 
 /**
- * Details of a FreeIPA instance.
+ * Details of a FreeIPA cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-08-20T08:11:35.394-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-09-23T14:13:41.296-07:00")
 public class FreeipaDetails  {
 
   /**
-   * CRN of the FreeIPA instance.
+   * CRN of the FreeIPA cluster.
    **/
   private String crn = null;
 
   /**
-   * The domain name of the FreeIPA instance.
+   * The domain name of the FreeIPA cluster.
    **/
   private String domain = null;
 
   /**
-   * The hostname of the FreeIPA instance.
+   * The hostname of the FreeIPA cluster.
    **/
   private String hostname = null;
 
   /**
-   * The IP addresses of the FreeIPA instance.
+   * The IP addresses of the FreeIPA cluster.
    **/
   private List<String> serverIP = new ArrayList<String>();
 
   /**
    * Getter for crn.
-   * CRN of the FreeIPA instance.
+   * CRN of the FreeIPA cluster.
    **/
   @JsonProperty("crn")
   public String getCrn() {
@@ -62,7 +62,7 @@ public class FreeipaDetails  {
 
   /**
    * Setter for crn.
-   * CRN of the FreeIPA instance.
+   * CRN of the FreeIPA cluster.
    **/
   public void setCrn(String crn) {
     this.crn = crn;
@@ -70,7 +70,7 @@ public class FreeipaDetails  {
 
   /**
    * Getter for domain.
-   * The domain name of the FreeIPA instance.
+   * The domain name of the FreeIPA cluster.
    **/
   @JsonProperty("domain")
   public String getDomain() {
@@ -79,7 +79,7 @@ public class FreeipaDetails  {
 
   /**
    * Setter for domain.
-   * The domain name of the FreeIPA instance.
+   * The domain name of the FreeIPA cluster.
    **/
   public void setDomain(String domain) {
     this.domain = domain;
@@ -87,7 +87,7 @@ public class FreeipaDetails  {
 
   /**
    * Getter for hostname.
-   * The hostname of the FreeIPA instance.
+   * The hostname of the FreeIPA cluster.
    **/
   @JsonProperty("hostname")
   public String getHostname() {
@@ -96,7 +96,7 @@ public class FreeipaDetails  {
 
   /**
    * Setter for hostname.
-   * The hostname of the FreeIPA instance.
+   * The hostname of the FreeIPA cluster.
    **/
   public void setHostname(String hostname) {
     this.hostname = hostname;
@@ -104,7 +104,7 @@ public class FreeipaDetails  {
 
   /**
    * Getter for serverIP.
-   * The IP addresses of the FreeIPA instance.
+   * The IP addresses of the FreeIPA cluster.
    **/
   @JsonProperty("serverIP")
   public List<String> getServerIP() {
@@ -113,7 +113,7 @@ public class FreeipaDetails  {
 
   /**
    * Setter for serverIP.
-   * The IP addresses of the FreeIPA instance.
+   * The IP addresses of the FreeIPA cluster.
    **/
   public void setServerIP(List<String> serverIP) {
     this.serverIP = serverIP;

@@ -3,7 +3,7 @@
 
   <groupId>com.cloudera.cdp</groupId>
   <artifactId>cdp-sdk-java</artifactId>
-  <version>0.9.15</version>
+  <version>0.9.16</version>
   <name>Cloudera CDP Java SDK</name>
   <packaging>jar</packaging>
 
@@ -18,13 +18,13 @@
     
     <animal-sniffer-annotations.version>1.18</animal-sniffer-annotations.version>
     <bouncycastle.version>1.64</bouncycastle.version>
-    <byte-buddy.version>1.10.4</byte-buddy.version>
+    <byte-buddy.version>1.10.13</byte-buddy.version>
     <commons-cli.version>1.4</commons-cli.version>
     <commons-codec.version>1.13</commons-codec.version>
     <commons-io.version>2.6</commons-io.version>
     <commons-lang3.version>3.9</commons-lang3.version>
     <commons-httpclient.version>4.5.10</commons-httpclient.version>
-    <errorprone.version>2.3.4</errorprone.version>
+    <errorprone.version>2.4.0</errorprone.version>
     <guava.version>28.1-jre</guava.version>
     <hamcrest.version>2.2</hamcrest.version>
     <ini4j.version>0.5.4</ini4j.version>
@@ -37,7 +37,7 @@
     <jsr305.version>3.0.2</jsr305.version>
     <junit.jupiter.version>5.5.2</junit.jupiter.version>
     <junit.platform.version>1.5.2</junit.platform.version>
-    <mockito.version>3.2.0</mockito.version>
+    <mockito.version>3.4.6</mockito.version>
     <slf4j-api.version>1.7.29</slf4j-api.version>
     <spotbugs.version>3.1.12</spotbugs.version>
 

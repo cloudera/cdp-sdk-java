@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request to restore datalake from backup. Restore does not restore the database by default.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-08-20T08:11:35.141-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-09-23T14:13:41.105-07:00")
 public class RestoreDatalakeRequest  {
 
   /**
@@ -46,7 +46,7 @@ public class RestoreDatalakeRequest  {
   private String backupName = null;
 
   /**
-   * Restore the database backing HMS/Ranger services as well. Default value is false.
+   * Restore the database backing HMS/Ranger services. If this option is not provided, the HMS/Ranger services are restored by default.
    **/
   private Boolean includeDatabase = null;
 
@@ -103,7 +103,7 @@ public class RestoreDatalakeRequest  {
 
   /**
    * Getter for includeDatabase.
-   * Restore the database backing HMS/Ranger services as well. Default value is false.
+   * Restore the database backing HMS/Ranger services. If this option is not provided, the HMS/Ranger services are restored by default.
    **/
   @JsonProperty("includeDatabase")
   public Boolean getIncludeDatabase() {
@@ -112,7 +112,7 @@ public class RestoreDatalakeRequest  {
 
   /**
    * Setter for includeDatabase.
-   * Restore the database backing HMS/Ranger services as well. Default value is false.
+   * Restore the database backing HMS/Ranger services. If this option is not provided, the HMS/Ranger services are restored by default.
    **/
   public void setIncludeDatabase(Boolean includeDatabase) {
     this.includeDatabase = includeDatabase;

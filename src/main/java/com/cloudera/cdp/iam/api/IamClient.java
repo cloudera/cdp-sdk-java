@@ -75,6 +75,8 @@ import com.cloudera.cdp.iam.model.EnableClouderaSSOLoginResponse;
 import com.cloudera.cdp.iam.model.Error;
 import com.cloudera.cdp.iam.model.GetAccessKeyRequest;
 import com.cloudera.cdp.iam.model.GetAccessKeyResponse;
+import com.cloudera.cdp.iam.model.GetAccountMessagesRequest;
+import com.cloudera.cdp.iam.model.GetAccountMessagesResponse;
 import com.cloudera.cdp.iam.model.GetAccountRequest;
 import com.cloudera.cdp.iam.model.GetAccountResponse;
 import com.cloudera.cdp.iam.model.GetUserRequest;
@@ -119,6 +121,8 @@ import com.cloudera.cdp.iam.model.RemoveMachineUserFromGroupRequest;
 import com.cloudera.cdp.iam.model.RemoveMachineUserFromGroupResponse;
 import com.cloudera.cdp.iam.model.RemoveUserFromGroupRequest;
 import com.cloudera.cdp.iam.model.RemoveUserFromGroupResponse;
+import com.cloudera.cdp.iam.model.SetAccountMessagesRequest;
+import com.cloudera.cdp.iam.model.SetAccountMessagesResponse;
 import com.cloudera.cdp.iam.model.SetWorkloadPasswordPolicyRequest;
 import com.cloudera.cdp.iam.model.SetWorkloadPasswordPolicyResponse;
 import com.cloudera.cdp.iam.model.SetWorkloadPasswordRequest;
@@ -142,7 +146,7 @@ import com.cloudera.cdp.iam.model.UpdateGroupResponse;
 import com.cloudera.cdp.iam.model.UpdateSamlProviderRequest;
 import com.cloudera.cdp.iam.model.UpdateSamlProviderResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-08-20T08:11:35.805-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-09-23T14:13:41.590-07:00")
 public class IamClient extends CdpClient {
 
   public static final String SERVICE_NAME = "iam";
@@ -467,6 +471,18 @@ public class IamClient extends CdpClient {
   }
 
   /**
+   * Get account messages.
+   * @param input
+   * @return GetAccountMessagesResponse
+   */
+  public GetAccountMessagesResponse getAccountMessages(GetAccountMessagesRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling getAccountMessages");
+     }
+    return this.invokeAPI("/iam/getAccountMessages", input, new GenericType<GetAccountMessagesResponse>(){});
+  }
+
+  /**
    * Gets information on a user.
    * @param input
    * @return GetUserResponse
@@ -716,6 +732,18 @@ public class IamClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling removeUserFromGroup");
      }
     return this.invokeAPI("/iam/removeUserFromGroup", input, new GenericType<RemoveUserFromGroupResponse>(){});
+  }
+
+  /**
+   * Set messages for an account.
+   * @param input
+   * @return SetAccountMessagesResponse
+   */
+  public SetAccountMessagesResponse setAccountMessages(SetAccountMessagesRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling setAccountMessages");
+     }
+    return this.invokeAPI("/iam/setAccountMessages", input, new GenericType<SetAccountMessagesResponse>(){});
   }
 
   /**
