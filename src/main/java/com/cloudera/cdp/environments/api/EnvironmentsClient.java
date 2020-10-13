@@ -49,6 +49,8 @@ import com.cloudera.cdp.environments.model.GetAccountTelemetryDefaultRequest;
 import com.cloudera.cdp.environments.model.GetAccountTelemetryDefaultResponse;
 import com.cloudera.cdp.environments.model.GetAccountTelemetryRequest;
 import com.cloudera.cdp.environments.model.GetAccountTelemetryResponse;
+import com.cloudera.cdp.environments.model.GetAuditCredentialPrerequisitesRequest;
+import com.cloudera.cdp.environments.model.GetAuditCredentialPrerequisitesResponse;
 import com.cloudera.cdp.environments.model.GetCredentialPrerequisitesRequest;
 import com.cloudera.cdp.environments.model.GetCredentialPrerequisitesResponse;
 import com.cloudera.cdp.environments.model.GetFreeipaStatusRequest;
@@ -59,8 +61,12 @@ import com.cloudera.cdp.environments.model.GetIdBrokerMappingsSyncStatusRequest;
 import com.cloudera.cdp.environments.model.GetIdBrokerMappingsSyncStatusResponse;
 import com.cloudera.cdp.environments.model.GetKeytabRequest;
 import com.cloudera.cdp.environments.model.GetKeytabResponse;
+import com.cloudera.cdp.environments.model.GetRepairFreeipaStatusRequest;
+import com.cloudera.cdp.environments.model.GetRepairFreeipaStatusResponse;
 import com.cloudera.cdp.environments.model.GetRootCertificateRequest;
 import com.cloudera.cdp.environments.model.GetRootCertificateResponse;
+import com.cloudera.cdp.environments.model.ListAuditCredentialsRequest;
+import com.cloudera.cdp.environments.model.ListAuditCredentialsResponse;
 import com.cloudera.cdp.environments.model.ListCredentialsRequest;
 import com.cloudera.cdp.environments.model.ListCredentialsResponse;
 import com.cloudera.cdp.environments.model.ListEnvironmentsRequest;
@@ -69,8 +75,12 @@ import com.cloudera.cdp.environments.model.ListProxyConfigsRequest;
 import com.cloudera.cdp.environments.model.ListProxyConfigsResponse;
 import com.cloudera.cdp.environments.model.RepairFreeipaRequest;
 import com.cloudera.cdp.environments.model.RepairFreeipaResponse;
+import com.cloudera.cdp.environments.model.SetAWSAuditCredentialRequest;
+import com.cloudera.cdp.environments.model.SetAWSAuditCredentialResponse;
 import com.cloudera.cdp.environments.model.SetAccountTelemetryRequest;
 import com.cloudera.cdp.environments.model.SetAccountTelemetryResponse;
+import com.cloudera.cdp.environments.model.SetAzureAuditCredentialRequest;
+import com.cloudera.cdp.environments.model.SetAzureAuditCredentialResponse;
 import com.cloudera.cdp.environments.model.SetIdBrokerMappingsRequest;
 import com.cloudera.cdp.environments.model.SetIdBrokerMappingsResponse;
 import com.cloudera.cdp.environments.model.SetPasswordRequest;
@@ -92,7 +102,7 @@ import com.cloudera.cdp.environments.model.SyncUserResponse;
 import com.cloudera.cdp.environments.model.TestAccountTelemetryRulesRequest;
 import com.cloudera.cdp.environments.model.TestAccountTelemetryRulesResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-09-23T14:13:41.296-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-10-13T09:35:49.151-07:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";
@@ -249,6 +259,18 @@ public class EnvironmentsClient extends CdpClient {
   }
 
   /**
+   * This API provides the audit credential prerequisites for the given cloud provider.
+   * @param input
+   * @return GetAuditCredentialPrerequisitesResponse
+   */
+  public GetAuditCredentialPrerequisitesResponse getAuditCredentialPrerequisites(GetAuditCredentialPrerequisitesRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling getAuditCredentialPrerequisites");
+     }
+    return this.invokeAPI("/api/v1/environments2/getAuditCredentialPrerequisites", input, new GenericType<GetAuditCredentialPrerequisitesResponse>(){});
+  }
+
+  /**
    * This API provides the credential prerequisites for the given cloud provider.
    * @param input
    * @return GetCredentialPrerequisitesResponse
@@ -309,6 +331,18 @@ public class EnvironmentsClient extends CdpClient {
   }
 
   /**
+   * Returns status of the repair operation for the operation id.
+   * @param input
+   * @return GetRepairFreeipaStatusResponse
+   */
+  public GetRepairFreeipaStatusResponse getRepairFreeipaStatus(GetRepairFreeipaStatusRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling getRepairFreeipaStatus");
+     }
+    return this.invokeAPI("/api/v1/environments2/getRepairFreeipaStatus", input, new GenericType<GetRepairFreeipaStatusResponse>(){});
+  }
+
+  /**
    * This API provides contents of public certificate for an environment.
    * @param input
    * @return GetRootCertificateResponse
@@ -318,6 +352,18 @@ public class EnvironmentsClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling getRootCertificate");
      }
     return this.invokeAPI("/api/v1/environments2/getRootCertificate", input, new GenericType<GetRootCertificateResponse>(){});
+  }
+
+  /**
+   * Lists audit credentials.
+   * @param input
+   * @return ListAuditCredentialsResponse
+   */
+  public ListAuditCredentialsResponse listAuditCredentials(ListAuditCredentialsRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling listAuditCredentials");
+     }
+    return this.invokeAPI("/api/v1/environments2/listAuditCredentials", input, new GenericType<ListAuditCredentialsResponse>(){});
   }
 
   /**
@@ -369,6 +415,18 @@ public class EnvironmentsClient extends CdpClient {
   }
 
   /**
+   * Creates or updates the AWS audit credential for the account. The credential is used for authorization to archive audit events to your cloud storage.
+   * @param input
+   * @return SetAWSAuditCredentialResponse
+   */
+  public SetAWSAuditCredentialResponse setAWSAuditCredential(SetAWSAuditCredentialRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling setAWSAuditCredential");
+     }
+    return this.invokeAPI("/api/v1/environments2/setAWSAuditCredential", input, new GenericType<SetAWSAuditCredentialResponse>(){});
+  }
+
+  /**
    * Set account level telemetry settings. (telemetry features and anonymization rules)
    * @param input
    * @return SetAccountTelemetryResponse
@@ -378,6 +436,18 @@ public class EnvironmentsClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling setAccountTelemetry");
      }
     return this.invokeAPI("/api/v1/environments2/setAccountTelemetry", input, new GenericType<SetAccountTelemetryResponse>(){});
+  }
+
+  /**
+   * Creates or updates the Azure audit credential for the account. The credential is used for authorization to archive audit events to your cloud storage.
+   * @param input
+   * @return SetAzureAuditCredentialResponse
+   */
+  public SetAzureAuditCredentialResponse setAzureAuditCredential(SetAzureAuditCredentialRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling setAzureAuditCredential");
+     }
+    return this.invokeAPI("/api/v1/environments2/setAzureAuditCredential", input, new GenericType<SetAzureAuditCredentialResponse>(){});
   }
 
   /**

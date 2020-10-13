@@ -1,5 +1,7 @@
 com.cloudera.cdp
 com.cloudera.cdp.annotation
+com.cloudera.cdp.audit.api
+com.cloudera.cdp.audit.model
 com.cloudera.cdp.authentication
 com.cloudera.cdp.authentication.credentials
 com.cloudera.cdp.authentication.credentials.profile
@@ -8,6 +10,8 @@ com.cloudera.cdp.datahub.api
 com.cloudera.cdp.datahub.model
 com.cloudera.cdp.datalake.api
 com.cloudera.cdp.datalake.model
+com.cloudera.cdp.dw.api
+com.cloudera.cdp.dw.model
 com.cloudera.cdp.environments.api
 com.cloudera.cdp.environments.model
 com.cloudera.cdp.http

@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for create Azure datalake request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-09-23T14:13:41.105-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-10-13T09:35:48.976-07:00")
 public class CreateAzureDatalakeRequest  {
 
   /**
@@ -49,14 +49,14 @@ public class CreateAzureDatalakeRequest  {
   private AzureConfigurationRequest cloudProviderConfiguration = null;
 
   /**
+   * The scale of the datalake. Allowed values are \"LIGHT_DUTY\" or \"MEDIUM_DUTY_HA\". Defaults to \"LIGHT_DUTY\" if not set.
+   **/
+  private String scale = null;
+
+  /**
    * Tags to be added to Datalake related resources.
    **/
   private List<DatalakeResourceTagRequest> tags = new ArrayList<DatalakeResourceTagRequest>();
-
-  /**
-   * The scale of the datalake. Allowed values are \"LIGHT_DUTY\" or \"MEDIUM_DUTY_HA\".
-   **/
-  private String scale = null;
 
   /**
    * Cloudera Runtime version.
@@ -115,6 +115,23 @@ public class CreateAzureDatalakeRequest  {
   }
 
   /**
+   * Getter for scale.
+   * The scale of the datalake. Allowed values are \&quot;LIGHT_DUTY\&quot; or \&quot;MEDIUM_DUTY_HA\&quot;. Defaults to \&quot;LIGHT_DUTY\&quot; if not set.
+   **/
+  @JsonProperty("scale")
+  public String getScale() {
+    return scale;
+  }
+
+  /**
+   * Setter for scale.
+   * The scale of the datalake. Allowed values are \&quot;LIGHT_DUTY\&quot; or \&quot;MEDIUM_DUTY_HA\&quot;. Defaults to \&quot;LIGHT_DUTY\&quot; if not set.
+   **/
+  public void setScale(String scale) {
+    this.scale = scale;
+  }
+
+  /**
    * Getter for tags.
    * Tags to be added to Datalake related resources.
    **/
@@ -129,23 +146,6 @@ public class CreateAzureDatalakeRequest  {
    **/
   public void setTags(List<DatalakeResourceTagRequest> tags) {
     this.tags = tags;
-  }
-
-  /**
-   * Getter for scale.
-   * The scale of the datalake. Allowed values are \&quot;LIGHT_DUTY\&quot; or \&quot;MEDIUM_DUTY_HA\&quot;.
-   **/
-  @JsonProperty("scale")
-  public String getScale() {
-    return scale;
-  }
-
-  /**
-   * Setter for scale.
-   * The scale of the datalake. Allowed values are \&quot;LIGHT_DUTY\&quot; or \&quot;MEDIUM_DUTY_HA\&quot;.
-   **/
-  public void setScale(String scale) {
-    this.scale = scale;
   }
 
   /**
@@ -183,10 +183,10 @@ public class CreateAzureDatalakeRequest  {
     if (!Objects.equals(this.cloudProviderConfiguration, createAzureDatalakeRequest.cloudProviderConfiguration)) {
       return false;
     }
-    if (!Objects.equals(this.tags, createAzureDatalakeRequest.tags)) {
+    if (!Objects.equals(this.scale, createAzureDatalakeRequest.scale)) {
       return false;
     }
-    if (!Objects.equals(this.scale, createAzureDatalakeRequest.scale)) {
+    if (!Objects.equals(this.tags, createAzureDatalakeRequest.tags)) {
       return false;
     }
     if (!Objects.equals(this.runtime, createAzureDatalakeRequest.runtime)) {
@@ -197,7 +197,7 @@ public class CreateAzureDatalakeRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, tags, scale, runtime);
+    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, scale, tags, runtime);
   }
 
   @Override
@@ -207,8 +207,8 @@ public class CreateAzureDatalakeRequest  {
     sb.append("    datalakeName: ").append(toIndentedString(datalakeName)).append("\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    cloudProviderConfiguration: ").append(toIndentedString(cloudProviderConfiguration)).append("\n");
-    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    scale: ").append(toIndentedString(scale)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
     sb.append("}");
     return sb.toString();
