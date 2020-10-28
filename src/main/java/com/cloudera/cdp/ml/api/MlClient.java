@@ -33,12 +33,16 @@ import com.cloudera.cdp.ml.model.DescribeWorkspaceResponse;
 import com.cloudera.cdp.ml.model.Error;
 import com.cloudera.cdp.ml.model.GetAuditEventsRequest;
 import com.cloudera.cdp.ml.model.GetAuditEventsResponse;
+import com.cloudera.cdp.ml.model.GetKubeconfigRequest;
+import com.cloudera.cdp.ml.model.GetKubeconfigResponse;
 import com.cloudera.cdp.ml.model.GetLatestWorkspaceVersionRequest;
 import com.cloudera.cdp.ml.model.GetLatestWorkspaceVersionResponse;
 import com.cloudera.cdp.ml.model.GetLogsRequest;
 import com.cloudera.cdp.ml.model.GetLogsResponse;
 import com.cloudera.cdp.ml.model.GrantWorkspaceAccessRequest;
 import com.cloudera.cdp.ml.model.GrantWorkspaceAccessResponse;
+import com.cloudera.cdp.ml.model.ListWorkspaceAccessRequest;
+import com.cloudera.cdp.ml.model.ListWorkspaceAccessResponse;
 import com.cloudera.cdp.ml.model.ListWorkspacesRequest;
 import com.cloudera.cdp.ml.model.ListWorkspacesResponse;
 import com.cloudera.cdp.ml.model.RevokeWorkspaceAccessRequest;
@@ -46,7 +50,7 @@ import com.cloudera.cdp.ml.model.RevokeWorkspaceAccessResponse;
 import com.cloudera.cdp.ml.model.UpgradeWorkspaceRequest;
 import com.cloudera.cdp.ml.model.UpgradeWorkspaceResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-10-13T09:35:48.853-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-10-28T12:30:08.577-07:00")
 public class MlClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";
@@ -107,6 +111,18 @@ public class MlClient extends CdpClient {
   }
 
   /**
+   * ListWorkspaceAccess Cloudera Machine Learning Workspace.
+   * @param input
+   * @return GetKubeconfigResponse
+   */
+  public GetKubeconfigResponse getKubeconfig(GetKubeconfigRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling getKubeconfig");
+     }
+    return this.invokeAPI("/api/v1/ml/getKubeconfig", input, new GenericType<GetKubeconfigResponse>(){});
+  }
+
+  /**
    * GetLatestWorkspaceVersion Cloudera Machine Learning Workspace.
    * @param input
    * @return GetLatestWorkspaceVersionResponse
@@ -140,6 +156,18 @@ public class MlClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling grantWorkspaceAccess");
      }
     return this.invokeAPI("/api/v1/ml/grantWorkspaceAccess", input, new GenericType<GrantWorkspaceAccessResponse>(){});
+  }
+
+  /**
+   * ListWorkspaceAccess Cloudera Machine Learning Workspace.
+   * @param input
+   * @return ListWorkspaceAccessResponse
+   */
+  public ListWorkspaceAccessResponse listWorkspaceAccess(ListWorkspaceAccessRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling listWorkspaceAccess");
+     }
+    return this.invokeAPI("/api/v1/ml/listWorkspaceAccess", input, new GenericType<ListWorkspaceAccessResponse>(){});
   }
 
   /**

@@ -23,11 +23,13 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.environments.model.AwsCredentialProperties;
+import com.cloudera.cdp.environments.model.AzureCredentialProperties;
 
 /**
  * A credential object.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-10-13T09:35:49.151-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-10-28T12:30:08.979-07:00")
 public class Credential  {
 
   /**
@@ -49,6 +51,16 @@ public class Credential  {
    * A description for the credential.
    **/
   private String description = null;
+
+  /**
+   * The credential properties that closely related to those that have been created on AWS.
+   **/
+  private AwsCredentialProperties awsCredentialProperties = null;
+
+  /**
+   * The credential properties that closely related to those that have been created on Azure.
+   **/
+  private AzureCredentialProperties azureCredentialProperties = null;
 
   /**
    * Getter for credentialName.
@@ -118,6 +130,40 @@ public class Credential  {
     this.description = description;
   }
 
+  /**
+   * Getter for awsCredentialProperties.
+   * The credential properties that closely related to those that have been created on AWS.
+   **/
+  @JsonProperty("awsCredentialProperties")
+  public AwsCredentialProperties getAwsCredentialProperties() {
+    return awsCredentialProperties;
+  }
+
+  /**
+   * Setter for awsCredentialProperties.
+   * The credential properties that closely related to those that have been created on AWS.
+   **/
+  public void setAwsCredentialProperties(AwsCredentialProperties awsCredentialProperties) {
+    this.awsCredentialProperties = awsCredentialProperties;
+  }
+
+  /**
+   * Getter for azureCredentialProperties.
+   * The credential properties that closely related to those that have been created on Azure.
+   **/
+  @JsonProperty("azureCredentialProperties")
+  public AzureCredentialProperties getAzureCredentialProperties() {
+    return azureCredentialProperties;
+  }
+
+  /**
+   * Setter for azureCredentialProperties.
+   * The credential properties that closely related to those that have been created on Azure.
+   **/
+  public void setAzureCredentialProperties(AzureCredentialProperties azureCredentialProperties) {
+    this.azureCredentialProperties = azureCredentialProperties;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -139,12 +185,18 @@ public class Credential  {
     if (!Objects.equals(this.description, credential.description)) {
       return false;
     }
+    if (!Objects.equals(this.awsCredentialProperties, credential.awsCredentialProperties)) {
+      return false;
+    }
+    if (!Objects.equals(this.azureCredentialProperties, credential.azureCredentialProperties)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(credentialName, crn, cloudPlatform, description);
+    return Objects.hash(credentialName, crn, cloudPlatform, description, awsCredentialProperties, azureCredentialProperties);
   }
 
   @Override
@@ -155,6 +207,8 @@ public class Credential  {
     sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
     sb.append("    cloudPlatform: ").append(toIndentedString(cloudPlatform)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    awsCredentialProperties: ").append(toIndentedString(awsCredentialProperties)).append("\n");
+    sb.append("    azureCredentialProperties: ").append(toIndentedString(azureCredentialProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }

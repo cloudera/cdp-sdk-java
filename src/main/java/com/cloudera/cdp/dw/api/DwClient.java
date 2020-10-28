@@ -62,7 +62,7 @@ import com.cloudera.cdp.dw.model.UpdateDbcResponse;
 import com.cloudera.cdp.dw.model.UpdateVwRequest;
 import com.cloudera.cdp.dw.model.UpdateVwResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-10-13T09:35:48.684-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-10-28T12:30:08.368-07:00")
 public class DwClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";

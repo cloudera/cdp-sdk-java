@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Object which holds some details of an instance for the given cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-10-13T09:35:48.976-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-10-28T12:30:08.723-07:00")
 public class Instance  {
 
   /**
@@ -39,6 +39,16 @@ public class Instance  {
    * The actual state of the instance.
    **/
   private String state = null;
+
+  /**
+   * The private ip of the given instance.
+   **/
+  private String privateIp = null;
+
+  /**
+   * The public ip of the given instance.
+   **/
+  private String publicIp = null;
 
   /**
    * Getter for id.
@@ -74,6 +84,40 @@ public class Instance  {
     this.state = state;
   }
 
+  /**
+   * Getter for privateIp.
+   * The private ip of the given instance.
+   **/
+  @JsonProperty("privateIp")
+  public String getPrivateIp() {
+    return privateIp;
+  }
+
+  /**
+   * Setter for privateIp.
+   * The private ip of the given instance.
+   **/
+  public void setPrivateIp(String privateIp) {
+    this.privateIp = privateIp;
+  }
+
+  /**
+   * Getter for publicIp.
+   * The public ip of the given instance.
+   **/
+  @JsonProperty("publicIp")
+  public String getPublicIp() {
+    return publicIp;
+  }
+
+  /**
+   * Setter for publicIp.
+   * The public ip of the given instance.
+   **/
+  public void setPublicIp(String publicIp) {
+    this.publicIp = publicIp;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -89,12 +133,18 @@ public class Instance  {
     if (!Objects.equals(this.state, instance.state)) {
       return false;
     }
+    if (!Objects.equals(this.privateIp, instance.privateIp)) {
+      return false;
+    }
+    if (!Objects.equals(this.publicIp, instance.publicIp)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, state);
+    return Objects.hash(id, state, privateIp, publicIp);
   }
 
   @Override
@@ -103,6 +153,8 @@ public class Instance  {
     sb.append("class Instance {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    privateIp: ").append(toIndentedString(privateIp)).append("\n");
+    sb.append("    publicIp: ").append(toIndentedString(publicIp)).append("\n");
     sb.append("}");
     return sb.toString();
   }

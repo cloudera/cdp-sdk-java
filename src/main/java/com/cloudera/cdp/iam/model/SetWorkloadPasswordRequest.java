@@ -27,13 +27,18 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for a set workload password request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-10-13T09:35:49.549-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-10-28T12:30:09.400-07:00")
 public class SetWorkloadPasswordRequest  {
 
   /**
    * The password value to set
    **/
   private String password = null;
+
+  /**
+   * The CRN of the user or machine user for whom the password will be set. If it is not included, it defaults to the user making the request.
+   **/
+  private String actorCrn = null;
 
   /**
    * Getter for password.
@@ -52,6 +57,23 @@ public class SetWorkloadPasswordRequest  {
     this.password = password;
   }
 
+  /**
+   * Getter for actorCrn.
+   * The CRN of the user or machine user for whom the password will be set. If it is not included, it defaults to the user making the request.
+   **/
+  @JsonProperty("actorCrn")
+  public String getActorCrn() {
+    return actorCrn;
+  }
+
+  /**
+   * Setter for actorCrn.
+   * The CRN of the user or machine user for whom the password will be set. If it is not included, it defaults to the user making the request.
+   **/
+  public void setActorCrn(String actorCrn) {
+    this.actorCrn = actorCrn;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -64,12 +86,15 @@ public class SetWorkloadPasswordRequest  {
     if (!Objects.equals(this.password, setWorkloadPasswordRequest.password)) {
       return false;
     }
+    if (!Objects.equals(this.actorCrn, setWorkloadPasswordRequest.actorCrn)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(password);
+    return Objects.hash(password, actorCrn);
   }
 
   @Override
@@ -77,6 +102,7 @@ public class SetWorkloadPasswordRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class SetWorkloadPasswordRequest {\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    actorCrn: ").append(toIndentedString(actorCrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }
