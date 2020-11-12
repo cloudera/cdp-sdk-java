@@ -24,6 +24,8 @@ import com.cloudera.cdp.CdpClientException;
 import com.cloudera.cdp.authentication.credentials.CdpCredentials;
 import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
+import com.cloudera.cdp.datahub.model.CollectDatahubDiagnosticsRequest;
+import com.cloudera.cdp.datahub.model.CollectDatahubDiagnosticsResponse;
 import com.cloudera.cdp.datahub.model.CreateAWSClusterRequest;
 import com.cloudera.cdp.datahub.model.CreateAWSClusterResponse;
 import com.cloudera.cdp.datahub.model.CreateAzureClusterRequest;
@@ -57,6 +59,8 @@ import com.cloudera.cdp.datahub.model.GetClusterHostStatusRequest;
 import com.cloudera.cdp.datahub.model.GetClusterHostStatusResponse;
 import com.cloudera.cdp.datahub.model.GetClusterServiceStatusRequest;
 import com.cloudera.cdp.datahub.model.GetClusterServiceStatusResponse;
+import com.cloudera.cdp.datahub.model.GetDatahubLogDescriptorsRequest;
+import com.cloudera.cdp.datahub.model.GetDatahubLogDescriptorsResponse;
 import com.cloudera.cdp.datahub.model.ListClusterDefinitionsRequest;
 import com.cloudera.cdp.datahub.model.ListClusterDefinitionsResponse;
 import com.cloudera.cdp.datahub.model.ListClusterTemplatesRequest;
@@ -69,6 +73,8 @@ import com.cloudera.cdp.datahub.model.RepairClusterRequest;
 import com.cloudera.cdp.datahub.model.RepairClusterResponse;
 import com.cloudera.cdp.datahub.model.RetryClusterRequest;
 import com.cloudera.cdp.datahub.model.RetryClusterResponse;
+import com.cloudera.cdp.datahub.model.RotateAutoTlsCertificatesRequest;
+import com.cloudera.cdp.datahub.model.RotateAutoTlsCertificatesResponse;
 import com.cloudera.cdp.datahub.model.ScaleClusterRequest;
 import com.cloudera.cdp.datahub.model.ScaleClusterResponse;
 import com.cloudera.cdp.datahub.model.StartClusterRequest;
@@ -78,7 +84,7 @@ import com.cloudera.cdp.datahub.model.StopClusterResponse;
 import com.cloudera.cdp.datahub.model.SyncClusterRequest;
 import com.cloudera.cdp.datahub.model.SyncClusterResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-10-28T12:30:08.066-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-11-12T10:44:15.453-08:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";
@@ -88,6 +94,18 @@ public class DatahubClient extends CdpClient {
       String endPoint,
       CdpClientConfiguration clientConfiguration) {
     super(credentials, endPoint, clientConfiguration);
+  }
+
+  /**
+   * Start DataHub diagnostics collection
+   * @param input
+   * @return CollectDatahubDiagnosticsResponse
+   */
+  public CollectDatahubDiagnosticsResponse collectDatahubDiagnostics(CollectDatahubDiagnosticsRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling collectDatahubDiagnostics");
+     }
+    return this.invokeAPI("/api/v1/datahub/collectDatahubDiagnostics", input, new GenericType<CollectDatahubDiagnosticsResponse>(){});
   }
 
   /**
@@ -283,6 +301,18 @@ public class DatahubClient extends CdpClient {
   }
 
   /**
+   * Gather log descriptors that are used for diagnostics collection.
+   * @param input
+   * @return GetDatahubLogDescriptorsResponse
+   */
+  public GetDatahubLogDescriptorsResponse getDatahubLogDescriptors(GetDatahubLogDescriptorsRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling getDatahubLogDescriptors");
+     }
+    return this.invokeAPI("/api/v1/datahub/getDatahubLogDescriptors", input, new GenericType<GetDatahubLogDescriptorsResponse>(){});
+  }
+
+  /**
    * Lists cluster definitions. A cluster definition is a reusable template in JSON format that can be used for creating multiple Data Hub clusters with identical cloud provider settings.
    * @param input
    * @return ListClusterDefinitionsResponse
@@ -352,6 +382,18 @@ public class DatahubClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling retryCluster");
      }
     return this.invokeAPI("/api/v1/datahub/retryCluster", input, new GenericType<RetryClusterResponse>(){});
+  }
+
+  /**
+   * Rotate autotls certificates on the datahub&#39;s hosts
+   * @param input
+   * @return RotateAutoTlsCertificatesResponse
+   */
+  public RotateAutoTlsCertificatesResponse rotateAutoTlsCertificates(RotateAutoTlsCertificatesRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling rotateAutoTlsCertificates");
+     }
+    return this.invokeAPI("/api/v1/datahub/rotateAutoTlsCertificates", input, new GenericType<RotateAutoTlsCertificatesResponse>(){});
   }
 
   /**

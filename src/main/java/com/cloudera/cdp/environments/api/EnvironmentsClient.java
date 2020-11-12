@@ -26,6 +26,8 @@ import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
 import com.cloudera.cdp.environments.model.ChangeEnvironmentCredentialRequest;
 import com.cloudera.cdp.environments.model.ChangeEnvironmentCredentialResponse;
+import com.cloudera.cdp.environments.model.CollectFreeipaDiagnosticsRequest;
+import com.cloudera.cdp.environments.model.CollectFreeipaDiagnosticsResponse;
 import com.cloudera.cdp.environments.model.CreateAWSCredentialRequest;
 import com.cloudera.cdp.environments.model.CreateAWSCredentialResponse;
 import com.cloudera.cdp.environments.model.CreateAWSEnvironmentRequest;
@@ -53,6 +55,8 @@ import com.cloudera.cdp.environments.model.GetAuditCredentialPrerequisitesReques
 import com.cloudera.cdp.environments.model.GetAuditCredentialPrerequisitesResponse;
 import com.cloudera.cdp.environments.model.GetCredentialPrerequisitesRequest;
 import com.cloudera.cdp.environments.model.GetCredentialPrerequisitesResponse;
+import com.cloudera.cdp.environments.model.GetFreeipaLogDescriptorsRequest;
+import com.cloudera.cdp.environments.model.GetFreeipaLogDescriptorsResponse;
 import com.cloudera.cdp.environments.model.GetFreeipaStatusRequest;
 import com.cloudera.cdp.environments.model.GetFreeipaStatusResponse;
 import com.cloudera.cdp.environments.model.GetIdBrokerMappingsRequest;
@@ -102,7 +106,7 @@ import com.cloudera.cdp.environments.model.SyncUserResponse;
 import com.cloudera.cdp.environments.model.TestAccountTelemetryRulesRequest;
 import com.cloudera.cdp.environments.model.TestAccountTelemetryRulesResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-10-28T12:30:08.979-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-11-12T10:44:16.365-08:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";
@@ -124,6 +128,18 @@ public class EnvironmentsClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling changeEnvironmentCredential");
      }
     return this.invokeAPI("/api/v1/environments2/changeEnvironmentCredential", input, new GenericType<ChangeEnvironmentCredentialResponse>(){});
+  }
+
+  /**
+   * Start FreeIPA diagnostics collection
+   * @param input
+   * @return CollectFreeipaDiagnosticsResponse
+   */
+  public CollectFreeipaDiagnosticsResponse collectFreeipaDiagnostics(CollectFreeipaDiagnosticsRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling collectFreeipaDiagnostics");
+     }
+    return this.invokeAPI("/api/v1/environments2/collectFreeipaDiagnostics", input, new GenericType<CollectFreeipaDiagnosticsResponse>(){});
   }
 
   /**
@@ -280,6 +296,18 @@ public class EnvironmentsClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling getCredentialPrerequisites");
      }
     return this.invokeAPI("/api/v1/environments2/getCredentialPrerequisites", input, new GenericType<GetCredentialPrerequisitesResponse>(){});
+  }
+
+  /**
+   * Gather log descriptors that are used for diagnostics collection.
+   * @param input
+   * @return GetFreeipaLogDescriptorsResponse
+   */
+  public GetFreeipaLogDescriptorsResponse getFreeipaLogDescriptors(GetFreeipaLogDescriptorsRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling getFreeipaLogDescriptors");
+     }
+    return this.invokeAPI("/api/v1/environments2/getFreeipaLogDescriptors", input, new GenericType<GetFreeipaLogDescriptorsResponse>(){});
   }
 
   /**

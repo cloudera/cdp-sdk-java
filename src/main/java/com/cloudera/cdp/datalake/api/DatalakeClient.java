@@ -28,6 +28,8 @@ import com.cloudera.cdp.datalake.model.BackupDatalakeRequest;
 import com.cloudera.cdp.datalake.model.BackupDatalakeResponse;
 import com.cloudera.cdp.datalake.model.BackupDatalakeStatusRequest;
 import com.cloudera.cdp.datalake.model.BackupDatalakeStatusResponse;
+import com.cloudera.cdp.datalake.model.CollectDatalakeDiagnosticsRequest;
+import com.cloudera.cdp.datalake.model.CollectDatalakeDiagnosticsResponse;
 import com.cloudera.cdp.datalake.model.CreateAWSDatalakeRequest;
 import com.cloudera.cdp.datalake.model.CreateAWSDatalakeResponse;
 import com.cloudera.cdp.datalake.model.CreateAzureDatalakeRequest;
@@ -41,6 +43,8 @@ import com.cloudera.cdp.datalake.model.GetClusterHostStatusRequest;
 import com.cloudera.cdp.datalake.model.GetClusterHostStatusResponse;
 import com.cloudera.cdp.datalake.model.GetClusterServiceStatusRequest;
 import com.cloudera.cdp.datalake.model.GetClusterServiceStatusResponse;
+import com.cloudera.cdp.datalake.model.GetDatalakeLogDescriptorsRequest;
+import com.cloudera.cdp.datalake.model.GetDatalakeLogDescriptorsResponse;
 import com.cloudera.cdp.datalake.model.ListDatalakeBackupsRequest;
 import com.cloudera.cdp.datalake.model.ListDatalakeBackupsResponse;
 import com.cloudera.cdp.datalake.model.ListDatalakesRequest;
@@ -55,6 +59,8 @@ import com.cloudera.cdp.datalake.model.RestoreDatalakeStatusRequest;
 import com.cloudera.cdp.datalake.model.RestoreDatalakeStatusResponse;
 import com.cloudera.cdp.datalake.model.RetryDatalakeRequest;
 import com.cloudera.cdp.datalake.model.RetryDatalakeResponse;
+import com.cloudera.cdp.datalake.model.RotateAutoTlsCertificatesRequest;
+import com.cloudera.cdp.datalake.model.RotateAutoTlsCertificatesResponse;
 import com.cloudera.cdp.datalake.model.StartDatalakeRequest;
 import com.cloudera.cdp.datalake.model.StartDatalakeResponse;
 import com.cloudera.cdp.datalake.model.StopDatalakeRequest;
@@ -62,7 +68,7 @@ import com.cloudera.cdp.datalake.model.StopDatalakeResponse;
 import com.cloudera.cdp.datalake.model.UpgradeDatalakeRequest;
 import com.cloudera.cdp.datalake.model.UpgradeDatalakeResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-10-28T12:30:08.723-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-11-12T10:44:16.162-08:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";
@@ -96,6 +102,18 @@ public class DatalakeClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling backupDatalakeStatus");
      }
     return this.invokeAPI("/api/v1/datalake/backupDatalakeStatus", input, new GenericType<BackupDatalakeStatusResponse>(){});
+  }
+
+  /**
+   * Start DataLake diagnostics collection
+   * @param input
+   * @return CollectDatalakeDiagnosticsResponse
+   */
+  public CollectDatalakeDiagnosticsResponse collectDatalakeDiagnostics(CollectDatalakeDiagnosticsRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling collectDatalakeDiagnostics");
+     }
+    return this.invokeAPI("/api/v1/datalake/collectDatalakeDiagnostics", input, new GenericType<CollectDatalakeDiagnosticsResponse>(){});
   }
 
   /**
@@ -168,6 +186,18 @@ public class DatalakeClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling getClusterServiceStatus");
      }
     return this.invokeAPI("/api/v1/datalake/getClusterServiceStatus", input, new GenericType<GetClusterServiceStatusResponse>(){});
+  }
+
+  /**
+   * Gather log descriptors that are used for diagnostics collection.
+   * @param input
+   * @return GetDatalakeLogDescriptorsResponse
+   */
+  public GetDatalakeLogDescriptorsResponse getDatalakeLogDescriptors(GetDatalakeLogDescriptorsRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling getDatalakeLogDescriptors");
+     }
+    return this.invokeAPI("/api/v1/datalake/getDatalakeLogDescriptors", input, new GenericType<GetDatalakeLogDescriptorsResponse>(){});
   }
 
   /**
@@ -252,6 +282,18 @@ public class DatalakeClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling retryDatalake");
      }
     return this.invokeAPI("/api/v1/datalake/retryDatalake", input, new GenericType<RetryDatalakeResponse>(){});
+  }
+
+  /**
+   * Rotate autotls certificates on the datalake&#39;s hosts
+   * @param input
+   * @return RotateAutoTlsCertificatesResponse
+   */
+  public RotateAutoTlsCertificatesResponse rotateAutoTlsCertificates(RotateAutoTlsCertificatesRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling rotateAutoTlsCertificates");
+     }
+    return this.invokeAPI("/api/v1/datalake/rotateAutoTlsCertificates", input, new GenericType<RotateAutoTlsCertificatesResponse>(){});
   }
 
   /**

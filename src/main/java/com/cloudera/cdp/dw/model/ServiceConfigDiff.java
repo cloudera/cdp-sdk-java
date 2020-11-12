@@ -30,7 +30,7 @@ import java.util.Map;
 /**
  * Differences between two service configurations.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-10-28T12:30:08.368-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-11-12T10:44:15.826-08:00")
 public class ServiceConfigDiff  {
 
   /**

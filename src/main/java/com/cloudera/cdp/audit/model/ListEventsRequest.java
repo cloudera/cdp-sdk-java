@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Request object for the ListEvents method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-10-28T12:30:09.310-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-11-12T10:44:16.712-08:00")
 public class ListEventsRequest  {
 
   /**
