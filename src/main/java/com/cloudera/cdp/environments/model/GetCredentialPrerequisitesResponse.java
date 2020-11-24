@@ -29,7 +29,7 @@ import com.cloudera.cdp.environments.model.AzureCredentialPrerequisitesResponse;
 /**
  * The credential prerequisites for AWS.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-11-12T10:44:16.365-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-11-24T07:35:52.713-08:00")
 public class GetCredentialPrerequisitesResponse extends CdpResponse {
 
   /**

@@ -3,7 +3,7 @@
 
   <groupId>com.cloudera.cdp</groupId>
   <artifactId>cdp-sdk-java</artifactId>
-  <version>0.9.19</version>
+  <version>0.9.20</version>
   <name>Cloudera CDP Java SDK</name>
   <packaging>jar</packaging>
 
@@ -22,22 +22,22 @@
     <commons-cli.version>1.4</commons-cli.version>
     <commons-codec.version>1.13</commons-codec.version>
     <commons-io.version>2.6</commons-io.version>
-    <commons-lang3.version>3.9</commons-lang3.version>
+    <commons-lang3.version>3.11</commons-lang3.version>
     <commons-httpclient.version>4.5.13</commons-httpclient.version>
     <errorprone.version>2.4.0</errorprone.version>
-    <guava.version>28.1-jre</guava.version>
+    <guava.version>29.0-jre</guava.version>
     <hamcrest.version>2.2</hamcrest.version>
     <ini4j.version>0.5.4</ini4j.version>
     <jakarta-annotation-api.version>1.3.5</jakarta-annotation-api.version>
     <jakarta-xml-bind-api.version>2.3.2</jakarta-xml-bind-api.version>
     <javassist.version>3.26.0-GA</javassist.version>
-    <jersey.version>2.30.1</jersey.version>
+    <jersey.version>2.32</jersey.version>
     <jackson.version>2.10.1</jackson.version>
     <jackson-databind.version>2.10.1</jackson-databind.version>
     <jsr305.version>3.0.2</jsr305.version>
     <junit.jupiter.version>5.5.2</junit.jupiter.version>
     <junit.platform.version>1.5.2</junit.platform.version>
-    <mockito.version>3.4.6</mockito.version>
+    <mockito.version>3.5.13</mockito.version>
     <slf4j-api.version>1.7.29</slf4j-api.version>
     <spotbugs.version>3.1.12</spotbugs.version>
 

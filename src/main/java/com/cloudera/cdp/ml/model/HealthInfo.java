@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Healthinfo object contains the health information of a resource.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-11-12T10:44:16.003-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-11-24T07:35:52.259-08:00")
 public class HealthInfo  {
 
   /**

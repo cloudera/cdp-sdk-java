@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Differences between two sets of ConfigBlocks.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-11-12T10:44:15.826-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-11-24T07:35:52.074-08:00")
 public class ConfigBlocksDiffs  {
 
   /**
