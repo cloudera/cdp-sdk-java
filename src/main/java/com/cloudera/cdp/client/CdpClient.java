@@ -40,6 +40,7 @@ import com.google.common.collect.Iterables;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.security.PrivateKey;
 import java.time.Duration;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -165,21 +166,28 @@ public abstract class CdpClient {
     String date = ZonedDateTime.now(ZoneId.of("GMT")).format(
         DateTimeFormatter.RFC_1123_DATE_TIME);
 
-    String auth = new Signer().computeAuthHeader(
-        "POST",
-        MediaType.APPLICATION_JSON,
-        date,
-        path,
-        credentials.getAccessKeyId(),
-        credentials.getPrivateKey());
-
     headers.putSingle("x-altus-date", date);
-    headers.putSingle("x-altus-auth", auth);
     headers.putSingle(HttpHeaders.USER_AGENT, buildUserAgent());
-    headers.putSingle("content-type", MediaType.APPLICATION_JSON);
+    headers.putSingle(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON);
     String altusClientApp = config.getClientApplicationName();
     if (!Strings.isNullOrEmpty(altusClientApp)) {
       headers.putSingle("x-altus-client-app", altusClientApp);
+    }
+
+    String accessKeyId = credentials.getAccessKeyId();
+    PrivateKey privateKey = credentials.getPrivateKey();
+    String accessToken = credentials.getAccessToken();
+    if (!Strings.isNullOrEmpty(accessKeyId) && privateKey != null){
+      String auth = new Signer().computeAuthHeader(
+          "POST",
+          MediaType.APPLICATION_JSON,
+          date,
+          path,
+          accessKeyId,
+          privateKey);
+      headers.putSingle("x-altus-auth", auth);
+    } else if (!Strings.isNullOrEmpty(accessToken)) {
+      headers.putSingle(HttpHeaders.AUTHORIZATION, accessToken);
     }
 
     return headers;

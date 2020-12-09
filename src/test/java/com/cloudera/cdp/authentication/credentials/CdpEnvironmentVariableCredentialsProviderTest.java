@@ -39,7 +39,7 @@ public class CdpEnvironmentVariableCredentialsProviderTest {
   }
 
   @Test
-  public void testGetCredentialsWithNullIdAndPrivateKeys() {
+  public void testGetCredentialsWithNullIdAndPrivateKeysAndAccessToken() {
     Map<String, String> newenv = new HashMap<>();
     CdpSDKTestUtils.setEnv(newenv);
     CdpEnvironmentVariableCredentialsProvider aenvcp =
@@ -47,7 +47,7 @@ public class CdpEnvironmentVariableCredentialsProviderTest {
     Throwable e = assertThrows(IllegalArgumentException.class,
                                aenvcp::getCredentials);
     assertEquals("Invalid values for credential environment " +
-                 "variables CDP_ACCESS_KEY_ID and CDP_PRIVATE_KEY",
+                 "variables CDP_ACCESS_KEY_ID, CDP_PRIVATE_KEY and CDP_ACCESS_TOKEN",
                  e.getMessage());
   }
 
@@ -62,7 +62,7 @@ public class CdpEnvironmentVariableCredentialsProviderTest {
     Throwable e = assertThrows(IllegalArgumentException.class,
                                aenvcp::getCredentials);
     assertEquals("Invalid values for credential environment " +
-                 "variables CDP_ACCESS_KEY_ID and CDP_PRIVATE_KEY",
+                 "variables CDP_ACCESS_KEY_ID, CDP_PRIVATE_KEY and CDP_ACCESS_TOKEN",
                  e.getMessage());
   }
 
@@ -77,12 +77,12 @@ public class CdpEnvironmentVariableCredentialsProviderTest {
     Throwable e = assertThrows(IllegalArgumentException.class,
                                aenvcp::getCredentials);
     assertEquals("Invalid values for credential environment " +
-                 "variables CDP_ACCESS_KEY_ID and CDP_PRIVATE_KEY",
+                 "variables CDP_ACCESS_KEY_ID, CDP_PRIVATE_KEY and CDP_ACCESS_TOKEN",
                  e.getMessage());
   }
 
   @Test
-  public void testValidCredentials() {
+  public void testValidApiKeyCredentials() {
     Map<String, String> newenv = new HashMap<>();
     newenv.put(CdpEnvironmentVariableCredentialsProvider.CDP_ACCESS_KEY_ID,
                "somekey");
@@ -93,5 +93,19 @@ public class CdpEnvironmentVariableCredentialsProviderTest {
         new CdpEnvironmentVariableCredentialsProvider();
     CdpCredentials credentials = aenvcp.getCredentials();
     assertNotNull(credentials);
+    assertEquals("somekey", credentials.getAccessKeyId());
+  }
+
+  @Test
+  public void testValidAccessTokenCredentials() {
+    Map<String, String> newenv = new HashMap<>();
+    newenv.put(CdpEnvironmentVariableCredentialsProvider.CDP_ACCESS_TOKEN,
+        "sometoken");
+    CdpSDKTestUtils.setEnv(newenv);
+    CdpEnvironmentVariableCredentialsProvider aenvcp =
+        new CdpEnvironmentVariableCredentialsProvider();
+    CdpCredentials credentials = aenvcp.getCredentials();
+    assertNotNull(credentials);
+    assertEquals("sometoken", credentials.getAccessToken());
   }
 }

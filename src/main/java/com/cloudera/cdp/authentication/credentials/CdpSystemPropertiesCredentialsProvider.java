@@ -25,7 +25,7 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * CdpCredentialsProvider implementation that provides credentials by looking
- * at the CDP_ACCESS_KEY_ID and CDP_PRIVATE_KEY system properties.
+ * at the CDP_ACCESS_KEY_ID, CDP_PRIVATE_KEY and CDP_ACCESS_TOKEN system properties.
  */
 public class CdpSystemPropertiesCredentialsProvider
   implements CdpCredentialsProvider {
@@ -40,18 +40,28 @@ public class CdpSystemPropertiesCredentialsProvider
    */
   public static final String CDP_PRIVATE_KEY = "CDP_PRIVATE_KEY";
 
+  /**
+   * Name of system variable holding the users CDP access token.
+   */
+  public static final String CDP_ACCESS_TOKEN = "CDP_ACCESS_TOKEN";
+
   @Override
   public CdpCredentials getCredentials() {
     String accessKeyId = StringUtils.trim(System.getProperty(CDP_ACCESS_KEY_ID));
     String privateKey = StringUtils.trim(System.getProperty(CDP_PRIVATE_KEY));
+    String accessToken = StringUtils.trim(System.getProperty(CDP_ACCESS_TOKEN));
     accessKeyId = StringUtils.trim(accessKeyId);
     privateKey = StringUtils.trim(privateKey);
-    if (StringUtils.isEmpty(accessKeyId) || StringUtils.isEmpty(privateKey)) {
-      throw new CdpClientException(
-          "Unable to load credentials from Java system properties " +
-              CDP_ACCESS_KEY_ID + " and " + CDP_PRIVATE_KEY);
+    accessToken = StringUtils.trim(accessToken);
+    if (StringUtils.isNoneEmpty(accessKeyId, privateKey)) {
+      return new BasicCdpCredentials(accessKeyId, privateKey);
     }
-    return new BasicCdpCredentials(accessKeyId, privateKey);
+    if (StringUtils.isNoneEmpty(accessToken)) {
+      return new BasicCdpCredentials(accessToken);
+    }
+    throw new CdpClientException(
+        "Unable to load credentials from Java system properties " +
+            CDP_ACCESS_KEY_ID + ", " + CDP_PRIVATE_KEY + " and " + CDP_ACCESS_TOKEN);
   }
 
   @Override

@@ -33,6 +33,7 @@ class CdpProfile {
 
   private static final String CDP_ACCESS_KEY_ID = "cdp_access_key_id";
   private static final String CDP_PRIVATE_KEY = "cdp_private_key";
+  private static final String CDP_ACCESS_TOKEN = "cdp_access_token";
 
   private final ImmutableMap<String, String> properties;
 
@@ -64,4 +65,11 @@ class CdpProfile {
     return getPropertyValue(CDP_PRIVATE_KEY);
   }
 
+  /**
+   * Get the CDP access token.
+   * @return the CDP access token, if any
+   */
+  String getCdpAccessToken() {
+    return getPropertyValue(CDP_ACCESS_TOKEN);
+  }
 }

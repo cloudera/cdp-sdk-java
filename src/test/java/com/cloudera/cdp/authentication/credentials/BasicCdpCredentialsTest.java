@@ -20,7 +20,9 @@
 package com.cloudera.cdp.authentication.credentials;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.cloudera.cdp.CdpClientException;
 import com.cloudera.cdp.util.CdpSDKTestUtils;
@@ -57,11 +59,31 @@ public class BasicCdpCredentialsTest {
   }
 
   @Test
-  public void testExpectedValues() {
+  public void testNullAccessToken() {
+    Throwable e = assertThrows(
+        CdpClientException.class,
+        () -> new BasicCdpCredentials(null));
+    assertEquals("Argument is null", e.getMessage());
+  }
+
+  @Test
+  public void testApiKeyExpectedValues() {
     PrivateKey privateKey = CdpSDKTestUtils.getRSAPrivateKey();
     BasicCdpCredentials credentials =
         new BasicCdpCredentials("foo", privateKey);
     assertEquals("foo", credentials.getAccessKeyId());
     assertEquals(privateKey, credentials.getPrivateKey());
+    assertNull(credentials.getAccessToken());
+    assertTrue(credentials.isValid());
+  }
+
+  @Test
+  public void testAccessTokenExpectedValues() {
+    BasicCdpCredentials credentials =
+        new BasicCdpCredentials("bar");
+    assertNull(credentials.getAccessKeyId());
+    assertNull(credentials.getPrivateKey());
+    assertEquals("bar", credentials.getAccessToken());
+    assertTrue(credentials.isValid());
   }
 }

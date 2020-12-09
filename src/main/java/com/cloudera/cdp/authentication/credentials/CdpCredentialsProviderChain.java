@@ -66,8 +66,7 @@ public class CdpCredentialsProviderChain implements CdpCredentialsProvider {
           provider.toString());
       try {
         CdpCredentials credentials = provider.getCredentials();
-        if (credentials.getAccessKeyId() != null &&
-            credentials.getPrivateKey() != null) {
+        if (credentials.isValid()) {
           return credentials;
         }
       } catch (Exception e) {

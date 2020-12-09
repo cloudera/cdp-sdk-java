@@ -28,6 +28,8 @@ import com.cloudera.cdp.datahub.model.CollectDatahubDiagnosticsRequest;
 import com.cloudera.cdp.datahub.model.CollectDatahubDiagnosticsResponse;
 import com.cloudera.cdp.datahub.model.CreateAWSClusterRequest;
 import com.cloudera.cdp.datahub.model.CreateAWSClusterResponse;
+import com.cloudera.cdp.datahub.model.CreateAutoScaleRulesRequest;
+import com.cloudera.cdp.datahub.model.CreateAutoScaleRulesResponse;
 import com.cloudera.cdp.datahub.model.CreateAzureClusterRequest;
 import com.cloudera.cdp.datahub.model.CreateAzureClusterResponse;
 import com.cloudera.cdp.datahub.model.CreateClusterDefinitionRequest;
@@ -36,6 +38,8 @@ import com.cloudera.cdp.datahub.model.CreateClusterTemplateRequest;
 import com.cloudera.cdp.datahub.model.CreateClusterTemplateResponse;
 import com.cloudera.cdp.datahub.model.CreateRecipeRequest;
 import com.cloudera.cdp.datahub.model.CreateRecipeResponse;
+import com.cloudera.cdp.datahub.model.DeleteAutoScaleRulesRequest;
+import com.cloudera.cdp.datahub.model.DeleteAutoScaleRulesResponse;
 import com.cloudera.cdp.datahub.model.DeleteClusterDefinitionsRequest;
 import com.cloudera.cdp.datahub.model.DeleteClusterDefinitionsResponse;
 import com.cloudera.cdp.datahub.model.DeleteClusterRequest;
@@ -46,6 +50,8 @@ import com.cloudera.cdp.datahub.model.DeleteInstancesRequest;
 import com.cloudera.cdp.datahub.model.DeleteInstancesResponse;
 import com.cloudera.cdp.datahub.model.DeleteRecipesRequest;
 import com.cloudera.cdp.datahub.model.DeleteRecipesResponse;
+import com.cloudera.cdp.datahub.model.DescribeAutoScaleRulesRequest;
+import com.cloudera.cdp.datahub.model.DescribeAutoScaleRulesResponse;
 import com.cloudera.cdp.datahub.model.DescribeClusterDefinitionRequest;
 import com.cloudera.cdp.datahub.model.DescribeClusterDefinitionResponse;
 import com.cloudera.cdp.datahub.model.DescribeClusterRequest;
@@ -61,6 +67,8 @@ import com.cloudera.cdp.datahub.model.GetClusterServiceStatusRequest;
 import com.cloudera.cdp.datahub.model.GetClusterServiceStatusResponse;
 import com.cloudera.cdp.datahub.model.GetDatahubLogDescriptorsRequest;
 import com.cloudera.cdp.datahub.model.GetDatahubLogDescriptorsResponse;
+import com.cloudera.cdp.datahub.model.ListAutoScaleHistoryRequest;
+import com.cloudera.cdp.datahub.model.ListAutoScaleHistoryResponse;
 import com.cloudera.cdp.datahub.model.ListClusterDefinitionsRequest;
 import com.cloudera.cdp.datahub.model.ListClusterDefinitionsResponse;
 import com.cloudera.cdp.datahub.model.ListClusterTemplatesRequest;
@@ -83,8 +91,10 @@ import com.cloudera.cdp.datahub.model.StopClusterRequest;
 import com.cloudera.cdp.datahub.model.StopClusterResponse;
 import com.cloudera.cdp.datahub.model.SyncClusterRequest;
 import com.cloudera.cdp.datahub.model.SyncClusterResponse;
+import com.cloudera.cdp.datahub.model.UpdateAutoScaleRulesRequest;
+import com.cloudera.cdp.datahub.model.UpdateAutoScaleRulesResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-11-24T07:35:51.763-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-12-09T11:15:13.400-08:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";
@@ -118,6 +128,18 @@ public class DatahubClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling createAWSCluster");
      }
     return this.invokeAPI("/api/v1/datahub/createAWSCluster", input, new GenericType<CreateAWSClusterResponse>(){});
+  }
+
+  /**
+   * Create Auto Scaling rules for a DataHub cluster
+   * @param input
+   * @return CreateAutoScaleRulesResponse
+   */
+  public CreateAutoScaleRulesResponse createAutoScaleRules(CreateAutoScaleRulesRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling createAutoScaleRules");
+     }
+    return this.invokeAPI("/api/v1/datahub/createAutoScaleRules", input, new GenericType<CreateAutoScaleRulesResponse>(){});
   }
 
   /**
@@ -166,6 +188,18 @@ public class DatahubClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling createRecipe");
      }
     return this.invokeAPI("/api/v1/datahub/createRecipe", input, new GenericType<CreateRecipeResponse>(){});
+  }
+
+  /**
+   * Delete AutoScaling policies for a DataHub cluster
+   * @param input
+   * @return DeleteAutoScaleRulesResponse
+   */
+  public DeleteAutoScaleRulesResponse deleteAutoScaleRules(DeleteAutoScaleRulesRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling deleteAutoScaleRules");
+     }
+    return this.invokeAPI("/api/v1/datahub/deleteAutoScaleRules", input, new GenericType<DeleteAutoScaleRulesResponse>(){});
   }
 
   /**
@@ -226,6 +260,18 @@ public class DatahubClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling deleteRecipes");
      }
     return this.invokeAPI("/api/v1/datahub/deleteRecipes", input, new GenericType<DeleteRecipesResponse>(){});
+  }
+
+  /**
+   * Describe the AutoScaling policies for a DataHub cluster
+   * @param input
+   * @return DescribeAutoScaleRulesResponse
+   */
+  public DescribeAutoScaleRulesResponse describeAutoScaleRules(DescribeAutoScaleRulesRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling describeAutoScaleRules");
+     }
+    return this.invokeAPI("/api/v1/datahub/describeAutoScaleRules", input, new GenericType<DescribeAutoScaleRulesResponse>(){});
   }
 
   /**
@@ -310,6 +356,18 @@ public class DatahubClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling getDatahubLogDescriptors");
      }
     return this.invokeAPI("/api/v1/datahub/getDatahubLogDescriptors", input, new GenericType<GetDatahubLogDescriptorsResponse>(){});
+  }
+
+  /**
+   * List AutoScale history activity for a DataHub cluster.
+   * @param input
+   * @return ListAutoScaleHistoryResponse
+   */
+  public ListAutoScaleHistoryResponse listAutoScaleHistory(ListAutoScaleHistoryRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling listAutoScaleHistory");
+     }
+    return this.invokeAPI("/api/v1/datahub/listAutoScaleHistory", input, new GenericType<ListAutoScaleHistoryResponse>(){});
   }
 
   /**
@@ -442,5 +500,17 @@ public class DatahubClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling syncCluster");
      }
     return this.invokeAPI("/api/v1/datahub/syncCluster", input, new GenericType<SyncClusterResponse>(){});
+  }
+
+  /**
+   * Modify AutoScaling for a DataHub cluster
+   * @param input
+   * @return UpdateAutoScaleRulesResponse
+   */
+  public UpdateAutoScaleRulesResponse updateAutoScaleRules(UpdateAutoScaleRulesRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling updateAutoScaleRules");
+     }
+    return this.invokeAPI("/api/v1/datahub/updateAutoScaleRules", input, new GenericType<UpdateAutoScaleRulesResponse>(){});
   }
 }

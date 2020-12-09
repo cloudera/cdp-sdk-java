@@ -35,7 +35,7 @@ import java.time.ZonedDateTime;
 /**
  * The environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-11-24T07:35:52.713-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-12-09T11:15:14.324-08:00")
 public class Environment  {
 
   /**
@@ -112,6 +112,11 @@ public class Environment  {
    * 
    **/
   private EnvironmentAwsDetails awsDetails = null;
+
+  /**
+   * When true, this will report additional diagnostic information back to Cloudera.
+   **/
+  private Boolean reportDeploymentLogs = null;
 
   /**
    * Details of FreeIPA instance associated with this environment.
@@ -379,6 +384,23 @@ public class Environment  {
   }
 
   /**
+   * Getter for reportDeploymentLogs.
+   * When true, this will report additional diagnostic information back to Cloudera.
+   **/
+  @JsonProperty("reportDeploymentLogs")
+  public Boolean getReportDeploymentLogs() {
+    return reportDeploymentLogs;
+  }
+
+  /**
+   * Setter for reportDeploymentLogs.
+   * When true, this will report additional diagnostic information back to Cloudera.
+   **/
+  public void setReportDeploymentLogs(Boolean reportDeploymentLogs) {
+    this.reportDeploymentLogs = reportDeploymentLogs;
+  }
+
+  /**
    * Getter for freeipa.
    * Details of FreeIPA instance associated with this environment.
    **/
@@ -466,6 +488,9 @@ public class Environment  {
     if (!Objects.equals(this.awsDetails, environment.awsDetails)) {
       return false;
     }
+    if (!Objects.equals(this.reportDeploymentLogs, environment.reportDeploymentLogs)) {
+      return false;
+    }
     if (!Objects.equals(this.freeipa, environment.freeipa)) {
       return false;
     }
@@ -477,7 +502,7 @@ public class Environment  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, network, logStorage, authentication, securityAccess, description, statusReason, created, creator, awsDetails, freeipa, proxyConfig);
+    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, network, logStorage, authentication, securityAccess, description, statusReason, created, creator, awsDetails, reportDeploymentLogs, freeipa, proxyConfig);
   }
 
   @Override
@@ -499,6 +524,7 @@ public class Environment  {
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    awsDetails: ").append(toIndentedString(awsDetails)).append("\n");
+    sb.append("    reportDeploymentLogs: ").append(toIndentedString(reportDeploymentLogs)).append("\n");
     sb.append("    freeipa: ").append(toIndentedString(freeipa)).append("\n");
     sb.append("    proxyConfig: ").append(toIndentedString(proxyConfig)).append("\n");
     sb.append("}");

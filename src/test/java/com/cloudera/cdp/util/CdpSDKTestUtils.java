@@ -54,6 +54,7 @@ public class CdpSDKTestUtils {
   public static String TEST_CREDENTIALS_KEY_ID = "TEST1232-232-11-1-123";
   public static String TEST_CREDENTIALS_PRIVATE_KEY =
       "-----BEGIN PRIVATE KEY-----testsomeprivatekey-----END PRIVATE KEY-----";
+  public static String TEST_CREDENTIALS_ACCESS_TOKEN = "Bearer A.B.C";
 
   static {
     String privateKey = null;

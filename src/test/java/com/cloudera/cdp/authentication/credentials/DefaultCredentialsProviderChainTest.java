@@ -21,6 +21,7 @@ package com.cloudera.cdp.authentication.credentials;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.cloudera.cdp.CdpClientException;
@@ -79,6 +80,20 @@ public class DefaultCredentialsProviderChainTest {
 
     assertEquals(accessKeyId, credentials.getAccessKeyId());
     assertEquals(CdpSDKTestUtils.getRSAPrivateKey(), credentials.getPrivateKey());
+    assertNull(credentials.getAccessToken());
+
+    newEnvironment = Maps.newHashMap();
+    String accessToken = UUID.randomUUID().toString();
+    newEnvironment.put(
+        CdpEnvironmentVariableCredentialsProvider.CDP_ACCESS_TOKEN,
+        accessToken);
+    CdpSDKTestUtils.setEnv(newEnvironment);
+
+    credentials = cp.getCredentials();
+
+    assertNull(credentials.getAccessKeyId());
+    assertNull(credentials.getPrivateKey());
+    assertEquals(accessToken, credentials.getAccessToken());
 
     newEnvironment = Maps.newHashMap();
     CdpSDKTestUtils.setEnv(newEnvironment);
@@ -99,11 +114,26 @@ public class DefaultCredentialsProviderChainTest {
 
     assertEquals(accessKeyId, credentials.getAccessKeyId());
     assertEquals(CdpSDKTestUtils.getRSAPrivateKey(), credentials.getPrivateKey());
+    assertNull(credentials.getAccessToken());
 
     System.clearProperty(
         CdpSystemPropertiesCredentialsProvider.CDP_PRIVATE_KEY);
     System.clearProperty(
         CdpSystemPropertiesCredentialsProvider.CDP_ACCESS_KEY_ID);
+
+    String accessToken = UUID.randomUUID().toString();
+    System.setProperty(
+        CdpSystemPropertiesCredentialsProvider.CDP_ACCESS_TOKEN,
+        accessToken);
+
+    credentials = cp.getCredentials();
+
+    assertNull(credentials.getAccessKeyId());
+    assertNull(credentials.getPrivateKey());
+    assertEquals(accessToken, credentials.getAccessToken());
+
+    System.clearProperty(
+        CdpSystemPropertiesCredentialsProvider.CDP_ACCESS_TOKEN);
   }
 
   @Test

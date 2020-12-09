@@ -28,6 +28,8 @@ import com.cloudera.cdp.authentication.credentials.BasicCdpCredentials;
 
 import java.io.File;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * Handles loading a CDP profile from either the default location or from an
  * input path. Offers a convenience method for retreiving credentials from a
@@ -72,8 +74,18 @@ public class CdpProfileConfigFile {
     if (profile == null) {
       throw new CdpClientException("Unable to find profile named " + profileName);
     }
-    return new BasicCdpCredentials(
-        profile.getCdpAccessKeyId(), profile.getCdpPrivateKey());
+
+    String accessKeyId = profile.getCdpAccessKeyId();
+    String privateKey = profile.getCdpPrivateKey();
+    String accessToken = profile.getCdpAccessToken();
+    if (StringUtils.isNoneEmpty(accessKeyId, privateKey)) {
+      return new BasicCdpCredentials(accessKeyId, privateKey);
+    }
+    if (StringUtils.isNoneEmpty(accessToken)) {
+      return new BasicCdpCredentials(accessToken);
+    }
+    throw new IllegalArgumentException(
+        "Invalid values for credential profile " + profileName);
   }
 
   private static File getCdpCredentialsLocation() {

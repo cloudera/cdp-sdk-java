@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * Request object for a create Azure environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-11-24T07:35:52.713-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-12-09T11:15:14.324-08:00")
 public class CreateAzureEnvironmentRequest  {
 
   /**
@@ -98,6 +98,11 @@ public class CreateAzureEnvironmentRequest  {
   private Boolean workloadAnalytics = null;
 
   /**
+   * When true, this will report additional diagnostic information back to Cloudera.
+   **/
+  private Boolean reportDeploymentLogs = null;
+
+  /**
    * The FreeIPA creation request for the environment
    **/
   private AzureFreeIpaCreationRequest freeIpa = null;
@@ -116,6 +121,11 @@ public class CreateAzureEnvironmentRequest  {
    * Name of an existing Azure resource group to be used for the environment. If it is not specified then new resource groups will be generated.
    **/
   private String resourceGroupName = null;
+
+  /**
+   * When this is enabled, then Azure Postgres will be configured with Private Endpoint and a Private DNS Zone. When this is disabled, then Azure Service Endpoints will be created. The default value is disabled.
+   **/
+  private Boolean createPrivateEndpoints = null;
 
   /**
    * Getter for environmentName.
@@ -322,6 +332,23 @@ public class CreateAzureEnvironmentRequest  {
   }
 
   /**
+   * Getter for reportDeploymentLogs.
+   * When true, this will report additional diagnostic information back to Cloudera.
+   **/
+  @JsonProperty("reportDeploymentLogs")
+  public Boolean getReportDeploymentLogs() {
+    return reportDeploymentLogs;
+  }
+
+  /**
+   * Setter for reportDeploymentLogs.
+   * When true, this will report additional diagnostic information back to Cloudera.
+   **/
+  public void setReportDeploymentLogs(Boolean reportDeploymentLogs) {
+    this.reportDeploymentLogs = reportDeploymentLogs;
+  }
+
+  /**
    * Getter for freeIpa.
    * The FreeIPA creation request for the environment
    **/
@@ -389,6 +416,23 @@ public class CreateAzureEnvironmentRequest  {
     this.resourceGroupName = resourceGroupName;
   }
 
+  /**
+   * Getter for createPrivateEndpoints.
+   * When this is enabled, then Azure Postgres will be configured with Private Endpoint and a Private DNS Zone. When this is disabled, then Azure Service Endpoints will be created. The default value is disabled.
+   **/
+  @JsonProperty("createPrivateEndpoints")
+  public Boolean getCreatePrivateEndpoints() {
+    return createPrivateEndpoints;
+  }
+
+  /**
+   * Setter for createPrivateEndpoints.
+   * When this is enabled, then Azure Postgres will be configured with Private Endpoint and a Private DNS Zone. When this is disabled, then Azure Service Endpoints will be created. The default value is disabled.
+   **/
+  public void setCreatePrivateEndpoints(Boolean createPrivateEndpoints) {
+    this.createPrivateEndpoints = createPrivateEndpoints;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -434,6 +478,9 @@ public class CreateAzureEnvironmentRequest  {
     if (!Objects.equals(this.workloadAnalytics, createAzureEnvironmentRequest.workloadAnalytics)) {
       return false;
     }
+    if (!Objects.equals(this.reportDeploymentLogs, createAzureEnvironmentRequest.reportDeploymentLogs)) {
+      return false;
+    }
     if (!Objects.equals(this.freeIpa, createAzureEnvironmentRequest.freeIpa)) {
       return false;
     }
@@ -446,12 +493,15 @@ public class CreateAzureEnvironmentRequest  {
     if (!Objects.equals(this.resourceGroupName, createAzureEnvironmentRequest.resourceGroupName)) {
       return false;
     }
+    if (!Objects.equals(this.createPrivateEndpoints, createAzureEnvironmentRequest.createPrivateEndpoints)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, freeIpa, tags, proxyConfigName, resourceGroupName);
+    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints);
   }
 
   @Override
@@ -470,10 +520,12 @@ public class CreateAzureEnvironmentRequest  {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enableTunnel: ").append(toIndentedString(enableTunnel)).append("\n");
     sb.append("    workloadAnalytics: ").append(toIndentedString(workloadAnalytics)).append("\n");
+    sb.append("    reportDeploymentLogs: ").append(toIndentedString(reportDeploymentLogs)).append("\n");
     sb.append("    freeIpa: ").append(toIndentedString(freeIpa)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    proxyConfigName: ").append(toIndentedString(proxyConfigName)).append("\n");
     sb.append("    resourceGroupName: ").append(toIndentedString(resourceGroupName)).append("\n");
+    sb.append("    createPrivateEndpoints: ").append(toIndentedString(createPrivateEndpoints)).append("\n");
     sb.append("}");
     return sb.toString();
   }

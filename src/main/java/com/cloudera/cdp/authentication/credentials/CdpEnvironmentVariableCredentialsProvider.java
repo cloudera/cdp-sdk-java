@@ -23,7 +23,7 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  * CdpCredentialsProvider implementation that provides credentials by looking
- * at the CDP_ACCESS_KEY_ID and CDP_PRIVATE_KEY environment variables.
+ * at the CDP_ACCESS_KEY_ID, CDP_PRIVATE_KEY and CDP_ACCESS_TOKEN environment variables.
  */
 public class CdpEnvironmentVariableCredentialsProvider
   implements CdpCredentialsProvider {
@@ -38,18 +38,28 @@ public class CdpEnvironmentVariableCredentialsProvider
    */
   public static final String CDP_PRIVATE_KEY = "CDP_PRIVATE_KEY";
 
+  /**
+   * Name of environment variable holding the users CDP access token.
+   */
+  public static final String CDP_ACCESS_TOKEN = "CDP_ACCESS_TOKEN";
+
   @Override
   public CdpCredentials getCredentials() {
     String accessKeyId = System.getenv(CDP_ACCESS_KEY_ID);
     String privateKey = System.getenv(CDP_PRIVATE_KEY);
+    String accessToken = System.getenv(CDP_ACCESS_TOKEN);
     accessKeyId = StringUtils.trim(accessKeyId);
     privateKey = StringUtils.trim(privateKey);
-    if (StringUtils.isBlank(accessKeyId) || StringUtils.isBlank(privateKey)) {
-      throw new IllegalArgumentException(
-          "Invalid values for credential environment variables " +
-              CDP_ACCESS_KEY_ID + " and " + CDP_PRIVATE_KEY);
+    accessToken = StringUtils.trim(accessToken);
+    if (StringUtils.isNoneEmpty(accessKeyId, privateKey)) {
+      return new BasicCdpCredentials(accessKeyId, privateKey);
     }
-    return new BasicCdpCredentials(accessKeyId, privateKey);
+    if (StringUtils.isNoneEmpty(accessToken)) {
+      return new BasicCdpCredentials(accessToken);
+    }
+    throw new IllegalArgumentException(
+        "Invalid values for credential environment variables " +
+            CDP_ACCESS_KEY_ID + ", " + CDP_PRIVATE_KEY + " and " + CDP_ACCESS_TOKEN);
   }
 
   @Override

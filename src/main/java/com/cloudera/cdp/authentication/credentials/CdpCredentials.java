@@ -23,8 +23,9 @@ import java.security.PrivateKey;
 
 /**
  * Provides access to the CDP credentials used for accessing CDP services:
- * the CDP access key ID and private key. These credentials are used to
- * securely sign requests to CDP services.
+ * the CDP access key ID and private key, or access token.
+ * (Access Key ID and private key have precedence over access token)
+ * These credentials are used to securely sign requests to CDP services.
  */
 public interface CdpCredentials {
 
@@ -41,4 +42,18 @@ public interface CdpCredentials {
    * @return The private key for this credentials object.
    */
   PrivateKey getPrivateKey();
+
+  /**
+   * Returns the CDP access token for this credentials object.
+   *
+   * @return The CDP access token for this credentials object.
+   */
+  String getAccessToken();
+
+  /**
+   * Returns 'true' if the credential is valid, 'false' otherwise.
+   *
+   * @return 'true' if the credential is valid, 'false' otherwise.
+   */
+  Boolean isValid();
 }

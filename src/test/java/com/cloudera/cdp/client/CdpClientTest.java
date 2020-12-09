@@ -20,6 +20,7 @@
 package com.cloudera.cdp.client;
 
 import static com.google.common.base.Preconditions.checkNotNull;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -33,6 +34,7 @@ import com.cloudera.cdp.CdpClientException;
 import com.cloudera.cdp.CdpHTTPException;
 import com.cloudera.cdp.CdpServiceException;
 import com.cloudera.cdp.authentication.credentials.BasicCdpCredentials;
+import com.cloudera.cdp.authentication.credentials.CdpCredentials;
 import com.cloudera.cdp.http.ExponentialBackoffDelayPolicy;
 import com.cloudera.cdp.http.HttpCodesRetryChecker;
 import com.cloudera.cdp.http.SimpleRetryHandler;
@@ -76,13 +78,21 @@ public class CdpClientTest {
     return response;
   }
 
+  private enum CredentialType {
+    API_KEY,
+    ACCESS_TOKEN,
+  }
+
   private static class TestClient extends CdpClient {
     private int apiCalls = 0;
     private final Response response;
 
     TestClient(Response response) {
-      super(new BasicCdpCredentials("accessKeyID",
-                                    CdpSDKTestUtils.getRSAPrivateKey()),
+      this(response, CredentialType.API_KEY);
+    }
+
+    TestClient(Response response, CredentialType credentialType) {
+      super(getCdpCredentials(credentialType),
             "endpoint",
             CdpClientConfigurationBuilder.defaultBuilder()
             .withRetryHandler(
@@ -99,6 +109,19 @@ public class CdpClientTest {
         throws CdpServiceException {
       apiCalls++;
       return response;
+    }
+
+    private static CdpCredentials getCdpCredentials(CredentialType credentialType) {
+      switch (credentialType) {
+        case API_KEY:
+          return new BasicCdpCredentials("accessKeyID", CdpSDKTestUtils.getRSAPrivateKey());
+
+        case ACCESS_TOKEN:
+          return new BasicCdpCredentials("Bearer A.B.C");
+
+        default:
+          return null;
+      }
     }
   }
 
@@ -286,7 +309,6 @@ public class CdpClientTest {
     client.shutdown();
   }
 
-
   @Test
   public void testUserAgent() throws Exception {
     Response mockResponse = mockResponse(200, "requestId");
@@ -299,6 +321,48 @@ public class CdpClientTest {
         MultivaluedMap<String, Object> headers = super.computeHeaders(path);
         assertTrue(headers.containsKey(HttpHeaders.USER_AGENT));
         assertEquals(buildUserAgent(), headers.get(HttpHeaders.USER_AGENT));
+        return headers;
+      }
+    };
+    TestCdpResponse response =
+        client.invokeAPI("somePath", "", new GenericType<TestCdpResponse>(){});
+    assertEquals("requestId", response.getRequestId());
+    assertEquals(1, client.apiCalls);
+  }
+
+  @Test
+  public void testApiKeyAuth() throws Exception {
+    Response mockResponse = mockResponse(200, "requestId");
+    TestCdpResponse altusResponse = new TestCdpResponse();
+    when(mockResponse.readEntity(any(GenericType.class))).thenReturn(
+        altusResponse);
+    TestClient client = new TestClient(mockResponse, CredentialType.API_KEY) {
+      @Override
+      protected MultivaluedMap<String, Object> computeHeaders(String path) {
+        MultivaluedMap<String, Object> headers = super.computeHeaders(path);
+        assertTrue(headers.containsKey("x-altus-auth"));
+        assertEquals("todo", headers.get("x-altus-auth"));
+        return headers;
+      }
+    };
+    TestCdpResponse response =
+        client.invokeAPI("somePath", "", new GenericType<TestCdpResponse>(){});
+    assertEquals("requestId", response.getRequestId());
+    assertEquals(1, client.apiCalls);
+  }
+
+  @Test
+  public void testAccessTokenAuth() throws Exception {
+    Response mockResponse = mockResponse(200, "requestId");
+    TestCdpResponse altusResponse = new TestCdpResponse();
+    when(mockResponse.readEntity(any(GenericType.class))).thenReturn(
+        altusResponse);
+    TestClient client = new TestClient(mockResponse, CredentialType.ACCESS_TOKEN) {
+      @Override
+      protected MultivaluedMap<String, Object> computeHeaders(String path) {
+        MultivaluedMap<String, Object> headers = super.computeHeaders(path);
+        assertTrue(headers.containsKey(HttpHeaders.AUTHORIZATION));
+        assertEquals("Bearer A.B.C", headers.get(HttpHeaders.AUTHORIZATION));
         return headers;
       }
     };

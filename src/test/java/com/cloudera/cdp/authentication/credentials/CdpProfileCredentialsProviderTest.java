@@ -28,6 +28,7 @@ import com.cloudera.cdp.util.CdpSDKTestUtils;
 import com.google.common.collect.Maps;
 
 import java.nio.file.Path;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.jupiter.api.AfterEach;
@@ -51,6 +52,7 @@ public class CdpProfileCredentialsProviderTest {
   @AfterEach
   public void resetEnvVariables() {
     System.setProperty("user.home", originalUserHome);
+    CdpSDKTestUtils.setEnv(new HashMap<>());
   }
 
   @Test
@@ -104,7 +106,7 @@ public class CdpProfileCredentialsProviderTest {
   }
 
   @Test
-  public void readFromEnvVar(@TempDir Path folder) {
+  public void readApiKeyFromEnvVar(@TempDir Path folder) {
     Map<String, String> newEnvironment = Maps.newHashMap();
     newEnvironment.put(CdpProfileCredentialsProvider.CDP_DEFAULT_PROFILE,
                        "cdp_test");
@@ -116,6 +118,20 @@ public class CdpProfileCredentialsProviderTest {
     assertNotNull(credentials.getPrivateKey());
     assertEquals(CdpSDKTestUtils.TEST_CREDENTIALS_KEY_ID,
                  credentials.getAccessKeyId());
+  }
+
+  @Test
+  public void readAccessTokenFromEnvVar(@TempDir Path folder) {
+    Map<String, String> newEnvironment = Maps.newHashMap();
+    newEnvironment.put(CdpProfileCredentialsProvider.CDP_DEFAULT_PROFILE,
+        "cdp_test2");
+    CdpSDKTestUtils.setEnv(newEnvironment);
+    CdpSDKTestUtils.copyTestCredentialsFileToFolder(folder);
+    CdpProfileCredentialsProvider credentialsProvider =
+        new CdpProfileCredentialsProvider();
+    CdpCredentials credentials = credentialsProvider.getCredentials();
+    assertEquals(CdpSDKTestUtils.TEST_CREDENTIALS_ACCESS_TOKEN,
+        credentials.getAccessToken());
   }
 
   @Test

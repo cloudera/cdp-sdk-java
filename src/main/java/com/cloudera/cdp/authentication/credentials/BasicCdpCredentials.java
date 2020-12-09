@@ -33,9 +33,10 @@ public class BasicCdpCredentials implements CdpCredentials {
 
   private final String accessKeyId;
   private final PrivateKey privateKey;
+  private final String accessToken;
 
   /**
-   * Construtor.
+   * Constructor.
    * @param accessKeyId the CDP access key ID
    * @param privateKey the CDP private key
    */
@@ -48,7 +49,7 @@ public class BasicCdpCredentials implements CdpCredentials {
   }
 
   /**
-   * Construtor.
+   * Constructor.
    * @param accessKeyId the CDP access key ID
    * @param privateKey the CDP private key
    */
@@ -59,6 +60,19 @@ public class BasicCdpCredentials implements CdpCredentials {
     checkNotNullAndThrow(privateKey);
     this.accessKeyId = accessKeyId;
     this.privateKey = privateKey;
+    this.accessToken = null;
+  }
+
+  /**
+   * Constructor.
+   * @param accessToken the CDP access token
+   */
+  public BasicCdpCredentials(
+      String accessToken) {
+    checkNotNullAndThrow(accessToken);
+    this.accessKeyId = null;
+    this.privateKey = null;
+    this.accessToken = accessToken;
   }
 
   @Override
@@ -69,5 +83,21 @@ public class BasicCdpCredentials implements CdpCredentials {
   @Override
   public PrivateKey getPrivateKey() {
     return privateKey;
+  }
+
+  @Override
+  public String getAccessToken() {
+    return accessToken;
+  }
+
+  @Override
+  public Boolean isValid() {
+    if (this.getAccessKeyId() != null && this.getPrivateKey() != null) {
+      return true;
+    }
+    if (this.getAccessToken() != null) {
+      return true;
+    }
+    return false;
   }
 }
