@@ -55,6 +55,8 @@ import com.cloudera.cdp.environments.model.GetAuditCredentialPrerequisitesReques
 import com.cloudera.cdp.environments.model.GetAuditCredentialPrerequisitesResponse;
 import com.cloudera.cdp.environments.model.GetCredentialPrerequisitesRequest;
 import com.cloudera.cdp.environments.model.GetCredentialPrerequisitesResponse;
+import com.cloudera.cdp.environments.model.GetEnvironmentUserSyncStateRequest;
+import com.cloudera.cdp.environments.model.GetEnvironmentUserSyncStateResponse;
 import com.cloudera.cdp.environments.model.GetFreeipaLogDescriptorsRequest;
 import com.cloudera.cdp.environments.model.GetFreeipaLogDescriptorsResponse;
 import com.cloudera.cdp.environments.model.GetFreeipaStatusRequest;
@@ -106,7 +108,7 @@ import com.cloudera.cdp.environments.model.SyncUserResponse;
 import com.cloudera.cdp.environments.model.TestAccountTelemetryRulesRequest;
 import com.cloudera.cdp.environments.model.TestAccountTelemetryRulesResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-12-09T11:15:14.324-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-12-15T15:47:40.200-08:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";
@@ -296,6 +298,18 @@ public class EnvironmentsClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling getCredentialPrerequisites");
      }
     return this.invokeAPI("/api/v1/environments2/getCredentialPrerequisites", input, new GenericType<GetCredentialPrerequisitesResponse>(){});
+  }
+
+  /**
+   * Returns the user synchronization state for an environment.
+   * @param input
+   * @return GetEnvironmentUserSyncStateResponse
+   */
+  public GetEnvironmentUserSyncStateResponse getEnvironmentUserSyncState(GetEnvironmentUserSyncStateRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling getEnvironmentUserSyncState");
+     }
+    return this.invokeAPI("/api/v1/environments2/getEnvironmentUserSyncState", input, new GenericType<GetEnvironmentUserSyncStateResponse>(){});
   }
 
   /**
