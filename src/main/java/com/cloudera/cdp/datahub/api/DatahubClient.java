@@ -77,6 +77,8 @@ import com.cloudera.cdp.datahub.model.ListClustersRequest;
 import com.cloudera.cdp.datahub.model.ListClustersResponse;
 import com.cloudera.cdp.datahub.model.ListRecipesRequest;
 import com.cloudera.cdp.datahub.model.ListRecipesResponse;
+import com.cloudera.cdp.datahub.model.RenewCertificateRequest;
+import com.cloudera.cdp.datahub.model.RenewCertificateResponse;
 import com.cloudera.cdp.datahub.model.RepairClusterRequest;
 import com.cloudera.cdp.datahub.model.RepairClusterResponse;
 import com.cloudera.cdp.datahub.model.RetryClusterRequest;
@@ -94,7 +96,7 @@ import com.cloudera.cdp.datahub.model.SyncClusterResponse;
 import com.cloudera.cdp.datahub.model.UpdateAutoScaleRulesRequest;
 import com.cloudera.cdp.datahub.model.UpdateAutoScaleRulesResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-12-15T15:47:39.103-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-06T10:11:17.686-08:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";
@@ -416,6 +418,18 @@ public class DatahubClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling listRecipes");
      }
     return this.invokeAPI("/api/v1/datahub/listRecipes", input, new GenericType<ListRecipesResponse>(){});
+  }
+
+  /**
+   * Renew certificate on datahub cluster by name or CRN
+   * @param input
+   * @return RenewCertificateResponse
+   */
+  public RenewCertificateResponse renewCertificate(RenewCertificateRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling renewCertificate");
+     }
+    return this.invokeAPI("/api/v1/datahub/renewCertificate", input, new GenericType<RenewCertificateResponse>(){});
   }
 
   /**

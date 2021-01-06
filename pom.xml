@@ -3,7 +3,7 @@
 
   <groupId>com.cloudera.cdp</groupId>
   <artifactId>cdp-sdk-java</artifactId>
-  <version>0.9.22</version>
+  <version>0.9.23</version>
   <name>Cloudera CDP Java SDK</name>
   <packaging>jar</packaging>
 

@@ -51,6 +51,8 @@ import com.cloudera.cdp.datalake.model.ListDatalakesRequest;
 import com.cloudera.cdp.datalake.model.ListDatalakesResponse;
 import com.cloudera.cdp.datalake.model.ListRuntimesRequest;
 import com.cloudera.cdp.datalake.model.ListRuntimesResponse;
+import com.cloudera.cdp.datalake.model.RenewCertificateRequest;
+import com.cloudera.cdp.datalake.model.RenewCertificateResponse;
 import com.cloudera.cdp.datalake.model.RepairDatalakeRequest;
 import com.cloudera.cdp.datalake.model.RepairDatalakeResponse;
 import com.cloudera.cdp.datalake.model.RestoreDatalakeRequest;
@@ -68,7 +70,7 @@ import com.cloudera.cdp.datalake.model.StopDatalakeResponse;
 import com.cloudera.cdp.datalake.model.UpgradeDatalakeRequest;
 import com.cloudera.cdp.datalake.model.UpgradeDatalakeResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2020-12-15T15:47:39.936-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-06T10:11:18.516-08:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "api";
@@ -234,6 +236,18 @@ public class DatalakeClient extends CdpClient {
         throw new CdpClientException("Missing the required parameter 'input' when calling listRuntimes");
      }
     return this.invokeAPI("/api/v1/datalake/listRuntimes", input, new GenericType<ListRuntimesResponse>(){});
+  }
+
+  /**
+   * Renew certificate on Datalake cluster by name or CRN
+   * @param input
+   * @return RenewCertificateResponse
+   */
+  public RenewCertificateResponse renewCertificate(RenewCertificateRequest input) {
+     if (input == null) {
+        throw new CdpClientException("Missing the required parameter 'input' when calling renewCertificate");
+     }
+    return this.invokeAPI("/api/v1/datalake/renewCertificate", input, new GenericType<RenewCertificateResponse>(){});
   }
 
   /**
