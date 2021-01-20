@@ -21,9 +21,12 @@ package com.cloudera.cdp.dw.api;
 
 import javax.ws.rs.core.GenericType;
 import com.cloudera.cdp.CdpClientException;
+import com.cloudera.cdp.annotation.WorkloadApi;
 import com.cloudera.cdp.authentication.credentials.CdpCredentials;
 import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
+import com.cloudera.cdp.client.Pair;
+import com.cloudera.cdp.client.WorkloadResponse;
 import com.cloudera.cdp.dw.model.CreateClusterRequest;
 import com.cloudera.cdp.dw.model.CreateClusterResponse;
 import com.cloudera.cdp.dw.model.CreateDbcRequest;
@@ -62,10 +65,10 @@ import com.cloudera.cdp.dw.model.UpdateDbcResponse;
 import com.cloudera.cdp.dw.model.UpdateVwRequest;
 import com.cloudera.cdp.dw.model.UpdateVwResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-06T10:11:18.191-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-20T11:27:18.433-08:00")
 public class DwClient extends CdpClient {
 
-  public static final String SERVICE_NAME = "api";
+  public static final String SERVICE_NAME = "dw";
 
   public DwClient(
       CdpCredentials credentials,
@@ -80,9 +83,10 @@ public class DwClient extends CdpClient {
    * @return CreateClusterResponse
    */
   public CreateClusterResponse createCluster(CreateClusterRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling createCluster");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createCluster");
+    }
+
     return this.invokeAPI("/api/v1/dw/createCluster", input, new GenericType<CreateClusterResponse>(){});
   }
 
@@ -92,9 +96,10 @@ public class DwClient extends CdpClient {
    * @return CreateDbcResponse
    */
   public CreateDbcResponse createDbc(CreateDbcRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling createDbc");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createDbc");
+    }
+
     return this.invokeAPI("/api/v1/dw/createDbc", input, new GenericType<CreateDbcResponse>(){});
   }
 
@@ -104,9 +109,10 @@ public class DwClient extends CdpClient {
    * @return CreateVwResponse
    */
   public CreateVwResponse createVw(CreateVwRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling createVw");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createVw");
+    }
+
     return this.invokeAPI("/api/v1/dw/createVw", input, new GenericType<CreateVwResponse>(){});
   }
 
@@ -116,9 +122,10 @@ public class DwClient extends CdpClient {
    * @return DeleteClusterResponse
    */
   public DeleteClusterResponse deleteCluster(DeleteClusterRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling deleteCluster");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteCluster");
+    }
+
     return this.invokeAPI("/api/v1/dw/deleteCluster", input, new GenericType<DeleteClusterResponse>(){});
   }
 
@@ -128,9 +135,10 @@ public class DwClient extends CdpClient {
    * @return DeleteDbcResponse
    */
   public DeleteDbcResponse deleteDbc(DeleteDbcRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling deleteDbc");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteDbc");
+    }
+
     return this.invokeAPI("/api/v1/dw/deleteDbc", input, new GenericType<DeleteDbcResponse>(){});
   }
 
@@ -140,9 +148,10 @@ public class DwClient extends CdpClient {
    * @return DeleteVwResponse
    */
   public DeleteVwResponse deleteVw(DeleteVwRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling deleteVw");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteVw");
+    }
+
     return this.invokeAPI("/api/v1/dw/deleteVw", input, new GenericType<DeleteVwResponse>(){});
   }
 
@@ -152,9 +161,10 @@ public class DwClient extends CdpClient {
    * @return DescribeClusterResponse
    */
   public DescribeClusterResponse describeCluster(DescribeClusterRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling describeCluster");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeCluster");
+    }
+
     return this.invokeAPI("/api/v1/dw/describeCluster", input, new GenericType<DescribeClusterResponse>(){});
   }
 
@@ -164,9 +174,10 @@ public class DwClient extends CdpClient {
    * @return DescribeConfigResponse
    */
   public DescribeConfigResponse describeConfig(DescribeConfigRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling describeConfig");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeConfig");
+    }
+
     return this.invokeAPI("/api/v1/dw/describeConfig", input, new GenericType<DescribeConfigResponse>(){});
   }
 
@@ -176,9 +187,10 @@ public class DwClient extends CdpClient {
    * @return DescribeConfigDiffResponse
    */
   public DescribeConfigDiffResponse describeConfigDiff(DescribeConfigDiffRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling describeConfigDiff");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeConfigDiff");
+    }
+
     return this.invokeAPI("/api/v1/dw/describeConfigDiff", input, new GenericType<DescribeConfigDiffResponse>(){});
   }
 
@@ -188,9 +200,10 @@ public class DwClient extends CdpClient {
    * @return DescribeDbcResponse
    */
   public DescribeDbcResponse describeDbc(DescribeDbcRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling describeDbc");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeDbc");
+    }
+
     return this.invokeAPI("/api/v1/dw/describeDbc", input, new GenericType<DescribeDbcResponse>(){});
   }
 
@@ -200,9 +213,10 @@ public class DwClient extends CdpClient {
    * @return DescribeVwResponse
    */
   public DescribeVwResponse describeVw(DescribeVwRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling describeVw");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeVw");
+    }
+
     return this.invokeAPI("/api/v1/dw/describeVw", input, new GenericType<DescribeVwResponse>(){});
   }
 
@@ -212,9 +226,10 @@ public class DwClient extends CdpClient {
    * @return ListClustersResponse
    */
   public ListClustersResponse listClusters(ListClustersRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listClusters");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listClusters");
+    }
+
     return this.invokeAPI("/api/v1/dw/listClusters", input, new GenericType<ListClustersResponse>(){});
   }
 
@@ -224,9 +239,10 @@ public class DwClient extends CdpClient {
    * @return ListDbcConfigsResponse
    */
   public ListDbcConfigsResponse listDbcConfigs(ListDbcConfigsRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listDbcConfigs");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listDbcConfigs");
+    }
+
     return this.invokeAPI("/api/v1/dw/listDbcConfigs", input, new GenericType<ListDbcConfigsResponse>(){});
   }
 
@@ -236,9 +252,10 @@ public class DwClient extends CdpClient {
    * @return ListDbcsResponse
    */
   public ListDbcsResponse listDbcs(ListDbcsRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listDbcs");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listDbcs");
+    }
+
     return this.invokeAPI("/api/v1/dw/listDbcs", input, new GenericType<ListDbcsResponse>(){});
   }
 
@@ -248,9 +265,10 @@ public class DwClient extends CdpClient {
    * @return ListVwConfigsResponse
    */
   public ListVwConfigsResponse listVwConfigs(ListVwConfigsRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listVwConfigs");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listVwConfigs");
+    }
+
     return this.invokeAPI("/api/v1/dw/listVwConfigs", input, new GenericType<ListVwConfigsResponse>(){});
   }
 
@@ -260,9 +278,10 @@ public class DwClient extends CdpClient {
    * @return ListVwsResponse
    */
   public ListVwsResponse listVws(ListVwsRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listVws");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listVws");
+    }
+
     return this.invokeAPI("/api/v1/dw/listVws", input, new GenericType<ListVwsResponse>(){});
   }
 
@@ -272,9 +291,10 @@ public class DwClient extends CdpClient {
    * @return UpdateDbcResponse
    */
   public UpdateDbcResponse updateDbc(UpdateDbcRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling updateDbc");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateDbc");
+    }
+
     return this.invokeAPI("/api/v1/dw/updateDbc", input, new GenericType<UpdateDbcResponse>(){});
   }
 
@@ -284,9 +304,10 @@ public class DwClient extends CdpClient {
    * @return UpdateVwResponse
    */
   public UpdateVwResponse updateVw(UpdateVwRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling updateVw");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateVw");
+    }
+
     return this.invokeAPI("/api/v1/dw/updateVw", input, new GenericType<UpdateVwResponse>(){});
   }
 }

@@ -27,13 +27,18 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for a start environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-06T10:11:18.786-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-20T11:27:19.046-08:00")
 public class StartEnvironmentRequest  {
 
   /**
    * The name or CRN of the environment.
    **/
   private String environmentName = null;
+
+  /**
+   * Whether the Data Hub clusters should start or not at the environment (re-)start
+   **/
+  private Boolean withDatahubStart = null;
 
   /**
    * Getter for environmentName.
@@ -52,6 +57,23 @@ public class StartEnvironmentRequest  {
     this.environmentName = environmentName;
   }
 
+  /**
+   * Getter for withDatahubStart.
+   * Whether the Data Hub clusters should start or not at the environment (re-)start
+   **/
+  @JsonProperty("withDatahubStart")
+  public Boolean getWithDatahubStart() {
+    return withDatahubStart;
+  }
+
+  /**
+   * Setter for withDatahubStart.
+   * Whether the Data Hub clusters should start or not at the environment (re-)start
+   **/
+  public void setWithDatahubStart(Boolean withDatahubStart) {
+    this.withDatahubStart = withDatahubStart;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -64,12 +86,15 @@ public class StartEnvironmentRequest  {
     if (!Objects.equals(this.environmentName, startEnvironmentRequest.environmentName)) {
       return false;
     }
+    if (!Objects.equals(this.withDatahubStart, startEnvironmentRequest.withDatahubStart)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName);
+    return Objects.hash(environmentName, withDatahubStart);
   }
 
   @Override
@@ -77,6 +102,7 @@ public class StartEnvironmentRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class StartEnvironmentRequest {\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
+    sb.append("    withDatahubStart: ").append(toIndentedString(withDatahubStart)).append("\n");
     sb.append("}");
     return sb.toString();
   }

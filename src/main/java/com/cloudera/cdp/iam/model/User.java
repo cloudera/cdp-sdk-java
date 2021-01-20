@@ -26,9 +26,9 @@ import com.cloudera.cdp.client.CdpResponse;
 import java.time.ZonedDateTime;
 
 /**
- * Information about a Cloudera Altus user.
+ * Information about a Cloudera CDP user.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-06T10:11:19.182-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-20T11:27:19.434-08:00")
 public class User  {
 
   /**
@@ -62,7 +62,7 @@ public class User  {
   private ZonedDateTime creationDate = null;
 
   /**
-   * Whether the user is an administrator of their Altus account.
+   * Whether the user is an administrator of their CDP account.
    **/
   private Boolean accountAdmin = null;
 
@@ -185,7 +185,7 @@ public class User  {
 
   /**
    * Getter for accountAdmin.
-   * Whether the user is an administrator of their Altus account.
+   * Whether the user is an administrator of their CDP account.
    **/
   @JsonProperty("accountAdmin")
   public Boolean getAccountAdmin() {
@@ -194,7 +194,7 @@ public class User  {
 
   /**
    * Setter for accountAdmin.
-   * Whether the user is an administrator of their Altus account.
+   * Whether the user is an administrator of their CDP account.
    **/
   public void setAccountAdmin(Boolean accountAdmin) {
     this.accountAdmin = accountAdmin;

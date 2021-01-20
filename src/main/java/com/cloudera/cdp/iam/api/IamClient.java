@@ -21,9 +21,12 @@ package com.cloudera.cdp.iam.api;
 
 import javax.ws.rs.core.GenericType;
 import com.cloudera.cdp.CdpClientException;
+import com.cloudera.cdp.annotation.WorkloadApi;
 import com.cloudera.cdp.authentication.credentials.CdpCredentials;
 import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
+import com.cloudera.cdp.client.Pair;
+import com.cloudera.cdp.client.WorkloadResponse;
 import com.cloudera.cdp.iam.model.AddMachineUserToGroupRequest;
 import com.cloudera.cdp.iam.model.AddMachineUserToGroupResponse;
 import com.cloudera.cdp.iam.model.AddSshPublicKeyRequest;
@@ -146,7 +149,7 @@ import com.cloudera.cdp.iam.model.UpdateGroupResponse;
 import com.cloudera.cdp.iam.model.UpdateSamlProviderRequest;
 import com.cloudera.cdp.iam.model.UpdateSamlProviderResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-06T10:11:19.182-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-20T11:27:19.434-08:00")
 public class IamClient extends CdpClient {
 
   public static final String SERVICE_NAME = "iam";
@@ -164,9 +167,10 @@ public class IamClient extends CdpClient {
    * @return AddMachineUserToGroupResponse
    */
   public AddMachineUserToGroupResponse addMachineUserToGroup(AddMachineUserToGroupRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling addMachineUserToGroup");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling addMachineUserToGroup");
+    }
+
     return this.invokeAPI("/iam/addMachineUserToGroup", input, new GenericType<AddMachineUserToGroupResponse>(){});
   }
 
@@ -176,9 +180,10 @@ public class IamClient extends CdpClient {
    * @return AddSshPublicKeyResponse
    */
   public AddSshPublicKeyResponse addSshPublicKey(AddSshPublicKeyRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling addSshPublicKey");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling addSshPublicKey");
+    }
+
     return this.invokeAPI("/iam/addSshPublicKey", input, new GenericType<AddSshPublicKeyResponse>(){});
   }
 
@@ -188,9 +193,10 @@ public class IamClient extends CdpClient {
    * @return AddUserToGroupResponse
    */
   public AddUserToGroupResponse addUserToGroup(AddUserToGroupRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling addUserToGroup");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling addUserToGroup");
+    }
+
     return this.invokeAPI("/iam/addUserToGroup", input, new GenericType<AddUserToGroupResponse>(){});
   }
 
@@ -200,9 +206,10 @@ public class IamClient extends CdpClient {
    * @return AssignGroupResourceRoleResponse
    */
   public AssignGroupResourceRoleResponse assignGroupResourceRole(AssignGroupResourceRoleRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling assignGroupResourceRole");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling assignGroupResourceRole");
+    }
+
     return this.invokeAPI("/iam/assignGroupResourceRole", input, new GenericType<AssignGroupResourceRoleResponse>(){});
   }
 
@@ -212,9 +219,10 @@ public class IamClient extends CdpClient {
    * @return AssignGroupRoleResponse
    */
   public AssignGroupRoleResponse assignGroupRole(AssignGroupRoleRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling assignGroupRole");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling assignGroupRole");
+    }
+
     return this.invokeAPI("/iam/assignGroupRole", input, new GenericType<AssignGroupRoleResponse>(){});
   }
 
@@ -224,9 +232,10 @@ public class IamClient extends CdpClient {
    * @return AssignMachineUserResourceRoleResponse
    */
   public AssignMachineUserResourceRoleResponse assignMachineUserResourceRole(AssignMachineUserResourceRoleRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling assignMachineUserResourceRole");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling assignMachineUserResourceRole");
+    }
+
     return this.invokeAPI("/iam/assignMachineUserResourceRole", input, new GenericType<AssignMachineUserResourceRoleResponse>(){});
   }
 
@@ -236,9 +245,10 @@ public class IamClient extends CdpClient {
    * @return AssignMachineUserRoleResponse
    */
   public AssignMachineUserRoleResponse assignMachineUserRole(AssignMachineUserRoleRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling assignMachineUserRole");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling assignMachineUserRole");
+    }
+
     return this.invokeAPI("/iam/assignMachineUserRole", input, new GenericType<AssignMachineUserRoleResponse>(){});
   }
 
@@ -248,9 +258,10 @@ public class IamClient extends CdpClient {
    * @return AssignUserResourceRoleResponse
    */
   public AssignUserResourceRoleResponse assignUserResourceRole(AssignUserResourceRoleRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling assignUserResourceRole");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling assignUserResourceRole");
+    }
+
     return this.invokeAPI("/iam/assignUserResourceRole", input, new GenericType<AssignUserResourceRoleResponse>(){});
   }
 
@@ -260,9 +271,10 @@ public class IamClient extends CdpClient {
    * @return AssignUserRoleResponse
    */
   public AssignUserRoleResponse assignUserRole(AssignUserRoleRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling assignUserRole");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling assignUserRole");
+    }
+
     return this.invokeAPI("/iam/assignUserRole", input, new GenericType<AssignUserRoleResponse>(){});
   }
 
@@ -272,9 +284,10 @@ public class IamClient extends CdpClient {
    * @return CreateGroupResponse
    */
   public CreateGroupResponse createGroup(CreateGroupRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling createGroup");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createGroup");
+    }
+
     return this.invokeAPI("/iam/createGroup", input, new GenericType<CreateGroupResponse>(){});
   }
 
@@ -284,9 +297,10 @@ public class IamClient extends CdpClient {
    * @return CreateMachineUserResponse
    */
   public CreateMachineUserResponse createMachineUser(CreateMachineUserRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling createMachineUser");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createMachineUser");
+    }
+
     return this.invokeAPI("/iam/createMachineUser", input, new GenericType<CreateMachineUserResponse>(){});
   }
 
@@ -296,33 +310,36 @@ public class IamClient extends CdpClient {
    * @return CreateMachineUserAccessKeyResponse
    */
   public CreateMachineUserAccessKeyResponse createMachineUserAccessKey(CreateMachineUserAccessKeyRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling createMachineUserAccessKey");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createMachineUserAccessKey");
+    }
+
     return this.invokeAPI("/iam/createMachineUserAccessKey", input, new GenericType<CreateMachineUserAccessKeyResponse>(){});
   }
 
   /**
-   * Creates a SAML provider in Altus.
+   * Creates a SAML provider in CDP.
    * @param input
    * @return CreateSamlProviderResponse
    */
   public CreateSamlProviderResponse createSamlProvider(CreateSamlProviderRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling createSamlProvider");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createSamlProvider");
+    }
+
     return this.invokeAPI("/iam/createSamlProvider", input, new GenericType<CreateSamlProviderResponse>(){});
   }
 
   /**
-   * Creates a user in Altus.
+   * Creates a user in CDP.
    * @param input
    * @return CreateUserResponse
    */
   public CreateUserResponse createUser(CreateUserRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling createUser");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createUser");
+    }
+
     return this.invokeAPI("/iam/createUser", input, new GenericType<CreateUserResponse>(){});
   }
 
@@ -332,9 +349,10 @@ public class IamClient extends CdpClient {
    * @return CreateUserAccessKeyResponse
    */
   public CreateUserAccessKeyResponse createUserAccessKey(CreateUserAccessKeyRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling createUserAccessKey");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createUserAccessKey");
+    }
+
     return this.invokeAPI("/iam/createUserAccessKey", input, new GenericType<CreateUserAccessKeyResponse>(){});
   }
 
@@ -344,9 +362,10 @@ public class IamClient extends CdpClient {
    * @return DeleteAccessKeyResponse
    */
   public DeleteAccessKeyResponse deleteAccessKey(DeleteAccessKeyRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling deleteAccessKey");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteAccessKey");
+    }
+
     return this.invokeAPI("/iam/deleteAccessKey", input, new GenericType<DeleteAccessKeyResponse>(){});
   }
 
@@ -356,9 +375,10 @@ public class IamClient extends CdpClient {
    * @return DeleteGroupResponse
    */
   public DeleteGroupResponse deleteGroup(DeleteGroupRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling deleteGroup");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteGroup");
+    }
+
     return this.invokeAPI("/iam/deleteGroup", input, new GenericType<DeleteGroupResponse>(){});
   }
 
@@ -368,21 +388,23 @@ public class IamClient extends CdpClient {
    * @return DeleteMachineUserResponse
    */
   public DeleteMachineUserResponse deleteMachineUser(DeleteMachineUserRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling deleteMachineUser");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteMachineUser");
+    }
+
     return this.invokeAPI("/iam/deleteMachineUser", input, new GenericType<DeleteMachineUserResponse>(){});
   }
 
   /**
-   * Deletes a SAML provider in Altus account.
+   * Deletes a SAML provider in CDP account.
    * @param input
    * @return DeleteSamlProviderResponse
    */
   public DeleteSamlProviderResponse deleteSamlProvider(DeleteSamlProviderRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling deleteSamlProvider");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteSamlProvider");
+    }
+
     return this.invokeAPI("/iam/deleteSamlProvider", input, new GenericType<DeleteSamlProviderResponse>(){});
   }
 
@@ -392,9 +414,10 @@ public class IamClient extends CdpClient {
    * @return DeleteSshPublicKeyResponse
    */
   public DeleteSshPublicKeyResponse deleteSshPublicKey(DeleteSshPublicKeyRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling deleteSshPublicKey");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteSshPublicKey");
+    }
+
     return this.invokeAPI("/iam/deleteSshPublicKey", input, new GenericType<DeleteSshPublicKeyResponse>(){});
   }
 
@@ -404,9 +427,10 @@ public class IamClient extends CdpClient {
    * @return DeleteUserResponse
    */
   public DeleteUserResponse deleteUser(DeleteUserRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling deleteUser");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteUser");
+    }
+
     return this.invokeAPI("/iam/deleteUser", input, new GenericType<DeleteUserResponse>(){});
   }
 
@@ -416,9 +440,10 @@ public class IamClient extends CdpClient {
    * @return DescribeSshPublicKeyResponse
    */
   public DescribeSshPublicKeyResponse describeSshPublicKey(DescribeSshPublicKeyRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling describeSshPublicKey");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeSshPublicKey");
+    }
+
     return this.invokeAPI("/iam/describeSshPublicKey", input, new GenericType<DescribeSshPublicKeyResponse>(){});
   }
 
@@ -428,9 +453,10 @@ public class IamClient extends CdpClient {
    * @return DisableClouderaSSOLoginResponse
    */
   public DisableClouderaSSOLoginResponse disableClouderaSSOLogin(DisableClouderaSSOLoginRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling disableClouderaSSOLogin");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling disableClouderaSSOLogin");
+    }
+
     return this.invokeAPI("/iam/disableClouderaSSOLogin", input, new GenericType<DisableClouderaSSOLoginResponse>(){});
   }
 
@@ -440,9 +466,10 @@ public class IamClient extends CdpClient {
    * @return EnableClouderaSSOLoginResponse
    */
   public EnableClouderaSSOLoginResponse enableClouderaSSOLogin(EnableClouderaSSOLoginRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling enableClouderaSSOLogin");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling enableClouderaSSOLogin");
+    }
+
     return this.invokeAPI("/iam/enableClouderaSSOLogin", input, new GenericType<EnableClouderaSSOLoginResponse>(){});
   }
 
@@ -452,21 +479,23 @@ public class IamClient extends CdpClient {
    * @return GetAccessKeyResponse
    */
   public GetAccessKeyResponse getAccessKey(GetAccessKeyRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling getAccessKey");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getAccessKey");
+    }
+
     return this.invokeAPI("/iam/getAccessKey", input, new GenericType<GetAccessKeyResponse>(){});
   }
 
   /**
-   * Retrieves information about the Altus account.
+   * Retrieves information about the CDP account.
    * @param input
    * @return GetAccountResponse
    */
   public GetAccountResponse getAccount(GetAccountRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling getAccount");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getAccount");
+    }
+
     return this.invokeAPI("/iam/getAccount", input, new GenericType<GetAccountResponse>(){});
   }
 
@@ -476,9 +505,10 @@ public class IamClient extends CdpClient {
    * @return GetAccountMessagesResponse
    */
   public GetAccountMessagesResponse getAccountMessages(GetAccountMessagesRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling getAccountMessages");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getAccountMessages");
+    }
+
     return this.invokeAPI("/iam/getAccountMessages", input, new GenericType<GetAccountMessagesResponse>(){});
   }
 
@@ -488,9 +518,10 @@ public class IamClient extends CdpClient {
    * @return GetUserResponse
    */
   public GetUserResponse getUser(GetUserRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling getUser");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getUser");
+    }
+
     return this.invokeAPI("/iam/getUser", input, new GenericType<GetUserResponse>(){});
   }
 
@@ -500,9 +531,10 @@ public class IamClient extends CdpClient {
    * @return ListAccessKeysResponse
    */
   public ListAccessKeysResponse listAccessKeys(ListAccessKeysRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listAccessKeys");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listAccessKeys");
+    }
+
     return this.invokeAPI("/iam/listAccessKeys", input, new GenericType<ListAccessKeysResponse>(){});
   }
 
@@ -512,9 +544,10 @@ public class IamClient extends CdpClient {
    * @return ListGroupAssignedResourceRolesResponse
    */
   public ListGroupAssignedResourceRolesResponse listGroupAssignedResourceRoles(ListGroupAssignedResourceRolesRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listGroupAssignedResourceRoles");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listGroupAssignedResourceRoles");
+    }
+
     return this.invokeAPI("/iam/listGroupAssignedResourceRoles", input, new GenericType<ListGroupAssignedResourceRolesResponse>(){});
   }
 
@@ -524,9 +557,10 @@ public class IamClient extends CdpClient {
    * @return ListGroupAssignedRolesResponse
    */
   public ListGroupAssignedRolesResponse listGroupAssignedRoles(ListGroupAssignedRolesRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listGroupAssignedRoles");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listGroupAssignedRoles");
+    }
+
     return this.invokeAPI("/iam/listGroupAssignedRoles", input, new GenericType<ListGroupAssignedRolesResponse>(){});
   }
 
@@ -536,9 +570,10 @@ public class IamClient extends CdpClient {
    * @return ListGroupMembersResponse
    */
   public ListGroupMembersResponse listGroupMembers(ListGroupMembersRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listGroupMembers");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listGroupMembers");
+    }
+
     return this.invokeAPI("/iam/listGroupMembers", input, new GenericType<ListGroupMembersResponse>(){});
   }
 
@@ -548,9 +583,10 @@ public class IamClient extends CdpClient {
    * @return ListGroupsResponse
    */
   public ListGroupsResponse listGroups(ListGroupsRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listGroups");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listGroups");
+    }
+
     return this.invokeAPI("/iam/listGroups", input, new GenericType<ListGroupsResponse>(){});
   }
 
@@ -560,9 +596,10 @@ public class IamClient extends CdpClient {
    * @return ListGroupsForMachineUserResponse
    */
   public ListGroupsForMachineUserResponse listGroupsForMachineUser(ListGroupsForMachineUserRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listGroupsForMachineUser");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listGroupsForMachineUser");
+    }
+
     return this.invokeAPI("/iam/listGroupsForMachineUser", input, new GenericType<ListGroupsForMachineUserResponse>(){});
   }
 
@@ -572,9 +609,10 @@ public class IamClient extends CdpClient {
    * @return ListGroupsForUserResponse
    */
   public ListGroupsForUserResponse listGroupsForUser(ListGroupsForUserRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listGroupsForUser");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listGroupsForUser");
+    }
+
     return this.invokeAPI("/iam/listGroupsForUser", input, new GenericType<ListGroupsForUserResponse>(){});
   }
 
@@ -584,9 +622,10 @@ public class IamClient extends CdpClient {
    * @return ListMachineUserAssignedResourceRolesResponse
    */
   public ListMachineUserAssignedResourceRolesResponse listMachineUserAssignedResourceRoles(ListMachineUserAssignedResourceRolesRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listMachineUserAssignedResourceRoles");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listMachineUserAssignedResourceRoles");
+    }
+
     return this.invokeAPI("/iam/listMachineUserAssignedResourceRoles", input, new GenericType<ListMachineUserAssignedResourceRolesResponse>(){});
   }
 
@@ -596,9 +635,10 @@ public class IamClient extends CdpClient {
    * @return ListMachineUserAssignedRolesResponse
    */
   public ListMachineUserAssignedRolesResponse listMachineUserAssignedRoles(ListMachineUserAssignedRolesRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listMachineUserAssignedRoles");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listMachineUserAssignedRoles");
+    }
+
     return this.invokeAPI("/iam/listMachineUserAssignedRoles", input, new GenericType<ListMachineUserAssignedRolesResponse>(){});
   }
 
@@ -608,9 +648,10 @@ public class IamClient extends CdpClient {
    * @return ListMachineUsersResponse
    */
   public ListMachineUsersResponse listMachineUsers(ListMachineUsersRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listMachineUsers");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listMachineUsers");
+    }
+
     return this.invokeAPI("/iam/listMachineUsers", input, new GenericType<ListMachineUsersResponse>(){});
   }
 
@@ -620,9 +661,10 @@ public class IamClient extends CdpClient {
    * @return ListResourceAssigneesResponse
    */
   public ListResourceAssigneesResponse listResourceAssignees(ListResourceAssigneesRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listResourceAssignees");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listResourceAssignees");
+    }
+
     return this.invokeAPI("/iam/listResourceAssignees", input, new GenericType<ListResourceAssigneesResponse>(){});
   }
 
@@ -632,9 +674,10 @@ public class IamClient extends CdpClient {
    * @return ListResourceRolesResponse
    */
   public ListResourceRolesResponse listResourceRoles(ListResourceRolesRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listResourceRoles");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listResourceRoles");
+    }
+
     return this.invokeAPI("/iam/listResourceRoles", input, new GenericType<ListResourceRolesResponse>(){});
   }
 
@@ -644,21 +687,23 @@ public class IamClient extends CdpClient {
    * @return ListRolesResponse
    */
   public ListRolesResponse listRoles(ListRolesRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listRoles");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listRoles");
+    }
+
     return this.invokeAPI("/iam/listRoles", input, new GenericType<ListRolesResponse>(){});
   }
 
   /**
-   * Lists SAML providers in Altus account.
+   * Lists SAML providers in CDP account.
    * @param input
    * @return ListSamlProvidersResponse
    */
   public ListSamlProvidersResponse listSamlProviders(ListSamlProvidersRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listSamlProviders");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listSamlProviders");
+    }
+
     return this.invokeAPI("/iam/listSamlProviders", input, new GenericType<ListSamlProvidersResponse>(){});
   }
 
@@ -668,9 +713,10 @@ public class IamClient extends CdpClient {
    * @return ListSshPublicKeysResponse
    */
   public ListSshPublicKeysResponse listSshPublicKeys(ListSshPublicKeysRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listSshPublicKeys");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listSshPublicKeys");
+    }
+
     return this.invokeAPI("/iam/listSshPublicKeys", input, new GenericType<ListSshPublicKeysResponse>(){});
   }
 
@@ -680,9 +726,10 @@ public class IamClient extends CdpClient {
    * @return ListUserAssignedResourceRolesResponse
    */
   public ListUserAssignedResourceRolesResponse listUserAssignedResourceRoles(ListUserAssignedResourceRolesRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listUserAssignedResourceRoles");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listUserAssignedResourceRoles");
+    }
+
     return this.invokeAPI("/iam/listUserAssignedResourceRoles", input, new GenericType<ListUserAssignedResourceRolesResponse>(){});
   }
 
@@ -692,9 +739,10 @@ public class IamClient extends CdpClient {
    * @return ListUserAssignedRolesResponse
    */
   public ListUserAssignedRolesResponse listUserAssignedRoles(ListUserAssignedRolesRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listUserAssignedRoles");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listUserAssignedRoles");
+    }
+
     return this.invokeAPI("/iam/listUserAssignedRoles", input, new GenericType<ListUserAssignedRolesResponse>(){});
   }
 
@@ -704,9 +752,10 @@ public class IamClient extends CdpClient {
    * @return ListUsersResponse
    */
   public ListUsersResponse listUsers(ListUsersRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listUsers");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listUsers");
+    }
+
     return this.invokeAPI("/iam/listUsers", input, new GenericType<ListUsersResponse>(){});
   }
 
@@ -716,9 +765,10 @@ public class IamClient extends CdpClient {
    * @return RemoveMachineUserFromGroupResponse
    */
   public RemoveMachineUserFromGroupResponse removeMachineUserFromGroup(RemoveMachineUserFromGroupRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling removeMachineUserFromGroup");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling removeMachineUserFromGroup");
+    }
+
     return this.invokeAPI("/iam/removeMachineUserFromGroup", input, new GenericType<RemoveMachineUserFromGroupResponse>(){});
   }
 
@@ -728,9 +778,10 @@ public class IamClient extends CdpClient {
    * @return RemoveUserFromGroupResponse
    */
   public RemoveUserFromGroupResponse removeUserFromGroup(RemoveUserFromGroupRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling removeUserFromGroup");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling removeUserFromGroup");
+    }
+
     return this.invokeAPI("/iam/removeUserFromGroup", input, new GenericType<RemoveUserFromGroupResponse>(){});
   }
 
@@ -740,9 +791,10 @@ public class IamClient extends CdpClient {
    * @return SetAccountMessagesResponse
    */
   public SetAccountMessagesResponse setAccountMessages(SetAccountMessagesRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling setAccountMessages");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling setAccountMessages");
+    }
+
     return this.invokeAPI("/iam/setAccountMessages", input, new GenericType<SetAccountMessagesResponse>(){});
   }
 
@@ -752,9 +804,10 @@ public class IamClient extends CdpClient {
    * @return SetWorkloadPasswordResponse
    */
   public SetWorkloadPasswordResponse setWorkloadPassword(SetWorkloadPasswordRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling setWorkloadPassword");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling setWorkloadPassword");
+    }
+
     return this.invokeAPI("/iam/setWorkloadPassword", input, new GenericType<SetWorkloadPasswordResponse>(){});
   }
 
@@ -764,9 +817,10 @@ public class IamClient extends CdpClient {
    * @return SetWorkloadPasswordPolicyResponse
    */
   public SetWorkloadPasswordPolicyResponse setWorkloadPasswordPolicy(SetWorkloadPasswordPolicyRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling setWorkloadPasswordPolicy");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling setWorkloadPasswordPolicy");
+    }
+
     return this.invokeAPI("/iam/setWorkloadPasswordPolicy", input, new GenericType<SetWorkloadPasswordPolicyResponse>(){});
   }
 
@@ -776,9 +830,10 @@ public class IamClient extends CdpClient {
    * @return UnassignGroupResourceRoleResponse
    */
   public UnassignGroupResourceRoleResponse unassignGroupResourceRole(UnassignGroupResourceRoleRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling unassignGroupResourceRole");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling unassignGroupResourceRole");
+    }
+
     return this.invokeAPI("/iam/unassignGroupResourceRole", input, new GenericType<UnassignGroupResourceRoleResponse>(){});
   }
 
@@ -788,9 +843,10 @@ public class IamClient extends CdpClient {
    * @return UnassignGroupRoleResponse
    */
   public UnassignGroupRoleResponse unassignGroupRole(UnassignGroupRoleRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling unassignGroupRole");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling unassignGroupRole");
+    }
+
     return this.invokeAPI("/iam/unassignGroupRole", input, new GenericType<UnassignGroupRoleResponse>(){});
   }
 
@@ -800,9 +856,10 @@ public class IamClient extends CdpClient {
    * @return UnassignMachineUserResourceRoleResponse
    */
   public UnassignMachineUserResourceRoleResponse unassignMachineUserResourceRole(UnassignMachineUserResourceRoleRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling unassignMachineUserResourceRole");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling unassignMachineUserResourceRole");
+    }
+
     return this.invokeAPI("/iam/unassignMachineUserResourceRole", input, new GenericType<UnassignMachineUserResourceRoleResponse>(){});
   }
 
@@ -812,9 +869,10 @@ public class IamClient extends CdpClient {
    * @return UnassignMachineUserRoleResponse
    */
   public UnassignMachineUserRoleResponse unassignMachineUserRole(UnassignMachineUserRoleRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling unassignMachineUserRole");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling unassignMachineUserRole");
+    }
+
     return this.invokeAPI("/iam/unassignMachineUserRole", input, new GenericType<UnassignMachineUserRoleResponse>(){});
   }
 
@@ -824,9 +882,10 @@ public class IamClient extends CdpClient {
    * @return UnassignUserResourceRoleResponse
    */
   public UnassignUserResourceRoleResponse unassignUserResourceRole(UnassignUserResourceRoleRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling unassignUserResourceRole");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling unassignUserResourceRole");
+    }
+
     return this.invokeAPI("/iam/unassignUserResourceRole", input, new GenericType<UnassignUserResourceRoleResponse>(){});
   }
 
@@ -836,9 +895,10 @@ public class IamClient extends CdpClient {
    * @return UnassignUserRoleResponse
    */
   public UnassignUserRoleResponse unassignUserRole(UnassignUserRoleRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling unassignUserRole");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling unassignUserRole");
+    }
+
     return this.invokeAPI("/iam/unassignUserRole", input, new GenericType<UnassignUserRoleResponse>(){});
   }
 
@@ -848,9 +908,10 @@ public class IamClient extends CdpClient {
    * @return UpdateAccessKeyResponse
    */
   public UpdateAccessKeyResponse updateAccessKey(UpdateAccessKeyRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling updateAccessKey");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateAccessKey");
+    }
+
     return this.invokeAPI("/iam/updateAccessKey", input, new GenericType<UpdateAccessKeyResponse>(){});
   }
 
@@ -860,21 +921,23 @@ public class IamClient extends CdpClient {
    * @return UpdateGroupResponse
    */
   public UpdateGroupResponse updateGroup(UpdateGroupRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling updateGroup");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateGroup");
+    }
+
     return this.invokeAPI("/iam/updateGroup", input, new GenericType<UpdateGroupResponse>(){});
   }
 
   /**
-   * Updates a SAML provider in Altus.
+   * Updates a SAML provider in CDP.
    * @param input
    * @return UpdateSamlProviderResponse
    */
   public UpdateSamlProviderResponse updateSamlProvider(UpdateSamlProviderRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling updateSamlProvider");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateSamlProvider");
+    }
+
     return this.invokeAPI("/iam/updateSamlProvider", input, new GenericType<UpdateSamlProviderResponse>(){});
   }
 }

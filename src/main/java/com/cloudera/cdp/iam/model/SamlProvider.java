@@ -26,13 +26,13 @@ import com.cloudera.cdp.client.CdpResponse;
 import java.time.ZonedDateTime;
 
 /**
- * Information used to connect an Altus account to an external identity provider.
+ * Information used to connect a CDP account to an external identity provider.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-06T10:11:19.182-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-20T11:27:19.434-08:00")
 public class SamlProvider  {
 
   /**
-   * CRN of the SAML provider in Altus.
+   * CRN of the SAML provider in CDP.
    **/
   private String crn = null;
 
@@ -52,18 +52,18 @@ public class SamlProvider  {
   private String samlProviderId = null;
 
   /**
-   * Whether users federated with this SAML provider will have their group membership synchronized. Group membership can be passed using the https://altus.cloudera.com/SAML/Attributes/groups SAML assertion.
+   * Whether users federated with this SAML provider will have their group membership synchronized. Group membership can be passed using the https://cdp.cloudera.com/SAML/Attributes/groups SAML assertion.
    **/
   private Boolean syncGroupsOnLogin = null;
 
   /**
-   * The original metadata that was passed while creating the SAML provider connector. This field will not be set for listSamlProviders API response.
+   * The original metadata that was passed while creating the SAML provider connector. This field will not be set when the SAML provider does not have metadata. This field will not be set for listSamlProviders API response.
    **/
   private String samlMetadataDocument = null;
 
   /**
    * Getter for crn.
-   * CRN of the SAML provider in Altus.
+   * CRN of the SAML provider in CDP.
    **/
   @JsonProperty("crn")
   public String getCrn() {
@@ -72,7 +72,7 @@ public class SamlProvider  {
 
   /**
    * Setter for crn.
-   * CRN of the SAML provider in Altus.
+   * CRN of the SAML provider in CDP.
    **/
   public void setCrn(String crn) {
     this.crn = crn;
@@ -131,7 +131,7 @@ public class SamlProvider  {
 
   /**
    * Getter for syncGroupsOnLogin.
-   * Whether users federated with this SAML provider will have their group membership synchronized. Group membership can be passed using the https://altus.cloudera.com/SAML/Attributes/groups SAML assertion.
+   * Whether users federated with this SAML provider will have their group membership synchronized. Group membership can be passed using the https://cdp.cloudera.com/SAML/Attributes/groups SAML assertion.
    **/
   @JsonProperty("syncGroupsOnLogin")
   public Boolean getSyncGroupsOnLogin() {
@@ -140,7 +140,7 @@ public class SamlProvider  {
 
   /**
    * Setter for syncGroupsOnLogin.
-   * Whether users federated with this SAML provider will have their group membership synchronized. Group membership can be passed using the https://altus.cloudera.com/SAML/Attributes/groups SAML assertion.
+   * Whether users federated with this SAML provider will have their group membership synchronized. Group membership can be passed using the https://cdp.cloudera.com/SAML/Attributes/groups SAML assertion.
    **/
   public void setSyncGroupsOnLogin(Boolean syncGroupsOnLogin) {
     this.syncGroupsOnLogin = syncGroupsOnLogin;
@@ -148,7 +148,7 @@ public class SamlProvider  {
 
   /**
    * Getter for samlMetadataDocument.
-   * The original metadata that was passed while creating the SAML provider connector. This field will not be set for listSamlProviders API response.
+   * The original metadata that was passed while creating the SAML provider connector. This field will not be set when the SAML provider does not have metadata. This field will not be set for listSamlProviders API response.
    **/
   @JsonProperty("samlMetadataDocument")
   public String getSamlMetadataDocument() {
@@ -157,7 +157,7 @@ public class SamlProvider  {
 
   /**
    * Setter for samlMetadataDocument.
-   * The original metadata that was passed while creating the SAML provider connector. This field will not be set for listSamlProviders API response.
+   * The original metadata that was passed while creating the SAML provider connector. This field will not be set when the SAML provider does not have metadata. This field will not be set for listSamlProviders API response.
    **/
   public void setSamlMetadataDocument(String samlMetadataDocument) {
     this.samlMetadataDocument = samlMetadataDocument;

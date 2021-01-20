@@ -27,9 +27,9 @@ import com.cloudera.cdp.iam.model.AccessKeyLastUsage;
 import java.time.ZonedDateTime;
 
 /**
- * Information about a Cloudera Altus access key.
+ * Information about a Cloudera CDP access key.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-06T10:11:19.182-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-20T11:27:19.434-08:00")
 public class AccessKey  {
 
   /**

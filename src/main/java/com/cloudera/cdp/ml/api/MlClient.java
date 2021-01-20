@@ -21,9 +21,12 @@ package com.cloudera.cdp.ml.api;
 
 import javax.ws.rs.core.GenericType;
 import com.cloudera.cdp.CdpClientException;
+import com.cloudera.cdp.annotation.WorkloadApi;
 import com.cloudera.cdp.authentication.credentials.CdpCredentials;
 import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
+import com.cloudera.cdp.client.Pair;
+import com.cloudera.cdp.client.WorkloadResponse;
 import com.cloudera.cdp.ml.model.CreateWorkspaceRequest;
 import com.cloudera.cdp.ml.model.CreateWorkspaceResponse;
 import com.cloudera.cdp.ml.model.DeleteWorkspaceRequest;
@@ -50,10 +53,10 @@ import com.cloudera.cdp.ml.model.RevokeWorkspaceAccessResponse;
 import com.cloudera.cdp.ml.model.UpgradeWorkspaceRequest;
 import com.cloudera.cdp.ml.model.UpgradeWorkspaceResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-06T10:11:18.378-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-20T11:27:18.626-08:00")
 public class MlClient extends CdpClient {
 
-  public static final String SERVICE_NAME = "api";
+  public static final String SERVICE_NAME = "ml";
 
   public MlClient(
       CdpCredentials credentials,
@@ -68,9 +71,10 @@ public class MlClient extends CdpClient {
    * @return CreateWorkspaceResponse
    */
   public CreateWorkspaceResponse createWorkspace(CreateWorkspaceRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling createWorkspace");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createWorkspace");
+    }
+
     return this.invokeAPI("/api/v1/ml/createWorkspace", input, new GenericType<CreateWorkspaceResponse>(){});
   }
 
@@ -80,9 +84,10 @@ public class MlClient extends CdpClient {
    * @return DeleteWorkspaceResponse
    */
   public DeleteWorkspaceResponse deleteWorkspace(DeleteWorkspaceRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling deleteWorkspace");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteWorkspace");
+    }
+
     return this.invokeAPI("/api/v1/ml/deleteWorkspace", input, new GenericType<DeleteWorkspaceResponse>(){});
   }
 
@@ -92,9 +97,10 @@ public class MlClient extends CdpClient {
    * @return DescribeWorkspaceResponse
    */
   public DescribeWorkspaceResponse describeWorkspace(DescribeWorkspaceRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling describeWorkspace");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeWorkspace");
+    }
+
     return this.invokeAPI("/api/v1/ml/describeWorkspace", input, new GenericType<DescribeWorkspaceResponse>(){});
   }
 
@@ -104,9 +110,10 @@ public class MlClient extends CdpClient {
    * @return GetAuditEventsResponse
    */
   public GetAuditEventsResponse getAuditEvents(GetAuditEventsRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling getAuditEvents");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getAuditEvents");
+    }
+
     return this.invokeAPI("/api/v1/ml/getAuditEvents", input, new GenericType<GetAuditEventsResponse>(){});
   }
 
@@ -116,9 +123,10 @@ public class MlClient extends CdpClient {
    * @return GetKubeconfigResponse
    */
   public GetKubeconfigResponse getKubeconfig(GetKubeconfigRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling getKubeconfig");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getKubeconfig");
+    }
+
     return this.invokeAPI("/api/v1/ml/getKubeconfig", input, new GenericType<GetKubeconfigResponse>(){});
   }
 
@@ -128,9 +136,10 @@ public class MlClient extends CdpClient {
    * @return GetLatestWorkspaceVersionResponse
    */
   public GetLatestWorkspaceVersionResponse getLatestWorkspaceVersion(GetLatestWorkspaceVersionRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling getLatestWorkspaceVersion");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getLatestWorkspaceVersion");
+    }
+
     return this.invokeAPI("/api/v1/ml/getLatestWorkspaceVersion", input, new GenericType<GetLatestWorkspaceVersionResponse>(){});
   }
 
@@ -140,9 +149,10 @@ public class MlClient extends CdpClient {
    * @return GetLogsResponse
    */
   public GetLogsResponse getLogs(GetLogsRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling getLogs");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getLogs");
+    }
+
     return this.invokeAPI("/api/v1/ml/getLogs", input, new GenericType<GetLogsResponse>(){});
   }
 
@@ -152,9 +162,10 @@ public class MlClient extends CdpClient {
    * @return GrantWorkspaceAccessResponse
    */
   public GrantWorkspaceAccessResponse grantWorkspaceAccess(GrantWorkspaceAccessRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling grantWorkspaceAccess");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling grantWorkspaceAccess");
+    }
+
     return this.invokeAPI("/api/v1/ml/grantWorkspaceAccess", input, new GenericType<GrantWorkspaceAccessResponse>(){});
   }
 
@@ -164,9 +175,10 @@ public class MlClient extends CdpClient {
    * @return ListWorkspaceAccessResponse
    */
   public ListWorkspaceAccessResponse listWorkspaceAccess(ListWorkspaceAccessRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listWorkspaceAccess");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listWorkspaceAccess");
+    }
+
     return this.invokeAPI("/api/v1/ml/listWorkspaceAccess", input, new GenericType<ListWorkspaceAccessResponse>(){});
   }
 
@@ -176,9 +188,10 @@ public class MlClient extends CdpClient {
    * @return ListWorkspacesResponse
    */
   public ListWorkspacesResponse listWorkspaces(ListWorkspacesRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listWorkspaces");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listWorkspaces");
+    }
+
     return this.invokeAPI("/api/v1/ml/listWorkspaces", input, new GenericType<ListWorkspacesResponse>(){});
   }
 
@@ -188,9 +201,10 @@ public class MlClient extends CdpClient {
    * @return RevokeWorkspaceAccessResponse
    */
   public RevokeWorkspaceAccessResponse revokeWorkspaceAccess(RevokeWorkspaceAccessRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling revokeWorkspaceAccess");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling revokeWorkspaceAccess");
+    }
+
     return this.invokeAPI("/api/v1/ml/revokeWorkspaceAccess", input, new GenericType<RevokeWorkspaceAccessResponse>(){});
   }
 
@@ -200,9 +214,10 @@ public class MlClient extends CdpClient {
    * @return UpgradeWorkspaceResponse
    */
   public UpgradeWorkspaceResponse upgradeWorkspace(UpgradeWorkspaceRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling upgradeWorkspace");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling upgradeWorkspace");
+    }
+
     return this.invokeAPI("/api/v1/ml/upgradeWorkspace", input, new GenericType<UpgradeWorkspaceResponse>(){});
   }
 }

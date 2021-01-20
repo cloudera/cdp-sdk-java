@@ -52,7 +52,7 @@ public class CdpClientConfigurationBuilder {
        * We use exponential backoff with parameters that gives us about
        * 1 minute and 20 seconds of wait.
        */
-      new ExponentialBackoffDelayPolicy(2, Duration.ofMillis(10)),
+      new ExponentialBackoffDelayPolicy(2, Duration.ofMillis(10), 5),
       13);
 
   private CdpClientConfigurationBuilder() {}

@@ -29,7 +29,7 @@ import java.time.ZonedDateTime;
 /**
  * A Database Catalog.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-06T10:11:18.191-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-20T11:27:18.433-08:00")
 public class DbcSummary  {
 
   /**

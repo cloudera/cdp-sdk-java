@@ -43,16 +43,23 @@ import java.io.InputStream;
 import java.security.PrivateKey;
 import java.time.Duration;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Properties;
+import java.util.stream.Collectors;
 
 import javax.ws.rs.ProcessingException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
@@ -82,10 +89,16 @@ public abstract class CdpClient {
   private static class MapReference extends TypeReference<Map<String, String>> {
   }
 
+  private static class WorkloadResponseGenericType extends GenericType<WorkloadResponse> {
+  }
+
   private static final ObjectMapper MAPPER = new ObjectMapper();
   private static final ClientFactory CLIENT_FACTORY = new ClientFactory();
   private static final String VERSION_PROPERTIES_FILE = "version.properties";
   private static final Properties VERSION_PROPERTIES = loadVersionProperties();
+
+  private static final String PARAMETER_DATE_TIME_FORMAT_PATTERN = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+  private static final DateTimeFormatter PARAMETER_DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern(PARAMETER_DATE_TIME_FORMAT_PATTERN);
 
   private static Properties loadVersionProperties() {
     Properties props = new Properties();
@@ -127,18 +140,41 @@ public abstract class CdpClient {
    * @param body The request body object
    * @param returnType The return type as a GenericType
    * @param <T> The type of the response
-   * @return The response body in type of string
+   * @return The response body object
    */
   protected <T extends CdpResponse> T invokeAPI(String path, Object body, GenericType<T> returnType) {
     checkNotNullAndThrow(path);
     checkNotNullAndThrow(body);
     checkNotNullAndThrow(returnType);
+    return invokeAPI("POST", path, Collections.emptyList(), Collections.emptyMap(), body, returnType);
+  }
+
+  /**
+   * Invoke API by sending HTTP request with the given options.
+   *
+   * @param method The request method, one of "GET", "POST", "PUT", "PATCH" and "DELETE"
+   * @param path The sub-path of the HTTP URL
+   * @param queries The query parameters
+   * @param headers The header parameters
+   * @param body The request body object - if it is not binary, otherwise null
+   * @return The response body object
+   */
+  protected WorkloadResponse invokeAPI(String method, String path, List<Pair> queries, Map<String, String> headers, Object body) {
+    checkNotNullAndThrow(method);
+    checkNotNullAndThrow(path);
+    checkNotNullAndThrow(queries);
+    checkNotNullAndThrow(headers);
+    // body can be null
+    return invokeAPI(method, path, queries, headers, body, new WorkloadResponseGenericType());
+  }
+
+  private <T extends BaseResponse> T invokeAPI(String method, String path, List<Pair> queries, Map<String, String> headers, Object body, GenericType<T> returnType) {
     int attempts = 0;
     do {
       attempts++;
-      try (Response response = getAPIResponse(path, body)) {
+      try (Response response = getAPIResponse(method, path, queries, headers, body)) {
         checkNotNullAndThrow(response);
-        checkArgumentAndThrow(response.getStatusInfo() != Response.Status.NO_CONTENT);
+        checkArgumentAndThrow(response.getStatusInfo() != Response.Status.NO_CONTENT || isWorkloadApi(returnType));
         try {
           return parse(response, returnType);
         } catch (CdpClientException exception) {
@@ -158,17 +194,102 @@ public abstract class CdpClient {
     } while (true);
   }
 
+  /**
+   * Format the given parameter object into string.
+   * @param param Object
+   * @return Object in string format
+   */
   @VisibleForTesting
-  protected MultivaluedMap<String, Object> computeHeaders(String path) {
+  protected String parameterToString(Object param) {
+    if (param == null) {
+      return "";
+    } else if (param instanceof ZonedDateTime) {
+      return ((ZonedDateTime) param).withZoneSameInstant(ZoneOffset.UTC).format(PARAMETER_DATE_TIME_FORMATTER);
+    } else if (param instanceof Collection) {
+      return ((Collection<?>) param).stream()
+          .map(o -> parameterToString(o))
+          .collect(Collectors.joining(","));
+    } else {
+      return String.valueOf(param);
+    }
+  }
+
+  /**
+   * Formats the specified parameter to a {@code Pair} object.
+   *
+   * @param name The name of the parameter.
+   * @param value The value of the parameter.
+   * @return A {@code Pair} object.
+   */
+  @VisibleForTesting
+  protected Pair parameterToPair(String name, Object value) {
+    return new Pair(name, parameterToString(value));
+  }
+
+  /**
+   * Formats the specified parameters to a list of {@code Pair} objects.
+   *
+   * @param collectionFormat The collection format of the parameter.
+   * @param name The name of the parameter.
+   * @param value The value of the parameter.
+   * @return A list of {@code Pair} objects.
+   */
+  @VisibleForTesting
+  protected List<Pair> parameterToPairs(String collectionFormat, String name, Collection value) {
+    checkNotNullAndThrow(collectionFormat);
+
+    List<Pair> params = new ArrayList<>();
+
+    if (value == null) {
+      return params;
+    }
+
+    // create the params based on the collection format
+    if ("multi".equals(collectionFormat)) {
+      for (Object item : value) {
+        params.add(new Pair(name, parameterToString(item)));
+      }
+      return params;
+    }
+
+    // collectionFormat is assumed to be "csv" by default
+    String delimiter = ",";
+    if ("ssv".equals(collectionFormat)) {
+      delimiter = " ";
+    } else if ("tsv".equals(collectionFormat)) {
+      delimiter = "\t";
+    } else if ("pipes".equals(collectionFormat)) {
+      delimiter = "|";
+    }
+
+    List<String> values = new ArrayList<>();
+    for (Object item : value) {
+      values.add(parameterToString(item));
+    }
+    params.add(new Pair(name, String.join(delimiter, values)));
+
+    return params;
+  }
+
+  @VisibleForTesting
+  protected MultivaluedMap<String, Object> computeHeaders(String method,
+                                                          String path,
+                                                          Map<String, String> inputHeaders) {
     MultivaluedMap<String, Object> headers =
         new MultivaluedHashMap<String, Object>();
+
+    for (Map.Entry<String, String> entry : inputHeaders.entrySet()) {
+      headers.putSingle(entry.getKey(), entry.getValue());
+    }
 
     String date = ZonedDateTime.now(ZoneId.of("GMT")).format(
         DateTimeFormatter.RFC_1123_DATE_TIME);
 
     headers.putSingle("x-altus-date", date);
     headers.putSingle(HttpHeaders.USER_AGENT, buildUserAgent());
-    headers.putSingle(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON);
+    if (method.equals("POST") || method.equals("PUT") || method.equals("PATCH")) {
+      headers.putSingle(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON);
+    }
     String altusClientApp = config.getClientApplicationName();
     if (!Strings.isNullOrEmpty(altusClientApp)) {
       headers.putSingle("x-altus-client-app", altusClientApp);
@@ -179,7 +300,7 @@ public abstract class CdpClient {
     String accessToken = credentials.getAccessToken();
     if (!Strings.isNullOrEmpty(accessKeyId) && privateKey != null){
       String auth = new Signer().computeAuthHeader(
-          "POST",
+          method,
           MediaType.APPLICATION_JSON,
           date,
           path,
@@ -194,15 +315,28 @@ public abstract class CdpClient {
   }
 
   @VisibleForTesting
-  protected Response getAPIResponse(String path, Object requestBody) {
-    return client.target(endPoint + path).request()
+  protected Response getAPIResponse(String method,
+                                    String path,
+                                    List<Pair> requestQueries,
+                                    Map<String, String> requestHeaders,
+                                    Object requestBody) {
+    WebTarget t = this.client.target(endPoint + path);
+    for (Pair pair : requestQueries) {
+      t = t.queryParam(pair.getName(), pair.getValue());
+    }
+    Invocation.Builder builder = t.request()
         .accept(MediaType.APPLICATION_JSON)
-        .headers(computeHeaders(path))
-        .post(Entity.entity(requestBody,
-                            MediaType.APPLICATION_JSON));
+        .headers(computeHeaders(method, path, requestHeaders));
+    if (requestBody == null) {
+      return builder.method(method);
+    } else {
+      return builder.method(
+          method,
+          Entity.entity(requestBody, MediaType.APPLICATION_JSON));
+    }
   }
 
-  private <T extends CdpResponse> T parse(
+  private <T extends BaseResponse> T parse(
       Response response,
       GenericType<T> returnType) {
     checkNotNull(response);
@@ -221,13 +355,21 @@ public abstract class CdpClient {
     Map<String, List<String>> responseHeaders = mapBuilder.build();
 
     if (response.getStatusInfo().getFamily() == Response.Status.Family.SUCCESSFUL) {
-      T cdpResponse = response.readEntity(returnType);
-      if (cdpResponse == null) {
-        throw new CdpHTTPException(httpCode, "Invalid response from server");
+      if (isWorkloadApi(returnType)) {
+        WorkloadResponse workloadResponse = new WorkloadResponse();
+        workloadResponse.setHttpCode(httpCode);
+        workloadResponse.setResponseHeaders(responseHeaders);
+        workloadResponse.setResponse(response);
+        return (T) workloadResponse;
+      } else {
+        T cdpResponse = response.readEntity(returnType);
+        if (cdpResponse == null) {
+          throw new CdpHTTPException(httpCode, "Invalid response from server");
+        }
+        cdpResponse.setHttpCode(httpCode);
+        cdpResponse.setResponseHeaders(responseHeaders);
+        return cdpResponse;
       }
-      cdpResponse.setHttpCode(httpCode);
-      cdpResponse.setResponseHeaders(responseHeaders);
-      return cdpResponse;
     }
 
     String body;
@@ -261,6 +403,10 @@ public abstract class CdpClient {
         responseHeaders,
         code,
         message);
+  }
+
+  private static <T extends BaseResponse> boolean isWorkloadApi(GenericType<T> returnType) {
+    return returnType.getRawType().equals(WorkloadResponse.class);
   }
 
   /**

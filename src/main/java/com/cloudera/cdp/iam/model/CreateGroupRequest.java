@@ -27,11 +27,11 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for create group request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-06T10:11:19.182-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-20T11:27:19.434-08:00")
 public class CreateGroupRequest  {
 
   /**
-   * The name of the group. This name must be unique, must have a maximum of 32 characters, and must contain only alphanumeric characters, \"-\" and \"_\". Also, the first character of the name must be alphabetic or an underscore. Names are are not case-sensitive. The group named administrators is reserved.
+   * The name of the group. This name must be unique. There are certain restrictions on the group name. Refer to the How To > User Management section in the Management Console documentation for the details.
    **/
   private String groupName = null;
 
@@ -42,7 +42,7 @@ public class CreateGroupRequest  {
 
   /**
    * Getter for groupName.
-   * The name of the group. This name must be unique, must have a maximum of 32 characters, and must contain only alphanumeric characters, \&quot;-\&quot; and \&quot;_\&quot;. Also, the first character of the name must be alphabetic or an underscore. Names are are not case-sensitive. The group named administrators is reserved.
+   * The name of the group. This name must be unique. There are certain restrictions on the group name. Refer to the How To &gt; User Management section in the Management Console documentation for the details.
    **/
   @JsonProperty("groupName")
   public String getGroupName() {
@@ -51,7 +51,7 @@ public class CreateGroupRequest  {
 
   /**
    * Setter for groupName.
-   * The name of the group. This name must be unique, must have a maximum of 32 characters, and must contain only alphanumeric characters, \&quot;-\&quot; and \&quot;_\&quot;. Also, the first character of the name must be alphabetic or an underscore. Names are are not case-sensitive. The group named administrators is reserved.
+   * The name of the group. This name must be unique. There are certain restrictions on the group name. Refer to the How To &gt; User Management section in the Management Console documentation for the details.
    **/
   public void setGroupName(String groupName) {
     this.groupName = groupName;

@@ -20,76 +20,23 @@
 package com.cloudera.cdp.client;
 
 import static com.cloudera.cdp.ValidationUtils.checkNotNullAndThrow;
-import static com.cloudera.cdp.ValidationUtils.checkStateAndThrow;
 
 import com.cloudera.cdp.annotation.SdkInternalApi;
 import com.google.common.collect.Iterables;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * Class used to encapsulate information returned from all CDP service
  * responses. This class should not be used directly outside of core SDK code.
  */
 @SdkInternalApi
-public abstract class CdpResponse {
+public abstract class CdpResponse extends BaseResponse {
 
   /**
    * The name of the response header containing the request ID.
    */
   public static final String CDP_HEADER_REQUESTID = "x-altus-request-id";
-
-  private Integer httpCode = null;
-  private Map<String, List<String>> responseHeaders = null;
-
-  /**
-   * Gets the http code that was returned by the CDP server.
-   * @return the http code
-   */
-  public int getHttpCode() {
-    checkNotNullAndThrow(httpCode);
-    return httpCode;
-  }
-
-  /**
-   * Sets the http code that was returned by the CDP server. This
-   * should be called only once and never outside the SDK internals.
-   * @param httpCode the status code
-   */
-  void setHttpCode(int httpCode) {
-    checkStateAndThrow(this.httpCode == null);
-    this.httpCode = httpCode;
-  }
-
-  /**
-   * Gets the http response headers that were returned by the CDP server.
-   * @return the response headers
-   * @deprecated use getResponseHeaders instead
-   */
-  @Deprecated
-  public Map<String, List<String>> getResponseHeaaders() {
-    return getResponseHeaders();
-  }
-
-  /**
-   * Gets the http response headers that were returned by the CDP server.
-   * @return the response headers
-   */
-  public Map<String, List<String>> getResponseHeaders() {
-    checkNotNullAndThrow(responseHeaders);
-    return responseHeaders;
-  }
-
-  /**
-   * Sets the http response headers that were returned by the CDP server.
-   * This should be called only once and never outside the SDK internals.
-   * @param responseHeaders the response headers
-   */
-  void setResponseHeaders(Map<String, List<String>> responseHeaders) {
-    checkStateAndThrow(this.responseHeaders == null);
-    this.responseHeaders = responseHeaders;
-  }
 
   /**
    * Returns the CDP request ID. CDP request IDs can be used in the event a
@@ -98,8 +45,8 @@ public abstract class CdpResponse {
    * @return The CDP request ID
    */
   public String getRequestId() {
-    checkNotNullAndThrow(responseHeaders);
-    List<String> values = responseHeaders.get(CDP_HEADER_REQUESTID);
+    checkNotNullAndThrow(this.getResponseHeaders());
+    List<String> values = this.getResponseHeaders().get(CDP_HEADER_REQUESTID);
     if (values == null) {
       return "unknown";
     }

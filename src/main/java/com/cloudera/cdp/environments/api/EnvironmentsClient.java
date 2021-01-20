@@ -21,9 +21,12 @@ package com.cloudera.cdp.environments.api;
 
 import javax.ws.rs.core.GenericType;
 import com.cloudera.cdp.CdpClientException;
+import com.cloudera.cdp.annotation.WorkloadApi;
 import com.cloudera.cdp.authentication.credentials.CdpCredentials;
 import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
+import com.cloudera.cdp.client.Pair;
+import com.cloudera.cdp.client.WorkloadResponse;
 import com.cloudera.cdp.environments.model.ChangeEnvironmentCredentialRequest;
 import com.cloudera.cdp.environments.model.ChangeEnvironmentCredentialResponse;
 import com.cloudera.cdp.environments.model.CollectFreeipaDiagnosticsRequest;
@@ -108,10 +111,10 @@ import com.cloudera.cdp.environments.model.SyncUserResponse;
 import com.cloudera.cdp.environments.model.TestAccountTelemetryRulesRequest;
 import com.cloudera.cdp.environments.model.TestAccountTelemetryRulesResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-06T10:11:18.786-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-20T11:27:19.046-08:00")
 public class EnvironmentsClient extends CdpClient {
 
-  public static final String SERVICE_NAME = "api";
+  public static final String SERVICE_NAME = "environments2";
 
   public EnvironmentsClient(
       CdpCredentials credentials,
@@ -126,9 +129,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return ChangeEnvironmentCredentialResponse
    */
   public ChangeEnvironmentCredentialResponse changeEnvironmentCredential(ChangeEnvironmentCredentialRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling changeEnvironmentCredential");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling changeEnvironmentCredential");
+    }
+
     return this.invokeAPI("/api/v1/environments2/changeEnvironmentCredential", input, new GenericType<ChangeEnvironmentCredentialResponse>(){});
   }
 
@@ -138,9 +142,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return CollectFreeipaDiagnosticsResponse
    */
   public CollectFreeipaDiagnosticsResponse collectFreeipaDiagnostics(CollectFreeipaDiagnosticsRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling collectFreeipaDiagnostics");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling collectFreeipaDiagnostics");
+    }
+
     return this.invokeAPI("/api/v1/environments2/collectFreeipaDiagnostics", input, new GenericType<CollectFreeipaDiagnosticsResponse>(){});
   }
 
@@ -150,9 +155,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return CreateAWSCredentialResponse
    */
   public CreateAWSCredentialResponse createAWSCredential(CreateAWSCredentialRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling createAWSCredential");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createAWSCredential");
+    }
+
     return this.invokeAPI("/api/v1/environments2/createAWSCredential", input, new GenericType<CreateAWSCredentialResponse>(){});
   }
 
@@ -162,9 +168,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return CreateAWSEnvironmentResponse
    */
   public CreateAWSEnvironmentResponse createAWSEnvironment(CreateAWSEnvironmentRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling createAWSEnvironment");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createAWSEnvironment");
+    }
+
     return this.invokeAPI("/api/v1/environments2/createAWSEnvironment", input, new GenericType<CreateAWSEnvironmentResponse>(){});
   }
 
@@ -174,9 +181,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return CreateAzureCredentialResponse
    */
   public CreateAzureCredentialResponse createAzureCredential(CreateAzureCredentialRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling createAzureCredential");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createAzureCredential");
+    }
+
     return this.invokeAPI("/api/v1/environments2/createAzureCredential", input, new GenericType<CreateAzureCredentialResponse>(){});
   }
 
@@ -186,9 +194,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return CreateAzureEnvironmentResponse
    */
   public CreateAzureEnvironmentResponse createAzureEnvironment(CreateAzureEnvironmentRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling createAzureEnvironment");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createAzureEnvironment");
+    }
+
     return this.invokeAPI("/api/v1/environments2/createAzureEnvironment", input, new GenericType<CreateAzureEnvironmentResponse>(){});
   }
 
@@ -198,9 +207,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return CreateProxyConfigResponse
    */
   public CreateProxyConfigResponse createProxyConfig(CreateProxyConfigRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling createProxyConfig");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createProxyConfig");
+    }
+
     return this.invokeAPI("/api/v1/environments2/createProxyConfig", input, new GenericType<CreateProxyConfigResponse>(){});
   }
 
@@ -210,9 +220,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return DeleteCredentialResponse
    */
   public DeleteCredentialResponse deleteCredential(DeleteCredentialRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling deleteCredential");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteCredential");
+    }
+
     return this.invokeAPI("/api/v1/environments2/deleteCredential", input, new GenericType<DeleteCredentialResponse>(){});
   }
 
@@ -222,9 +233,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return DeleteEnvironmentResponse
    */
   public DeleteEnvironmentResponse deleteEnvironment(DeleteEnvironmentRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling deleteEnvironment");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteEnvironment");
+    }
+
     return this.invokeAPI("/api/v1/environments2/deleteEnvironment", input, new GenericType<DeleteEnvironmentResponse>(){});
   }
 
@@ -234,9 +246,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return DeleteProxyConfigResponse
    */
   public DeleteProxyConfigResponse deleteProxyConfig(DeleteProxyConfigRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling deleteProxyConfig");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteProxyConfig");
+    }
+
     return this.invokeAPI("/api/v1/environments2/deleteProxyConfig", input, new GenericType<DeleteProxyConfigResponse>(){});
   }
 
@@ -246,9 +259,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return DescribeEnvironmentResponse
    */
   public DescribeEnvironmentResponse describeEnvironment(DescribeEnvironmentRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling describeEnvironment");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeEnvironment");
+    }
+
     return this.invokeAPI("/api/v1/environments2/describeEnvironment", input, new GenericType<DescribeEnvironmentResponse>(){});
   }
 
@@ -258,9 +272,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return GetAccountTelemetryResponse
    */
   public GetAccountTelemetryResponse getAccountTelemetry(GetAccountTelemetryRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling getAccountTelemetry");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getAccountTelemetry");
+    }
+
     return this.invokeAPI("/api/v1/environments2/getAccountTelemetry", input, new GenericType<GetAccountTelemetryResponse>(){});
   }
 
@@ -270,9 +285,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return GetAccountTelemetryDefaultResponse
    */
   public GetAccountTelemetryDefaultResponse getAccountTelemetryDefault(GetAccountTelemetryDefaultRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling getAccountTelemetryDefault");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getAccountTelemetryDefault");
+    }
+
     return this.invokeAPI("/api/v1/environments2/getAccountTelemetryDefault", input, new GenericType<GetAccountTelemetryDefaultResponse>(){});
   }
 
@@ -282,9 +298,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return GetAuditCredentialPrerequisitesResponse
    */
   public GetAuditCredentialPrerequisitesResponse getAuditCredentialPrerequisites(GetAuditCredentialPrerequisitesRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling getAuditCredentialPrerequisites");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getAuditCredentialPrerequisites");
+    }
+
     return this.invokeAPI("/api/v1/environments2/getAuditCredentialPrerequisites", input, new GenericType<GetAuditCredentialPrerequisitesResponse>(){});
   }
 
@@ -294,9 +311,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return GetCredentialPrerequisitesResponse
    */
   public GetCredentialPrerequisitesResponse getCredentialPrerequisites(GetCredentialPrerequisitesRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling getCredentialPrerequisites");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getCredentialPrerequisites");
+    }
+
     return this.invokeAPI("/api/v1/environments2/getCredentialPrerequisites", input, new GenericType<GetCredentialPrerequisitesResponse>(){});
   }
 
@@ -306,9 +324,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return GetEnvironmentUserSyncStateResponse
    */
   public GetEnvironmentUserSyncStateResponse getEnvironmentUserSyncState(GetEnvironmentUserSyncStateRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling getEnvironmentUserSyncState");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getEnvironmentUserSyncState");
+    }
+
     return this.invokeAPI("/api/v1/environments2/getEnvironmentUserSyncState", input, new GenericType<GetEnvironmentUserSyncStateResponse>(){});
   }
 
@@ -318,9 +337,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return GetFreeipaLogDescriptorsResponse
    */
   public GetFreeipaLogDescriptorsResponse getFreeipaLogDescriptors(GetFreeipaLogDescriptorsRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling getFreeipaLogDescriptors");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getFreeipaLogDescriptors");
+    }
+
     return this.invokeAPI("/api/v1/environments2/getFreeipaLogDescriptors", input, new GenericType<GetFreeipaLogDescriptorsResponse>(){});
   }
 
@@ -330,9 +350,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return GetFreeipaStatusResponse
    */
   public GetFreeipaStatusResponse getFreeipaStatus(GetFreeipaStatusRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling getFreeipaStatus");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getFreeipaStatus");
+    }
+
     return this.invokeAPI("/api/v1/environments2/getFreeipaStatus", input, new GenericType<GetFreeipaStatusResponse>(){});
   }
 
@@ -342,9 +363,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return GetIdBrokerMappingsResponse
    */
   public GetIdBrokerMappingsResponse getIdBrokerMappings(GetIdBrokerMappingsRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling getIdBrokerMappings");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getIdBrokerMappings");
+    }
+
     return this.invokeAPI("/api/v1/environments2/getIdBrokerMappings", input, new GenericType<GetIdBrokerMappingsResponse>(){});
   }
 
@@ -354,9 +376,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return GetIdBrokerMappingsSyncStatusResponse
    */
   public GetIdBrokerMappingsSyncStatusResponse getIdBrokerMappingsSyncStatus(GetIdBrokerMappingsSyncStatusRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling getIdBrokerMappingsSyncStatus");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getIdBrokerMappingsSyncStatus");
+    }
+
     return this.invokeAPI("/api/v1/environments2/getIdBrokerMappingsSyncStatus", input, new GenericType<GetIdBrokerMappingsSyncStatusResponse>(){});
   }
 
@@ -366,9 +389,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return GetKeytabResponse
    */
   public GetKeytabResponse getKeytab(GetKeytabRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling getKeytab");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getKeytab");
+    }
+
     return this.invokeAPI("/api/v1/environments2/getKeytab", input, new GenericType<GetKeytabResponse>(){});
   }
 
@@ -378,9 +402,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return GetRepairFreeipaStatusResponse
    */
   public GetRepairFreeipaStatusResponse getRepairFreeipaStatus(GetRepairFreeipaStatusRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling getRepairFreeipaStatus");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getRepairFreeipaStatus");
+    }
+
     return this.invokeAPI("/api/v1/environments2/getRepairFreeipaStatus", input, new GenericType<GetRepairFreeipaStatusResponse>(){});
   }
 
@@ -390,9 +415,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return GetRootCertificateResponse
    */
   public GetRootCertificateResponse getRootCertificate(GetRootCertificateRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling getRootCertificate");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getRootCertificate");
+    }
+
     return this.invokeAPI("/api/v1/environments2/getRootCertificate", input, new GenericType<GetRootCertificateResponse>(){});
   }
 
@@ -402,9 +428,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return ListAuditCredentialsResponse
    */
   public ListAuditCredentialsResponse listAuditCredentials(ListAuditCredentialsRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listAuditCredentials");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listAuditCredentials");
+    }
+
     return this.invokeAPI("/api/v1/environments2/listAuditCredentials", input, new GenericType<ListAuditCredentialsResponse>(){});
   }
 
@@ -414,9 +441,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return ListCredentialsResponse
    */
   public ListCredentialsResponse listCredentials(ListCredentialsRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listCredentials");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listCredentials");
+    }
+
     return this.invokeAPI("/api/v1/environments2/listCredentials", input, new GenericType<ListCredentialsResponse>(){});
   }
 
@@ -426,9 +454,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return ListEnvironmentsResponse
    */
   public ListEnvironmentsResponse listEnvironments(ListEnvironmentsRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listEnvironments");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listEnvironments");
+    }
+
     return this.invokeAPI("/api/v1/environments2/listEnvironments", input, new GenericType<ListEnvironmentsResponse>(){});
   }
 
@@ -438,9 +467,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return ListProxyConfigsResponse
    */
   public ListProxyConfigsResponse listProxyConfigs(ListProxyConfigsRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listProxyConfigs");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listProxyConfigs");
+    }
+
     return this.invokeAPI("/api/v1/environments2/listProxyConfigs", input, new GenericType<ListProxyConfigsResponse>(){});
   }
 
@@ -450,9 +480,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return RepairFreeipaResponse
    */
   public RepairFreeipaResponse repairFreeipa(RepairFreeipaRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling repairFreeipa");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling repairFreeipa");
+    }
+
     return this.invokeAPI("/api/v1/environments2/repairFreeipa", input, new GenericType<RepairFreeipaResponse>(){});
   }
 
@@ -462,9 +493,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return SetAWSAuditCredentialResponse
    */
   public SetAWSAuditCredentialResponse setAWSAuditCredential(SetAWSAuditCredentialRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling setAWSAuditCredential");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling setAWSAuditCredential");
+    }
+
     return this.invokeAPI("/api/v1/environments2/setAWSAuditCredential", input, new GenericType<SetAWSAuditCredentialResponse>(){});
   }
 
@@ -474,9 +506,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return SetAccountTelemetryResponse
    */
   public SetAccountTelemetryResponse setAccountTelemetry(SetAccountTelemetryRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling setAccountTelemetry");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling setAccountTelemetry");
+    }
+
     return this.invokeAPI("/api/v1/environments2/setAccountTelemetry", input, new GenericType<SetAccountTelemetryResponse>(){});
   }
 
@@ -486,9 +519,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return SetAzureAuditCredentialResponse
    */
   public SetAzureAuditCredentialResponse setAzureAuditCredential(SetAzureAuditCredentialRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling setAzureAuditCredential");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling setAzureAuditCredential");
+    }
+
     return this.invokeAPI("/api/v1/environments2/setAzureAuditCredential", input, new GenericType<SetAzureAuditCredentialResponse>(){});
   }
 
@@ -498,9 +532,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return SetIdBrokerMappingsResponse
    */
   public SetIdBrokerMappingsResponse setIdBrokerMappings(SetIdBrokerMappingsRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling setIdBrokerMappings");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling setIdBrokerMappings");
+    }
+
     return this.invokeAPI("/api/v1/environments2/setIdBrokerMappings", input, new GenericType<SetIdBrokerMappingsResponse>(){});
   }
 
@@ -510,9 +545,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return SetPasswordResponse
    */
   public SetPasswordResponse setPassword(SetPasswordRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling setPassword");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling setPassword");
+    }
+
     return this.invokeAPI("/api/v1/environments2/setPassword", input, new GenericType<SetPasswordResponse>(){});
   }
 
@@ -522,9 +558,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return SetTelemetryFeaturesResponse
    */
   public SetTelemetryFeaturesResponse setTelemetryFeatures(SetTelemetryFeaturesRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling setTelemetryFeatures");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling setTelemetryFeatures");
+    }
+
     return this.invokeAPI("/api/v1/environments2/setTelemetryFeatures", input, new GenericType<SetTelemetryFeaturesResponse>(){});
   }
 
@@ -534,9 +571,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return StartEnvironmentResponse
    */
   public StartEnvironmentResponse startEnvironment(StartEnvironmentRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling startEnvironment");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling startEnvironment");
+    }
+
     return this.invokeAPI("/api/v1/environments2/startEnvironment", input, new GenericType<StartEnvironmentResponse>(){});
   }
 
@@ -546,9 +584,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return StopEnvironmentResponse
    */
   public StopEnvironmentResponse stopEnvironment(StopEnvironmentRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling stopEnvironment");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling stopEnvironment");
+    }
+
     return this.invokeAPI("/api/v1/environments2/stopEnvironment", input, new GenericType<StopEnvironmentResponse>(){});
   }
 
@@ -558,9 +597,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return SyncAllUsersResponse
    */
   public SyncAllUsersResponse syncAllUsers(SyncAllUsersRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling syncAllUsers");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling syncAllUsers");
+    }
+
     return this.invokeAPI("/api/v1/environments2/syncAllUsers", input, new GenericType<SyncAllUsersResponse>(){});
   }
 
@@ -570,9 +610,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return SyncIdBrokerMappingsResponse
    */
   public SyncIdBrokerMappingsResponse syncIdBrokerMappings(SyncIdBrokerMappingsRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling syncIdBrokerMappings");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling syncIdBrokerMappings");
+    }
+
     return this.invokeAPI("/api/v1/environments2/syncIdBrokerMappings", input, new GenericType<SyncIdBrokerMappingsResponse>(){});
   }
 
@@ -582,9 +623,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return SyncStatusResponse
    */
   public SyncStatusResponse syncStatus(SyncStatusRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling syncStatus");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling syncStatus");
+    }
+
     return this.invokeAPI("/api/v1/environments2/syncStatus", input, new GenericType<SyncStatusResponse>(){});
   }
 
@@ -594,9 +636,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return SyncUserResponse
    */
   public SyncUserResponse syncUser(SyncUserRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling syncUser");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling syncUser");
+    }
+
     return this.invokeAPI("/api/v1/environments2/syncUser", input, new GenericType<SyncUserResponse>(){});
   }
 
@@ -606,9 +649,10 @@ public class EnvironmentsClient extends CdpClient {
    * @return TestAccountTelemetryRulesResponse
    */
   public TestAccountTelemetryRulesResponse testAccountTelemetryRules(TestAccountTelemetryRulesRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling testAccountTelemetryRules");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling testAccountTelemetryRules");
+    }
+
     return this.invokeAPI("/api/v1/environments2/testAccountTelemetryRules", input, new GenericType<TestAccountTelemetryRulesResponse>(){});
   }
 }

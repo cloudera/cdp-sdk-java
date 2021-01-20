@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for creating SAML provider request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-06T10:11:19.182-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-20T11:27:19.434-08:00")
 public class CreateSamlProviderRequest  {
 
   /**
@@ -41,7 +41,7 @@ public class CreateSamlProviderRequest  {
   private String samlMetadataDocument = null;
 
   /**
-   * Whether to sync group information for users federated with this SAML provider. Group membership can be passed using the https://altus.cloudera.com/SAML/Attributes/groups SAML assertion. The default is to synchronize group membership.
+   * Whether to sync group information for users federated with this SAML provider. Group membership can be passed using the https://cdp.cloudera.com/SAML/Attributes/groups SAML assertion. The default is to synchronize group membership.
    **/
   private Boolean syncGroupsOnLogin = null;
 
@@ -81,7 +81,7 @@ public class CreateSamlProviderRequest  {
 
   /**
    * Getter for syncGroupsOnLogin.
-   * Whether to sync group information for users federated with this SAML provider. Group membership can be passed using the https://altus.cloudera.com/SAML/Attributes/groups SAML assertion. The default is to synchronize group membership.
+   * Whether to sync group information for users federated with this SAML provider. Group membership can be passed using the https://cdp.cloudera.com/SAML/Attributes/groups SAML assertion. The default is to synchronize group membership.
    **/
   @JsonProperty("syncGroupsOnLogin")
   public Boolean getSyncGroupsOnLogin() {
@@ -90,7 +90,7 @@ public class CreateSamlProviderRequest  {
 
   /**
    * Setter for syncGroupsOnLogin.
-   * Whether to sync group information for users federated with this SAML provider. Group membership can be passed using the https://altus.cloudera.com/SAML/Attributes/groups SAML assertion. The default is to synchronize group membership.
+   * Whether to sync group information for users federated with this SAML provider. Group membership can be passed using the https://cdp.cloudera.com/SAML/Attributes/groups SAML assertion. The default is to synchronize group membership.
    **/
   public void setSyncGroupsOnLogin(Boolean syncGroupsOnLogin) {
     this.syncGroupsOnLogin = syncGroupsOnLogin;

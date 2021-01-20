@@ -28,7 +28,7 @@ import com.cloudera.cdp.iam.model.AccessKey;
 /**
  * Response object for an update access key request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-06T10:11:19.182-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-20T11:27:19.434-08:00")
 public class UpdateAccessKeyResponse extends CdpResponse {
 
   /**

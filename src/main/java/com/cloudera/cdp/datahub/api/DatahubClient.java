@@ -21,9 +21,12 @@ package com.cloudera.cdp.datahub.api;
 
 import javax.ws.rs.core.GenericType;
 import com.cloudera.cdp.CdpClientException;
+import com.cloudera.cdp.annotation.WorkloadApi;
 import com.cloudera.cdp.authentication.credentials.CdpCredentials;
 import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
+import com.cloudera.cdp.client.Pair;
+import com.cloudera.cdp.client.WorkloadResponse;
 import com.cloudera.cdp.datahub.model.CollectDatahubDiagnosticsRequest;
 import com.cloudera.cdp.datahub.model.CollectDatahubDiagnosticsResponse;
 import com.cloudera.cdp.datahub.model.CreateAWSClusterRequest;
@@ -96,10 +99,10 @@ import com.cloudera.cdp.datahub.model.SyncClusterResponse;
 import com.cloudera.cdp.datahub.model.UpdateAutoScaleRulesRequest;
 import com.cloudera.cdp.datahub.model.UpdateAutoScaleRulesResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-06T10:11:17.686-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-20T11:27:18.019-08:00")
 public class DatahubClient extends CdpClient {
 
-  public static final String SERVICE_NAME = "api";
+  public static final String SERVICE_NAME = "datahub";
 
   public DatahubClient(
       CdpCredentials credentials,
@@ -114,9 +117,10 @@ public class DatahubClient extends CdpClient {
    * @return CollectDatahubDiagnosticsResponse
    */
   public CollectDatahubDiagnosticsResponse collectDatahubDiagnostics(CollectDatahubDiagnosticsRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling collectDatahubDiagnostics");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling collectDatahubDiagnostics");
+    }
+
     return this.invokeAPI("/api/v1/datahub/collectDatahubDiagnostics", input, new GenericType<CollectDatahubDiagnosticsResponse>(){});
   }
 
@@ -126,9 +130,10 @@ public class DatahubClient extends CdpClient {
    * @return CreateAWSClusterResponse
    */
   public CreateAWSClusterResponse createAWSCluster(CreateAWSClusterRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling createAWSCluster");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createAWSCluster");
+    }
+
     return this.invokeAPI("/api/v1/datahub/createAWSCluster", input, new GenericType<CreateAWSClusterResponse>(){});
   }
 
@@ -138,9 +143,10 @@ public class DatahubClient extends CdpClient {
    * @return CreateAutoScaleRulesResponse
    */
   public CreateAutoScaleRulesResponse createAutoScaleRules(CreateAutoScaleRulesRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling createAutoScaleRules");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createAutoScaleRules");
+    }
+
     return this.invokeAPI("/api/v1/datahub/createAutoScaleRules", input, new GenericType<CreateAutoScaleRulesResponse>(){});
   }
 
@@ -150,9 +156,10 @@ public class DatahubClient extends CdpClient {
    * @return CreateAzureClusterResponse
    */
   public CreateAzureClusterResponse createAzureCluster(CreateAzureClusterRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling createAzureCluster");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createAzureCluster");
+    }
+
     return this.invokeAPI("/api/v1/datahub/createAzureCluster", input, new GenericType<CreateAzureClusterResponse>(){});
   }
 
@@ -162,9 +169,10 @@ public class DatahubClient extends CdpClient {
    * @return CreateClusterDefinitionResponse
    */
   public CreateClusterDefinitionResponse createClusterDefinition(CreateClusterDefinitionRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling createClusterDefinition");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createClusterDefinition");
+    }
+
     return this.invokeAPI("/api/v1/datahub/createClusterDefinition", input, new GenericType<CreateClusterDefinitionResponse>(){});
   }
 
@@ -174,9 +182,10 @@ public class DatahubClient extends CdpClient {
    * @return CreateClusterTemplateResponse
    */
   public CreateClusterTemplateResponse createClusterTemplate(CreateClusterTemplateRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling createClusterTemplate");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createClusterTemplate");
+    }
+
     return this.invokeAPI("/api/v1/datahub/createClusterTemplate", input, new GenericType<CreateClusterTemplateResponse>(){});
   }
 
@@ -186,9 +195,10 @@ public class DatahubClient extends CdpClient {
    * @return CreateRecipeResponse
    */
   public CreateRecipeResponse createRecipe(CreateRecipeRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling createRecipe");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createRecipe");
+    }
+
     return this.invokeAPI("/api/v1/datahub/createRecipe", input, new GenericType<CreateRecipeResponse>(){});
   }
 
@@ -198,9 +208,10 @@ public class DatahubClient extends CdpClient {
    * @return DeleteAutoScaleRulesResponse
    */
   public DeleteAutoScaleRulesResponse deleteAutoScaleRules(DeleteAutoScaleRulesRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling deleteAutoScaleRules");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteAutoScaleRules");
+    }
+
     return this.invokeAPI("/api/v1/datahub/deleteAutoScaleRules", input, new GenericType<DeleteAutoScaleRulesResponse>(){});
   }
 
@@ -210,9 +221,10 @@ public class DatahubClient extends CdpClient {
    * @return DeleteClusterResponse
    */
   public DeleteClusterResponse deleteCluster(DeleteClusterRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling deleteCluster");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteCluster");
+    }
+
     return this.invokeAPI("/api/v1/datahub/deleteCluster", input, new GenericType<DeleteClusterResponse>(){});
   }
 
@@ -222,9 +234,10 @@ public class DatahubClient extends CdpClient {
    * @return DeleteClusterDefinitionsResponse
    */
   public DeleteClusterDefinitionsResponse deleteClusterDefinitions(DeleteClusterDefinitionsRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling deleteClusterDefinitions");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteClusterDefinitions");
+    }
+
     return this.invokeAPI("/api/v1/datahub/deleteClusterDefinitions", input, new GenericType<DeleteClusterDefinitionsResponse>(){});
   }
 
@@ -234,9 +247,10 @@ public class DatahubClient extends CdpClient {
    * @return DeleteClusterTemplatesResponse
    */
   public DeleteClusterTemplatesResponse deleteClusterTemplates(DeleteClusterTemplatesRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling deleteClusterTemplates");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteClusterTemplates");
+    }
+
     return this.invokeAPI("/api/v1/datahub/deleteClusterTemplates", input, new GenericType<DeleteClusterTemplatesResponse>(){});
   }
 
@@ -246,9 +260,10 @@ public class DatahubClient extends CdpClient {
    * @return DeleteInstancesResponse
    */
   public DeleteInstancesResponse deleteInstances(DeleteInstancesRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling deleteInstances");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteInstances");
+    }
+
     return this.invokeAPI("/api/v1/datahub/deleteInstances", input, new GenericType<DeleteInstancesResponse>(){});
   }
 
@@ -258,9 +273,10 @@ public class DatahubClient extends CdpClient {
    * @return DeleteRecipesResponse
    */
   public DeleteRecipesResponse deleteRecipes(DeleteRecipesRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling deleteRecipes");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteRecipes");
+    }
+
     return this.invokeAPI("/api/v1/datahub/deleteRecipes", input, new GenericType<DeleteRecipesResponse>(){});
   }
 
@@ -270,9 +286,10 @@ public class DatahubClient extends CdpClient {
    * @return DescribeAutoScaleRulesResponse
    */
   public DescribeAutoScaleRulesResponse describeAutoScaleRules(DescribeAutoScaleRulesRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling describeAutoScaleRules");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeAutoScaleRules");
+    }
+
     return this.invokeAPI("/api/v1/datahub/describeAutoScaleRules", input, new GenericType<DescribeAutoScaleRulesResponse>(){});
   }
 
@@ -282,9 +299,10 @@ public class DatahubClient extends CdpClient {
    * @return DescribeClusterResponse
    */
   public DescribeClusterResponse describeCluster(DescribeClusterRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling describeCluster");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeCluster");
+    }
+
     return this.invokeAPI("/api/v1/datahub/describeCluster", input, new GenericType<DescribeClusterResponse>(){});
   }
 
@@ -294,9 +312,10 @@ public class DatahubClient extends CdpClient {
    * @return DescribeClusterDefinitionResponse
    */
   public DescribeClusterDefinitionResponse describeClusterDefinition(DescribeClusterDefinitionRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling describeClusterDefinition");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeClusterDefinition");
+    }
+
     return this.invokeAPI("/api/v1/datahub/describeClusterDefinition", input, new GenericType<DescribeClusterDefinitionResponse>(){});
   }
 
@@ -306,9 +325,10 @@ public class DatahubClient extends CdpClient {
    * @return DescribeClusterTemplateResponse
    */
   public DescribeClusterTemplateResponse describeClusterTemplate(DescribeClusterTemplateRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling describeClusterTemplate");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeClusterTemplate");
+    }
+
     return this.invokeAPI("/api/v1/datahub/describeClusterTemplate", input, new GenericType<DescribeClusterTemplateResponse>(){});
   }
 
@@ -318,9 +338,10 @@ public class DatahubClient extends CdpClient {
    * @return DescribeRecipeResponse
    */
   public DescribeRecipeResponse describeRecipe(DescribeRecipeRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling describeRecipe");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeRecipe");
+    }
+
     return this.invokeAPI("/api/v1/datahub/describeRecipe", input, new GenericType<DescribeRecipeResponse>(){});
   }
 
@@ -330,9 +351,10 @@ public class DatahubClient extends CdpClient {
    * @return GetClusterHostStatusResponse
    */
   public GetClusterHostStatusResponse getClusterHostStatus(GetClusterHostStatusRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling getClusterHostStatus");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getClusterHostStatus");
+    }
+
     return this.invokeAPI("/api/v1/datahub/getClusterHostStatus", input, new GenericType<GetClusterHostStatusResponse>(){});
   }
 
@@ -342,9 +364,10 @@ public class DatahubClient extends CdpClient {
    * @return GetClusterServiceStatusResponse
    */
   public GetClusterServiceStatusResponse getClusterServiceStatus(GetClusterServiceStatusRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling getClusterServiceStatus");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getClusterServiceStatus");
+    }
+
     return this.invokeAPI("/api/v1/datahub/getClusterServiceStatus", input, new GenericType<GetClusterServiceStatusResponse>(){});
   }
 
@@ -354,9 +377,10 @@ public class DatahubClient extends CdpClient {
    * @return GetDatahubLogDescriptorsResponse
    */
   public GetDatahubLogDescriptorsResponse getDatahubLogDescriptors(GetDatahubLogDescriptorsRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling getDatahubLogDescriptors");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getDatahubLogDescriptors");
+    }
+
     return this.invokeAPI("/api/v1/datahub/getDatahubLogDescriptors", input, new GenericType<GetDatahubLogDescriptorsResponse>(){});
   }
 
@@ -366,9 +390,10 @@ public class DatahubClient extends CdpClient {
    * @return ListAutoScaleHistoryResponse
    */
   public ListAutoScaleHistoryResponse listAutoScaleHistory(ListAutoScaleHistoryRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listAutoScaleHistory");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listAutoScaleHistory");
+    }
+
     return this.invokeAPI("/api/v1/datahub/listAutoScaleHistory", input, new GenericType<ListAutoScaleHistoryResponse>(){});
   }
 
@@ -378,9 +403,10 @@ public class DatahubClient extends CdpClient {
    * @return ListClusterDefinitionsResponse
    */
   public ListClusterDefinitionsResponse listClusterDefinitions(ListClusterDefinitionsRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listClusterDefinitions");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listClusterDefinitions");
+    }
+
     return this.invokeAPI("/api/v1/datahub/listClusterDefinitions", input, new GenericType<ListClusterDefinitionsResponse>(){});
   }
 
@@ -390,9 +416,10 @@ public class DatahubClient extends CdpClient {
    * @return ListClusterTemplatesResponse
    */
   public ListClusterTemplatesResponse listClusterTemplates(ListClusterTemplatesRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listClusterTemplates");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listClusterTemplates");
+    }
+
     return this.invokeAPI("/api/v1/datahub/listClusterTemplates", input, new GenericType<ListClusterTemplatesResponse>(){});
   }
 
@@ -402,9 +429,10 @@ public class DatahubClient extends CdpClient {
    * @return ListClustersResponse
    */
   public ListClustersResponse listClusters(ListClustersRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listClusters");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listClusters");
+    }
+
     return this.invokeAPI("/api/v1/datahub/listClusters", input, new GenericType<ListClustersResponse>(){});
   }
 
@@ -414,9 +442,10 @@ public class DatahubClient extends CdpClient {
    * @return ListRecipesResponse
    */
   public ListRecipesResponse listRecipes(ListRecipesRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listRecipes");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listRecipes");
+    }
+
     return this.invokeAPI("/api/v1/datahub/listRecipes", input, new GenericType<ListRecipesResponse>(){});
   }
 
@@ -426,9 +455,10 @@ public class DatahubClient extends CdpClient {
    * @return RenewCertificateResponse
    */
   public RenewCertificateResponse renewCertificate(RenewCertificateRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling renewCertificate");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling renewCertificate");
+    }
+
     return this.invokeAPI("/api/v1/datahub/renewCertificate", input, new GenericType<RenewCertificateResponse>(){});
   }
 
@@ -438,9 +468,10 @@ public class DatahubClient extends CdpClient {
    * @return RepairClusterResponse
    */
   public RepairClusterResponse repairCluster(RepairClusterRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling repairCluster");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling repairCluster");
+    }
+
     return this.invokeAPI("/api/v1/datahub/repairCluster", input, new GenericType<RepairClusterResponse>(){});
   }
 
@@ -450,9 +481,10 @@ public class DatahubClient extends CdpClient {
    * @return RetryClusterResponse
    */
   public RetryClusterResponse retryCluster(RetryClusterRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling retryCluster");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling retryCluster");
+    }
+
     return this.invokeAPI("/api/v1/datahub/retryCluster", input, new GenericType<RetryClusterResponse>(){});
   }
 
@@ -462,9 +494,10 @@ public class DatahubClient extends CdpClient {
    * @return RotateAutoTlsCertificatesResponse
    */
   public RotateAutoTlsCertificatesResponse rotateAutoTlsCertificates(RotateAutoTlsCertificatesRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling rotateAutoTlsCertificates");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling rotateAutoTlsCertificates");
+    }
+
     return this.invokeAPI("/api/v1/datahub/rotateAutoTlsCertificates", input, new GenericType<RotateAutoTlsCertificatesResponse>(){});
   }
 
@@ -474,9 +507,10 @@ public class DatahubClient extends CdpClient {
    * @return ScaleClusterResponse
    */
   public ScaleClusterResponse scaleCluster(ScaleClusterRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling scaleCluster");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling scaleCluster");
+    }
+
     return this.invokeAPI("/api/v1/datahub/scaleCluster", input, new GenericType<ScaleClusterResponse>(){});
   }
 
@@ -486,9 +520,10 @@ public class DatahubClient extends CdpClient {
    * @return StartClusterResponse
    */
   public StartClusterResponse startCluster(StartClusterRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling startCluster");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling startCluster");
+    }
+
     return this.invokeAPI("/api/v1/datahub/startCluster", input, new GenericType<StartClusterResponse>(){});
   }
 
@@ -498,9 +533,10 @@ public class DatahubClient extends CdpClient {
    * @return StopClusterResponse
    */
   public StopClusterResponse stopCluster(StopClusterRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling stopCluster");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling stopCluster");
+    }
+
     return this.invokeAPI("/api/v1/datahub/stopCluster", input, new GenericType<StopClusterResponse>(){});
   }
 
@@ -510,9 +546,10 @@ public class DatahubClient extends CdpClient {
    * @return SyncClusterResponse
    */
   public SyncClusterResponse syncCluster(SyncClusterRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling syncCluster");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling syncCluster");
+    }
+
     return this.invokeAPI("/api/v1/datahub/syncCluster", input, new GenericType<SyncClusterResponse>(){});
   }
 
@@ -522,9 +559,10 @@ public class DatahubClient extends CdpClient {
    * @return UpdateAutoScaleRulesResponse
    */
   public UpdateAutoScaleRulesResponse updateAutoScaleRules(UpdateAutoScaleRulesRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling updateAutoScaleRules");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateAutoScaleRules");
+    }
+
     return this.invokeAPI("/api/v1/datahub/updateAutoScaleRules", input, new GenericType<UpdateAutoScaleRulesResponse>(){});
   }
 }

@@ -22,6 +22,7 @@ package com.cloudera.cdp.client;
 import static com.google.common.base.Preconditions.checkNotNull;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -46,6 +47,11 @@ import com.google.common.collect.Maps;
 import com.google.common.io.Resources;
 
 import java.time.Duration;
+import java.time.ZonedDateTime;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Nullable;
@@ -87,6 +93,10 @@ public class CdpClientTest {
     private int apiCalls = 0;
     private final Response response;
 
+    TestClient() {
+      this(null, CredentialType.ACCESS_TOKEN);
+    }
+
     TestClient(Response response) {
       this(response, CredentialType.API_KEY);
     }
@@ -101,11 +111,15 @@ public class CdpClientTest {
                 new ExponentialBackoffDelayPolicy(1, Duration.ofMillis(1)),
                 3))
             .build());
-      this.response = checkNotNull(response);
+      this.response = response;
     }
 
     @Override
-    protected Response getAPIResponse(String path, Object body)
+    protected Response getAPIResponse(String method,
+                                      String path,
+                                      List<Pair> requestQueries,
+                                      Map<String, String> requestHeaders,
+                                      Object requestBody)
         throws CdpServiceException {
       apiCalls++;
       return response;
@@ -139,6 +153,17 @@ public class CdpClientTest {
         client.invokeAPI("somePath", "", new GenericType<TestCdpResponse>(){});
     assertEquals("requestId", response.getRequestId());
     assertEquals(1, client.apiCalls);
+  }
+
+  @SuppressWarnings("unchecked")
+  @Test
+  public void testWorkloadResponse() {
+    Response mockResponse = mockResponse(200, null);
+    TestClient client = new TestClient(mockResponse);
+    WorkloadResponse response =
+        client.invokeAPI("GET", "somePath", Collections.emptyList(), Collections.emptyMap(), null);
+    assertEquals(1, client.apiCalls);
+    assertEquals(200, response.getHttpCode());
   }
 
   @SuppressWarnings("unchecked")
@@ -275,7 +300,7 @@ public class CdpClientTest {
     Response mockResponse = mockResponse(503, null);
     TestClient client = new TestClient(mockResponse);
     try {
-      client.invokeAPI("somePath", "", new GenericType<TestCdpResponse>() {});
+      client.invokeAPI("somePath", "", new GenericType<TestCdpResponse>(){});
       fail();
     } catch (CdpHTTPException e) {
       assertEquals(3, client.apiCalls);
@@ -294,7 +319,7 @@ public class CdpClientTest {
     };
     client.shutdown();
     try {
-      client.invokeAPI("somePath", "", new GenericType<TestCdpResponse>() {});
+      client.invokeAPI("somePath", "", new GenericType<TestCdpResponse>(){});
       fail();
     } catch (CdpClientException e) {
       assertEquals("Client instance has been closed.", e.getMessage());
@@ -317,8 +342,8 @@ public class CdpClientTest {
         altusResponse);
     TestClient client = new TestClient(mockResponse) {
       @Override
-      protected MultivaluedMap<String, Object> computeHeaders(String path) {
-        MultivaluedMap<String, Object> headers = super.computeHeaders(path);
+      protected MultivaluedMap<String, Object> computeHeaders(String method, String path, Map<String, String> requestHeaders) {
+        MultivaluedMap<String, Object> headers = super.computeHeaders(method, path, Collections.emptyMap());
         assertTrue(headers.containsKey(HttpHeaders.USER_AGENT));
         assertEquals(buildUserAgent(), headers.get(HttpHeaders.USER_AGENT));
         return headers;
@@ -338,8 +363,8 @@ public class CdpClientTest {
         altusResponse);
     TestClient client = new TestClient(mockResponse, CredentialType.API_KEY) {
       @Override
-      protected MultivaluedMap<String, Object> computeHeaders(String path) {
-        MultivaluedMap<String, Object> headers = super.computeHeaders(path);
+      protected MultivaluedMap<String, Object> computeHeaders(String method, String path, Map<String, String> requestHeaders) {
+        MultivaluedMap<String, Object> headers = super.computeHeaders(method, path, Collections.emptyMap());
         assertTrue(headers.containsKey("x-altus-auth"));
         assertEquals("todo", headers.get("x-altus-auth"));
         return headers;
@@ -359,8 +384,8 @@ public class CdpClientTest {
         altusResponse);
     TestClient client = new TestClient(mockResponse, CredentialType.ACCESS_TOKEN) {
       @Override
-      protected MultivaluedMap<String, Object> computeHeaders(String path) {
-        MultivaluedMap<String, Object> headers = super.computeHeaders(path);
+      protected MultivaluedMap<String, Object> computeHeaders(String method, String path, Map<String, String> requestHeaders) {
+        MultivaluedMap<String, Object> headers = super.computeHeaders(method, path, Collections.emptyMap());
         assertTrue(headers.containsKey(HttpHeaders.AUTHORIZATION));
         assertEquals("Bearer A.B.C", headers.get(HttpHeaders.AUTHORIZATION));
         return headers;
@@ -370,5 +395,95 @@ public class CdpClientTest {
         client.invokeAPI("somePath", "", new GenericType<TestCdpResponse>(){});
     assertEquals("requestId", response.getRequestId());
     assertEquals(1, client.apiCalls);
+  }
+
+  @Test
+  public void testComputeHeaders() throws Exception {
+    TestClient client = new TestClient();
+    Map<String, String> input_headers = new HashMap<>();
+    MultivaluedMap<String, Object> headers;
+
+    headers = client.computeHeaders("POST", "/path", input_headers);
+    assertArrayEquals(new Object[]{"application/json"}, headers.get("Content-Type").toArray());
+    assertTrue(headers.containsKey("x-altus-date"));
+
+    input_headers.put("foo", "bar");
+    headers = client.computeHeaders("GET", "/path", input_headers);
+    assertArrayEquals(new Object[]{"bar"}, headers.get("foo").toArray());
+    assertFalse(headers.containsKey("Content-Type"));
+  }
+
+  @Test
+  public void testParameterToString() throws Exception {
+    TestClient client = new TestClient();
+    assertEquals("", client.parameterToString(null));
+    assertEquals("101", client.parameterToString("101"));
+    assertEquals("?&=", client.parameterToString("?&="));
+    assertEquals("101", client.parameterToString(101));
+    assertEquals("1.01", client.parameterToString(1.01));
+    assertEquals("true", client.parameterToString(true));
+    assertEquals("false", client.parameterToString(false));
+    assertEquals("2020-12-16T02:46:03.102Z", client.parameterToString(ZonedDateTime.parse("2020-12-15T18:46:03.102-08:00")));
+    assertEquals("foo,bar", client.parameterToString(Arrays.asList("foo", "bar" )));
+    assertEquals("101", client.parameterToString("101"));
+  }
+
+  @Test
+  public void testParameterToPair() throws Exception {
+    TestClient client = new TestClient();
+    Pair pair;
+    pair = client.parameterToPair("foo", "bar");
+    assertEquals("foo", pair.getName());
+    assertEquals("bar", pair.getValue());
+    pair = client.parameterToPair("foo", 123);
+    assertEquals("foo", pair.getName());
+    assertEquals("123", pair.getValue());
+    pair = client.parameterToPair("foo", null);
+    assertEquals("foo", pair.getName());
+    assertEquals("", pair.getValue());
+  }
+
+  @Test
+  public void testParameterToPairs() throws Exception {
+    TestClient client = new TestClient();
+    List<Pair> pairs;
+
+    pairs = client.parameterToPairs("multi", "name", null);
+    assertTrue(pairs.isEmpty());
+
+    pairs = client.parameterToPairs("multi", "name", Collections.emptyList());
+    assertTrue(pairs.isEmpty());
+
+    pairs = client.parameterToPairs("multi", "name", Arrays.asList("foo", "bar"));
+    assertEquals(2, pairs.size());
+    assertEquals("name", pairs.get(0).getName());
+    assertEquals("foo", pairs.get(0).getValue());
+    assertEquals("name", pairs.get(1).getName());
+    assertEquals("bar", pairs.get(1).getValue());
+
+    pairs = client.parameterToPairs("csv", "name", Arrays.asList("foo", "bar"));
+    assertEquals(1, pairs.size());
+    assertEquals("name", pairs.get(0).getName());
+    assertEquals("foo,bar", pairs.get(0).getValue());
+
+    pairs = client.parameterToPairs("", "name", Arrays.asList("foo", "bar"));
+    assertEquals(1, pairs.size());
+    assertEquals("name", pairs.get(0).getName());
+    assertEquals("foo,bar", pairs.get(0).getValue());
+
+    pairs = client.parameterToPairs("tsv", "name", Arrays.asList("foo", "bar"));
+    assertEquals(1, pairs.size());
+    assertEquals("name", pairs.get(0).getName());
+    assertEquals("foo\tbar", pairs.get(0).getValue());
+
+    pairs = client.parameterToPairs("ssv", "name", Arrays.asList("foo", "bar"));
+    assertEquals(1, pairs.size());
+    assertEquals("name", pairs.get(0).getName());
+    assertEquals("foo bar", pairs.get(0).getValue());
+
+    pairs = client.parameterToPairs("pipes", "name", Arrays.asList("foo", "bar"));
+    assertEquals(1, pairs.size());
+    assertEquals("name", pairs.get(0).getName());
+    assertEquals("foo|bar", pairs.get(0).getValue());
   }
 }

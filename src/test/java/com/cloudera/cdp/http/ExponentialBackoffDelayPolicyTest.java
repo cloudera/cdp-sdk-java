@@ -21,6 +21,7 @@ package com.cloudera.cdp.http;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.cloudera.cdp.CdpClientException;
 
@@ -42,6 +43,38 @@ public class ExponentialBackoffDelayPolicyTest {
   }
 
   @Test
+  public void testDelayWithJitter() {
+    ExponentialBackoffDelayPolicy delayPolicy =
+        new ExponentialBackoffDelayPolicy(2, Duration.ofSeconds(1), 5);
+    for (int ii = 1; ii <= 10; ii++) {
+      long expectedDeterministicDurationMillis = 1000L * ((long) Math.pow(2, ii - 1));
+      long maxDeltaMillis = expectedDeterministicDurationMillis * 5L / 200L; // half of 5%
+      Duration expectedMinimum =
+          Duration.ofMillis(expectedDeterministicDurationMillis - maxDeltaMillis);
+      Duration expectedMaximum =
+          Duration.ofMillis(expectedDeterministicDurationMillis + maxDeltaMillis);
+      Duration actualDelay = delayPolicy.delay(ii);
+      assertTrue(actualDelay.compareTo(expectedMinimum) >= 0 &&
+                 actualDelay.compareTo(expectedMaximum) < 0,
+                 "Iteration: " + Integer.toString(ii));
+    }
+  }
+
+  @Test
+  public void testDelayWithJitterZeroRange() {
+    // For the first attempt:
+    // - the deterministic delay is 1ms
+    // - the jitter range in ms is (in integer math) 1 * 5 / 100 = 0
+    // - therefore, the expected delay should not be calculated with jitter and
+    //   therefore not call ThreadLocalRandom with a zero bound
+    ExponentialBackoffDelayPolicy delayPolicy =
+        new ExponentialBackoffDelayPolicy(2, Duration.ofMillis(1), 5);
+    Duration expectedDelay = Duration.ofMillis(1L);
+    Duration actualDelay = delayPolicy.delay(1);
+    assertEquals(expectedDelay, actualDelay);
+  }
+
+  @Test
   public void testNullBase() {
     assertThrows(CdpClientException.class, () -> {
       new ExponentialBackoffDelayPolicy(1, null);
@@ -59,6 +92,13 @@ public class ExponentialBackoffDelayPolicyTest {
   public void testNegativeGrowthFactor() {
     assertThrows(CdpClientException.class, () -> {
       new ExponentialBackoffDelayPolicy(-1, Duration.ofMillis(1));
+    });
+  }
+
+  @Test
+  public void testNegativeJitterPercentage() {
+    assertThrows(CdpClientException.class, () -> {
+      new ExponentialBackoffDelayPolicy(1, Duration.ofMillis(1), -1);
     });
   }
 

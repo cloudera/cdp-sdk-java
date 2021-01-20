@@ -21,9 +21,12 @@ package com.cloudera.cdp.audit.api;
 
 import javax.ws.rs.core.GenericType;
 import com.cloudera.cdp.CdpClientException;
+import com.cloudera.cdp.annotation.WorkloadApi;
 import com.cloudera.cdp.authentication.credentials.CdpCredentials;
 import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
+import com.cloudera.cdp.client.Pair;
+import com.cloudera.cdp.client.WorkloadResponse;
 import com.cloudera.cdp.audit.model.ArchiveAuditEventsRequest;
 import com.cloudera.cdp.audit.model.ArchiveAuditEventsResponse;
 import com.cloudera.cdp.audit.model.ConfigureArchivingRequest;
@@ -34,10 +37,10 @@ import com.cloudera.cdp.audit.model.GetArchivingConfigResponse;
 import com.cloudera.cdp.audit.model.ListEventsRequest;
 import com.cloudera.cdp.audit.model.ListEventsResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-06T10:11:19.095-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-20T11:27:19.346-08:00")
 public class AuditClient extends CdpClient {
 
-  public static final String SERVICE_NAME = "api";
+  public static final String SERVICE_NAME = "audit";
 
   public AuditClient(
       CdpCredentials credentials,
@@ -52,9 +55,10 @@ public class AuditClient extends CdpClient {
    * @return ArchiveAuditEventsResponse
    */
   public ArchiveAuditEventsResponse archiveAuditEvents(ArchiveAuditEventsRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling archiveAuditEvents");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling archiveAuditEvents");
+    }
+
     return this.invokeAPI("/api/v1/audit/archiveAuditEvents", input, new GenericType<ArchiveAuditEventsResponse>(){});
   }
 
@@ -64,9 +68,10 @@ public class AuditClient extends CdpClient {
    * @return ConfigureArchivingResponse
    */
   public ConfigureArchivingResponse configureArchiving(ConfigureArchivingRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling configureArchiving");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling configureArchiving");
+    }
+
     return this.invokeAPI("/api/v1/audit/configureArchiving", input, new GenericType<ConfigureArchivingResponse>(){});
   }
 
@@ -76,9 +81,10 @@ public class AuditClient extends CdpClient {
    * @return GetArchivingConfigResponse
    */
   public GetArchivingConfigResponse getArchivingConfig(GetArchivingConfigRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling getArchivingConfig");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getArchivingConfig");
+    }
+
     return this.invokeAPI("/api/v1/audit/getArchivingConfig", input, new GenericType<GetArchivingConfigResponse>(){});
   }
 
@@ -88,9 +94,10 @@ public class AuditClient extends CdpClient {
    * @return ListEventsResponse
    */
   public ListEventsResponse listEvents(ListEventsRequest input) {
-     if (input == null) {
-        throw new CdpClientException("Missing the required parameter 'input' when calling listEvents");
-     }
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listEvents");
+    }
+
     return this.invokeAPI("/api/v1/audit/listEvents", input, new GenericType<ListEventsResponse>(){});
   }
 }

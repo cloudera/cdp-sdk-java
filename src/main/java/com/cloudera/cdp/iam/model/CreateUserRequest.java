@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for creating user request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-06T10:11:19.182-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-20T11:27:19.434-08:00")
 public class CreateUserRequest  {
 
   /**
@@ -47,7 +47,7 @@ public class CreateUserRequest  {
   private String samlProviderName = null;
 
   /**
-   * The list of groups the user belongs to. The groups will be created if they do not exist.
+   * The list of groups the user belongs to. The groups will be created if they do not exist. There are certain restrictions on the group name. Refer to the How To > User Management section in the Management Console documentation for the details.
    **/
   private List<String> groups = new ArrayList<String>();
 
@@ -114,7 +114,7 @@ public class CreateUserRequest  {
 
   /**
    * Getter for groups.
-   * The list of groups the user belongs to. The groups will be created if they do not exist.
+   * The list of groups the user belongs to. The groups will be created if they do not exist. There are certain restrictions on the group name. Refer to the How To &gt; User Management section in the Management Console documentation for the details.
    **/
   @JsonProperty("groups")
   public List<String> getGroups() {
@@ -123,7 +123,7 @@ public class CreateUserRequest  {
 
   /**
    * Setter for groups.
-   * The list of groups the user belongs to. The groups will be created if they do not exist.
+   * The list of groups the user belongs to. The groups will be created if they do not exist. There are certain restrictions on the group name. Refer to the How To &gt; User Management section in the Management Console documentation for the details.
    **/
   public void setGroups(List<String> groups) {
     this.groups = groups;
