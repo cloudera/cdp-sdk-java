@@ -10,6 +10,8 @@ com.cloudera.cdp.datahub.api
 com.cloudera.cdp.datahub.model
 com.cloudera.cdp.datalake.api
 com.cloudera.cdp.datalake.model
+com.cloudera.cdp.de.api
+com.cloudera.cdp.de.model
 com.cloudera.cdp.dw.api
 com.cloudera.cdp.dw.model
 com.cloudera.cdp.environments.api

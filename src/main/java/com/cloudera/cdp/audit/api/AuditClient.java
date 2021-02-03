@@ -37,7 +37,7 @@ import com.cloudera.cdp.audit.model.GetArchivingConfigResponse;
 import com.cloudera.cdp.audit.model.ListEventsRequest;
 import com.cloudera.cdp.audit.model.ListEventsResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-01-20T11:27:19.346-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-02-03T13:16:58.655-08:00")
 public class AuditClient extends CdpClient {
 
   public static final String SERVICE_NAME = "audit";
