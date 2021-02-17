@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for getting host status.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-02-03T13:16:57.279-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-02-17T11:49:09.191-08:00")
 public class GetClusterHostStatusResponse extends CdpResponse {
 
   /**

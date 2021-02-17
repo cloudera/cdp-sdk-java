@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for get account level telemetry settings.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-02-03T13:16:58.355-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-02-17T11:49:10.212-08:00")
 public class GetAccountTelemetryResponse extends CdpResponse {
 
   /**

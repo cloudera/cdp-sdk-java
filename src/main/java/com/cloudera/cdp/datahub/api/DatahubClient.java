@@ -27,6 +27,8 @@ import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
 import com.cloudera.cdp.client.Pair;
 import com.cloudera.cdp.client.WorkloadResponse;
+import com.cloudera.cdp.datahub.model.CollectCmDiagnosticsRequest;
+import com.cloudera.cdp.datahub.model.CollectCmDiagnosticsResponse;
 import com.cloudera.cdp.datahub.model.CollectDatahubDiagnosticsRequest;
 import com.cloudera.cdp.datahub.model.CollectDatahubDiagnosticsResponse;
 import com.cloudera.cdp.datahub.model.CreateAWSClusterRequest;
@@ -68,6 +70,8 @@ import com.cloudera.cdp.datahub.model.GetClusterHostStatusRequest;
 import com.cloudera.cdp.datahub.model.GetClusterHostStatusResponse;
 import com.cloudera.cdp.datahub.model.GetClusterServiceStatusRequest;
 import com.cloudera.cdp.datahub.model.GetClusterServiceStatusResponse;
+import com.cloudera.cdp.datahub.model.GetCmRolesRequest;
+import com.cloudera.cdp.datahub.model.GetCmRolesResponse;
 import com.cloudera.cdp.datahub.model.GetDatahubLogDescriptorsRequest;
 import com.cloudera.cdp.datahub.model.GetDatahubLogDescriptorsResponse;
 import com.cloudera.cdp.datahub.model.ListAutoScaleHistoryRequest;
@@ -99,7 +103,7 @@ import com.cloudera.cdp.datahub.model.SyncClusterResponse;
 import com.cloudera.cdp.datahub.model.UpdateAutoScaleRulesRequest;
 import com.cloudera.cdp.datahub.model.UpdateAutoScaleRulesResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-02-03T13:16:57.279-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-02-17T11:49:09.191-08:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datahub";
@@ -109,6 +113,19 @@ public class DatahubClient extends CdpClient {
       String endPoint,
       CdpClientConfiguration clientConfiguration) {
     super(credentials, endPoint, clientConfiguration);
+  }
+
+  /**
+   * Start Datahub Cloudera Manager based diagnostics collection
+   * @param input
+   * @return CollectCmDiagnosticsResponse
+   */
+  public CollectCmDiagnosticsResponse collectCmDiagnostics(CollectCmDiagnosticsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling collectCmDiagnostics");
+    }
+
+    return this.invokeAPI("/api/v1/datahub/collectCmDiagnostics", input, new GenericType<CollectCmDiagnosticsResponse>(){});
   }
 
   /**
@@ -369,6 +386,19 @@ public class DatahubClient extends CdpClient {
     }
 
     return this.invokeAPI("/api/v1/datahub/getClusterServiceStatus", input, new GenericType<GetClusterServiceStatusResponse>(){});
+  }
+
+  /**
+   * Gather Cloudera Manager roles that can be used for filtering in CM based diagnostics collection.
+   * @param input
+   * @return GetCmRolesResponse
+   */
+  public GetCmRolesResponse getCmRoles(GetCmRolesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getCmRoles");
+    }
+
+    return this.invokeAPI("/api/v1/datahub/getCmRoles", input, new GenericType<GetCmRolesResponse>(){});
   }
 
   /**

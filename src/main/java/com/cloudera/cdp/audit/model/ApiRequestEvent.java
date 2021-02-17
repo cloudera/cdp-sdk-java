@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * The model for an API request event, as a part of CdpAuditEvent. These events are triggered by requests to public CDP API services.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-02-03T13:16:58.655-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-02-17T11:49:10.521-08:00")
 public class ApiRequestEvent  {
 
   /**
@@ -36,7 +36,7 @@ public class ApiRequestEvent  {
   private String requestParameters = null;
 
   /**
-   * The API response parameters.
+   * The API response parameters. Only recorded for mutating calls.
    **/
   private String responseParameters = null;
 
@@ -79,7 +79,7 @@ public class ApiRequestEvent  {
 
   /**
    * Getter for responseParameters.
-   * The API response parameters.
+   * The API response parameters. Only recorded for mutating calls.
    **/
   @JsonProperty("responseParameters")
   public String getResponseParameters() {
@@ -88,7 +88,7 @@ public class ApiRequestEvent  {
 
   /**
    * Setter for responseParameters.
-   * The API response parameters.
+   * The API response parameters. Only recorded for mutating calls.
    **/
   public void setResponseParameters(String responseParameters) {
     this.responseParameters = responseParameters;

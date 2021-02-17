@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for the listVws method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-02-03T13:16:57.681-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-02-17T11:49:09.658-08:00")
 public class ListVwsResponse extends CdpResponse {
 
   /**

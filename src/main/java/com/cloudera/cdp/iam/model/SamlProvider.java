@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Information used to connect a CDP account to an external identity provider.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-02-03T13:16:58.836-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-02-17T11:49:10.707-08:00")
 public class SamlProvider  {
 
   /**
@@ -60,6 +60,11 @@ public class SamlProvider  {
    * The original metadata that was passed while creating the SAML provider connector. This field will not be set when the SAML provider does not have metadata. This field will not be set for listSamlProviders API response.
    **/
   private String samlMetadataDocument = null;
+
+  /**
+   * The Service Provider SAML metadata specific to this CDP SAML provider. This field will only be set for createSamlProvider and describeSamlProvider API calls.
+   **/
+  private String cdpSpMetadata = null;
 
   /**
    * Getter for crn.
@@ -163,6 +168,23 @@ public class SamlProvider  {
     this.samlMetadataDocument = samlMetadataDocument;
   }
 
+  /**
+   * Getter for cdpSpMetadata.
+   * The Service Provider SAML metadata specific to this CDP SAML provider. This field will only be set for createSamlProvider and describeSamlProvider API calls.
+   **/
+  @JsonProperty("cdpSpMetadata")
+  public String getCdpSpMetadata() {
+    return cdpSpMetadata;
+  }
+
+  /**
+   * Setter for cdpSpMetadata.
+   * The Service Provider SAML metadata specific to this CDP SAML provider. This field will only be set for createSamlProvider and describeSamlProvider API calls.
+   **/
+  public void setCdpSpMetadata(String cdpSpMetadata) {
+    this.cdpSpMetadata = cdpSpMetadata;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -190,12 +212,15 @@ public class SamlProvider  {
     if (!Objects.equals(this.samlMetadataDocument, samlProvider.samlMetadataDocument)) {
       return false;
     }
+    if (!Objects.equals(this.cdpSpMetadata, samlProvider.cdpSpMetadata)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, creationDate, samlProviderName, samlProviderId, syncGroupsOnLogin, samlMetadataDocument);
+    return Objects.hash(crn, creationDate, samlProviderName, samlProviderId, syncGroupsOnLogin, samlMetadataDocument, cdpSpMetadata);
   }
 
   @Override
@@ -208,6 +233,7 @@ public class SamlProvider  {
     sb.append("    samlProviderId: ").append(toIndentedString(samlProviderId)).append("\n");
     sb.append("    syncGroupsOnLogin: ").append(toIndentedString(syncGroupsOnLogin)).append("\n");
     sb.append("    samlMetadataDocument: ").append(toIndentedString(samlMetadataDocument)).append("\n");
+    sb.append("    cdpSpMetadata: ").append(toIndentedString(cdpSpMetadata)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -31,6 +31,8 @@ import com.cloudera.cdp.datalake.model.BackupDatalakeRequest;
 import com.cloudera.cdp.datalake.model.BackupDatalakeResponse;
 import com.cloudera.cdp.datalake.model.BackupDatalakeStatusRequest;
 import com.cloudera.cdp.datalake.model.BackupDatalakeStatusResponse;
+import com.cloudera.cdp.datalake.model.CollectCmDiagnosticsRequest;
+import com.cloudera.cdp.datalake.model.CollectCmDiagnosticsResponse;
 import com.cloudera.cdp.datalake.model.CollectDatalakeDiagnosticsRequest;
 import com.cloudera.cdp.datalake.model.CollectDatalakeDiagnosticsResponse;
 import com.cloudera.cdp.datalake.model.CreateAWSDatalakeRequest;
@@ -46,6 +48,8 @@ import com.cloudera.cdp.datalake.model.GetClusterHostStatusRequest;
 import com.cloudera.cdp.datalake.model.GetClusterHostStatusResponse;
 import com.cloudera.cdp.datalake.model.GetClusterServiceStatusRequest;
 import com.cloudera.cdp.datalake.model.GetClusterServiceStatusResponse;
+import com.cloudera.cdp.datalake.model.GetCmRolesRequest;
+import com.cloudera.cdp.datalake.model.GetCmRolesResponse;
 import com.cloudera.cdp.datalake.model.GetDatalakeLogDescriptorsRequest;
 import com.cloudera.cdp.datalake.model.GetDatalakeLogDescriptorsResponse;
 import com.cloudera.cdp.datalake.model.ListDatalakeBackupsRequest;
@@ -73,7 +77,7 @@ import com.cloudera.cdp.datalake.model.StopDatalakeResponse;
 import com.cloudera.cdp.datalake.model.UpgradeDatalakeRequest;
 import com.cloudera.cdp.datalake.model.UpgradeDatalakeResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-02-03T13:16:58.129-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-02-17T11:49:09.980-08:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datalake";
@@ -109,6 +113,19 @@ public class DatalakeClient extends CdpClient {
     }
 
     return this.invokeAPI("/api/v1/datalake/backupDatalakeStatus", input, new GenericType<BackupDatalakeStatusResponse>(){});
+  }
+
+  /**
+   * Start DataLake Cloudera Manager based diagnostics collection
+   * @param input
+   * @return CollectCmDiagnosticsResponse
+   */
+  public CollectCmDiagnosticsResponse collectCmDiagnostics(CollectCmDiagnosticsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling collectCmDiagnostics");
+    }
+
+    return this.invokeAPI("/api/v1/datalake/collectCmDiagnostics", input, new GenericType<CollectCmDiagnosticsResponse>(){});
   }
 
   /**
@@ -200,6 +217,19 @@ public class DatalakeClient extends CdpClient {
     }
 
     return this.invokeAPI("/api/v1/datalake/getClusterServiceStatus", input, new GenericType<GetClusterServiceStatusResponse>(){});
+  }
+
+  /**
+   * Gather Cloudera Manager roles that can be used for filtering in CM based diagnostics collection.
+   * @param input
+   * @return GetCmRolesResponse
+   */
+  public GetCmRolesResponse getCmRoles(GetCmRolesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getCmRoles");
+    }
+
+    return this.invokeAPI("/api/v1/datalake/getCmRoles", input, new GenericType<GetCmRolesResponse>(){});
   }
 
   /**
