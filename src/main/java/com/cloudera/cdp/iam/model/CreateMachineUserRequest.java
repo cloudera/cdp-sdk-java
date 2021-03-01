@@ -27,17 +27,17 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for create machine user request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-02-17T11:49:10.707-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-01T11:10:23.145-08:00")
 public class CreateMachineUserRequest  {
 
   /**
-   * The name to use for the new machine user. The name should be an alpha numeric string, including '-' and '_', no longer than 128 characters long. Only one machine user with this name can be exist at a given time in an account.
+   * The name to use for the new machine user. The name must be an alpha numeric string, including '-' and '_', cannot start with '__' (double underscore) and cannot be longer than 128 characters. Only one machine user with this name can exist in an account at a given time.
    **/
   private String machineUserName = null;
 
   /**
    * Getter for machineUserName.
-   * The name to use for the new machine user. The name should be an alpha numeric string, including &#39;-&#39; and &#39;_&#39;, no longer than 128 characters long. Only one machine user with this name can be exist at a given time in an account.
+   * The name to use for the new machine user. The name must be an alpha numeric string, including &#39;-&#39; and &#39;_&#39;, cannot start with &#39;__&#39; (double underscore) and cannot be longer than 128 characters. Only one machine user with this name can exist in an account at a given time.
    **/
   @JsonProperty("machineUserName")
   public String getMachineUserName() {
@@ -46,7 +46,7 @@ public class CreateMachineUserRequest  {
 
   /**
    * Setter for machineUserName.
-   * The name to use for the new machine user. The name should be an alpha numeric string, including &#39;-&#39; and &#39;_&#39;, no longer than 128 characters long. Only one machine user with this name can be exist at a given time in an account.
+   * The name to use for the new machine user. The name must be an alpha numeric string, including &#39;-&#39; and &#39;_&#39;, cannot start with &#39;__&#39; (double underscore) and cannot be longer than 128 characters. Only one machine user with this name can exist in an account at a given time.
    **/
   public void setMachineUserName(String machineUserName) {
     this.machineUserName = machineUserName;

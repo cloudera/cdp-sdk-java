@@ -35,7 +35,7 @@ import java.util.*;
 /**
  * Details about a datalake
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-02-17T11:49:09.980-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-01T11:10:22.311-08:00")
 public class DatalakeDetails  {
 
   /**
@@ -52,6 +52,11 @@ public class DatalakeDetails  {
    * The status of the datalake.
    **/
   private String status = null;
+
+  /**
+   * The shape of the datalake (either LIGHT_DUTY or MEDIUM_DUTY_HA).
+   **/
+  private String shape = null;
 
   /**
    * The CRN of the environment.
@@ -162,6 +167,23 @@ public class DatalakeDetails  {
    **/
   public void setStatus(String status) {
     this.status = status;
+  }
+
+  /**
+   * Getter for shape.
+   * The shape of the datalake (either LIGHT_DUTY or MEDIUM_DUTY_HA).
+   **/
+  @JsonProperty("shape")
+  public String getShape() {
+    return shape;
+  }
+
+  /**
+   * Setter for shape.
+   * The shape of the datalake (either LIGHT_DUTY or MEDIUM_DUTY_HA).
+   **/
+  public void setShape(String shape) {
+    this.shape = shape;
   }
 
   /**
@@ -386,6 +408,9 @@ public class DatalakeDetails  {
     if (!Objects.equals(this.status, datalakeDetails.status)) {
       return false;
     }
+    if (!Objects.equals(this.shape, datalakeDetails.shape)) {
+      return false;
+    }
     if (!Objects.equals(this.environmentCrn, datalakeDetails.environmentCrn)) {
       return false;
     }
@@ -427,7 +452,7 @@ public class DatalakeDetails  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, datalakeName, status, environmentCrn, credentialCrn, cloudPlatform, instanceGroups, creationDate, clouderaManager, productVersions, region, statusReason, awsConfiguration, azureConfiguration, endpoints);
+    return Objects.hash(crn, datalakeName, status, shape, environmentCrn, credentialCrn, cloudPlatform, instanceGroups, creationDate, clouderaManager, productVersions, region, statusReason, awsConfiguration, azureConfiguration, endpoints);
   }
 
   @Override
@@ -437,6 +462,7 @@ public class DatalakeDetails  {
     sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
     sb.append("    datalakeName: ").append(toIndentedString(datalakeName)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    shape: ").append(toIndentedString(shape)).append("\n");
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
     sb.append("    credentialCrn: ").append(toIndentedString(credentialCrn)).append("\n");
     sb.append("    cloudPlatform: ").append(toIndentedString(cloudPlatform)).append("\n");

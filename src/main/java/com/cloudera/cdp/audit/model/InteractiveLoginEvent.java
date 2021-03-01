@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * The model for a login event, as a part of CdpAuditEvent. CDP logs attempts to interactively login to the CDP console. This includes logins using Cloudera SSO and through any federated interactive login events.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-02-17T11:49:10.521-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-01T11:10:22.876-08:00")
 public class InteractiveLoginEvent  {
 
   /**
@@ -37,7 +37,7 @@ public class InteractiveLoginEvent  {
   private String identityProviderCrn = null;
 
   /**
-   * The identity provider session ID for this interactive login request. For SAML 2.0 identity federation this is the SessionIndex of the SAML AuthnResponse.
+   * The identity provider session ID for this interactive login request. For SAML 2.0 identity federation this is the SessionIndex of the SAML AuthnResponse. (Deprecated: No replacement, as this was never available.)
    **/
   private String identityProviderSessionId = null;
 
@@ -100,8 +100,9 @@ public class InteractiveLoginEvent  {
 
   /**
    * Getter for identityProviderSessionId.
-   * The identity provider session ID for this interactive login request. For SAML 2.0 identity federation this is the SessionIndex of the SAML AuthnResponse.
+   * The identity provider session ID for this interactive login request. For SAML 2.0 identity federation this is the SessionIndex of the SAML AuthnResponse. (Deprecated: No replacement, as this was never available.)
    **/
+  @Deprecated
   @JsonProperty("identityProviderSessionId")
   public String getIdentityProviderSessionId() {
     return identityProviderSessionId;
@@ -109,8 +110,9 @@ public class InteractiveLoginEvent  {
 
   /**
    * Setter for identityProviderSessionId.
-   * The identity provider session ID for this interactive login request. For SAML 2.0 identity federation this is the SessionIndex of the SAML AuthnResponse.
+   * The identity provider session ID for this interactive login request. For SAML 2.0 identity federation this is the SessionIndex of the SAML AuthnResponse. (Deprecated: No replacement, as this was never available.)
    **/
+  @Deprecated
   public void setIdentityProviderSessionId(String identityProviderSessionId) {
     this.identityProviderSessionId = identityProviderSessionId;
   }

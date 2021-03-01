@@ -25,11 +25,12 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.de.model.ChartValueOverridesRequest;
 import java.util.*;
+import java.util.Map;
 
 /**
  * Request object for Enable Service method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-02-17T11:49:10.596-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-01T11:10:22.970-08:00")
 public class EnableServiceRequest  {
 
   /**
@@ -111,6 +112,11 @@ public class EnableServiceRequest  {
    * List of CIDRs that would be allowed to access kubernetes master API server.
    **/
   private List<String> whitelistIps = new ArrayList<String>();
+
+  /**
+   * User defined labels that tag all provisioned cloud resources.
+   **/
+  private Map<String, String> tags = new HashMap<String, String>();
 
   /**
    * Getter for name.
@@ -384,6 +390,23 @@ public class EnableServiceRequest  {
     this.whitelistIps = whitelistIps;
   }
 
+  /**
+   * Getter for tags.
+   * User defined labels that tag all provisioned cloud resources.
+   **/
+  @JsonProperty("tags")
+  public Map<String, String> getTags() {
+    return tags;
+  }
+
+  /**
+   * Setter for tags.
+   * User defined labels that tag all provisioned cloud resources.
+   **/
+  public void setTags(Map<String, String> tags) {
+    this.tags = tags;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -441,12 +464,15 @@ public class EnableServiceRequest  {
     if (!Objects.equals(this.whitelistIps, enableServiceRequest.whitelistIps)) {
       return false;
     }
+    if (!Objects.equals(this.tags, enableServiceRequest.tags)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, env, instanceType, minimumInstances, maximumInstances, minimumSpotInstances, maximumSpotInstances, initialInstances, initialSpotInstances, rootVolumeSize, enablePublicEndpoint, enableWorkloadAnalytics, useSsd, chartValueOverrides, provisionerid, whitelistIps);
+    return Objects.hash(name, env, instanceType, minimumInstances, maximumInstances, minimumSpotInstances, maximumSpotInstances, initialInstances, initialSpotInstances, rootVolumeSize, enablePublicEndpoint, enableWorkloadAnalytics, useSsd, chartValueOverrides, provisionerid, whitelistIps, tags);
   }
 
   @Override
@@ -469,6 +495,7 @@ public class EnableServiceRequest  {
     sb.append("    chartValueOverrides: ").append(toIndentedString(chartValueOverrides)).append("\n");
     sb.append("    provisionerid: ").append(toIndentedString(provisionerid)).append("\n");
     sb.append("    whitelistIps: ").append(toIndentedString(whitelistIps)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

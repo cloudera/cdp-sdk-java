@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object for CreateVc method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-02-17T11:49:10.596-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-01T11:10:22.970-08:00")
 public class CreateVcRequest  {
 
   /**
@@ -56,6 +56,11 @@ public class CreateVcRequest  {
    * Chart overrides for creating a virtual cluster.
    **/
   private List<ChartValueOverridesRequest> chartValueOverrides = new ArrayList<ChartValueOverridesRequest>();
+
+  /**
+   * Used to describe where the Driver and the Executors would run. By default the Driver would run on on-demand instances and the Executors on spot instances. Setting it to ALL will run both the Driver and the Executors on spot instances whereas setting it to NONE should run both the Driver and the Executor on on-demand instances. Currently applicable for aws services only. Use this option only on services with spot instances enabled.
+   **/
+  private String runtimeSpotComponent = null;
 
   /**
    * Getter for name.
@@ -142,6 +147,23 @@ public class CreateVcRequest  {
     this.chartValueOverrides = chartValueOverrides;
   }
 
+  /**
+   * Getter for runtimeSpotComponent.
+   * Used to describe where the Driver and the Executors would run. By default the Driver would run on on-demand instances and the Executors on spot instances. Setting it to ALL will run both the Driver and the Executors on spot instances whereas setting it to NONE should run both the Driver and the Executor on on-demand instances. Currently applicable for aws services only. Use this option only on services with spot instances enabled.
+   **/
+  @JsonProperty("runtimeSpotComponent")
+  public String getRuntimeSpotComponent() {
+    return runtimeSpotComponent;
+  }
+
+  /**
+   * Setter for runtimeSpotComponent.
+   * Used to describe where the Driver and the Executors would run. By default the Driver would run on on-demand instances and the Executors on spot instances. Setting it to ALL will run both the Driver and the Executors on spot instances whereas setting it to NONE should run both the Driver and the Executor on on-demand instances. Currently applicable for aws services only. Use this option only on services with spot instances enabled.
+   **/
+  public void setRuntimeSpotComponent(String runtimeSpotComponent) {
+    this.runtimeSpotComponent = runtimeSpotComponent;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -166,12 +188,15 @@ public class CreateVcRequest  {
     if (!Objects.equals(this.chartValueOverrides, createVcRequest.chartValueOverrides)) {
       return false;
     }
+    if (!Objects.equals(this.runtimeSpotComponent, createVcRequest.runtimeSpotComponent)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, clusterId, cpuRequests, memoryRequests, chartValueOverrides);
+    return Objects.hash(name, clusterId, cpuRequests, memoryRequests, chartValueOverrides, runtimeSpotComponent);
   }
 
   @Override
@@ -183,6 +208,7 @@ public class CreateVcRequest  {
     sb.append("    cpuRequests: ").append(toIndentedString(cpuRequests)).append("\n");
     sb.append("    memoryRequests: ").append(toIndentedString(memoryRequests)).append("\n");
     sb.append("    chartValueOverrides: ").append(toIndentedString(chartValueOverrides)).append("\n");
+    sb.append("    runtimeSpotComponent: ").append(toIndentedString(runtimeSpotComponent)).append("\n");
     sb.append("}");
     return sb.toString();
   }
