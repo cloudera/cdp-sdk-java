@@ -103,7 +103,7 @@ import com.cloudera.cdp.datahub.model.SyncClusterResponse;
 import com.cloudera.cdp.datahub.model.UpdateAutoScaleRulesRequest;
 import com.cloudera.cdp.datahub.model.UpdateAutoScaleRulesResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-01T11:10:21.616-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-03T09:29:03.635-08:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datahub";

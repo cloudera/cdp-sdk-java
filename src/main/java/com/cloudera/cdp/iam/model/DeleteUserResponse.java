@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object to delete a user.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-01T11:10:23.145-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-03T09:29:05.178-08:00")
 public class DeleteUserResponse extends CdpResponse {
 
   /**

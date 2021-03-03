@@ -77,7 +77,7 @@ import com.cloudera.cdp.datalake.model.StopDatalakeResponse;
 import com.cloudera.cdp.datalake.model.UpgradeDatalakeRequest;
 import com.cloudera.cdp.datalake.model.UpgradeDatalakeResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-01T11:10:22.311-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-03T09:29:04.400-08:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datalake";
