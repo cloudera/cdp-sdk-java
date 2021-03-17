@@ -31,6 +31,8 @@ import com.cloudera.cdp.datalake.model.BackupDatalakeRequest;
 import com.cloudera.cdp.datalake.model.BackupDatalakeResponse;
 import com.cloudera.cdp.datalake.model.BackupDatalakeStatusRequest;
 import com.cloudera.cdp.datalake.model.BackupDatalakeStatusResponse;
+import com.cloudera.cdp.datalake.model.CancelDatalakeDiagnosticsRequest;
+import com.cloudera.cdp.datalake.model.CancelDatalakeDiagnosticsResponse;
 import com.cloudera.cdp.datalake.model.CollectCmDiagnosticsRequest;
 import com.cloudera.cdp.datalake.model.CollectCmDiagnosticsResponse;
 import com.cloudera.cdp.datalake.model.CollectDatalakeDiagnosticsRequest;
@@ -54,6 +56,8 @@ import com.cloudera.cdp.datalake.model.GetDatalakeLogDescriptorsRequest;
 import com.cloudera.cdp.datalake.model.GetDatalakeLogDescriptorsResponse;
 import com.cloudera.cdp.datalake.model.ListDatalakeBackupsRequest;
 import com.cloudera.cdp.datalake.model.ListDatalakeBackupsResponse;
+import com.cloudera.cdp.datalake.model.ListDatalakeDiagnosticsRequest;
+import com.cloudera.cdp.datalake.model.ListDatalakeDiagnosticsResponse;
 import com.cloudera.cdp.datalake.model.ListDatalakesRequest;
 import com.cloudera.cdp.datalake.model.ListDatalakesResponse;
 import com.cloudera.cdp.datalake.model.ListRuntimesRequest;
@@ -77,7 +81,7 @@ import com.cloudera.cdp.datalake.model.StopDatalakeResponse;
 import com.cloudera.cdp.datalake.model.UpgradeDatalakeRequest;
 import com.cloudera.cdp.datalake.model.UpgradeDatalakeResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-03T09:29:04.400-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-17T13:24:56.690-07:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datalake";
@@ -113,6 +117,19 @@ public class DatalakeClient extends CdpClient {
     }
 
     return this.invokeAPI("/api/v1/datalake/backupDatalakeStatus", input, new GenericType<BackupDatalakeStatusResponse>(){});
+  }
+
+  /**
+   * Cancel running Datalake diagnostics collections
+   * @param input
+   * @return CancelDatalakeDiagnosticsResponse
+   */
+  public CancelDatalakeDiagnosticsResponse cancelDatalakeDiagnostics(CancelDatalakeDiagnosticsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling cancelDatalakeDiagnostics");
+    }
+
+    return this.invokeAPI("/api/v1/datalake/cancelDatalakeDiagnostics", input, new GenericType<CancelDatalakeDiagnosticsResponse>(){});
   }
 
   /**
@@ -256,6 +273,19 @@ public class DatalakeClient extends CdpClient {
     }
 
     return this.invokeAPI("/api/v1/datalake/listDatalakeBackups", input, new GenericType<ListDatalakeBackupsResponse>(){});
+  }
+
+  /**
+   * List recent Datalake diagnostics collections
+   * @param input
+   * @return ListDatalakeDiagnosticsResponse
+   */
+  public ListDatalakeDiagnosticsResponse listDatalakeDiagnostics(ListDatalakeDiagnosticsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listDatalakeDiagnostics");
+    }
+
+    return this.invokeAPI("/api/v1/datalake/listDatalakeDiagnostics", input, new GenericType<ListDatalakeDiagnosticsResponse>(){});
   }
 
   /**

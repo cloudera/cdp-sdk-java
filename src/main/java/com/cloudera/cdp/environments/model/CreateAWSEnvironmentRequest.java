@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * Request object for a create AWS environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-03T09:29:04.627-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-17T13:24:56.935-07:00")
 public class CreateAWSEnvironmentRequest  {
 
   /**
@@ -80,6 +80,16 @@ public class CreateAWSEnvironmentRequest  {
    * One or more subnet ids within the VPC. Mutually exclusive with networkCidr.
    **/
   private List<String> subnetIds = new ArrayList<String>();
+
+  /**
+   * The scheme for the endpoint gateway. PUBLIC creates an external endpoint that can be accessed over the Internet. Defaults to PRIVATE which restricts the traffic to be internal to the VPC / Vnet.
+   **/
+  private String endpointAccessGatewayScheme = null;
+
+  /**
+   * The subnets to use for endpoint access gateway.
+   **/
+  private List<String> endpointAccessGatewaySubnetIds = new ArrayList<String>();
 
   /**
    * The name for the DynamoDB table backing S3Guard.
@@ -275,6 +285,40 @@ public class CreateAWSEnvironmentRequest  {
   }
 
   /**
+   * Getter for endpointAccessGatewayScheme.
+   * The scheme for the endpoint gateway. PUBLIC creates an external endpoint that can be accessed over the Internet. Defaults to PRIVATE which restricts the traffic to be internal to the VPC / Vnet.
+   **/
+  @JsonProperty("endpointAccessGatewayScheme")
+  public String getEndpointAccessGatewayScheme() {
+    return endpointAccessGatewayScheme;
+  }
+
+  /**
+   * Setter for endpointAccessGatewayScheme.
+   * The scheme for the endpoint gateway. PUBLIC creates an external endpoint that can be accessed over the Internet. Defaults to PRIVATE which restricts the traffic to be internal to the VPC / Vnet.
+   **/
+  public void setEndpointAccessGatewayScheme(String endpointAccessGatewayScheme) {
+    this.endpointAccessGatewayScheme = endpointAccessGatewayScheme;
+  }
+
+  /**
+   * Getter for endpointAccessGatewaySubnetIds.
+   * The subnets to use for endpoint access gateway.
+   **/
+  @JsonProperty("endpointAccessGatewaySubnetIds")
+  public List<String> getEndpointAccessGatewaySubnetIds() {
+    return endpointAccessGatewaySubnetIds;
+  }
+
+  /**
+   * Setter for endpointAccessGatewaySubnetIds.
+   * The subnets to use for endpoint access gateway.
+   **/
+  public void setEndpointAccessGatewaySubnetIds(List<String> endpointAccessGatewaySubnetIds) {
+    this.endpointAccessGatewaySubnetIds = endpointAccessGatewaySubnetIds;
+  }
+
+  /**
    * Getter for s3GuardTableName.
    * The name for the DynamoDB table backing S3Guard.
    **/
@@ -446,6 +490,12 @@ public class CreateAWSEnvironmentRequest  {
     if (!Objects.equals(this.subnetIds, createAWSEnvironmentRequest.subnetIds)) {
       return false;
     }
+    if (!Objects.equals(this.endpointAccessGatewayScheme, createAWSEnvironmentRequest.endpointAccessGatewayScheme)) {
+      return false;
+    }
+    if (!Objects.equals(this.endpointAccessGatewaySubnetIds, createAWSEnvironmentRequest.endpointAccessGatewaySubnetIds)) {
+      return false;
+    }
     if (!Objects.equals(this.s3GuardTableName, createAWSEnvironmentRequest.s3GuardTableName)) {
       return false;
     }
@@ -475,7 +525,7 @@ public class CreateAWSEnvironmentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, securityAccess, authentication, logStorage, networkCidr, vpcId, subnetIds, s3GuardTableName, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, tags, proxyConfigName);
+    return Objects.hash(environmentName, credentialName, region, securityAccess, authentication, logStorage, networkCidr, vpcId, subnetIds, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, s3GuardTableName, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, tags, proxyConfigName);
   }
 
   @Override
@@ -491,6 +541,8 @@ public class CreateAWSEnvironmentRequest  {
     sb.append("    networkCidr: ").append(toIndentedString(networkCidr)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
+    sb.append("    endpointAccessGatewayScheme: ").append(toIndentedString(endpointAccessGatewayScheme)).append("\n");
+    sb.append("    endpointAccessGatewaySubnetIds: ").append(toIndentedString(endpointAccessGatewaySubnetIds)).append("\n");
     sb.append("    s3GuardTableName: ").append(toIndentedString(s3GuardTableName)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enableTunnel: ").append(toIndentedString(enableTunnel)).append("\n");

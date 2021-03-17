@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for list cluster templates request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-03T09:29:03.635-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-17T13:24:55.973-07:00")
 public class ListClusterTemplatesResponse extends CdpResponse {
 
   /**

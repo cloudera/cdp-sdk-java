@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for the CreateWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-03T09:29:04.243-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-17T13:24:56.525-07:00")
 public class CreateWorkspaceRequest  {
 
   /**
@@ -64,6 +64,11 @@ public class CreateWorkspaceRequest  {
   private Boolean enableMonitoring = null;
 
   /**
+   * Enables Cloudera Machine Learning governance by integrating with Cloudera Atlas. By default, this flag is disabled.
+   **/
+  private Boolean enableGovernance = null;
+
+  /**
    * Optionally use an existing NFS by providing the hostname and desired path (Azure and Private Cloud only).
    **/
   private String existingNFS = null;
@@ -77,6 +82,11 @@ public class CreateWorkspaceRequest  {
    * The NFS Protocol version of the NFS server we are using for Azure and Private Cloud.
    **/
   private String nfsVersion = null;
+
+  /**
+   * Enables the model metrics service for exporting metrics for models to a metrics store.
+   **/
+  private Boolean enableModelMetrics = null;
 
   /**
    * Optional configurations for an existing Postgres to export model metrics to.
@@ -186,6 +196,23 @@ public class CreateWorkspaceRequest  {
   }
 
   /**
+   * Getter for enableGovernance.
+   * Enables Cloudera Machine Learning governance by integrating with Cloudera Atlas. By default, this flag is disabled.
+   **/
+  @JsonProperty("enableGovernance")
+  public Boolean getEnableGovernance() {
+    return enableGovernance;
+  }
+
+  /**
+   * Setter for enableGovernance.
+   * Enables Cloudera Machine Learning governance by integrating with Cloudera Atlas. By default, this flag is disabled.
+   **/
+  public void setEnableGovernance(Boolean enableGovernance) {
+    this.enableGovernance = enableGovernance;
+  }
+
+  /**
    * Getter for existingNFS.
    * Optionally use an existing NFS by providing the hostname and desired path (Azure and Private Cloud only).
    **/
@@ -237,6 +264,23 @@ public class CreateWorkspaceRequest  {
   }
 
   /**
+   * Getter for enableModelMetrics.
+   * Enables the model metrics service for exporting metrics for models to a metrics store.
+   **/
+  @JsonProperty("enableModelMetrics")
+  public Boolean getEnableModelMetrics() {
+    return enableModelMetrics;
+  }
+
+  /**
+   * Setter for enableModelMetrics.
+   * Enables the model metrics service for exporting metrics for models to a metrics store.
+   **/
+  public void setEnableModelMetrics(Boolean enableModelMetrics) {
+    this.enableModelMetrics = enableModelMetrics;
+  }
+
+  /**
    * Getter for existingDatabaseConfig.
    * Optional configurations for an existing Postgres to export model metrics to.
    **/
@@ -280,6 +324,9 @@ public class CreateWorkspaceRequest  {
     if (!Objects.equals(this.enableMonitoring, createWorkspaceRequest.enableMonitoring)) {
       return false;
     }
+    if (!Objects.equals(this.enableGovernance, createWorkspaceRequest.enableGovernance)) {
+      return false;
+    }
     if (!Objects.equals(this.existingNFS, createWorkspaceRequest.existingNFS)) {
       return false;
     }
@@ -287,6 +334,9 @@ public class CreateWorkspaceRequest  {
       return false;
     }
     if (!Objects.equals(this.nfsVersion, createWorkspaceRequest.nfsVersion)) {
+      return false;
+    }
+    if (!Objects.equals(this.enableModelMetrics, createWorkspaceRequest.enableModelMetrics)) {
       return false;
     }
     if (!Objects.equals(this.existingDatabaseConfig, createWorkspaceRequest.existingDatabaseConfig)) {
@@ -297,7 +347,7 @@ public class CreateWorkspaceRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, workspaceName, usePublicLoadBalancer, disableTLS, provisionK8sRequest, enableMonitoring, existingNFS, loadBalancerIPWhitelists, nfsVersion, existingDatabaseConfig);
+    return Objects.hash(environmentName, workspaceName, usePublicLoadBalancer, disableTLS, provisionK8sRequest, enableMonitoring, enableGovernance, existingNFS, loadBalancerIPWhitelists, nfsVersion, enableModelMetrics, existingDatabaseConfig);
   }
 
   @Override
@@ -310,9 +360,11 @@ public class CreateWorkspaceRequest  {
     sb.append("    disableTLS: ").append(toIndentedString(disableTLS)).append("\n");
     sb.append("    provisionK8sRequest: ").append(toIndentedString(provisionK8sRequest)).append("\n");
     sb.append("    enableMonitoring: ").append(toIndentedString(enableMonitoring)).append("\n");
+    sb.append("    enableGovernance: ").append(toIndentedString(enableGovernance)).append("\n");
     sb.append("    existingNFS: ").append(toIndentedString(existingNFS)).append("\n");
     sb.append("    loadBalancerIPWhitelists: ").append(toIndentedString(loadBalancerIPWhitelists)).append("\n");
     sb.append("    nfsVersion: ").append(toIndentedString(nfsVersion)).append("\n");
+    sb.append("    enableModelMetrics: ").append(toIndentedString(enableModelMetrics)).append("\n");
     sb.append("    existingDatabaseConfig: ").append(toIndentedString(existingDatabaseConfig)).append("\n");
     sb.append("}");
     return sb.toString();

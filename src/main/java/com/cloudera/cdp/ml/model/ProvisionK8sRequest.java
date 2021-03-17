@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object for workspace provision.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-03T09:29:04.243-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-17T13:24:56.525-07:00")
 public class ProvisionK8sRequest  {
 
   /**

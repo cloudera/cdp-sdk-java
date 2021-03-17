@@ -32,7 +32,7 @@ import java.util.Map;
 /**
  * The network.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-03T09:29:04.627-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-17T13:24:56.935-07:00")
 public class Network  {
 
   /**
@@ -44,6 +44,16 @@ public class Network  {
    * Subnet names or ids of the network.
    **/
   private List<String> subnetIds = new ArrayList<String>();
+
+  /**
+   * The scheme for the endpoint gateway. PUBLIC indicates an external endpoint that can be accessed over the Internet.
+   **/
+  private String endpointAccessGatewayScheme = null;
+
+  /**
+   * The subnets to use for endpoint access gateway.
+   **/
+  private List<String> endpointAccessGatewaySubnetIds = new ArrayList<String>();
 
   /**
    * AWS network parameters.
@@ -97,6 +107,40 @@ public class Network  {
    **/
   public void setSubnetIds(List<String> subnetIds) {
     this.subnetIds = subnetIds;
+  }
+
+  /**
+   * Getter for endpointAccessGatewayScheme.
+   * The scheme for the endpoint gateway. PUBLIC indicates an external endpoint that can be accessed over the Internet.
+   **/
+  @JsonProperty("endpointAccessGatewayScheme")
+  public String getEndpointAccessGatewayScheme() {
+    return endpointAccessGatewayScheme;
+  }
+
+  /**
+   * Setter for endpointAccessGatewayScheme.
+   * The scheme for the endpoint gateway. PUBLIC indicates an external endpoint that can be accessed over the Internet.
+   **/
+  public void setEndpointAccessGatewayScheme(String endpointAccessGatewayScheme) {
+    this.endpointAccessGatewayScheme = endpointAccessGatewayScheme;
+  }
+
+  /**
+   * Getter for endpointAccessGatewaySubnetIds.
+   * The subnets to use for endpoint access gateway.
+   **/
+  @JsonProperty("endpointAccessGatewaySubnetIds")
+  public List<String> getEndpointAccessGatewaySubnetIds() {
+    return endpointAccessGatewaySubnetIds;
+  }
+
+  /**
+   * Setter for endpointAccessGatewaySubnetIds.
+   * The subnets to use for endpoint access gateway.
+   **/
+  public void setEndpointAccessGatewaySubnetIds(List<String> endpointAccessGatewaySubnetIds) {
+    this.endpointAccessGatewaySubnetIds = endpointAccessGatewaySubnetIds;
   }
 
   /**
@@ -182,6 +226,12 @@ public class Network  {
     if (!Objects.equals(this.subnetIds, network.subnetIds)) {
       return false;
     }
+    if (!Objects.equals(this.endpointAccessGatewayScheme, network.endpointAccessGatewayScheme)) {
+      return false;
+    }
+    if (!Objects.equals(this.endpointAccessGatewaySubnetIds, network.endpointAccessGatewaySubnetIds)) {
+      return false;
+    }
     if (!Objects.equals(this.aws, network.aws)) {
       return false;
     }
@@ -199,7 +249,7 @@ public class Network  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(networkName, subnetIds, aws, azure, networkCidr, subnetMetadata);
+    return Objects.hash(networkName, subnetIds, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, aws, azure, networkCidr, subnetMetadata);
   }
 
   @Override
@@ -208,6 +258,8 @@ public class Network  {
     sb.append("class Network {\n");
     sb.append("    networkName: ").append(toIndentedString(networkName)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
+    sb.append("    endpointAccessGatewayScheme: ").append(toIndentedString(endpointAccessGatewayScheme)).append("\n");
+    sb.append("    endpointAccessGatewaySubnetIds: ").append(toIndentedString(endpointAccessGatewaySubnetIds)).append("\n");
     sb.append("    aws: ").append(toIndentedString(aws)).append("\n");
     sb.append("    azure: ").append(toIndentedString(azure)).append("\n");
     sb.append("    networkCidr: ").append(toIndentedString(networkCidr)).append("\n");

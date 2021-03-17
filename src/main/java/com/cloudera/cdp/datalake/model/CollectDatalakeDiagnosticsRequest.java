@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for collecting DataLake diagnostics.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-03T09:29:04.400-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-17T13:24:56.690-07:00")
 public class CollectDatalakeDiagnosticsRequest  {
 
   /**
@@ -82,6 +82,16 @@ public class CollectDatalakeDiagnosticsRequest  {
    * Array of host groups, collection will run only on the dedicated hosts that belongs to these host groups.
    **/
   private List<String> hostGroups = new ArrayList<String>();
+
+  /**
+   * Array of host names (fqdn or IP address), collection will not run on the excluded hosts.
+   **/
+  private List<String> excludeHosts = new ArrayList<String>();
+
+  /**
+   * Skip unhealthy hosts from the diagnostics collection.
+   **/
+  private Boolean skipUnresponsiveHosts = null;
 
   /**
    * Include salt minion/master/api system logs in the diagnostics collection.
@@ -269,6 +279,40 @@ public class CollectDatalakeDiagnosticsRequest  {
   }
 
   /**
+   * Getter for excludeHosts.
+   * Array of host names (fqdn or IP address), collection will not run on the excluded hosts.
+   **/
+  @JsonProperty("excludeHosts")
+  public List<String> getExcludeHosts() {
+    return excludeHosts;
+  }
+
+  /**
+   * Setter for excludeHosts.
+   * Array of host names (fqdn or IP address), collection will not run on the excluded hosts.
+   **/
+  public void setExcludeHosts(List<String> excludeHosts) {
+    this.excludeHosts = excludeHosts;
+  }
+
+  /**
+   * Getter for skipUnresponsiveHosts.
+   * Skip unhealthy hosts from the diagnostics collection.
+   **/
+  @JsonProperty("skipUnresponsiveHosts")
+  public Boolean getSkipUnresponsiveHosts() {
+    return skipUnresponsiveHosts;
+  }
+
+  /**
+   * Setter for skipUnresponsiveHosts.
+   * Skip unhealthy hosts from the diagnostics collection.
+   **/
+  public void setSkipUnresponsiveHosts(Boolean skipUnresponsiveHosts) {
+    this.skipUnresponsiveHosts = skipUnresponsiveHosts;
+  }
+
+  /**
    * Getter for includeSaltLogs.
    * Include salt minion/master/api system logs in the diagnostics collection.
    **/
@@ -358,6 +402,12 @@ public class CollectDatalakeDiagnosticsRequest  {
     if (!Objects.equals(this.hostGroups, collectDatalakeDiagnosticsRequest.hostGroups)) {
       return false;
     }
+    if (!Objects.equals(this.excludeHosts, collectDatalakeDiagnosticsRequest.excludeHosts)) {
+      return false;
+    }
+    if (!Objects.equals(this.skipUnresponsiveHosts, collectDatalakeDiagnosticsRequest.skipUnresponsiveHosts)) {
+      return false;
+    }
     if (!Objects.equals(this.includeSaltLogs, collectDatalakeDiagnosticsRequest.includeSaltLogs)) {
       return false;
     }
@@ -372,7 +422,7 @@ public class CollectDatalakeDiagnosticsRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, destination, description, caseNumber, labels, startDate, endDate, additionalLogs, hosts, hostGroups, includeSaltLogs, updatePackage, storageValidation);
+    return Objects.hash(crn, destination, description, caseNumber, labels, startDate, endDate, additionalLogs, hosts, hostGroups, excludeHosts, skipUnresponsiveHosts, includeSaltLogs, updatePackage, storageValidation);
   }
 
   @Override
@@ -389,6 +439,8 @@ public class CollectDatalakeDiagnosticsRequest  {
     sb.append("    additionalLogs: ").append(toIndentedString(additionalLogs)).append("\n");
     sb.append("    hosts: ").append(toIndentedString(hosts)).append("\n");
     sb.append("    hostGroups: ").append(toIndentedString(hostGroups)).append("\n");
+    sb.append("    excludeHosts: ").append(toIndentedString(excludeHosts)).append("\n");
+    sb.append("    skipUnresponsiveHosts: ").append(toIndentedString(skipUnresponsiveHosts)).append("\n");
     sb.append("    includeSaltLogs: ").append(toIndentedString(includeSaltLogs)).append("\n");
     sb.append("    updatePackage: ").append(toIndentedString(updatePackage)).append("\n");
     sb.append("    storageValidation: ").append(toIndentedString(storageValidation)).append("\n");

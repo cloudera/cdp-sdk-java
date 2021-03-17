@@ -27,6 +27,8 @@ import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
 import com.cloudera.cdp.client.Pair;
 import com.cloudera.cdp.client.WorkloadResponse;
+import com.cloudera.cdp.datahub.model.CancelDatahubDiagnosticsRequest;
+import com.cloudera.cdp.datahub.model.CancelDatahubDiagnosticsResponse;
 import com.cloudera.cdp.datahub.model.CollectCmDiagnosticsRequest;
 import com.cloudera.cdp.datahub.model.CollectCmDiagnosticsResponse;
 import com.cloudera.cdp.datahub.model.CollectDatahubDiagnosticsRequest;
@@ -82,6 +84,8 @@ import com.cloudera.cdp.datahub.model.ListClusterTemplatesRequest;
 import com.cloudera.cdp.datahub.model.ListClusterTemplatesResponse;
 import com.cloudera.cdp.datahub.model.ListClustersRequest;
 import com.cloudera.cdp.datahub.model.ListClustersResponse;
+import com.cloudera.cdp.datahub.model.ListDatahubDiagnosticsRequest;
+import com.cloudera.cdp.datahub.model.ListDatahubDiagnosticsResponse;
 import com.cloudera.cdp.datahub.model.ListRecipesRequest;
 import com.cloudera.cdp.datahub.model.ListRecipesResponse;
 import com.cloudera.cdp.datahub.model.RenewCertificateRequest;
@@ -103,7 +107,7 @@ import com.cloudera.cdp.datahub.model.SyncClusterResponse;
 import com.cloudera.cdp.datahub.model.UpdateAutoScaleRulesRequest;
 import com.cloudera.cdp.datahub.model.UpdateAutoScaleRulesResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-03T09:29:03.635-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-17T13:24:55.973-07:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datahub";
@@ -113,6 +117,19 @@ public class DatahubClient extends CdpClient {
       String endPoint,
       CdpClientConfiguration clientConfiguration) {
     super(credentials, endPoint, clientConfiguration);
+  }
+
+  /**
+   * Cancel running Datahub diagnostics collections
+   * @param input
+   * @return CancelDatahubDiagnosticsResponse
+   */
+  public CancelDatahubDiagnosticsResponse cancelDatahubDiagnostics(CancelDatahubDiagnosticsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling cancelDatahubDiagnostics");
+    }
+
+    return this.invokeAPI("/api/v1/datahub/cancelDatahubDiagnostics", input, new GenericType<CancelDatahubDiagnosticsResponse>(){});
   }
 
   /**
@@ -464,6 +481,19 @@ public class DatahubClient extends CdpClient {
     }
 
     return this.invokeAPI("/api/v1/datahub/listClusters", input, new GenericType<ListClustersResponse>(){});
+  }
+
+  /**
+   * List recent Datahub diagnostics collections
+   * @param input
+   * @return ListDatahubDiagnosticsResponse
+   */
+  public ListDatahubDiagnosticsResponse listDatahubDiagnostics(ListDatahubDiagnosticsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listDatahubDiagnostics");
+    }
+
+    return this.invokeAPI("/api/v1/datahub/listDatahubDiagnostics", input, new GenericType<ListDatahubDiagnosticsResponse>(){});
   }
 
   /**

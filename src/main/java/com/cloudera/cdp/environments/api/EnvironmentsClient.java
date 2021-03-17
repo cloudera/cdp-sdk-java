@@ -27,6 +27,8 @@ import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
 import com.cloudera.cdp.client.Pair;
 import com.cloudera.cdp.client.WorkloadResponse;
+import com.cloudera.cdp.environments.model.CancelFreeipaDiagnosticsRequest;
+import com.cloudera.cdp.environments.model.CancelFreeipaDiagnosticsResponse;
 import com.cloudera.cdp.environments.model.ChangeEnvironmentCredentialRequest;
 import com.cloudera.cdp.environments.model.ChangeEnvironmentCredentialResponse;
 import com.cloudera.cdp.environments.model.CollectFreeipaDiagnosticsRequest;
@@ -80,6 +82,8 @@ import com.cloudera.cdp.environments.model.ListCredentialsRequest;
 import com.cloudera.cdp.environments.model.ListCredentialsResponse;
 import com.cloudera.cdp.environments.model.ListEnvironmentsRequest;
 import com.cloudera.cdp.environments.model.ListEnvironmentsResponse;
+import com.cloudera.cdp.environments.model.ListFreeipaDiagnosticsRequest;
+import com.cloudera.cdp.environments.model.ListFreeipaDiagnosticsResponse;
 import com.cloudera.cdp.environments.model.ListProxyConfigsRequest;
 import com.cloudera.cdp.environments.model.ListProxyConfigsResponse;
 import com.cloudera.cdp.environments.model.RepairFreeipaRequest;
@@ -111,7 +115,7 @@ import com.cloudera.cdp.environments.model.SyncUserResponse;
 import com.cloudera.cdp.environments.model.TestAccountTelemetryRulesRequest;
 import com.cloudera.cdp.environments.model.TestAccountTelemetryRulesResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-03T09:29:04.627-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-17T13:24:56.935-07:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -121,6 +125,19 @@ public class EnvironmentsClient extends CdpClient {
       String endPoint,
       CdpClientConfiguration clientConfiguration) {
     super(credentials, endPoint, clientConfiguration);
+  }
+
+  /**
+   * Cancel running FreeIPA diagnostics collections
+   * @param input
+   * @return CancelFreeipaDiagnosticsResponse
+   */
+  public CancelFreeipaDiagnosticsResponse cancelFreeipaDiagnostics(CancelFreeipaDiagnosticsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling cancelFreeipaDiagnostics");
+    }
+
+    return this.invokeAPI("/api/v1/environments2/cancelFreeipaDiagnostics", input, new GenericType<CancelFreeipaDiagnosticsResponse>(){});
   }
 
   /**
@@ -459,6 +476,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("/api/v1/environments2/listEnvironments", input, new GenericType<ListEnvironmentsResponse>(){});
+  }
+
+  /**
+   * List recent FreeIPA diagnostics collections
+   * @param input
+   * @return ListFreeipaDiagnosticsResponse
+   */
+  public ListFreeipaDiagnosticsResponse listFreeipaDiagnostics(ListFreeipaDiagnosticsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listFreeipaDiagnostics");
+    }
+
+    return this.invokeAPI("/api/v1/environments2/listFreeipaDiagnostics", input, new GenericType<ListFreeipaDiagnosticsResponse>(){});
   }
 
   /**

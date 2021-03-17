@@ -3,7 +3,7 @@
 
   <groupId>com.cloudera.cdp</groupId>
   <artifactId>cdp-sdk-java</artifactId>
-  <version>0.9.28</version>
+  <version>0.9.29</version>
   <name>Cloudera CDP Java SDK</name>
   <packaging>jar</packaging>
 
@@ -32,14 +32,15 @@
     <jakarta-xml-bind-api.version>2.3.2</jakarta-xml-bind-api.version>
     <javassist.version>3.26.0-GA</javassist.version>
     <jersey.version>2.32</jersey.version>
-    <jackson.version>2.10.1</jackson.version>
-    <jackson-databind.version>2.10.1</jackson-databind.version>
+    <jackson.version>2.10.5</jackson.version>
+    <jackson-databind.version>2.10.5.1</jackson-databind.version>
     <jsr305.version>3.0.2</jsr305.version>
     <junit.jupiter.version>5.5.2</junit.jupiter.version>
     <junit.platform.version>1.5.2</junit.platform.version>
     <mockito.version>3.5.13</mockito.version>
     <slf4j-api.version>1.7.29</slf4j-api.version>
     <spotbugs.version>3.1.12</spotbugs.version>
+    <nanohttpd.version>2.3.1</nanohttpd.version>
 
     <spotbugs-maven-plugin.version>3.1.12.2</spotbugs-maven-plugin.version>
     <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
@@ -182,6 +183,11 @@
       <artifactId>mockito-core</artifactId>
       <version>${mockito.version}</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.nanohttpd</groupId>
+      <artifactId>nanohttpd</artifactId>
+      <version>${nanohttpd.version}</version>
     </dependency>
   </dependencies>
 
@@ -429,6 +435,8 @@
             <artifactSet>
               <excludes>
                 <exclude>com.google.errorprone:*</exclude>
+                
+                <exclude>com.google.guava:listenablefuture:*</exclude>
                 <exclude>org.checkerframework:*</exclude>
                 <exclude>org.codehaus.mojo:*</exclude>
                 
