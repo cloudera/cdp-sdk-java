@@ -25,11 +25,12 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.environments.model.AwsCredentialProperties;
 import com.cloudera.cdp.environments.model.AzureCredentialProperties;
+import com.cloudera.cdp.environments.model.GCPCredentialProperties;
 
 /**
  * A credential object.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-17T13:24:56.935-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-30T09:56:50.573-07:00")
 public class Credential  {
 
   /**
@@ -61,6 +62,11 @@ public class Credential  {
    * The credential properties that closely related to those that have been created on Azure.
    **/
   private AzureCredentialProperties azureCredentialProperties = null;
+
+  /**
+   * The credential properties that closely related to those that have been created on GCP.
+   **/
+  private GCPCredentialProperties gcpCredentialProperties = null;
 
   /**
    * Getter for credentialName.
@@ -164,6 +170,23 @@ public class Credential  {
     this.azureCredentialProperties = azureCredentialProperties;
   }
 
+  /**
+   * Getter for gcpCredentialProperties.
+   * The credential properties that closely related to those that have been created on GCP.
+   **/
+  @JsonProperty("gcpCredentialProperties")
+  public GCPCredentialProperties getGcpCredentialProperties() {
+    return gcpCredentialProperties;
+  }
+
+  /**
+   * Setter for gcpCredentialProperties.
+   * The credential properties that closely related to those that have been created on GCP.
+   **/
+  public void setGcpCredentialProperties(GCPCredentialProperties gcpCredentialProperties) {
+    this.gcpCredentialProperties = gcpCredentialProperties;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -191,12 +214,15 @@ public class Credential  {
     if (!Objects.equals(this.azureCredentialProperties, credential.azureCredentialProperties)) {
       return false;
     }
+    if (!Objects.equals(this.gcpCredentialProperties, credential.gcpCredentialProperties)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(credentialName, crn, cloudPlatform, description, awsCredentialProperties, azureCredentialProperties);
+    return Objects.hash(credentialName, crn, cloudPlatform, description, awsCredentialProperties, azureCredentialProperties, gcpCredentialProperties);
   }
 
   @Override
@@ -209,6 +235,7 @@ public class Credential  {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    awsCredentialProperties: ").append(toIndentedString(awsCredentialProperties)).append("\n");
     sb.append("    azureCredentialProperties: ").append(toIndentedString(azureCredentialProperties)).append("\n");
+    sb.append("    gcpCredentialProperties: ").append(toIndentedString(gcpCredentialProperties)).append("\n");
     sb.append("}");
     return sb.toString();
   }

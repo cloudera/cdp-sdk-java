@@ -26,13 +26,14 @@ import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.environments.model.CloudSubnet;
 import com.cloudera.cdp.environments.model.NetworkAwsParams;
 import com.cloudera.cdp.environments.model.NetworkAzureParams;
+import com.cloudera.cdp.environments.model.NetworkGcpParams;
 import java.util.*;
 import java.util.Map;
 
 /**
  * The network.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-17T13:24:56.935-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-30T09:56:50.573-07:00")
 public class Network  {
 
   /**
@@ -64,6 +65,11 @@ public class Network  {
    * Azure network parameters.
    **/
   private NetworkAzureParams azure = null;
+
+  /**
+   * GCP network parameters.
+   **/
+  private NetworkGcpParams gcp = null;
 
   /**
    * The range of private IPv4 addresses that resources will use under this network.
@@ -178,6 +184,23 @@ public class Network  {
   }
 
   /**
+   * Getter for gcp.
+   * GCP network parameters.
+   **/
+  @JsonProperty("gcp")
+  public NetworkGcpParams getGcp() {
+    return gcp;
+  }
+
+  /**
+   * Setter for gcp.
+   * GCP network parameters.
+   **/
+  public void setGcp(NetworkGcpParams gcp) {
+    this.gcp = gcp;
+  }
+
+  /**
    * Getter for networkCidr.
    * The range of private IPv4 addresses that resources will use under this network.
    **/
@@ -238,6 +261,9 @@ public class Network  {
     if (!Objects.equals(this.azure, network.azure)) {
       return false;
     }
+    if (!Objects.equals(this.gcp, network.gcp)) {
+      return false;
+    }
     if (!Objects.equals(this.networkCidr, network.networkCidr)) {
       return false;
     }
@@ -249,7 +275,7 @@ public class Network  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(networkName, subnetIds, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, aws, azure, networkCidr, subnetMetadata);
+    return Objects.hash(networkName, subnetIds, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, aws, azure, gcp, networkCidr, subnetMetadata);
   }
 
   @Override
@@ -262,6 +288,7 @@ public class Network  {
     sb.append("    endpointAccessGatewaySubnetIds: ").append(toIndentedString(endpointAccessGatewaySubnetIds)).append("\n");
     sb.append("    aws: ").append(toIndentedString(aws)).append("\n");
     sb.append("    azure: ").append(toIndentedString(azure)).append("\n");
+    sb.append("    gcp: ").append(toIndentedString(gcp)).append("\n");
     sb.append("    networkCidr: ").append(toIndentedString(networkCidr)).append("\n");
     sb.append("    subnetMetadata: ").append(toIndentedString(subnetMetadata)).append("\n");
     sb.append("}");

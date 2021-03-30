@@ -47,7 +47,7 @@ import com.cloudera.cdp.de.model.ListServicesResponse;
 import com.cloudera.cdp.de.model.ListVcsRequest;
 import com.cloudera.cdp.de.model.ListVcsResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-17T13:24:57.260-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-30T09:56:51.092-07:00")
 public class DeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "de";

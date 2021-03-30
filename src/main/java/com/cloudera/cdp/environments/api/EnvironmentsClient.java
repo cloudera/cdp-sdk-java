@@ -41,6 +41,10 @@ import com.cloudera.cdp.environments.model.CreateAzureCredentialRequest;
 import com.cloudera.cdp.environments.model.CreateAzureCredentialResponse;
 import com.cloudera.cdp.environments.model.CreateAzureEnvironmentRequest;
 import com.cloudera.cdp.environments.model.CreateAzureEnvironmentResponse;
+import com.cloudera.cdp.environments.model.CreateGCPCredentialRequest;
+import com.cloudera.cdp.environments.model.CreateGCPCredentialResponse;
+import com.cloudera.cdp.environments.model.CreateGCPEnvironmentRequest;
+import com.cloudera.cdp.environments.model.CreateGCPEnvironmentResponse;
 import com.cloudera.cdp.environments.model.CreateProxyConfigRequest;
 import com.cloudera.cdp.environments.model.CreateProxyConfigResponse;
 import com.cloudera.cdp.environments.model.DeleteCredentialRequest;
@@ -115,7 +119,7 @@ import com.cloudera.cdp.environments.model.SyncUserResponse;
 import com.cloudera.cdp.environments.model.TestAccountTelemetryRulesRequest;
 import com.cloudera.cdp.environments.model.TestAccountTelemetryRulesResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-17T13:24:56.935-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-30T09:56:50.573-07:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -216,6 +220,32 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("/api/v1/environments2/createAzureEnvironment", input, new GenericType<CreateAzureEnvironmentResponse>(){});
+  }
+
+  /**
+   * Creates a new GCP credential that can be attatched to an environment. The credential is used for authorization to provision resources such as compute instances within your cloud provider account.
+   * @param input
+   * @return CreateGCPCredentialResponse
+   */
+  public CreateGCPCredentialResponse createGCPCredential(CreateGCPCredentialRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createGCPCredential");
+    }
+
+    return this.invokeAPI("/api/v1/environments2/createGCPCredential", input, new GenericType<CreateGCPCredentialResponse>(){});
+  }
+
+  /**
+   * Creates a new GCP environment by providing the cloud provider access and network information. A FreeIPA server will be automatically provisioned when an environment is created.
+   * @param input
+   * @return CreateGCPEnvironmentResponse
+   */
+  public CreateGCPEnvironmentResponse createGCPEnvironment(CreateGCPEnvironmentRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createGCPEnvironment");
+    }
+
+    return this.invokeAPI("/api/v1/environments2/createGCPEnvironment", input, new GenericType<CreateGCPEnvironmentResponse>(){});
   }
 
   /**

@@ -43,6 +43,8 @@ import com.cloudera.cdp.datahub.model.CreateClusterDefinitionRequest;
 import com.cloudera.cdp.datahub.model.CreateClusterDefinitionResponse;
 import com.cloudera.cdp.datahub.model.CreateClusterTemplateRequest;
 import com.cloudera.cdp.datahub.model.CreateClusterTemplateResponse;
+import com.cloudera.cdp.datahub.model.CreateGCPClusterRequest;
+import com.cloudera.cdp.datahub.model.CreateGCPClusterResponse;
 import com.cloudera.cdp.datahub.model.CreateRecipeRequest;
 import com.cloudera.cdp.datahub.model.CreateRecipeResponse;
 import com.cloudera.cdp.datahub.model.DeleteAutoScaleRulesRequest;
@@ -107,7 +109,7 @@ import com.cloudera.cdp.datahub.model.SyncClusterResponse;
 import com.cloudera.cdp.datahub.model.UpdateAutoScaleRulesRequest;
 import com.cloudera.cdp.datahub.model.UpdateAutoScaleRulesResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-17T13:24:55.973-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-30T09:56:49.481-07:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datahub";
@@ -221,6 +223,19 @@ public class DatahubClient extends CdpClient {
     }
 
     return this.invokeAPI("/api/v1/datahub/createClusterTemplate", input, new GenericType<CreateClusterTemplateResponse>(){});
+  }
+
+  /**
+   * Creates a GCP workload cluster.
+   * @param input
+   * @return CreateGCPClusterResponse
+   */
+  public CreateGCPClusterResponse createGCPCluster(CreateGCPClusterRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createGCPCluster");
+    }
+
+    return this.invokeAPI("/api/v1/datahub/createGCPCluster", input, new GenericType<CreateGCPClusterResponse>(){});
   }
 
   /**

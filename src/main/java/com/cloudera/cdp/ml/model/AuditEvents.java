@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * AuditEvents contains all the audit events for a given workspace crn.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-17T13:24:56.525-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-30T09:56:50.192-07:00")
 public class AuditEvents  {
 
   /**

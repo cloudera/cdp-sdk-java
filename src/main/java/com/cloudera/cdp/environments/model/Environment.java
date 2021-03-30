@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.environments.model.Authentication;
 import com.cloudera.cdp.environments.model.EnvironmentAwsDetails;
+import com.cloudera.cdp.environments.model.EnvironmentGcpDetails;
 import com.cloudera.cdp.environments.model.FreeipaDetails;
 import com.cloudera.cdp.environments.model.LogStorage;
 import com.cloudera.cdp.environments.model.Network;
@@ -35,7 +36,7 @@ import java.time.ZonedDateTime;
 /**
  * The environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-17T13:24:56.935-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-30T09:56:50.573-07:00")
 public class Environment  {
 
   /**
@@ -112,6 +113,11 @@ public class Environment  {
    * 
    **/
   private EnvironmentAwsDetails awsDetails = null;
+
+  /**
+   * 
+   **/
+  private EnvironmentGcpDetails gcpDetails = null;
 
   /**
    * When true, this will report additional diagnostic information back to Cloudera.
@@ -384,6 +390,23 @@ public class Environment  {
   }
 
   /**
+   * Getter for gcpDetails.
+   * 
+   **/
+  @JsonProperty("gcpDetails")
+  public EnvironmentGcpDetails getGcpDetails() {
+    return gcpDetails;
+  }
+
+  /**
+   * Setter for gcpDetails.
+   * 
+   **/
+  public void setGcpDetails(EnvironmentGcpDetails gcpDetails) {
+    this.gcpDetails = gcpDetails;
+  }
+
+  /**
    * Getter for reportDeploymentLogs.
    * When true, this will report additional diagnostic information back to Cloudera.
    **/
@@ -488,6 +511,9 @@ public class Environment  {
     if (!Objects.equals(this.awsDetails, environment.awsDetails)) {
       return false;
     }
+    if (!Objects.equals(this.gcpDetails, environment.gcpDetails)) {
+      return false;
+    }
     if (!Objects.equals(this.reportDeploymentLogs, environment.reportDeploymentLogs)) {
       return false;
     }
@@ -502,7 +528,7 @@ public class Environment  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, network, logStorage, authentication, securityAccess, description, statusReason, created, creator, awsDetails, reportDeploymentLogs, freeipa, proxyConfig);
+    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, network, logStorage, authentication, securityAccess, description, statusReason, created, creator, awsDetails, gcpDetails, reportDeploymentLogs, freeipa, proxyConfig);
   }
 
   @Override
@@ -524,6 +550,7 @@ public class Environment  {
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    awsDetails: ").append(toIndentedString(awsDetails)).append("\n");
+    sb.append("    gcpDetails: ").append(toIndentedString(gcpDetails)).append("\n");
     sb.append("    reportDeploymentLogs: ").append(toIndentedString(reportDeploymentLogs)).append("\n");
     sb.append("    freeipa: ").append(toIndentedString(freeipa)).append("\n");
     sb.append("    proxyConfig: ").append(toIndentedString(proxyConfig)).append("\n");
