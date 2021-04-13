@@ -29,7 +29,7 @@ import com.cloudera.cdp.datahub.model.AutoScaleScheduleResponse;
 /**
  * An individual AutoScale Policy
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-30T09:56:49.481-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-13T14:18:22.501-07:00")
 public class AutoScalePolicyResponse extends CdpResponse {
 
   /**

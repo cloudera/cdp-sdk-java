@@ -28,7 +28,7 @@ import com.cloudera.cdp.environments.model.Credential;
 /**
  * Response object for a set Azure audit credential request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-30T09:56:50.573-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-13T14:18:23.504-07:00")
 public class SetAzureAuditCredentialResponse extends CdpResponse {
 
   /**

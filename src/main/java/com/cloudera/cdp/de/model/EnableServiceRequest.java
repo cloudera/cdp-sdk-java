@@ -30,7 +30,7 @@ import java.util.Map;
 /**
  * Request object for Enable Service method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-30T09:56:51.092-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-13T14:18:24.080-07:00")
 public class EnableServiceRequest  {
 
   /**
@@ -102,11 +102,6 @@ public class EnableServiceRequest  {
    * Chart overrides for enabling a service.
    **/
   private List<ChartValueOverridesRequest> chartValueOverrides = new ArrayList<ChartValueOverridesRequest>();
-
-  /**
-   * If provided deployment will occur to a pre-provisioned cluster; also known as an 'unmanaged' cluster.
-   **/
-  private String provisionerid = null;
 
   /**
    * List of CIDRs that would be allowed to access kubernetes master API server.
@@ -357,23 +352,6 @@ public class EnableServiceRequest  {
   }
 
   /**
-   * Getter for provisionerid.
-   * If provided deployment will occur to a pre-provisioned cluster; also known as an &#39;unmanaged&#39; cluster.
-   **/
-  @JsonProperty("provisionerid")
-  public String getProvisionerid() {
-    return provisionerid;
-  }
-
-  /**
-   * Setter for provisionerid.
-   * If provided deployment will occur to a pre-provisioned cluster; also known as an &#39;unmanaged&#39; cluster.
-   **/
-  public void setProvisionerid(String provisionerid) {
-    this.provisionerid = provisionerid;
-  }
-
-  /**
    * Getter for whitelistIps.
    * List of CIDRs that would be allowed to access kubernetes master API server.
    **/
@@ -458,9 +436,6 @@ public class EnableServiceRequest  {
     if (!Objects.equals(this.chartValueOverrides, enableServiceRequest.chartValueOverrides)) {
       return false;
     }
-    if (!Objects.equals(this.provisionerid, enableServiceRequest.provisionerid)) {
-      return false;
-    }
     if (!Objects.equals(this.whitelistIps, enableServiceRequest.whitelistIps)) {
       return false;
     }
@@ -472,7 +447,7 @@ public class EnableServiceRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, env, instanceType, minimumInstances, maximumInstances, minimumSpotInstances, maximumSpotInstances, initialInstances, initialSpotInstances, rootVolumeSize, enablePublicEndpoint, enableWorkloadAnalytics, useSsd, chartValueOverrides, provisionerid, whitelistIps, tags);
+    return Objects.hash(name, env, instanceType, minimumInstances, maximumInstances, minimumSpotInstances, maximumSpotInstances, initialInstances, initialSpotInstances, rootVolumeSize, enablePublicEndpoint, enableWorkloadAnalytics, useSsd, chartValueOverrides, whitelistIps, tags);
   }
 
   @Override
@@ -493,7 +468,6 @@ public class EnableServiceRequest  {
     sb.append("    enableWorkloadAnalytics: ").append(toIndentedString(enableWorkloadAnalytics)).append("\n");
     sb.append("    useSsd: ").append(toIndentedString(useSsd)).append("\n");
     sb.append("    chartValueOverrides: ").append(toIndentedString(chartValueOverrides)).append("\n");
-    sb.append("    provisionerid: ").append(toIndentedString(provisionerid)).append("\n");
     sb.append("    whitelistIps: ").append(toIndentedString(whitelistIps)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");

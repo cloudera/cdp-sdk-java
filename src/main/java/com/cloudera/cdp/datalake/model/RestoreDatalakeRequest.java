@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request to restore datalake from backup. Restore does not restore the database by default.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-30T09:56:50.325-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-13T14:18:23.276-07:00")
 public class RestoreDatalakeRequest  {
 
   /**
@@ -49,6 +49,11 @@ public class RestoreDatalakeRequest  {
    * Restore the database backing HMS/Ranger services. If this option is not provided, the HMS/Ranger services are restored by default.
    **/
   private Boolean includeDatabase = null;
+
+  /**
+   * Backup location. When provided, will be used to lookup the backup.
+   **/
+  private String backupLocationOverride = null;
 
   /**
    * Getter for datalakeName.
@@ -118,6 +123,23 @@ public class RestoreDatalakeRequest  {
     this.includeDatabase = includeDatabase;
   }
 
+  /**
+   * Getter for backupLocationOverride.
+   * Backup location. When provided, will be used to lookup the backup.
+   **/
+  @JsonProperty("backupLocationOverride")
+  public String getBackupLocationOverride() {
+    return backupLocationOverride;
+  }
+
+  /**
+   * Setter for backupLocationOverride.
+   * Backup location. When provided, will be used to lookup the backup.
+   **/
+  public void setBackupLocationOverride(String backupLocationOverride) {
+    this.backupLocationOverride = backupLocationOverride;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -139,12 +161,15 @@ public class RestoreDatalakeRequest  {
     if (!Objects.equals(this.includeDatabase, restoreDatalakeRequest.includeDatabase)) {
       return false;
     }
+    if (!Objects.equals(this.backupLocationOverride, restoreDatalakeRequest.backupLocationOverride)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, backupId, backupName, includeDatabase);
+    return Objects.hash(datalakeName, backupId, backupName, includeDatabase, backupLocationOverride);
   }
 
   @Override
@@ -155,6 +180,7 @@ public class RestoreDatalakeRequest  {
     sb.append("    backupId: ").append(toIndentedString(backupId)).append("\n");
     sb.append("    backupName: ").append(toIndentedString(backupName)).append("\n");
     sb.append("    includeDatabase: ").append(toIndentedString(includeDatabase)).append("\n");
+    sb.append("    backupLocationOverride: ").append(toIndentedString(backupLocationOverride)).append("\n");
     sb.append("}");
     return sb.toString();
   }

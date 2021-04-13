@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Request to archive audit events.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-30T09:56:51.013-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-13T14:18:23.958-07:00")
 public class ArchiveAuditEventsRequest  {
 
   /**

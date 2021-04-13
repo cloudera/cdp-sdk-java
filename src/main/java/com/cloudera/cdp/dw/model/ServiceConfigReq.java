@@ -30,7 +30,7 @@ import java.util.Map;
 /**
  * Configurations for a service (DBC or VW)
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-30T09:56:50.023-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-13T14:18:22.950-07:00")
 public class ServiceConfigReq  {
 
   /**

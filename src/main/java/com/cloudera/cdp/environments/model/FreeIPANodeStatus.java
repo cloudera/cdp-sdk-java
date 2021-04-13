@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * The status and issues of an individual FreeIPA node.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-03-30T09:56:50.573-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-13T14:18:23.504-07:00")
 public class FreeIPANodeStatus  {
 
   /**
