@@ -21,7 +21,7 @@
     <byte-buddy.version>1.10.13</byte-buddy.version>
     <commons-cli.version>1.4</commons-cli.version>
     <commons-codec.version>1.13</commons-codec.version>
-    <commons-io.version>2.6</commons-io.version>
+    <commons-io.version>2.7</commons-io.version>
     <commons-lang3.version>3.11</commons-lang3.version>
     <commons-httpclient.version>4.5.13</commons-httpclient.version>
     <errorprone.version>2.4.0</errorprone.version>
