@@ -24,11 +24,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.dw.model.AutoscalingOptions;
+import com.cloudera.cdp.dw.model.ServiceConfigReq;
 
 /**
  * Request object for the createVw method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-13T14:18:22.950-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-28T12:37:14.058-07:00")
 public class CreateVwRequest  {
 
   /**
@@ -60,6 +61,11 @@ public class CreateVwRequest  {
    * Autoscaling settings for the Virtual Warehouse.
    **/
   private AutoscalingOptions autoscaling = null;
+
+  /**
+   * Configuration settings for the Virtual Warehouse.
+   **/
+  private ServiceConfigReq config = null;
 
   /**
    * Getter for clusterId.
@@ -163,6 +169,23 @@ public class CreateVwRequest  {
     this.autoscaling = autoscaling;
   }
 
+  /**
+   * Getter for config.
+   * Configuration settings for the Virtual Warehouse.
+   **/
+  @JsonProperty("config")
+  public ServiceConfigReq getConfig() {
+    return config;
+  }
+
+  /**
+   * Setter for config.
+   * Configuration settings for the Virtual Warehouse.
+   **/
+  public void setConfig(ServiceConfigReq config) {
+    this.config = config;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -190,12 +213,15 @@ public class CreateVwRequest  {
     if (!Objects.equals(this.autoscaling, createVwRequest.autoscaling)) {
       return false;
     }
+    if (!Objects.equals(this.config, createVwRequest.config)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, dbcId, vwType, name, template, autoscaling);
+    return Objects.hash(clusterId, dbcId, vwType, name, template, autoscaling, config);
   }
 
   @Override
@@ -208,6 +234,7 @@ public class CreateVwRequest  {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    autoscaling: ").append(toIndentedString(autoscaling)).append("\n");
+    sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("}");
     return sb.toString();
   }

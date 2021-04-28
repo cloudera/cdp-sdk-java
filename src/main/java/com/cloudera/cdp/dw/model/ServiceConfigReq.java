@@ -30,7 +30,7 @@ import java.util.Map;
 /**
  * Configurations for a service (DBC or VW)
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-13T14:18:22.950-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-28T12:37:14.058-07:00")
 public class ServiceConfigReq  {
 
   /**
@@ -42,6 +42,16 @@ public class ServiceConfigReq  {
    * Application specific configurations.
    **/
   private Map<String, ApplicationConfigReq> applicationConfigs = new HashMap<String, ApplicationConfigReq>();
+
+  /**
+   * LDAP Groupnames to be enabled for auth.
+   **/
+  private List<String> ldapGroups = new ArrayList<String>();
+
+  /**
+   * Should SSO be enabled for this VW.
+   **/
+  private Boolean enableSSO = null;
 
   /**
    * Getter for commonConfigs.
@@ -77,6 +87,40 @@ public class ServiceConfigReq  {
     this.applicationConfigs = applicationConfigs;
   }
 
+  /**
+   * Getter for ldapGroups.
+   * LDAP Groupnames to be enabled for auth.
+   **/
+  @JsonProperty("ldapGroups")
+  public List<String> getLdapGroups() {
+    return ldapGroups;
+  }
+
+  /**
+   * Setter for ldapGroups.
+   * LDAP Groupnames to be enabled for auth.
+   **/
+  public void setLdapGroups(List<String> ldapGroups) {
+    this.ldapGroups = ldapGroups;
+  }
+
+  /**
+   * Getter for enableSSO.
+   * Should SSO be enabled for this VW.
+   **/
+  @JsonProperty("enableSSO")
+  public Boolean getEnableSSO() {
+    return enableSSO;
+  }
+
+  /**
+   * Setter for enableSSO.
+   * Should SSO be enabled for this VW.
+   **/
+  public void setEnableSSO(Boolean enableSSO) {
+    this.enableSSO = enableSSO;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -92,12 +136,18 @@ public class ServiceConfigReq  {
     if (!Objects.equals(this.applicationConfigs, serviceConfigReq.applicationConfigs)) {
       return false;
     }
+    if (!Objects.equals(this.ldapGroups, serviceConfigReq.ldapGroups)) {
+      return false;
+    }
+    if (!Objects.equals(this.enableSSO, serviceConfigReq.enableSSO)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(commonConfigs, applicationConfigs);
+    return Objects.hash(commonConfigs, applicationConfigs, ldapGroups, enableSSO);
   }
 
   @Override
@@ -106,6 +156,8 @@ public class ServiceConfigReq  {
     sb.append("class ServiceConfigReq {\n");
     sb.append("    commonConfigs: ").append(toIndentedString(commonConfigs)).append("\n");
     sb.append("    applicationConfigs: ").append(toIndentedString(applicationConfigs)).append("\n");
+    sb.append("    ldapGroups: ").append(toIndentedString(ldapGroups)).append("\n");
+    sb.append("    enableSSO: ").append(toIndentedString(enableSSO)).append("\n");
     sb.append("}");
     return sb.toString();
   }

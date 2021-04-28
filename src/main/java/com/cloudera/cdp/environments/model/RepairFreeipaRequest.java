@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for repairing the FreeIPA servers.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-13T14:18:23.504-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-28T12:37:14.829-07:00")
 public class RepairFreeipaRequest  {
 
   /**

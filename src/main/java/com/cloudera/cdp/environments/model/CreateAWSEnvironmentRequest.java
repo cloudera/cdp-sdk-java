@@ -26,6 +26,7 @@ import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.environments.model.AWSFreeIpaCreationRequest;
 import com.cloudera.cdp.environments.model.AuthenticationRequest;
 import com.cloudera.cdp.environments.model.AwsLogStorageRequest;
+import com.cloudera.cdp.environments.model.FreeIpaImageRequest;
 import com.cloudera.cdp.environments.model.SecurityAccessRequest;
 import com.cloudera.cdp.environments.model.TagRequest;
 import java.util.*;
@@ -33,7 +34,7 @@ import java.util.*;
 /**
  * Request object for a create AWS environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-13T14:18:23.504-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-28T12:37:14.829-07:00")
 public class CreateAWSEnvironmentRequest  {
 
   /**
@@ -120,6 +121,11 @@ public class CreateAWSEnvironmentRequest  {
    * The FreeIPA creation request for the environment
    **/
   private AWSFreeIpaCreationRequest freeIpa = null;
+
+  /**
+   * The FreeIPA image request for the environment
+   **/
+  private FreeIpaImageRequest image = null;
 
   /**
    * Tags associated with the resources.
@@ -421,6 +427,23 @@ public class CreateAWSEnvironmentRequest  {
   }
 
   /**
+   * Getter for image.
+   * The FreeIPA image request for the environment
+   **/
+  @JsonProperty("image")
+  public FreeIpaImageRequest getImage() {
+    return image;
+  }
+
+  /**
+   * Setter for image.
+   * The FreeIPA image request for the environment
+   **/
+  public void setImage(FreeIpaImageRequest image) {
+    this.image = image;
+  }
+
+  /**
    * Getter for tags.
    * Tags associated with the resources.
    **/
@@ -514,6 +537,9 @@ public class CreateAWSEnvironmentRequest  {
     if (!Objects.equals(this.freeIpa, createAWSEnvironmentRequest.freeIpa)) {
       return false;
     }
+    if (!Objects.equals(this.image, createAWSEnvironmentRequest.image)) {
+      return false;
+    }
     if (!Objects.equals(this.tags, createAWSEnvironmentRequest.tags)) {
       return false;
     }
@@ -525,7 +551,7 @@ public class CreateAWSEnvironmentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, securityAccess, authentication, logStorage, networkCidr, vpcId, subnetIds, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, s3GuardTableName, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, tags, proxyConfigName);
+    return Objects.hash(environmentName, credentialName, region, securityAccess, authentication, logStorage, networkCidr, vpcId, subnetIds, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, s3GuardTableName, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, image, tags, proxyConfigName);
   }
 
   @Override
@@ -549,6 +575,7 @@ public class CreateAWSEnvironmentRequest  {
     sb.append("    workloadAnalytics: ").append(toIndentedString(workloadAnalytics)).append("\n");
     sb.append("    reportDeploymentLogs: ").append(toIndentedString(reportDeploymentLogs)).append("\n");
     sb.append("    freeIpa: ").append(toIndentedString(freeIpa)).append("\n");
+    sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    proxyConfigName: ").append(toIndentedString(proxyConfigName)).append("\n");
     sb.append("}");

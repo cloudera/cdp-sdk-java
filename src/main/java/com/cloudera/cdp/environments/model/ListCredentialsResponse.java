@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for a list credentials request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-13T14:18:23.504-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-28T12:37:14.829-07:00")
 public class ListCredentialsResponse extends CdpResponse {
 
   /**

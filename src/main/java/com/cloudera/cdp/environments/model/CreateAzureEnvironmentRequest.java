@@ -27,6 +27,7 @@ import com.cloudera.cdp.environments.model.AzureFreeIpaCreationRequest;
 import com.cloudera.cdp.environments.model.AzureLogStorageRequest;
 import com.cloudera.cdp.environments.model.CreateAzureEnvironmentRequestNewNetworkParams;
 import com.cloudera.cdp.environments.model.ExistingAzureNetworkRequest;
+import com.cloudera.cdp.environments.model.FreeIpaImageRequest;
 import com.cloudera.cdp.environments.model.SecurityAccessRequest;
 import com.cloudera.cdp.environments.model.TagRequest;
 import java.util.*;
@@ -34,7 +35,7 @@ import java.util.*;
 /**
  * Request object for a create Azure environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-13T14:18:23.504-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-28T12:37:14.829-07:00")
 public class CreateAzureEnvironmentRequest  {
 
   /**
@@ -106,6 +107,11 @@ public class CreateAzureEnvironmentRequest  {
    * The FreeIPA creation request for the environment
    **/
   private AzureFreeIpaCreationRequest freeIpa = null;
+
+  /**
+   * The FreeIPA image request for the environment
+   **/
+  private FreeIpaImageRequest image = null;
 
   /**
    * Tags associated with the resources.
@@ -366,6 +372,23 @@ public class CreateAzureEnvironmentRequest  {
   }
 
   /**
+   * Getter for image.
+   * The FreeIPA image request for the environment
+   **/
+  @JsonProperty("image")
+  public FreeIpaImageRequest getImage() {
+    return image;
+  }
+
+  /**
+   * Setter for image.
+   * The FreeIPA image request for the environment
+   **/
+  public void setImage(FreeIpaImageRequest image) {
+    this.image = image;
+  }
+
+  /**
    * Getter for tags.
    * Tags associated with the resources.
    **/
@@ -484,6 +507,9 @@ public class CreateAzureEnvironmentRequest  {
     if (!Objects.equals(this.freeIpa, createAzureEnvironmentRequest.freeIpa)) {
       return false;
     }
+    if (!Objects.equals(this.image, createAzureEnvironmentRequest.image)) {
+      return false;
+    }
     if (!Objects.equals(this.tags, createAzureEnvironmentRequest.tags)) {
       return false;
     }
@@ -501,7 +527,7 @@ public class CreateAzureEnvironmentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints);
+    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints);
   }
 
   @Override
@@ -522,6 +548,7 @@ public class CreateAzureEnvironmentRequest  {
     sb.append("    workloadAnalytics: ").append(toIndentedString(workloadAnalytics)).append("\n");
     sb.append("    reportDeploymentLogs: ").append(toIndentedString(reportDeploymentLogs)).append("\n");
     sb.append("    freeIpa: ").append(toIndentedString(freeIpa)).append("\n");
+    sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    proxyConfigName: ").append(toIndentedString(proxyConfigName)).append("\n");
     sb.append("    resourceGroupName: ").append(toIndentedString(resourceGroupName)).append("\n");
