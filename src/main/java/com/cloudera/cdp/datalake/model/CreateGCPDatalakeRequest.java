@@ -25,12 +25,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.datalake.model.DatalakeResourceGCPTagRequest;
 import com.cloudera.cdp.datalake.model.GCPConfigurationRequest;
+import com.cloudera.cdp.datalake.model.ImageRequest;
 import java.util.*;
 
 /**
  * Request object for create GCP Data Lake request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-28T12:37:14.573-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-29T14:24:30.680-07:00")
 public class CreateGCPDatalakeRequest  {
 
   /**
@@ -62,6 +63,11 @@ public class CreateGCPDatalakeRequest  {
    * Cloudera Runtime version.
    **/
   private String runtime = null;
+
+  /**
+   * The image to use for the datalake. This must not be set if the runtime parameter is provided.
+   **/
+  private ImageRequest image = null;
 
   /**
    * Getter for datalakeName.
@@ -165,6 +171,23 @@ public class CreateGCPDatalakeRequest  {
     this.runtime = runtime;
   }
 
+  /**
+   * Getter for image.
+   * The image to use for the datalake. This must not be set if the runtime parameter is provided.
+   **/
+  @JsonProperty("image")
+  public ImageRequest getImage() {
+    return image;
+  }
+
+  /**
+   * Setter for image.
+   * The image to use for the datalake. This must not be set if the runtime parameter is provided.
+   **/
+  public void setImage(ImageRequest image) {
+    this.image = image;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -192,12 +215,15 @@ public class CreateGCPDatalakeRequest  {
     if (!Objects.equals(this.runtime, createGCPDatalakeRequest.runtime)) {
       return false;
     }
+    if (!Objects.equals(this.image, createGCPDatalakeRequest.image)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, tags, scale, runtime);
+    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, tags, scale, runtime, image);
   }
 
   @Override
@@ -210,6 +236,7 @@ public class CreateGCPDatalakeRequest  {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    scale: ").append(toIndentedString(scale)).append("\n");
     sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
+    sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("}");
     return sb.toString();
   }

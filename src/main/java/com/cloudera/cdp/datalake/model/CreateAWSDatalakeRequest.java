@@ -25,12 +25,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.datalake.model.AWSConfigurationRequest;
 import com.cloudera.cdp.datalake.model.DatalakeResourceTagRequest;
+import com.cloudera.cdp.datalake.model.ImageRequest;
 import java.util.*;
 
 /**
  * Request object for create AWS datalake request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-28T12:37:14.573-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-29T14:24:30.680-07:00")
 public class CreateAWSDatalakeRequest  {
 
   /**
@@ -62,6 +63,11 @@ public class CreateAWSDatalakeRequest  {
    * Cloudera Runtime version.
    **/
   private String runtime = null;
+
+  /**
+   * The image to use for the datalake. This must not be set if the runtime parameter is provided.
+   **/
+  private ImageRequest image = null;
 
   /**
    * Getter for datalakeName.
@@ -165,6 +171,23 @@ public class CreateAWSDatalakeRequest  {
     this.runtime = runtime;
   }
 
+  /**
+   * Getter for image.
+   * The image to use for the datalake. This must not be set if the runtime parameter is provided.
+   **/
+  @JsonProperty("image")
+  public ImageRequest getImage() {
+    return image;
+  }
+
+  /**
+   * Setter for image.
+   * The image to use for the datalake. This must not be set if the runtime parameter is provided.
+   **/
+  public void setImage(ImageRequest image) {
+    this.image = image;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -192,12 +215,15 @@ public class CreateAWSDatalakeRequest  {
     if (!Objects.equals(this.runtime, createAWSDatalakeRequest.runtime)) {
       return false;
     }
+    if (!Objects.equals(this.image, createAWSDatalakeRequest.image)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, scale, tags, runtime);
+    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, scale, tags, runtime, image);
   }
 
   @Override
@@ -210,6 +236,7 @@ public class CreateAWSDatalakeRequest  {
     sb.append("    scale: ").append(toIndentedString(scale)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
+    sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("}");
     return sb.toString();
   }

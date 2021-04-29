@@ -23,12 +23,80 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.datalake.model.ImageInfo;
+import java.util.*;
 
 /**
  * Response object for upgrade datalake request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-28T12:37:14.573-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-29T14:24:30.680-07:00")
 public class UpgradeDatalakeResponse extends CdpResponse {
+
+  /**
+   * Information about the current image
+   **/
+  private ImageInfo current = null;
+
+  /**
+   * List of images and components to upgrade to
+   **/
+  private List<ImageInfo> upgradeCandidates = new ArrayList<ImageInfo>();
+
+  /**
+   * The reason why upgrade is not possible
+   **/
+  private String reason = null;
+
+  /**
+   * Getter for current.
+   * Information about the current image
+   **/
+  @JsonProperty("current")
+  public ImageInfo getCurrent() {
+    return current;
+  }
+
+  /**
+   * Setter for current.
+   * Information about the current image
+   **/
+  public void setCurrent(ImageInfo current) {
+    this.current = current;
+  }
+
+  /**
+   * Getter for upgradeCandidates.
+   * List of images and components to upgrade to
+   **/
+  @JsonProperty("upgradeCandidates")
+  public List<ImageInfo> getUpgradeCandidates() {
+    return upgradeCandidates;
+  }
+
+  /**
+   * Setter for upgradeCandidates.
+   * List of images and components to upgrade to
+   **/
+  public void setUpgradeCandidates(List<ImageInfo> upgradeCandidates) {
+    this.upgradeCandidates = upgradeCandidates;
+  }
+
+  /**
+   * Getter for reason.
+   * The reason why upgrade is not possible
+   **/
+  @JsonProperty("reason")
+  public String getReason() {
+    return reason;
+  }
+
+  /**
+   * Setter for reason.
+   * The reason why upgrade is not possible
+   **/
+  public void setReason(String reason) {
+    this.reason = reason;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -36,6 +104,16 @@ public class UpgradeDatalakeResponse extends CdpResponse {
       return true;
     }
     if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    UpgradeDatalakeResponse upgradeDatalakeResponse = (UpgradeDatalakeResponse) o;
+    if (!Objects.equals(this.current, upgradeDatalakeResponse.current)) {
+      return false;
+    }
+    if (!Objects.equals(this.upgradeCandidates, upgradeDatalakeResponse.upgradeCandidates)) {
+      return false;
+    }
+    if (!Objects.equals(this.reason, upgradeDatalakeResponse.reason)) {
       return false;
     }
     if (!super.equals(o)) {
@@ -46,7 +124,7 @@ public class UpgradeDatalakeResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash( super.hashCode());
+    return Objects.hash(current, upgradeCandidates, reason, super.hashCode());
   }
 
   @Override
@@ -54,6 +132,9 @@ public class UpgradeDatalakeResponse extends CdpResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpgradeDatalakeResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    current: ").append(toIndentedString(current)).append("\n");
+    sb.append("    upgradeCandidates: ").append(toIndentedString(upgradeCandidates)).append("\n");
+    sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("}");
     return sb.toString();
   }

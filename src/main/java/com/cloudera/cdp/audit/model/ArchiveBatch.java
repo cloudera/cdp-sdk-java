@@ -27,8 +27,8 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Information about a batch of audit events that were archived.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-28T12:37:15.190-07:00")
-public class ArchiveAuditEventsBatchResponse extends CdpResponse {
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-29T14:24:31.274-07:00")
+public class ArchiveBatch  {
 
   /**
    * The account ID for which events were archived.
@@ -126,20 +126,17 @@ public class ArchiveAuditEventsBatchResponse extends CdpResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ArchiveAuditEventsBatchResponse archiveAuditEventsBatchResponse = (ArchiveAuditEventsBatchResponse) o;
-    if (!Objects.equals(this.accountId, archiveAuditEventsBatchResponse.accountId)) {
+    ArchiveBatch archiveBatch = (ArchiveBatch) o;
+    if (!Objects.equals(this.accountId, archiveBatch.accountId)) {
       return false;
     }
-    if (!Objects.equals(this.eventCount, archiveAuditEventsBatchResponse.eventCount)) {
+    if (!Objects.equals(this.eventCount, archiveBatch.eventCount)) {
       return false;
     }
-    if (!Objects.equals(this.archiveId, archiveAuditEventsBatchResponse.archiveId)) {
+    if (!Objects.equals(this.archiveId, archiveBatch.archiveId)) {
       return false;
     }
-    if (!Objects.equals(this.archiveTimestamp, archiveAuditEventsBatchResponse.archiveTimestamp)) {
-      return false;
-    }
-    if (!super.equals(o)) {
+    if (!Objects.equals(this.archiveTimestamp, archiveBatch.archiveTimestamp)) {
       return false;
     }
     return true;
@@ -147,14 +144,13 @@ public class ArchiveAuditEventsBatchResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, eventCount, archiveId, archiveTimestamp, super.hashCode());
+    return Objects.hash(accountId, eventCount, archiveId, archiveTimestamp);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ArchiveAuditEventsBatchResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("class ArchiveBatch {\n");
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    eventCount: ").append(toIndentedString(eventCount)).append("\n");
     sb.append("    archiveId: ").append(toIndentedString(archiveId)).append("\n");

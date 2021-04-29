@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Configurations for instance group
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-28T12:37:13.495-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-29T14:24:29.883-07:00")
 public class InstanceGroupRequest  {
 
   /**
@@ -54,14 +54,14 @@ public class InstanceGroupRequest  {
   private String instanceType = null;
 
   /**
-   * The root volume size.
-   **/
-  private Integer rootVolumeSize = null;
-
-  /**
    * The attached volume configuration. This does not include root volume.
    **/
   private List<AttachedVolumeRequest> attachedVolumeConfiguration = new ArrayList<AttachedVolumeRequest>();
+
+  /**
+   * The root volume size.
+   **/
+  private Integer rootVolumeSize = null;
 
   /**
    * The names or CRNs of the recipes that would be applied to the instance group.
@@ -147,23 +147,6 @@ public class InstanceGroupRequest  {
   }
 
   /**
-   * Getter for rootVolumeSize.
-   * The root volume size.
-   **/
-  @JsonProperty("rootVolumeSize")
-  public Integer getRootVolumeSize() {
-    return rootVolumeSize;
-  }
-
-  /**
-   * Setter for rootVolumeSize.
-   * The root volume size.
-   **/
-  public void setRootVolumeSize(Integer rootVolumeSize) {
-    this.rootVolumeSize = rootVolumeSize;
-  }
-
-  /**
    * Getter for attachedVolumeConfiguration.
    * The attached volume configuration. This does not include root volume.
    **/
@@ -178,6 +161,23 @@ public class InstanceGroupRequest  {
    **/
   public void setAttachedVolumeConfiguration(List<AttachedVolumeRequest> attachedVolumeConfiguration) {
     this.attachedVolumeConfiguration = attachedVolumeConfiguration;
+  }
+
+  /**
+   * Getter for rootVolumeSize.
+   * The root volume size.
+   **/
+  @JsonProperty("rootVolumeSize")
+  public Integer getRootVolumeSize() {
+    return rootVolumeSize;
+  }
+
+  /**
+   * Setter for rootVolumeSize.
+   * The root volume size.
+   **/
+  public void setRootVolumeSize(Integer rootVolumeSize) {
+    this.rootVolumeSize = rootVolumeSize;
   }
 
   /**
@@ -252,10 +252,10 @@ public class InstanceGroupRequest  {
     if (!Objects.equals(this.instanceType, instanceGroupRequest.instanceType)) {
       return false;
     }
-    if (!Objects.equals(this.rootVolumeSize, instanceGroupRequest.rootVolumeSize)) {
+    if (!Objects.equals(this.attachedVolumeConfiguration, instanceGroupRequest.attachedVolumeConfiguration)) {
       return false;
     }
-    if (!Objects.equals(this.attachedVolumeConfiguration, instanceGroupRequest.attachedVolumeConfiguration)) {
+    if (!Objects.equals(this.rootVolumeSize, instanceGroupRequest.rootVolumeSize)) {
       return false;
     }
     if (!Objects.equals(this.recipeNames, instanceGroupRequest.recipeNames)) {
@@ -272,7 +272,7 @@ public class InstanceGroupRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(nodeCount, instanceGroupName, instanceGroupType, instanceType, rootVolumeSize, attachedVolumeConfiguration, recipeNames, recoveryMode, volumeEncryption);
+    return Objects.hash(nodeCount, instanceGroupName, instanceGroupType, instanceType, attachedVolumeConfiguration, rootVolumeSize, recipeNames, recoveryMode, volumeEncryption);
   }
 
   @Override
@@ -283,8 +283,8 @@ public class InstanceGroupRequest  {
     sb.append("    instanceGroupName: ").append(toIndentedString(instanceGroupName)).append("\n");
     sb.append("    instanceGroupType: ").append(toIndentedString(instanceGroupType)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
-    sb.append("    rootVolumeSize: ").append(toIndentedString(rootVolumeSize)).append("\n");
     sb.append("    attachedVolumeConfiguration: ").append(toIndentedString(attachedVolumeConfiguration)).append("\n");
+    sb.append("    rootVolumeSize: ").append(toIndentedString(rootVolumeSize)).append("\n");
     sb.append("    recipeNames: ").append(toIndentedString(recipeNames)).append("\n");
     sb.append("    recoveryMode: ").append(toIndentedString(recoveryMode)).append("\n");
     sb.append("    volumeEncryption: ").append(toIndentedString(volumeEncryption)).append("\n");

@@ -23,13 +23,13 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
-import com.cloudera.cdp.audit.model.ArchiveAuditEventsBatchResponse;
+import com.cloudera.cdp.audit.model.ArchiveBatch;
 import java.util.*;
 
 /**
  * Response from archiving audit events.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-28T12:37:15.190-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-29T14:24:31.274-07:00")
 public class ArchiveAuditEventsResponse extends CdpResponse {
 
   /**
@@ -40,7 +40,7 @@ public class ArchiveAuditEventsResponse extends CdpResponse {
   /**
    * The details about the batches of events archived.
    **/
-  private List<ArchiveAuditEventsBatchResponse> eventBatches = new ArrayList<ArchiveAuditEventsBatchResponse>();
+  private List<ArchiveBatch> eventBatches = new ArrayList<ArchiveBatch>();
 
   /**
    * Getter for eventCount.
@@ -64,7 +64,7 @@ public class ArchiveAuditEventsResponse extends CdpResponse {
    * The details about the batches of events archived.
    **/
   @JsonProperty("eventBatches")
-  public List<ArchiveAuditEventsBatchResponse> getEventBatches() {
+  public List<ArchiveBatch> getEventBatches() {
     return eventBatches;
   }
 
@@ -72,7 +72,7 @@ public class ArchiveAuditEventsResponse extends CdpResponse {
    * Setter for eventBatches.
    * The details about the batches of events archived.
    **/
-  public void setEventBatches(List<ArchiveAuditEventsBatchResponse> eventBatches) {
+  public void setEventBatches(List<ArchiveBatch> eventBatches) {
     this.eventBatches = eventBatches;
   }
 

@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Information used to connect a CDP account to an external identity provider.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-28T12:37:15.365-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-29T14:24:31.449-07:00")
 public class SamlProvider  {
 
   /**
