@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * AWS storage configuration for cluster and audit logs.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-29T14:24:31.002-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-05-12T14:54:21.203-07:00")
 public class AwsLogStorageRequest  {
 
   /**
@@ -39,6 +39,11 @@ public class AwsLogStorageRequest  {
    * The AWS instance profile that which contains the necessary permissions to access the S3 storage location.
    **/
   private String instanceProfile = null;
+
+  /**
+   * The base location to store backup in S3. This should be an s3a:// url.
+   **/
+  private String backupStorageLocationBase = null;
 
   /**
    * Getter for storageLocationBase.
@@ -74,6 +79,23 @@ public class AwsLogStorageRequest  {
     this.instanceProfile = instanceProfile;
   }
 
+  /**
+   * Getter for backupStorageLocationBase.
+   * The base location to store backup in S3. This should be an s3a:// url.
+   **/
+  @JsonProperty("backupStorageLocationBase")
+  public String getBackupStorageLocationBase() {
+    return backupStorageLocationBase;
+  }
+
+  /**
+   * Setter for backupStorageLocationBase.
+   * The base location to store backup in S3. This should be an s3a:// url.
+   **/
+  public void setBackupStorageLocationBase(String backupStorageLocationBase) {
+    this.backupStorageLocationBase = backupStorageLocationBase;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -89,12 +111,15 @@ public class AwsLogStorageRequest  {
     if (!Objects.equals(this.instanceProfile, awsLogStorageRequest.instanceProfile)) {
       return false;
     }
+    if (!Objects.equals(this.backupStorageLocationBase, awsLogStorageRequest.backupStorageLocationBase)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(storageLocationBase, instanceProfile);
+    return Objects.hash(storageLocationBase, instanceProfile, backupStorageLocationBase);
   }
 
   @Override
@@ -103,6 +128,7 @@ public class AwsLogStorageRequest  {
     sb.append("class AwsLogStorageRequest {\n");
     sb.append("    storageLocationBase: ").append(toIndentedString(storageLocationBase)).append("\n");
     sb.append("    instanceProfile: ").append(toIndentedString(instanceProfile)).append("\n");
+    sb.append("    backupStorageLocationBase: ").append(toIndentedString(backupStorageLocationBase)).append("\n");
     sb.append("}");
     return sb.toString();
   }

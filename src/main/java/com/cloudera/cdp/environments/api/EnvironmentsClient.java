@@ -119,7 +119,7 @@ import com.cloudera.cdp.environments.model.SyncUserResponse;
 import com.cloudera.cdp.environments.model.TestAccountTelemetryRulesRequest;
 import com.cloudera.cdp.environments.model.TestAccountTelemetryRulesResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-29T14:24:31.002-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-05-12T14:54:21.203-07:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";

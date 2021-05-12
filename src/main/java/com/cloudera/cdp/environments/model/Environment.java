@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.environments.model.Authentication;
+import com.cloudera.cdp.environments.model.BackupStorage;
 import com.cloudera.cdp.environments.model.EnvironmentAwsDetails;
 import com.cloudera.cdp.environments.model.EnvironmentGcpDetails;
 import com.cloudera.cdp.environments.model.FreeipaDetails;
@@ -36,7 +37,7 @@ import java.time.ZonedDateTime;
 /**
  * The environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-29T14:24:31.002-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-05-12T14:54:21.203-07:00")
 public class Environment  {
 
   /**
@@ -78,6 +79,11 @@ public class Environment  {
    * Storage configuration for cluster and audit logs.
    **/
   private LogStorage logStorage = null;
+
+  /**
+   * Storage configuration for backup.
+   **/
+  private BackupStorage backupStorage = null;
 
   /**
    * SSH key for accessing cluster node instances.
@@ -268,6 +274,23 @@ public class Environment  {
    **/
   public void setLogStorage(LogStorage logStorage) {
     this.logStorage = logStorage;
+  }
+
+  /**
+   * Getter for backupStorage.
+   * Storage configuration for backup.
+   **/
+  @JsonProperty("backupStorage")
+  public BackupStorage getBackupStorage() {
+    return backupStorage;
+  }
+
+  /**
+   * Setter for backupStorage.
+   * Storage configuration for backup.
+   **/
+  public void setBackupStorage(BackupStorage backupStorage) {
+    this.backupStorage = backupStorage;
   }
 
   /**
@@ -490,6 +513,9 @@ public class Environment  {
     if (!Objects.equals(this.logStorage, environment.logStorage)) {
       return false;
     }
+    if (!Objects.equals(this.backupStorage, environment.backupStorage)) {
+      return false;
+    }
     if (!Objects.equals(this.authentication, environment.authentication)) {
       return false;
     }
@@ -528,7 +554,7 @@ public class Environment  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, network, logStorage, authentication, securityAccess, description, statusReason, created, creator, awsDetails, gcpDetails, reportDeploymentLogs, freeipa, proxyConfig);
+    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, network, logStorage, backupStorage, authentication, securityAccess, description, statusReason, created, creator, awsDetails, gcpDetails, reportDeploymentLogs, freeipa, proxyConfig);
   }
 
   @Override
@@ -543,6 +569,7 @@ public class Environment  {
     sb.append("    credentialName: ").append(toIndentedString(credentialName)).append("\n");
     sb.append("    network: ").append(toIndentedString(network)).append("\n");
     sb.append("    logStorage: ").append(toIndentedString(logStorage)).append("\n");
+    sb.append("    backupStorage: ").append(toIndentedString(backupStorage)).append("\n");
     sb.append("    authentication: ").append(toIndentedString(authentication)).append("\n");
     sb.append("    securityAccess: ").append(toIndentedString(securityAccess)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

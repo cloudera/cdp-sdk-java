@@ -47,6 +47,8 @@ import com.cloudera.cdp.dw.model.DescribeConfigRequest;
 import com.cloudera.cdp.dw.model.DescribeConfigResponse;
 import com.cloudera.cdp.dw.model.DescribeDbcRequest;
 import com.cloudera.cdp.dw.model.DescribeDbcResponse;
+import com.cloudera.cdp.dw.model.DescribeKubeconfigRequest;
+import com.cloudera.cdp.dw.model.DescribeKubeconfigResponse;
 import com.cloudera.cdp.dw.model.DescribeVwRequest;
 import com.cloudera.cdp.dw.model.DescribeVwResponse;
 import com.cloudera.cdp.dw.model.Error;
@@ -65,7 +67,7 @@ import com.cloudera.cdp.dw.model.UpdateDbcResponse;
 import com.cloudera.cdp.dw.model.UpdateVwRequest;
 import com.cloudera.cdp.dw.model.UpdateVwResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-29T14:24:30.304-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-05-12T14:54:20.607-07:00")
 public class DwClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dw";
@@ -205,6 +207,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("/api/v1/dw/describeDbc", input, new GenericType<DescribeDbcResponse>(){});
+  }
+
+  /**
+   * Get Kubeconfig for a Cloudera Data Warehouse cluster.
+   * @param input
+   * @return DescribeKubeconfigResponse
+   */
+  public DescribeKubeconfigResponse describeKubeconfig(DescribeKubeconfigRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeKubeconfig");
+    }
+
+    return this.invokeAPI("/api/v1/dw/describeKubeconfig", input, new GenericType<DescribeKubeconfigResponse>(){});
   }
 
   /**

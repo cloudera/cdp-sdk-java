@@ -25,11 +25,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.dw.model.AutoscalingOptions;
 import com.cloudera.cdp.dw.model.ServiceConfigReq;
+import com.cloudera.cdp.dw.model.TagRequest;
+import java.util.*;
 
 /**
  * Request object for the createVw method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-29T14:24:30.304-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-05-12T14:54:20.607-07:00")
 public class CreateVwRequest  {
 
   /**
@@ -66,6 +68,11 @@ public class CreateVwRequest  {
    * Configuration settings for the Virtual Warehouse.
    **/
   private ServiceConfigReq config = null;
+
+  /**
+   * Tags associated with the resources.
+   **/
+  private List<TagRequest> tags = new ArrayList<TagRequest>();
 
   /**
    * Getter for clusterId.
@@ -186,6 +193,23 @@ public class CreateVwRequest  {
     this.config = config;
   }
 
+  /**
+   * Getter for tags.
+   * Tags associated with the resources.
+   **/
+  @JsonProperty("tags")
+  public List<TagRequest> getTags() {
+    return tags;
+  }
+
+  /**
+   * Setter for tags.
+   * Tags associated with the resources.
+   **/
+  public void setTags(List<TagRequest> tags) {
+    this.tags = tags;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -216,12 +240,15 @@ public class CreateVwRequest  {
     if (!Objects.equals(this.config, createVwRequest.config)) {
       return false;
     }
+    if (!Objects.equals(this.tags, createVwRequest.tags)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, dbcId, vwType, name, template, autoscaling, config);
+    return Objects.hash(clusterId, dbcId, vwType, name, template, autoscaling, config, tags);
   }
 
   @Override
@@ -235,6 +262,7 @@ public class CreateVwRequest  {
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    autoscaling: ").append(toIndentedString(autoscaling)).append("\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

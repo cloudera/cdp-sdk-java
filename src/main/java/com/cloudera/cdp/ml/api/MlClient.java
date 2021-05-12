@@ -53,7 +53,7 @@ import com.cloudera.cdp.ml.model.RevokeWorkspaceAccessResponse;
 import com.cloudera.cdp.ml.model.UpgradeWorkspaceRequest;
 import com.cloudera.cdp.ml.model.UpgradeWorkspaceResponse;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-29T14:24:30.460-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-05-12T14:54:20.774-07:00")
 public class MlClient extends CdpClient {
 
   public static final String SERVICE_NAME = "ml";

@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Information about a batch of audit events that were archived.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-29T14:24:31.274-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-05-12T14:54:21.475-07:00")
 public class ArchiveBatch  {
 
   /**
@@ -36,7 +36,7 @@ public class ArchiveBatch  {
   private String accountId = null;
 
   /**
-   * The number of events archived.
+   * The number of events archived. A negative number indicates that the count is not available.
    **/
   private Long eventCount = null;
 
@@ -69,7 +69,7 @@ public class ArchiveBatch  {
 
   /**
    * Getter for eventCount.
-   * The number of events archived.
+   * The number of events archived. A negative number indicates that the count is not available.
    **/
   @JsonProperty("eventCount")
   public Long getEventCount() {
@@ -78,7 +78,7 @@ public class ArchiveBatch  {
 
   /**
    * Setter for eventCount.
-   * The number of events archived.
+   * The number of events archived. A negative number indicates that the count is not available.
    **/
   public void setEventCount(Long eventCount) {
     this.eventCount = eventCount;

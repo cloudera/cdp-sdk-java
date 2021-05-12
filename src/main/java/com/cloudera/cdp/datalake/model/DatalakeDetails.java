@@ -36,7 +36,7 @@ import java.util.*;
 /**
  * Details about a datalake
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-29T14:24:30.680-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-05-12T14:54:20.925-07:00")
 public class DatalakeDetails  {
 
   /**
@@ -123,6 +123,11 @@ public class DatalakeDetails  {
    * The exposed service api endpoints.
    **/
   private Endpoints endpoints = null;
+
+  /**
+   * The base location for the cloud storage used for the datalake.
+   **/
+  private String cloudStorageBaseLocation = null;
 
   /**
    * Getter for crn.
@@ -413,6 +418,23 @@ public class DatalakeDetails  {
     this.endpoints = endpoints;
   }
 
+  /**
+   * Getter for cloudStorageBaseLocation.
+   * The base location for the cloud storage used for the datalake.
+   **/
+  @JsonProperty("cloudStorageBaseLocation")
+  public String getCloudStorageBaseLocation() {
+    return cloudStorageBaseLocation;
+  }
+
+  /**
+   * Setter for cloudStorageBaseLocation.
+   * The base location for the cloud storage used for the datalake.
+   **/
+  public void setCloudStorageBaseLocation(String cloudStorageBaseLocation) {
+    this.cloudStorageBaseLocation = cloudStorageBaseLocation;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -473,12 +495,15 @@ public class DatalakeDetails  {
     if (!Objects.equals(this.endpoints, datalakeDetails.endpoints)) {
       return false;
     }
+    if (!Objects.equals(this.cloudStorageBaseLocation, datalakeDetails.cloudStorageBaseLocation)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, datalakeName, status, shape, environmentCrn, credentialCrn, cloudPlatform, instanceGroups, creationDate, clouderaManager, productVersions, region, statusReason, awsConfiguration, azureConfiguration, gcpConfiguration, endpoints);
+    return Objects.hash(crn, datalakeName, status, shape, environmentCrn, credentialCrn, cloudPlatform, instanceGroups, creationDate, clouderaManager, productVersions, region, statusReason, awsConfiguration, azureConfiguration, gcpConfiguration, endpoints, cloudStorageBaseLocation);
   }
 
   @Override
@@ -502,6 +527,7 @@ public class DatalakeDetails  {
     sb.append("    azureConfiguration: ").append(toIndentedString(azureConfiguration)).append("\n");
     sb.append("    gcpConfiguration: ").append(toIndentedString(gcpConfiguration)).append("\n");
     sb.append("    endpoints: ").append(toIndentedString(endpoints)).append("\n");
+    sb.append("    cloudStorageBaseLocation: ").append(toIndentedString(cloudStorageBaseLocation)).append("\n");
     sb.append("}");
     return sb.toString();
   }

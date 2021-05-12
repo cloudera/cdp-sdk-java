@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * GCP storage configuration for cluster and audit logs.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-29T14:24:31.002-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-05-12T14:54:21.203-07:00")
 public class GcpLogStorageRequest  {
 
   /**
@@ -39,6 +39,11 @@ public class GcpLogStorageRequest  {
    * Email id of the service account to be associated with the instances. This service account should have \"storage.ObjectCreator\" role on the given storage bucket.
    **/
   private String serviceAccountEmail = null;
+
+  /**
+   * The Google storage bucket to use. This should be a gs:// url.
+   **/
+  private String backupStorageLocationBase = null;
 
   /**
    * Getter for storageLocationBase.
@@ -74,6 +79,23 @@ public class GcpLogStorageRequest  {
     this.serviceAccountEmail = serviceAccountEmail;
   }
 
+  /**
+   * Getter for backupStorageLocationBase.
+   * The Google storage bucket to use. This should be a gs:// url.
+   **/
+  @JsonProperty("backupStorageLocationBase")
+  public String getBackupStorageLocationBase() {
+    return backupStorageLocationBase;
+  }
+
+  /**
+   * Setter for backupStorageLocationBase.
+   * The Google storage bucket to use. This should be a gs:// url.
+   **/
+  public void setBackupStorageLocationBase(String backupStorageLocationBase) {
+    this.backupStorageLocationBase = backupStorageLocationBase;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -89,12 +111,15 @@ public class GcpLogStorageRequest  {
     if (!Objects.equals(this.serviceAccountEmail, gcpLogStorageRequest.serviceAccountEmail)) {
       return false;
     }
+    if (!Objects.equals(this.backupStorageLocationBase, gcpLogStorageRequest.backupStorageLocationBase)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(storageLocationBase, serviceAccountEmail);
+    return Objects.hash(storageLocationBase, serviceAccountEmail, backupStorageLocationBase);
   }
 
   @Override
@@ -103,6 +128,7 @@ public class GcpLogStorageRequest  {
     sb.append("class GcpLogStorageRequest {\n");
     sb.append("    storageLocationBase: ").append(toIndentedString(storageLocationBase)).append("\n");
     sb.append("    serviceAccountEmail: ").append(toIndentedString(serviceAccountEmail)).append("\n");
+    sb.append("    backupStorageLocationBase: ").append(toIndentedString(backupStorageLocationBase)).append("\n");
     sb.append("}");
     return sb.toString();
   }

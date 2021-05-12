@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Azure storage configuration for cluster and audit logs.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-29T14:24:31.002-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-05-12T14:54:21.203-07:00")
 public class AzureLogStorageRequest  {
 
   /**
@@ -39,6 +39,11 @@ public class AzureLogStorageRequest  {
    * The managed identity associated with the logger. This identity should have Storage Blob Data Contributor role on the given storage account.
    **/
   private String managedIdentity = null;
+
+  /**
+   * The storage location to use. The location has to be in the following format abfs://filesystem@storage-account-name.dfs.core.windows.net. The filesystem must already exist and the storage account must be StorageV2.
+   **/
+  private String backupStorageLocationBase = null;
 
   /**
    * Getter for storageLocationBase.
@@ -74,6 +79,23 @@ public class AzureLogStorageRequest  {
     this.managedIdentity = managedIdentity;
   }
 
+  /**
+   * Getter for backupStorageLocationBase.
+   * The storage location to use. The location has to be in the following format abfs://filesystem@storage-account-name.dfs.core.windows.net. The filesystem must already exist and the storage account must be StorageV2.
+   **/
+  @JsonProperty("backupStorageLocationBase")
+  public String getBackupStorageLocationBase() {
+    return backupStorageLocationBase;
+  }
+
+  /**
+   * Setter for backupStorageLocationBase.
+   * The storage location to use. The location has to be in the following format abfs://filesystem@storage-account-name.dfs.core.windows.net. The filesystem must already exist and the storage account must be StorageV2.
+   **/
+  public void setBackupStorageLocationBase(String backupStorageLocationBase) {
+    this.backupStorageLocationBase = backupStorageLocationBase;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -89,12 +111,15 @@ public class AzureLogStorageRequest  {
     if (!Objects.equals(this.managedIdentity, azureLogStorageRequest.managedIdentity)) {
       return false;
     }
+    if (!Objects.equals(this.backupStorageLocationBase, azureLogStorageRequest.backupStorageLocationBase)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(storageLocationBase, managedIdentity);
+    return Objects.hash(storageLocationBase, managedIdentity, backupStorageLocationBase);
   }
 
   @Override
@@ -103,6 +128,7 @@ public class AzureLogStorageRequest  {
     sb.append("class AzureLogStorageRequest {\n");
     sb.append("    storageLocationBase: ").append(toIndentedString(storageLocationBase)).append("\n");
     sb.append("    managedIdentity: ").append(toIndentedString(managedIdentity)).append("\n");
+    sb.append("    backupStorageLocationBase: ").append(toIndentedString(backupStorageLocationBase)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -24,12 +24,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.dw.model.Actor;
+import com.cloudera.cdp.dw.model.TagResponse;
 import java.time.ZonedDateTime;
+import java.util.*;
 
 /**
  * A Virtual Warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-04-29T14:24:30.304-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-05-12T14:54:20.607-07:00")
 public class VwSummary  {
 
   /**
@@ -71,6 +73,11 @@ public class VwSummary  {
    * Creation date of Virtual Warehouse.
    **/
   private ZonedDateTime creationDate = null;
+
+  /**
+   * Tags associated with the resources.
+   **/
+  private List<TagResponse> tags = new ArrayList<TagResponse>();
 
   /**
    * Getter for crn.
@@ -208,6 +215,23 @@ public class VwSummary  {
     this.creationDate = creationDate;
   }
 
+  /**
+   * Getter for tags.
+   * Tags associated with the resources.
+   **/
+  @JsonProperty("tags")
+  public List<TagResponse> getTags() {
+    return tags;
+  }
+
+  /**
+   * Setter for tags.
+   * Tags associated with the resources.
+   **/
+  public void setTags(List<TagResponse> tags) {
+    this.tags = tags;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -241,12 +265,15 @@ public class VwSummary  {
     if (!Objects.equals(this.creationDate, vwSummary.creationDate)) {
       return false;
     }
+    if (!Objects.equals(this.tags, vwSummary.tags)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, name, vwType, dbcId, status, creator, creationDate);
+    return Objects.hash(crn, id, name, vwType, dbcId, status, creator, creationDate, tags);
   }
 
   @Override
@@ -261,6 +288,7 @@ public class VwSummary  {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }
