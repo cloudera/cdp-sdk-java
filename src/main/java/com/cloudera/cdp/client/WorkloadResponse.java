@@ -26,7 +26,7 @@ import javax.ws.rs.ext.MessageBodyReader;
 import java.io.InputStream;
 import java.lang.annotation.Annotation;
 
-public class WorkloadResponse extends BaseResponse {
+public class WorkloadResponse extends BaseResponse implements AutoCloseable {
   private Response response = null;
 
   /**
@@ -92,5 +92,16 @@ public class WorkloadResponse extends BaseResponse {
   public boolean hasEntity() {
     checkStateAndThrow(this.response != null);
     return this.response.hasEntity();
+  }
+
+  @Override
+  public void close() {
+    if (this.response != null) {
+      try {
+        this.response.close();
+      } catch (Exception e) {
+        throw new RuntimeException(e);
+      }
+    }
   }
 }

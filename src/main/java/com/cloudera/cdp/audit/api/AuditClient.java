@@ -34,10 +34,18 @@ import com.cloudera.cdp.audit.model.ConfigureArchivingResponse;
 import com.cloudera.cdp.audit.model.Error;
 import com.cloudera.cdp.audit.model.GetArchivingConfigRequest;
 import com.cloudera.cdp.audit.model.GetArchivingConfigResponse;
+import com.cloudera.cdp.audit.model.GetArchivingStatusRequest;
+import com.cloudera.cdp.audit.model.GetArchivingStatusResponse;
 import com.cloudera.cdp.audit.model.ListEventsRequest;
 import com.cloudera.cdp.audit.model.ListEventsResponse;
+import com.cloudera.cdp.audit.model.ListRecentArchiveRunsRequest;
+import com.cloudera.cdp.audit.model.ListRecentArchiveRunsResponse;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-05-12T14:54:21.475-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-05-26T12:44:36.977-07:00")
 public class AuditClient extends CdpClient {
 
   public static final String SERVICE_NAME = "audit";
@@ -89,6 +97,19 @@ public class AuditClient extends CdpClient {
   }
 
   /**
+   * Retrieve the status for an archive process.
+   * @param input
+   * @return GetArchivingStatusResponse
+   */
+  public GetArchivingStatusResponse getArchivingStatus(GetArchivingStatusRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getArchivingStatus");
+    }
+
+    return this.invokeAPI("/api/v1/audit/getArchivingStatus", input, new GenericType<GetArchivingStatusResponse>(){});
+  }
+
+  /**
    * List all audit events recorded in a specified time span, and optionally with a specified request ID and/or event source.
    * @param input
    * @return ListEventsResponse
@@ -99,5 +120,18 @@ public class AuditClient extends CdpClient {
     }
 
     return this.invokeAPI("/api/v1/audit/listEvents", input, new GenericType<ListEventsResponse>(){});
+  }
+
+  /**
+   * List recent archive runs.
+   * @param input
+   * @return ListRecentArchiveRunsResponse
+   */
+  public ListRecentArchiveRunsResponse listRecentArchiveRuns(ListRecentArchiveRunsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listRecentArchiveRuns");
+    }
+
+    return this.invokeAPI("/api/v1/audit/listRecentArchiveRuns", input, new GenericType<ListRecentArchiveRunsResponse>(){});
   }
 }

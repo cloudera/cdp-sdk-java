@@ -172,11 +172,16 @@ public abstract class CdpClient {
     int attempts = 0;
     do {
       attempts++;
-      try (Response response = getAPIResponse(method, path, queries, headers, body)) {
+      Response response = null;
+      boolean shouldCloseResponse = true;
+      try {
+        response = getAPIResponse(method, path, queries, headers, body);
         checkNotNullAndThrow(response);
         checkArgumentAndThrow(response.getStatusInfo() != Response.Status.NO_CONTENT || isWorkloadApi(returnType));
         try {
-          return parse(response, returnType);
+          T result = parse(response, returnType);
+          shouldCloseResponse = !(result instanceof WorkloadResponse);
+          return result;
         } catch (CdpClientException exception) {
           Duration delay = retryHandler.shouldRetry(attempts, exception);
           if (delay == RetryHandler.DO_NOT_RETRY) {
@@ -190,6 +195,10 @@ public abstract class CdpClient {
         }
       } catch (IllegalStateException e) {
         throw new CdpClientException(e.getMessage(), e);
+      } finally {
+        if (shouldCloseResponse && response != null) {
+          response.close();
+        }
       }
     } while (true);
   }
@@ -354,22 +363,22 @@ public abstract class CdpClient {
     }
     Map<String, List<String>> responseHeaders = mapBuilder.build();
 
+    if (isWorkloadApi(returnType)) {
+      WorkloadResponse workloadResponse = new WorkloadResponse();
+      workloadResponse.setHttpCode(httpCode);
+      workloadResponse.setResponseHeaders(responseHeaders);
+      workloadResponse.setResponse(response);
+      return (T) workloadResponse;
+    }
+
     if (response.getStatusInfo().getFamily() == Response.Status.Family.SUCCESSFUL) {
-      if (isWorkloadApi(returnType)) {
-        WorkloadResponse workloadResponse = new WorkloadResponse();
-        workloadResponse.setHttpCode(httpCode);
-        workloadResponse.setResponseHeaders(responseHeaders);
-        workloadResponse.setResponse(response);
-        return (T) workloadResponse;
-      } else {
-        T cdpResponse = response.readEntity(returnType);
-        if (cdpResponse == null) {
-          throw new CdpHTTPException(httpCode, "Invalid response from server");
-        }
-        cdpResponse.setHttpCode(httpCode);
-        cdpResponse.setResponseHeaders(responseHeaders);
-        return cdpResponse;
+      T cdpResponse = response.readEntity(returnType);
+      if (cdpResponse == null) {
+        throw new CdpHTTPException(httpCode, "Invalid response from server");
       }
+      cdpResponse.setHttpCode(httpCode);
+      cdpResponse.setResponseHeaders(responseHeaders);
+      return cdpResponse;
     }
 
     String body;

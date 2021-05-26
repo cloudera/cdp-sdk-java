@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response from archiving audit events.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-05-12T14:54:21.475-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-05-26T12:44:36.977-07:00")
 public class ArchiveAuditEventsResponse extends CdpResponse {
 
   /**
@@ -41,6 +41,11 @@ public class ArchiveAuditEventsResponse extends CdpResponse {
    * The details about the batches of events archived.
    **/
   private List<ArchiveBatch> eventBatches = new ArrayList<ArchiveBatch>();
+
+  /**
+   * The id representing an asynchronous task.
+   **/
+  private String taskId = null;
 
   /**
    * Getter for eventCount.
@@ -76,6 +81,23 @@ public class ArchiveAuditEventsResponse extends CdpResponse {
     this.eventBatches = eventBatches;
   }
 
+  /**
+   * Getter for taskId.
+   * The id representing an asynchronous task.
+   **/
+  @JsonProperty("taskId")
+  public String getTaskId() {
+    return taskId;
+  }
+
+  /**
+   * Setter for taskId.
+   * The id representing an asynchronous task.
+   **/
+  public void setTaskId(String taskId) {
+    this.taskId = taskId;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -91,6 +113,9 @@ public class ArchiveAuditEventsResponse extends CdpResponse {
     if (!Objects.equals(this.eventBatches, archiveAuditEventsResponse.eventBatches)) {
       return false;
     }
+    if (!Objects.equals(this.taskId, archiveAuditEventsResponse.taskId)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -99,7 +124,7 @@ public class ArchiveAuditEventsResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(eventCount, eventBatches, super.hashCode());
+    return Objects.hash(eventCount, eventBatches, taskId, super.hashCode());
   }
 
   @Override
@@ -109,6 +134,7 @@ public class ArchiveAuditEventsResponse extends CdpResponse {
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    eventCount: ").append(toIndentedString(eventCount)).append("\n");
     sb.append("    eventBatches: ").append(toIndentedString(eventBatches)).append("\n");
+    sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

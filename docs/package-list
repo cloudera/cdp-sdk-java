@@ -21,3 +21,5 @@ com.cloudera.cdp.iam.api
 com.cloudera.cdp.iam.model
 com.cloudera.cdp.ml.api
 com.cloudera.cdp.ml.model
+com.cloudera.cdp.scim.api
+com.cloudera.cdp.scim.model
