@@ -64,6 +64,8 @@ import com.cloudera.cdp.dw.model.ListVwsRequest;
 import com.cloudera.cdp.dw.model.ListVwsResponse;
 import com.cloudera.cdp.dw.model.UpdateDbcRequest;
 import com.cloudera.cdp.dw.model.UpdateDbcResponse;
+import com.cloudera.cdp.dw.model.UpdateSshKeyRequest;
+import com.cloudera.cdp.dw.model.UpdateSshKeyResponse;
 import com.cloudera.cdp.dw.model.UpdateVwRequest;
 import com.cloudera.cdp.dw.model.UpdateVwResponse;
 import java.util.ArrayList;
@@ -71,7 +73,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-05-26T12:44:36.028-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-06-09T18:20:22.867-07:00")
 public class DwClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dw";
@@ -315,6 +317,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("/api/v1/dw/updateDbc", input, new GenericType<UpdateDbcResponse>(){});
+  }
+
+  /**
+   * Update the SSH Key for a Cloudera Data Warehouse cluster
+   * @param input
+   * @return UpdateSshKeyResponse
+   */
+  public UpdateSshKeyResponse updateSshKey(UpdateSshKeyRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateSshKey");
+    }
+
+    return this.invokeAPI("/api/v1/dw/updateSshKey", input, new GenericType<UpdateSshKeyResponse>(){});
   }
 
   /**

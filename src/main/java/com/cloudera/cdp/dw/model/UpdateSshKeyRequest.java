@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-package com.cloudera.cdp.iam.model;
+package com.cloudera.cdp.dw.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -25,10 +25,32 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * Response object for a set workload password policy request.
+ * Request object for the updateSshKey method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-05-26T12:44:37.257-07:00")
-public class SetWorkloadPasswordPolicyResponse extends CdpResponse {
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-06-09T18:20:22.867-07:00")
+public class UpdateSshKeyRequest  {
+
+  /**
+   * The ID of the cluster to update the SSH Key.
+   **/
+  private String clusterId = null;
+
+  /**
+   * Getter for clusterId.
+   * The ID of the cluster to update the SSH Key.
+   **/
+  @JsonProperty("clusterId")
+  public String getClusterId() {
+    return clusterId;
+  }
+
+  /**
+   * Setter for clusterId.
+   * The ID of the cluster to update the SSH Key.
+   **/
+  public void setClusterId(String clusterId) {
+    this.clusterId = clusterId;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -38,7 +60,8 @@ public class SetWorkloadPasswordPolicyResponse extends CdpResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    if (!super.equals(o)) {
+    UpdateSshKeyRequest updateSshKeyRequest = (UpdateSshKeyRequest) o;
+    if (!Objects.equals(this.clusterId, updateSshKeyRequest.clusterId)) {
       return false;
     }
     return true;
@@ -46,14 +69,14 @@ public class SetWorkloadPasswordPolicyResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash( super.hashCode());
+    return Objects.hash(clusterId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SetWorkloadPasswordPolicyResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("class UpdateSshKeyRequest {\n");
+    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -126,8 +126,6 @@ import com.cloudera.cdp.iam.model.RemoveUserFromGroupRequest;
 import com.cloudera.cdp.iam.model.RemoveUserFromGroupResponse;
 import com.cloudera.cdp.iam.model.SetAccountMessagesRequest;
 import com.cloudera.cdp.iam.model.SetAccountMessagesResponse;
-import com.cloudera.cdp.iam.model.SetWorkloadPasswordPolicyRequest;
-import com.cloudera.cdp.iam.model.SetWorkloadPasswordPolicyResponse;
 import com.cloudera.cdp.iam.model.SetWorkloadPasswordRequest;
 import com.cloudera.cdp.iam.model.SetWorkloadPasswordResponse;
 import com.cloudera.cdp.iam.model.UnassignGroupResourceRoleRequest;
@@ -153,7 +151,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-05-26T12:44:37.257-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-06-09T18:20:24.106-07:00")
 public class IamClient extends CdpClient {
 
   public static final String SERVICE_NAME = "iam";
@@ -813,19 +811,6 @@ public class IamClient extends CdpClient {
     }
 
     return this.invokeAPI("/iam/setWorkloadPassword", input, new GenericType<SetWorkloadPasswordResponse>(){});
-  }
-
-  /**
-   * Set the workload password policy for the account.
-   * @param input
-   * @return SetWorkloadPasswordPolicyResponse
-   */
-  public SetWorkloadPasswordPolicyResponse setWorkloadPasswordPolicy(SetWorkloadPasswordPolicyRequest input) {
-    if (input == null) {
-      throw new CdpClientException("Missing the required parameter 'input' when calling setWorkloadPasswordPolicy");
-    }
-
-    return this.invokeAPI("/iam/setWorkloadPasswordPolicy", input, new GenericType<SetWorkloadPasswordPolicyResponse>(){});
   }
 
   /**

@@ -23,23 +23,17 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
-import com.cloudera.cdp.iam.model.WorkloadPasswordPolicy;
 
 /**
  * Information about a Cloudera CDP account.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-05-26T12:44:37.257-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-06-09T18:20:24.106-07:00")
 public class Account  {
 
   /**
    * Whether interactive login using Cloudera SSO is enabled.
    **/
   private Boolean clouderaSSOLoginEnabled = null;
-
-  /**
-   * The workload password policy object.
-   **/
-  private WorkloadPasswordPolicy workloadPasswordPolicy = null;
 
   /**
    * Getter for clouderaSSOLoginEnabled.
@@ -58,23 +52,6 @@ public class Account  {
     this.clouderaSSOLoginEnabled = clouderaSSOLoginEnabled;
   }
 
-  /**
-   * Getter for workloadPasswordPolicy.
-   * The workload password policy object.
-   **/
-  @JsonProperty("workloadPasswordPolicy")
-  public WorkloadPasswordPolicy getWorkloadPasswordPolicy() {
-    return workloadPasswordPolicy;
-  }
-
-  /**
-   * Setter for workloadPasswordPolicy.
-   * The workload password policy object.
-   **/
-  public void setWorkloadPasswordPolicy(WorkloadPasswordPolicy workloadPasswordPolicy) {
-    this.workloadPasswordPolicy = workloadPasswordPolicy;
-  }
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -87,15 +64,12 @@ public class Account  {
     if (!Objects.equals(this.clouderaSSOLoginEnabled, account.clouderaSSOLoginEnabled)) {
       return false;
     }
-    if (!Objects.equals(this.workloadPasswordPolicy, account.workloadPasswordPolicy)) {
-      return false;
-    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clouderaSSOLoginEnabled, workloadPasswordPolicy);
+    return Objects.hash(clouderaSSOLoginEnabled);
   }
 
   @Override
@@ -103,7 +77,6 @@ public class Account  {
     StringBuilder sb = new StringBuilder();
     sb.append("class Account {\n");
     sb.append("    clouderaSSOLoginEnabled: ").append(toIndentedString(clouderaSSOLoginEnabled)).append("\n");
-    sb.append("    workloadPasswordPolicy: ").append(toIndentedString(workloadPasswordPolicy)).append("\n");
     sb.append("}");
     return sb.toString();
   }
