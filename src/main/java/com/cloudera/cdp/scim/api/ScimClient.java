@@ -26,7 +26,7 @@ import com.cloudera.cdp.authentication.credentials.CdpCredentials;
 import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
 import com.cloudera.cdp.client.Pair;
-import com.cloudera.cdp.client.WorkloadResponse;
+import com.cloudera.cdp.client.RestResponse;
 import com.cloudera.cdp.scim.model.ScimGroup;
 import com.cloudera.cdp.scim.model.ScimPatchRequest;
 import com.cloudera.cdp.scim.model.ScimUser;
@@ -35,7 +35,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-06-09T18:20:24.360-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-06-25T14:27:48.608-07:00")
 public class ScimClient extends CdpClient {
 
   public static final String SERVICE_NAME = "scim";
@@ -51,10 +51,9 @@ public class ScimClient extends CdpClient {
    * Adds a SCIM group.
    * @param idpId
    * @param input
-   * @return WorkloadResponse
+   * @return RestResponse
    */
-  @WorkloadApi
-  public WorkloadResponse addGroup(String idpId, ScimGroup input) {
+  public RestResponse addGroup(String idpId, ScimGroup input) {
     if (idpId == null) {
       throw new CdpClientException("Missing the required parameter 'idpId' when calling addGroup");
     }
@@ -77,10 +76,9 @@ public class ScimClient extends CdpClient {
    * Adds a SCIM user.
    * @param idpId
    * @param input
-   * @return WorkloadResponse
+   * @return RestResponse
    */
-  @WorkloadApi
-  public WorkloadResponse addUser(String idpId, ScimUser input) {
+  public RestResponse addUser(String idpId, ScimUser input) {
     if (idpId == null) {
       throw new CdpClientException("Missing the required parameter 'idpId' when calling addUser");
     }
@@ -103,10 +101,9 @@ public class ScimClient extends CdpClient {
    * Deletes a SCIM group.
    * @param idpId
    * @param groupId
-   * @return WorkloadResponse
+   * @return RestResponse
    */
-  @WorkloadApi
-  public WorkloadResponse deleteGroup(String idpId, String groupId) {
+  public RestResponse deleteGroup(String idpId, String groupId) {
     if (idpId == null) {
       throw new CdpClientException("Missing the required parameter 'idpId' when calling deleteGroup");
     }
@@ -130,10 +127,9 @@ public class ScimClient extends CdpClient {
    * Deletes a SCIM user.
    * @param idpId
    * @param userId
-   * @return WorkloadResponse
+   * @return RestResponse
    */
-  @WorkloadApi
-  public WorkloadResponse deleteUser(String idpId, String userId) {
+  public RestResponse deleteUser(String idpId, String userId) {
     if (idpId == null) {
       throw new CdpClientException("Missing the required parameter 'idpId' when calling deleteUser");
     }
@@ -158,10 +154,9 @@ public class ScimClient extends CdpClient {
    * @param idpId
    * @param groupId
    * @param input
-   * @return WorkloadResponse
+   * @return RestResponse
    */
-  @WorkloadApi
-  public WorkloadResponse modifyGroup(String idpId, String groupId, ScimPatchRequest input) {
+  public RestResponse modifyGroup(String idpId, String groupId, ScimPatchRequest input) {
     if (idpId == null) {
       throw new CdpClientException("Missing the required parameter 'idpId' when calling modifyGroup");
     }
@@ -189,10 +184,9 @@ public class ScimClient extends CdpClient {
    * @param idpId
    * @param userId
    * @param input
-   * @return WorkloadResponse
+   * @return RestResponse
    */
-  @WorkloadApi
-  public WorkloadResponse modifyUser(String idpId, String userId, ScimPatchRequest input) {
+  public RestResponse modifyUser(String idpId, String userId, ScimPatchRequest input) {
     if (idpId == null) {
       throw new CdpClientException("Missing the required parameter 'idpId' when calling modifyUser");
     }
@@ -225,10 +219,9 @@ public class ScimClient extends CdpClient {
    * @param count
    * @param attributes
    * @param excludedAttributes
-   * @return WorkloadResponse
+   * @return RestResponse
    */
-  @WorkloadApi
-  public WorkloadResponse queryGroups(String idpId, String filter, String sortBy, String sortOrder, Integer startIndex, Integer count, List<String> attributes, List<String> excludedAttributes) {
+  public RestResponse queryGroups(String idpId, String filter, String sortBy, String sortOrder, Integer startIndex, Integer count, List<String> attributes, List<String> excludedAttributes) {
     if (idpId == null) {
       throw new CdpClientException("Missing the required parameter 'idpId' when calling queryGroups");
     }
@@ -261,10 +254,9 @@ public class ScimClient extends CdpClient {
    * @param count
    * @param attributes
    * @param excludedAttributes
-   * @return WorkloadResponse
+   * @return RestResponse
    */
-  @WorkloadApi
-  public WorkloadResponse queryUsers(String idpId, String filter, String sortBy, String sortOrder, Integer startIndex, Integer count, List<String> attributes, List<String> excludedAttributes) {
+  public RestResponse queryUsers(String idpId, String filter, String sortBy, String sortOrder, Integer startIndex, Integer count, List<String> attributes, List<String> excludedAttributes) {
     if (idpId == null) {
       throw new CdpClientException("Missing the required parameter 'idpId' when calling queryUsers");
     }
@@ -292,10 +284,9 @@ public class ScimClient extends CdpClient {
    * @param idpId
    * @param groupId
    * @param input
-   * @return WorkloadResponse
+   * @return RestResponse
    */
-  @WorkloadApi
-  public WorkloadResponse replaceGroup(String idpId, String groupId, ScimGroup input) {
+  public RestResponse replaceGroup(String idpId, String groupId, ScimGroup input) {
     if (idpId == null) {
       throw new CdpClientException("Missing the required parameter 'idpId' when calling replaceGroup");
     }
@@ -323,10 +314,9 @@ public class ScimClient extends CdpClient {
    * @param idpId
    * @param userId
    * @param input
-   * @return WorkloadResponse
+   * @return RestResponse
    */
-  @WorkloadApi
-  public WorkloadResponse replaceUser(String idpId, String userId, ScimUser input) {
+  public RestResponse replaceUser(String idpId, String userId, ScimUser input) {
     if (idpId == null) {
       throw new CdpClientException("Missing the required parameter 'idpId' when calling replaceUser");
     }
@@ -353,10 +343,9 @@ public class ScimClient extends CdpClient {
    * Retrieves a SCIM group.
    * @param idpId
    * @param groupId
-   * @return WorkloadResponse
+   * @return RestResponse
    */
-  @WorkloadApi
-  public WorkloadResponse retrieveGroup(String idpId, String groupId) {
+  public RestResponse retrieveGroup(String idpId, String groupId) {
     if (idpId == null) {
       throw new CdpClientException("Missing the required parameter 'idpId' when calling retrieveGroup");
     }
@@ -380,10 +369,9 @@ public class ScimClient extends CdpClient {
    * Retrieves a SCIM user.
    * @param idpId
    * @param userId
-   * @return WorkloadResponse
+   * @return RestResponse
    */
-  @WorkloadApi
-  public WorkloadResponse retrieveUser(String idpId, String userId) {
+  public RestResponse retrieveUser(String idpId, String userId) {
     if (idpId == null) {
       throw new CdpClientException("Missing the required parameter 'idpId' when calling retrieveUser");
     }

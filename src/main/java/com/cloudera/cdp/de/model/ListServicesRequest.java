@@ -27,8 +27,30 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for ListServices method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-06-09T18:20:23.993-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-06-25T14:27:48.224-07:00")
 public class ListServicesRequest  {
+
+  /**
+   * Filter out deleted CDE services from the list.
+   **/
+  private Boolean removeDeleted = false;
+
+  /**
+   * Getter for removeDeleted.
+   * Filter out deleted CDE services from the list.
+   **/
+  @JsonProperty("removeDeleted")
+  public Boolean getRemoveDeleted() {
+    return removeDeleted;
+  }
+
+  /**
+   * Setter for removeDeleted.
+   * Filter out deleted CDE services from the list.
+   **/
+  public void setRemoveDeleted(Boolean removeDeleted) {
+    this.removeDeleted = removeDeleted;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -38,18 +60,23 @@ public class ListServicesRequest  {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
+    ListServicesRequest listServicesRequest = (ListServicesRequest) o;
+    if (!Objects.equals(this.removeDeleted, listServicesRequest.removeDeleted)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(removeDeleted);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListServicesRequest {\n");
+    sb.append("    removeDeleted: ").append(toIndentedString(removeDeleted)).append("\n");
     sb.append("}");
     return sb.toString();
   }

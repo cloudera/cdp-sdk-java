@@ -26,7 +26,7 @@ import com.cloudera.cdp.authentication.credentials.CdpCredentials;
 import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
 import com.cloudera.cdp.client.Pair;
-import com.cloudera.cdp.client.WorkloadResponse;
+import com.cloudera.cdp.client.RestResponse;
 import com.cloudera.cdp.iam.model.AddMachineUserToGroupRequest;
 import com.cloudera.cdp.iam.model.AddMachineUserToGroupResponse;
 import com.cloudera.cdp.iam.model.AddSshPublicKeyRequest;
@@ -151,7 +151,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-06-09T18:20:24.106-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-06-25T14:27:48.330-07:00")
 public class IamClient extends CdpClient {
 
   public static final String SERVICE_NAME = "iam";

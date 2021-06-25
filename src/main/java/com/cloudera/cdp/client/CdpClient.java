@@ -89,7 +89,7 @@ public abstract class CdpClient {
   private static class MapReference extends TypeReference<Map<String, String>> {
   }
 
-  private static class WorkloadResponseGenericType extends GenericType<WorkloadResponse> {
+  private static class RestResponseGenericType extends GenericType<RestResponse> {
   }
 
   private static final ObjectMapper MAPPER = new ObjectMapper();
@@ -159,13 +159,13 @@ public abstract class CdpClient {
    * @param body The request body object - if it is not binary, otherwise null
    * @return The response body object
    */
-  protected WorkloadResponse invokeAPI(String method, String path, List<Pair> queries, Map<String, String> headers, Object body) {
+  protected RestResponse invokeAPI(String method, String path, List<Pair> queries, Map<String, String> headers, Object body) {
     checkNotNullAndThrow(method);
     checkNotNullAndThrow(path);
     checkNotNullAndThrow(queries);
     checkNotNullAndThrow(headers);
     // body can be null
-    return invokeAPI(method, path, queries, headers, body, new WorkloadResponseGenericType());
+    return invokeAPI(method, path, queries, headers, body, new RestResponseGenericType());
   }
 
   private <T extends BaseResponse> T invokeAPI(String method, String path, List<Pair> queries, Map<String, String> headers, Object body, GenericType<T> returnType) {
@@ -177,10 +177,10 @@ public abstract class CdpClient {
       try {
         response = getAPIResponse(method, path, queries, headers, body);
         checkNotNullAndThrow(response);
-        checkArgumentAndThrow(response.getStatusInfo() != Response.Status.NO_CONTENT || isWorkloadApi(returnType));
+        checkArgumentAndThrow(response.getStatusInfo() != Response.Status.NO_CONTENT || isRestApi(returnType));
         try {
           T result = parse(response, returnType);
-          shouldCloseResponse = !(result instanceof WorkloadResponse);
+          shouldCloseResponse = !(result instanceof RestResponse);
           return result;
         } catch (CdpClientException exception) {
           Duration delay = retryHandler.shouldRetry(attempts, exception);
@@ -363,12 +363,12 @@ public abstract class CdpClient {
     }
     Map<String, List<String>> responseHeaders = mapBuilder.build();
 
-    if (isWorkloadApi(returnType)) {
-      WorkloadResponse workloadResponse = new WorkloadResponse();
-      workloadResponse.setHttpCode(httpCode);
-      workloadResponse.setResponseHeaders(responseHeaders);
-      workloadResponse.setResponse(response);
-      return (T) workloadResponse;
+    if (isRestApi(returnType)) {
+      RestResponse restResponse = new RestResponse();
+      restResponse.setHttpCode(httpCode);
+      restResponse.setResponseHeaders(responseHeaders);
+      restResponse.setResponse(response);
+      return (T) restResponse;
     }
 
     if (response.getStatusInfo().getFamily() == Response.Status.Family.SUCCESSFUL) {
@@ -414,8 +414,8 @@ public abstract class CdpClient {
         message);
   }
 
-  private static <T extends BaseResponse> boolean isWorkloadApi(GenericType<T> returnType) {
-    return returnType.getRawType().equals(WorkloadResponse.class);
+  private static <T extends BaseResponse> boolean isRestApi(GenericType<T> returnType) {
+    return returnType.getRawType().equals(RestResponse.class);
   }
 
   /**

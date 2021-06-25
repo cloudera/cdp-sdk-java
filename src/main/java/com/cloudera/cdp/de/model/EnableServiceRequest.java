@@ -30,7 +30,7 @@ import java.util.Map;
 /**
  * Request object for Enable Service method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-06-09T18:20:23.993-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-06-25T14:27:48.224-07:00")
 public class EnableServiceRequest  {
 
   /**
@@ -112,6 +112,11 @@ public class EnableServiceRequest  {
    * User defined labels that tag all provisioned cloud resources.
    **/
   private Map<String, String> tags = new HashMap<String, String>();
+
+  /**
+   * Skip Validation check.
+   **/
+  private Boolean skipValidation = false;
 
   /**
    * Getter for name.
@@ -385,6 +390,23 @@ public class EnableServiceRequest  {
     this.tags = tags;
   }
 
+  /**
+   * Getter for skipValidation.
+   * Skip Validation check.
+   **/
+  @JsonProperty("skipValidation")
+  public Boolean getSkipValidation() {
+    return skipValidation;
+  }
+
+  /**
+   * Setter for skipValidation.
+   * Skip Validation check.
+   **/
+  public void setSkipValidation(Boolean skipValidation) {
+    this.skipValidation = skipValidation;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -442,12 +464,15 @@ public class EnableServiceRequest  {
     if (!Objects.equals(this.tags, enableServiceRequest.tags)) {
       return false;
     }
+    if (!Objects.equals(this.skipValidation, enableServiceRequest.skipValidation)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, env, instanceType, minimumInstances, maximumInstances, minimumSpotInstances, maximumSpotInstances, initialInstances, initialSpotInstances, rootVolumeSize, enablePublicEndpoint, enableWorkloadAnalytics, useSsd, chartValueOverrides, whitelistIps, tags);
+    return Objects.hash(name, env, instanceType, minimumInstances, maximumInstances, minimumSpotInstances, maximumSpotInstances, initialInstances, initialSpotInstances, rootVolumeSize, enablePublicEndpoint, enableWorkloadAnalytics, useSsd, chartValueOverrides, whitelistIps, tags, skipValidation);
   }
 
   @Override
@@ -470,6 +495,7 @@ public class EnableServiceRequest  {
     sb.append("    chartValueOverrides: ").append(toIndentedString(chartValueOverrides)).append("\n");
     sb.append("    whitelistIps: ").append(toIndentedString(whitelistIps)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    skipValidation: ").append(toIndentedString(skipValidation)).append("\n");
     sb.append("}");
     return sb.toString();
   }

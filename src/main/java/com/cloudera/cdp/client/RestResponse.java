@@ -21,16 +21,16 @@ package com.cloudera.cdp.client;
 
 import static com.cloudera.cdp.ValidationUtils.checkStateAndThrow;
 
-import javax.ws.rs.core.Response;
-import javax.ws.rs.ext.MessageBodyReader;
 import java.io.InputStream;
 import java.lang.annotation.Annotation;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.ext.MessageBodyReader;
 
-public class WorkloadResponse extends BaseResponse implements AutoCloseable {
+public class RestResponse extends BaseResponse implements AutoCloseable {
   private Response response = null;
 
   /**
-   * Sets the response that was returned by the Workload server. This
+   * Sets the response that was returned by the server. This
    * should be called only once and never outside the SDK internals.
    * @param response the response
    */

@@ -26,7 +26,7 @@ import com.cloudera.cdp.authentication.credentials.CdpCredentials;
 import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
 import com.cloudera.cdp.client.Pair;
-import com.cloudera.cdp.client.WorkloadResponse;
+import com.cloudera.cdp.client.RestResponse;
 import com.cloudera.cdp.audit.model.ArchiveAuditEventsRequest;
 import com.cloudera.cdp.audit.model.ArchiveAuditEventsResponse;
 import com.cloudera.cdp.audit.model.ConfigureArchivingRequest;
@@ -45,7 +45,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-06-09T18:20:23.910-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-06-25T14:27:48.141-07:00")
 public class AuditClient extends CdpClient {
 
   public static final String SERVICE_NAME = "audit";

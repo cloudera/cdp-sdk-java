@@ -26,7 +26,7 @@ import com.cloudera.cdp.authentication.credentials.CdpCredentials;
 import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
 import com.cloudera.cdp.client.Pair;
-import com.cloudera.cdp.client.WorkloadResponse;
+import com.cloudera.cdp.client.RestResponse;
 import com.cloudera.cdp.environments.model.CancelFreeipaDiagnosticsRequest;
 import com.cloudera.cdp.environments.model.CancelFreeipaDiagnosticsResponse;
 import com.cloudera.cdp.environments.model.ChangeEnvironmentCredentialRequest;
@@ -47,6 +47,8 @@ import com.cloudera.cdp.environments.model.CreateGCPEnvironmentRequest;
 import com.cloudera.cdp.environments.model.CreateGCPEnvironmentResponse;
 import com.cloudera.cdp.environments.model.CreateProxyConfigRequest;
 import com.cloudera.cdp.environments.model.CreateProxyConfigResponse;
+import com.cloudera.cdp.environments.model.DeleteAuditCredentialRequest;
+import com.cloudera.cdp.environments.model.DeleteAuditCredentialResponse;
 import com.cloudera.cdp.environments.model.DeleteCredentialRequest;
 import com.cloudera.cdp.environments.model.DeleteCredentialResponse;
 import com.cloudera.cdp.environments.model.DeleteEnvironmentRequest;
@@ -123,7 +125,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-06-09T18:20:23.597-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-06-25T14:27:47.856-07:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -263,6 +265,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("/api/v1/environments2/createProxyConfig", input, new GenericType<CreateProxyConfigResponse>(){});
+  }
+
+  /**
+   * Deletes an audit credential.
+   * @param input
+   * @return DeleteAuditCredentialResponse
+   */
+  public DeleteAuditCredentialResponse deleteAuditCredential(DeleteAuditCredentialRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteAuditCredential");
+    }
+
+    return this.invokeAPI("/api/v1/environments2/deleteAuditCredential", input, new GenericType<DeleteAuditCredentialResponse>(){});
   }
 
   /**

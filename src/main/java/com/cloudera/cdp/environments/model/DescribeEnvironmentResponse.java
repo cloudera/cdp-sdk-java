@@ -28,7 +28,7 @@ import com.cloudera.cdp.environments.model.Environment;
 /**
  * Response object for a describe environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-06-09T18:20:23.597-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-06-25T14:27:47.856-07:00")
 public class DescribeEnvironmentResponse extends CdpResponse {
 
   /**

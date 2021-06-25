@@ -19,10 +19,9 @@
 
 package com.cloudera.cdp.client;
 
-import static com.google.common.base.Preconditions.checkNotNull;
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -53,7 +52,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import javax.annotation.Nullable;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.HttpHeaders;
@@ -157,10 +155,10 @@ public class CdpClientTest {
 
   @SuppressWarnings("unchecked")
   @Test
-  public void testWorkloadResponse() {
+  public void testRestResponse() {
     Response mockResponse = mockResponse(200, null);
     TestClient client = new TestClient(mockResponse);
-    WorkloadResponse response =
+    RestResponse response =
         client.invokeAPI("GET", "somePath", Collections.emptyList(), Collections.emptyMap(), null);
     assertEquals(1, client.apiCalls);
     assertEquals(200, response.getHttpCode());
