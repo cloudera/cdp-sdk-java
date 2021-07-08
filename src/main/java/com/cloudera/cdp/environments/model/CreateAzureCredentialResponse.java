@@ -28,7 +28,7 @@ import com.cloudera.cdp.environments.model.Credential;
 /**
  * Response object for a create Azure credential request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-06-25T14:27:47.856-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-07T21:20:14.745-07:00")
 public class CreateAzureCredentialResponse extends CdpResponse {
 
   /**

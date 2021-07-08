@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * A proxy config object.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-06-25T14:27:47.856-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-07T21:20:14.745-07:00")
 public class ProxyConfig  {
 
   /**
@@ -59,6 +59,11 @@ public class ProxyConfig  {
    * A description for the proxy config.
    **/
   private String description = null;
+
+  /**
+   * Comma-separated list of 'host[:port]' (can be a subdomain as well) and 'IP[:port]' entries that should not be proxied. Wildcards are not accepted. For example cloudera.com,192.168.1.1
+   **/
+  private String noProxyHosts = null;
 
   /**
    * The proxy user.
@@ -173,6 +178,23 @@ public class ProxyConfig  {
   }
 
   /**
+   * Getter for noProxyHosts.
+   * Comma-separated list of &#39;host[:port]&#39; (can be a subdomain as well) and &#39;IP[:port]&#39; entries that should not be proxied. Wildcards are not accepted. For example cloudera.com,192.168.1.1
+   **/
+  @JsonProperty("noProxyHosts")
+  public String getNoProxyHosts() {
+    return noProxyHosts;
+  }
+
+  /**
+   * Setter for noProxyHosts.
+   * Comma-separated list of &#39;host[:port]&#39; (can be a subdomain as well) and &#39;IP[:port]&#39; entries that should not be proxied. Wildcards are not accepted. For example cloudera.com,192.168.1.1
+   **/
+  public void setNoProxyHosts(String noProxyHosts) {
+    this.noProxyHosts = noProxyHosts;
+  }
+
+  /**
    * Getter for user.
    * The proxy user.
    **/
@@ -233,6 +255,9 @@ public class ProxyConfig  {
     if (!Objects.equals(this.description, proxyConfig.description)) {
       return false;
     }
+    if (!Objects.equals(this.noProxyHosts, proxyConfig.noProxyHosts)) {
+      return false;
+    }
     if (!Objects.equals(this.user, proxyConfig.user)) {
       return false;
     }
@@ -244,7 +269,7 @@ public class ProxyConfig  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(proxyConfigName, crn, protocol, host, port, description, user, password);
+    return Objects.hash(proxyConfigName, crn, protocol, host, port, description, noProxyHosts, user, password);
   }
 
   @Override
@@ -257,6 +282,7 @@ public class ProxyConfig  {
     sb.append("    host: ").append(toIndentedString(host)).append("\n");
     sb.append("    port: ").append(toIndentedString(port)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    noProxyHosts: ").append(toIndentedString(noProxyHosts)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("}");

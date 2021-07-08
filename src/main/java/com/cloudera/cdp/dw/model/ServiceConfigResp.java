@@ -30,7 +30,7 @@ import java.util.Map;
 /**
  * Configurations for a service (DBC or VW)
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-06-25T14:27:47.230-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-07T21:20:14.031-07:00")
 public class ServiceConfigResp  {
 
   /**
@@ -49,7 +49,7 @@ public class ServiceConfigResp  {
   private List<String> ldapGroups = new ArrayList<String>();
 
   /**
-   * Should SSO be enabled for this VW.
+   * Should SSO be enabled for this VW. This cannot be changed later.
    **/
   private Boolean enableSSO = null;
 
@@ -106,7 +106,7 @@ public class ServiceConfigResp  {
 
   /**
    * Getter for enableSSO.
-   * Should SSO be enabled for this VW.
+   * Should SSO be enabled for this VW. This cannot be changed later.
    **/
   @JsonProperty("enableSSO")
   public Boolean getEnableSSO() {
@@ -115,7 +115,7 @@ public class ServiceConfigResp  {
 
   /**
    * Setter for enableSSO.
-   * Should SSO be enabled for this VW.
+   * Should SSO be enabled for this VW. This cannot be changed later.
    **/
   public void setEnableSSO(Boolean enableSSO) {
     this.enableSSO = enableSSO;

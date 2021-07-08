@@ -27,22 +27,22 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Configurations for auto-scaling a Virtual Warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-06-25T14:27:47.230-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-07T21:20:14.031-07:00")
 public class AutoscalingOptions  {
 
   /**
-   * Minimum number of available nodes.
+   * Minimum number of available compute groups.
    **/
   private Integer minClusters = 1;
 
   /**
-   * Maximum number of available nodes.
+   * Maximum number of available compute groups.
    **/
   private Integer maxClusters = 20;
 
   /**
    * Getter for minClusters.
-   * Minimum number of available nodes.
+   * Minimum number of available compute groups.
    **/
   @JsonProperty("minClusters")
   public Integer getMinClusters() {
@@ -51,7 +51,7 @@ public class AutoscalingOptions  {
 
   /**
    * Setter for minClusters.
-   * Minimum number of available nodes.
+   * Minimum number of available compute groups.
    **/
   public void setMinClusters(Integer minClusters) {
     this.minClusters = minClusters;
@@ -59,7 +59,7 @@ public class AutoscalingOptions  {
 
   /**
    * Getter for maxClusters.
-   * Maximum number of available nodes.
+   * Maximum number of available compute groups.
    **/
   @JsonProperty("maxClusters")
   public Integer getMaxClusters() {
@@ -68,7 +68,7 @@ public class AutoscalingOptions  {
 
   /**
    * Setter for maxClusters.
-   * Maximum number of available nodes.
+   * Maximum number of available compute groups.
    **/
   public void setMaxClusters(Integer maxClusters) {
     this.maxClusters = maxClusters;

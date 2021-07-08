@@ -28,7 +28,7 @@ import com.cloudera.cdp.datahub.model.AutoScaleLoadRequestConfiguration;
 /**
  * Configuration for Load Based Scaling
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-06-25T14:27:46.754-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-07T21:20:13.597-07:00")
 public class AutoScaleLoadRequest  {
 
   /**

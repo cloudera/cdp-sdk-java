@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * A ML workspace, which includes the cluster and storage.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-06-25T14:27:47.455-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-07T21:20:14.341-07:00")
 public class Workspace  {
 
   /**
@@ -128,7 +128,7 @@ public class Workspace  {
   /**
    * The health info information of the workspace.
    **/
-  private List<HealthInfo> healthInfoLists = new ArrayList<HealthInfo>();
+  private List<HealthInfo> healthInfos = new ArrayList<HealthInfo>();
 
   /**
    * Failure message from the most recent failure that has occurred during workspace provisioning.
@@ -457,20 +457,20 @@ public class Workspace  {
   }
 
   /**
-   * Getter for healthInfoLists.
+   * Getter for healthInfos.
    * The health info information of the workspace.
    **/
-  @JsonProperty("healthInfoLists")
-  public List<HealthInfo> getHealthInfoLists() {
-    return healthInfoLists;
+  @JsonProperty("healthInfos")
+  public List<HealthInfo> getHealthInfos() {
+    return healthInfos;
   }
 
   /**
-   * Setter for healthInfoLists.
+   * Setter for healthInfos.
    * The health info information of the workspace.
    **/
-  public void setHealthInfoLists(List<HealthInfo> healthInfoLists) {
-    this.healthInfoLists = healthInfoLists;
+  public void setHealthInfos(List<HealthInfo> healthInfos) {
+    this.healthInfos = healthInfos;
   }
 
   /**
@@ -604,7 +604,7 @@ public class Workspace  {
     if (!Objects.equals(this.creationDate, workspace.creationDate)) {
       return false;
     }
-    if (!Objects.equals(this.healthInfoLists, workspace.healthInfoLists)) {
+    if (!Objects.equals(this.healthInfos, workspace.healthInfos)) {
       return false;
     }
     if (!Objects.equals(this.failureMessage, workspace.failureMessage)) {
@@ -624,7 +624,7 @@ public class Workspace  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, endpointPublicAccess, filesystemID, tags, instanceGroups, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, healthInfoLists, failureMessage, clusterBaseDomain, modelMetricsEnabled, governanceEnabled);
+    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, endpointPublicAccess, filesystemID, tags, instanceGroups, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, healthInfos, failureMessage, clusterBaseDomain, modelMetricsEnabled, governanceEnabled);
   }
 
   @Override
@@ -649,7 +649,7 @@ public class Workspace  {
     sb.append("    monitoringEnabled: ").append(toIndentedString(monitoringEnabled)).append("\n");
     sb.append("    loadBalancerIPWhitelists: ").append(toIndentedString(loadBalancerIPWhitelists)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
-    sb.append("    healthInfoLists: ").append(toIndentedString(healthInfoLists)).append("\n");
+    sb.append("    healthInfos: ").append(toIndentedString(healthInfos)).append("\n");
     sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
     sb.append("    clusterBaseDomain: ").append(toIndentedString(clusterBaseDomain)).append("\n");
     sb.append("    modelMetricsEnabled: ").append(toIndentedString(modelMetricsEnabled)).append("\n");
