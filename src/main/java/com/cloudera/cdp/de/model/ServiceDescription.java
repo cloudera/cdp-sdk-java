@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Detailed description of a CDE service.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-07T21:20:15.301-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-09T16:32:33.664-07:00")
 public class ServiceDescription  {
 
   /**

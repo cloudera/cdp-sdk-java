@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * A Cloudera Machine Learning workspace which includes the deployed configuration details.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-07T21:20:14.341-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-09T16:32:32.837-07:00")
 public class WorkspaceSummary  {
 
   /**
@@ -116,7 +116,7 @@ public class WorkspaceSummary  {
   /**
    * The health info information of the workspace.
    **/
-  private List<HealthInfo> healthInfos = new ArrayList<HealthInfo>();
+  private List<HealthInfo> healthInfoLists = new ArrayList<HealthInfo>();
 
   /**
    * Getter for instanceName.
@@ -391,20 +391,20 @@ public class WorkspaceSummary  {
   }
 
   /**
-   * Getter for healthInfos.
+   * Getter for healthInfoLists.
    * The health info information of the workspace.
    **/
-  @JsonProperty("healthInfos")
-  public List<HealthInfo> getHealthInfos() {
-    return healthInfos;
+  @JsonProperty("healthInfoLists")
+  public List<HealthInfo> getHealthInfoLists() {
+    return healthInfoLists;
   }
 
   /**
-   * Setter for healthInfos.
+   * Setter for healthInfoLists.
    * The health info information of the workspace.
    **/
-  public void setHealthInfos(List<HealthInfo> healthInfos) {
-    this.healthInfos = healthInfos;
+  public void setHealthInfoLists(List<HealthInfo> healthInfoLists) {
+    this.healthInfoLists = healthInfoLists;
   }
 
   @Override
@@ -464,7 +464,7 @@ public class WorkspaceSummary  {
     if (!Objects.equals(this.failureMessage, workspaceSummary.failureMessage)) {
       return false;
     }
-    if (!Objects.equals(this.healthInfos, workspaceSummary.healthInfos)) {
+    if (!Objects.equals(this.healthInfoLists, workspaceSummary.healthInfoLists)) {
       return false;
     }
     return true;
@@ -472,7 +472,7 @@ public class WorkspaceSummary  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, filesystemID, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, failureMessage, healthInfos);
+    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, filesystemID, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, failureMessage, healthInfoLists);
   }
 
   @Override
@@ -495,7 +495,7 @@ public class WorkspaceSummary  {
     sb.append("    loadBalancerIPWhitelists: ").append(toIndentedString(loadBalancerIPWhitelists)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
-    sb.append("    healthInfos: ").append(toIndentedString(healthInfos)).append("\n");
+    sb.append("    healthInfoLists: ").append(toIndentedString(healthInfoLists)).append("\n");
     sb.append("}");
     return sb.toString();
   }

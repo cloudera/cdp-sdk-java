@@ -29,7 +29,7 @@ import com.cloudera.cdp.scim.model.ScimMultiValuedElement;
 import com.cloudera.cdp.scim.model.ScimName;
 import java.util.*;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-07T21:20:15.648-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-09T16:32:34.128-07:00")
 public class ScimUser  {
 
   /**

@@ -29,7 +29,7 @@ import com.cloudera.cdp.dw.model.AzureActivationOptions;
 /**
  * Request object for the createCluster method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-07T21:20:14.031-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-09T16:32:32.573-07:00")
 public class CreateClusterRequest  {
 
   /**
@@ -43,7 +43,7 @@ public class CreateClusterRequest  {
   private Boolean useOverlayNetwork = null;
 
   /**
-   * Set up load balancer in private subnets -- make sure there is connectivity between your VPN and the VPC of CDW environment.
+   * Set up load balancer with private IP address. In AWS it is created in private subnets. In Azure an internal load balancer gets created. Make sure there is connectivity between your client network and the network (VPC/VNet) where CDW environment is deployed.
    **/
   private Boolean usePrivateLoadBalancer = null;
 
@@ -93,7 +93,7 @@ public class CreateClusterRequest  {
 
   /**
    * Getter for usePrivateLoadBalancer.
-   * Set up load balancer in private subnets -- make sure there is connectivity between your VPN and the VPC of CDW environment.
+   * Set up load balancer with private IP address. In AWS it is created in private subnets. In Azure an internal load balancer gets created. Make sure there is connectivity between your client network and the network (VPC/VNet) where CDW environment is deployed.
    **/
   @JsonProperty("usePrivateLoadBalancer")
   public Boolean getUsePrivateLoadBalancer() {
@@ -102,7 +102,7 @@ public class CreateClusterRequest  {
 
   /**
    * Setter for usePrivateLoadBalancer.
-   * Set up load balancer in private subnets -- make sure there is connectivity between your VPN and the VPC of CDW environment.
+   * Set up load balancer with private IP address. In AWS it is created in private subnets. In Azure an internal load balancer gets created. Make sure there is connectivity between your client network and the network (VPC/VNet) where CDW environment is deployed.
    **/
   public void setUsePrivateLoadBalancer(Boolean usePrivateLoadBalancer) {
     this.usePrivateLoadBalancer = usePrivateLoadBalancer;
