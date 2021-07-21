@@ -135,6 +135,28 @@ public abstract class CdpClient {
   }
 
   /**
+   * Gets the service name.
+   * @return the service name
+   */
+  protected abstract String getServiceName();
+
+  /**
+   * Gets the request Content-Type, used by 'Conent-Type' request header.
+   * @return the request Content-Type
+   */
+  protected String getRequestContentType() {
+    return MediaType.APPLICATION_JSON;
+  }
+
+  /**
+   * Gets the expected response Content-Type, used by 'Accept' request header.
+   * @return the response Content-Type
+   */
+  protected String getResponseContentType() {
+    return MediaType.APPLICATION_JSON;
+  }
+
+  /**
    * Invoke API by sending HTTP request with the given options.
    * @param path The subpath of the HTTP URL
    * @param body The request body object
@@ -297,7 +319,7 @@ public abstract class CdpClient {
     headers.putSingle("x-altus-date", date);
     headers.putSingle(HttpHeaders.USER_AGENT, buildUserAgent());
     if (method.equals("POST") || method.equals("PUT") || method.equals("PATCH")) {
-      headers.putSingle(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON);
+      headers.putSingle(HttpHeaders.CONTENT_TYPE, this.getRequestContentType());
     }
     String altusClientApp = config.getClientApplicationName();
     if (!Strings.isNullOrEmpty(altusClientApp)) {
@@ -310,7 +332,7 @@ public abstract class CdpClient {
     if (!Strings.isNullOrEmpty(accessKeyId) && privateKey != null){
       String auth = new Signer().computeAuthHeader(
           method,
-          MediaType.APPLICATION_JSON,
+          this.getRequestContentType(),
           date,
           path,
           accessKeyId,
@@ -334,14 +356,14 @@ public abstract class CdpClient {
       t = t.queryParam(pair.getName(), pair.getValue());
     }
     Invocation.Builder builder = t.request()
-        .accept(MediaType.APPLICATION_JSON)
+        .accept(this.getResponseContentType())
         .headers(computeHeaders(method, path, requestHeaders));
     if (requestBody == null) {
       return builder.method(method);
     } else {
       return builder.method(
           method,
-          Entity.entity(requestBody, MediaType.APPLICATION_JSON));
+          Entity.entity(requestBody, this.getRequestContentType()));
     }
   }
 

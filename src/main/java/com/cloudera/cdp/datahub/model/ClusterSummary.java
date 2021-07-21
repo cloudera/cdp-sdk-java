@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Information about a cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-09T16:32:32.151-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-21T12:39:04.697-07:00")
 public class ClusterSummary  {
 
   /**
@@ -80,6 +80,11 @@ public class ClusterSummary  {
    * The CRN of the cluster template used for the cluster creation.
    **/
   private String clusterTemplateCrn = null;
+
+  /**
+   * Indicates the certificate status on the cluster.
+   **/
+  private String certificateExpirationState = null;
 
   /**
    * Getter for clusterName.
@@ -251,6 +256,23 @@ public class ClusterSummary  {
     this.clusterTemplateCrn = clusterTemplateCrn;
   }
 
+  /**
+   * Getter for certificateExpirationState.
+   * Indicates the certificate status on the cluster.
+   **/
+  @JsonProperty("certificateExpirationState")
+  public String getCertificateExpirationState() {
+    return certificateExpirationState;
+  }
+
+  /**
+   * Setter for certificateExpirationState.
+   * Indicates the certificate status on the cluster.
+   **/
+  public void setCertificateExpirationState(String certificateExpirationState) {
+    this.certificateExpirationState = certificateExpirationState;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -290,12 +312,15 @@ public class ClusterSummary  {
     if (!Objects.equals(this.clusterTemplateCrn, clusterSummary.clusterTemplateCrn)) {
       return false;
     }
+    if (!Objects.equals(this.certificateExpirationState, clusterSummary.certificateExpirationState)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, crn, status, workloadType, environmentCrn, cloudPlatform, nodeCount, creationDate, datalakeCrn, clusterTemplateCrn);
+    return Objects.hash(clusterName, crn, status, workloadType, environmentCrn, cloudPlatform, nodeCount, creationDate, datalakeCrn, clusterTemplateCrn, certificateExpirationState);
   }
 
   @Override
@@ -312,6 +337,7 @@ public class ClusterSummary  {
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    datalakeCrn: ").append(toIndentedString(datalakeCrn)).append("\n");
     sb.append("    clusterTemplateCrn: ").append(toIndentedString(clusterTemplateCrn)).append("\n");
+    sb.append("    certificateExpirationState: ").append(toIndentedString(certificateExpirationState)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -41,6 +41,10 @@ public class CdpClientBuilderTest {
       super(credentials, endPoint, clientConfiguration);
     }
 
+    @Override
+    public String getServiceName() {
+      return SERVICE_NAME;
+    }
   }
 
   public class MockClientBuilderCdpEndpoint

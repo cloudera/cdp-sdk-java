@@ -23,11 +23,13 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.environments.model.CredentialGranularPolicyResponse;
+import java.util.*;
 
 /**
  * Response object for getting Azure credential prerequisites.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-09T16:32:33.152-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-21T12:39:06.021-07:00")
 public class AzureCredentialPrerequisitesResponse extends CdpResponse {
 
   /**
@@ -39,6 +41,11 @@ public class AzureCredentialPrerequisitesResponse extends CdpResponse {
    * The related role definition json encoded in base64
    **/
   private String roleDefinitionJson = null;
+
+  /**
+   * The fine-grained policies related to each service.
+   **/
+  private List<CredentialGranularPolicyResponse> policies = new ArrayList<CredentialGranularPolicyResponse>();
 
   /**
    * Getter for appCreationCommand.
@@ -74,6 +81,23 @@ public class AzureCredentialPrerequisitesResponse extends CdpResponse {
     this.roleDefinitionJson = roleDefinitionJson;
   }
 
+  /**
+   * Getter for policies.
+   * The fine-grained policies related to each service.
+   **/
+  @JsonProperty("policies")
+  public List<CredentialGranularPolicyResponse> getPolicies() {
+    return policies;
+  }
+
+  /**
+   * Setter for policies.
+   * The fine-grained policies related to each service.
+   **/
+  public void setPolicies(List<CredentialGranularPolicyResponse> policies) {
+    this.policies = policies;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -89,6 +113,9 @@ public class AzureCredentialPrerequisitesResponse extends CdpResponse {
     if (!Objects.equals(this.roleDefinitionJson, azureCredentialPrerequisitesResponse.roleDefinitionJson)) {
       return false;
     }
+    if (!Objects.equals(this.policies, azureCredentialPrerequisitesResponse.policies)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -97,7 +124,7 @@ public class AzureCredentialPrerequisitesResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(appCreationCommand, roleDefinitionJson, super.hashCode());
+    return Objects.hash(appCreationCommand, roleDefinitionJson, policies, super.hashCode());
   }
 
   @Override
@@ -107,6 +134,7 @@ public class AzureCredentialPrerequisitesResponse extends CdpResponse {
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    appCreationCommand: ").append(toIndentedString(appCreationCommand)).append("\n");
     sb.append("    roleDefinitionJson: ").append(toIndentedString(roleDefinitionJson)).append("\n");
+    sb.append("    policies: ").append(toIndentedString(policies)).append("\n");
     sb.append("}");
     return sb.toString();
   }

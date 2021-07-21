@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * Request object for a create AWS environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-09T16:32:33.152-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-21T12:39:06.021-07:00")
 public class CreateAWSEnvironmentRequest  {
 
   /**
@@ -103,7 +103,7 @@ public class CreateAWSEnvironmentRequest  {
   private String description = null;
 
   /**
-   * Whether to enable SSH tunnelling for the environment.
+   * Whether to enable SSH tunneling for the environment.
    **/
   private Boolean enableTunnel = null;
 
@@ -360,7 +360,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Getter for enableTunnel.
-   * Whether to enable SSH tunnelling for the environment.
+   * Whether to enable SSH tunneling for the environment.
    **/
   @JsonProperty("enableTunnel")
   public Boolean getEnableTunnel() {
@@ -369,7 +369,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Setter for enableTunnel.
-   * Whether to enable SSH tunnelling for the environment.
+   * Whether to enable SSH tunneling for the environment.
    **/
   public void setEnableTunnel(Boolean enableTunnel) {
     this.enableTunnel = enableTunnel;

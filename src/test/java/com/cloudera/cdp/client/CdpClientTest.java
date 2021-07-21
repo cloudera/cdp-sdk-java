@@ -113,6 +113,11 @@ public class CdpClientTest {
     }
 
     @Override
+    public String getServiceName() {
+      return "test";
+    }
+
+    @Override
     protected Response getAPIResponse(String method,
                                       String path,
                                       List<Pair> requestQueries,
@@ -314,6 +319,10 @@ public class CdpClientTest {
                                 CdpSDKTestUtils.getRSAPrivateKey()),
         "endpoint",
         CdpClientConfigurationBuilder.defaultBuilder().build()) {
+      @Override
+      public String getServiceName() {
+        return "test";
+      }
     };
     client.shutdown();
     try {

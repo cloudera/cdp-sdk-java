@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Information about a datalake.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-09T16:32:32.931-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-21T12:39:05.672-07:00")
 public class Datalake  {
 
   /**
@@ -60,6 +60,11 @@ public class Datalake  {
    * The reason for the status of the datalake.
    **/
   private String statusReason = null;
+
+  /**
+   * Indicates the certificate status on the cluster.
+   **/
+  private String certificateExpirationState = null;
 
   /**
    * Getter for datalakeName.
@@ -163,6 +168,23 @@ public class Datalake  {
     this.statusReason = statusReason;
   }
 
+  /**
+   * Getter for certificateExpirationState.
+   * Indicates the certificate status on the cluster.
+   **/
+  @JsonProperty("certificateExpirationState")
+  public String getCertificateExpirationState() {
+    return certificateExpirationState;
+  }
+
+  /**
+   * Setter for certificateExpirationState.
+   * Indicates the certificate status on the cluster.
+   **/
+  public void setCertificateExpirationState(String certificateExpirationState) {
+    this.certificateExpirationState = certificateExpirationState;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -190,12 +212,15 @@ public class Datalake  {
     if (!Objects.equals(this.statusReason, datalake.statusReason)) {
       return false;
     }
+    if (!Objects.equals(this.certificateExpirationState, datalake.certificateExpirationState)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, crn, status, environmentCrn, creationDate, statusReason);
+    return Objects.hash(datalakeName, crn, status, environmentCrn, creationDate, statusReason, certificateExpirationState);
   }
 
   @Override
@@ -208,6 +233,7 @@ public class Datalake  {
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
+    sb.append("    certificateExpirationState: ").append(toIndentedString(certificateExpirationState)).append("\n");
     sb.append("}");
     return sb.toString();
   }

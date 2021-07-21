@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object for testing text input against provided account telemetry anonymization rules.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-09T16:32:33.152-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-21T12:39:06.021-07:00")
 public class TestAccountTelemetryRulesRequest  {
 
   /**

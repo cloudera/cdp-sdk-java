@@ -35,7 +35,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-09T16:32:32.732-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-21T12:39:05.336-07:00")
 public class DatacatalogClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datacatalog";
@@ -45,6 +45,21 @@ public class DatacatalogClient extends CdpClient {
       String endPoint,
       CdpClientConfiguration clientConfiguration) {
     super(credentials, endPoint, clientConfiguration);
+  }
+
+  @Override
+  protected String getServiceName() {
+    return SERVICE_NAME;
+  }
+
+  @Override
+  protected String getRequestContentType() {
+    return "application/json";
+  }
+
+  @Override
+  protected String getResponseContentType() {
+    return "application/json";
   }
 
   /**

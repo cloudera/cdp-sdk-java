@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * Request object for a create GCP environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-09T16:32:33.152-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-21T12:39:06.021-07:00")
 public class CreateGCPEnvironmentRequest  {
 
   /**
@@ -81,7 +81,7 @@ public class CreateGCPEnvironmentRequest  {
   private String description = null;
 
   /**
-   * Whether to enable SSH tunnelling for the environment.
+   * Whether to enable SSH tunneling for the environment.
    **/
   private Boolean enableTunnel = null;
 
@@ -260,7 +260,7 @@ public class CreateGCPEnvironmentRequest  {
 
   /**
    * Getter for enableTunnel.
-   * Whether to enable SSH tunnelling for the environment.
+   * Whether to enable SSH tunneling for the environment.
    **/
   @JsonProperty("enableTunnel")
   public Boolean getEnableTunnel() {
@@ -269,7 +269,7 @@ public class CreateGCPEnvironmentRequest  {
 
   /**
    * Setter for enableTunnel.
-   * Whether to enable SSH tunnelling for the environment.
+   * Whether to enable SSH tunneling for the environment.
    **/
   public void setEnableTunnel(Boolean enableTunnel) {
     this.enableTunnel = enableTunnel;
