@@ -28,8 +28,10 @@ import com.cloudera.cdp.http.RetryHandler;
 import com.cloudera.cdp.http.SimpleRetryHandler;
 import com.google.common.base.MoreObjects;
 
+import java.security.cert.X509Certificate;
 import java.time.Duration;
-
+import java.util.ArrayList;
+import java.util.List;
 import javax.annotation.Nullable;
 
 /**
@@ -54,6 +56,8 @@ public class CdpClientConfigurationBuilder {
        */
       new ExponentialBackoffDelayPolicy(2, Duration.ofMillis(10), 5),
       13);
+  private boolean ignoreTls = false;
+  private List<X509Certificate> trustedCertificates = new ArrayList<>();
 
   private CdpClientConfigurationBuilder() {}
 
@@ -296,6 +300,47 @@ public class CdpClientConfigurationBuilder {
   }
 
   /**
+   * Sets the switch to ignore HTTPS verification errors.
+   *
+   * @param ignoreTls The switch to ignore HTTPS verification errors
+   * @return a reference to the CdpClientConfiguration object so
+   * that method calls can be chained together
+   */
+  public CdpClientConfigurationBuilder withIgnoreTls(boolean ignoreTls) {
+    this.ignoreTls = ignoreTls;
+    return this;
+  }
+
+  /**
+   * Gets the switch to ignore HTTPS verification errors.
+   * @return the switch to ignore HTTPS verification errors
+   */
+  public boolean getIgnoreTls() {
+    return this.ignoreTls;
+  }
+
+  /**
+   * Sets the trusted certificates.
+   *
+   * @param trustedCertificates The trusted certificates
+   * @return a reference to the CdpClientConfiguration object so
+   * that method calls can be chained together
+   */
+  public CdpClientConfigurationBuilder withTrustedCertificates(List<X509Certificate> trustedCertificates) {
+    checkNotNullAndThrow(trustedCertificates);
+    this.trustedCertificates = trustedCertificates;
+    return this;
+  }
+
+  /**
+   * Gets the trusted certificates.
+   * @return the trusted certificates
+   */
+  public List<X509Certificate> getTrustedCertificates() {
+    return this.trustedCertificates;
+  }
+
+  /**
    * Gets an CdpClientConfigurationBuilder object with all the default values set.
    * @return an CdpClientConfiguration object with default values for each property
    */
@@ -324,6 +369,8 @@ public class CdpClientConfigurationBuilder {
         .add("Proxy URI", this.getProxyUri())
         .add("Proxy Username", this.getProxyUsername())
         .add("Proxy Password", "<hidden>")
+        .add("Ignore TLS", this.getIgnoreTls())
+        .add("Trusted Certs", "<hidden>")
         .toString();
   }
 

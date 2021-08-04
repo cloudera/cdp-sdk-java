@@ -31,6 +31,7 @@ import java.util.Map;
  */
 public class CdpServiceException extends CdpHTTPException {
 
+  private static final String UNKNOWN = "unknown";
   private static final long serialVersionUID = -875642837484022999L;
 
   private final Map<String, List<String>> responseHeaders;
@@ -52,10 +53,7 @@ public class CdpServiceException extends CdpHTTPException {
                              String statusCode,
                              String statusMessage) {
     super(httpCode, statusMessage);
-    checkNotNullAndThrow(requestId);
     checkNotNullAndThrow(responseHeaders);
-    checkNotNullAndThrow(statusCode);
-    checkNotNullAndThrow(statusMessage);
     this.responseHeaders = ImmutableMap.copyOf(responseHeaders);
     this.statusCode = statusCode;
     this.statusMessage = statusMessage;
@@ -99,9 +97,9 @@ public class CdpServiceException extends CdpHTTPException {
     return String.format("%s: %d: %s: %s %s",
                          getClass().getName(),
                          getHttpCode(),
-                         statusCode,
-                         statusMessage,
-                         requestId);
+                         statusCode != null ? statusCode : UNKNOWN,
+                         statusMessage != null ? statusMessage : UNKNOWN,
+                         requestId != null ? requestId : UNKNOWN);
   }
 
   @Override

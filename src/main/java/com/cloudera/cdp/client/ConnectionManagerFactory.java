@@ -24,16 +24,20 @@ import static com.cloudera.cdp.ValidationUtils.checkNotNullAndThrow;
 import com.cloudera.cdp.CdpClientException;
 import com.cloudera.cdp.annotation.SdkInternalApi;
 
+import java.io.IOException;
 import java.security.KeyManagementException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
+import java.util.UUID;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
+import javax.net.ssl.X509TrustManager;
 
 import org.apache.http.config.Registry;
 import org.apache.http.config.RegistryBuilder;
@@ -60,14 +64,33 @@ class ConnectionManagerFactory {
   public PoolingHttpClientConnectionManager create(CdpClientConfiguration config) {
     checkNotNullAndThrow(config);
 
-    TrustManager[] trustManagers = null;
-    try {
-      TrustManagerFactory trustManagerFactory =
-          TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-      trustManagerFactory.init(USE_DEFAULT_KEYSTORE);
-      trustManagers = trustManagerFactory.getTrustManagers();
-    } catch (KeyStoreException | NoSuchAlgorithmException e) {
-      throw new CdpClientException("Error initializing truststore", e);
+    TrustManager[] trustManagers;
+    HostnameVerifier hostnameVerifier;
+
+    if (config.getIgnoreTls()) {
+      trustManagers = new TrustManager[] { createIgnoreCertTrustManger() };
+      hostnameVerifier = (s1, s2) -> true;
+    } else {
+      try {
+        KeyStore ks;
+        if (config.getTrustedCertificates().isEmpty()) {
+          ks = USE_DEFAULT_KEYSTORE;
+        } else {
+          ks = KeyStore.getInstance(KeyStore.getDefaultType());
+          ks.load(null);
+          for (X509Certificate cert : config.getTrustedCertificates()) {
+            ks.setCertificateEntry(UUID.randomUUID().toString(), cert);
+          }
+        }
+
+        TrustManagerFactory trustManagerFactory =
+            TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+        trustManagerFactory.init(ks);
+        trustManagers = trustManagerFactory.getTrustManagers();
+      } catch (IOException | KeyStoreException | NoSuchAlgorithmException | CertificateException e) {
+        throw new CdpClientException("Error initializing truststore", e);
+      }
+      hostnameVerifier = new DefaultHostnameVerifier();
     }
 
     SSLContext sslContext;
@@ -78,13 +101,11 @@ class ConnectionManagerFactory {
       throw new CdpClientException("Error initializing SSL", e);
     }
 
-    HostnameVerifier hostnameVerifier = new DefaultHostnameVerifier();
-
     Registry<ConnectionSocketFactory> socketFactoryRegistry =
         RegistryBuilder.<ConnectionSocketFactory>create()
             .register("http", PlainConnectionSocketFactory.getSocketFactory())
             .register("https", new SSLConnectionSocketFactory(sslContext,
-                                                              hostnameVerifier))
+                                                                  hostnameVerifier))
             .build();
 
     PoolingHttpClientConnectionManager connectionManager =
@@ -95,5 +116,20 @@ class ConnectionManagerFactory {
     connectionManager.setMaxTotal(config.getMaxConnections());
 
     return connectionManager;
+  }
+
+  private static X509TrustManager createIgnoreCertTrustManger() {
+    return new X509TrustManager() {
+      @Override
+      public void checkClientTrusted(X509Certificate[] arg0, String arg1) throws CertificateException {}
+
+      @Override
+      public void checkServerTrusted(X509Certificate[] arg0, String arg1) throws CertificateException {}
+
+      @Override
+      public X509Certificate[] getAcceptedIssuers() {
+        return new X509Certificate[0];
+      }
+    };
   }
 }

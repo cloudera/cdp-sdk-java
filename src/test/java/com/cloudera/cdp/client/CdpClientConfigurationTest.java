@@ -18,10 +18,15 @@
  */
 package com.cloudera.cdp.client;
 
-import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import com.cloudera.cdp.CdpClientException;
+import com.cloudera.cdp.http.RetryHandler;
 import com.cloudera.cdp.http.SimpleRetryHandler;
+import com.google.common.collect.ImmutableList;
 
 import java.time.Duration;
 
@@ -42,6 +47,9 @@ public class CdpClientConfigurationTest {
     assertEquals(Duration.ofSeconds(50), config.getConnectionMaxIdle());
     assertEquals(Duration.ofSeconds(2), config.getValidateAfterInactivity());
     assertEquals(SimpleRetryHandler.class,config.getRetryHandler().getClass());
+    assertFalse(config.getIgnoreTls());
+    assertTrue(config.getTrustedCertificates().isEmpty());
+    assertTrue(config.getTrustedCertificates() instanceof ImmutableList);
   }
 
   @Test
@@ -52,5 +60,42 @@ public class CdpClientConfigurationTest {
     cdpClientConfigurationBuilder.withClientApplicationName(clientName);
     assertEquals(clientName,
                  cdpClientConfigurationBuilder.getClientApplicationName());
+  }
+
+  @Test
+  public void testToBuilder() {
+    RetryHandler retryHandler = new RetryHandler() {
+      @Override
+      public Duration shouldRetry(int attempts, CdpClientException exception) {
+        return null;
+      }
+    };
+    CdpClientConfiguration config =
+        CdpClientConfigurationBuilder.defaultBuilder()
+            .withMaxConnections(101)
+            .withReadTimeout(Duration.ofSeconds(102))
+            .withConnectionTimeout(Duration.ofSeconds(103))
+            .withConnectionMaxIdle(Duration.ofSeconds(104))
+            .withValidateAfterInactivity(Duration.ofSeconds(105))
+            .withRetryHandler(retryHandler)
+            .withClientApplicationName("appName")
+            .withProxyUri("proxyUri")
+            .withProxyUsername("proxyUsername")
+            .withProxyPassword("proxyPassword")
+            .build();
+
+    CdpClientConfigurationBuilder builder = config.toBuilder();
+    config = builder.build();
+
+    assertEquals(101, config.getMaxConnections());
+    assertEquals(Duration.ofSeconds(102), config.getReadTimeout());
+    assertEquals(Duration.ofSeconds(103), config.getConnectionTimeout());
+    assertEquals(Duration.ofSeconds(104), config.getConnectionMaxIdle());
+    assertEquals(Duration.ofSeconds(105), config.getValidateAfterInactivity());
+    assertEquals(retryHandler, config.getRetryHandler());
+    assertEquals("appName", config.getClientApplicationName());
+    assertEquals("proxyUri", config.getProxyUri());
+    assertEquals("proxyUsername", config.getProxyUsername());
+    assertEquals("proxyPassword", config.getProxyPassword());
   }
 }

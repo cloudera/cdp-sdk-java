@@ -21,15 +21,27 @@ package com.cloudera.cdp.client;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
+import com.google.common.collect.ImmutableList;
+import com.google.common.io.Resources;
+
+import java.io.ByteArrayInputStream;
+import java.security.cert.CertificateFactory;
+import java.security.cert.X509Certificate;
 import java.time.Duration;
-
+import javax.net.ssl.SSLHandshakeException;
+import javax.ws.rs.ProcessingException;
 import javax.ws.rs.client.Client;
+import javax.ws.rs.core.Response;
 
 import org.glassfish.jersey.apache.connector.ApacheClientProperties;
 import org.junit.Test;
 
 public class ClientFactoryTest {
+
+  private static final boolean EXPECT_ERROR = true;
+  private static final boolean NO_ERROR = false;
 
   @Test
   public void testDefaultKeepAliveStrategy() {
@@ -57,5 +69,60 @@ public class ClientFactoryTest {
             .build());
     assertNull(client.getConfiguration().getProperty(
         ApacheClientProperties.KEEPALIVE_STRATEGY));
+  }
+
+  @Test
+  public void testIgnoreTsl() {
+    CdpClientConfiguration config = CdpClientConfigurationBuilder
+        .defaultBuilder()
+        .build();
+    testHttps("https://self-signed.badssl.com", config, EXPECT_ERROR);
+
+    config = CdpClientConfigurationBuilder
+        .defaultBuilder()
+        .withIgnoreTls(true)
+        .build();
+    testHttps("https://wrong.host.badssl.com/", config, NO_ERROR);
+    testHttps("https://self-signed.badssl.com", config, NO_ERROR);
+    testHttps("https://untrusted-root.badssl.com/", config, NO_ERROR);
+  }
+
+
+  @Test
+  public void testTrustedCertificates() throws Exception {
+    CdpClientConfiguration config = CdpClientConfigurationBuilder
+        .defaultBuilder()
+        .build();
+    testHttps("https://untrusted-root.badssl.com/", config, EXPECT_ERROR);
+
+    CertificateFactory cf = CertificateFactory.getInstance("X.509");
+    byte[] certBytes = Resources.toByteArray(Resources.getResource("badssl-com.pem"));
+    X509Certificate cert = (X509Certificate) cf.generateCertificate(new ByteArrayInputStream(certBytes));
+    config = CdpClientConfigurationBuilder
+            .defaultBuilder()
+            .withTrustedCertificates(ImmutableList.of(cert))
+            .build();
+    testHttps("https://untrusted-root.badssl.com/", config, NO_ERROR);
+    testHttps("https://self-signed.badssl.com", config, EXPECT_ERROR);
+  }
+
+  private void testHttps(String url, CdpClientConfiguration configuration, boolean expectError) {
+    Exception ex = null;
+    Response response = null;
+    ClientFactory clientFactory = new ClientFactory();
+    Client client = clientFactory.create(configuration);
+    try {
+      response = client.target(url).request().get();
+    } catch (ProcessingException e) {
+      ex = e;
+    }
+
+    if (expectError) {
+      assertNotNull(ex);
+      assertTrue(ex.getCause() instanceof SSLHandshakeException);
+    } else {
+      assertNull(ex);
+      assertNotNull(response);
+    }
   }
 }

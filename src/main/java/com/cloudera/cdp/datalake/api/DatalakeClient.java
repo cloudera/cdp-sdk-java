@@ -19,12 +19,12 @@
 
 package com.cloudera.cdp.datalake.api;
 
-import javax.ws.rs.core.GenericType;
 import com.cloudera.cdp.CdpClientException;
 import com.cloudera.cdp.annotation.WorkloadApi;
 import com.cloudera.cdp.authentication.credentials.CdpCredentials;
 import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
+import com.cloudera.cdp.client.CdpClientContext;
 import com.cloudera.cdp.client.Pair;
 import com.cloudera.cdp.client.RestResponse;
 import com.cloudera.cdp.datalake.model.BackupDatalakeRequest;
@@ -86,8 +86,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-21T12:39:05.672-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-08-04T11:15:48.580-07:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datalake";
@@ -97,6 +98,10 @@ public class DatalakeClient extends CdpClient {
       String endPoint,
       CdpClientConfiguration clientConfiguration) {
     super(credentials, endPoint, clientConfiguration);
+  }
+
+  public DatalakeClient(CdpClientContext<?> context) {
+    super(context);
   }
 
   @Override
@@ -124,7 +129,7 @@ public class DatalakeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling backupDatalake");
     }
 
-    return this.invokeAPI("/api/v1/datalake/backupDatalake", input, new GenericType<BackupDatalakeResponse>(){});
+    return this.invokeAPI("backupDatalake", "/api/v1/datalake/backupDatalake", input, new GenericType<BackupDatalakeResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -137,7 +142,7 @@ public class DatalakeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling backupDatalakeStatus");
     }
 
-    return this.invokeAPI("/api/v1/datalake/backupDatalakeStatus", input, new GenericType<BackupDatalakeStatusResponse>(){});
+    return this.invokeAPI("backupDatalakeStatus", "/api/v1/datalake/backupDatalakeStatus", input, new GenericType<BackupDatalakeStatusResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -150,7 +155,7 @@ public class DatalakeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling cancelDatalakeDiagnostics");
     }
 
-    return this.invokeAPI("/api/v1/datalake/cancelDatalakeDiagnostics", input, new GenericType<CancelDatalakeDiagnosticsResponse>(){});
+    return this.invokeAPI("cancelDatalakeDiagnostics", "/api/v1/datalake/cancelDatalakeDiagnostics", input, new GenericType<CancelDatalakeDiagnosticsResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -163,7 +168,7 @@ public class DatalakeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling collectCmDiagnostics");
     }
 
-    return this.invokeAPI("/api/v1/datalake/collectCmDiagnostics", input, new GenericType<CollectCmDiagnosticsResponse>(){});
+    return this.invokeAPI("collectCmDiagnostics", "/api/v1/datalake/collectCmDiagnostics", input, new GenericType<CollectCmDiagnosticsResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -176,7 +181,7 @@ public class DatalakeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling collectDatalakeDiagnostics");
     }
 
-    return this.invokeAPI("/api/v1/datalake/collectDatalakeDiagnostics", input, new GenericType<CollectDatalakeDiagnosticsResponse>(){});
+    return this.invokeAPI("collectDatalakeDiagnostics", "/api/v1/datalake/collectDatalakeDiagnostics", input, new GenericType<CollectDatalakeDiagnosticsResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -189,7 +194,7 @@ public class DatalakeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling createAWSDatalake");
     }
 
-    return this.invokeAPI("/api/v1/datalake/createAWSDatalake", input, new GenericType<CreateAWSDatalakeResponse>(){});
+    return this.invokeAPI("createAWSDatalake", "/api/v1/datalake/createAWSDatalake", input, new GenericType<CreateAWSDatalakeResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -202,7 +207,7 @@ public class DatalakeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling createAzureDatalake");
     }
 
-    return this.invokeAPI("/api/v1/datalake/createAzureDatalake", input, new GenericType<CreateAzureDatalakeResponse>(){});
+    return this.invokeAPI("createAzureDatalake", "/api/v1/datalake/createAzureDatalake", input, new GenericType<CreateAzureDatalakeResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -215,7 +220,7 @@ public class DatalakeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling createGCPDatalake");
     }
 
-    return this.invokeAPI("/api/v1/datalake/createGCPDatalake", input, new GenericType<CreateGCPDatalakeResponse>(){});
+    return this.invokeAPI("createGCPDatalake", "/api/v1/datalake/createGCPDatalake", input, new GenericType<CreateGCPDatalakeResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -228,7 +233,7 @@ public class DatalakeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling deleteDatalake");
     }
 
-    return this.invokeAPI("/api/v1/datalake/deleteDatalake", input, new GenericType<DeleteDatalakeResponse>(){});
+    return this.invokeAPI("deleteDatalake", "/api/v1/datalake/deleteDatalake", input, new GenericType<DeleteDatalakeResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -241,7 +246,7 @@ public class DatalakeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling describeDatalake");
     }
 
-    return this.invokeAPI("/api/v1/datalake/describeDatalake", input, new GenericType<DescribeDatalakeResponse>(){});
+    return this.invokeAPI("describeDatalake", "/api/v1/datalake/describeDatalake", input, new GenericType<DescribeDatalakeResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -254,7 +259,7 @@ public class DatalakeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling getClusterHostStatus");
     }
 
-    return this.invokeAPI("/api/v1/datalake/getClusterHostStatus", input, new GenericType<GetClusterHostStatusResponse>(){});
+    return this.invokeAPI("getClusterHostStatus", "/api/v1/datalake/getClusterHostStatus", input, new GenericType<GetClusterHostStatusResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -267,7 +272,7 @@ public class DatalakeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling getClusterServiceStatus");
     }
 
-    return this.invokeAPI("/api/v1/datalake/getClusterServiceStatus", input, new GenericType<GetClusterServiceStatusResponse>(){});
+    return this.invokeAPI("getClusterServiceStatus", "/api/v1/datalake/getClusterServiceStatus", input, new GenericType<GetClusterServiceStatusResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -280,7 +285,7 @@ public class DatalakeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling getCmRoles");
     }
 
-    return this.invokeAPI("/api/v1/datalake/getCmRoles", input, new GenericType<GetCmRolesResponse>(){});
+    return this.invokeAPI("getCmRoles", "/api/v1/datalake/getCmRoles", input, new GenericType<GetCmRolesResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -293,7 +298,7 @@ public class DatalakeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling getDatalakeLogDescriptors");
     }
 
-    return this.invokeAPI("/api/v1/datalake/getDatalakeLogDescriptors", input, new GenericType<GetDatalakeLogDescriptorsResponse>(){});
+    return this.invokeAPI("getDatalakeLogDescriptors", "/api/v1/datalake/getDatalakeLogDescriptors", input, new GenericType<GetDatalakeLogDescriptorsResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -306,7 +311,7 @@ public class DatalakeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling listDatalakeBackups");
     }
 
-    return this.invokeAPI("/api/v1/datalake/listDatalakeBackups", input, new GenericType<ListDatalakeBackupsResponse>(){});
+    return this.invokeAPI("listDatalakeBackups", "/api/v1/datalake/listDatalakeBackups", input, new GenericType<ListDatalakeBackupsResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -319,7 +324,7 @@ public class DatalakeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling listDatalakeDiagnostics");
     }
 
-    return this.invokeAPI("/api/v1/datalake/listDatalakeDiagnostics", input, new GenericType<ListDatalakeDiagnosticsResponse>(){});
+    return this.invokeAPI("listDatalakeDiagnostics", "/api/v1/datalake/listDatalakeDiagnostics", input, new GenericType<ListDatalakeDiagnosticsResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -332,7 +337,7 @@ public class DatalakeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling listDatalakes");
     }
 
-    return this.invokeAPI("/api/v1/datalake/listDatalakes", input, new GenericType<ListDatalakesResponse>(){});
+    return this.invokeAPI("listDatalakes", "/api/v1/datalake/listDatalakes", input, new GenericType<ListDatalakesResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -345,7 +350,7 @@ public class DatalakeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling listRuntimes");
     }
 
-    return this.invokeAPI("/api/v1/datalake/listRuntimes", input, new GenericType<ListRuntimesResponse>(){});
+    return this.invokeAPI("listRuntimes", "/api/v1/datalake/listRuntimes", input, new GenericType<ListRuntimesResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -358,7 +363,7 @@ public class DatalakeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling renewCertificate");
     }
 
-    return this.invokeAPI("/api/v1/datalake/renewCertificate", input, new GenericType<RenewCertificateResponse>(){});
+    return this.invokeAPI("renewCertificate", "/api/v1/datalake/renewCertificate", input, new GenericType<RenewCertificateResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -371,7 +376,7 @@ public class DatalakeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling repairDatalake");
     }
 
-    return this.invokeAPI("/api/v1/datalake/repairDatalake", input, new GenericType<RepairDatalakeResponse>(){});
+    return this.invokeAPI("repairDatalake", "/api/v1/datalake/repairDatalake", input, new GenericType<RepairDatalakeResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -384,7 +389,7 @@ public class DatalakeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling restoreDatalake");
     }
 
-    return this.invokeAPI("/api/v1/datalake/restoreDatalake", input, new GenericType<RestoreDatalakeResponse>(){});
+    return this.invokeAPI("restoreDatalake", "/api/v1/datalake/restoreDatalake", input, new GenericType<RestoreDatalakeResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -397,7 +402,7 @@ public class DatalakeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling restoreDatalakeStatus");
     }
 
-    return this.invokeAPI("/api/v1/datalake/restoreDatalakeStatus", input, new GenericType<RestoreDatalakeStatusResponse>(){});
+    return this.invokeAPI("restoreDatalakeStatus", "/api/v1/datalake/restoreDatalakeStatus", input, new GenericType<RestoreDatalakeStatusResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -410,7 +415,7 @@ public class DatalakeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling retryDatalake");
     }
 
-    return this.invokeAPI("/api/v1/datalake/retryDatalake", input, new GenericType<RetryDatalakeResponse>(){});
+    return this.invokeAPI("retryDatalake", "/api/v1/datalake/retryDatalake", input, new GenericType<RetryDatalakeResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -423,7 +428,7 @@ public class DatalakeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling rotateAutoTlsCertificates");
     }
 
-    return this.invokeAPI("/api/v1/datalake/rotateAutoTlsCertificates", input, new GenericType<RotateAutoTlsCertificatesResponse>(){});
+    return this.invokeAPI("rotateAutoTlsCertificates", "/api/v1/datalake/rotateAutoTlsCertificates", input, new GenericType<RotateAutoTlsCertificatesResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -436,7 +441,7 @@ public class DatalakeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling startDatalake");
     }
 
-    return this.invokeAPI("/api/v1/datalake/startDatalake", input, new GenericType<StartDatalakeResponse>(){});
+    return this.invokeAPI("startDatalake", "/api/v1/datalake/startDatalake", input, new GenericType<StartDatalakeResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -449,7 +454,7 @@ public class DatalakeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling stopDatalake");
     }
 
-    return this.invokeAPI("/api/v1/datalake/stopDatalake", input, new GenericType<StopDatalakeResponse>(){});
+    return this.invokeAPI("stopDatalake", "/api/v1/datalake/stopDatalake", input, new GenericType<StopDatalakeResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -462,6 +467,6 @@ public class DatalakeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling upgradeDatalake");
     }
 
-    return this.invokeAPI("/api/v1/datalake/upgradeDatalake", input, new GenericType<UpgradeDatalakeResponse>(){});
+    return this.invokeAPI("upgradeDatalake", "/api/v1/datalake/upgradeDatalake", input, new GenericType<UpgradeDatalakeResponse>(){}, NO_EXTENSION);
   }
 }

@@ -19,12 +19,12 @@
 
 package com.cloudera.cdp.ml.api;
 
-import javax.ws.rs.core.GenericType;
 import com.cloudera.cdp.CdpClientException;
 import com.cloudera.cdp.annotation.WorkloadApi;
 import com.cloudera.cdp.authentication.credentials.CdpCredentials;
 import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
+import com.cloudera.cdp.client.CdpClientContext;
 import com.cloudera.cdp.client.Pair;
 import com.cloudera.cdp.client.RestResponse;
 import com.cloudera.cdp.ml.model.CreateWorkspaceRequest;
@@ -56,8 +56,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-21T12:39:05.417-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-08-04T11:15:48.414-07:00")
 public class MlClient extends CdpClient {
 
   public static final String SERVICE_NAME = "ml";
@@ -67,6 +68,10 @@ public class MlClient extends CdpClient {
       String endPoint,
       CdpClientConfiguration clientConfiguration) {
     super(credentials, endPoint, clientConfiguration);
+  }
+
+  public MlClient(CdpClientContext<?> context) {
+    super(context);
   }
 
   @Override
@@ -94,7 +99,7 @@ public class MlClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling createWorkspace");
     }
 
-    return this.invokeAPI("/api/v1/ml/createWorkspace", input, new GenericType<CreateWorkspaceResponse>(){});
+    return this.invokeAPI("createWorkspace", "/api/v1/ml/createWorkspace", input, new GenericType<CreateWorkspaceResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -107,7 +112,7 @@ public class MlClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling deleteWorkspace");
     }
 
-    return this.invokeAPI("/api/v1/ml/deleteWorkspace", input, new GenericType<DeleteWorkspaceResponse>(){});
+    return this.invokeAPI("deleteWorkspace", "/api/v1/ml/deleteWorkspace", input, new GenericType<DeleteWorkspaceResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -120,7 +125,7 @@ public class MlClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling describeWorkspace");
     }
 
-    return this.invokeAPI("/api/v1/ml/describeWorkspace", input, new GenericType<DescribeWorkspaceResponse>(){});
+    return this.invokeAPI("describeWorkspace", "/api/v1/ml/describeWorkspace", input, new GenericType<DescribeWorkspaceResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -133,7 +138,7 @@ public class MlClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling getAuditEvents");
     }
 
-    return this.invokeAPI("/api/v1/ml/getAuditEvents", input, new GenericType<GetAuditEventsResponse>(){});
+    return this.invokeAPI("getAuditEvents", "/api/v1/ml/getAuditEvents", input, new GenericType<GetAuditEventsResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -146,7 +151,7 @@ public class MlClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling getKubeconfig");
     }
 
-    return this.invokeAPI("/api/v1/ml/getKubeconfig", input, new GenericType<GetKubeconfigResponse>(){});
+    return this.invokeAPI("getKubeconfig", "/api/v1/ml/getKubeconfig", input, new GenericType<GetKubeconfigResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -159,7 +164,7 @@ public class MlClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling getLatestWorkspaceVersion");
     }
 
-    return this.invokeAPI("/api/v1/ml/getLatestWorkspaceVersion", input, new GenericType<GetLatestWorkspaceVersionResponse>(){});
+    return this.invokeAPI("getLatestWorkspaceVersion", "/api/v1/ml/getLatestWorkspaceVersion", input, new GenericType<GetLatestWorkspaceVersionResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -172,7 +177,7 @@ public class MlClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling getLogs");
     }
 
-    return this.invokeAPI("/api/v1/ml/getLogs", input, new GenericType<GetLogsResponse>(){});
+    return this.invokeAPI("getLogs", "/api/v1/ml/getLogs", input, new GenericType<GetLogsResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -185,7 +190,7 @@ public class MlClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling grantWorkspaceAccess");
     }
 
-    return this.invokeAPI("/api/v1/ml/grantWorkspaceAccess", input, new GenericType<GrantWorkspaceAccessResponse>(){});
+    return this.invokeAPI("grantWorkspaceAccess", "/api/v1/ml/grantWorkspaceAccess", input, new GenericType<GrantWorkspaceAccessResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -198,7 +203,7 @@ public class MlClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling listWorkspaceAccess");
     }
 
-    return this.invokeAPI("/api/v1/ml/listWorkspaceAccess", input, new GenericType<ListWorkspaceAccessResponse>(){});
+    return this.invokeAPI("listWorkspaceAccess", "/api/v1/ml/listWorkspaceAccess", input, new GenericType<ListWorkspaceAccessResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -211,7 +216,7 @@ public class MlClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling listWorkspaces");
     }
 
-    return this.invokeAPI("/api/v1/ml/listWorkspaces", input, new GenericType<ListWorkspacesResponse>(){});
+    return this.invokeAPI("listWorkspaces", "/api/v1/ml/listWorkspaces", input, new GenericType<ListWorkspacesResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -224,7 +229,7 @@ public class MlClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling revokeWorkspaceAccess");
     }
 
-    return this.invokeAPI("/api/v1/ml/revokeWorkspaceAccess", input, new GenericType<RevokeWorkspaceAccessResponse>(){});
+    return this.invokeAPI("revokeWorkspaceAccess", "/api/v1/ml/revokeWorkspaceAccess", input, new GenericType<RevokeWorkspaceAccessResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -237,6 +242,6 @@ public class MlClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling upgradeWorkspace");
     }
 
-    return this.invokeAPI("/api/v1/ml/upgradeWorkspace", input, new GenericType<UpgradeWorkspaceResponse>(){});
+    return this.invokeAPI("upgradeWorkspace", "/api/v1/ml/upgradeWorkspace", input, new GenericType<UpgradeWorkspaceResponse>(){}, NO_EXTENSION);
   }
 }

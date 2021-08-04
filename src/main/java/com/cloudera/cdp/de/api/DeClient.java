@@ -19,12 +19,12 @@
 
 package com.cloudera.cdp.de.api;
 
-import javax.ws.rs.core.GenericType;
 import com.cloudera.cdp.CdpClientException;
 import com.cloudera.cdp.annotation.WorkloadApi;
 import com.cloudera.cdp.authentication.credentials.CdpCredentials;
 import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
+import com.cloudera.cdp.client.CdpClientContext;
 import com.cloudera.cdp.client.Pair;
 import com.cloudera.cdp.client.RestResponse;
 import com.cloudera.cdp.de.model.CreateVcRequest;
@@ -50,8 +50,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-21T12:39:06.436-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-08-04T11:15:49.222-07:00")
 public class DeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "de";
@@ -61,6 +62,10 @@ public class DeClient extends CdpClient {
       String endPoint,
       CdpClientConfiguration clientConfiguration) {
     super(credentials, endPoint, clientConfiguration);
+  }
+
+  public DeClient(CdpClientContext<?> context) {
+    super(context);
   }
 
   @Override
@@ -88,7 +93,7 @@ public class DeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling createVc");
     }
 
-    return this.invokeAPI("/api/v1/de/createVc", input, new GenericType<CreateVcResponse>(){});
+    return this.invokeAPI("createVc", "/api/v1/de/createVc", input, new GenericType<CreateVcResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -101,7 +106,7 @@ public class DeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling deleteVc");
     }
 
-    return this.invokeAPI("/api/v1/de/deleteVc", input, new GenericType<DeleteVcResponse>(){});
+    return this.invokeAPI("deleteVc", "/api/v1/de/deleteVc", input, new GenericType<DeleteVcResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -114,7 +119,7 @@ public class DeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling describeService");
     }
 
-    return this.invokeAPI("/api/v1/de/describeService", input, new GenericType<DescribeServiceResponse>(){});
+    return this.invokeAPI("describeService", "/api/v1/de/describeService", input, new GenericType<DescribeServiceResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -127,7 +132,7 @@ public class DeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling describeVc");
     }
 
-    return this.invokeAPI("/api/v1/de/describeVc", input, new GenericType<DescribeVcResponse>(){});
+    return this.invokeAPI("describeVc", "/api/v1/de/describeVc", input, new GenericType<DescribeVcResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -140,7 +145,7 @@ public class DeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling disableService");
     }
 
-    return this.invokeAPI("/api/v1/de/disableService", input, new GenericType<DisableServiceResponse>(){});
+    return this.invokeAPI("disableService", "/api/v1/de/disableService", input, new GenericType<DisableServiceResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -153,7 +158,7 @@ public class DeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling enableService");
     }
 
-    return this.invokeAPI("/api/v1/de/enableService", input, new GenericType<EnableServiceResponse>(){});
+    return this.invokeAPI("enableService", "/api/v1/de/enableService", input, new GenericType<EnableServiceResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -166,7 +171,7 @@ public class DeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling getKubeconfig");
     }
 
-    return this.invokeAPI("/api/v1/de/getKubeconfig", input, new GenericType<GetKubeconfigResponse>(){});
+    return this.invokeAPI("getKubeconfig", "/api/v1/de/getKubeconfig", input, new GenericType<GetKubeconfigResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -179,7 +184,7 @@ public class DeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling listServices");
     }
 
-    return this.invokeAPI("/api/v1/de/listServices", input, new GenericType<ListServicesResponse>(){});
+    return this.invokeAPI("listServices", "/api/v1/de/listServices", input, new GenericType<ListServicesResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -192,6 +197,6 @@ public class DeClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling listVcs");
     }
 
-    return this.invokeAPI("/api/v1/de/listVcs", input, new GenericType<ListVcsResponse>(){});
+    return this.invokeAPI("listVcs", "/api/v1/de/listVcs", input, new GenericType<ListVcsResponse>(){}, NO_EXTENSION);
   }
 }

@@ -18,10 +18,11 @@ com.cloudera.cdp.dw.api
 com.cloudera.cdp.dw.model
 com.cloudera.cdp.environments.api
 com.cloudera.cdp.environments.model
+com.cloudera.cdp.extension
 com.cloudera.cdp.http
 com.cloudera.cdp.iam.api
 com.cloudera.cdp.iam.model
 com.cloudera.cdp.ml.api
 com.cloudera.cdp.ml.model
-com.cloudera.cdp.scim.api
-com.cloudera.cdp.scim.model
+com.cloudera.cdp.opdb.api
+com.cloudera.cdp.opdb.model

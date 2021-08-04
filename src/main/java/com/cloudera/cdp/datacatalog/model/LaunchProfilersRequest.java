@@ -27,13 +27,18 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Launch Profilers request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-21T12:39:05.336-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-08-04T11:15:48.351-07:00")
 public class LaunchProfilersRequest  {
 
   /**
    * The Name or CRN of the Datalake.
    **/
   private String datalake = null;
+
+  /**
+   * Enables High Availability (HA) for datacatalog profilers (default value is false). The High Availability (HA) Profiler cluster provides failure resilience and scalability but incurs additional cost.
+   **/
+  private Boolean enableHA = null;
 
   /**
    * Getter for datalake.
@@ -52,6 +57,23 @@ public class LaunchProfilersRequest  {
     this.datalake = datalake;
   }
 
+  /**
+   * Getter for enableHA.
+   * Enables High Availability (HA) for datacatalog profilers (default value is false). The High Availability (HA) Profiler cluster provides failure resilience and scalability but incurs additional cost.
+   **/
+  @JsonProperty("enableHA")
+  public Boolean getEnableHA() {
+    return enableHA;
+  }
+
+  /**
+   * Setter for enableHA.
+   * Enables High Availability (HA) for datacatalog profilers (default value is false). The High Availability (HA) Profiler cluster provides failure resilience and scalability but incurs additional cost.
+   **/
+  public void setEnableHA(Boolean enableHA) {
+    this.enableHA = enableHA;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -64,12 +86,15 @@ public class LaunchProfilersRequest  {
     if (!Objects.equals(this.datalake, launchProfilersRequest.datalake)) {
       return false;
     }
+    if (!Objects.equals(this.enableHA, launchProfilersRequest.enableHA)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalake);
+    return Objects.hash(datalake, enableHA);
   }
 
   @Override
@@ -77,6 +102,7 @@ public class LaunchProfilersRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class LaunchProfilersRequest {\n");
     sb.append("    datalake: ").append(toIndentedString(datalake)).append("\n");
+    sb.append("    enableHA: ").append(toIndentedString(enableHA)).append("\n");
     sb.append("}");
     return sb.toString();
   }

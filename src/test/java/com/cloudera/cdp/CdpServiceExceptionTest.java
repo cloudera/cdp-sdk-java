@@ -49,4 +49,32 @@ public class CdpServiceExceptionTest {
         "requestid"),
       exception.toString());
   }
+
+  @Test
+  public void testExceptionNoRequestId() {
+    CdpServiceException exception =
+        new CdpServiceException(null, 502, new MultivaluedHashMap<>(),
+            "statuscode", "statusmessage");
+    assertEquals(String.format("%s: %d: %s: %s %s",
+        CdpServiceException.class.getName().toString(),
+        502,
+        "statuscode",
+        "statusmessage",
+        "unknown"),
+        exception.toString());
+  }
+
+  @Test
+  public void testExceptionNoStatusMessage() {
+    CdpServiceException exception =
+        new CdpServiceException("requestid", 502, new MultivaluedHashMap<>(),
+            null, null);
+    assertEquals(String.format("%s: %d: %s: %s %s",
+        CdpServiceException.class.getName().toString(),
+        502,
+        "unknown",
+        "unknown",
+        "requestid"),
+        exception.toString());
+  }
 }

@@ -25,6 +25,7 @@ import com.cloudera.cdp.annotation.SdkInternalApi;
 import com.google.common.collect.Iterables;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Class used to encapsulate information returned from all CDP service
@@ -36,7 +37,8 @@ public abstract class CdpResponse extends BaseResponse {
   /**
    * The name of the response header containing the request ID.
    */
-  public static final String CDP_HEADER_REQUESTID = "x-altus-request-id";
+  public static final String ALTUS_HEADER_REQUESTID = "x-altus-request-id";
+  public static final String CDP_HEADER_REQUESTID = "x-cdp-request-id";
 
   /**
    * Returns the CDP request ID. CDP request IDs can be used in the event a
@@ -45,8 +47,15 @@ public abstract class CdpResponse extends BaseResponse {
    * @return The CDP request ID
    */
   public String getRequestId() {
-    checkNotNullAndThrow(this.getResponseHeaders());
-    List<String> values = this.getResponseHeaders().get(CDP_HEADER_REQUESTID);
+    return getRequestId(this.getResponseHeaders());
+  }
+
+  static String getRequestId(Map<String, List<String>> responseHeaders) {
+    checkNotNullAndThrow(responseHeaders);
+    List<String> values = responseHeaders.get(ALTUS_HEADER_REQUESTID);
+    if (values == null) {
+      values = responseHeaders.get(CDP_HEADER_REQUESTID);
+    }
     if (values == null) {
       return "unknown";
     }

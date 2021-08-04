@@ -2,6 +2,11 @@
 
 checkpoint() {
   local prompt=$1
+  local confirm=$2
+
+  if [ "${confirm}" = "false" ]; then
+    return 0
+  fi
 
   read -p "${prompt} [y|n] " -n 1 -r < /dev/tty
   echo
@@ -13,15 +18,24 @@ checkpoint() {
 
 set -e
 
+confirm=true
+while getopts "f" opt; do
+  case $opt in
+    f)
+      confirm=false
+      ;;
+  esac
+done
+
 read -p 'CDP API version number: ' -r ver
 
-checkpoint "Version ${ver}: correct?"
+checkpoint "Version ${ver}: correct?" ${confirm}
 
 set -x
 git tag -a -m "Tag for ${ver} Java SDK" "cdp-sdk-java-${ver}"
 set +x
 
-checkpoint "Push tag cdp-sdk-java-${ver}?"
+checkpoint "Push tag cdp-sdk-java-${ver}?" ${confirm}
 
 set -x
 git push origin "cdp-sdk-java-${ver}"
@@ -29,7 +43,7 @@ git switch cdp-sdk-java-external-release
 git reset --hard "cdp-sdk-java-${ver}"
 set +x
 
-checkpoint "Push branch cdp-sdk-java-external-release?"
+checkpoint "Push branch cdp-sdk-java-external-release?" ${confirm}
 
 set -x
 git push origin
@@ -37,12 +51,17 @@ git switch cdp-sdk-java-internal-release
 git reset --hard "cdp-sdk-java-${ver}"
 set +x
 
-checkpoint "Push branch cdp-sdk-java-internal-release?"
+checkpoint "Push branch cdp-sdk-java-internal-release?" ${confirm}
 
 set -x
 git push origin
 set +x
 
+ORANGE="\033[0;33m"
+YELLOW="\033[1;33m"
+NC="\033[0m"
+
+echo -e "${ORANGE}"
 echo "Release done. Jobs to watch:"
 echo "  https://build.service-delivery.cloudera.com/view/CDPCP/job/cdpcp-external-sdk-java-release-build/"
 echo "  https://build.service-delivery.cloudera.com/view/CDPCP/job/cdpcp-internal-sdk-java-release-build/"
@@ -52,3 +71,4 @@ echo "Verify results:"
 echo "  http://maven.jenkins.cloudera.com:8081/artifactory/cdh-staging-local/com/cloudera/cdp/cdp-sdk-java/"
 echo "  http://maven.jenkins.cloudera.com:8081/artifactory/libs-release-local/com/cloudera/cdp/cdp-sdk-java/"
 echo "  https://github.com/cloudera/cdp-sdk-java"
+echo -e "${NC}"

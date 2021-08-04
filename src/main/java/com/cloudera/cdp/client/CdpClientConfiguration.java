@@ -22,8 +22,12 @@ package com.cloudera.cdp.client;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import com.cloudera.cdp.http.RetryHandler;
+import com.google.common.collect.ImmutableList;
 
+import java.security.cert.X509Certificate;
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Class encapsulating properties that can be set on a CDP client.
@@ -40,6 +44,8 @@ public class CdpClientConfiguration {
   private final String proxyUri;
   private final String proxyUsername;
   private final String proxyPassword;
+  private final boolean ignoreTls;
+  private final ImmutableList<X509Certificate> trustedCertificates;
 
   /**
    * Constructor.
@@ -57,6 +63,28 @@ public class CdpClientConfiguration {
     proxyUri = builder.getProxyUri();
     proxyUsername = builder.getProxyUsername();
     proxyPassword = builder.getProxyPassword();
+    ignoreTls = builder.getIgnoreTls();
+    trustedCertificates = ImmutableList.copyOf(builder.getTrustedCertificates());
+  }
+
+  /**
+   * Constructs a builder initialized with current client configuration.
+   * @return the client configuration builder.
+   */
+  public CdpClientConfigurationBuilder toBuilder() {
+    return CdpClientConfigurationBuilder.defaultBuilder()
+        .withMaxConnections(maxConnections)
+        .withReadTimeout(readTimeout)
+        .withConnectionTimeout(connectionTimeout)
+        .withConnectionMaxIdle(connectionMaxIdle)
+        .withValidateAfterInactivity(validateAfterInactivity)
+        .withRetryHandler(retryHandler)
+        .withClientApplicationName(clientApplicationName)
+        .withProxyUri(proxyUri)
+        .withProxyUsername(proxyUsername)
+        .withProxyPassword(proxyPassword)
+        .withIgnoreTls(ignoreTls)
+        .withTrustedCertificates(new ArrayList<>(trustedCertificates));
   }
 
   /**
@@ -127,6 +155,20 @@ public class CdpClientConfiguration {
    */
   public String getProxyPassword() {
     return this.proxyPassword;
+  }
+
+  /**
+   * see: {@link CdpClientConfigurationBuilder#getIgnoreTls()}.
+   */
+  public boolean getIgnoreTls() {
+    return this.ignoreTls;
+  }
+
+  /**
+   * see: {@link CdpClientConfigurationBuilder#getTrustedCertificates()}.
+   */
+  public List<X509Certificate> getTrustedCertificates() {
+    return this.trustedCertificates;
   }
 }
 

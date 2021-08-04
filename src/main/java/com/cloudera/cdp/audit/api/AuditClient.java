@@ -19,12 +19,12 @@
 
 package com.cloudera.cdp.audit.api;
 
-import javax.ws.rs.core.GenericType;
 import com.cloudera.cdp.CdpClientException;
 import com.cloudera.cdp.annotation.WorkloadApi;
 import com.cloudera.cdp.authentication.credentials.CdpCredentials;
 import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
+import com.cloudera.cdp.client.CdpClientContext;
 import com.cloudera.cdp.client.Pair;
 import com.cloudera.cdp.client.RestResponse;
 import com.cloudera.cdp.audit.model.ArchiveAuditEventsRequest;
@@ -44,8 +44,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-21T12:39:06.356-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-08-04T11:15:49.142-07:00")
 public class AuditClient extends CdpClient {
 
   public static final String SERVICE_NAME = "audit";
@@ -55,6 +56,10 @@ public class AuditClient extends CdpClient {
       String endPoint,
       CdpClientConfiguration clientConfiguration) {
     super(credentials, endPoint, clientConfiguration);
+  }
+
+  public AuditClient(CdpClientContext<?> context) {
+    super(context);
   }
 
   @Override
@@ -82,7 +87,7 @@ public class AuditClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling archiveAuditEvents");
     }
 
-    return this.invokeAPI("/api/v1/audit/archiveAuditEvents", input, new GenericType<ArchiveAuditEventsResponse>(){});
+    return this.invokeAPI("archiveAuditEvents", "/api/v1/audit/archiveAuditEvents", input, new GenericType<ArchiveAuditEventsResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -95,7 +100,7 @@ public class AuditClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling configureArchiving");
     }
 
-    return this.invokeAPI("/api/v1/audit/configureArchiving", input, new GenericType<ConfigureArchivingResponse>(){});
+    return this.invokeAPI("configureArchiving", "/api/v1/audit/configureArchiving", input, new GenericType<ConfigureArchivingResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -108,7 +113,7 @@ public class AuditClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling getArchivingConfig");
     }
 
-    return this.invokeAPI("/api/v1/audit/getArchivingConfig", input, new GenericType<GetArchivingConfigResponse>(){});
+    return this.invokeAPI("getArchivingConfig", "/api/v1/audit/getArchivingConfig", input, new GenericType<GetArchivingConfigResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -121,7 +126,7 @@ public class AuditClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling getArchivingStatus");
     }
 
-    return this.invokeAPI("/api/v1/audit/getArchivingStatus", input, new GenericType<GetArchivingStatusResponse>(){});
+    return this.invokeAPI("getArchivingStatus", "/api/v1/audit/getArchivingStatus", input, new GenericType<GetArchivingStatusResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -134,7 +139,7 @@ public class AuditClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling listEvents");
     }
 
-    return this.invokeAPI("/api/v1/audit/listEvents", input, new GenericType<ListEventsResponse>(){});
+    return this.invokeAPI("listEvents", "/api/v1/audit/listEvents", input, new GenericType<ListEventsResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -147,6 +152,6 @@ public class AuditClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling listRecentArchiveRuns");
     }
 
-    return this.invokeAPI("/api/v1/audit/listRecentArchiveRuns", input, new GenericType<ListRecentArchiveRunsResponse>(){});
+    return this.invokeAPI("listRecentArchiveRuns", "/api/v1/audit/listRecentArchiveRuns", input, new GenericType<ListRecentArchiveRunsResponse>(){}, NO_EXTENSION);
   }
 }

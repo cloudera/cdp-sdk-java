@@ -19,30 +19,15 @@
 
 package com.cloudera.cdp.client;
 
-import static com.cloudera.cdp.ValidationUtils.checkArgumentAndThrow;
 import static com.cloudera.cdp.ValidationUtils.checkNotNullAndThrow;
-import static com.google.common.base.Preconditions.checkNotNull;
 
 import com.cloudera.cdp.CdpClientException;
-import com.cloudera.cdp.CdpHTTPException;
-import com.cloudera.cdp.CdpServiceException;
 import com.cloudera.cdp.annotation.SdkInternalApi;
-import com.cloudera.cdp.authentication.Signer;
 import com.cloudera.cdp.authentication.credentials.CdpCredentials;
 import com.cloudera.cdp.http.RetryHandler;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.annotations.VisibleForTesting;
-import com.google.common.base.Strings;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Iterables;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.security.PrivateKey;
-import java.time.Duration;
-import java.time.ZoneId;
+import java.lang.reflect.Constructor;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -51,24 +36,11 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Properties;
 import java.util.stream.Collectors;
-
-import javax.ws.rs.ProcessingException;
+import javax.annotation.Nullable;
 import javax.ws.rs.client.Client;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.GenericType;
-import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.MultivaluedHashMap;
-import javax.ws.rs.core.MultivaluedMap;
-import javax.ws.rs.core.Response;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * Abstract base class for all API client classes. This should not be
@@ -79,43 +51,28 @@ import org.slf4j.LoggerFactory;
  * connection pool used to back its requests. The properties of that pool are
  * configured per-CdpClient using the CdpClientConfiguration passed at
  * creation time.
+ *
+ * This class is not thread-safe.
  */
 @SdkInternalApi
 public abstract class CdpClient {
 
-  private static final Logger LOG =
-      LoggerFactory.getLogger(CdpClient.class);
-
-  private static class MapReference extends TypeReference<Map<String, String>> {
-  }
-
   private static class RestResponseGenericType extends GenericType<RestResponse> {
   }
 
-  private static final ObjectMapper MAPPER = new ObjectMapper();
+  protected static final List<Class<? extends CdpClientMiddleware>> NO_EXTENSION = null;
+
   private static final ClientFactory CLIENT_FACTORY = new ClientFactory();
-  private static final String VERSION_PROPERTIES_FILE = "version.properties";
-  private static final Properties VERSION_PROPERTIES = loadVersionProperties();
+  private static final boolean REST_API = true;
+  private static final boolean RPC_OVER_HTTP_API = false;
 
   private static final String PARAMETER_DATE_TIME_FORMAT_PATTERN = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
   private static final DateTimeFormatter PARAMETER_DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern(PARAMETER_DATE_TIME_FORMAT_PATTERN);
 
-  private static Properties loadVersionProperties() {
-    Properties props = new Properties();
-    try (InputStream stream =
-             CdpClient.class.getResourceAsStream(VERSION_PROPERTIES_FILE)) {
-      props.load(stream);
-    } catch (IOException | RuntimeException e) {
-      props.put("version", "Unknown");
-      LOG.warn("Failed to read CDP SDK Version.", e);
-    }
-    return props;
-  }
-
   private final CdpCredentials credentials;
-  private final String endPoint;
+  private final String endpoint;
+  private final String clientApplicationName;
   private final RetryHandler retryHandler;
-  private final CdpClientConfiguration config;
   private final Client client;
 
   /**
@@ -127,11 +84,26 @@ public abstract class CdpClient {
   protected CdpClient(CdpCredentials credentials,
                       String endpoint,
                       CdpClientConfiguration config) {
-    this.config = checkNotNullAndThrow(config);
-    this.retryHandler = checkNotNullAndThrow(config.getRetryHandler());
     this.credentials = checkNotNullAndThrow(credentials);
-    this.endPoint = checkNotNullAndThrow(endpoint);
+    this.endpoint = checkNotNullAndThrow(endpoint);
+
+    checkNotNullAndThrow(config);
+    this.clientApplicationName = config.getClientApplicationName();
+    this.retryHandler = config.getRetryHandler();
     this.client = CLIENT_FACTORY.create(config);
+  }
+
+  /**
+   * Constructor.
+   * @param context the CDP client context
+   */
+  protected CdpClient(CdpClientContext<?> context) {
+    checkNotNullAndThrow(context);
+    this.credentials = context.getCredentials();
+    this.endpoint = context.getEndpoint();
+    this.clientApplicationName = context.getClientApplicationName();
+    this.retryHandler = context.getRetryHandler();
+    this.client = context.getClient();
   }
 
   /**
@@ -158,71 +130,97 @@ public abstract class CdpClient {
 
   /**
    * Invoke API by sending HTTP request with the given options.
+   *
+   * @param operationName The operation name
    * @param path The subpath of the HTTP URL
    * @param body The request body object
    * @param returnType The return type as a GenericType
+   * @param extensions The extensions for the operation
    * @param <T> The type of the response
    * @return The response body object
    */
-  protected <T extends CdpResponse> T invokeAPI(String path, Object body, GenericType<T> returnType) {
+  protected <T extends CdpResponse> T invokeAPI(String operationName,
+                                                String path,
+                                                Object body,
+                                                GenericType<T> returnType,
+                                                @Nullable List<Class<? extends CdpClientMiddleware>> extensions) {
+    checkNotNullAndThrow(operationName);
     checkNotNullAndThrow(path);
     checkNotNullAndThrow(body);
-    checkNotNullAndThrow(returnType);
-    return invokeAPI("POST", path, Collections.emptyList(), Collections.emptyMap(), body, returnType);
+    return invokeAPI(operationName, RPC_OVER_HTTP_API, "POST", path, Collections.emptyList(), Collections.emptyMap(), body, returnType, extensions);
   }
 
   /**
    * Invoke API by sending HTTP request with the given options.
    *
+   * @param operationName The operation name
    * @param method The request method, one of "GET", "POST", "PUT", "PATCH" and "DELETE"
    * @param path The sub-path of the HTTP URL
    * @param queries The query parameters
    * @param headers The header parameters
    * @param body The request body object - if it is not binary, otherwise null
+   * @param extensions The extensions for the operation
    * @return The response body object
    */
-  protected RestResponse invokeAPI(String method, String path, List<Pair> queries, Map<String, String> headers, Object body) {
+  protected RestResponse invokeAPI(String operationName,
+                                   String method,
+                                   String path,
+                                   List<Pair> queries,
+                                   Map<String, String> headers,
+                                   @Nullable Object body,
+                                   @Nullable List<Class<? extends CdpClientMiddleware>> extensions) {
+    checkNotNullAndThrow(operationName);
     checkNotNullAndThrow(method);
     checkNotNullAndThrow(path);
     checkNotNullAndThrow(queries);
     checkNotNullAndThrow(headers);
-    // body can be null
-    return invokeAPI(method, path, queries, headers, body, new RestResponseGenericType());
+    return invokeAPI(operationName, REST_API, method, path, queries, headers, body, new RestResponseGenericType(), extensions);
   }
 
-  private <T extends BaseResponse> T invokeAPI(String method, String path, List<Pair> queries, Map<String, String> headers, Object body, GenericType<T> returnType) {
-    int attempts = 0;
-    do {
-      attempts++;
-      Response response = null;
-      boolean shouldCloseResponse = true;
-      try {
-        response = getAPIResponse(method, path, queries, headers, body);
-        checkNotNullAndThrow(response);
-        checkArgumentAndThrow(response.getStatusInfo() != Response.Status.NO_CONTENT || isRestApi(returnType));
-        try {
-          T result = parse(response, returnType);
-          shouldCloseResponse = !(result instanceof RestResponse);
-          return result;
-        } catch (CdpClientException exception) {
-          Duration delay = retryHandler.shouldRetry(attempts, exception);
-          if (delay == RetryHandler.DO_NOT_RETRY) {
-            throw exception;
-          }
-          try {
-            Thread.sleep(delay.toMillis());
-          } catch (InterruptedException e) {
-            throw new CdpClientException("Error while retrying request", e);
-          }
-        }
-      } catch (IllegalStateException e) {
-        throw new CdpClientException(e.getMessage(), e);
-      } finally {
-        if (shouldCloseResponse && response != null) {
-          response.close();
-        }
+  <T extends BaseResponse> T invokeAPI(String operationName,
+                                       boolean isRestApi,
+                                       String method,
+                                       String path,
+                                       List<Pair> queries,
+                                       Map<String, String> headers,
+                                       @Nullable Object body,
+                                       GenericType<T> returnType,
+                                       @Nullable List<Class<? extends CdpClientMiddleware>> extensions) {
+    // Create context, which is scoped to one request.
+    CdpClientContext<T> context = new CdpClientContext<>(client, this.getServiceName(), operationName, isRestApi, returnType);
+    context.setClientApplicationName(clientApplicationName);
+    context.setRetryHandler(retryHandler);
+    context.setCredentials(credentials);
+    context.setRequestContentType(this.getRequestContentType());
+    context.setResponseContentType(this.getResponseContentType());
+    context.setEndpoint(endpoint);
+    context.setMethod(method);
+    context.setPath(path);
+    context.setQueries(queries);
+    context.setHeaders(headers);
+    context.setBody(body);
+
+    invokeAPI(context, extensions);
+
+    // Return the response from context.
+    return context.getResponse();
+  }
+
+  @VisibleForTesting
+  protected <T extends BaseResponse> void invokeAPI(CdpClientContext<T> context,
+                                          @Nullable List<Class<? extends CdpClientMiddleware>> extensions) {
+    // Build the middleware chain, the inner-most one is CdpRestClient to send request.
+    CdpClientMiddleware current = new CdpRestClient();
+    if (extensions != null) {
+      // Build in reverse order so the first extension in the list will be called first.
+      for (int i = extensions.size() - 1; i >= 0; i --) {
+        Class<? extends CdpClientMiddleware> extensionClz = extensions.get(i);
+        current = createExtensionInstance(extensionClz, current);
       }
-    } while (true);
+    }
+
+    // Calling the middleware chain.
+    current.invokeAPI(context);
   }
 
   /**
@@ -302,144 +300,6 @@ public abstract class CdpClient {
     return params;
   }
 
-  @VisibleForTesting
-  protected MultivaluedMap<String, Object> computeHeaders(String method,
-                                                          String path,
-                                                          Map<String, String> inputHeaders) {
-    MultivaluedMap<String, Object> headers =
-        new MultivaluedHashMap<String, Object>();
-
-    for (Map.Entry<String, String> entry : inputHeaders.entrySet()) {
-      headers.putSingle(entry.getKey(), entry.getValue());
-    }
-
-    String date = ZonedDateTime.now(ZoneId.of("GMT")).format(
-        DateTimeFormatter.RFC_1123_DATE_TIME);
-
-    headers.putSingle("x-altus-date", date);
-    headers.putSingle(HttpHeaders.USER_AGENT, buildUserAgent());
-    if (method.equals("POST") || method.equals("PUT") || method.equals("PATCH")) {
-      headers.putSingle(HttpHeaders.CONTENT_TYPE, this.getRequestContentType());
-    }
-    String altusClientApp = config.getClientApplicationName();
-    if (!Strings.isNullOrEmpty(altusClientApp)) {
-      headers.putSingle("x-altus-client-app", altusClientApp);
-    }
-
-    String accessKeyId = credentials.getAccessKeyId();
-    PrivateKey privateKey = credentials.getPrivateKey();
-    String accessToken = credentials.getAccessToken();
-    if (!Strings.isNullOrEmpty(accessKeyId) && privateKey != null){
-      String auth = new Signer().computeAuthHeader(
-          method,
-          this.getRequestContentType(),
-          date,
-          path,
-          accessKeyId,
-          privateKey);
-      headers.putSingle("x-altus-auth", auth);
-    } else if (!Strings.isNullOrEmpty(accessToken)) {
-      headers.putSingle(HttpHeaders.AUTHORIZATION, accessToken);
-    }
-
-    return headers;
-  }
-
-  @VisibleForTesting
-  protected Response getAPIResponse(String method,
-                                    String path,
-                                    List<Pair> requestQueries,
-                                    Map<String, String> requestHeaders,
-                                    Object requestBody) {
-    WebTarget t = this.client.target(endPoint + path);
-    for (Pair pair : requestQueries) {
-      t = t.queryParam(pair.getName(), pair.getValue());
-    }
-    Invocation.Builder builder = t.request()
-        .accept(this.getResponseContentType())
-        .headers(computeHeaders(method, path, requestHeaders));
-    if (requestBody == null) {
-      return builder.method(method);
-    } else {
-      return builder.method(
-          method,
-          Entity.entity(requestBody, this.getRequestContentType()));
-    }
-  }
-
-  private <T extends BaseResponse> T parse(
-      Response response,
-      GenericType<T> returnType) {
-    checkNotNull(response);
-    checkNotNull(returnType);
-
-    int httpCode = response.getStatusInfo().getStatusCode();
-
-    ImmutableMap.Builder<String, List<String>> mapBuilder = ImmutableMap.builder();
-    for (Entry<String, List<Object>> entry : response.getHeaders().entrySet()) {
-      ImmutableList.Builder<String> listBuilder = new ImmutableList.Builder<>();
-      for (Object o : entry.getValue()) {
-        listBuilder.add(String.valueOf(o));
-      }
-      mapBuilder.put(entry.getKey(), listBuilder.build());
-    }
-    Map<String, List<String>> responseHeaders = mapBuilder.build();
-
-    if (isRestApi(returnType)) {
-      RestResponse restResponse = new RestResponse();
-      restResponse.setHttpCode(httpCode);
-      restResponse.setResponseHeaders(responseHeaders);
-      restResponse.setResponse(response);
-      return (T) restResponse;
-    }
-
-    if (response.getStatusInfo().getFamily() == Response.Status.Family.SUCCESSFUL) {
-      T cdpResponse = response.readEntity(returnType);
-      if (cdpResponse == null) {
-        throw new CdpHTTPException(httpCode, "Invalid response from server");
-      }
-      cdpResponse.setHttpCode(httpCode);
-      cdpResponse.setResponseHeaders(responseHeaders);
-      return cdpResponse;
-    }
-
-    String body;
-    try {
-      body = response.readEntity(String.class);
-    }  catch (ProcessingException | NullPointerException e) {
-      throw new CdpHTTPException(
-          httpCode, "Error reading message from server", e);
-    }
-
-    String code;
-    String message;
-    String requestId;
-    try {
-      Map<String, String> map = MAPPER.readValue(body, new MapReference());
-      code = map.get("code");
-      checkNotNull(code);
-      message = map.get("message");
-      checkNotNull(message);
-      List<String> values =
-          responseHeaders.get(CdpResponse.CDP_HEADER_REQUESTID);
-      checkNotNull(values);
-      requestId = Iterables.getOnlyElement(values);
-    } catch (IOException | NullPointerException | IllegalArgumentException e) {
-      throw new CdpHTTPException(httpCode, body, e);
-    }
-
-    throw new CdpServiceException(
-        requestId,
-        httpCode,
-        responseHeaders,
-        code,
-        message);
-  }
-
-  private static <T extends BaseResponse> boolean isRestApi(GenericType<T> returnType) {
-    return returnType.getRawType().equals(RestResponse.class);
-  }
-
   /**
    * Releases resources held by this client object. Once a client has been
    * shutdown, it should not be used to make any more requests.
@@ -457,12 +317,24 @@ public abstract class CdpClient {
     }
   }
 
-  @VisibleForTesting
-  String buildUserAgent() {
-    return String.format("CDPSDK/%s Java/%s %s/%s",
-                         VERSION_PROPERTIES.get("version"),
-                         System.getProperty("java.version"),
-                         System.getProperty("os.name"),
-                         System.getProperty("os.version"));
+  /**
+   * Creates an instance of the extension by the name.
+   * @param extensionClz The extension class
+   * @param next The next extension in the chain
+   * @return an instance of the extension.
+   */
+  private static CdpClientMiddleware createExtensionInstance(Class<? extends CdpClientMiddleware> extensionClz,
+                                                             CdpClientMiddleware next) {
+    checkNotNullAndThrow(extensionClz);
+    checkNotNullAndThrow(next);
+    try {
+      // Create a new instance of the extension.
+      Constructor<?> ctor = extensionClz.getConstructor(CdpClientMiddleware.class);
+      return (CdpClientMiddleware) ctor.newInstance(next);
+    } catch (Exception ex) {
+      throw new CdpClientException(
+          String.format("Failed to initialize extension (%s): %s.", extensionClz.getSimpleName(), ex),
+          ex);
+    }
   }
 }

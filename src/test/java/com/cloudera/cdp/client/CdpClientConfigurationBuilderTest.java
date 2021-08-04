@@ -20,7 +20,9 @@
 package com.cloudera.cdp.client;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.cloudera.cdp.CdpClientException;
 import com.cloudera.cdp.http.SimpleRetryHandler;
@@ -111,6 +113,20 @@ public class CdpClientConfigurationBuilderTest {
   }
 
   @Test
+  public void testDefaultIgnoreTls() {
+    CdpClientConfigurationBuilder builder =
+        CdpClientConfigurationBuilder.defaultBuilder();
+    assertFalse(builder.getIgnoreTls());
+  }
+
+  @Test
+  public void testDefaultTrustedCertificates() {
+    CdpClientConfigurationBuilder builder =
+        CdpClientConfigurationBuilder.defaultBuilder();
+    assertTrue(builder.getTrustedCertificates().isEmpty());
+  }
+
+  @Test
   public void testInvalidConnectionTimeout() {
     assertThrows(CdpClientException.class, () -> {
       CdpClientConfigurationBuilder.defaultBuilder()
@@ -139,6 +155,14 @@ public class CdpClientConfigurationBuilderTest {
     assertThrows(CdpClientException.class, () -> {
       CdpClientConfigurationBuilder.defaultBuilder()
           .withRetryHandler(null);
+    });
+  }
+
+  @Test
+  public void testInvalidTrustedCertificates() {
+    assertThrows(CdpClientException.class, () -> {
+      CdpClientConfigurationBuilder.defaultBuilder()
+          .withTrustedCertificates(null);
     });
   }
 

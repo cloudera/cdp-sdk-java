@@ -19,12 +19,12 @@
 
 package com.cloudera.cdp.datacatalog.api;
 
-import javax.ws.rs.core.GenericType;
 import com.cloudera.cdp.CdpClientException;
 import com.cloudera.cdp.annotation.WorkloadApi;
 import com.cloudera.cdp.authentication.credentials.CdpCredentials;
 import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
+import com.cloudera.cdp.client.CdpClientContext;
 import com.cloudera.cdp.client.Pair;
 import com.cloudera.cdp.client.RestResponse;
 import com.cloudera.cdp.datacatalog.model.Error;
@@ -34,8 +34,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-07-21T12:39:05.336-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-08-04T11:15:48.351-07:00")
 public class DatacatalogClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datacatalog";
@@ -45,6 +46,10 @@ public class DatacatalogClient extends CdpClient {
       String endPoint,
       CdpClientConfiguration clientConfiguration) {
     super(credentials, endPoint, clientConfiguration);
+  }
+
+  public DatacatalogClient(CdpClientContext<?> context) {
+    super(context);
   }
 
   @Override
@@ -72,6 +77,6 @@ public class DatacatalogClient extends CdpClient {
       throw new CdpClientException("Missing the required parameter 'input' when calling launchProfilers");
     }
 
-    return this.invokeAPI("/api/v1/datacatalog/launchProfilers", input, new GenericType<LaunchProfilersResponse>(){});
+    return this.invokeAPI("launchProfilers", "/api/v1/datacatalog/launchProfilers", input, new GenericType<LaunchProfilersResponse>(){}, NO_EXTENSION);
   }
 }
