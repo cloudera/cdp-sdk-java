@@ -17,7 +17,7 @@
 
     
     <animal-sniffer-annotations.version>1.18</animal-sniffer-annotations.version>
-    <bouncycastle.version>1.64</bouncycastle.version>
+    <bouncycastle.version>1.67</bouncycastle.version>
     <byte-buddy.version>1.10.13</byte-buddy.version>
     <commons-cli.version>1.4</commons-cli.version>
     <commons-codec.version>1.13</commons-codec.version>
