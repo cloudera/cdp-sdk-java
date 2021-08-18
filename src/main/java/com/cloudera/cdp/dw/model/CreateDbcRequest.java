@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the createDbc method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-08-04T11:15:48.096-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-08-18T09:49:25.613-07:00")
 public class CreateDbcRequest  {
 
   /**
@@ -44,6 +44,11 @@ public class CreateDbcRequest  {
    * Load demo data into the Database Catalog?
    **/
   private Boolean loadDemoData = null;
+
+  /**
+   * Version of the Database Catalog.
+   **/
+  private String imageVersion = "";
 
   /**
    * Getter for clusterId.
@@ -96,6 +101,23 @@ public class CreateDbcRequest  {
     this.loadDemoData = loadDemoData;
   }
 
+  /**
+   * Getter for imageVersion.
+   * Version of the Database Catalog.
+   **/
+  @JsonProperty("imageVersion")
+  public String getImageVersion() {
+    return imageVersion;
+  }
+
+  /**
+   * Setter for imageVersion.
+   * Version of the Database Catalog.
+   **/
+  public void setImageVersion(String imageVersion) {
+    this.imageVersion = imageVersion;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -114,12 +136,15 @@ public class CreateDbcRequest  {
     if (!Objects.equals(this.loadDemoData, createDbcRequest.loadDemoData)) {
       return false;
     }
+    if (!Objects.equals(this.imageVersion, createDbcRequest.imageVersion)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, name, loadDemoData);
+    return Objects.hash(clusterId, name, loadDemoData, imageVersion);
   }
 
   @Override
@@ -129,6 +154,7 @@ public class CreateDbcRequest  {
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    loadDemoData: ").append(toIndentedString(loadDemoData)).append("\n");
+    sb.append("    imageVersion: ").append(toIndentedString(imageVersion)).append("\n");
     sb.append("}");
     return sb.toString();
   }

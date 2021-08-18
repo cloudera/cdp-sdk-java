@@ -25,7 +25,7 @@ import com.cloudera.cdp.CdpClientException;
 import com.cloudera.cdp.annotation.SdkInternalApi;
 import com.cloudera.cdp.authentication.credentials.BasicCdpCredentials;
 import com.cloudera.cdp.client.BaseResponse;
-import com.cloudera.cdp.client.CdpClientContext;
+import com.cloudera.cdp.client.CdpRequestContext;
 import com.cloudera.cdp.client.CdpClientMiddleware;
 import com.cloudera.cdp.iam.api.IamClient;
 import com.cloudera.cdp.iam.model.GenerateWorkloadAuthTokenRequest;
@@ -49,7 +49,7 @@ public class Workload implements CdpClientMiddleware {
   }
 
   @Override
-  public <T extends BaseResponse> void invokeAPI(CdpClientContext<T> context) {
+  public <T extends BaseResponse> void invokeAPI(CdpRequestContext<T> context) {
     checkNotNullAndThrow(context);
 
     if (!Strings.isNullOrEmpty(context.getCredentials().getAccessToken())) {

@@ -19,7 +19,6 @@
 
 package com.cloudera.cdp.client;
 
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -28,8 +27,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.notNull;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.only;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import com.cloudera.cdp.CdpClientException;
@@ -42,6 +44,7 @@ import com.cloudera.cdp.http.SimpleRetryHandler;
 import com.cloudera.cdp.util.CdpSDKTestUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Charsets;
+import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Maps;
 import com.google.common.io.Resources;
@@ -58,7 +61,6 @@ import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedHashMap;
-import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.StatusType;
 
@@ -67,7 +69,12 @@ import org.junit.jupiter.api.Test;
 public class CdpClientTest {
 
   private static final ObjectMapper MAPPER = new ObjectMapper();
-  private static final List<Class<? extends CdpClientMiddleware>> TEST_EXTENSION = ImmutableList.of(TestRestClient.class);
+  private static final List<Class<? extends CdpClientMiddleware>> TEST_EXTENSION = ImmutableList.of(
+      CdpClientRetryMiddleware.class,
+      CdpRequestHeadersMiddleware.class,
+      CdpRequestAuthMiddleware.class,
+      CdpParseResponseMiddleware.class,
+      TestRestClient.class);
 
   private Response mockResponse(int httpCode, @Nullable String requestId) {
     Response response = mock(Response.class);
@@ -87,7 +94,7 @@ public class CdpClientTest {
 
   private static class TestClient extends CdpClient {
     private final Response mockResponse;
-    private final Consumer<CdpClientContext<?>> contextValidator;
+    private final Consumer<CdpRequestContext<?>> contextValidator;
 
     TestClient() {
       this(null, null);
@@ -97,7 +104,7 @@ public class CdpClientTest {
       this(response, null);
     }
 
-    TestClient(Response response, Consumer<CdpClientContext<?>> contextValidator) {
+    TestClient(Response response, Consumer<CdpRequestContext<?>> contextValidator) {
       super(new BasicCdpCredentials("accessKeyID", CdpSDKTestUtils.getRSAPrivateKey()),
             "http://fake.endpoint",
             CdpClientConfigurationBuilder.defaultBuilder()
@@ -116,25 +123,25 @@ public class CdpClientTest {
       return "test";
     }
 
-    protected <T extends BaseResponse> void invokeAPI(CdpClientContext<T> context, @Nullable List<Class<? extends CdpClientMiddleware>> extensions) {
+    protected <T extends BaseResponse> void invokeAPI(CdpRequestContext<T> context, @Nullable List<Class<? extends CdpClientMiddleware>> extensions) {
       context.getProperties().put("MOCK_RESPONSE", mockResponse);
       context.getProperties().put("CONTEXT_VALIDATOR", contextValidator);
       super.invokeAPI(context, extensions);
     }
   }
 
-  private static class TestRestClient extends CdpRestClient {
+  private static class TestRestClient extends CdpHttpClient {
     public TestRestClient(CdpClientMiddleware next) {
       assertNotNull(next);
     }
 
     @Override
-    Response getAPIResponse(CdpClientContext<?> context)
+    Response getAPIResponse(CdpRequestContext<?> context)
         throws CdpServiceException {
       assertNotNull(context);
       Object contextValidator = context.getProperties().get("CONTEXT_VALIDATOR");
       if (contextValidator != null) {
-        ((Consumer<CdpClientContext<?>>) contextValidator).accept(context);
+        ((Consumer<CdpRequestContext<?>>) contextValidator).accept(context);
       }
       return (Response) context.getProperties().get("MOCK_RESPONSE");
     }
@@ -157,9 +164,8 @@ public class CdpClientTest {
           assertEquals("somePath", ctx.getPath());
           assertEquals("POST", ctx.getMethod());
           assertTrue(ctx.getQueries().isEmpty());
-          assertTrue(ctx.getHeaders().isEmpty());
+          assertFalse(ctx.getHeaders().isEmpty());
           assertEquals("", ctx.getBody());
-          assertFalse(ctx.getIsRestApi());
           assertEquals(TestCdpResponse.class, ctx.getResponseType().getRawType());
           assertNotNull(ctx.getRetryHandler());
           assertNotNull(ctx.getCredentials());
@@ -181,9 +187,8 @@ public class CdpClientTest {
           assertEquals("somePath", ctx.getPath());
           assertEquals("GET", ctx.getMethod());
           assertTrue(ctx.getQueries().isEmpty());
-          assertTrue(ctx.getHeaders().isEmpty());
+          assertFalse(ctx.getHeaders().isEmpty());
           assertNull(ctx.getBody());
-          assertTrue(ctx.getIsRestApi());
           assertEquals(RestResponse.class, ctx.getResponseType().getRawType());
           assertNotNull(ctx.getRetryHandler());
           assertNotNull(ctx.getCredentials());
@@ -388,11 +393,11 @@ public class CdpClientTest {
   }
 
   @Test
-  public void testUserAgent() throws Exception {
+  public void testUserAgent() {
     CdpClientConfiguration config = CdpClientConfigurationBuilder.defaultBuilder().build();
-    CdpClientContext<TestCdpResponse> context = new CdpClientContext<>(
+    CdpRequestContext<TestCdpResponse> context = new CdpRequestContext<>(
         new ClientFactory().create(config),
-        "test-service", "someOperation", false, new GenericType<TestCdpResponse>(){});
+        "test-service", "someOperation", new GenericType<TestCdpResponse>(){});
     context.setClientApplicationName(config.getClientApplicationName());
     context.setRetryHandler(config.getRetryHandler());
     context.setRequestContentType(MediaType.APPLICATION_JSON);
@@ -401,19 +406,22 @@ public class CdpClientTest {
     context.setMethod("POST");
     context.setPath("somePath");
     context.setBody("");
-    CdpRestClient client = new CdpRestClient();
-    MultivaluedMap<String, Object> headers = client.computeHeaders(context);
+    CdpClientMiddleware innerMiddleware = mock(CdpClientMiddleware.class);
+    CdpRequestHeadersMiddleware client = new CdpRequestHeadersMiddleware(innerMiddleware);
+    client.invokeAPI(context);
+    Map<String, String> headers = context.getHeaders();
     assertTrue(headers.containsKey(HttpHeaders.USER_AGENT));
-    assertEquals(1, headers.get(HttpHeaders.USER_AGENT).size());
-    assertEquals(CdpRestClient.buildUserAgent(), headers.get(HttpHeaders.USER_AGENT).get(0));
+    assertFalse(Strings.isNullOrEmpty(headers.get(HttpHeaders.USER_AGENT)));
+    assertEquals(CdpRequestHeadersMiddleware.buildUserAgent(), headers.get(HttpHeaders.USER_AGENT));
+    verify(innerMiddleware, only()).invokeAPI(notNull());
   }
 
   @Test
-  public void testApiKeyAuth() throws Exception {
+  public void testApiKeyAuth() {
     CdpClientConfiguration config = CdpClientConfigurationBuilder.defaultBuilder().build();
-    CdpClientContext<TestCdpResponse> context = new CdpClientContext<>(
+    CdpRequestContext<TestCdpResponse> context = new CdpRequestContext<>(
         new ClientFactory().create(config),
-        "test-service", "someOperation", false, new GenericType<TestCdpResponse>(){});
+        "test-service", "someOperation", new GenericType<TestCdpResponse>(){});
     context.setClientApplicationName(config.getClientApplicationName());
     context.setRetryHandler(config.getRetryHandler());
     context.setRequestContentType(MediaType.APPLICATION_JSON);
@@ -422,19 +430,24 @@ public class CdpClientTest {
     context.setMethod("POST");
     context.setPath("somePath");
     context.setBody("");
-    CdpRestClient client = new CdpRestClient();
-    MultivaluedMap<String, Object> headers = client.computeHeaders(context);
+    CdpClientMiddleware innerMiddleware = mock(CdpClientMiddleware.class);
+    CdpRequestAuthMiddleware client = new CdpRequestAuthMiddleware(innerMiddleware);
+    client.invokeAPI(context);
+    Map<String, String> headers = context.getHeaders();
+    assertTrue(headers.containsKey("x-altus-date"));
+    assertFalse(Strings.isNullOrEmpty(headers.get("x-altus-date")));
     assertTrue(headers.containsKey("x-altus-auth"));
-    assertEquals(1, headers.get("x-altus-auth").size());
-    assertTrue(headers.get("x-altus-auth").get(0).toString().length() > 0);
+    assertFalse(Strings.isNullOrEmpty(headers.get("x-altus-auth")));
+    assertFalse(headers.containsKey(HttpHeaders.AUTHORIZATION));
+    verify(innerMiddleware, only()).invokeAPI(notNull());
   }
 
   @Test
-  public void testAccessTokenAuth() throws Exception {
+  public void testAccessTokenAuth() {
     CdpClientConfiguration config = CdpClientConfigurationBuilder.defaultBuilder().build();
-    CdpClientContext<TestCdpResponse> context = new CdpClientContext<>(
+    CdpRequestContext<TestCdpResponse> context = new CdpRequestContext<>(
         new ClientFactory().create(config),
-        "test-service", "someOperation", false, new GenericType<TestCdpResponse>(){});
+        "test-service", "someOperation", new GenericType<TestCdpResponse>(){});
     context.setClientApplicationName(config.getClientApplicationName());
     context.setRetryHandler(config.getRetryHandler());
     context.setRequestContentType(MediaType.APPLICATION_JSON);
@@ -443,51 +456,79 @@ public class CdpClientTest {
     context.setMethod("POST");
     context.setPath("somePath");
     context.setBody("");
-    CdpRestClient client = new CdpRestClient();
-    MultivaluedMap<String, Object> headers = client.computeHeaders(context);
+    CdpClientMiddleware innerMiddleware = mock(CdpClientMiddleware.class);
+    CdpRequestAuthMiddleware client = new CdpRequestAuthMiddleware(innerMiddleware);
+    client.invokeAPI(context);
+    Map<String, String> headers = context.getHeaders();
     assertTrue(headers.containsKey(HttpHeaders.AUTHORIZATION));
-    assertEquals(1, headers.get(HttpHeaders.AUTHORIZATION).size());
-    assertEquals("Bearer A.B.C", headers.get(HttpHeaders.AUTHORIZATION).get(0));
+    assertFalse(Strings.isNullOrEmpty(headers.get(HttpHeaders.AUTHORIZATION)));
+    assertFalse(headers.containsKey("x-altus-date"));
+    assertFalse(headers.containsKey("x-altus-auth"));
   }
 
   @Test
-  public void testComputeHeaders() throws Exception {
+  public void testComputeHeaders() {
     CdpClientConfiguration config = CdpClientConfigurationBuilder.defaultBuilder().build();
-    CdpClientContext<TestCdpResponse> context = new CdpClientContext<>(
+    CdpRequestContext<TestCdpResponse> context = new CdpRequestContext<>(
         new ClientFactory().create(config),
-        "test-service", "someOperation", false, new GenericType<TestCdpResponse>(){});
+        "test-service", "someOperation", new GenericType<TestCdpResponse>(){});
     context.setClientApplicationName(config.getClientApplicationName());
     context.setRetryHandler(config.getRetryHandler());
-    context.setRequestContentType(MediaType.APPLICATION_JSON);
-    context.setResponseContentType(MediaType.APPLICATION_JSON);
+    context.setRequestContentType(MediaType.APPLICATION_XML);
+    context.setResponseContentType(MediaType.TEXT_HTML);
     context.setCredentials(new BasicCdpCredentials("access-key-id", CdpSDKTestUtils.getRSAPrivateKey()));
     context.setMethod("POST");
     context.setPath("/path");
     context.setBody("");
-    CdpRestClient client = new CdpRestClient();
-    MultivaluedMap<String, Object> headers = client.computeHeaders(context);
-    assertArrayEquals(new Object[]{"application/json"}, headers.get("Content-Type").toArray());
-    assertTrue(headers.containsKey("x-altus-date"));
+    CdpClientMiddleware innerMiddleware = mock(CdpClientMiddleware.class);
+    CdpRequestHeadersMiddleware client = new CdpRequestHeadersMiddleware(innerMiddleware);
+    client.invokeAPI(context);
+    Map<String, String> headers = context.getHeaders();
+    assertEquals("application/xml", headers.get(HttpHeaders.CONTENT_TYPE));
+    assertEquals("text/html", headers.get(HttpHeaders.ACCEPT));
+    verify(innerMiddleware, only()).invokeAPI(notNull());
 
-    context = new CdpClientContext<>(
+    context = new CdpRequestContext<>(
         new ClientFactory().create(config),
-        "test-service", "someOperation", false, new GenericType<TestCdpResponse>(){});
+        "test-service", "someOperation", new GenericType<TestCdpResponse>(){});
+    context.setClientApplicationName(config.getClientApplicationName());
+    context.setRetryHandler(config.getRetryHandler());
+    context.setRequestContentType(MediaType.APPLICATION_JSON);
+    context.setResponseContentType(MediaType.TEXT_HTML);
+    context.setCredentials(new BasicCdpCredentials("access-token"));
+    context.setMethod("GET");
+    context.setPath("/path");
+    context.getHeaders().put("foo", "bar");
+    innerMiddleware = mock(CdpClientMiddleware.class);
+    client = new CdpRequestHeadersMiddleware(innerMiddleware);
+    client.invokeAPI(context);
+    headers = context.getHeaders();
+    assertEquals("bar", headers.get("foo"));
+    assertFalse(headers.containsKey("Content-Type"));
+    assertEquals("text/html", headers.get("Accept"));
+    verify(innerMiddleware, only()).invokeAPI(notNull());
+
+    context = new CdpRequestContext<>(
+        new ClientFactory().create(config),
+        "test-service", "someOperation", new GenericType<TestCdpResponse>(){});
     context.setClientApplicationName(config.getClientApplicationName());
     context.setRetryHandler(config.getRetryHandler());
     context.setRequestContentType(MediaType.APPLICATION_JSON);
     context.setResponseContentType(MediaType.APPLICATION_JSON);
     context.setCredentials(new BasicCdpCredentials("access-token"));
-    context.setMethod("GET");
+    context.setMethod("DELETE");
     context.setPath("/path");
-    context.getHeaders().put("foo", "bar");
-    client = new CdpRestClient();
-    headers = client.computeHeaders(context);
-    assertArrayEquals(new Object[]{"bar"}, headers.get("foo").toArray());
+    innerMiddleware = mock(CdpClientMiddleware.class);
+    client = new CdpRequestHeadersMiddleware(innerMiddleware);
+    client.invokeAPI(context);
+    headers = context.getHeaders();
     assertFalse(headers.containsKey("Content-Type"));
+    assertFalse(headers.containsKey("Accept"));
+    verify(innerMiddleware, only()).invokeAPI(notNull());
   }
 
   @Test
-  public void testParameterToString() throws Exception {
+  public void testParameterToString() {
     TestClient client = new TestClient();
     assertEquals("", client.parameterToString(null));
     assertEquals("101", client.parameterToString("101"));
@@ -502,7 +543,7 @@ public class CdpClientTest {
   }
 
   @Test
-  public void testParameterToPair() throws Exception {
+  public void testParameterToPair() {
     TestClient client = new TestClient();
     Pair pair;
     pair = client.parameterToPair("foo", "bar");
@@ -517,7 +558,7 @@ public class CdpClientTest {
   }
 
   @Test
-  public void testParameterToPairs() throws Exception {
+  public void testParameterToPairs() {
     TestClient client = new TestClient();
     List<Pair> pairs;
 

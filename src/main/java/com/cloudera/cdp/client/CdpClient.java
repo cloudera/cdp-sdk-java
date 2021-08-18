@@ -63,8 +63,6 @@ public abstract class CdpClient {
   protected static final List<Class<? extends CdpClientMiddleware>> NO_EXTENSION = null;
 
   private static final ClientFactory CLIENT_FACTORY = new ClientFactory();
-  private static final boolean REST_API = true;
-  private static final boolean RPC_OVER_HTTP_API = false;
 
   private static final String PARAMETER_DATE_TIME_FORMAT_PATTERN = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
   private static final DateTimeFormatter PARAMETER_DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern(PARAMETER_DATE_TIME_FORMAT_PATTERN);
@@ -97,7 +95,7 @@ public abstract class CdpClient {
    * Constructor.
    * @param context the CDP client context
    */
-  protected CdpClient(CdpClientContext<?> context) {
+  protected CdpClient(CdpRequestContext<?> context) {
     checkNotNullAndThrow(context);
     this.credentials = context.getCredentials();
     this.endpoint = context.getEndpoint();
@@ -147,7 +145,7 @@ public abstract class CdpClient {
     checkNotNullAndThrow(operationName);
     checkNotNullAndThrow(path);
     checkNotNullAndThrow(body);
-    return invokeAPI(operationName, RPC_OVER_HTTP_API, "POST", path, Collections.emptyList(), Collections.emptyMap(), body, returnType, extensions);
+    return invokeAPI(operationName, "POST", path, Collections.emptyList(), Collections.emptyMap(), body, returnType, extensions);
   }
 
   /**
@@ -174,11 +172,10 @@ public abstract class CdpClient {
     checkNotNullAndThrow(path);
     checkNotNullAndThrow(queries);
     checkNotNullAndThrow(headers);
-    return invokeAPI(operationName, REST_API, method, path, queries, headers, body, new RestResponseGenericType(), extensions);
+    return invokeAPI(operationName, method, path, queries, headers, body, new RestResponseGenericType(), extensions);
   }
 
-  <T extends BaseResponse> T invokeAPI(String operationName,
-                                       boolean isRestApi,
+  protected <T extends BaseResponse> T invokeAPI(String operationName,
                                        String method,
                                        String path,
                                        List<Pair> queries,
@@ -187,7 +184,7 @@ public abstract class CdpClient {
                                        GenericType<T> returnType,
                                        @Nullable List<Class<? extends CdpClientMiddleware>> extensions) {
     // Create context, which is scoped to one request.
-    CdpClientContext<T> context = new CdpClientContext<>(client, this.getServiceName(), operationName, isRestApi, returnType);
+    CdpRequestContext<T> context = new CdpRequestContext<>(client, this.getServiceName(), operationName, returnType);
     context.setClientApplicationName(clientApplicationName);
     context.setRetryHandler(retryHandler);
     context.setCredentials(credentials);
@@ -207,10 +204,14 @@ public abstract class CdpClient {
   }
 
   @VisibleForTesting
-  protected <T extends BaseResponse> void invokeAPI(CdpClientContext<T> context,
-                                          @Nullable List<Class<? extends CdpClientMiddleware>> extensions) {
-    // Build the middleware chain, the inner-most one is CdpRestClient to send request.
-    CdpClientMiddleware current = new CdpRestClient();
+  protected <T extends BaseResponse> void invokeAPI(CdpRequestContext<T> context,
+                                                    @Nullable List<Class<? extends CdpClientMiddleware>> extensions) {
+    // Build the middleware chain.
+    CdpClientMiddleware current = new CdpHttpClient();
+    current = new CdpParseResponseMiddleware(current);
+    current = new CdpRequestAuthMiddleware(current);
+    current = new CdpRequestHeadersMiddleware(current);
+    current = new CdpClientRetryMiddleware(current);
     if (extensions != null) {
       // Build in reverse order so the first extension in the list will be called first.
       for (int i = extensions.size() - 1; i >= 0; i --) {

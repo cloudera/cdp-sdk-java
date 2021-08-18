@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object for the createVw method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-08-04T11:15:48.096-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-08-18T09:49:25.613-07:00")
 public class CreateVwRequest  {
 
   /**
@@ -53,6 +53,11 @@ public class CreateVwRequest  {
    * Name of the Virtual Warehouse.
    **/
   private String name = null;
+
+  /**
+   * version of the Virtual Warehouse.
+   **/
+  private String imageVersion = "";
 
   /**
    * Name of configuration template to use.
@@ -140,6 +145,23 @@ public class CreateVwRequest  {
    **/
   public void setName(String name) {
     this.name = name;
+  }
+
+  /**
+   * Getter for imageVersion.
+   * version of the Virtual Warehouse.
+   **/
+  @JsonProperty("imageVersion")
+  public String getImageVersion() {
+    return imageVersion;
+  }
+
+  /**
+   * Setter for imageVersion.
+   * version of the Virtual Warehouse.
+   **/
+  public void setImageVersion(String imageVersion) {
+    this.imageVersion = imageVersion;
   }
 
   /**
@@ -231,6 +253,9 @@ public class CreateVwRequest  {
     if (!Objects.equals(this.name, createVwRequest.name)) {
       return false;
     }
+    if (!Objects.equals(this.imageVersion, createVwRequest.imageVersion)) {
+      return false;
+    }
     if (!Objects.equals(this.template, createVwRequest.template)) {
       return false;
     }
@@ -248,7 +273,7 @@ public class CreateVwRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, dbcId, vwType, name, template, autoscaling, config, tags);
+    return Objects.hash(clusterId, dbcId, vwType, name, imageVersion, template, autoscaling, config, tags);
   }
 
   @Override
@@ -259,6 +284,7 @@ public class CreateVwRequest  {
     sb.append("    dbcId: ").append(toIndentedString(dbcId)).append("\n");
     sb.append("    vwType: ").append(toIndentedString(vwType)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    imageVersion: ").append(toIndentedString(imageVersion)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    autoscaling: ").append(toIndentedString(autoscaling)).append("\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");

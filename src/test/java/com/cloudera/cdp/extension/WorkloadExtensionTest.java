@@ -35,14 +35,15 @@ import com.cloudera.cdp.CdpClientException;
 import com.cloudera.cdp.CdpHTTPException;
 import com.cloudera.cdp.authentication.credentials.BasicCdpCredentials;
 import com.cloudera.cdp.client.BaseResponse;
-import com.cloudera.cdp.client.CdpClientContext;
 import com.cloudera.cdp.client.CdpClientMiddleware;
+import com.cloudera.cdp.client.CdpRequestContext;
 import com.cloudera.cdp.client.RestResponse;
 import com.cloudera.cdp.http.NeverRetryHandler;
 import com.cloudera.cdp.iam.model.GenerateWorkloadAuthTokenRequest;
 import com.cloudera.cdp.iam.model.GenerateWorkloadAuthTokenResponse;
 import com.cloudera.cdp.util.CdpSDKTestUtils;
 
+import java.net.URI;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation;
@@ -58,14 +59,12 @@ import org.mockito.ArgumentMatcher;
 
 public class WorkloadExtensionTest {
 
-  private static final boolean REST_API = true;
-
   private static class TestMiddleware implements CdpClientMiddleware {
     private boolean executed = false;
-    private CdpClientContext<?> context;
+    private CdpRequestContext<?> context;
 
     @Override
-    public <T extends BaseResponse> void invokeAPI(CdpClientContext<T> context) {
+    public <T extends BaseResponse> void invokeAPI(CdpRequestContext<T> context) {
       this.executed = true;
       this.context = context;
     }
@@ -74,7 +73,7 @@ public class WorkloadExtensionTest {
       return executed;
     }
 
-    public CdpClientContext<?> getContext() {
+    public CdpRequestContext<?> getContext() {
       return context;
     }
   }
@@ -107,6 +106,7 @@ public class WorkloadExtensionTest {
     Invocation.Builder builder = mock(Invocation.Builder.class);
     when(builder.accept(eq(MediaType.APPLICATION_JSON))).thenReturn(builder);
     when(builder.headers(any(MultivaluedMap.class))).thenReturn(builder);
+    when(builder.header(any(String.class), any())).thenReturn(builder);
     when(builder.method(eq("POST"), argThat((ArgumentMatcher<Entity>) e -> {
       GenerateWorkloadAuthTokenRequest req = (GenerateWorkloadAuthTokenRequest) e.getEntity();
       return req.getWorkloadName().equals("DF") && req.getEnvironmentCrn().equals("test-env-crn");
@@ -114,16 +114,15 @@ public class WorkloadExtensionTest {
     WebTarget webTarget = mock(WebTarget.class);
     when(webTarget.request()).thenReturn(builder);
     Client client = mock(Client.class);
-    when(client.target(eq("http://cdp.com/iam/generateWorkloadAuthToken"))).thenReturn(webTarget);
+    when(client.target(eq(URI.create("http://cdp.com/iam/generateWorkloadAuthToken")))).thenReturn(webTarget);
     return client;
   }
 
-  private CdpClientContext<RestResponse> createContext(Client client) {
-    CdpClientContext<RestResponse> context = new CdpClientContext<>(
+  private CdpRequestContext<RestResponse> createContext(Client client) {
+    CdpRequestContext<RestResponse> context = new CdpRequestContext<>(
         client,
         "df-workload",
         "workload-operation",
-        REST_API,
         new GenericType<RestResponse>(){});
     context.setRetryHandler(new NeverRetryHandler());
     context.setRequestContentType(MediaType.APPLICATION_JSON);
@@ -142,12 +141,12 @@ public class WorkloadExtensionTest {
     generateWorkloadAuthTokenResponse.setEndpointUrl("http://test.com/workload");
     generateWorkloadAuthTokenResponse.setToken("test-access-token");
     Client client = createMockClientForGenerateWorkloadAuthToken(generateWorkloadAuthTokenResponse);
-    CdpClientContext<RestResponse> context = createContext(client);
+    CdpRequestContext<RestResponse> context = createContext(client);
     TestMiddleware next = new TestMiddleware();
     Workload workloadExtension = new Workload(next);
     workloadExtension.invokeAPI(context);
     assertTrue(next.getExecuted());
-    CdpClientContext<?> ctx = next.getContext();
+    CdpRequestContext<?> ctx = next.getContext();
     assertEquals("df-workload", ctx.getServiceName());
     assertEquals("workload-operation", ctx.getOperationName());
     assertEquals("GET", ctx.getMethod());
@@ -160,7 +159,7 @@ public class WorkloadExtensionTest {
   @Test
   public void testServiceDiscoveryNoResponse() {
     Client client = createMockClientNoResponse();
-    CdpClientContext<RestResponse> context = createContext(client);
+    CdpRequestContext<RestResponse> context = createContext(client);
     TestMiddleware next = new TestMiddleware();
     Workload workloadExtension = new Workload(next);
     CdpHTTPException e = assertThrows(CdpHTTPException.class, () -> workloadExtension.invokeAPI(context));
@@ -172,13 +171,13 @@ public class WorkloadExtensionTest {
   public void testServiceDiscoverySkipByAccessToken() {
     GenerateWorkloadAuthTokenResponse generateWorkloadAuthTokenResponse = new GenerateWorkloadAuthTokenResponse();
     Client client = createMockClientForGenerateWorkloadAuthToken(generateWorkloadAuthTokenResponse);
-    CdpClientContext<RestResponse> context = createContext(client);
+    CdpRequestContext<RestResponse> context = createContext(client);
     context.setCredentials(new BasicCdpCredentials("access-token-exists"));
     TestMiddleware next = new TestMiddleware();
     Workload workloadExtension = new Workload(next);
     workloadExtension.invokeAPI(context);
     assertTrue(next.getExecuted());
-    CdpClientContext<?> ctx = next.getContext();
+    CdpRequestContext<?> ctx = next.getContext();
     assertEquals("http://cdp.com", ctx.getEndpoint());
     assertEquals("access-token-exists", ctx.getCredentials().getAccessToken());
     verify(client, never()).target(any(String.class));
@@ -187,11 +186,10 @@ public class WorkloadExtensionTest {
   @Test
   public void testServiceDiscoveryNoServiceName() {
     Client client = createMockClientNoResponse();
-    CdpClientContext<RestResponse> context = new CdpClientContext<>(
+    CdpRequestContext<RestResponse> context = new CdpRequestContext<>(
         client,
         "",
         "workload-operation",
-        REST_API,
         new GenericType<RestResponse>(){});
     context.setCredentials(new BasicCdpCredentials("access-key-id", CdpSDKTestUtils.getRSAPrivateKey()));
     TestMiddleware next = new TestMiddleware();
@@ -205,11 +203,10 @@ public class WorkloadExtensionTest {
   @Test
   public void testServiceDiscoveryUnknownServiceName() {
     Client client = createMockClientNoResponse();
-    CdpClientContext<RestResponse> context = new CdpClientContext<>(
+    CdpRequestContext<RestResponse> context = new CdpRequestContext<>(
         client,
         "foo",
         "workload-operation",
-        REST_API,
         new GenericType<RestResponse>(){});
     context.setCredentials(new BasicCdpCredentials("access-key-id", CdpSDKTestUtils.getRSAPrivateKey()));
     TestMiddleware next = new TestMiddleware();
@@ -223,7 +220,7 @@ public class WorkloadExtensionTest {
   @Test
   public void testServiceDiscoveryNoEnvironmentCrn() {
     Client client = createMockClientNoResponse();
-    CdpClientContext<RestResponse> context = createContext(client);
+    CdpRequestContext<RestResponse> context = createContext(client);
     context.setBody(new WorkloadRequest(""));
     TestMiddleware next = new TestMiddleware();
     Workload workloadExtension = new Workload(next);
@@ -236,7 +233,7 @@ public class WorkloadExtensionTest {
   @Test
   public void testServiceDiscoveryInvalidRequestBody() {
     Client client = createMockClientNoResponse();
-    CdpClientContext<RestResponse> context = createContext(client);
+    CdpRequestContext<RestResponse> context = createContext(client);
     context.setBody(new Object());
     TestMiddleware next = new TestMiddleware();
     Workload workloadExtension = new Workload(next);

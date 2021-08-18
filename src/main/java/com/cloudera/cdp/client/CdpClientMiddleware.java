@@ -27,5 +27,5 @@ import com.cloudera.cdp.annotation.SdkInternalApi;
  */
 @SdkInternalApi
 public interface CdpClientMiddleware {
-  <T extends BaseResponse> void invokeAPI(CdpClientContext<T> context);
+  <T extends BaseResponse> void invokeAPI(CdpRequestContext<T> context);
 }

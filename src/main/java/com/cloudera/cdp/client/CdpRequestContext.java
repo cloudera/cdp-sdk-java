@@ -25,6 +25,7 @@ import com.cloudera.cdp.annotation.SdkInternalApi;
 import com.cloudera.cdp.authentication.credentials.CdpCredentials;
 import com.cloudera.cdp.http.RetryHandler;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,6 +33,7 @@ import java.util.Map;
 import javax.annotation.Nullable;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.core.GenericType;
+import javax.ws.rs.core.Response;
 
 /**
  * CDP client context. It has all information needed to send a CDP API request.
@@ -39,12 +41,11 @@ import javax.ws.rs.core.GenericType;
  * This class is for internal use only.
  */
 @SdkInternalApi
-public class CdpClientContext<T extends BaseResponse> {
+public class CdpRequestContext<T extends BaseResponse> {
 
   private final Client client;
   private final String serviceName;
   private final String operationName;
-  private final boolean isRestApi;
   private final GenericType<T> responseType;
 
   private String clientApplicationName;
@@ -58,19 +59,38 @@ public class CdpClientContext<T extends BaseResponse> {
   private List<Pair> queries;
   private Map<String, String> headers;
   private Object body;
+  private Response rawResponse;
   private T response;
   private Map<String, Object> properties;
 
-  public CdpClientContext(Client client,
-                          String serviceName,
-                          String operationName,
-                          boolean isRestApi,
-                          GenericType<T> responseType) {
+  public CdpRequestContext(Client client,
+                           String serviceName,
+                           String operationName,
+                           GenericType<T> responseType) {
     this.client = checkNotNullAndThrow(client);
     this.serviceName = checkNotNullAndThrow(serviceName);
     this.operationName = checkNotNullAndThrow(operationName);
-    this.isRestApi = isRestApi;
     this.responseType = checkNotNullAndThrow(responseType);
+  }
+
+  public CdpRequestContext(Client client,
+                           String serviceName,
+                           String operationName,
+                           GenericType<T> responseType,
+                           CdpRequestContext context) {
+    this(client, serviceName, operationName, responseType);
+    this.setClientApplicationName(context.getClientApplicationName());
+    this.setRetryHandler(context.getRetryHandler());
+    this.setCredentials(context.getCredentials());
+    this.setRequestContentType(context.getRequestContentType());
+    this.setResponseContentType(context.getResponseContentType());
+    this.setEndpoint(context.getEndpoint());
+    this.setMethod(context.getMethod());
+    this.setPath(context.getPath());
+    this.getQueries().addAll(context.getQueries());
+    this.getHeaders().putAll(context.getHeaders());
+    this.setBody(context.getBody());
+    this.getProperties().putAll(context.getProperties());
   }
 
   public Client getClient() {
@@ -83,10 +103,6 @@ public class CdpClientContext<T extends BaseResponse> {
 
   public String getOperationName() {
     return operationName;
-  }
-
-  public boolean getIsRestApi() {
-    return isRestApi;
   }
 
   public GenericType<T> getResponseType() {
@@ -190,6 +206,15 @@ public class CdpClientContext<T extends BaseResponse> {
   }
 
   @Nullable
+  public Response getRawResponse() {
+    return rawResponse;
+  }
+
+  public void setRawResponse(@Nullable Response rawResponse) {
+    this.rawResponse = rawResponse;
+  }
+
+  @Nullable
   public T getResponse() {
     return response;
   }
@@ -203,5 +228,9 @@ public class CdpClientContext<T extends BaseResponse> {
       properties = new HashMap<>();
     }
     return properties;
+  }
+
+  public URI getRequestUrl() {
+    return URI.create(getEndpoint() + getPath()).normalize();
   }
 }

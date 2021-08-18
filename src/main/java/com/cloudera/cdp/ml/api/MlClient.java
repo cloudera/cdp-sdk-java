@@ -24,7 +24,7 @@ import com.cloudera.cdp.annotation.WorkloadApi;
 import com.cloudera.cdp.authentication.credentials.CdpCredentials;
 import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
-import com.cloudera.cdp.client.CdpClientContext;
+import com.cloudera.cdp.client.CdpRequestContext;
 import com.cloudera.cdp.client.Pair;
 import com.cloudera.cdp.client.RestResponse;
 import com.cloudera.cdp.ml.model.CreateWorkspaceRequest;
@@ -58,7 +58,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-08-04T11:15:48.414-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-08-18T09:49:25.893-07:00")
 public class MlClient extends CdpClient {
 
   public static final String SERVICE_NAME = "ml";
@@ -70,7 +70,7 @@ public class MlClient extends CdpClient {
     super(credentials, endPoint, clientConfiguration);
   }
 
-  public MlClient(CdpClientContext<?> context) {
+  public MlClient(CdpRequestContext<?> context) {
     super(context);
   }
 

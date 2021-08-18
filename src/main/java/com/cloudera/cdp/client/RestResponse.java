@@ -40,6 +40,17 @@ public class RestResponse extends BaseResponse implements AutoCloseable {
   }
 
   /**
+   * Get the complete status information associated with the response.
+   *
+   * @return the response status information. The returned value is never
+   *         {@code null}.
+   */
+  public Response.StatusType getStatusInfo() {
+    checkStateAndThrow(this.response != null);
+    return this.response.getStatusInfo();
+  }
+
+  /**
    * Get the message entity Java instance. Returns {@code null} if the message
    * does not contain an entity body.
    * If the entity is represented by an un-consumed {@link InputStream input stream}

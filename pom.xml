@@ -3,7 +3,7 @@
 
   <groupId>com.cloudera.cdp</groupId>
   <artifactId>cdp-sdk-java</artifactId>
-  <version>0.9.41</version>
+  <version>0.9.42</version>
   <name>Cloudera CDP Java SDK</name>
   <packaging>jar</packaging>
 
@@ -397,9 +397,11 @@
           <source>${minSupportedJvmJavaVersion}</source>
           <target>${minSupportedJvmJavaVersion}</target>
           <excludes>
+            <exclude>**/extension/Df.java</exclude>
             <exclude>**/extension/Workload.java</exclude>
           </excludes>
           <testExcludes>
+            <testExclude>**/extension/DfExtensionTest.java</testExclude>
             <testExclude>**/extension/WorkloadExtensionTest.java</testExclude>
           </testExcludes>
         </configuration>
