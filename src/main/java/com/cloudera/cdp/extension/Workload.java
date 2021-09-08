@@ -25,14 +25,15 @@ import com.cloudera.cdp.CdpClientException;
 import com.cloudera.cdp.annotation.SdkInternalApi;
 import com.cloudera.cdp.authentication.credentials.BasicCdpCredentials;
 import com.cloudera.cdp.client.BaseResponse;
-import com.cloudera.cdp.client.CdpRequestContext;
 import com.cloudera.cdp.client.CdpClientMiddleware;
+import com.cloudera.cdp.client.CdpRequestContext;
 import com.cloudera.cdp.iam.api.IamClient;
 import com.cloudera.cdp.iam.model.GenerateWorkloadAuthTokenRequest;
 import com.cloudera.cdp.iam.model.GenerateWorkloadAuthTokenResponse;
 import com.google.common.base.Strings;
 
 import java.lang.reflect.Method;
+import java.net.URI;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -90,6 +91,13 @@ public class Workload implements CdpClientMiddleware {
         "Workload service-discovery succeeded. endpointUrl=%s, accessToken=%s...",
         workloadUrl,
         sanitizeAccessToken(workloadAccessToken)));
+
+    if (!Strings.isNullOrEmpty(workloadUrl)) {
+      workloadUrl = URI.create(workloadUrl).resolve("/").toString();
+    }
+    if (!Strings.isNullOrEmpty(workloadAccessToken) && !workloadAccessToken.startsWith("Bearer ")) {
+      workloadAccessToken = "Bearer " + workloadAccessToken;
+    }
 
     context.setEndpoint(workloadUrl);
     context.setCredentials(new BasicCdpCredentials(workloadAccessToken));

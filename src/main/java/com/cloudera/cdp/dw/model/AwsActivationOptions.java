@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Options for activating an AWS environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-08-18T09:49:25.613-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-09-08T16:23:12.107-07:00")
 public class AwsActivationOptions  {
 
   /**
@@ -40,6 +40,16 @@ public class AwsActivationOptions  {
    * IDs of public AWS subnets where the cluster should be deployed.
    **/
   private List<String> publicSubnetIds = new ArrayList<String>();
+
+  /**
+   * URL for custom ECR repository
+   **/
+  private String customEcrRepository = null;
+
+  /**
+   * Custom AMI ID.
+   **/
+  private String customAmiId = null;
 
   /**
    * Getter for privateSubnetIds.
@@ -75,6 +85,40 @@ public class AwsActivationOptions  {
     this.publicSubnetIds = publicSubnetIds;
   }
 
+  /**
+   * Getter for customEcrRepository.
+   * URL for custom ECR repository
+   **/
+  @JsonProperty("customEcrRepository")
+  public String getCustomEcrRepository() {
+    return customEcrRepository;
+  }
+
+  /**
+   * Setter for customEcrRepository.
+   * URL for custom ECR repository
+   **/
+  public void setCustomEcrRepository(String customEcrRepository) {
+    this.customEcrRepository = customEcrRepository;
+  }
+
+  /**
+   * Getter for customAmiId.
+   * Custom AMI ID.
+   **/
+  @JsonProperty("customAmiId")
+  public String getCustomAmiId() {
+    return customAmiId;
+  }
+
+  /**
+   * Setter for customAmiId.
+   * Custom AMI ID.
+   **/
+  public void setCustomAmiId(String customAmiId) {
+    this.customAmiId = customAmiId;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -90,12 +134,18 @@ public class AwsActivationOptions  {
     if (!Objects.equals(this.publicSubnetIds, awsActivationOptions.publicSubnetIds)) {
       return false;
     }
+    if (!Objects.equals(this.customEcrRepository, awsActivationOptions.customEcrRepository)) {
+      return false;
+    }
+    if (!Objects.equals(this.customAmiId, awsActivationOptions.customAmiId)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(privateSubnetIds, publicSubnetIds);
+    return Objects.hash(privateSubnetIds, publicSubnetIds, customEcrRepository, customAmiId);
   }
 
   @Override
@@ -104,6 +154,8 @@ public class AwsActivationOptions  {
     sb.append("class AwsActivationOptions {\n");
     sb.append("    privateSubnetIds: ").append(toIndentedString(privateSubnetIds)).append("\n");
     sb.append("    publicSubnetIds: ").append(toIndentedString(publicSubnetIds)).append("\n");
+    sb.append("    customEcrRepository: ").append(toIndentedString(customEcrRepository)).append("\n");
+    sb.append("    customAmiId: ").append(toIndentedString(customAmiId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

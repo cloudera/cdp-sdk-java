@@ -28,12 +28,17 @@ import com.cloudera.cdp.client.CdpRequestContext;
 import com.cloudera.cdp.client.CdpClientMiddleware;
 import com.cloudera.cdp.df.model.UploadFlowRequest;
 import com.cloudera.cdp.df.model.UploadFlowResponse;
+import com.cloudera.cdp.df.model.UploadFlowVersionRequest;
+import com.cloudera.cdp.df.model.UploadFlowVersionResponse;
+import com.cloudera.cdp.dfworkload.model.UploadAssetRequest;
+import com.cloudera.cdp.dfworkload.model.UploadAssetResponse;
 import com.google.common.base.Strings;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import javax.ws.rs.core.MediaType;
 
 @SdkInternalApi
 public class Df implements CdpClientMiddleware {
@@ -50,8 +55,10 @@ public class Df implements CdpClientMiddleware {
 
     if (context.getServiceName().equals("df") && context.getOperationName().equals("uploadFlow")) {
       dfUploadFlow((CdpRequestContext<UploadFlowResponse>) context);
-    } else if (context.getServiceName().equals("df-workload")) {
-      dfWorkloadUploadFlow();
+    } else if (context.getServiceName().equals("df") && context.getOperationName().equals("uploadFlowVersion")) {
+        dfUploadFlowVersion((CdpRequestContext<UploadFlowVersionResponse>) context);
+    } else if (context.getServiceName().equals("df-workload") && context.getOperationName().equals("uploadAsset")) {
+      dfWorkloadUploadAsset((CdpRequestContext<UploadAssetResponse>) context);
     } else {
       throw new CdpClientException(String.format(
           "The operation is not supported. service name: %s, operation name: %s",
@@ -80,17 +87,79 @@ public class Df implements CdpClientMiddleware {
     if (comments != null) {
       headers.put("Flow-Definition-Comments", comments);
     }
-    try {
-      try (FileInputStream body = new FileInputStream(filePath)) {
-        context.setHeaders(headers);
-        context.setBody(body);
-        next.invokeAPI(context);
-      }
+    try (FileInputStream body = new FileInputStream(filePath)) {
+      context.setRequestContentType(MediaType.APPLICATION_JSON);
+      context.setHeaders(headers);
+      context.setBody(body);
+      next.invokeAPI(context);
     } catch (IOException ioe) {
       throw new CdpClientException("Unable to load file at " + filePath, ioe);
     }
   }
 
-  private void dfWorkloadUploadFlow() {
+  private void dfUploadFlowVersion(CdpRequestContext<UploadFlowVersionResponse> context) {
+    UploadFlowVersionRequest uploadFlowVersionRequest = (UploadFlowVersionRequest) context.getBody();
+    String comments = uploadFlowVersionRequest.getComments();
+    String filePath = uploadFlowVersionRequest.getFile();
+
+    Map<String, String> headers = new HashMap<>();
+    if (comments != null) {
+      headers.put("Flow-Definition-Comments", comments);
+    }
+    try (FileInputStream body = new FileInputStream(filePath)) {
+      context.setRequestContentType(MediaType.APPLICATION_JSON);
+      context.setHeaders(headers);
+      context.setBody(body);
+      next.invokeAPI(context);
+    } catch (IOException ioe) {
+      throw new CdpClientException("Unable to load file at " + filePath, ioe);
+    }
+  }
+
+  private void dfWorkloadUploadAsset(CdpRequestContext<UploadAssetResponse> context) {
+    UploadAssetRequest uploadFlowVersionRequest = (UploadAssetRequest) context.getBody();
+    String parameterGroup = uploadFlowVersionRequest.getParameterGroup();
+    String parameterName = uploadFlowVersionRequest.getParameterName();
+    String deploymentRequestCrn = uploadFlowVersionRequest.getDeploymentRequestCrn();
+    String deploymentName = uploadFlowVersionRequest.getDeploymentName();
+    String assetUpdateRequestCrn = uploadFlowVersionRequest.getAssetUpdateRequestCrn();
+    String filePath = uploadFlowVersionRequest.getFilePath();
+
+    if (Strings.isNullOrEmpty(parameterGroup)) {
+      throw new CdpClientException("ParameterGroup argument is null");
+    }
+
+    if (Strings.isNullOrEmpty(parameterName)) {
+      throw new CdpClientException("ParameterName argument is null");
+    }
+
+    Map<String, String> headers = new HashMap<>();
+    if (parameterGroup != null) {
+      headers.put("Parameter-Group", parameterGroup);
+    }
+    if (parameterName != null) {
+      headers.put("Parameter-Name", parameterName);
+    }
+    if (deploymentRequestCrn != null) {
+      headers.put("Deployment-Request-Crn", deploymentRequestCrn);
+    }
+    if (deploymentName != null) {
+      headers.put("Deployment-Name", deploymentName);
+    }
+    if (assetUpdateRequestCrn != null) {
+      headers.put("Asset-Update-Request-Crn", assetUpdateRequestCrn);
+    }
+    if (filePath != null) {
+      headers.put("File-Path", filePath);
+    }
+    try (FileInputStream body = new FileInputStream(filePath)) {
+      context.setPath("/dfx/api/rpc-v1/deployments/upload-asset-content");
+      context.setRequestContentType(MediaType.APPLICATION_OCTET_STREAM);
+      context.setHeaders(headers);
+      context.setBody(body);
+      next.invokeAPI(context);
+    } catch (IOException ioe) {
+      throw new CdpClientException("Unable to load file at " + filePath, ioe);
+    }
   }
 }

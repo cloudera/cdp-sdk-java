@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Detailed description of a CDE service.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-08-18T09:49:26.841-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-09-08T16:23:13.493-07:00")
 public class ServiceDescription  {
 
   /**
@@ -54,7 +54,7 @@ public class ServiceDescription  {
   private String environmentCrn = null;
 
   /**
-   * CDE tenant ID
+   * CDP tenant ID.
    **/
   private String tenantId = null;
 
@@ -183,7 +183,7 @@ public class ServiceDescription  {
 
   /**
    * Getter for tenantId.
-   * CDE tenant ID
+   * CDP tenant ID.
    **/
   @JsonProperty("tenantId")
   public String getTenantId() {
@@ -192,7 +192,7 @@ public class ServiceDescription  {
 
   /**
    * Setter for tenantId.
-   * CDE tenant ID
+   * CDP tenant ID.
    **/
   public void setTenantId(String tenantId) {
     this.tenantId = tenantId;

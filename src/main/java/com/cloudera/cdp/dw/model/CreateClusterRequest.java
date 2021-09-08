@@ -29,7 +29,7 @@ import com.cloudera.cdp.dw.model.AzureActivationOptions;
 /**
  * Request object for the createCluster method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-08-18T09:49:25.613-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-09-08T16:23:12.107-07:00")
 public class CreateClusterRequest  {
 
   /**
@@ -41,6 +41,11 @@ public class CreateClusterRequest  {
    * Using an overlay network will save IP addresses in the VPC by using a private IP address range for Pods in the cluster.
    **/
   private Boolean useOverlayNetwork = null;
+
+  /**
+   * Comma separated list of IP address CIDRs to whitelist.
+   **/
+  private String whitelistIpCIDRs = null;
 
   /**
    * Set up load balancer with private IP address. In AWS it is created in private subnets. In Azure an internal load balancer gets created. Make sure there is connectivity between your client network and the network (VPC/VNet) where CDW environment is deployed.
@@ -89,6 +94,23 @@ public class CreateClusterRequest  {
    **/
   public void setUseOverlayNetwork(Boolean useOverlayNetwork) {
     this.useOverlayNetwork = useOverlayNetwork;
+  }
+
+  /**
+   * Getter for whitelistIpCIDRs.
+   * Comma separated list of IP address CIDRs to whitelist.
+   **/
+  @JsonProperty("whitelistIpCIDRs")
+  public String getWhitelistIpCIDRs() {
+    return whitelistIpCIDRs;
+  }
+
+  /**
+   * Setter for whitelistIpCIDRs.
+   * Comma separated list of IP address CIDRs to whitelist.
+   **/
+  public void setWhitelistIpCIDRs(String whitelistIpCIDRs) {
+    this.whitelistIpCIDRs = whitelistIpCIDRs;
   }
 
   /**
@@ -157,6 +179,9 @@ public class CreateClusterRequest  {
     if (!Objects.equals(this.useOverlayNetwork, createClusterRequest.useOverlayNetwork)) {
       return false;
     }
+    if (!Objects.equals(this.whitelistIpCIDRs, createClusterRequest.whitelistIpCIDRs)) {
+      return false;
+    }
     if (!Objects.equals(this.usePrivateLoadBalancer, createClusterRequest.usePrivateLoadBalancer)) {
       return false;
     }
@@ -171,7 +196,7 @@ public class CreateClusterRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, useOverlayNetwork, usePrivateLoadBalancer, awsOptions, azureOptions);
+    return Objects.hash(environmentCrn, useOverlayNetwork, whitelistIpCIDRs, usePrivateLoadBalancer, awsOptions, azureOptions);
   }
 
   @Override
@@ -180,6 +205,7 @@ public class CreateClusterRequest  {
     sb.append("class CreateClusterRequest {\n");
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
     sb.append("    useOverlayNetwork: ").append(toIndentedString(useOverlayNetwork)).append("\n");
+    sb.append("    whitelistIpCIDRs: ").append(toIndentedString(whitelistIpCIDRs)).append("\n");
     sb.append("    usePrivateLoadBalancer: ").append(toIndentedString(usePrivateLoadBalancer)).append("\n");
     sb.append("    awsOptions: ").append(toIndentedString(awsOptions)).append("\n");
     sb.append("    azureOptions: ").append(toIndentedString(azureOptions)).append("\n");

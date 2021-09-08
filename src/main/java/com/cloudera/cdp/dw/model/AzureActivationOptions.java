@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Options for activating an Azure environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-08-18T09:49:25.613-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-09-08T16:23:12.107-07:00")
 public class AzureActivationOptions  {
 
   /**
@@ -39,6 +39,21 @@ public class AzureActivationOptions  {
    * Enables Azure Availability Zones for the cluster deployment.
    **/
   private Boolean enableAZ = null;
+
+  /**
+   * The generation type of the virtual machines used to create the environment.
+   **/
+  private String vmGenerationType = null;
+
+  /**
+   * Workspace ID for Azure log analytics.
+   **/
+  private String logAnalyticsWorkspaceId = null;
+
+  /**
+   * Docker bridge CIDR range for deployment.
+   **/
+  private String dockerBridgeCidr = null;
 
   /**
    * Getter for subnetId.
@@ -74,6 +89,57 @@ public class AzureActivationOptions  {
     this.enableAZ = enableAZ;
   }
 
+  /**
+   * Getter for vmGenerationType.
+   * The generation type of the virtual machines used to create the environment.
+   **/
+  @JsonProperty("vmGenerationType")
+  public String getVmGenerationType() {
+    return vmGenerationType;
+  }
+
+  /**
+   * Setter for vmGenerationType.
+   * The generation type of the virtual machines used to create the environment.
+   **/
+  public void setVmGenerationType(String vmGenerationType) {
+    this.vmGenerationType = vmGenerationType;
+  }
+
+  /**
+   * Getter for logAnalyticsWorkspaceId.
+   * Workspace ID for Azure log analytics.
+   **/
+  @JsonProperty("logAnalyticsWorkspaceId")
+  public String getLogAnalyticsWorkspaceId() {
+    return logAnalyticsWorkspaceId;
+  }
+
+  /**
+   * Setter for logAnalyticsWorkspaceId.
+   * Workspace ID for Azure log analytics.
+   **/
+  public void setLogAnalyticsWorkspaceId(String logAnalyticsWorkspaceId) {
+    this.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
+  }
+
+  /**
+   * Getter for dockerBridgeCidr.
+   * Docker bridge CIDR range for deployment.
+   **/
+  @JsonProperty("dockerBridgeCidr")
+  public String getDockerBridgeCidr() {
+    return dockerBridgeCidr;
+  }
+
+  /**
+   * Setter for dockerBridgeCidr.
+   * Docker bridge CIDR range for deployment.
+   **/
+  public void setDockerBridgeCidr(String dockerBridgeCidr) {
+    this.dockerBridgeCidr = dockerBridgeCidr;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -89,12 +155,21 @@ public class AzureActivationOptions  {
     if (!Objects.equals(this.enableAZ, azureActivationOptions.enableAZ)) {
       return false;
     }
+    if (!Objects.equals(this.vmGenerationType, azureActivationOptions.vmGenerationType)) {
+      return false;
+    }
+    if (!Objects.equals(this.logAnalyticsWorkspaceId, azureActivationOptions.logAnalyticsWorkspaceId)) {
+      return false;
+    }
+    if (!Objects.equals(this.dockerBridgeCidr, azureActivationOptions.dockerBridgeCidr)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subnetId, enableAZ);
+    return Objects.hash(subnetId, enableAZ, vmGenerationType, logAnalyticsWorkspaceId, dockerBridgeCidr);
   }
 
   @Override
@@ -103,6 +178,9 @@ public class AzureActivationOptions  {
     sb.append("class AzureActivationOptions {\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    enableAZ: ").append(toIndentedString(enableAZ)).append("\n");
+    sb.append("    vmGenerationType: ").append(toIndentedString(vmGenerationType)).append("\n");
+    sb.append("    logAnalyticsWorkspaceId: ").append(toIndentedString(logAnalyticsWorkspaceId)).append("\n");
+    sb.append("    dockerBridgeCidr: ").append(toIndentedString(dockerBridgeCidr)).append("\n");
     sb.append("}");
     return sb.toString();
   }

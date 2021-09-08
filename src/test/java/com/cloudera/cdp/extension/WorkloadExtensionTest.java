@@ -150,9 +150,9 @@ public class WorkloadExtensionTest {
     assertEquals("df-workload", ctx.getServiceName());
     assertEquals("workload-operation", ctx.getOperationName());
     assertEquals("GET", ctx.getMethod());
-    assertEquals("http://test.com/workload", ctx.getEndpoint());
+    assertEquals("http://test.com/", ctx.getEndpoint());
     assertEquals("/path", ctx.getPath());
-    assertEquals("test-access-token", ctx.getCredentials().getAccessToken());
+    assertEquals("Bearer test-access-token", ctx.getCredentials().getAccessToken());
     assertTrue(ctx.getBody() instanceof WorkloadRequest);
   }
 

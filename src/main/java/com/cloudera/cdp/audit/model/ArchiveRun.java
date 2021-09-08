@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * The public model for an archive run.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-08-18T09:49:26.758-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-09-08T16:23:13.357-07:00")
 public class ArchiveRun  {
 
   /**

@@ -28,7 +28,7 @@ import com.cloudera.cdp.dw.model.VwSummary;
 /**
  * Response object for the describeVw method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-08-18T09:49:25.613-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-09-08T16:23:12.107-07:00")
 public class DescribeVwResponse extends CdpResponse {
 
   /**
