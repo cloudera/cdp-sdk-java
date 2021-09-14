@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object to enable environment level telemetry features.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-09-08T16:23:12.818-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-09-13T18:00:50.341-07:00")
 public class SetAccountTelemetryRequest  {
 
   /**

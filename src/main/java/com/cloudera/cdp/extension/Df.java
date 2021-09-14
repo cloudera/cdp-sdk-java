@@ -57,7 +57,7 @@ public class Df implements CdpClientMiddleware {
       dfUploadFlow((CdpRequestContext<UploadFlowResponse>) context);
     } else if (context.getServiceName().equals("df") && context.getOperationName().equals("uploadFlowVersion")) {
         dfUploadFlowVersion((CdpRequestContext<UploadFlowVersionResponse>) context);
-    } else if (context.getServiceName().equals("df-workload") && context.getOperationName().equals("uploadAsset")) {
+    } else if (context.getServiceName().equals("dfworkload") && context.getOperationName().equals("uploadAsset")) {
       dfWorkloadUploadAsset((CdpRequestContext<UploadAssetResponse>) context);
     } else {
       throw new CdpClientException(String.format(
@@ -122,7 +122,8 @@ public class Df implements CdpClientMiddleware {
     String parameterName = uploadFlowVersionRequest.getParameterName();
     String deploymentRequestCrn = uploadFlowVersionRequest.getDeploymentRequestCrn();
     String deploymentName = uploadFlowVersionRequest.getDeploymentName();
-    String assetUpdateRequestCrn = uploadFlowVersionRequest.getAssetUpdateRequestCrn();
+    // assetUpdateRequestCrn was removed temporarily.
+    // String assetUpdateRequestCrn = uploadFlowVersionRequest.getAssetUpdateRequestCrn();
     String filePath = uploadFlowVersionRequest.getFilePath();
 
     if (Strings.isNullOrEmpty(parameterGroup)) {
@@ -146,9 +147,10 @@ public class Df implements CdpClientMiddleware {
     if (deploymentName != null) {
       headers.put("Deployment-Name", deploymentName);
     }
-    if (assetUpdateRequestCrn != null) {
-      headers.put("Asset-Update-Request-Crn", assetUpdateRequestCrn);
-    }
+    // assetUpdateRequestCrn was removed temporarily.
+    // if (assetUpdateRequestCrn != null) {
+    //   headers.put("Asset-Update-Request-Crn", assetUpdateRequestCrn);
+    // }
     if (filePath != null) {
       headers.put("File-Path", filePath);
     }

@@ -59,3 +59,11 @@ After checking out the source code, you can build it using Maven.
 ```sh
 mvn clean install
 ```
+
+## Sample SDK client
+
+This is a sample project for a cdp-sdk-java client.
+
+```
+sdk/cdp-sdk-java-client
+```

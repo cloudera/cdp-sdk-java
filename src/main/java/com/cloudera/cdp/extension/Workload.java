@@ -69,7 +69,7 @@ public class Workload implements CdpClientMiddleware {
 
     String workloadName;
     String environmentCrn;
-    if (serviceName.equals("df-workload")) {
+    if (serviceName.equals("dfworkload")) {
       workloadName = "DF";
       environmentCrn = getEnvironmentCrn(context.getBody());
       if (Strings.isNullOrEmpty(environmentCrn)) {

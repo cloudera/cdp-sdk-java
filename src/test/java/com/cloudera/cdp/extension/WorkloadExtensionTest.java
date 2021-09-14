@@ -121,7 +121,7 @@ public class WorkloadExtensionTest {
   private CdpRequestContext<RestResponse> createContext(Client client) {
     CdpRequestContext<RestResponse> context = new CdpRequestContext<>(
         client,
-        "df-workload",
+        "dfworkload",
         "workload-operation",
         new GenericType<RestResponse>(){});
     context.setRetryHandler(new NeverRetryHandler());
@@ -147,7 +147,7 @@ public class WorkloadExtensionTest {
     workloadExtension.invokeAPI(context);
     assertTrue(next.getExecuted());
     CdpRequestContext<?> ctx = next.getContext();
-    assertEquals("df-workload", ctx.getServiceName());
+    assertEquals("dfworkload", ctx.getServiceName());
     assertEquals("workload-operation", ctx.getOperationName());
     assertEquals("GET", ctx.getMethod());
     assertEquals("http://test.com/", ctx.getEndpoint());
