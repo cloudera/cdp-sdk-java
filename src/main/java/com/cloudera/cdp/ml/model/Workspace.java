@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * A ML workspace, which includes the cluster and storage.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-09-13T18:00:50.015-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-09-29T12:28:19.412-07:00")
 public class Workspace  {
 
   /**
@@ -149,6 +149,16 @@ public class Workspace  {
    * Whether governance is enabled.
    **/
   private Boolean governanceEnabled = null;
+
+  /**
+   * Whether to whitelist only authorizedIPRanges given or all public IPs.
+   **/
+  private Boolean whitelistAuthorizedIPRanges = null;
+
+  /**
+   * The whitelist of CIDR blocks which can access the API server.
+   **/
+  private List<String> authorizedIPRanges = new ArrayList<String>();
 
   /**
    * Getter for instanceName.
@@ -541,6 +551,40 @@ public class Workspace  {
     this.governanceEnabled = governanceEnabled;
   }
 
+  /**
+   * Getter for whitelistAuthorizedIPRanges.
+   * Whether to whitelist only authorizedIPRanges given or all public IPs.
+   **/
+  @JsonProperty("whitelistAuthorizedIPRanges")
+  public Boolean getWhitelistAuthorizedIPRanges() {
+    return whitelistAuthorizedIPRanges;
+  }
+
+  /**
+   * Setter for whitelistAuthorizedIPRanges.
+   * Whether to whitelist only authorizedIPRanges given or all public IPs.
+   **/
+  public void setWhitelistAuthorizedIPRanges(Boolean whitelistAuthorizedIPRanges) {
+    this.whitelistAuthorizedIPRanges = whitelistAuthorizedIPRanges;
+  }
+
+  /**
+   * Getter for authorizedIPRanges.
+   * The whitelist of CIDR blocks which can access the API server.
+   **/
+  @JsonProperty("authorizedIPRanges")
+  public List<String> getAuthorizedIPRanges() {
+    return authorizedIPRanges;
+  }
+
+  /**
+   * Setter for authorizedIPRanges.
+   * The whitelist of CIDR blocks which can access the API server.
+   **/
+  public void setAuthorizedIPRanges(List<String> authorizedIPRanges) {
+    this.authorizedIPRanges = authorizedIPRanges;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -619,12 +663,18 @@ public class Workspace  {
     if (!Objects.equals(this.governanceEnabled, workspace.governanceEnabled)) {
       return false;
     }
+    if (!Objects.equals(this.whitelistAuthorizedIPRanges, workspace.whitelistAuthorizedIPRanges)) {
+      return false;
+    }
+    if (!Objects.equals(this.authorizedIPRanges, workspace.authorizedIPRanges)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, endpointPublicAccess, filesystemID, tags, instanceGroups, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, healthInfoLists, failureMessage, clusterBaseDomain, modelMetricsEnabled, governanceEnabled);
+    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, endpointPublicAccess, filesystemID, tags, instanceGroups, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, healthInfoLists, failureMessage, clusterBaseDomain, modelMetricsEnabled, governanceEnabled, whitelistAuthorizedIPRanges, authorizedIPRanges);
   }
 
   @Override
@@ -654,6 +704,8 @@ public class Workspace  {
     sb.append("    clusterBaseDomain: ").append(toIndentedString(clusterBaseDomain)).append("\n");
     sb.append("    modelMetricsEnabled: ").append(toIndentedString(modelMetricsEnabled)).append("\n");
     sb.append("    governanceEnabled: ").append(toIndentedString(governanceEnabled)).append("\n");
+    sb.append("    whitelistAuthorizedIPRanges: ").append(toIndentedString(whitelistAuthorizedIPRanges)).append("\n");
+    sb.append("    authorizedIPRanges: ").append(toIndentedString(authorizedIPRanges)).append("\n");
     sb.append("}");
     return sb.toString();
   }

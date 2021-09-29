@@ -45,6 +45,8 @@ import com.cloudera.cdp.environments.model.CreateGCPCredentialRequest;
 import com.cloudera.cdp.environments.model.CreateGCPCredentialResponse;
 import com.cloudera.cdp.environments.model.CreateGCPEnvironmentRequest;
 import com.cloudera.cdp.environments.model.CreateGCPEnvironmentResponse;
+import com.cloudera.cdp.environments.model.CreatePrivateEnvironmentRequest;
+import com.cloudera.cdp.environments.model.CreatePrivateEnvironmentResponse;
 import com.cloudera.cdp.environments.model.CreateProxyConfigRequest;
 import com.cloudera.cdp.environments.model.CreateProxyConfigResponse;
 import com.cloudera.cdp.environments.model.DeleteAuditCredentialRequest;
@@ -66,6 +68,8 @@ import com.cloudera.cdp.environments.model.GetAuditCredentialPrerequisitesReques
 import com.cloudera.cdp.environments.model.GetAuditCredentialPrerequisitesResponse;
 import com.cloudera.cdp.environments.model.GetCredentialPrerequisitesRequest;
 import com.cloudera.cdp.environments.model.GetCredentialPrerequisitesResponse;
+import com.cloudera.cdp.environments.model.GetEnvironmentSettingRequest;
+import com.cloudera.cdp.environments.model.GetEnvironmentSettingResponse;
 import com.cloudera.cdp.environments.model.GetEnvironmentUserSyncStateRequest;
 import com.cloudera.cdp.environments.model.GetEnvironmentUserSyncStateResponse;
 import com.cloudera.cdp.environments.model.GetFreeipaLogDescriptorsRequest;
@@ -100,6 +104,8 @@ import com.cloudera.cdp.environments.model.SetAccountTelemetryRequest;
 import com.cloudera.cdp.environments.model.SetAccountTelemetryResponse;
 import com.cloudera.cdp.environments.model.SetAzureAuditCredentialRequest;
 import com.cloudera.cdp.environments.model.SetAzureAuditCredentialResponse;
+import com.cloudera.cdp.environments.model.SetEnvironmentSettingRequest;
+import com.cloudera.cdp.environments.model.SetEnvironmentSettingResponse;
 import com.cloudera.cdp.environments.model.SetIdBrokerMappingsRequest;
 import com.cloudera.cdp.environments.model.SetIdBrokerMappingsResponse;
 import com.cloudera.cdp.environments.model.SetPasswordRequest;
@@ -126,7 +132,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-09-13T18:00:50.341-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-09-29T12:28:19.764-07:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -275,6 +281,19 @@ public class EnvironmentsClient extends CdpClient {
   }
 
   /**
+   * Creates a new Private Cloud environment by providing the Cloudera Manager address and credentials.
+   * @param input
+   * @return CreatePrivateEnvironmentResponse
+   */
+  public CreatePrivateEnvironmentResponse createPrivateEnvironment(CreatePrivateEnvironmentRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createPrivateEnvironment");
+    }
+
+    return this.invokeAPI("createPrivateEnvironment", "/api/v1/environments2/createPrivateEnvironment", input, new GenericType<CreatePrivateEnvironmentResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Creates a new proxy config that can be attatched to an environment.
    * @param input
    * @return CreateProxyConfigResponse
@@ -402,6 +421,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("getCredentialPrerequisites", "/api/v1/environments2/getCredentialPrerequisites", input, new GenericType<GetCredentialPrerequisitesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Read a configuration setting from the environment service.
+   * @param input
+   * @return GetEnvironmentSettingResponse
+   */
+  public GetEnvironmentSettingResponse getEnvironmentSetting(GetEnvironmentSettingRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getEnvironmentSetting");
+    }
+
+    return this.invokeAPI("getEnvironmentSetting", "/api/v1/environments2/getEnvironmentSetting", input, new GenericType<GetEnvironmentSettingResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -623,6 +655,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("setAzureAuditCredential", "/api/v1/environments2/setAzureAuditCredential", input, new GenericType<SetAzureAuditCredentialResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Read a configuration setting from the environment service.
+   * @param input
+   * @return SetEnvironmentSettingResponse
+   */
+  public SetEnvironmentSettingResponse setEnvironmentSetting(SetEnvironmentSettingRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling setEnvironmentSetting");
+    }
+
+    return this.invokeAPI("setEnvironmentSetting", "/api/v1/environments2/setEnvironmentSetting", input, new GenericType<SetEnvironmentSettingResponse>(){}, NO_EXTENSION);
   }
 
   /**

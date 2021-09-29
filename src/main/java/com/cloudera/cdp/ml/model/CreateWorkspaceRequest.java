@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for the CreateWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-09-13T18:00:50.015-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-09-29T12:28:19.412-07:00")
 public class CreateWorkspaceRequest  {
 
   /**
@@ -92,6 +92,16 @@ public class CreateWorkspaceRequest  {
    * Optional configurations for an existing Postgres to export model metrics to.
    **/
   private ExistingDatabaseConfig existingDatabaseConfig = null;
+
+  /**
+   * Whether to whitelist only authorizedIPRanges given or all public IPs.
+   **/
+  private Boolean whitelistAuthorizedIPRanges = null;
+
+  /**
+   * The whitelist of CIDR blocks which can access the API server.
+   **/
+  private List<String> authorizedIPRanges = new ArrayList<String>();
 
   /**
    * Getter for environmentName.
@@ -297,6 +307,40 @@ public class CreateWorkspaceRequest  {
     this.existingDatabaseConfig = existingDatabaseConfig;
   }
 
+  /**
+   * Getter for whitelistAuthorizedIPRanges.
+   * Whether to whitelist only authorizedIPRanges given or all public IPs.
+   **/
+  @JsonProperty("whitelistAuthorizedIPRanges")
+  public Boolean getWhitelistAuthorizedIPRanges() {
+    return whitelistAuthorizedIPRanges;
+  }
+
+  /**
+   * Setter for whitelistAuthorizedIPRanges.
+   * Whether to whitelist only authorizedIPRanges given or all public IPs.
+   **/
+  public void setWhitelistAuthorizedIPRanges(Boolean whitelistAuthorizedIPRanges) {
+    this.whitelistAuthorizedIPRanges = whitelistAuthorizedIPRanges;
+  }
+
+  /**
+   * Getter for authorizedIPRanges.
+   * The whitelist of CIDR blocks which can access the API server.
+   **/
+  @JsonProperty("authorizedIPRanges")
+  public List<String> getAuthorizedIPRanges() {
+    return authorizedIPRanges;
+  }
+
+  /**
+   * Setter for authorizedIPRanges.
+   * The whitelist of CIDR blocks which can access the API server.
+   **/
+  public void setAuthorizedIPRanges(List<String> authorizedIPRanges) {
+    this.authorizedIPRanges = authorizedIPRanges;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -342,12 +386,18 @@ public class CreateWorkspaceRequest  {
     if (!Objects.equals(this.existingDatabaseConfig, createWorkspaceRequest.existingDatabaseConfig)) {
       return false;
     }
+    if (!Objects.equals(this.whitelistAuthorizedIPRanges, createWorkspaceRequest.whitelistAuthorizedIPRanges)) {
+      return false;
+    }
+    if (!Objects.equals(this.authorizedIPRanges, createWorkspaceRequest.authorizedIPRanges)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, workspaceName, usePublicLoadBalancer, disableTLS, provisionK8sRequest, enableMonitoring, enableGovernance, existingNFS, loadBalancerIPWhitelists, nfsVersion, enableModelMetrics, existingDatabaseConfig);
+    return Objects.hash(environmentName, workspaceName, usePublicLoadBalancer, disableTLS, provisionK8sRequest, enableMonitoring, enableGovernance, existingNFS, loadBalancerIPWhitelists, nfsVersion, enableModelMetrics, existingDatabaseConfig, whitelistAuthorizedIPRanges, authorizedIPRanges);
   }
 
   @Override
@@ -366,6 +416,8 @@ public class CreateWorkspaceRequest  {
     sb.append("    nfsVersion: ").append(toIndentedString(nfsVersion)).append("\n");
     sb.append("    enableModelMetrics: ").append(toIndentedString(enableModelMetrics)).append("\n");
     sb.append("    existingDatabaseConfig: ").append(toIndentedString(existingDatabaseConfig)).append("\n");
+    sb.append("    whitelistAuthorizedIPRanges: ").append(toIndentedString(whitelistAuthorizedIPRanges)).append("\n");
+    sb.append("    authorizedIPRanges: ").append(toIndentedString(authorizedIPRanges)).append("\n");
     sb.append("}");
     return sb.toString();
   }
