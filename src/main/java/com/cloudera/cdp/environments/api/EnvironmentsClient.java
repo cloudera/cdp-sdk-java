@@ -132,7 +132,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-09-29T12:28:19.764-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-10-05T14:03:45.301-07:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";

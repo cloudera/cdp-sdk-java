@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object to perform a backup of datalake.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-09-29T12:28:19.545-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-10-05T14:03:45.051-07:00")
 public class BackupDatalakeRequest  {
 
   /**
@@ -44,6 +44,11 @@ public class BackupDatalakeRequest  {
    * The name of the backup.
    **/
   private String backupName = null;
+
+  /**
+   * Close the database connections while performing backup. Default is true.
+   **/
+  private Boolean closeDbConnections = true;
 
   /**
    * Getter for datalakeName.
@@ -96,6 +101,23 @@ public class BackupDatalakeRequest  {
     this.backupName = backupName;
   }
 
+  /**
+   * Getter for closeDbConnections.
+   * Close the database connections while performing backup. Default is true.
+   **/
+  @JsonProperty("closeDbConnections")
+  public Boolean getCloseDbConnections() {
+    return closeDbConnections;
+  }
+
+  /**
+   * Setter for closeDbConnections.
+   * Close the database connections while performing backup. Default is true.
+   **/
+  public void setCloseDbConnections(Boolean closeDbConnections) {
+    this.closeDbConnections = closeDbConnections;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -114,12 +136,15 @@ public class BackupDatalakeRequest  {
     if (!Objects.equals(this.backupName, backupDatalakeRequest.backupName)) {
       return false;
     }
+    if (!Objects.equals(this.closeDbConnections, backupDatalakeRequest.closeDbConnections)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, backupLocation, backupName);
+    return Objects.hash(datalakeName, backupLocation, backupName, closeDbConnections);
   }
 
   @Override
@@ -129,6 +154,7 @@ public class BackupDatalakeRequest  {
     sb.append("    datalakeName: ").append(toIndentedString(datalakeName)).append("\n");
     sb.append("    backupLocation: ").append(toIndentedString(backupLocation)).append("\n");
     sb.append("    backupName: ").append(toIndentedString(backupName)).append("\n");
+    sb.append("    closeDbConnections: ").append(toIndentedString(closeDbConnections)).append("\n");
     sb.append("}");
     return sb.toString();
   }

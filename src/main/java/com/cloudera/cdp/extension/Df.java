@@ -26,10 +26,10 @@ import com.cloudera.cdp.annotation.SdkInternalApi;
 import com.cloudera.cdp.client.BaseResponse;
 import com.cloudera.cdp.client.CdpRequestContext;
 import com.cloudera.cdp.client.CdpClientMiddleware;
-import com.cloudera.cdp.df.model.UploadFlowRequest;
-import com.cloudera.cdp.df.model.UploadFlowResponse;
-import com.cloudera.cdp.df.model.UploadFlowVersionRequest;
-import com.cloudera.cdp.df.model.UploadFlowVersionResponse;
+import com.cloudera.cdp.df.model.ImportFlowDefinitionRequest;
+import com.cloudera.cdp.df.model.ImportFlowDefinitionResponse;
+import com.cloudera.cdp.df.model.ImportFlowDefinitionVersionRequest;
+import com.cloudera.cdp.df.model.ImportFlowDefinitionVersionResponse;
 import com.cloudera.cdp.dfworkload.model.UploadAssetRequest;
 import com.cloudera.cdp.dfworkload.model.UploadAssetResponse;
 import com.google.common.base.Strings;
@@ -53,10 +53,10 @@ public class Df implements CdpClientMiddleware {
   public <T extends BaseResponse> void invokeAPI(CdpRequestContext<T> context) {
     checkNotNullAndThrow(context);
 
-    if (context.getServiceName().equals("df") && context.getOperationName().equals("uploadFlow")) {
-      dfUploadFlow((CdpRequestContext<UploadFlowResponse>) context);
-    } else if (context.getServiceName().equals("df") && context.getOperationName().equals("uploadFlowVersion")) {
-        dfUploadFlowVersion((CdpRequestContext<UploadFlowVersionResponse>) context);
+    if (context.getServiceName().equals("df") && context.getOperationName().equals("importFlowDefinition")) {
+      dfImportFlowDefinition((CdpRequestContext<ImportFlowDefinitionResponse>) context);
+    } else if (context.getServiceName().equals("df") && context.getOperationName().equals("importFlowDefinitionVersion")) {
+      dfImportFlowDefinitionVersion((CdpRequestContext<ImportFlowDefinitionVersionResponse>) context);
     } else if (context.getServiceName().equals("dfworkload") && context.getOperationName().equals("uploadAsset")) {
       dfWorkloadUploadAsset((CdpRequestContext<UploadAssetResponse>) context);
     } else {
@@ -66,12 +66,12 @@ public class Df implements CdpClientMiddleware {
     }
   }
 
-  private void dfUploadFlow(CdpRequestContext<UploadFlowResponse> context) {
-    UploadFlowRequest uploadFlowRequest = (UploadFlowRequest) context.getBody();
-    String name = uploadFlowRequest.getName();
-    String description = uploadFlowRequest.getDescription();
-    String comments = uploadFlowRequest.getComments();
-    String filePath = uploadFlowRequest.getFile();
+  private void dfImportFlowDefinition(CdpRequestContext<ImportFlowDefinitionResponse> context) {
+    ImportFlowDefinitionRequest importFlowDefinitionRequest = (ImportFlowDefinitionRequest) context.getBody();
+    String name = importFlowDefinitionRequest.getName();
+    String description = importFlowDefinitionRequest.getDescription();
+    String comments = importFlowDefinitionRequest.getComments();
+    String filePath = importFlowDefinitionRequest.getFile();
 
     if (Strings.isNullOrEmpty(name)) {
       throw new CdpClientException("Name argument is null");
@@ -97,10 +97,10 @@ public class Df implements CdpClientMiddleware {
     }
   }
 
-  private void dfUploadFlowVersion(CdpRequestContext<UploadFlowVersionResponse> context) {
-    UploadFlowVersionRequest uploadFlowVersionRequest = (UploadFlowVersionRequest) context.getBody();
-    String comments = uploadFlowVersionRequest.getComments();
-    String filePath = uploadFlowVersionRequest.getFile();
+  private void dfImportFlowDefinitionVersion(CdpRequestContext<ImportFlowDefinitionVersionResponse> context) {
+    ImportFlowDefinitionVersionRequest importFlowDefinitionVersionRequest = (ImportFlowDefinitionVersionRequest) context.getBody();
+    String comments = importFlowDefinitionVersionRequest.getComments();
+    String filePath = importFlowDefinitionVersionRequest.getFile();
 
     Map<String, String> headers = new HashMap<>();
     if (comments != null) {
@@ -117,14 +117,14 @@ public class Df implements CdpClientMiddleware {
   }
 
   private void dfWorkloadUploadAsset(CdpRequestContext<UploadAssetResponse> context) {
-    UploadAssetRequest uploadFlowVersionRequest = (UploadAssetRequest) context.getBody();
-    String parameterGroup = uploadFlowVersionRequest.getParameterGroup();
-    String parameterName = uploadFlowVersionRequest.getParameterName();
-    String deploymentRequestCrn = uploadFlowVersionRequest.getDeploymentRequestCrn();
-    String deploymentName = uploadFlowVersionRequest.getDeploymentName();
+    UploadAssetRequest uploadAssetRequest = (UploadAssetRequest) context.getBody();
+    String parameterGroup = uploadAssetRequest.getParameterGroup();
+    String parameterName = uploadAssetRequest.getParameterName();
+    String deploymentRequestCrn = uploadAssetRequest.getDeploymentRequestCrn();
+    String deploymentName = uploadAssetRequest.getDeploymentName();
     // assetUpdateRequestCrn was removed temporarily.
-    // String assetUpdateRequestCrn = uploadFlowVersionRequest.getAssetUpdateRequestCrn();
-    String filePath = uploadFlowVersionRequest.getFilePath();
+    // String assetUpdateRequestCrn = uploadAssetRequest.getAssetUpdateRequestCrn();
+    String filePath = uploadAssetRequest.getFilePath();
 
     if (Strings.isNullOrEmpty(parameterGroup)) {
       throw new CdpClientException("ParameterGroup argument is null");

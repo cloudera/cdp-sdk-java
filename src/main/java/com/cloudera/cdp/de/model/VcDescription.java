@@ -23,6 +23,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.de.model.AccessControlResponse;
 import com.cloudera.cdp.de.model.ChartValueOverridesResponse;
 import com.cloudera.cdp.de.model.VcResources;
 import java.util.*;
@@ -30,7 +31,7 @@ import java.util.*;
 /**
  * CDE virtual cluster summary.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-09-29T12:28:20.277-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-10-05T14:03:45.820-07:00")
 public class VcDescription  {
 
   /**
@@ -104,9 +105,19 @@ public class VcDescription  {
   private String creationTime = null;
 
   /**
+   * Spark version for the virtual cluster.
+   **/
+  private String sparkVersion = null;
+
+  /**
    * Chart overrides for the Virtual Cluster.
    **/
   private List<ChartValueOverridesResponse> chartValueOverrides = new ArrayList<ChartValueOverridesResponse>();
+
+  /**
+   * Access control object for the Virtual Cluster.
+   **/
+  private AccessControlResponse accessControl = null;
 
   /**
    * Getter for vcId.
@@ -347,6 +358,23 @@ public class VcDescription  {
   }
 
   /**
+   * Getter for sparkVersion.
+   * Spark version for the virtual cluster.
+   **/
+  @JsonProperty("sparkVersion")
+  public String getSparkVersion() {
+    return sparkVersion;
+  }
+
+  /**
+   * Setter for sparkVersion.
+   * Spark version for the virtual cluster.
+   **/
+  public void setSparkVersion(String sparkVersion) {
+    this.sparkVersion = sparkVersion;
+  }
+
+  /**
    * Getter for chartValueOverrides.
    * Chart overrides for the Virtual Cluster.
    **/
@@ -361,6 +389,23 @@ public class VcDescription  {
    **/
   public void setChartValueOverrides(List<ChartValueOverridesResponse> chartValueOverrides) {
     this.chartValueOverrides = chartValueOverrides;
+  }
+
+  /**
+   * Getter for accessControl.
+   * Access control object for the Virtual Cluster.
+   **/
+  @JsonProperty("accessControl")
+  public AccessControlResponse getAccessControl() {
+    return accessControl;
+  }
+
+  /**
+   * Setter for accessControl.
+   * Access control object for the Virtual Cluster.
+   **/
+  public void setAccessControl(AccessControlResponse accessControl) {
+    this.accessControl = accessControl;
   }
 
   @Override
@@ -414,7 +459,13 @@ public class VcDescription  {
     if (!Objects.equals(this.creationTime, vcDescription.creationTime)) {
       return false;
     }
+    if (!Objects.equals(this.sparkVersion, vcDescription.sparkVersion)) {
+      return false;
+    }
     if (!Objects.equals(this.chartValueOverrides, vcDescription.chartValueOverrides)) {
+      return false;
+    }
+    if (!Objects.equals(this.accessControl, vcDescription.accessControl)) {
       return false;
     }
     return true;
@@ -422,7 +473,7 @@ public class VcDescription  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(vcId, vcName, clusterId, status, resources, creatorEmail, creatorID, creatorName, vcApiUrl, vcUiUrl, historyServerUrl, livyServerUrl, safariUrl, creationTime, chartValueOverrides);
+    return Objects.hash(vcId, vcName, clusterId, status, resources, creatorEmail, creatorID, creatorName, vcApiUrl, vcUiUrl, historyServerUrl, livyServerUrl, safariUrl, creationTime, sparkVersion, chartValueOverrides, accessControl);
   }
 
   @Override
@@ -443,7 +494,9 @@ public class VcDescription  {
     sb.append("    livyServerUrl: ").append(toIndentedString(livyServerUrl)).append("\n");
     sb.append("    safariUrl: ").append(toIndentedString(safariUrl)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
+    sb.append("    sparkVersion: ").append(toIndentedString(sparkVersion)).append("\n");
     sb.append("    chartValueOverrides: ").append(toIndentedString(chartValueOverrides)).append("\n");
+    sb.append("    accessControl: ").append(toIndentedString(accessControl)).append("\n");
     sb.append("}");
     return sb.toString();
   }

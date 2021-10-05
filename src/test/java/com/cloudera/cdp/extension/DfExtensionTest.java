@@ -40,10 +40,10 @@ import com.cloudera.cdp.client.CdpParseResponseMiddleware;
 import com.cloudera.cdp.client.CdpRequestAuthMiddleware;
 import com.cloudera.cdp.client.CdpRequestContext;
 import com.cloudera.cdp.client.CdpRequestHeadersMiddleware;
-import com.cloudera.cdp.df.model.UploadFlowRequest;
-import com.cloudera.cdp.df.model.UploadFlowResponse;
-import com.cloudera.cdp.df.model.UploadFlowVersionRequest;
-import com.cloudera.cdp.df.model.UploadFlowVersionResponse;
+import com.cloudera.cdp.df.model.ImportFlowDefinitionRequest;
+import com.cloudera.cdp.df.model.ImportFlowDefinitionResponse;
+import com.cloudera.cdp.df.model.ImportFlowDefinitionVersionRequest;
+import com.cloudera.cdp.df.model.ImportFlowDefinitionVersionResponse;
 import com.cloudera.cdp.dfworkload.model.UploadAssetRequest;
 import com.cloudera.cdp.dfworkload.model.UploadAssetResponse;
 import com.cloudera.cdp.http.NeverRetryHandler;
@@ -89,25 +89,25 @@ public class DfExtensionTest {
     return client;
   }
 
-  private static Response createSuccessfulResponse(UploadFlowResponse uploadFlowResponse) {
+  private static Response createSuccessfulResponse(ImportFlowDefinitionResponse importFlowDefinitionResponse) {
     Response response = mock(Response.class);
     when(response.getStatusInfo()).thenReturn(Response.Status.OK);
     when(response.getHeaders()).thenReturn(new MultivaluedHashMap<>());
-    when(response.readEntity(argThat((ArgumentMatcher<GenericType>) t -> t.getRawType().equals(UploadFlowResponse.class)))).thenReturn(uploadFlowResponse);
+    when(response.readEntity(argThat((ArgumentMatcher<GenericType>) t -> t.getRawType().equals(ImportFlowDefinitionResponse.class)))).thenReturn(importFlowDefinitionResponse);
     return response;
   }
 
-  private static Client createMockClient(UploadFlowResponse uploadFlowResponse) {
-    Response response = createSuccessfulResponse(uploadFlowResponse);
+  private static Client createMockClient(ImportFlowDefinitionResponse importFlowDefinitionResponse) {
+    Response response = createSuccessfulResponse(importFlowDefinitionResponse);
     return createMockClient(response);
   }
 
-  private static CdpRequestContext<UploadFlowResponse> createContext(Client client, UploadFlowRequest input) {
-    CdpRequestContext<UploadFlowResponse> context = new CdpRequestContext<>(
+  private static CdpRequestContext<ImportFlowDefinitionResponse> createContext(Client client, ImportFlowDefinitionRequest input) {
+    CdpRequestContext<ImportFlowDefinitionResponse> context = new CdpRequestContext<>(
         client,
         "df",
-        "uploadFlow",
-        new GenericType<UploadFlowResponse>(){});
+        "importFlowDefinition",
+        new GenericType<ImportFlowDefinitionResponse>(){});
     context.setRetryHandler(new NeverRetryHandler());
     context.setRequestContentType(MediaType.APPLICATION_JSON);
     context.setResponseContentType(MediaType.APPLICATION_JSON);
@@ -119,7 +119,7 @@ public class DfExtensionTest {
     return context;
   }
 
-  private static boolean verifyDfxGlobalUploadFlowRequestHeaders(
+  private static boolean verifyDfxGlobalImportFlowDefinitionRequestHeaders(
       Map<String, String> headers,
       String expectedName,
       String expectedDescription,
@@ -149,65 +149,65 @@ public class DfExtensionTest {
   }
 
   @Test
-  public void testUploadFlowToDfxGlobal() {
-    UploadFlowRequest input = new UploadFlowRequest();
+  public void testImportFlowDefinitionToDfxGlobal() {
+    ImportFlowDefinitionRequest input = new ImportFlowDefinitionRequest();
     input.setName("foo");
     input.setFile(Resources.getResource("df.flow.json").getPath());
-    UploadFlowResponse output = new UploadFlowResponse();
+    ImportFlowDefinitionResponse output = new ImportFlowDefinitionResponse();
     Client client = createMockClient(output);
-    CdpRequestContext<UploadFlowResponse> context = createContext(client, input);
+    CdpRequestContext<ImportFlowDefinitionResponse> context = createContext(client, input);
     Df dfExtension = new Df(INNER_MIDDLEWARE);
     dfExtension.invokeAPI(context);
     assertEquals(output, context.getResponse());
-    verifyDfxGlobalUploadFlowRequestHeaders(context.getHeaders(), "foo", null, null);
+    verifyDfxGlobalImportFlowDefinitionRequestHeaders(context.getHeaders(), "foo", null, null);
     verify(client, only()).target(URI.create("http://dfx-global.com/dfx/api/flows"));
   }
 
   @Test
-  public void testUploadFlowToDfxGlobalAllParameters() {
-    UploadFlowRequest input = new UploadFlowRequest();
+  public void testImportFlowDefinitionToDfxGlobalAllParameters() {
+    ImportFlowDefinitionRequest input = new ImportFlowDefinitionRequest();
     input.setName("foo");
     input.setDescription("bar");
     input.setComments("Hello\nWorld");
     input.setFile(Resources.getResource("df.flow.json").getPath());
-    UploadFlowResponse output = new UploadFlowResponse();
+    ImportFlowDefinitionResponse output = new ImportFlowDefinitionResponse();
     Client client = createMockClient(output);
-    CdpRequestContext<UploadFlowResponse> context = createContext(client, input);
+    CdpRequestContext<ImportFlowDefinitionResponse> context = createContext(client, input);
     Df dfExtension = new Df(INNER_MIDDLEWARE);
     dfExtension.invokeAPI(context);
     assertEquals(output, context.getResponse());
-    verifyDfxGlobalUploadFlowRequestHeaders(context.getHeaders(), "foo", "bar", "Hello\nWorld");
+    verifyDfxGlobalImportFlowDefinitionRequestHeaders(context.getHeaders(), "foo", "bar", "Hello\nWorld");
     verify(client, only()).target(URI.create("http://dfx-global.com/dfx/api/flows"));
   }
 
   @Test
-  public void testUploadFlowToDfxGlobalNoName() {
-    UploadFlowRequest input = new UploadFlowRequest();
+  public void testImportFlowDefinitionToDfxGlobalNoName() {
+    ImportFlowDefinitionRequest input = new ImportFlowDefinitionRequest();
     input.setFile(Resources.getResource("df.flow.json").getPath());
-    UploadFlowResponse output = new UploadFlowResponse();
+    ImportFlowDefinitionResponse output = new ImportFlowDefinitionResponse();
     Client client = createMockClient(output);
-    CdpRequestContext<UploadFlowResponse> context = createContext(client, input);
+    CdpRequestContext<ImportFlowDefinitionResponse> context = createContext(client, input);
     Df dfExtension = new Df(INNER_MIDDLEWARE);
     CdpClientException e = assertThrows(CdpClientException.class, () -> dfExtension.invokeAPI(context));
     assertEquals("Name argument is null", e.getMessage());
   }
 
   @Test
-  public void testUploadFlowToDfxGlobalFileNotExist() {
-    UploadFlowRequest input = new UploadFlowRequest();
+  public void testImportFlowDefinitionToDfxGlobalFileNotExist() {
+    ImportFlowDefinitionRequest input = new ImportFlowDefinitionRequest();
     input.setName("foo");
     input.setFile("file-not-exist");
-    UploadFlowResponse output = new UploadFlowResponse();
+    ImportFlowDefinitionResponse output = new ImportFlowDefinitionResponse();
     Client client = createMockClient(output);
-    CdpRequestContext<UploadFlowResponse> context = createContext(client, input);
+    CdpRequestContext<ImportFlowDefinitionResponse> context = createContext(client, input);
     Df dfExtension = new Df(INNER_MIDDLEWARE);
     CdpClientException e = assertThrows(CdpClientException.class, () -> dfExtension.invokeAPI(context));
     assertEquals("Unable to load file at file-not-exist", e.getMessage());
   }
 
   @Test
-  public void testUploadFlowToDfxGlobalUploadFailed() {
-    UploadFlowRequest input = new UploadFlowRequest();
+  public void testImportFlowDefinitionToDfxGlobalUploadFailed() {
+    ImportFlowDefinitionRequest input = new ImportFlowDefinitionRequest();
     input.setName("foo");
     input.setFile(Resources.getResource("df.flow.json").getPath());
     Response response = mock(Response.class);
@@ -215,31 +215,31 @@ public class DfExtensionTest {
     when(response.getHeaders()).thenReturn(new MultivaluedHashMap<>());
     when(response.readEntity(eq(String.class))).thenReturn("{\"error\":\"test error message\"}");
     Client client = createMockClient(response);
-    CdpRequestContext<UploadFlowResponse> context = createContext(client, input);
+    CdpRequestContext<ImportFlowDefinitionResponse> context = createContext(client, input);
     Df dfExtension = new Df(INNER_MIDDLEWARE);
     CdpClientException e = assertThrows(CdpClientException.class, () -> dfExtension.invokeAPI(context));
     assertEquals("com.cloudera.cdp.CdpServiceException: 400: unknown: test error message unknown", e.getMessage());
   }
 
-  private static Response createSuccessfulResponse(UploadFlowVersionResponse uploadFlowVersionResponse) {
+  private static Response createSuccessfulResponse(ImportFlowDefinitionVersionResponse importFlowDefinitionVersionResponse) {
     Response response = mock(Response.class);
     when(response.getStatusInfo()).thenReturn(Response.Status.OK);
     when(response.getHeaders()).thenReturn(new MultivaluedHashMap<>());
-    when(response.readEntity(argThat((ArgumentMatcher<GenericType>) t -> t.getRawType().equals(UploadFlowVersionResponse.class)))).thenReturn(uploadFlowVersionResponse);
+    when(response.readEntity(argThat((ArgumentMatcher<GenericType>) t -> t.getRawType().equals(ImportFlowDefinitionVersionResponse.class)))).thenReturn(importFlowDefinitionVersionResponse);
     return response;
   }
 
-  private static Client createMockClient(UploadFlowVersionResponse uploadFlowVersionResponse) {
-    Response response = createSuccessfulResponse(uploadFlowVersionResponse);
+  private static Client createMockClient(ImportFlowDefinitionVersionResponse importFlowDefinitionVersionResponse) {
+    Response response = createSuccessfulResponse(importFlowDefinitionVersionResponse);
     return createMockClient(response);
   }
 
-  private static CdpRequestContext<UploadFlowVersionResponse> createContext(Client client, UploadFlowVersionRequest input) {
-    CdpRequestContext<UploadFlowVersionResponse> context = new CdpRequestContext<>(
+  private static CdpRequestContext<ImportFlowDefinitionVersionResponse> createContext(Client client, ImportFlowDefinitionVersionRequest input) {
+    CdpRequestContext<ImportFlowDefinitionVersionResponse> context = new CdpRequestContext<>(
         client,
         "df",
-        "uploadFlowVersion",
-        new GenericType<UploadFlowVersionResponse>(){});
+        "importFlowDefinitionVersion",
+        new GenericType<ImportFlowDefinitionVersionResponse>(){});
     context.setRetryHandler(new NeverRetryHandler());
     context.setRequestContentType(MediaType.APPLICATION_JSON);
     context.setResponseContentType(MediaType.APPLICATION_JSON);
@@ -251,7 +251,7 @@ public class DfExtensionTest {
     return context;
   }
 
-  private static boolean verifyDfxGlobalUploadFlowVersionRequestHeaders(
+  private static boolean verifyDfxGlobalImportFlowDefinitionVersionRequestHeaders(
       Map<String, String> headers,
       String expectedComments) {
     assertNotNull(headers);
@@ -269,52 +269,52 @@ public class DfExtensionTest {
   }
 
   @Test
-  public void testUploadFlowVersionToDfxGlobal() {
-    UploadFlowVersionRequest input = new UploadFlowVersionRequest();
+  public void testImportFlowDefinitionVersionToDfxGlobal() {
+    ImportFlowDefinitionVersionRequest input = new ImportFlowDefinitionVersionRequest();
     input.setFlowCrn("foo");
     input.setFile(Resources.getResource("df.flow.json").getPath());
-    UploadFlowVersionResponse output = new UploadFlowVersionResponse();
+    ImportFlowDefinitionVersionResponse output = new ImportFlowDefinitionVersionResponse();
     Client client = createMockClient(output);
-    CdpRequestContext<UploadFlowVersionResponse> context = createContext(client, input);
+    CdpRequestContext<ImportFlowDefinitionVersionResponse> context = createContext(client, input);
     Df dfExtension = new Df(INNER_MIDDLEWARE);
     dfExtension.invokeAPI(context);
     assertEquals(output, context.getResponse());
-    verifyDfxGlobalUploadFlowVersionRequestHeaders(context.getHeaders(), null);
+    verifyDfxGlobalImportFlowDefinitionVersionRequestHeaders(context.getHeaders(), null);
     verify(client, only()).target(URI.create("http://dfx-global.com/dfx/api/flows/flow-crn"));
   }
 
   @Test
-  public void testUploadFlowVersionToDfxGlobalAllParameters() {
-    UploadFlowVersionRequest input = new UploadFlowVersionRequest();
+  public void testImportFlowDefinitionVersionToDfxGlobalAllParameters() {
+    ImportFlowDefinitionVersionRequest input = new ImportFlowDefinitionVersionRequest();
     input.setFlowCrn("foo");
     input.setComments("Hello\nWorld");
     input.setFile(Resources.getResource("df.flow.json").getPath());
-    UploadFlowVersionResponse output = new UploadFlowVersionResponse();
+    ImportFlowDefinitionVersionResponse output = new ImportFlowDefinitionVersionResponse();
     Client client = createMockClient(output);
-    CdpRequestContext<UploadFlowVersionResponse> context = createContext(client, input);
+    CdpRequestContext<ImportFlowDefinitionVersionResponse> context = createContext(client, input);
     Df dfExtension = new Df(INNER_MIDDLEWARE);
     dfExtension.invokeAPI(context);
     assertEquals(output, context.getResponse());
-    verifyDfxGlobalUploadFlowVersionRequestHeaders(context.getHeaders(), "Hello\nWorld");
+    verifyDfxGlobalImportFlowDefinitionVersionRequestHeaders(context.getHeaders(), "Hello\nWorld");
     verify(client, only()).target(URI.create("http://dfx-global.com/dfx/api/flows/flow-crn"));
   }
 
   @Test
-  public void testUploadFlowVersionToDfxGlobalFileNotExist() {
-    UploadFlowVersionRequest input = new UploadFlowVersionRequest();
+  public void testImportFlowDefinitionVersionToDfxGlobalFileNotExist() {
+    ImportFlowDefinitionVersionRequest input = new ImportFlowDefinitionVersionRequest();
     input.setFlowCrn("foo");
     input.setFile("file-not-exist");
-    UploadFlowVersionResponse output = new UploadFlowVersionResponse();
+    ImportFlowDefinitionVersionResponse output = new ImportFlowDefinitionVersionResponse();
     Client client = createMockClient(output);
-    CdpRequestContext<UploadFlowVersionResponse> context = createContext(client, input);
+    CdpRequestContext<ImportFlowDefinitionVersionResponse> context = createContext(client, input);
     Df dfExtension = new Df(INNER_MIDDLEWARE);
     CdpClientException e = assertThrows(CdpClientException.class, () -> dfExtension.invokeAPI(context));
     assertEquals("Unable to load file at file-not-exist", e.getMessage());
   }
 
   @Test
-  public void testUploadFlowVersionToDfxGlobalUploadFailed() {
-    UploadFlowVersionRequest input = new UploadFlowVersionRequest();
+  public void testImportFlowDefinitionVersionToDfxGlobalUploadFailed() {
+    ImportFlowDefinitionVersionRequest input = new ImportFlowDefinitionVersionRequest();
     input.setFlowCrn("foo");
     input.setFile(Resources.getResource("df.flow.json").getPath());
     Response response = mock(Response.class);
@@ -322,7 +322,7 @@ public class DfExtensionTest {
     when(response.getHeaders()).thenReturn(new MultivaluedHashMap<>());
     when(response.readEntity(eq(String.class))).thenReturn("{\"error\":\"test error message\"}");
     Client client = createMockClient(response);
-    CdpRequestContext<UploadFlowVersionResponse> context = createContext(client, input);
+    CdpRequestContext<ImportFlowDefinitionVersionResponse> context = createContext(client, input);
     Df dfExtension = new Df(INNER_MIDDLEWARE);
     CdpClientException e = assertThrows(CdpClientException.class, () -> dfExtension.invokeAPI(context));
     assertEquals("com.cloudera.cdp.CdpServiceException: 400: unknown: test error message unknown", e.getMessage());

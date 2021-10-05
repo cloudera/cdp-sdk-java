@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the createDbc method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-09-29T12:28:19.090-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-10-05T14:03:44.528-07:00")
 public class CreateDbcRequest  {
 
   /**
@@ -49,6 +49,21 @@ public class CreateDbcRequest  {
    * Version of the Database Catalog.
    **/
   private String imageVersion = "";
+
+  /**
+   * Is this a Default Database Catalog?
+   **/
+  private Boolean isDefault = false;
+
+  /**
+   * Tenant Storage Role if the feature is enabled for the account.
+   **/
+  private String tenantStorageRole = "";
+
+  /**
+   * Tenant Storage Location if the feature is enabled for the account.
+   **/
+  private String tenantStorageLocation = "";
 
   /**
    * Getter for clusterId.
@@ -118,6 +133,57 @@ public class CreateDbcRequest  {
     this.imageVersion = imageVersion;
   }
 
+  /**
+   * Getter for isDefault.
+   * Is this a Default Database Catalog?
+   **/
+  @JsonProperty("isDefault")
+  public Boolean getIsDefault() {
+    return isDefault;
+  }
+
+  /**
+   * Setter for isDefault.
+   * Is this a Default Database Catalog?
+   **/
+  public void setIsDefault(Boolean isDefault) {
+    this.isDefault = isDefault;
+  }
+
+  /**
+   * Getter for tenantStorageRole.
+   * Tenant Storage Role if the feature is enabled for the account.
+   **/
+  @JsonProperty("tenantStorageRole")
+  public String getTenantStorageRole() {
+    return tenantStorageRole;
+  }
+
+  /**
+   * Setter for tenantStorageRole.
+   * Tenant Storage Role if the feature is enabled for the account.
+   **/
+  public void setTenantStorageRole(String tenantStorageRole) {
+    this.tenantStorageRole = tenantStorageRole;
+  }
+
+  /**
+   * Getter for tenantStorageLocation.
+   * Tenant Storage Location if the feature is enabled for the account.
+   **/
+  @JsonProperty("tenantStorageLocation")
+  public String getTenantStorageLocation() {
+    return tenantStorageLocation;
+  }
+
+  /**
+   * Setter for tenantStorageLocation.
+   * Tenant Storage Location if the feature is enabled for the account.
+   **/
+  public void setTenantStorageLocation(String tenantStorageLocation) {
+    this.tenantStorageLocation = tenantStorageLocation;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -139,12 +205,21 @@ public class CreateDbcRequest  {
     if (!Objects.equals(this.imageVersion, createDbcRequest.imageVersion)) {
       return false;
     }
+    if (!Objects.equals(this.isDefault, createDbcRequest.isDefault)) {
+      return false;
+    }
+    if (!Objects.equals(this.tenantStorageRole, createDbcRequest.tenantStorageRole)) {
+      return false;
+    }
+    if (!Objects.equals(this.tenantStorageLocation, createDbcRequest.tenantStorageLocation)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, name, loadDemoData, imageVersion);
+    return Objects.hash(clusterId, name, loadDemoData, imageVersion, isDefault, tenantStorageRole, tenantStorageLocation);
   }
 
   @Override
@@ -155,6 +230,9 @@ public class CreateDbcRequest  {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    loadDemoData: ").append(toIndentedString(loadDemoData)).append("\n");
     sb.append("    imageVersion: ").append(toIndentedString(imageVersion)).append("\n");
+    sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
+    sb.append("    tenantStorageRole: ").append(toIndentedString(tenantStorageRole)).append("\n");
+    sb.append("    tenantStorageLocation: ").append(toIndentedString(tenantStorageLocation)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object for CreateVc method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-09-29T12:28:20.277-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-10-05T14:03:45.820-07:00")
 public class CreateVcRequest  {
 
   /**
@@ -61,6 +61,16 @@ public class CreateVcRequest  {
    * Used to describe where the Driver and the Executors would run. By default the Driver would run on on-demand instances and the Executors on spot instances. Setting it to ALL will run both the Driver and the Executors on spot instances whereas setting it to NONE should run both the Driver and the Executor on on-demand instances. Currently applicable for aws services only. Use this option only on services with spot instances enabled.
    **/
   private String runtimeSpotComponent = null;
+
+  /**
+   * Spark version for the virtual cluster. Currently supported spark versions are 2.4.7 and 3.1.1. This feature is only supported in CDE-1.7.0 and beyond.
+   **/
+  private String sparkVersion = null;
+
+  /**
+   * Comma-separated Workload usernames of CDP users to be granted access to the Virtual Cluster.
+   **/
+  private String aclUsers = null;
 
   /**
    * Getter for name.
@@ -164,6 +174,40 @@ public class CreateVcRequest  {
     this.runtimeSpotComponent = runtimeSpotComponent;
   }
 
+  /**
+   * Getter for sparkVersion.
+   * Spark version for the virtual cluster. Currently supported spark versions are 2.4.7 and 3.1.1. This feature is only supported in CDE-1.7.0 and beyond.
+   **/
+  @JsonProperty("sparkVersion")
+  public String getSparkVersion() {
+    return sparkVersion;
+  }
+
+  /**
+   * Setter for sparkVersion.
+   * Spark version for the virtual cluster. Currently supported spark versions are 2.4.7 and 3.1.1. This feature is only supported in CDE-1.7.0 and beyond.
+   **/
+  public void setSparkVersion(String sparkVersion) {
+    this.sparkVersion = sparkVersion;
+  }
+
+  /**
+   * Getter for aclUsers.
+   * Comma-separated Workload usernames of CDP users to be granted access to the Virtual Cluster.
+   **/
+  @JsonProperty("aclUsers")
+  public String getAclUsers() {
+    return aclUsers;
+  }
+
+  /**
+   * Setter for aclUsers.
+   * Comma-separated Workload usernames of CDP users to be granted access to the Virtual Cluster.
+   **/
+  public void setAclUsers(String aclUsers) {
+    this.aclUsers = aclUsers;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -191,12 +235,18 @@ public class CreateVcRequest  {
     if (!Objects.equals(this.runtimeSpotComponent, createVcRequest.runtimeSpotComponent)) {
       return false;
     }
+    if (!Objects.equals(this.sparkVersion, createVcRequest.sparkVersion)) {
+      return false;
+    }
+    if (!Objects.equals(this.aclUsers, createVcRequest.aclUsers)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, clusterId, cpuRequests, memoryRequests, chartValueOverrides, runtimeSpotComponent);
+    return Objects.hash(name, clusterId, cpuRequests, memoryRequests, chartValueOverrides, runtimeSpotComponent, sparkVersion, aclUsers);
   }
 
   @Override
@@ -209,6 +259,8 @@ public class CreateVcRequest  {
     sb.append("    memoryRequests: ").append(toIndentedString(memoryRequests)).append("\n");
     sb.append("    chartValueOverrides: ").append(toIndentedString(chartValueOverrides)).append("\n");
     sb.append("    runtimeSpotComponent: ").append(toIndentedString(runtimeSpotComponent)).append("\n");
+    sb.append("    sparkVersion: ").append(toIndentedString(sparkVersion)).append("\n");
+    sb.append("    aclUsers: ").append(toIndentedString(aclUsers)).append("\n");
     sb.append("}");
     return sb.toString();
   }

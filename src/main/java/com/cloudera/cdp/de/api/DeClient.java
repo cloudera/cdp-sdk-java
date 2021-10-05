@@ -46,13 +46,15 @@ import com.cloudera.cdp.de.model.ListServicesRequest;
 import com.cloudera.cdp.de.model.ListServicesResponse;
 import com.cloudera.cdp.de.model.ListVcsRequest;
 import com.cloudera.cdp.de.model.ListVcsResponse;
+import com.cloudera.cdp.de.model.UpdateVcRequest;
+import com.cloudera.cdp.de.model.UpdateVcResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-09-29T12:28:20.277-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-10-05T14:03:45.820-07:00")
 public class DeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "de";
@@ -198,5 +200,18 @@ public class DeClient extends CdpClient {
     }
 
     return this.invokeAPI("listVcs", "/api/v1/de/listVcs", input, new GenericType<ListVcsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Update Cloudera Data Engineering (CDE) Virtual Cluster
+   * @param input
+   * @return UpdateVcResponse
+   */
+  public UpdateVcResponse updateVc(UpdateVcRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateVc");
+    }
+
+    return this.invokeAPI("updateVc", "/api/v1/de/updateVc", input, new GenericType<UpdateVcResponse>(){}, NO_EXTENSION);
   }
 }

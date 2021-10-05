@@ -90,7 +90,7 @@ public class CredentialUtilities {
       // instantiation is not exposed through the provider interfaces.
       Ed25519PrivateKeyParameters params = new Ed25519PrivateKeyParameters(seed, 0);
       PrivateKeyInfo info = PrivateKeyInfoFactory.createPrivateKeyInfo(params);
-      return new KeyFactorySpi.ED25519().generatePrivate(info);
+      return new KeyFactorySpi.Ed25519().generatePrivate(info);
     } catch (IOException e) {
       throw new CdpClientException(
           "Unable to generate private key " + e.getMessage(), e);
