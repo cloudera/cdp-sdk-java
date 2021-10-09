@@ -132,6 +132,17 @@ public class CdpClientBuilderTest {
   }
 
   @Test
+  public void testWithEndpoint() {
+    MockClientBuilderCdpEndpoint cdpBuilder = new MockClientBuilderCdpEndpoint();
+    cdpBuilder.withEndPoint("http://foo.bar/cdp");
+    assertEquals("http://foo.bar/cdp", cdpBuilder.getCdpEndPoint());
+
+    MockClientBuilderAltusEndpoint altusBuilder = new MockClientBuilderAltusEndpoint();
+    altusBuilder.withEndPoint("http://foo.bar/altus");
+    assertEquals("http://foo.bar/altus", altusBuilder.getCdpEndPoint());
+  }
+
+  @Test
   public void testCdpEndpoint() {
     MockClientBuilderCdpEndpoint builder = new MockClientBuilderCdpEndpoint();
     assertEquals("https://api.us-west-1.cdp.cloudera.com:443",
@@ -168,4 +179,49 @@ public class CdpClientBuilderTest {
       builder.withClientConfiguration(null);
     });
   }
+
+  @Test
+  public void testNullAltusEndpointWithCdpRegion() {
+    MockClientBuilderAltusEndpoint builder = new MockClientBuilderAltusEndpoint();
+    assertThrows(CdpClientException.class, () -> {
+      builder.withCdpRegion(null);
+    });
+  }
+
+  @Test
+  public void testNullCdpRegion() {
+    MockClientBuilderCdpEndpoint builder = new MockClientBuilderCdpEndpoint();
+    assertThrows(CdpClientException.class, () -> {
+      builder.withCdpRegion(null);
+    });
+  }
+
+  @Test
+  public void testWithCdpRegion() {
+    MockClientBuilderCdpEndpoint builder = new MockClientBuilderCdpEndpoint();
+    assertEquals("https://api.eu-1.cdp.cloudera.com:443",
+        builder.withCdpRegion(CdpRegion.EU_1).getCdpEndPoint());
+  }
+
+  @Test
+  public void testWithDefaultCdpRegion() {
+    MockClientBuilderCdpEndpoint builder = new MockClientBuilderCdpEndpoint();
+    assertEquals("https://api.us-west-1.cdp.cloudera.com:443",
+        builder.withCdpRegion(CdpRegion.US_WEST_1).getCdpEndPoint());
+  }
+
+  @Test
+  public void testAltusWithCdpRegion() {
+    MockClientBuilderAltusEndpoint builder = new MockClientBuilderAltusEndpoint();
+    assertEquals("https://api.eu-1.cdp.cloudera.com:443",
+        builder.withCdpRegion(CdpRegion.EU_1).getCdpEndPoint());
+  }
+
+  @Test
+  public void testAltusWithDefaultCdpRegion() {
+    MockClientBuilderAltusEndpoint builder = new MockClientBuilderAltusEndpoint();
+    assertEquals("https://mockapi.us-west-1.altus.cloudera.com:443",
+        builder.withCdpRegion(CdpRegion.US_WEST_1).getCdpEndPoint());
+  }
+
 }

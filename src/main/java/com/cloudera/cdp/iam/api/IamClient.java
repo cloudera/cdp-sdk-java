@@ -76,6 +76,8 @@ import com.cloudera.cdp.iam.model.DisableClouderaSSOLoginResponse;
 import com.cloudera.cdp.iam.model.EnableClouderaSSOLoginRequest;
 import com.cloudera.cdp.iam.model.EnableClouderaSSOLoginResponse;
 import com.cloudera.cdp.iam.model.Error;
+import com.cloudera.cdp.iam.model.GenerateWorkloadAuthTokenRequest;
+import com.cloudera.cdp.iam.model.GenerateWorkloadAuthTokenResponse;
 import com.cloudera.cdp.iam.model.GetAccessKeyRequest;
 import com.cloudera.cdp.iam.model.GetAccessKeyResponse;
 import com.cloudera.cdp.iam.model.GetAccountMessagesRequest;
@@ -152,7 +154,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-10-05T14:03:45.976-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-10-08T17:07:08.520-07:00")
 public class IamClient extends CdpClient {
 
   public static final String SERVICE_NAME = "iam";
@@ -493,6 +495,19 @@ public class IamClient extends CdpClient {
     }
 
     return this.invokeAPI("enableClouderaSSOLogin", "/iam/enableClouderaSSOLogin", input, new GenericType<EnableClouderaSSOLoginResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Generates an authentication token for workload APIs.
+   * @param input
+   * @return GenerateWorkloadAuthTokenResponse
+   */
+  public GenerateWorkloadAuthTokenResponse generateWorkloadAuthToken(GenerateWorkloadAuthTokenRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling generateWorkloadAuthToken");
+    }
+
+    return this.invokeAPI("generateWorkloadAuthToken", "/iam/generateWorkloadAuthToken", input, new GenericType<GenerateWorkloadAuthTokenResponse>(){}, NO_EXTENSION);
   }
 
   /**

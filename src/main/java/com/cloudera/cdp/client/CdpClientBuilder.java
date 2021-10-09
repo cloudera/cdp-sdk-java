@@ -32,31 +32,30 @@ import com.cloudera.cdp.ValidationUtils;
 public abstract class CdpClientBuilder<T extends CdpClientBuilder<T>> {
 
   private static final String
-      CDP_ENDPOINT = "https://api.us-west-1.cdp.cloudera.com:443";
+      CDP_ENDPOINT = "https://api.%s.cdp.cloudera.com:443";
   private static final String
-      ALTUS_ENDPOINT_FORMAT_STRING = "https://%sapi.us-west-1.altus.cloudera.com:443";
+      ALTUS_ENDPOINT_FORMAT_STRING = "https://%sapi.%s.altus.cloudera.com:443";
 
   private CdpCredentialsProvider cdpCredentialsProvider;
   private CdpClientConfiguration cdpClientConfiguration;
-  private String cdpEndPoint;
+  private CdpRegion cdpRegion = CdpRegion.US_WEST_1;
+  private String cdpEndpoint = null;
+  private final boolean cdpEndpointFormat;
+  private final String serviceName;
 
   /**
    * Constructor.
    * @param serviceName the service name
    * @param cdpEndpointFormat whether this service uses the CDP endpoint format
    */
-  protected CdpClientBuilder(String serviceName,  boolean cdpEndpointFormat) {
+  protected CdpClientBuilder(String serviceName, boolean cdpEndpointFormat) {
     ValidationUtils.checkNotNullAndThrow(serviceName);
-    if (cdpEndpointFormat) {
-      this.cdpEndPoint = CDP_ENDPOINT;
-    } else {
-      this.cdpEndPoint =
-          String.format(ALTUS_ENDPOINT_FORMAT_STRING, serviceName);
-    }
     this.cdpCredentialsProvider =
         DefaultCdpCredentialProviderChain.getInstance();
     this.cdpClientConfiguration =
         CdpClientConfigurationBuilder.defaultBuilder().build();
+    this.cdpEndpointFormat = cdpEndpointFormat;
+    this.serviceName = serviceName;
   }
 
   /**
@@ -85,20 +84,57 @@ public abstract class CdpClientBuilder<T extends CdpClientBuilder<T>> {
    */
   public T withEndPoint(String cdpEndPoint) {
     ValidationUtils.checkNotNullAndThrow(cdpEndPoint);
-    this.cdpEndPoint = cdpEndPoint;
+    this.cdpEndpoint = cdpEndPoint;
     return self();
   }
 
   /**
    * Gets the CDP service endpoint.
+   *
    * @return String - A string with the fully formed CDP service endpoint
    */
   public String getCdpEndPoint() {
-    return cdpEndPoint;
+    if (this.cdpEndpoint != null) {
+      // An endpoint URL was set explicitly.
+      return this.cdpEndpoint;
+    }
+    if (this.cdpEndpointFormat) {
+      return getCdpFormatEndpoint();
+    } else {
+      return getAltusFormatEndpoint();
+    }
   }
 
   /**
+   * Gets the CDP service endpoint for CDP format.
+   *
+   * @return String - A string with the fully formed CDP format service endpoint
+   */
+  private String getCdpFormatEndpoint() {
+    if (this.cdpRegion == CdpRegion.US_WEST_1) {
+      return String.format(CDP_ENDPOINT, CdpRegion.US_WEST_1);
+    } else {
+      return String.format(CDP_ENDPOINT, this.cdpRegion);
+    }
+  }
+
+  /**
+   * Gets the CDP service endpoint for Altus format.
+   *
+   * @return String - A string with the fully formed Altus format service endpoint
+   */
+  private String getAltusFormatEndpoint() {
+    if (this.cdpRegion == CdpRegion.US_WEST_1) {
+      return String.format(ALTUS_ENDPOINT_FORMAT_STRING, this.serviceName, CdpRegion.US_WEST_1);
+    } else {
+      return String.format(CDP_ENDPOINT, this.cdpRegion);
+    }
+  }
+
+
+  /**
    * Sets the CdpClientConfiguration.
+   *
    * @param cdpClientConfiguration the new value for the CdpClientConfiguration
    * @return T the current builder object
    */
@@ -117,7 +153,20 @@ public abstract class CdpClientBuilder<T extends CdpClientBuilder<T>> {
   }
 
   /**
+   * Sets the CdpRegion for multi region control plane.
+   *
+   * @param cdpRegion the new value for cdpRegion
+   * @return T the current builder object
+   */
+  public T withCdpRegion(CdpRegion cdpRegion) {
+    ValidationUtils.checkNotNullAndThrow(cdpRegion);
+    this.cdpRegion = cdpRegion;
+    return self();
+  }
+
+  /**
    * Gets the builder.
+   *
    * @return the builder
    */
   protected abstract T self();
