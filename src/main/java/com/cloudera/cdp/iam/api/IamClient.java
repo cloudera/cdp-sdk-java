@@ -154,7 +154,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-10-08T17:07:08.520-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-10-20T13:23:29.978-07:00")
 public class IamClient extends CdpClient {
 
   public static final String SERVICE_NAME = "iam";

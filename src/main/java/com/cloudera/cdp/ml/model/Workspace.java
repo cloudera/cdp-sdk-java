@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * A ML workspace, which includes the cluster and storage.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-10-08T17:07:07.745-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-10-20T13:23:29.199-07:00")
 public class Workspace  {
 
   /**

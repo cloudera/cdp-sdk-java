@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Information about a cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-10-08T17:07:07.045-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-10-20T13:23:28.475-07:00")
 public class ClusterSummary  {
 
   /**

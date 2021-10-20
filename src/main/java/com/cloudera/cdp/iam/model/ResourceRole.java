@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Information about a resource role. A resource role is a role that grants a collection of rights to a user on resources.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-10-08T17:07:08.520-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-10-20T13:23:29.978-07:00")
 public class ResourceRole  {
 
   /**
