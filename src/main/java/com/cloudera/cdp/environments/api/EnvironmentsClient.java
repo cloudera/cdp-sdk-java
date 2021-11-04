@@ -31,6 +31,10 @@ import com.cloudera.cdp.environments.model.CancelFreeipaDiagnosticsRequest;
 import com.cloudera.cdp.environments.model.CancelFreeipaDiagnosticsResponse;
 import com.cloudera.cdp.environments.model.ChangeEnvironmentCredentialRequest;
 import com.cloudera.cdp.environments.model.ChangeEnvironmentCredentialResponse;
+import com.cloudera.cdp.environments.model.CheckEnvironmentConnectivityRequest;
+import com.cloudera.cdp.environments.model.CheckEnvironmentConnectivityResponse;
+import com.cloudera.cdp.environments.model.CheckKubernetesConnectivityRequest;
+import com.cloudera.cdp.environments.model.CheckKubernetesConnectivityResponse;
 import com.cloudera.cdp.environments.model.CollectFreeipaDiagnosticsRequest;
 import com.cloudera.cdp.environments.model.CollectFreeipaDiagnosticsResponse;
 import com.cloudera.cdp.environments.model.CreateAWSCredentialRequest;
@@ -132,7 +136,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-10-20T13:23:29.462-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-11-03T17:11:11.232-07:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -187,6 +191,32 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("changeEnvironmentCredential", "/api/v1/environments2/changeEnvironmentCredential", input, new GenericType<ChangeEnvironmentCredentialResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Checks connectivity to a new Private Cloud environment by trying to access the Cloudera Manager address with provided credentials.
+   * @param input
+   * @return CheckEnvironmentConnectivityResponse
+   */
+  public CheckEnvironmentConnectivityResponse checkEnvironmentConnectivity(CheckEnvironmentConnectivityRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling checkEnvironmentConnectivity");
+    }
+
+    return this.invokeAPI("checkEnvironmentConnectivity", "/api/v1/environments2/checkEnvironmentConnectivity", input, new GenericType<CheckEnvironmentConnectivityResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Checks connectivity to a Kubernetes address with provided kubeconfig files.
+   * @param input
+   * @return CheckKubernetesConnectivityResponse
+   */
+  public CheckKubernetesConnectivityResponse checkKubernetesConnectivity(CheckKubernetesConnectivityRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling checkKubernetesConnectivity");
+    }
+
+    return this.invokeAPI("checkKubernetesConnectivity", "/api/v1/environments2/checkKubernetesConnectivity", input, new GenericType<CheckKubernetesConnectivityResponse>(){}, NO_EXTENSION);
   }
 
   /**

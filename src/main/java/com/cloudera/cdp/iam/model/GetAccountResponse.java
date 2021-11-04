@@ -28,7 +28,7 @@ import com.cloudera.cdp.iam.model.Account;
 /**
  * Response object for a get account response.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-10-20T13:23:29.978-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-11-03T17:11:11.747-07:00")
 public class GetAccountResponse extends CdpResponse {
 
   /**
