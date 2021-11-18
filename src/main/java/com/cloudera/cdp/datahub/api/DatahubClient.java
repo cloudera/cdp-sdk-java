@@ -108,13 +108,15 @@ import com.cloudera.cdp.datahub.model.SyncClusterRequest;
 import com.cloudera.cdp.datahub.model.SyncClusterResponse;
 import com.cloudera.cdp.datahub.model.UpdateAutoScaleRulesRequest;
 import com.cloudera.cdp.datahub.model.UpdateAutoScaleRulesResponse;
+import com.cloudera.cdp.datahub.model.UpgradeClusterRequest;
+import com.cloudera.cdp.datahub.model.UpgradeClusterResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-11-03T17:11:10.154-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-11-17T16:25:34.833-08:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datahub";
@@ -663,5 +665,18 @@ public class DatahubClient extends CdpClient {
     }
 
     return this.invokeAPI("updateAutoScaleRules", "/api/v1/datahub/updateAutoScaleRules", input, new GenericType<UpdateAutoScaleRulesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Upgrades the OS or data platform on a datahub cluster.
+   * @param input
+   * @return UpgradeClusterResponse
+   */
+  public UpgradeClusterResponse upgradeCluster(UpgradeClusterRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling upgradeCluster");
+    }
+
+    return this.invokeAPI("upgradeCluster", "/api/v1/datahub/upgradeCluster", input, new GenericType<UpgradeClusterResponse>(){}, NO_EXTENSION);
   }
 }

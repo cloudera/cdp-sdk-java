@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object to get service status.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-11-03T17:11:10.154-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-11-17T16:25:34.833-08:00")
 public class GetClusterServiceStatusResponse extends CdpResponse {
 
   /**

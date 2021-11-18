@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for a create proxy config request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-11-03T17:11:11.232-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-11-17T16:25:35.941-08:00")
 public class CreateProxyConfigRequest  {
 
   /**
@@ -56,7 +56,7 @@ public class CreateProxyConfigRequest  {
   private String description = null;
 
   /**
-   * Comma-separated list of 'host[:port]' (can be a subdomain as well) and 'IP[:port]' entries that should not be proxied. Wildcards are not accepted. For example cloudera.com,192.168.1.1
+   * Comma-separated list of 'CIDR', '[.]host[:port]' (can be a subdomain as well) and 'IP[:port]' entries that should not be proxied. Wildcards are not accepted. For example .cloudera.com,192.168.1.1
    **/
   private String noProxyHosts = null;
 
@@ -157,7 +157,7 @@ public class CreateProxyConfigRequest  {
 
   /**
    * Getter for noProxyHosts.
-   * Comma-separated list of &#39;host[:port]&#39; (can be a subdomain as well) and &#39;IP[:port]&#39; entries that should not be proxied. Wildcards are not accepted. For example cloudera.com,192.168.1.1
+   * Comma-separated list of &#39;CIDR&#39;, &#39;[.]host[:port]&#39; (can be a subdomain as well) and &#39;IP[:port]&#39; entries that should not be proxied. Wildcards are not accepted. For example .cloudera.com,192.168.1.1
    **/
   @JsonProperty("noProxyHosts")
   public String getNoProxyHosts() {
@@ -166,7 +166,7 @@ public class CreateProxyConfigRequest  {
 
   /**
    * Setter for noProxyHosts.
-   * Comma-separated list of &#39;host[:port]&#39; (can be a subdomain as well) and &#39;IP[:port]&#39; entries that should not be proxied. Wildcards are not accepted. For example cloudera.com,192.168.1.1
+   * Comma-separated list of &#39;CIDR&#39;, &#39;[.]host[:port]&#39; (can be a subdomain as well) and &#39;IP[:port]&#39; entries that should not be proxied. Wildcards are not accepted. For example .cloudera.com,192.168.1.1
    **/
   public void setNoProxyHosts(String noProxyHosts) {
     this.noProxyHosts = noProxyHosts;

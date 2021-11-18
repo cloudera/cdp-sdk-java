@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Information on the last time an access key was used.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-11-03T17:11:11.747-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-11-17T16:25:36.518-08:00")
 public class AccessKeyLastUsage  {
 
   /**

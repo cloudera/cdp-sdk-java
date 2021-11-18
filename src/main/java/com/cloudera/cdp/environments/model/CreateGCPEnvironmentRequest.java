@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.environments.model.ExistingGCPNetworkRequest;
+import com.cloudera.cdp.environments.model.GCPFreeIpaCreationRequest;
 import com.cloudera.cdp.environments.model.GcpLogStorageRequest;
 import com.cloudera.cdp.environments.model.GcpSecurityAccessRequest;
 import com.cloudera.cdp.environments.model.GcpTagRequest;
@@ -32,7 +33,7 @@ import java.util.*;
 /**
  * Request object for a create GCP environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-11-03T17:11:11.232-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-11-17T16:25:35.941-08:00")
 public class CreateGCPEnvironmentRequest  {
 
   /**
@@ -94,6 +95,11 @@ public class CreateGCPEnvironmentRequest  {
    * When true, this will report additional diagnostic information back to Cloudera.
    **/
   private Boolean reportDeploymentLogs = null;
+
+  /**
+   * The FreeIPA creation request for the environment
+   **/
+  private GCPFreeIpaCreationRequest freeIpa = null;
 
   /**
    * Tags that can be attached to GCP resources. Please refer to Google documentation for the rules https://cloud.google.com/compute/docs/labeling-resources#label_format.
@@ -310,6 +316,23 @@ public class CreateGCPEnvironmentRequest  {
   }
 
   /**
+   * Getter for freeIpa.
+   * The FreeIPA creation request for the environment
+   **/
+  @JsonProperty("freeIpa")
+  public GCPFreeIpaCreationRequest getFreeIpa() {
+    return freeIpa;
+  }
+
+  /**
+   * Setter for freeIpa.
+   * The FreeIPA creation request for the environment
+   **/
+  public void setFreeIpa(GCPFreeIpaCreationRequest freeIpa) {
+    this.freeIpa = freeIpa;
+  }
+
+  /**
    * Getter for tags.
    * Tags that can be attached to GCP resources. Please refer to Google documentation for the rules https://cloud.google.com/compute/docs/labeling-resources#label_format.
    **/
@@ -388,6 +411,9 @@ public class CreateGCPEnvironmentRequest  {
     if (!Objects.equals(this.reportDeploymentLogs, createGCPEnvironmentRequest.reportDeploymentLogs)) {
       return false;
     }
+    if (!Objects.equals(this.freeIpa, createGCPEnvironmentRequest.freeIpa)) {
+      return false;
+    }
     if (!Objects.equals(this.tags, createGCPEnvironmentRequest.tags)) {
       return false;
     }
@@ -399,7 +425,7 @@ public class CreateGCPEnvironmentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, publicKey, usePublicIp, existingNetworkParams, securityAccess, logStorage, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, tags, proxyConfigName);
+    return Objects.hash(environmentName, credentialName, region, publicKey, usePublicIp, existingNetworkParams, securityAccess, logStorage, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, tags, proxyConfigName);
   }
 
   @Override
@@ -418,6 +444,7 @@ public class CreateGCPEnvironmentRequest  {
     sb.append("    enableTunnel: ").append(toIndentedString(enableTunnel)).append("\n");
     sb.append("    workloadAnalytics: ").append(toIndentedString(workloadAnalytics)).append("\n");
     sb.append("    reportDeploymentLogs: ").append(toIndentedString(reportDeploymentLogs)).append("\n");
+    sb.append("    freeIpa: ").append(toIndentedString(freeIpa)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    proxyConfigName: ").append(toIndentedString(proxyConfigName)).append("\n");
     sb.append("}");
