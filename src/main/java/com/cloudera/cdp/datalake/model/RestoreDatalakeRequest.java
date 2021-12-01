@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request to restore datalake from backup. Restore does not restore the database by default.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-11-17T16:25:35.720-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-12-01T15:55:32.665-08:00")
 public class RestoreDatalakeRequest  {
 
   /**
@@ -36,7 +36,7 @@ public class RestoreDatalakeRequest  {
   private String datalakeName = null;
 
   /**
-   * The ID of the backup to be used to perform a restore. The ID could refer to backup of any datalake in the same account. This is the only way to restore from a backup that was taken on a datalake with a different name.
+   * The ID of the backup to be used to perform a restore. The ID could refer to backup of any datalake in the same account. This is the only way to restore from a backup that was taken on a datalake with a different name. This field is required if the --backup-location-override field is used.
    **/
   private String backupId = null;
 
@@ -51,7 +51,7 @@ public class RestoreDatalakeRequest  {
   private Boolean includeDatabase = null;
 
   /**
-   * Backup location. When provided, will be used to lookup the backup.
+   * Backup location. When provided, will be used to lookup the backup. If provided, the --backup-id parameter is required.
    **/
   private String backupLocationOverride = null;
 
@@ -74,7 +74,7 @@ public class RestoreDatalakeRequest  {
 
   /**
    * Getter for backupId.
-   * The ID of the backup to be used to perform a restore. The ID could refer to backup of any datalake in the same account. This is the only way to restore from a backup that was taken on a datalake with a different name.
+   * The ID of the backup to be used to perform a restore. The ID could refer to backup of any datalake in the same account. This is the only way to restore from a backup that was taken on a datalake with a different name. This field is required if the --backup-location-override field is used.
    **/
   @JsonProperty("backupId")
   public String getBackupId() {
@@ -83,7 +83,7 @@ public class RestoreDatalakeRequest  {
 
   /**
    * Setter for backupId.
-   * The ID of the backup to be used to perform a restore. The ID could refer to backup of any datalake in the same account. This is the only way to restore from a backup that was taken on a datalake with a different name.
+   * The ID of the backup to be used to perform a restore. The ID could refer to backup of any datalake in the same account. This is the only way to restore from a backup that was taken on a datalake with a different name. This field is required if the --backup-location-override field is used.
    **/
   public void setBackupId(String backupId) {
     this.backupId = backupId;
@@ -125,7 +125,7 @@ public class RestoreDatalakeRequest  {
 
   /**
    * Getter for backupLocationOverride.
-   * Backup location. When provided, will be used to lookup the backup.
+   * Backup location. When provided, will be used to lookup the backup. If provided, the --backup-id parameter is required.
    **/
   @JsonProperty("backupLocationOverride")
   public String getBackupLocationOverride() {
@@ -134,7 +134,7 @@ public class RestoreDatalakeRequest  {
 
   /**
    * Setter for backupLocationOverride.
-   * Backup location. When provided, will be used to lookup the backup.
+   * Backup location. When provided, will be used to lookup the backup. If provided, the --backup-id parameter is required.
    **/
   public void setBackupLocationOverride(String backupLocationOverride) {
     this.backupLocationOverride = backupLocationOverride;

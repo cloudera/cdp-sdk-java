@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for delete cluster templates request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-11-17T16:25:34.833-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-12-01T15:55:31.871-08:00")
 public class DeleteClusterTemplatesResponse extends CdpResponse {
 
   /**
