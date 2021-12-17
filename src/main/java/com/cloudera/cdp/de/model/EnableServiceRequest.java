@@ -30,7 +30,7 @@ import java.util.Map;
 /**
  * Request object for Enable Service method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-12-01T15:55:33.294-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-12-16T17:38:09.822-08:00")
 public class EnableServiceRequest  {
 
   /**
@@ -117,6 +117,11 @@ public class EnableServiceRequest  {
    * Skip Validation check.
    **/
   private Boolean skipValidation = false;
+
+  /**
+   * List of Subnet IDs of CDP subnets to use for the kubernetes worker node.
+   **/
+  private List<String> subnets = new ArrayList<String>();
 
   /**
    * Getter for name.
@@ -407,6 +412,23 @@ public class EnableServiceRequest  {
     this.skipValidation = skipValidation;
   }
 
+  /**
+   * Getter for subnets.
+   * List of Subnet IDs of CDP subnets to use for the kubernetes worker node.
+   **/
+  @JsonProperty("subnets")
+  public List<String> getSubnets() {
+    return subnets;
+  }
+
+  /**
+   * Setter for subnets.
+   * List of Subnet IDs of CDP subnets to use for the kubernetes worker node.
+   **/
+  public void setSubnets(List<String> subnets) {
+    this.subnets = subnets;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -467,12 +489,15 @@ public class EnableServiceRequest  {
     if (!Objects.equals(this.skipValidation, enableServiceRequest.skipValidation)) {
       return false;
     }
+    if (!Objects.equals(this.subnets, enableServiceRequest.subnets)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, env, instanceType, minimumInstances, maximumInstances, minimumSpotInstances, maximumSpotInstances, initialInstances, initialSpotInstances, rootVolumeSize, enablePublicEndpoint, enableWorkloadAnalytics, useSsd, chartValueOverrides, whitelistIps, tags, skipValidation);
+    return Objects.hash(name, env, instanceType, minimumInstances, maximumInstances, minimumSpotInstances, maximumSpotInstances, initialInstances, initialSpotInstances, rootVolumeSize, enablePublicEndpoint, enableWorkloadAnalytics, useSsd, chartValueOverrides, whitelistIps, tags, skipValidation, subnets);
   }
 
   @Override
@@ -496,6 +521,7 @@ public class EnableServiceRequest  {
     sb.append("    whitelistIps: ").append(toIndentedString(whitelistIps)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    skipValidation: ").append(toIndentedString(skipValidation)).append("\n");
+    sb.append("    subnets: ").append(toIndentedString(subnets)).append("\n");
     sb.append("}");
     return sb.toString();
   }

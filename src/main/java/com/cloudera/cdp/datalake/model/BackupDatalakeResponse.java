@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object to a request made for backup of datalake.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-12-01T15:55:32.665-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-12-16T17:38:09.041-08:00")
 public class BackupDatalakeResponse extends CdpResponse {
 
   /**
@@ -41,7 +41,7 @@ public class BackupDatalakeResponse extends CdpResponse {
   private String backupId = null;
 
   /**
-   * Crn of the user triggered this operation.
+   * Crn of the user who triggered this operation.
    **/
   private String userCrn = null;
 
@@ -116,7 +116,7 @@ public class BackupDatalakeResponse extends CdpResponse {
 
   /**
    * Getter for userCrn.
-   * Crn of the user triggered this operation.
+   * Crn of the user who triggered this operation.
    **/
   @JsonProperty("userCrn")
   public String getUserCrn() {
@@ -125,7 +125,7 @@ public class BackupDatalakeResponse extends CdpResponse {
 
   /**
    * Setter for userCrn.
-   * Crn of the user triggered this operation.
+   * Crn of the user who triggered this operation.
    **/
   public void setUserCrn(String userCrn) {
     this.userCrn = userCrn;

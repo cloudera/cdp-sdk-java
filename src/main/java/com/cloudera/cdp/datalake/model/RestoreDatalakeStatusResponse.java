@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object with information on last restore operation on a datalake.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-12-01T15:55:32.665-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-12-16T17:38:09.041-08:00")
 public class RestoreDatalakeStatusResponse extends CdpResponse {
 
   /**
@@ -46,12 +46,12 @@ public class RestoreDatalakeStatusResponse extends CdpResponse {
   private String backupId = null;
 
   /**
-   * Crn of the user triggered this operation.
+   * Crn of the user who triggered this operation.
    **/
   private String userCrn = null;
 
   /**
-   * Provides the details of the internal state where the backup operation stands.
+   * Provides the details of the internal state where the restore operation stands.
    **/
   private String internalState = null;
 
@@ -138,7 +138,7 @@ public class RestoreDatalakeStatusResponse extends CdpResponse {
 
   /**
    * Getter for userCrn.
-   * Crn of the user triggered this operation.
+   * Crn of the user who triggered this operation.
    **/
   @JsonProperty("userCrn")
   public String getUserCrn() {
@@ -147,7 +147,7 @@ public class RestoreDatalakeStatusResponse extends CdpResponse {
 
   /**
    * Setter for userCrn.
-   * Crn of the user triggered this operation.
+   * Crn of the user who triggered this operation.
    **/
   public void setUserCrn(String userCrn) {
     this.userCrn = userCrn;
@@ -155,7 +155,7 @@ public class RestoreDatalakeStatusResponse extends CdpResponse {
 
   /**
    * Getter for internalState.
-   * Provides the details of the internal state where the backup operation stands.
+   * Provides the details of the internal state where the restore operation stands.
    **/
   @JsonProperty("internalState")
   public String getInternalState() {
@@ -164,7 +164,7 @@ public class RestoreDatalakeStatusResponse extends CdpResponse {
 
   /**
    * Setter for internalState.
-   * Provides the details of the internal state where the backup operation stands.
+   * Provides the details of the internal state where the restore operation stands.
    **/
   public void setInternalState(String internalState) {
     this.internalState = internalState;

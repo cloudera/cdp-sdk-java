@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * A policy statement is a list of rights and zero or more resources on which the rights are granted.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-12-01T15:55:33.363-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-12-16T17:38:09.895-08:00")
 public class PolicyStatement  {
 
   /**

@@ -29,6 +29,8 @@ import com.cloudera.cdp.client.Pair;
 import com.cloudera.cdp.client.RestResponse;
 import com.cloudera.cdp.audit.model.ArchiveAuditEventsRequest;
 import com.cloudera.cdp.audit.model.ArchiveAuditEventsResponse;
+import com.cloudera.cdp.audit.model.BatchEventsForArchivingRequest;
+import com.cloudera.cdp.audit.model.BatchEventsForArchivingResponse;
 import com.cloudera.cdp.audit.model.ConfigureArchivingRequest;
 import com.cloudera.cdp.audit.model.ConfigureArchivingResponse;
 import com.cloudera.cdp.audit.model.Error;
@@ -36,17 +38,25 @@ import com.cloudera.cdp.audit.model.GetArchivingConfigRequest;
 import com.cloudera.cdp.audit.model.GetArchivingConfigResponse;
 import com.cloudera.cdp.audit.model.GetArchivingStatusRequest;
 import com.cloudera.cdp.audit.model.GetArchivingStatusResponse;
+import com.cloudera.cdp.audit.model.GetBatchEventsForArchivingStatusRequest;
+import com.cloudera.cdp.audit.model.GetBatchEventsForArchivingStatusResponse;
+import com.cloudera.cdp.audit.model.ListEventsInArchiveBatchRequest;
+import com.cloudera.cdp.audit.model.ListEventsInArchiveBatchResponse;
 import com.cloudera.cdp.audit.model.ListEventsRequest;
 import com.cloudera.cdp.audit.model.ListEventsResponse;
+import com.cloudera.cdp.audit.model.ListOutstandingArchiveBatchesRequest;
+import com.cloudera.cdp.audit.model.ListOutstandingArchiveBatchesResponse;
 import com.cloudera.cdp.audit.model.ListRecentArchiveRunsRequest;
 import com.cloudera.cdp.audit.model.ListRecentArchiveRunsResponse;
+import com.cloudera.cdp.audit.model.MarkArchiveBatchesAsSuccessfulRequest;
+import com.cloudera.cdp.audit.model.MarkArchiveBatchesAsSuccessfulResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-12-01T15:55:33.196-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-12-16T17:38:09.760-08:00")
 public class AuditClient extends CdpClient {
 
   public static final String SERVICE_NAME = "audit";
@@ -91,6 +101,19 @@ public class AuditClient extends CdpClient {
   }
 
   /**
+   * Create batches of audit events to be archived.
+   * @param input
+   * @return BatchEventsForArchivingResponse
+   */
+  public BatchEventsForArchivingResponse batchEventsForArchiving(BatchEventsForArchivingRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling batchEventsForArchiving");
+    }
+
+    return this.invokeAPI("batchEventsForArchiving", "/api/v1/audit/batchEventsForArchiving", input, new GenericType<BatchEventsForArchivingResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Configures the audit system for archiving audit events to external cloud storage.
    * @param input
    * @return ConfigureArchivingResponse
@@ -130,6 +153,19 @@ public class AuditClient extends CdpClient {
   }
 
   /**
+   * Get the status of creating batches of audit events to be archived.
+   * @param input
+   * @return GetBatchEventsForArchivingStatusResponse
+   */
+  public GetBatchEventsForArchivingStatusResponse getBatchEventsForArchivingStatus(GetBatchEventsForArchivingStatusRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getBatchEventsForArchivingStatus");
+    }
+
+    return this.invokeAPI("getBatchEventsForArchivingStatus", "/api/v1/audit/getBatchEventsForArchivingStatus", input, new GenericType<GetBatchEventsForArchivingStatusResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * List all audit events recorded in a specified time span, and optionally with a specified request ID and/or event source.
    * @param input
    * @return ListEventsResponse
@@ -143,6 +179,32 @@ public class AuditClient extends CdpClient {
   }
 
   /**
+   * List events contained in a single archive batch.
+   * @param input
+   * @return ListEventsInArchiveBatchResponse
+   */
+  public ListEventsInArchiveBatchResponse listEventsInArchiveBatch(ListEventsInArchiveBatchRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listEventsInArchiveBatch");
+    }
+
+    return this.invokeAPI("listEventsInArchiveBatch", "/api/v1/audit/listEventsInArchiveBatch", input, new GenericType<ListEventsInArchiveBatchResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * List outstanding (unarchived) archive batches.
+   * @param input
+   * @return ListOutstandingArchiveBatchesResponse
+   */
+  public ListOutstandingArchiveBatchesResponse listOutstandingArchiveBatches(ListOutstandingArchiveBatchesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listOutstandingArchiveBatches");
+    }
+
+    return this.invokeAPI("listOutstandingArchiveBatches", "/api/v1/audit/listOutstandingArchiveBatches", input, new GenericType<ListOutstandingArchiveBatchesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * List recent archive runs.
    * @param input
    * @return ListRecentArchiveRunsResponse
@@ -153,5 +215,18 @@ public class AuditClient extends CdpClient {
     }
 
     return this.invokeAPI("listRecentArchiveRuns", "/api/v1/audit/listRecentArchiveRuns", input, new GenericType<ListRecentArchiveRunsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Mark archive batches as successful.
+   * @param input
+   * @return MarkArchiveBatchesAsSuccessfulResponse
+   */
+  public MarkArchiveBatchesAsSuccessfulResponse markArchiveBatchesAsSuccessful(MarkArchiveBatchesAsSuccessfulRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling markArchiveBatchesAsSuccessful");
+    }
+
+    return this.invokeAPI("markArchiveBatchesAsSuccessful", "/api/v1/audit/markArchiveBatchesAsSuccessful", input, new GenericType<MarkArchiveBatchesAsSuccessfulResponse>(){}, NO_EXTENSION);
   }
 }

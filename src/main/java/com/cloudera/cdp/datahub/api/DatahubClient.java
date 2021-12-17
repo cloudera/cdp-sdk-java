@@ -94,6 +94,8 @@ import com.cloudera.cdp.datahub.model.RenewCertificateRequest;
 import com.cloudera.cdp.datahub.model.RenewCertificateResponse;
 import com.cloudera.cdp.datahub.model.RepairClusterRequest;
 import com.cloudera.cdp.datahub.model.RepairClusterResponse;
+import com.cloudera.cdp.datahub.model.ReplaceRecipesRequest;
+import com.cloudera.cdp.datahub.model.ReplaceRecipesResponse;
 import com.cloudera.cdp.datahub.model.RetryClusterRequest;
 import com.cloudera.cdp.datahub.model.RetryClusterResponse;
 import com.cloudera.cdp.datahub.model.RotateAutoTlsCertificatesRequest;
@@ -116,7 +118,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-12-01T15:55:31.871-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-12-16T17:38:08.291-08:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datahub";
@@ -574,6 +576,19 @@ public class DatahubClient extends CdpClient {
     }
 
     return this.invokeAPI("repairCluster", "/api/v1/datahub/repairCluster", input, new GenericType<RepairClusterResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Replaces recipes for the given instance groups.
+   * @param input
+   * @return ReplaceRecipesResponse
+   */
+  public ReplaceRecipesResponse replaceRecipes(ReplaceRecipesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling replaceRecipes");
+    }
+
+    return this.invokeAPI("replaceRecipes", "/api/v1/datahub/replaceRecipes", input, new GenericType<ReplaceRecipesResponse>(){}, NO_EXTENSION);
   }
 
   /**

@@ -35,7 +35,7 @@ import java.util.*;
 /**
  * Request object for a create Azure environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-12-01T15:55:32.870-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-12-16T17:38:09.322-08:00")
 public class CreateAzureEnvironmentRequest  {
 
   /**
@@ -132,6 +132,16 @@ public class CreateAzureEnvironmentRequest  {
    * When this is enabled, then Azure Postgres will be configured with Private Endpoint and a Private DNS Zone. When this is disabled, then Azure Service Endpoints will be created. The default value is disabled.
    **/
   private Boolean createPrivateEndpoints = null;
+
+  /**
+   * URL of the key which will be used to encrypt the Azure Managed Disks, if entitlement has been granted.
+   **/
+  private String encryptionKeyUrl = null;
+
+  /**
+   * Name of the existing Azure resource group hosting the Azure Key Vault containing customer managed key which will be used to encrypt the Azure Managed Disks. It is required only when the entitlement is granted and the resource group of the key vault is different from the resource group in which the environment is to be created. Omitting it implies that, the key vault containing the encryption key is present in the same resource group where the environment would be created.
+   **/
+  private String encryptionKeyResourceGroupName = null;
 
   /**
    * Getter for environmentName.
@@ -456,6 +466,40 @@ public class CreateAzureEnvironmentRequest  {
     this.createPrivateEndpoints = createPrivateEndpoints;
   }
 
+  /**
+   * Getter for encryptionKeyUrl.
+   * URL of the key which will be used to encrypt the Azure Managed Disks, if entitlement has been granted.
+   **/
+  @JsonProperty("encryptionKeyUrl")
+  public String getEncryptionKeyUrl() {
+    return encryptionKeyUrl;
+  }
+
+  /**
+   * Setter for encryptionKeyUrl.
+   * URL of the key which will be used to encrypt the Azure Managed Disks, if entitlement has been granted.
+   **/
+  public void setEncryptionKeyUrl(String encryptionKeyUrl) {
+    this.encryptionKeyUrl = encryptionKeyUrl;
+  }
+
+  /**
+   * Getter for encryptionKeyResourceGroupName.
+   * Name of the existing Azure resource group hosting the Azure Key Vault containing customer managed key which will be used to encrypt the Azure Managed Disks. It is required only when the entitlement is granted and the resource group of the key vault is different from the resource group in which the environment is to be created. Omitting it implies that, the key vault containing the encryption key is present in the same resource group where the environment would be created.
+   **/
+  @JsonProperty("encryptionKeyResourceGroupName")
+  public String getEncryptionKeyResourceGroupName() {
+    return encryptionKeyResourceGroupName;
+  }
+
+  /**
+   * Setter for encryptionKeyResourceGroupName.
+   * Name of the existing Azure resource group hosting the Azure Key Vault containing customer managed key which will be used to encrypt the Azure Managed Disks. It is required only when the entitlement is granted and the resource group of the key vault is different from the resource group in which the environment is to be created. Omitting it implies that, the key vault containing the encryption key is present in the same resource group where the environment would be created.
+   **/
+  public void setEncryptionKeyResourceGroupName(String encryptionKeyResourceGroupName) {
+    this.encryptionKeyResourceGroupName = encryptionKeyResourceGroupName;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -522,12 +566,18 @@ public class CreateAzureEnvironmentRequest  {
     if (!Objects.equals(this.createPrivateEndpoints, createAzureEnvironmentRequest.createPrivateEndpoints)) {
       return false;
     }
+    if (!Objects.equals(this.encryptionKeyUrl, createAzureEnvironmentRequest.encryptionKeyUrl)) {
+      return false;
+    }
+    if (!Objects.equals(this.encryptionKeyResourceGroupName, createAzureEnvironmentRequest.encryptionKeyResourceGroupName)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints);
+    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints, encryptionKeyUrl, encryptionKeyResourceGroupName);
   }
 
   @Override
@@ -553,6 +603,8 @@ public class CreateAzureEnvironmentRequest  {
     sb.append("    proxyConfigName: ").append(toIndentedString(proxyConfigName)).append("\n");
     sb.append("    resourceGroupName: ").append(toIndentedString(resourceGroupName)).append("\n");
     sb.append("    createPrivateEndpoints: ").append(toIndentedString(createPrivateEndpoints)).append("\n");
+    sb.append("    encryptionKeyUrl: ").append(toIndentedString(encryptionKeyUrl)).append("\n");
+    sb.append("    encryptionKeyResourceGroupName: ").append(toIndentedString(encryptionKeyResourceGroupName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Detailed description of a CDE service.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-12-01T15:55:33.294-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-12-16T17:38:09.822-08:00")
 public class ServiceDescription  {
 
   /**
@@ -112,6 +112,16 @@ public class ServiceDescription  {
    * Chart overrides for the Virtual Cluster.
    **/
   private List<ChartValueOverridesResponse> chartValueOverrides = new ArrayList<ChartValueOverridesResponse>();
+
+  /**
+   * List of CIDRs that would be allowed to access kubernetes master API server.
+   **/
+  private String whitelistIps = null;
+
+  /**
+   * List of Subnet IDs of the CDP subnets used by the kubernetes worker node.
+   **/
+  private String subnets = null;
 
   /**
    * Getter for name.
@@ -385,6 +395,40 @@ public class ServiceDescription  {
     this.chartValueOverrides = chartValueOverrides;
   }
 
+  /**
+   * Getter for whitelistIps.
+   * List of CIDRs that would be allowed to access kubernetes master API server.
+   **/
+  @JsonProperty("whitelistIps")
+  public String getWhitelistIps() {
+    return whitelistIps;
+  }
+
+  /**
+   * Setter for whitelistIps.
+   * List of CIDRs that would be allowed to access kubernetes master API server.
+   **/
+  public void setWhitelistIps(String whitelistIps) {
+    this.whitelistIps = whitelistIps;
+  }
+
+  /**
+   * Getter for subnets.
+   * List of Subnet IDs of the CDP subnets used by the kubernetes worker node.
+   **/
+  @JsonProperty("subnets")
+  public String getSubnets() {
+    return subnets;
+  }
+
+  /**
+   * Setter for subnets.
+   * List of Subnet IDs of the CDP subnets used by the kubernetes worker node.
+   **/
+  public void setSubnets(String subnets) {
+    this.subnets = subnets;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -442,12 +486,18 @@ public class ServiceDescription  {
     if (!Objects.equals(this.chartValueOverrides, serviceDescription.chartValueOverrides)) {
       return false;
     }
+    if (!Objects.equals(this.whitelistIps, serviceDescription.whitelistIps)) {
+      return false;
+    }
+    if (!Objects.equals(this.subnets, serviceDescription.subnets)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, clusterId, environmentName, environmentCrn, tenantId, resources, status, creatorEmail, creatorCrn, enablingTime, clusterFqdn, cloudPlatform, dataLakeFileSystems, logLocation, dataLakeAtlasUIEndpoint, chartValueOverrides);
+    return Objects.hash(name, clusterId, environmentName, environmentCrn, tenantId, resources, status, creatorEmail, creatorCrn, enablingTime, clusterFqdn, cloudPlatform, dataLakeFileSystems, logLocation, dataLakeAtlasUIEndpoint, chartValueOverrides, whitelistIps, subnets);
   }
 
   @Override
@@ -470,6 +520,8 @@ public class ServiceDescription  {
     sb.append("    logLocation: ").append(toIndentedString(logLocation)).append("\n");
     sb.append("    dataLakeAtlasUIEndpoint: ").append(toIndentedString(dataLakeAtlasUIEndpoint)).append("\n");
     sb.append("    chartValueOverrides: ").append(toIndentedString(chartValueOverrides)).append("\n");
+    sb.append("    whitelistIps: ").append(toIndentedString(whitelistIps)).append("\n");
+    sb.append("    subnets: ").append(toIndentedString(subnets)).append("\n");
     sb.append("}");
     return sb.toString();
   }
