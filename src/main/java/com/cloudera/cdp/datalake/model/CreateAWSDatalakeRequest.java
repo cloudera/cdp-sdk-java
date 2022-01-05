@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object for create AWS datalake request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-12-16T17:38:09.041-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-01-05T15:43:59.736-08:00")
 public class CreateAWSDatalakeRequest  {
 
   /**
@@ -68,6 +68,11 @@ public class CreateAWSDatalakeRequest  {
    * The image to use for the datalake. This must not be set if the runtime parameter is provided.
    **/
   private ImageRequest image = null;
+
+  /**
+   * Whether to enable Ranger RAZ for the datalake. Defaults to not being enabled.
+   **/
+  private Boolean enableRangerRaz = null;
 
   /**
    * Getter for datalakeName.
@@ -188,6 +193,23 @@ public class CreateAWSDatalakeRequest  {
     this.image = image;
   }
 
+  /**
+   * Getter for enableRangerRaz.
+   * Whether to enable Ranger RAZ for the datalake. Defaults to not being enabled.
+   **/
+  @JsonProperty("enableRangerRaz")
+  public Boolean getEnableRangerRaz() {
+    return enableRangerRaz;
+  }
+
+  /**
+   * Setter for enableRangerRaz.
+   * Whether to enable Ranger RAZ for the datalake. Defaults to not being enabled.
+   **/
+  public void setEnableRangerRaz(Boolean enableRangerRaz) {
+    this.enableRangerRaz = enableRangerRaz;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -218,12 +240,15 @@ public class CreateAWSDatalakeRequest  {
     if (!Objects.equals(this.image, createAWSDatalakeRequest.image)) {
       return false;
     }
+    if (!Objects.equals(this.enableRangerRaz, createAWSDatalakeRequest.enableRangerRaz)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, scale, tags, runtime, image);
+    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, scale, tags, runtime, image, enableRangerRaz);
   }
 
   @Override
@@ -237,6 +262,7 @@ public class CreateAWSDatalakeRequest  {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
+    sb.append("    enableRangerRaz: ").append(toIndentedString(enableRangerRaz)).append("\n");
     sb.append("}");
     return sb.toString();
   }

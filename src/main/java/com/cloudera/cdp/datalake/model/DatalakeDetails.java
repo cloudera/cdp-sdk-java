@@ -36,7 +36,7 @@ import java.util.*;
 /**
  * Details about a datalake
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-12-16T17:38:09.041-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-01-05T15:43:59.736-08:00")
 public class DatalakeDetails  {
 
   /**
@@ -128,6 +128,11 @@ public class DatalakeDetails  {
    * The base location for the cloud storage used for the datalake.
    **/
   private String cloudStorageBaseLocation = null;
+
+  /**
+   * Whether Ranger RAZ is enabled for the datalake.
+   **/
+  private Boolean enableRangerRaz = null;
 
   /**
    * Getter for crn.
@@ -435,6 +440,23 @@ public class DatalakeDetails  {
     this.cloudStorageBaseLocation = cloudStorageBaseLocation;
   }
 
+  /**
+   * Getter for enableRangerRaz.
+   * Whether Ranger RAZ is enabled for the datalake.
+   **/
+  @JsonProperty("enableRangerRaz")
+  public Boolean getEnableRangerRaz() {
+    return enableRangerRaz;
+  }
+
+  /**
+   * Setter for enableRangerRaz.
+   * Whether Ranger RAZ is enabled for the datalake.
+   **/
+  public void setEnableRangerRaz(Boolean enableRangerRaz) {
+    this.enableRangerRaz = enableRangerRaz;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -498,12 +520,15 @@ public class DatalakeDetails  {
     if (!Objects.equals(this.cloudStorageBaseLocation, datalakeDetails.cloudStorageBaseLocation)) {
       return false;
     }
+    if (!Objects.equals(this.enableRangerRaz, datalakeDetails.enableRangerRaz)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, datalakeName, status, shape, environmentCrn, credentialCrn, cloudPlatform, instanceGroups, creationDate, clouderaManager, productVersions, region, statusReason, awsConfiguration, azureConfiguration, gcpConfiguration, endpoints, cloudStorageBaseLocation);
+    return Objects.hash(crn, datalakeName, status, shape, environmentCrn, credentialCrn, cloudPlatform, instanceGroups, creationDate, clouderaManager, productVersions, region, statusReason, awsConfiguration, azureConfiguration, gcpConfiguration, endpoints, cloudStorageBaseLocation, enableRangerRaz);
   }
 
   @Override
@@ -528,6 +553,7 @@ public class DatalakeDetails  {
     sb.append("    gcpConfiguration: ").append(toIndentedString(gcpConfiguration)).append("\n");
     sb.append("    endpoints: ").append(toIndentedString(endpoints)).append("\n");
     sb.append("    cloudStorageBaseLocation: ").append(toIndentedString(cloudStorageBaseLocation)).append("\n");
+    sb.append("    enableRangerRaz: ").append(toIndentedString(enableRangerRaz)).append("\n");
     sb.append("}");
     return sb.toString();
   }

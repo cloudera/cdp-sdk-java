@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Information about a datalake.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2021-12-16T17:38:09.041-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-01-05T15:43:59.736-08:00")
 public class Datalake  {
 
   /**
@@ -60,6 +60,11 @@ public class Datalake  {
    * The reason for the status of the datalake.
    **/
   private String statusReason = null;
+
+  /**
+   * Whether Ranger RAZ is enabled for the datalake.
+   **/
+  private Boolean enableRangerRaz = null;
 
   /**
    * Indicates the certificate status on the cluster.
@@ -169,6 +174,23 @@ public class Datalake  {
   }
 
   /**
+   * Getter for enableRangerRaz.
+   * Whether Ranger RAZ is enabled for the datalake.
+   **/
+  @JsonProperty("enableRangerRaz")
+  public Boolean getEnableRangerRaz() {
+    return enableRangerRaz;
+  }
+
+  /**
+   * Setter for enableRangerRaz.
+   * Whether Ranger RAZ is enabled for the datalake.
+   **/
+  public void setEnableRangerRaz(Boolean enableRangerRaz) {
+    this.enableRangerRaz = enableRangerRaz;
+  }
+
+  /**
    * Getter for certificateExpirationState.
    * Indicates the certificate status on the cluster.
    **/
@@ -212,6 +234,9 @@ public class Datalake  {
     if (!Objects.equals(this.statusReason, datalake.statusReason)) {
       return false;
     }
+    if (!Objects.equals(this.enableRangerRaz, datalake.enableRangerRaz)) {
+      return false;
+    }
     if (!Objects.equals(this.certificateExpirationState, datalake.certificateExpirationState)) {
       return false;
     }
@@ -220,7 +245,7 @@ public class Datalake  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, crn, status, environmentCrn, creationDate, statusReason, certificateExpirationState);
+    return Objects.hash(datalakeName, crn, status, environmentCrn, creationDate, statusReason, enableRangerRaz, certificateExpirationState);
   }
 
   @Override
@@ -233,6 +258,7 @@ public class Datalake  {
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
+    sb.append("    enableRangerRaz: ").append(toIndentedString(enableRangerRaz)).append("\n");
     sb.append("    certificateExpirationState: ").append(toIndentedString(certificateExpirationState)).append("\n");
     sb.append("}");
     return sb.toString();
