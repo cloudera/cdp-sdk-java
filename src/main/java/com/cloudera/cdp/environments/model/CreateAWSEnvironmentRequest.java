@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * Request object for a create AWS environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-01-05T15:43:59.920-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-01-19T17:43:02.715-08:00")
 public class CreateAWSEnvironmentRequest  {
 
   /**
@@ -86,6 +86,11 @@ public class CreateAWSEnvironmentRequest  {
    * Whether to create private subnets or not.
    **/
   private Boolean createPrivateSubnets = null;
+
+  /**
+   * Whether to create service endpoints or not.
+   **/
+  private Boolean createServiceEndpoints = null;
 
   /**
    * The scheme for the endpoint gateway. PUBLIC creates an external endpoint that can be accessed over the Internet. Defaults to PRIVATE which restricts the traffic to be internal to the VPC / Vnet.
@@ -310,6 +315,23 @@ public class CreateAWSEnvironmentRequest  {
    **/
   public void setCreatePrivateSubnets(Boolean createPrivateSubnets) {
     this.createPrivateSubnets = createPrivateSubnets;
+  }
+
+  /**
+   * Getter for createServiceEndpoints.
+   * Whether to create service endpoints or not.
+   **/
+  @JsonProperty("createServiceEndpoints")
+  public Boolean getCreateServiceEndpoints() {
+    return createServiceEndpoints;
+  }
+
+  /**
+   * Setter for createServiceEndpoints.
+   * Whether to create service endpoints or not.
+   **/
+  public void setCreateServiceEndpoints(Boolean createServiceEndpoints) {
+    this.createServiceEndpoints = createServiceEndpoints;
   }
 
   /**
@@ -538,6 +560,9 @@ public class CreateAWSEnvironmentRequest  {
     if (!Objects.equals(this.createPrivateSubnets, createAWSEnvironmentRequest.createPrivateSubnets)) {
       return false;
     }
+    if (!Objects.equals(this.createServiceEndpoints, createAWSEnvironmentRequest.createServiceEndpoints)) {
+      return false;
+    }
     if (!Objects.equals(this.endpointAccessGatewayScheme, createAWSEnvironmentRequest.endpointAccessGatewayScheme)) {
       return false;
     }
@@ -576,7 +601,7 @@ public class CreateAWSEnvironmentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, securityAccess, authentication, logStorage, networkCidr, vpcId, subnetIds, createPrivateSubnets, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, s3GuardTableName, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, image, tags, proxyConfigName);
+    return Objects.hash(environmentName, credentialName, region, securityAccess, authentication, logStorage, networkCidr, vpcId, subnetIds, createPrivateSubnets, createServiceEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, s3GuardTableName, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, image, tags, proxyConfigName);
   }
 
   @Override
@@ -593,6 +618,7 @@ public class CreateAWSEnvironmentRequest  {
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
     sb.append("    createPrivateSubnets: ").append(toIndentedString(createPrivateSubnets)).append("\n");
+    sb.append("    createServiceEndpoints: ").append(toIndentedString(createServiceEndpoints)).append("\n");
     sb.append("    endpointAccessGatewayScheme: ").append(toIndentedString(endpointAccessGatewayScheme)).append("\n");
     sb.append("    endpointAccessGatewaySubnetIds: ").append(toIndentedString(endpointAccessGatewaySubnetIds)).append("\n");
     sb.append("    s3GuardTableName: ").append(toIndentedString(s3GuardTableName)).append("\n");

@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for listing recent Datalake diagnostics collections.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-01-05T15:43:59.736-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-01-19T17:43:02.505-08:00")
 public class ListDatalakeDiagnosticsResponse extends CdpResponse {
 
   /**

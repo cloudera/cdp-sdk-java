@@ -26,6 +26,7 @@ import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
 import com.cloudera.cdp.client.CdpRequestContext;
 import com.cloudera.cdp.client.Pair;
+import com.cloudera.cdp.client.ResourceResponse;
 import com.cloudera.cdp.client.RestResponse;
 import com.cloudera.cdp.datalake.model.BackupDatalakeRequest;
 import com.cloudera.cdp.datalake.model.BackupDatalakeResponse;
@@ -76,10 +77,14 @@ import com.cloudera.cdp.datalake.model.RetryDatalakeRequest;
 import com.cloudera.cdp.datalake.model.RetryDatalakeResponse;
 import com.cloudera.cdp.datalake.model.RotateAutoTlsCertificatesRequest;
 import com.cloudera.cdp.datalake.model.RotateAutoTlsCertificatesResponse;
+import com.cloudera.cdp.datalake.model.SetCatalogRequest;
+import com.cloudera.cdp.datalake.model.SetCatalogResponse;
 import com.cloudera.cdp.datalake.model.StartDatalakeRequest;
 import com.cloudera.cdp.datalake.model.StartDatalakeResponse;
 import com.cloudera.cdp.datalake.model.StopDatalakeRequest;
 import com.cloudera.cdp.datalake.model.StopDatalakeResponse;
+import com.cloudera.cdp.datalake.model.SyncComponentVersionsFromCmRequest;
+import com.cloudera.cdp.datalake.model.SyncComponentVersionsFromCmResponse;
 import com.cloudera.cdp.datalake.model.UpgradeDatalakeRequest;
 import com.cloudera.cdp.datalake.model.UpgradeDatalakeResponse;
 import java.util.ArrayList;
@@ -88,7 +93,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-01-05T15:43:59.736-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-01-19T17:43:02.505-08:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datalake";
@@ -432,6 +437,19 @@ public class DatalakeClient extends CdpClient {
   }
 
   /**
+   * Sets a catalog for a DataLake.
+   * @param input
+   * @return SetCatalogResponse
+   */
+  public SetCatalogResponse setCatalog(SetCatalogRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling setCatalog");
+    }
+
+    return this.invokeAPI("setCatalog", "/api/v1/datalake/setCatalog", input, new GenericType<SetCatalogResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Start Datalake
    * @param input
    * @return StartDatalakeResponse
@@ -455,6 +473,19 @@ public class DatalakeClient extends CdpClient {
     }
 
     return this.invokeAPI("stopDatalake", "/api/v1/datalake/stopDatalake", input, new GenericType<StopDatalakeResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Syncs component versions from CM after a failed upgrade.
+   * @param input
+   * @return SyncComponentVersionsFromCmResponse
+   */
+  public SyncComponentVersionsFromCmResponse syncComponentVersionsFromCm(SyncComponentVersionsFromCmRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling syncComponentVersionsFromCm");
+    }
+
+    return this.invokeAPI("syncComponentVersionsFromCm", "/api/v1/datalake/syncComponentVersionsFromCm", input, new GenericType<SyncComponentVersionsFromCmResponse>(){}, NO_EXTENSION);
   }
 
   /**

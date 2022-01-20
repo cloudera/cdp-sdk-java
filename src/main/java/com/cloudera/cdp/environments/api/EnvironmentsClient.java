@@ -26,6 +26,7 @@ import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
 import com.cloudera.cdp.client.CdpRequestContext;
 import com.cloudera.cdp.client.Pair;
+import com.cloudera.cdp.client.ResourceResponse;
 import com.cloudera.cdp.client.RestResponse;
 import com.cloudera.cdp.environments.model.CancelFreeipaDiagnosticsRequest;
 import com.cloudera.cdp.environments.model.CancelFreeipaDiagnosticsResponse;
@@ -108,6 +109,8 @@ import com.cloudera.cdp.environments.model.SetAccountTelemetryRequest;
 import com.cloudera.cdp.environments.model.SetAccountTelemetryResponse;
 import com.cloudera.cdp.environments.model.SetAzureAuditCredentialRequest;
 import com.cloudera.cdp.environments.model.SetAzureAuditCredentialResponse;
+import com.cloudera.cdp.environments.model.SetCatalogRequest;
+import com.cloudera.cdp.environments.model.SetCatalogResponse;
 import com.cloudera.cdp.environments.model.SetEnvironmentSettingRequest;
 import com.cloudera.cdp.environments.model.SetEnvironmentSettingResponse;
 import com.cloudera.cdp.environments.model.SetIdBrokerMappingsRequest;
@@ -136,7 +139,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-01-05T15:43:59.920-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-01-19T17:43:02.715-08:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -685,6 +688,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("setAzureAuditCredential", "/api/v1/environments2/setAzureAuditCredential", input, new GenericType<SetAzureAuditCredentialResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Sets a catalog for a FreeIPA installation.
+   * @param input
+   * @return SetCatalogResponse
+   */
+  public SetCatalogResponse setCatalog(SetCatalogRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling setCatalog");
+    }
+
+    return this.invokeAPI("setCatalog", "/api/v1/environments2/setCatalog", input, new GenericType<SetCatalogResponse>(){}, NO_EXTENSION);
   }
 
   /**

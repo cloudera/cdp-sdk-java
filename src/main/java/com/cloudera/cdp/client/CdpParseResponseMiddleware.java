@@ -106,6 +106,12 @@ public class CdpParseResponseMiddleware implements CdpClientMiddleware {
       restResponse.setResponseHeaders(responseHeaders);
       restResponse.setResponse(response);
       return (T) restResponse;
+    } else if (ResourceResponse.class.isAssignableFrom(context.getResponseType().getRawType())) {
+      ResourceResponse resourceResponse = new ResourceResponse();
+      resourceResponse.setHttpCode(httpCode);
+      resourceResponse.setResponseHeaders(responseHeaders);
+      resourceResponse.setResponse(response);
+      return (T) resourceResponse;
     }
 
     if (response.getStatusInfo().getFamily() == Response.Status.Family.SUCCESSFUL) {

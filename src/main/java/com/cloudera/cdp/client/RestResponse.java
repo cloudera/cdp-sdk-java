@@ -71,7 +71,7 @@ public class RestResponse extends BaseResponse implements AutoCloseable {
    * @param <T>        entity instance Java type.
    * @param entityType the type of entity.
    * @return the message entity.
-   * @see javax.ws.rs.core.Response#readEntity(Class<T>)
+   * @see javax.ws.rs.core.Response#readEntity(Class)
    */
   public <T> T readEntity(Class<T> entityType) {
     checkStateAndThrow(this.response != null);
@@ -85,7 +85,7 @@ public class RestResponse extends BaseResponse implements AutoCloseable {
    * @param entityType  the type of entity.
    * @param annotations annotations that will be passed to the {@link MessageBodyReader}.
    * @return the message entity.
-   * @see javax.ws.rs.core.Response#readEntity(Class<T>, Annotation[])
+   * @see javax.ws.rs.core.Response#readEntity(Class, Annotation[])
    */
   public <T> T readEntity(Class<T> entityType, Annotation[] annotations) {
     checkStateAndThrow(this.response != null);

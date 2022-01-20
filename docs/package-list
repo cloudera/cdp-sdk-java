@@ -22,6 +22,8 @@ com.cloudera.cdp.extension
 com.cloudera.cdp.http
 com.cloudera.cdp.iam.api
 com.cloudera.cdp.iam.model
+com.cloudera.cdp.imagecatalog.api
+com.cloudera.cdp.imagecatalog.model
 com.cloudera.cdp.ml.api
 com.cloudera.cdp.ml.model
 com.cloudera.cdp.opdb.api

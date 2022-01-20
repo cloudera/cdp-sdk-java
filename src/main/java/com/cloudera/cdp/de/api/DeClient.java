@@ -26,6 +26,7 @@ import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
 import com.cloudera.cdp.client.CdpRequestContext;
 import com.cloudera.cdp.client.Pair;
+import com.cloudera.cdp.client.ResourceResponse;
 import com.cloudera.cdp.client.RestResponse;
 import com.cloudera.cdp.de.model.CreateVcRequest;
 import com.cloudera.cdp.de.model.CreateVcResponse;
@@ -46,6 +47,8 @@ import com.cloudera.cdp.de.model.ListServicesRequest;
 import com.cloudera.cdp.de.model.ListServicesResponse;
 import com.cloudera.cdp.de.model.ListVcsRequest;
 import com.cloudera.cdp.de.model.ListVcsResponse;
+import com.cloudera.cdp.de.model.UpdateServiceRequest;
+import com.cloudera.cdp.de.model.UpdateServiceResponse;
 import com.cloudera.cdp.de.model.UpdateVcRequest;
 import com.cloudera.cdp.de.model.UpdateVcResponse;
 import java.util.ArrayList;
@@ -54,7 +57,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-01-05T15:44:00.396-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-01-19T17:43:03.144-08:00")
 public class DeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "de";
@@ -200,6 +203,19 @@ public class DeClient extends CdpClient {
     }
 
     return this.invokeAPI("listVcs", "/api/v1/de/listVcs", input, new GenericType<ListVcsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Update Cloudera Data Engineering (CDE) Service
+   * @param input
+   * @return UpdateServiceResponse
+   */
+  public UpdateServiceResponse updateService(UpdateServiceRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateService");
+    }
+
+    return this.invokeAPI("updateService", "/api/v1/de/updateService", input, new GenericType<UpdateServiceResponse>(){}, NO_EXTENSION);
   }
 
   /**

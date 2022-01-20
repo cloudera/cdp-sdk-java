@@ -26,6 +26,7 @@ import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
 import com.cloudera.cdp.client.CdpRequestContext;
 import com.cloudera.cdp.client.Pair;
+import com.cloudera.cdp.client.ResourceResponse;
 import com.cloudera.cdp.client.RestResponse;
 import com.cloudera.cdp.datahub.model.CancelDatahubDiagnosticsRequest;
 import com.cloudera.cdp.datahub.model.CancelDatahubDiagnosticsResponse;
@@ -102,6 +103,8 @@ import com.cloudera.cdp.datahub.model.RotateAutoTlsCertificatesRequest;
 import com.cloudera.cdp.datahub.model.RotateAutoTlsCertificatesResponse;
 import com.cloudera.cdp.datahub.model.ScaleClusterRequest;
 import com.cloudera.cdp.datahub.model.ScaleClusterResponse;
+import com.cloudera.cdp.datahub.model.SetCatalogRequest;
+import com.cloudera.cdp.datahub.model.SetCatalogResponse;
 import com.cloudera.cdp.datahub.model.StartClusterRequest;
 import com.cloudera.cdp.datahub.model.StartClusterResponse;
 import com.cloudera.cdp.datahub.model.StopClusterRequest;
@@ -118,7 +121,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-01-05T15:43:58.872-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-01-19T17:43:01.679-08:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datahub";
@@ -628,6 +631,19 @@ public class DatahubClient extends CdpClient {
     }
 
     return this.invokeAPI("scaleCluster", "/api/v1/datahub/scaleCluster", input, new GenericType<ScaleClusterResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Sets a catalog for a DataHub.
+   * @param input
+   * @return SetCatalogResponse
+   */
+  public SetCatalogResponse setCatalog(SetCatalogRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling setCatalog");
+    }
+
+    return this.invokeAPI("setCatalog", "/api/v1/datahub/setCatalog", input, new GenericType<SetCatalogResponse>(){}, NO_EXTENSION);
   }
 
   /**

@@ -26,6 +26,7 @@ import com.cloudera.cdp.client.CdpClient;
 import com.cloudera.cdp.client.CdpClientConfiguration;
 import com.cloudera.cdp.client.CdpRequestContext;
 import com.cloudera.cdp.client.Pair;
+import com.cloudera.cdp.client.ResourceResponse;
 import com.cloudera.cdp.client.RestResponse;
 import com.cloudera.cdp.iam.model.AddMachineUserToGroupRequest;
 import com.cloudera.cdp.iam.model.AddMachineUserToGroupResponse;
@@ -154,7 +155,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-01-05T15:44:00.467-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-01-19T17:43:03.216-08:00")
 public class IamClient extends CdpClient {
 
   public static final String SERVICE_NAME = "iam";
