@@ -23,12 +23,15 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.audit.model.ApiRequestEventCriteria;
+import com.cloudera.cdp.audit.model.CdpServiceEventCriteria;
+import com.cloudera.cdp.audit.model.InteractiveLoginEventCriteria;
 import java.time.ZonedDateTime;
 
 /**
  * Request object for the ListEvents method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-01-19T17:43:03.041-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-02-02T18:44:25.003-08:00")
 public class ListEventsRequest  {
 
   /**
@@ -60,6 +63,41 @@ public class ListEventsRequest  {
    * The optional source service. If specified, only events associated with this event source are returned. The source must be the name of a service as enumerated in the CRN definition.
    **/
   private String eventSource = null;
+
+  /**
+   * The optional event name. If specified, only events with this name are returned.
+   **/
+  private String eventName = null;
+
+  /**
+   * The optional actor CRN. If specified, only events with this CRN recorded for the actor identity are returned.
+   **/
+  private String actorCrn = null;
+
+  /**
+   * The optional result code. If specified, only events with this result code are returned. Events without a result code are not returned.
+   **/
+  private String resultCode = null;
+
+  /**
+   * The optional result message. If specified, only events with this result message are returned. Events without a result message are not returned.
+   **/
+  private String resultMessage = null;
+
+  /**
+   * Optional additional filtering criteria for listing API request audit events.
+   **/
+  private ApiRequestEventCriteria apiRequestEventCriteria = null;
+
+  /**
+   * Optional additional filtering criteria for listing CDP service audit events.
+   **/
+  private CdpServiceEventCriteria cdpServiceEventCriteria = null;
+
+  /**
+   * Optional additional filtering criteria for listing interactive login audit events.
+   **/
+  private InteractiveLoginEventCriteria interactiveLoginEventCriteria = null;
 
   /**
    * Getter for fromTimestamp.
@@ -163,6 +201,125 @@ public class ListEventsRequest  {
     this.eventSource = eventSource;
   }
 
+  /**
+   * Getter for eventName.
+   * The optional event name. If specified, only events with this name are returned.
+   **/
+  @JsonProperty("eventName")
+  public String getEventName() {
+    return eventName;
+  }
+
+  /**
+   * Setter for eventName.
+   * The optional event name. If specified, only events with this name are returned.
+   **/
+  public void setEventName(String eventName) {
+    this.eventName = eventName;
+  }
+
+  /**
+   * Getter for actorCrn.
+   * The optional actor CRN. If specified, only events with this CRN recorded for the actor identity are returned.
+   **/
+  @JsonProperty("actorCrn")
+  public String getActorCrn() {
+    return actorCrn;
+  }
+
+  /**
+   * Setter for actorCrn.
+   * The optional actor CRN. If specified, only events with this CRN recorded for the actor identity are returned.
+   **/
+  public void setActorCrn(String actorCrn) {
+    this.actorCrn = actorCrn;
+  }
+
+  /**
+   * Getter for resultCode.
+   * The optional result code. If specified, only events with this result code are returned. Events without a result code are not returned.
+   **/
+  @JsonProperty("resultCode")
+  public String getResultCode() {
+    return resultCode;
+  }
+
+  /**
+   * Setter for resultCode.
+   * The optional result code. If specified, only events with this result code are returned. Events without a result code are not returned.
+   **/
+  public void setResultCode(String resultCode) {
+    this.resultCode = resultCode;
+  }
+
+  /**
+   * Getter for resultMessage.
+   * The optional result message. If specified, only events with this result message are returned. Events without a result message are not returned.
+   **/
+  @JsonProperty("resultMessage")
+  public String getResultMessage() {
+    return resultMessage;
+  }
+
+  /**
+   * Setter for resultMessage.
+   * The optional result message. If specified, only events with this result message are returned. Events without a result message are not returned.
+   **/
+  public void setResultMessage(String resultMessage) {
+    this.resultMessage = resultMessage;
+  }
+
+  /**
+   * Getter for apiRequestEventCriteria.
+   * Optional additional filtering criteria for listing API request audit events.
+   **/
+  @JsonProperty("apiRequestEventCriteria")
+  public ApiRequestEventCriteria getApiRequestEventCriteria() {
+    return apiRequestEventCriteria;
+  }
+
+  /**
+   * Setter for apiRequestEventCriteria.
+   * Optional additional filtering criteria for listing API request audit events.
+   **/
+  public void setApiRequestEventCriteria(ApiRequestEventCriteria apiRequestEventCriteria) {
+    this.apiRequestEventCriteria = apiRequestEventCriteria;
+  }
+
+  /**
+   * Getter for cdpServiceEventCriteria.
+   * Optional additional filtering criteria for listing CDP service audit events.
+   **/
+  @JsonProperty("cdpServiceEventCriteria")
+  public CdpServiceEventCriteria getCdpServiceEventCriteria() {
+    return cdpServiceEventCriteria;
+  }
+
+  /**
+   * Setter for cdpServiceEventCriteria.
+   * Optional additional filtering criteria for listing CDP service audit events.
+   **/
+  public void setCdpServiceEventCriteria(CdpServiceEventCriteria cdpServiceEventCriteria) {
+    this.cdpServiceEventCriteria = cdpServiceEventCriteria;
+  }
+
+  /**
+   * Getter for interactiveLoginEventCriteria.
+   * Optional additional filtering criteria for listing interactive login audit events.
+   **/
+  @JsonProperty("interactiveLoginEventCriteria")
+  public InteractiveLoginEventCriteria getInteractiveLoginEventCriteria() {
+    return interactiveLoginEventCriteria;
+  }
+
+  /**
+   * Setter for interactiveLoginEventCriteria.
+   * Optional additional filtering criteria for listing interactive login audit events.
+   **/
+  public void setInteractiveLoginEventCriteria(InteractiveLoginEventCriteria interactiveLoginEventCriteria) {
+    this.interactiveLoginEventCriteria = interactiveLoginEventCriteria;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -190,12 +347,33 @@ public class ListEventsRequest  {
     if (!Objects.equals(this.eventSource, listEventsRequest.eventSource)) {
       return false;
     }
+    if (!Objects.equals(this.eventName, listEventsRequest.eventName)) {
+      return false;
+    }
+    if (!Objects.equals(this.actorCrn, listEventsRequest.actorCrn)) {
+      return false;
+    }
+    if (!Objects.equals(this.resultCode, listEventsRequest.resultCode)) {
+      return false;
+    }
+    if (!Objects.equals(this.resultMessage, listEventsRequest.resultMessage)) {
+      return false;
+    }
+    if (!Objects.equals(this.apiRequestEventCriteria, listEventsRequest.apiRequestEventCriteria)) {
+      return false;
+    }
+    if (!Objects.equals(this.cdpServiceEventCriteria, listEventsRequest.cdpServiceEventCriteria)) {
+      return false;
+    }
+    if (!Objects.equals(this.interactiveLoginEventCriteria, listEventsRequest.interactiveLoginEventCriteria)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fromTimestamp, toTimestamp, pageSize, pageToken, requestId, eventSource);
+    return Objects.hash(fromTimestamp, toTimestamp, pageSize, pageToken, requestId, eventSource, eventName, actorCrn, resultCode, resultMessage, apiRequestEventCriteria, cdpServiceEventCriteria, interactiveLoginEventCriteria);
   }
 
   @Override
@@ -208,6 +386,13 @@ public class ListEventsRequest  {
     sb.append("    pageToken: ").append(toIndentedString(pageToken)).append("\n");
     sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
     sb.append("    eventSource: ").append(toIndentedString(eventSource)).append("\n");
+    sb.append("    eventName: ").append(toIndentedString(eventName)).append("\n");
+    sb.append("    actorCrn: ").append(toIndentedString(actorCrn)).append("\n");
+    sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
+    sb.append("    resultMessage: ").append(toIndentedString(resultMessage)).append("\n");
+    sb.append("    apiRequestEventCriteria: ").append(toIndentedString(apiRequestEventCriteria)).append("\n");
+    sb.append("    cdpServiceEventCriteria: ").append(toIndentedString(cdpServiceEventCriteria)).append("\n");
+    sb.append("    interactiveLoginEventCriteria: ").append(toIndentedString(interactiveLoginEventCriteria)).append("\n");
     sb.append("}");
     return sb.toString();
   }

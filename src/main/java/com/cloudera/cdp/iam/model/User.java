@@ -23,12 +23,13 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.iam.model.WorkloadPasswordDetails;
 import java.time.ZonedDateTime;
 
 /**
  * Information about a Cloudera CDP user.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-01-19T17:43:03.216-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-02-02T18:44:25.170-08:00")
 public class User  {
 
   /**
@@ -80,6 +81,11 @@ public class User  {
    * The username used in all the workload clusters of the user.
    **/
   private String workloadUsername = null;
+
+  /**
+   * Information about the workload password for the user.
+   **/
+  private WorkloadPasswordDetails workloadPasswordDetails = null;
 
   /**
    * Getter for userId.
@@ -251,6 +257,23 @@ public class User  {
     this.workloadUsername = workloadUsername;
   }
 
+  /**
+   * Getter for workloadPasswordDetails.
+   * Information about the workload password for the user.
+   **/
+  @JsonProperty("workloadPasswordDetails")
+  public WorkloadPasswordDetails getWorkloadPasswordDetails() {
+    return workloadPasswordDetails;
+  }
+
+  /**
+   * Setter for workloadPasswordDetails.
+   * Information about the workload password for the user.
+   **/
+  public void setWorkloadPasswordDetails(WorkloadPasswordDetails workloadPasswordDetails) {
+    this.workloadPasswordDetails = workloadPasswordDetails;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -290,12 +313,15 @@ public class User  {
     if (!Objects.equals(this.workloadUsername, user.workloadUsername)) {
       return false;
     }
+    if (!Objects.equals(this.workloadPasswordDetails, user.workloadPasswordDetails)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userId, crn, email, firstName, lastName, creationDate, accountAdmin, identityProviderCrn, lastInteractiveLogin, workloadUsername);
+    return Objects.hash(userId, crn, email, firstName, lastName, creationDate, accountAdmin, identityProviderCrn, lastInteractiveLogin, workloadUsername, workloadPasswordDetails);
   }
 
   @Override
@@ -312,6 +338,7 @@ public class User  {
     sb.append("    identityProviderCrn: ").append(toIndentedString(identityProviderCrn)).append("\n");
     sb.append("    lastInteractiveLogin: ").append(toIndentedString(lastInteractiveLogin)).append("\n");
     sb.append("    workloadUsername: ").append(toIndentedString(workloadUsername)).append("\n");
+    sb.append("    workloadPasswordDetails: ").append(toIndentedString(workloadPasswordDetails)).append("\n");
     sb.append("}");
     return sb.toString();
   }

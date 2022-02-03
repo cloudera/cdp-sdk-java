@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * The model for a login event, as a part of CdpAuditEvent. CDP logs attempts to interactively login to the CDP console. This includes logins using Cloudera SSO and through any federated interactive login events.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-01-19T17:43:03.041-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-02-02T18:44:25.003-08:00")
 public class InteractiveLoginEvent  {
 
   /**
@@ -80,6 +80,11 @@ public class InteractiveLoginEvent  {
    * The CDP user CRN for the user. This may be empty if the login failed.
    **/
   private String userCrn = null;
+
+  /**
+   * The groups that are invalid and filtered (ignored) during the interactive login through non Cloudera SSO IdP. It is a subset of the groups the user belongs to as received in CDP. It can be empty for any of the following reasons: 1) If the account is not entitled for this feature. 2) If the membership sync is off for the IdP used during the interactive login. 3) If all the groups were valid during login through non Cloudera SSO IdP. 4) If the login is performed through Cloudera SSO. 5) If the login fails before filtering invalid groups.
+   **/
+  private List<String> filteredInvalidGroups = new ArrayList<String>();
 
   /**
    * Getter for identityProviderCrn.
@@ -253,6 +258,23 @@ public class InteractiveLoginEvent  {
     this.userCrn = userCrn;
   }
 
+  /**
+   * Getter for filteredInvalidGroups.
+   * The groups that are invalid and filtered (ignored) during the interactive login through non Cloudera SSO IdP. It is a subset of the groups the user belongs to as received in CDP. It can be empty for any of the following reasons: 1) If the account is not entitled for this feature. 2) If the membership sync is off for the IdP used during the interactive login. 3) If all the groups were valid during login through non Cloudera SSO IdP. 4) If the login is performed through Cloudera SSO. 5) If the login fails before filtering invalid groups.
+   **/
+  @JsonProperty("filteredInvalidGroups")
+  public List<String> getFilteredInvalidGroups() {
+    return filteredInvalidGroups;
+  }
+
+  /**
+   * Setter for filteredInvalidGroups.
+   * The groups that are invalid and filtered (ignored) during the interactive login through non Cloudera SSO IdP. It is a subset of the groups the user belongs to as received in CDP. It can be empty for any of the following reasons: 1) If the account is not entitled for this feature. 2) If the membership sync is off for the IdP used during the interactive login. 3) If all the groups were valid during login through non Cloudera SSO IdP. 4) If the login is performed through Cloudera SSO. 5) If the login fails before filtering invalid groups.
+   **/
+  public void setFilteredInvalidGroups(List<String> filteredInvalidGroups) {
+    this.filteredInvalidGroups = filteredInvalidGroups;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -292,12 +314,15 @@ public class InteractiveLoginEvent  {
     if (!Objects.equals(this.userCrn, interactiveLoginEvent.userCrn)) {
       return false;
     }
+    if (!Objects.equals(this.filteredInvalidGroups, interactiveLoginEvent.filteredInvalidGroups)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(identityProviderCrn, identityProviderSessionId, identityProviderUserId, email, sourceIPAddress, firstName, lastName, accountAdmin, groups, userCrn);
+    return Objects.hash(identityProviderCrn, identityProviderSessionId, identityProviderUserId, email, sourceIPAddress, firstName, lastName, accountAdmin, groups, userCrn, filteredInvalidGroups);
   }
 
   @Override
@@ -314,6 +339,7 @@ public class InteractiveLoginEvent  {
     sb.append("    accountAdmin: ").append(toIndentedString(accountAdmin)).append("\n");
     sb.append("    groups: ").append(toIndentedString(groups)).append("\n");
     sb.append("    userCrn: ").append(toIndentedString(userCrn)).append("\n");
+    sb.append("    filteredInvalidGroups: ").append(toIndentedString(filteredInvalidGroups)).append("\n");
     sb.append("}");
     return sb.toString();
   }

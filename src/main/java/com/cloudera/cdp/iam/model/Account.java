@@ -23,21 +23,32 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.iam.model.WorkloadPasswordPolicy;
 
 /**
  * Information about a Cloudera CDP account.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-01-19T17:43:03.216-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-02-02T18:44:25.170-08:00")
 public class Account  {
 
   /**
-   * Whether interactive login using Cloudera SSO is enabled.
+   * Whether interactive login using Cloudera SSO is enabled for users who are not account administrators. Its default value is 'true'. When it is 'true', the account administrators, as well as non-administrator users can login through Cloudera SSO. When it is 'false', Cloudera SSO users who are not account administrators will not be able to login.
    **/
   private Boolean clouderaSSOLoginEnabled = null;
 
   /**
+   * The workload password policy object.
+   **/
+  private WorkloadPasswordPolicy workloadPasswordPolicy = null;
+
+  /**
+   * The machine user workload password policy object. May be omitted if no such policy was defined.
+   **/
+  private WorkloadPasswordPolicy machineUserWorkloadPasswordPolicy = null;
+
+  /**
    * Getter for clouderaSSOLoginEnabled.
-   * Whether interactive login using Cloudera SSO is enabled.
+   * Whether interactive login using Cloudera SSO is enabled for users who are not account administrators. Its default value is &#39;true&#39;. When it is &#39;true&#39;, the account administrators, as well as non-administrator users can login through Cloudera SSO. When it is &#39;false&#39;, Cloudera SSO users who are not account administrators will not be able to login.
    **/
   @JsonProperty("clouderaSSOLoginEnabled")
   public Boolean getClouderaSSOLoginEnabled() {
@@ -46,10 +57,44 @@ public class Account  {
 
   /**
    * Setter for clouderaSSOLoginEnabled.
-   * Whether interactive login using Cloudera SSO is enabled.
+   * Whether interactive login using Cloudera SSO is enabled for users who are not account administrators. Its default value is &#39;true&#39;. When it is &#39;true&#39;, the account administrators, as well as non-administrator users can login through Cloudera SSO. When it is &#39;false&#39;, Cloudera SSO users who are not account administrators will not be able to login.
    **/
   public void setClouderaSSOLoginEnabled(Boolean clouderaSSOLoginEnabled) {
     this.clouderaSSOLoginEnabled = clouderaSSOLoginEnabled;
+  }
+
+  /**
+   * Getter for workloadPasswordPolicy.
+   * The workload password policy object.
+   **/
+  @JsonProperty("workloadPasswordPolicy")
+  public WorkloadPasswordPolicy getWorkloadPasswordPolicy() {
+    return workloadPasswordPolicy;
+  }
+
+  /**
+   * Setter for workloadPasswordPolicy.
+   * The workload password policy object.
+   **/
+  public void setWorkloadPasswordPolicy(WorkloadPasswordPolicy workloadPasswordPolicy) {
+    this.workloadPasswordPolicy = workloadPasswordPolicy;
+  }
+
+  /**
+   * Getter for machineUserWorkloadPasswordPolicy.
+   * The machine user workload password policy object. May be omitted if no such policy was defined.
+   **/
+  @JsonProperty("machineUserWorkloadPasswordPolicy")
+  public WorkloadPasswordPolicy getMachineUserWorkloadPasswordPolicy() {
+    return machineUserWorkloadPasswordPolicy;
+  }
+
+  /**
+   * Setter for machineUserWorkloadPasswordPolicy.
+   * The machine user workload password policy object. May be omitted if no such policy was defined.
+   **/
+  public void setMachineUserWorkloadPasswordPolicy(WorkloadPasswordPolicy machineUserWorkloadPasswordPolicy) {
+    this.machineUserWorkloadPasswordPolicy = machineUserWorkloadPasswordPolicy;
   }
 
   @Override
@@ -64,12 +109,18 @@ public class Account  {
     if (!Objects.equals(this.clouderaSSOLoginEnabled, account.clouderaSSOLoginEnabled)) {
       return false;
     }
+    if (!Objects.equals(this.workloadPasswordPolicy, account.workloadPasswordPolicy)) {
+      return false;
+    }
+    if (!Objects.equals(this.machineUserWorkloadPasswordPolicy, account.machineUserWorkloadPasswordPolicy)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clouderaSSOLoginEnabled);
+    return Objects.hash(clouderaSSOLoginEnabled, workloadPasswordPolicy, machineUserWorkloadPasswordPolicy);
   }
 
   @Override
@@ -77,6 +128,8 @@ public class Account  {
     StringBuilder sb = new StringBuilder();
     sb.append("class Account {\n");
     sb.append("    clouderaSSOLoginEnabled: ").append(toIndentedString(clouderaSSOLoginEnabled)).append("\n");
+    sb.append("    workloadPasswordPolicy: ").append(toIndentedString(workloadPasswordPolicy)).append("\n");
+    sb.append("    machineUserWorkloadPasswordPolicy: ").append(toIndentedString(machineUserWorkloadPasswordPolicy)).append("\n");
     sb.append("}");
     return sb.toString();
   }

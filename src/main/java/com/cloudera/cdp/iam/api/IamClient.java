@@ -129,6 +129,8 @@ import com.cloudera.cdp.iam.model.RemoveUserFromGroupRequest;
 import com.cloudera.cdp.iam.model.RemoveUserFromGroupResponse;
 import com.cloudera.cdp.iam.model.SetAccountMessagesRequest;
 import com.cloudera.cdp.iam.model.SetAccountMessagesResponse;
+import com.cloudera.cdp.iam.model.SetWorkloadPasswordPolicyRequest;
+import com.cloudera.cdp.iam.model.SetWorkloadPasswordPolicyResponse;
 import com.cloudera.cdp.iam.model.SetWorkloadPasswordRequest;
 import com.cloudera.cdp.iam.model.SetWorkloadPasswordResponse;
 import com.cloudera.cdp.iam.model.UnassignGroupResourceRoleRequest;
@@ -143,6 +145,10 @@ import com.cloudera.cdp.iam.model.UnassignUserResourceRoleRequest;
 import com.cloudera.cdp.iam.model.UnassignUserResourceRoleResponse;
 import com.cloudera.cdp.iam.model.UnassignUserRoleRequest;
 import com.cloudera.cdp.iam.model.UnassignUserRoleResponse;
+import com.cloudera.cdp.iam.model.UnsetWorkloadPasswordMinLifetimeRequest;
+import com.cloudera.cdp.iam.model.UnsetWorkloadPasswordMinLifetimeResponse;
+import com.cloudera.cdp.iam.model.UnsetWorkloadPasswordPolicyRequest;
+import com.cloudera.cdp.iam.model.UnsetWorkloadPasswordPolicyResponse;
 import com.cloudera.cdp.iam.model.UpdateAccessKeyRequest;
 import com.cloudera.cdp.iam.model.UpdateAccessKeyResponse;
 import com.cloudera.cdp.iam.model.UpdateGroupRequest;
@@ -155,7 +161,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-01-19T17:43:03.216-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-02-02T18:44:25.170-08:00")
 public class IamClient extends CdpClient {
 
   public static final String SERVICE_NAME = "iam";
@@ -850,6 +856,19 @@ public class IamClient extends CdpClient {
   }
 
   /**
+   * Set the workload password policy for the account.
+   * @param input
+   * @return SetWorkloadPasswordPolicyResponse
+   */
+  public SetWorkloadPasswordPolicyResponse setWorkloadPasswordPolicy(SetWorkloadPasswordPolicyRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling setWorkloadPasswordPolicy");
+    }
+
+    return this.invokeAPI("setWorkloadPasswordPolicy", "/iam/setWorkloadPasswordPolicy", input, new GenericType<SetWorkloadPasswordPolicyResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Unassign a resource role from a group.
    * @param input
    * @return UnassignGroupResourceRoleResponse
@@ -925,6 +944,32 @@ public class IamClient extends CdpClient {
     }
 
     return this.invokeAPI("unassignUserRole", "/iam/unassignUserRole", input, new GenericType<UnassignUserRoleResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Removes workload password minimum lifetime date for an actor.
+   * @param input
+   * @return UnsetWorkloadPasswordMinLifetimeResponse
+   */
+  public UnsetWorkloadPasswordMinLifetimeResponse unsetWorkloadPasswordMinLifetime(UnsetWorkloadPasswordMinLifetimeRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling unsetWorkloadPasswordMinLifetime");
+    }
+
+    return this.invokeAPI("unsetWorkloadPasswordMinLifetime", "/iam/unsetWorkloadPasswordMinLifetime", input, new GenericType<UnsetWorkloadPasswordMinLifetimeResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Unset workload password policy for the account.
+   * @param input
+   * @return UnsetWorkloadPasswordPolicyResponse
+   */
+  public UnsetWorkloadPasswordPolicyResponse unsetWorkloadPasswordPolicy(UnsetWorkloadPasswordPolicyRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling unsetWorkloadPasswordPolicy");
+    }
+
+    return this.invokeAPI("unsetWorkloadPasswordPolicy", "/iam/unsetWorkloadPasswordPolicy", input, new GenericType<UnsetWorkloadPasswordPolicyResponse>(){}, NO_EXTENSION);
   }
 
   /**
