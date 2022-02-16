@@ -25,13 +25,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.de.model.AccessControlResponse;
 import com.cloudera.cdp.de.model.ChartValueOverridesResponse;
+import com.cloudera.cdp.de.model.SmtpConfigResponse;
 import com.cloudera.cdp.de.model.VcResources;
 import java.util.*;
 
 /**
  * CDE virtual cluster summary.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-02-02T18:44:25.093-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-02-16T12:25:48.754-08:00")
 public class VcDescription  {
 
   /**
@@ -118,6 +119,11 @@ public class VcDescription  {
    * Access control object for the Virtual Cluster.
    **/
   private AccessControlResponse accessControl = null;
+
+  /**
+   * SMTP Configurations for Airflow Email Alerts.
+   **/
+  private SmtpConfigResponse smtpConfig = null;
 
   /**
    * Getter for vcId.
@@ -408,6 +414,23 @@ public class VcDescription  {
     this.accessControl = accessControl;
   }
 
+  /**
+   * Getter for smtpConfig.
+   * SMTP Configurations for Airflow Email Alerts.
+   **/
+  @JsonProperty("smtpConfig")
+  public SmtpConfigResponse getSmtpConfig() {
+    return smtpConfig;
+  }
+
+  /**
+   * Setter for smtpConfig.
+   * SMTP Configurations for Airflow Email Alerts.
+   **/
+  public void setSmtpConfig(SmtpConfigResponse smtpConfig) {
+    this.smtpConfig = smtpConfig;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -468,12 +491,15 @@ public class VcDescription  {
     if (!Objects.equals(this.accessControl, vcDescription.accessControl)) {
       return false;
     }
+    if (!Objects.equals(this.smtpConfig, vcDescription.smtpConfig)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(vcId, vcName, clusterId, status, resources, creatorEmail, creatorID, creatorName, vcApiUrl, vcUiUrl, historyServerUrl, livyServerUrl, safariUrl, creationTime, sparkVersion, chartValueOverrides, accessControl);
+    return Objects.hash(vcId, vcName, clusterId, status, resources, creatorEmail, creatorID, creatorName, vcApiUrl, vcUiUrl, historyServerUrl, livyServerUrl, safariUrl, creationTime, sparkVersion, chartValueOverrides, accessControl, smtpConfig);
   }
 
   @Override
@@ -497,6 +523,7 @@ public class VcDescription  {
     sb.append("    sparkVersion: ").append(toIndentedString(sparkVersion)).append("\n");
     sb.append("    chartValueOverrides: ").append(toIndentedString(chartValueOverrides)).append("\n");
     sb.append("    accessControl: ").append(toIndentedString(accessControl)).append("\n");
+    sb.append("    smtpConfig: ").append(toIndentedString(smtpConfig)).append("\n");
     sb.append("}");
     return sb.toString();
   }

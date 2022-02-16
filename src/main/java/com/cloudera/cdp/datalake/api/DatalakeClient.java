@@ -65,6 +65,8 @@ import com.cloudera.cdp.datalake.model.ListDatalakesRequest;
 import com.cloudera.cdp.datalake.model.ListDatalakesResponse;
 import com.cloudera.cdp.datalake.model.ListRuntimesRequest;
 import com.cloudera.cdp.datalake.model.ListRuntimesResponse;
+import com.cloudera.cdp.datalake.model.RecoverDatalakeRequest;
+import com.cloudera.cdp.datalake.model.RecoverDatalakeResponse;
 import com.cloudera.cdp.datalake.model.RenewCertificateRequest;
 import com.cloudera.cdp.datalake.model.RenewCertificateResponse;
 import com.cloudera.cdp.datalake.model.RepairDatalakeRequest;
@@ -93,7 +95,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-02-02T18:44:24.394-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-02-16T12:25:48.065-08:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datalake";
@@ -356,6 +358,19 @@ public class DatalakeClient extends CdpClient {
     }
 
     return this.invokeAPI("listRuntimes", "/api/v1/datalake/listRuntimes", input, new GenericType<ListRuntimesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Recover datalake to the original version after a failed upgrade.
+   * @param input
+   * @return RecoverDatalakeResponse
+   */
+  public RecoverDatalakeResponse recoverDatalake(RecoverDatalakeRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling recoverDatalake");
+    }
+
+    return this.invokeAPI("recoverDatalake", "/api/v1/datalake/recoverDatalake", input, new GenericType<RecoverDatalakeResponse>(){}, NO_EXTENSION);
   }
 
   /**

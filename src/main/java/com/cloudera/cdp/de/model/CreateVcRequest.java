@@ -24,12 +24,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.de.model.ChartValueOverridesRequest;
+import com.cloudera.cdp.de.model.SmtpConfigRequest;
 import java.util.*;
 
 /**
  * Request object for CreateVc method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-02-02T18:44:25.093-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-02-16T12:25:48.754-08:00")
 public class CreateVcRequest  {
 
   /**
@@ -56,6 +57,11 @@ public class CreateVcRequest  {
    * Chart overrides for creating a virtual cluster.
    **/
   private List<ChartValueOverridesRequest> chartValueOverrides = new ArrayList<ChartValueOverridesRequest>();
+
+  /**
+   * SMTP Configurations for Airflow Email Alerts.
+   **/
+  private SmtpConfigRequest smtpConfigs = null;
 
   /**
    * Used to describe where the Driver and the Executors would run. By default the Driver would run on on-demand instances and the Executors on spot instances. Setting it to ALL will run both the Driver and the Executors on spot instances whereas setting it to NONE should run both the Driver and the Executor on on-demand instances. Currently applicable for aws services only. Use this option only on services with spot instances enabled.
@@ -158,6 +164,23 @@ public class CreateVcRequest  {
   }
 
   /**
+   * Getter for smtpConfigs.
+   * SMTP Configurations for Airflow Email Alerts.
+   **/
+  @JsonProperty("smtpConfigs")
+  public SmtpConfigRequest getSmtpConfigs() {
+    return smtpConfigs;
+  }
+
+  /**
+   * Setter for smtpConfigs.
+   * SMTP Configurations for Airflow Email Alerts.
+   **/
+  public void setSmtpConfigs(SmtpConfigRequest smtpConfigs) {
+    this.smtpConfigs = smtpConfigs;
+  }
+
+  /**
    * Getter for runtimeSpotComponent.
    * Used to describe where the Driver and the Executors would run. By default the Driver would run on on-demand instances and the Executors on spot instances. Setting it to ALL will run both the Driver and the Executors on spot instances whereas setting it to NONE should run both the Driver and the Executor on on-demand instances. Currently applicable for aws services only. Use this option only on services with spot instances enabled.
    **/
@@ -232,6 +255,9 @@ public class CreateVcRequest  {
     if (!Objects.equals(this.chartValueOverrides, createVcRequest.chartValueOverrides)) {
       return false;
     }
+    if (!Objects.equals(this.smtpConfigs, createVcRequest.smtpConfigs)) {
+      return false;
+    }
     if (!Objects.equals(this.runtimeSpotComponent, createVcRequest.runtimeSpotComponent)) {
       return false;
     }
@@ -246,7 +272,7 @@ public class CreateVcRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, clusterId, cpuRequests, memoryRequests, chartValueOverrides, runtimeSpotComponent, sparkVersion, aclUsers);
+    return Objects.hash(name, clusterId, cpuRequests, memoryRequests, chartValueOverrides, smtpConfigs, runtimeSpotComponent, sparkVersion, aclUsers);
   }
 
   @Override
@@ -258,6 +284,7 @@ public class CreateVcRequest  {
     sb.append("    cpuRequests: ").append(toIndentedString(cpuRequests)).append("\n");
     sb.append("    memoryRequests: ").append(toIndentedString(memoryRequests)).append("\n");
     sb.append("    chartValueOverrides: ").append(toIndentedString(chartValueOverrides)).append("\n");
+    sb.append("    smtpConfigs: ").append(toIndentedString(smtpConfigs)).append("\n");
     sb.append("    runtimeSpotComponent: ").append(toIndentedString(runtimeSpotComponent)).append("\n");
     sb.append("    sparkVersion: ").append(toIndentedString(sparkVersion)).append("\n");
     sb.append("    aclUsers: ").append(toIndentedString(aclUsers)).append("\n");
