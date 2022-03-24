@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object to perform a backup of datalake.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-03T11:50:46.096-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-23T17:47:15.034-07:00")
 public class BackupDatalakeRequest  {
 
   /**
@@ -49,6 +49,21 @@ public class BackupDatalakeRequest  {
    * Close the database connections while performing backup. Default is true.
    **/
   private Boolean closeDbConnections = true;
+
+  /**
+   * Skips the backup of the databases backing HMS/Ranger services. If this option is not provided, the HMS/Ranger services are backed up by default.
+   **/
+  private Boolean skipRangerHmsMetadata = null;
+
+  /**
+   * Skips the backup of the Atlas metadata. If this option is not provided, the Atlas metadata is backed up by default.
+   **/
+  private Boolean skipAtlasMetadata = null;
+
+  /**
+   * Skips the backup of the Ranger audits. If this option is not provided, Ranger audits are backed up by default.
+   **/
+  private Boolean skipRangerAudits = null;
 
   /**
    * Getter for datalakeName.
@@ -118,6 +133,57 @@ public class BackupDatalakeRequest  {
     this.closeDbConnections = closeDbConnections;
   }
 
+  /**
+   * Getter for skipRangerHmsMetadata.
+   * Skips the backup of the databases backing HMS/Ranger services. If this option is not provided, the HMS/Ranger services are backed up by default.
+   **/
+  @JsonProperty("skipRangerHmsMetadata")
+  public Boolean getSkipRangerHmsMetadata() {
+    return skipRangerHmsMetadata;
+  }
+
+  /**
+   * Setter for skipRangerHmsMetadata.
+   * Skips the backup of the databases backing HMS/Ranger services. If this option is not provided, the HMS/Ranger services are backed up by default.
+   **/
+  public void setSkipRangerHmsMetadata(Boolean skipRangerHmsMetadata) {
+    this.skipRangerHmsMetadata = skipRangerHmsMetadata;
+  }
+
+  /**
+   * Getter for skipAtlasMetadata.
+   * Skips the backup of the Atlas metadata. If this option is not provided, the Atlas metadata is backed up by default.
+   **/
+  @JsonProperty("skipAtlasMetadata")
+  public Boolean getSkipAtlasMetadata() {
+    return skipAtlasMetadata;
+  }
+
+  /**
+   * Setter for skipAtlasMetadata.
+   * Skips the backup of the Atlas metadata. If this option is not provided, the Atlas metadata is backed up by default.
+   **/
+  public void setSkipAtlasMetadata(Boolean skipAtlasMetadata) {
+    this.skipAtlasMetadata = skipAtlasMetadata;
+  }
+
+  /**
+   * Getter for skipRangerAudits.
+   * Skips the backup of the Ranger audits. If this option is not provided, Ranger audits are backed up by default.
+   **/
+  @JsonProperty("skipRangerAudits")
+  public Boolean getSkipRangerAudits() {
+    return skipRangerAudits;
+  }
+
+  /**
+   * Setter for skipRangerAudits.
+   * Skips the backup of the Ranger audits. If this option is not provided, Ranger audits are backed up by default.
+   **/
+  public void setSkipRangerAudits(Boolean skipRangerAudits) {
+    this.skipRangerAudits = skipRangerAudits;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -139,12 +205,21 @@ public class BackupDatalakeRequest  {
     if (!Objects.equals(this.closeDbConnections, backupDatalakeRequest.closeDbConnections)) {
       return false;
     }
+    if (!Objects.equals(this.skipRangerHmsMetadata, backupDatalakeRequest.skipRangerHmsMetadata)) {
+      return false;
+    }
+    if (!Objects.equals(this.skipAtlasMetadata, backupDatalakeRequest.skipAtlasMetadata)) {
+      return false;
+    }
+    if (!Objects.equals(this.skipRangerAudits, backupDatalakeRequest.skipRangerAudits)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, backupLocation, backupName, closeDbConnections);
+    return Objects.hash(datalakeName, backupLocation, backupName, closeDbConnections, skipRangerHmsMetadata, skipAtlasMetadata, skipRangerAudits);
   }
 
   @Override
@@ -155,6 +230,9 @@ public class BackupDatalakeRequest  {
     sb.append("    backupLocation: ").append(toIndentedString(backupLocation)).append("\n");
     sb.append("    backupName: ").append(toIndentedString(backupName)).append("\n");
     sb.append("    closeDbConnections: ").append(toIndentedString(closeDbConnections)).append("\n");
+    sb.append("    skipRangerHmsMetadata: ").append(toIndentedString(skipRangerHmsMetadata)).append("\n");
+    sb.append("    skipAtlasMetadata: ").append(toIndentedString(skipAtlasMetadata)).append("\n");
+    sb.append("    skipRangerAudits: ").append(toIndentedString(skipRangerAudits)).append("\n");
     sb.append("}");
     return sb.toString();
   }

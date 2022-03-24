@@ -49,6 +49,12 @@ import com.cloudera.cdp.ml.model.ListWorkspaceAccessRequest;
 import com.cloudera.cdp.ml.model.ListWorkspaceAccessResponse;
 import com.cloudera.cdp.ml.model.ListWorkspacesRequest;
 import com.cloudera.cdp.ml.model.ListWorkspacesResponse;
+import com.cloudera.cdp.ml.model.ModifyClusterInstanceGroupRequest;
+import com.cloudera.cdp.ml.model.ModifyClusterInstanceGroupResponse;
+import com.cloudera.cdp.ml.model.ModifyClusterSecurityRequest;
+import com.cloudera.cdp.ml.model.ModifyClusterSecurityResponse;
+import com.cloudera.cdp.ml.model.ModifyWorkspaceLoadBalancerRequest;
+import com.cloudera.cdp.ml.model.ModifyWorkspaceLoadBalancerResponse;
 import com.cloudera.cdp.ml.model.RevokeWorkspaceAccessRequest;
 import com.cloudera.cdp.ml.model.RevokeWorkspaceAccessResponse;
 import com.cloudera.cdp.ml.model.UpgradeWorkspaceRequest;
@@ -59,7 +65,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-03T11:50:45.949-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-23T17:47:14.928-07:00")
 public class MlClient extends CdpClient {
 
   public static final String SERVICE_NAME = "ml";
@@ -218,6 +224,45 @@ public class MlClient extends CdpClient {
     }
 
     return this.invokeAPI("listWorkspaces", "/api/v1/ml/listWorkspaces", input, new GenericType<ListWorkspacesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Modify Cloudera Machine Learning workspace cluster instance group.
+   * @param input
+   * @return ModifyClusterInstanceGroupResponse
+   */
+  public ModifyClusterInstanceGroupResponse modifyClusterInstanceGroup(ModifyClusterInstanceGroupRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling modifyClusterInstanceGroup");
+    }
+
+    return this.invokeAPI("modifyClusterInstanceGroup", "/api/v1/ml/modifyClusterInstanceGroup", input, new GenericType<ModifyClusterInstanceGroupResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Modify Cloudera Machine Learning workspace cluster security.
+   * @param input
+   * @return ModifyClusterSecurityResponse
+   */
+  public ModifyClusterSecurityResponse modifyClusterSecurity(ModifyClusterSecurityRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling modifyClusterSecurity");
+    }
+
+    return this.invokeAPI("modifyClusterSecurity", "/api/v1/ml/modifyClusterSecurity", input, new GenericType<ModifyClusterSecurityResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Modify Cloudera Machine Learning workspace loadbalancer.
+   * @param input
+   * @return ModifyWorkspaceLoadBalancerResponse
+   */
+  public ModifyWorkspaceLoadBalancerResponse modifyWorkspaceLoadBalancer(ModifyWorkspaceLoadBalancerRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling modifyWorkspaceLoadBalancer");
+    }
+
+    return this.invokeAPI("modifyWorkspaceLoadBalancer", "/api/v1/ml/modifyWorkspaceLoadBalancer", input, new GenericType<ModifyWorkspaceLoadBalancerResponse>(){}, NO_EXTENSION);
   }
 
   /**

@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object for create Azure cluster request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-03T11:50:45.352-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-23T17:47:14.220-07:00")
 public class CreateAzureClusterRequest  {
 
   /**
@@ -83,6 +83,11 @@ public class CreateAzureClusterRequest  {
    * Database type for datahub. Currently supported values: NONE, NON_HA, HA
    **/
   private String datahubDatabase = null;
+
+  /**
+   * Flag that decides whether to provision a load-balancer to front various service endpoints for the given datahub. This will typically be used for HA cluster shapes.
+   **/
+  private Boolean enableLoadBalancer = null;
 
   /**
    * Getter for clusterName.
@@ -254,6 +259,23 @@ public class CreateAzureClusterRequest  {
     this.datahubDatabase = datahubDatabase;
   }
 
+  /**
+   * Getter for enableLoadBalancer.
+   * Flag that decides whether to provision a load-balancer to front various service endpoints for the given datahub. This will typically be used for HA cluster shapes.
+   **/
+  @JsonProperty("enableLoadBalancer")
+  public Boolean getEnableLoadBalancer() {
+    return enableLoadBalancer;
+  }
+
+  /**
+   * Setter for enableLoadBalancer.
+   * Flag that decides whether to provision a load-balancer to front various service endpoints for the given datahub. This will typically be used for HA cluster shapes.
+   **/
+  public void setEnableLoadBalancer(Boolean enableLoadBalancer) {
+    this.enableLoadBalancer = enableLoadBalancer;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -293,12 +315,15 @@ public class CreateAzureClusterRequest  {
     if (!Objects.equals(this.datahubDatabase, createAzureClusterRequest.datahubDatabase)) {
       return false;
     }
+    if (!Objects.equals(this.enableLoadBalancer, createAzureClusterRequest.enableLoadBalancer)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, clusterDefinitionName, environmentName, clusterTemplateName, instanceGroups, subnetId, image, tags, requestTemplate, datahubDatabase);
+    return Objects.hash(clusterName, clusterDefinitionName, environmentName, clusterTemplateName, instanceGroups, subnetId, image, tags, requestTemplate, datahubDatabase, enableLoadBalancer);
   }
 
   @Override
@@ -315,6 +340,7 @@ public class CreateAzureClusterRequest  {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    requestTemplate: ").append(toIndentedString(requestTemplate)).append("\n");
     sb.append("    datahubDatabase: ").append(toIndentedString(datahubDatabase)).append("\n");
+    sb.append("    enableLoadBalancer: ").append(toIndentedString(enableLoadBalancer)).append("\n");
     sb.append("}");
     return sb.toString();
   }

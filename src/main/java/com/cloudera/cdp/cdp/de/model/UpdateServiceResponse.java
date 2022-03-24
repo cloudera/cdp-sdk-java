@@ -27,18 +27,19 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object for UpdateService request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-03T11:50:47.251-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-23T17:47:15.881-07:00")
 public class UpdateServiceResponse extends CdpResponse {
 
   /**
-   * The operation ID of the update request.
+   * Deprecated. The operation ID of the update request.
    **/
   private String operationId = null;
 
   /**
    * Getter for operationId.
-   * The operation ID of the update request.
+   * Deprecated. The operation ID of the update request.
    **/
+  @Deprecated
   @JsonProperty("operationId")
   public String getOperationId() {
     return operationId;
@@ -46,8 +47,9 @@ public class UpdateServiceResponse extends CdpResponse {
 
   /**
    * Setter for operationId.
-   * The operation ID of the update request.
+   * Deprecated. The operation ID of the update request.
    **/
+  @Deprecated
   public void setOperationId(String operationId) {
     this.operationId = operationId;
   }

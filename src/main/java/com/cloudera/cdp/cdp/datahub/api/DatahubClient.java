@@ -93,6 +93,8 @@ import com.cloudera.cdp.datahub.model.ListRecipesRequest;
 import com.cloudera.cdp.datahub.model.ListRecipesResponse;
 import com.cloudera.cdp.datahub.model.RenewCertificateRequest;
 import com.cloudera.cdp.datahub.model.RenewCertificateResponse;
+import com.cloudera.cdp.datahub.model.RenewPublicCertificateRequest;
+import com.cloudera.cdp.datahub.model.RenewPublicCertificateResponse;
 import com.cloudera.cdp.datahub.model.RepairClusterRequest;
 import com.cloudera.cdp.datahub.model.RepairClusterResponse;
 import com.cloudera.cdp.datahub.model.ReplaceRecipesRequest;
@@ -101,6 +103,8 @@ import com.cloudera.cdp.datahub.model.RetryClusterRequest;
 import com.cloudera.cdp.datahub.model.RetryClusterResponse;
 import com.cloudera.cdp.datahub.model.RotateAutoTlsCertificatesRequest;
 import com.cloudera.cdp.datahub.model.RotateAutoTlsCertificatesResponse;
+import com.cloudera.cdp.datahub.model.RotatePrivateCertificatesRequest;
+import com.cloudera.cdp.datahub.model.RotatePrivateCertificatesResponse;
 import com.cloudera.cdp.datahub.model.ScaleClusterRequest;
 import com.cloudera.cdp.datahub.model.ScaleClusterResponse;
 import com.cloudera.cdp.datahub.model.SetCatalogRequest;
@@ -111,6 +115,8 @@ import com.cloudera.cdp.datahub.model.StopClusterRequest;
 import com.cloudera.cdp.datahub.model.StopClusterResponse;
 import com.cloudera.cdp.datahub.model.SyncClusterRequest;
 import com.cloudera.cdp.datahub.model.SyncClusterResponse;
+import com.cloudera.cdp.datahub.model.SyncComponentVersionsFromCmRequest;
+import com.cloudera.cdp.datahub.model.SyncComponentVersionsFromCmResponse;
 import com.cloudera.cdp.datahub.model.UpdateAutoScaleRulesRequest;
 import com.cloudera.cdp.datahub.model.UpdateAutoScaleRulesResponse;
 import com.cloudera.cdp.datahub.model.UpgradeClusterRequest;
@@ -121,7 +127,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-03T11:50:45.352-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-23T17:47:14.220-07:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datahub";
@@ -569,6 +575,19 @@ public class DatahubClient extends CdpClient {
   }
 
   /**
+   * Renews public certificate on a Datahub cluster by name or CRN.
+   * @param input
+   * @return RenewPublicCertificateResponse
+   */
+  public RenewPublicCertificateResponse renewPublicCertificate(RenewPublicCertificateRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling renewPublicCertificate");
+    }
+
+    return this.invokeAPI("renewPublicCertificate", "/api/v1/datahub/renewPublicCertificate", input, new GenericType<RenewPublicCertificateResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Repairs a cluster.
    * @param input
    * @return RepairClusterResponse
@@ -618,6 +637,19 @@ public class DatahubClient extends CdpClient {
     }
 
     return this.invokeAPI("rotateAutoTlsCertificates", "/api/v1/datahub/rotateAutoTlsCertificates", input, new GenericType<RotateAutoTlsCertificatesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Rotates private certificates on the hosts of Datahub.
+   * @param input
+   * @return RotatePrivateCertificatesResponse
+   */
+  public RotatePrivateCertificatesResponse rotatePrivateCertificates(RotatePrivateCertificatesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling rotatePrivateCertificates");
+    }
+
+    return this.invokeAPI("rotatePrivateCertificates", "/api/v1/datahub/rotatePrivateCertificates", input, new GenericType<RotatePrivateCertificatesResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -683,6 +715,19 @@ public class DatahubClient extends CdpClient {
     }
 
     return this.invokeAPI("syncCluster", "/api/v1/datahub/syncCluster", input, new GenericType<SyncClusterResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Syncs component versions from CM after a failed upgrade.
+   * @param input
+   * @return SyncComponentVersionsFromCmResponse
+   */
+  public SyncComponentVersionsFromCmResponse syncComponentVersionsFromCm(SyncComponentVersionsFromCmRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling syncComponentVersionsFromCm");
+    }
+
+    return this.invokeAPI("syncComponentVersionsFromCm", "/api/v1/datahub/syncComponentVersionsFromCm", input, new GenericType<SyncComponentVersionsFromCmResponse>(){}, NO_EXTENSION);
   }
 
   /**

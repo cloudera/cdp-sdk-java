@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request to restore datalake from backup. Restore does not restore the database by default.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-03T11:50:46.096-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-23T17:47:15.034-07:00")
 public class RestoreDatalakeRequest  {
 
   /**
@@ -49,6 +49,21 @@ public class RestoreDatalakeRequest  {
    * DEPRECATED - The database is included in the restore by default. To skip it, use the --skip-database flag.
    **/
   private Boolean includeDatabase = null;
+
+  /**
+   * Skips the restore of the databases backing HMS/Ranger services. If this option is not provided, then by default the Atlas lineage will be restored if the backup used includes the Atlas lineage information.
+   **/
+  private Boolean skipRangerHmsMetadata = null;
+
+  /**
+   * Skips the restore of the Atlas metadata. If this option is not provided, then by default the Atlas metadata will be restored if the backup used includes the Atlas metadata.
+   **/
+  private Boolean skipAtlasMetadata = null;
+
+  /**
+   * Skips the restore of the Ranger audits. If this option is not provided, then by default the Ranger audits will be restored if the backup used includes the Ranger audits.
+   **/
+  private Boolean skipRangerAudits = null;
 
   /**
    * Backup location. When provided, will be used to lookup the backup. If provided, the --backup-id parameter is required.
@@ -124,6 +139,57 @@ public class RestoreDatalakeRequest  {
   }
 
   /**
+   * Getter for skipRangerHmsMetadata.
+   * Skips the restore of the databases backing HMS/Ranger services. If this option is not provided, then by default the Atlas lineage will be restored if the backup used includes the Atlas lineage information.
+   **/
+  @JsonProperty("skipRangerHmsMetadata")
+  public Boolean getSkipRangerHmsMetadata() {
+    return skipRangerHmsMetadata;
+  }
+
+  /**
+   * Setter for skipRangerHmsMetadata.
+   * Skips the restore of the databases backing HMS/Ranger services. If this option is not provided, then by default the Atlas lineage will be restored if the backup used includes the Atlas lineage information.
+   **/
+  public void setSkipRangerHmsMetadata(Boolean skipRangerHmsMetadata) {
+    this.skipRangerHmsMetadata = skipRangerHmsMetadata;
+  }
+
+  /**
+   * Getter for skipAtlasMetadata.
+   * Skips the restore of the Atlas metadata. If this option is not provided, then by default the Atlas metadata will be restored if the backup used includes the Atlas metadata.
+   **/
+  @JsonProperty("skipAtlasMetadata")
+  public Boolean getSkipAtlasMetadata() {
+    return skipAtlasMetadata;
+  }
+
+  /**
+   * Setter for skipAtlasMetadata.
+   * Skips the restore of the Atlas metadata. If this option is not provided, then by default the Atlas metadata will be restored if the backup used includes the Atlas metadata.
+   **/
+  public void setSkipAtlasMetadata(Boolean skipAtlasMetadata) {
+    this.skipAtlasMetadata = skipAtlasMetadata;
+  }
+
+  /**
+   * Getter for skipRangerAudits.
+   * Skips the restore of the Ranger audits. If this option is not provided, then by default the Ranger audits will be restored if the backup used includes the Ranger audits.
+   **/
+  @JsonProperty("skipRangerAudits")
+  public Boolean getSkipRangerAudits() {
+    return skipRangerAudits;
+  }
+
+  /**
+   * Setter for skipRangerAudits.
+   * Skips the restore of the Ranger audits. If this option is not provided, then by default the Ranger audits will be restored if the backup used includes the Ranger audits.
+   **/
+  public void setSkipRangerAudits(Boolean skipRangerAudits) {
+    this.skipRangerAudits = skipRangerAudits;
+  }
+
+  /**
    * Getter for backupLocationOverride.
    * Backup location. When provided, will be used to lookup the backup. If provided, the --backup-id parameter is required.
    **/
@@ -161,6 +227,15 @@ public class RestoreDatalakeRequest  {
     if (!Objects.equals(this.includeDatabase, restoreDatalakeRequest.includeDatabase)) {
       return false;
     }
+    if (!Objects.equals(this.skipRangerHmsMetadata, restoreDatalakeRequest.skipRangerHmsMetadata)) {
+      return false;
+    }
+    if (!Objects.equals(this.skipAtlasMetadata, restoreDatalakeRequest.skipAtlasMetadata)) {
+      return false;
+    }
+    if (!Objects.equals(this.skipRangerAudits, restoreDatalakeRequest.skipRangerAudits)) {
+      return false;
+    }
     if (!Objects.equals(this.backupLocationOverride, restoreDatalakeRequest.backupLocationOverride)) {
       return false;
     }
@@ -169,7 +244,7 @@ public class RestoreDatalakeRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, backupId, backupName, includeDatabase, backupLocationOverride);
+    return Objects.hash(datalakeName, backupId, backupName, includeDatabase, skipRangerHmsMetadata, skipAtlasMetadata, skipRangerAudits, backupLocationOverride);
   }
 
   @Override
@@ -180,6 +255,9 @@ public class RestoreDatalakeRequest  {
     sb.append("    backupId: ").append(toIndentedString(backupId)).append("\n");
     sb.append("    backupName: ").append(toIndentedString(backupName)).append("\n");
     sb.append("    includeDatabase: ").append(toIndentedString(includeDatabase)).append("\n");
+    sb.append("    skipRangerHmsMetadata: ").append(toIndentedString(skipRangerHmsMetadata)).append("\n");
+    sb.append("    skipAtlasMetadata: ").append(toIndentedString(skipAtlasMetadata)).append("\n");
+    sb.append("    skipRangerAudits: ").append(toIndentedString(skipRangerAudits)).append("\n");
     sb.append("    backupLocationOverride: ").append(toIndentedString(backupLocationOverride)).append("\n");
     sb.append("}");
     return sb.toString();

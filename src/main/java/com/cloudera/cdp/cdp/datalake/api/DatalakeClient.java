@@ -69,6 +69,8 @@ import com.cloudera.cdp.datalake.model.RecoverDatalakeRequest;
 import com.cloudera.cdp.datalake.model.RecoverDatalakeResponse;
 import com.cloudera.cdp.datalake.model.RenewCertificateRequest;
 import com.cloudera.cdp.datalake.model.RenewCertificateResponse;
+import com.cloudera.cdp.datalake.model.RenewPublicCertificateRequest;
+import com.cloudera.cdp.datalake.model.RenewPublicCertificateResponse;
 import com.cloudera.cdp.datalake.model.RepairDatalakeRequest;
 import com.cloudera.cdp.datalake.model.RepairDatalakeResponse;
 import com.cloudera.cdp.datalake.model.ReplaceRecipesRequest;
@@ -81,6 +83,8 @@ import com.cloudera.cdp.datalake.model.RetryDatalakeRequest;
 import com.cloudera.cdp.datalake.model.RetryDatalakeResponse;
 import com.cloudera.cdp.datalake.model.RotateAutoTlsCertificatesRequest;
 import com.cloudera.cdp.datalake.model.RotateAutoTlsCertificatesResponse;
+import com.cloudera.cdp.datalake.model.RotatePrivateCertificatesRequest;
+import com.cloudera.cdp.datalake.model.RotatePrivateCertificatesResponse;
 import com.cloudera.cdp.datalake.model.SetCatalogRequest;
 import com.cloudera.cdp.datalake.model.SetCatalogResponse;
 import com.cloudera.cdp.datalake.model.StartDatalakeRequest;
@@ -97,7 +101,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-03T11:50:46.096-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-23T17:47:15.034-07:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datalake";
@@ -389,6 +393,19 @@ public class DatalakeClient extends CdpClient {
   }
 
   /**
+   * Renews public certificate on Datalake cluster by name or CRN.
+   * @param input
+   * @return RenewPublicCertificateResponse
+   */
+  public RenewPublicCertificateResponse renewPublicCertificate(RenewPublicCertificateRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling renewPublicCertificate");
+    }
+
+    return this.invokeAPI("renewPublicCertificate", "/api/v1/datalake/renewPublicCertificate", input, new GenericType<RenewPublicCertificateResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Repairs a datalake.
    * @param input
    * @return RepairDatalakeResponse
@@ -464,6 +481,19 @@ public class DatalakeClient extends CdpClient {
     }
 
     return this.invokeAPI("rotateAutoTlsCertificates", "/api/v1/datalake/rotateAutoTlsCertificates", input, new GenericType<RotateAutoTlsCertificatesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Rotates private certificates on the datalake&#39;s hosts.
+   * @param input
+   * @return RotatePrivateCertificatesResponse
+   */
+  public RotatePrivateCertificatesResponse rotatePrivateCertificates(RotatePrivateCertificatesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling rotatePrivateCertificates");
+    }
+
+    return this.invokeAPI("rotatePrivateCertificates", "/api/v1/datalake/rotatePrivateCertificates", input, new GenericType<RotatePrivateCertificatesResponse>(){}, NO_EXTENSION);
   }
 
   /**
