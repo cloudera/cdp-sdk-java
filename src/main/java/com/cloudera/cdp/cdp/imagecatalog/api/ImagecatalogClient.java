@@ -57,7 +57,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-23T17:47:16.196-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-11T11:03:32.017-07:00")
 public class ImagecatalogClient extends CdpClient {
 
   public static final String SERVICE_NAME = "imagecatalog";
@@ -115,7 +115,7 @@ public class ImagecatalogClient extends CdpClient {
   }
 
   /**
-   * Delete image
+   * Delete FreeIPA image
    * @param input
    * @return DeleteFreeipaImageResponse
    */
@@ -128,7 +128,7 @@ public class ImagecatalogClient extends CdpClient {
   }
 
   /**
-   * Delete image
+   * Delete Cloudera Runtime image
    * @param input
    * @return DeleteRuntimeImageResponse
    */
@@ -206,7 +206,7 @@ public class ImagecatalogClient extends CdpClient {
   }
 
   /**
-   * Add or update image
+   * Add or update FreeIPA image
    * @param input
    * @return SetFreeipaImageResponse
    */
@@ -219,7 +219,7 @@ public class ImagecatalogClient extends CdpClient {
   }
 
   /**
-   * Add or update image
+   * Add or update Cloudera Runtime image
    * @param input
    * @return SetRuntimeImageResponse
    */

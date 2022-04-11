@@ -28,7 +28,7 @@ import com.cloudera.cdp.datalake.model.Datalake;
 /**
  * Response object for create GCP Data Lake request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-23T17:47:15.034-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-11T11:03:30.843-07:00")
 public class CreateGCPDatalakeResponse extends CdpResponse {
 
   /**

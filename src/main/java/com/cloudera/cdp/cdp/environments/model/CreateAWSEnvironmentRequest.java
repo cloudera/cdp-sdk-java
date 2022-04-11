@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * Request object for a create AWS environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-23T17:47:15.342-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-11T11:03:31.135-07:00")
 public class CreateAWSEnvironmentRequest  {
 
   /**
@@ -53,7 +53,7 @@ public class CreateAWSEnvironmentRequest  {
   private String region = null;
 
   /**
-   * Security control for FreeIPA and Datalake deployment.
+   * Security control for FreeIPA and Data Lake deployment.
    **/
   private SecurityAccessRequest securityAccess = null;
 
@@ -78,7 +78,7 @@ public class CreateAWSEnvironmentRequest  {
   private String vpcId = null;
 
   /**
-   * One or more subnet ids within the VPC. Mutually exclusive with networkCidr.
+   * One or more subnet IDs within the VPC. Mutually exclusive with networkCidr.
    **/
   private List<String> subnetIds = new ArrayList<String>();
 
@@ -93,7 +93,7 @@ public class CreateAWSEnvironmentRequest  {
   private Boolean createServiceEndpoints = null;
 
   /**
-   * The scheme for the endpoint gateway. PUBLIC creates an external endpoint that can be accessed over the Internet. Defaults to PRIVATE which restricts the traffic to be internal to the VPC / Vnet.
+   * The scheme for the endpoint gateway. PUBLIC creates an external endpoint that can be accessed over the Internet. Defaults to PRIVATE which restricts the traffic to be internal to the VPC.
    **/
   private String endpointAccessGatewayScheme = null;
 
@@ -205,7 +205,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Getter for securityAccess.
-   * Security control for FreeIPA and Datalake deployment.
+   * Security control for FreeIPA and Data Lake deployment.
    **/
   @JsonProperty("securityAccess")
   public SecurityAccessRequest getSecurityAccess() {
@@ -214,7 +214,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Setter for securityAccess.
-   * Security control for FreeIPA and Datalake deployment.
+   * Security control for FreeIPA and Data Lake deployment.
    **/
   public void setSecurityAccess(SecurityAccessRequest securityAccess) {
     this.securityAccess = securityAccess;
@@ -290,7 +290,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Getter for subnetIds.
-   * One or more subnet ids within the VPC. Mutually exclusive with networkCidr.
+   * One or more subnet IDs within the VPC. Mutually exclusive with networkCidr.
    **/
   @JsonProperty("subnetIds")
   public List<String> getSubnetIds() {
@@ -299,7 +299,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Setter for subnetIds.
-   * One or more subnet ids within the VPC. Mutually exclusive with networkCidr.
+   * One or more subnet IDs within the VPC. Mutually exclusive with networkCidr.
    **/
   public void setSubnetIds(List<String> subnetIds) {
     this.subnetIds = subnetIds;
@@ -341,7 +341,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Getter for endpointAccessGatewayScheme.
-   * The scheme for the endpoint gateway. PUBLIC creates an external endpoint that can be accessed over the Internet. Defaults to PRIVATE which restricts the traffic to be internal to the VPC / Vnet.
+   * The scheme for the endpoint gateway. PUBLIC creates an external endpoint that can be accessed over the Internet. Defaults to PRIVATE which restricts the traffic to be internal to the VPC.
    **/
   @JsonProperty("endpointAccessGatewayScheme")
   public String getEndpointAccessGatewayScheme() {
@@ -350,7 +350,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Setter for endpointAccessGatewayScheme.
-   * The scheme for the endpoint gateway. PUBLIC creates an external endpoint that can be accessed over the Internet. Defaults to PRIVATE which restricts the traffic to be internal to the VPC / Vnet.
+   * The scheme for the endpoint gateway. PUBLIC creates an external endpoint that can be accessed over the Internet. Defaults to PRIVATE which restricts the traffic to be internal to the VPC.
    **/
   public void setEndpointAccessGatewayScheme(String endpointAccessGatewayScheme) {
     this.endpointAccessGatewayScheme = endpointAccessGatewayScheme;

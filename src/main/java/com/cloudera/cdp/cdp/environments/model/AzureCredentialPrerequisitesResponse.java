@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for getting Azure credential prerequisites.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-23T17:47:15.342-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-11T11:03:31.135-07:00")
 public class AzureCredentialPrerequisitesResponse extends CdpResponse {
 
   /**

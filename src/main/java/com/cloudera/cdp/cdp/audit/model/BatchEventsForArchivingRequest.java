@@ -28,22 +28,22 @@ import java.time.ZonedDateTime;
 /**
  * Request to create batches of audit events for archiving.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-23T17:47:15.752-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-11T11:03:31.615-07:00")
 public class BatchEventsForArchivingRequest  {
 
   /**
-   * The beginning POSIX epoch time, in milliseconds, for the search range.
+   * The beginning timestamp for the search range.
    **/
   private ZonedDateTime fromTimestamp = null;
 
   /**
-   * The ending POSIX epoch time, in milliseconds, for the search range.
+   * The ending timestamp for the search range.
    **/
   private ZonedDateTime toTimestamp = null;
 
   /**
    * Getter for fromTimestamp.
-   * The beginning POSIX epoch time, in milliseconds, for the search range.
+   * The beginning timestamp for the search range.
    **/
   @JsonProperty("fromTimestamp")
   public ZonedDateTime getFromTimestamp() {
@@ -52,7 +52,7 @@ public class BatchEventsForArchivingRequest  {
 
   /**
    * Setter for fromTimestamp.
-   * The beginning POSIX epoch time, in milliseconds, for the search range.
+   * The beginning timestamp for the search range.
    **/
   public void setFromTimestamp(ZonedDateTime fromTimestamp) {
     this.fromTimestamp = fromTimestamp;
@@ -60,7 +60,7 @@ public class BatchEventsForArchivingRequest  {
 
   /**
    * Getter for toTimestamp.
-   * The ending POSIX epoch time, in milliseconds, for the search range.
+   * The ending timestamp for the search range.
    **/
   @JsonProperty("toTimestamp")
   public ZonedDateTime getToTimestamp() {
@@ -69,7 +69,7 @@ public class BatchEventsForArchivingRequest  {
 
   /**
    * Setter for toTimestamp.
-   * The ending POSIX epoch time, in milliseconds, for the search range.
+   * The ending timestamp for the search range.
    **/
   public void setToTimestamp(ZonedDateTime toTimestamp) {
     this.toTimestamp = toTimestamp;

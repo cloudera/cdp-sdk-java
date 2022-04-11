@@ -23,11 +23,12 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.datalake.model.InternalBackupRestoreState;
 
 /**
  * Response object to a request made for backup of datalake.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-23T17:47:15.034-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-11T11:03:30.843-07:00")
 public class BackupDatalakeResponse extends CdpResponse {
 
   /**
@@ -69,6 +70,16 @@ public class BackupDatalakeResponse extends CdpResponse {
    * Location of the backup to be used to perform restore.
    **/
   private String backupLocation = null;
+
+  /**
+   * Provides the details of the internal state of each operation.
+   **/
+  private InternalBackupRestoreState operationStates = null;
+
+  /**
+   * The runtime version of the datalake when the backup was taken.
+   **/
+  private String runtimeVersion = null;
 
   /**
    * Name of the backup.
@@ -217,6 +228,40 @@ public class BackupDatalakeResponse extends CdpResponse {
   }
 
   /**
+   * Getter for operationStates.
+   * Provides the details of the internal state of each operation.
+   **/
+  @JsonProperty("operationStates")
+  public InternalBackupRestoreState getOperationStates() {
+    return operationStates;
+  }
+
+  /**
+   * Setter for operationStates.
+   * Provides the details of the internal state of each operation.
+   **/
+  public void setOperationStates(InternalBackupRestoreState operationStates) {
+    this.operationStates = operationStates;
+  }
+
+  /**
+   * Getter for runtimeVersion.
+   * The runtime version of the datalake when the backup was taken.
+   **/
+  @JsonProperty("runtimeVersion")
+  public String getRuntimeVersion() {
+    return runtimeVersion;
+  }
+
+  /**
+   * Setter for runtimeVersion.
+   * The runtime version of the datalake when the backup was taken.
+   **/
+  public void setRuntimeVersion(String runtimeVersion) {
+    this.runtimeVersion = runtimeVersion;
+  }
+
+  /**
    * Getter for backupName.
    * Name of the backup.
    **/
@@ -283,6 +328,12 @@ public class BackupDatalakeResponse extends CdpResponse {
     if (!Objects.equals(this.backupLocation, backupDatalakeResponse.backupLocation)) {
       return false;
     }
+    if (!Objects.equals(this.operationStates, backupDatalakeResponse.operationStates)) {
+      return false;
+    }
+    if (!Objects.equals(this.runtimeVersion, backupDatalakeResponse.runtimeVersion)) {
+      return false;
+    }
     if (!Objects.equals(this.backupName, backupDatalakeResponse.backupName)) {
       return false;
     }
@@ -297,7 +348,7 @@ public class BackupDatalakeResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, backupId, userCrn, internalState, status, startTime, endTime, backupLocation, backupName, failureReason, super.hashCode());
+    return Objects.hash(accountId, backupId, userCrn, internalState, status, startTime, endTime, backupLocation, operationStates, runtimeVersion, backupName, failureReason, super.hashCode());
   }
 
   @Override
@@ -313,6 +364,8 @@ public class BackupDatalakeResponse extends CdpResponse {
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    backupLocation: ").append(toIndentedString(backupLocation)).append("\n");
+    sb.append("    operationStates: ").append(toIndentedString(operationStates)).append("\n");
+    sb.append("    runtimeVersion: ").append(toIndentedString(runtimeVersion)).append("\n");
     sb.append("    backupName: ").append(toIndentedString(backupName)).append("\n");
     sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
     sb.append("}");

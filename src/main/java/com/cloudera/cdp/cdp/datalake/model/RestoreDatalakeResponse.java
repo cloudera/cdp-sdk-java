@@ -23,11 +23,12 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.datalake.model.InternalBackupRestoreState;
 
 /**
  * Response object to a request to perform restore of datalake.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-23T17:47:15.034-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-11T11:03:30.843-07:00")
 public class RestoreDatalakeResponse extends CdpResponse {
 
   /**
@@ -76,6 +77,11 @@ public class RestoreDatalakeResponse extends CdpResponse {
   private String backupLocation = null;
 
   /**
+   * Provides the details of the internal state of each operation.
+   **/
+  private InternalBackupRestoreState operationStates = null;
+
+  /**
    * Name of the backup.
    **/
   private String backupName = null;
@@ -84,6 +90,11 @@ public class RestoreDatalakeResponse extends CdpResponse {
    * Reason for the failure.
    **/
   private String failureReason = null;
+
+  /**
+   * The runtime version of the datalake when the restore was initiated.
+   **/
+  private String runtimeVersion = null;
 
   /**
    * Getter for accountId.
@@ -239,6 +250,23 @@ public class RestoreDatalakeResponse extends CdpResponse {
   }
 
   /**
+   * Getter for operationStates.
+   * Provides the details of the internal state of each operation.
+   **/
+  @JsonProperty("operationStates")
+  public InternalBackupRestoreState getOperationStates() {
+    return operationStates;
+  }
+
+  /**
+   * Setter for operationStates.
+   * Provides the details of the internal state of each operation.
+   **/
+  public void setOperationStates(InternalBackupRestoreState operationStates) {
+    this.operationStates = operationStates;
+  }
+
+  /**
    * Getter for backupName.
    * Name of the backup.
    **/
@@ -270,6 +298,23 @@ public class RestoreDatalakeResponse extends CdpResponse {
    **/
   public void setFailureReason(String failureReason) {
     this.failureReason = failureReason;
+  }
+
+  /**
+   * Getter for runtimeVersion.
+   * The runtime version of the datalake when the restore was initiated.
+   **/
+  @JsonProperty("runtimeVersion")
+  public String getRuntimeVersion() {
+    return runtimeVersion;
+  }
+
+  /**
+   * Setter for runtimeVersion.
+   * The runtime version of the datalake when the restore was initiated.
+   **/
+  public void setRuntimeVersion(String runtimeVersion) {
+    this.runtimeVersion = runtimeVersion;
   }
 
   @Override
@@ -308,10 +353,16 @@ public class RestoreDatalakeResponse extends CdpResponse {
     if (!Objects.equals(this.backupLocation, restoreDatalakeResponse.backupLocation)) {
       return false;
     }
+    if (!Objects.equals(this.operationStates, restoreDatalakeResponse.operationStates)) {
+      return false;
+    }
     if (!Objects.equals(this.backupName, restoreDatalakeResponse.backupName)) {
       return false;
     }
     if (!Objects.equals(this.failureReason, restoreDatalakeResponse.failureReason)) {
+      return false;
+    }
+    if (!Objects.equals(this.runtimeVersion, restoreDatalakeResponse.runtimeVersion)) {
       return false;
     }
     if (!super.equals(o)) {
@@ -322,7 +373,7 @@ public class RestoreDatalakeResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, restoreId, backupId, userCrn, internalState, status, startTime, endTime, backupLocation, backupName, failureReason, super.hashCode());
+    return Objects.hash(accountId, restoreId, backupId, userCrn, internalState, status, startTime, endTime, backupLocation, operationStates, backupName, failureReason, runtimeVersion, super.hashCode());
   }
 
   @Override
@@ -339,8 +390,10 @@ public class RestoreDatalakeResponse extends CdpResponse {
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    backupLocation: ").append(toIndentedString(backupLocation)).append("\n");
+    sb.append("    operationStates: ").append(toIndentedString(operationStates)).append("\n");
     sb.append("    backupName: ").append(toIndentedString(backupName)).append("\n");
     sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
+    sb.append("    runtimeVersion: ").append(toIndentedString(runtimeVersion)).append("\n");
     sb.append("}");
     return sb.toString();
   }

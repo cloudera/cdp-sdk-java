@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Details of the databases.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-23T17:47:15.686-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-11T11:03:31.515-07:00")
 public class DatabaseDetails  {
 
   /**
@@ -47,7 +47,7 @@ public class DatabaseDetails  {
   private String crn = null;
 
   /**
-   * The creation time of the database in UTC
+   * The creation time of the database
    **/
   private ZonedDateTime creationDate = null;
 
@@ -139,7 +139,7 @@ public class DatabaseDetails  {
 
   /**
    * Getter for creationDate.
-   * The creation time of the database in UTC
+   * The creation time of the database
    **/
   @JsonProperty("creationDate")
   public ZonedDateTime getCreationDate() {
@@ -148,7 +148,7 @@ public class DatabaseDetails  {
 
   /**
    * Setter for creationDate.
-   * The creation time of the database in UTC
+   * The creation time of the database
    **/
   public void setCreationDate(ZonedDateTime creationDate) {
     this.creationDate = creationDate;

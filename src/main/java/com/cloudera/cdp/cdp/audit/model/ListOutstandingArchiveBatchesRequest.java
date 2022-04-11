@@ -28,16 +28,16 @@ import java.time.ZonedDateTime;
 /**
  * Request to list outstanding archive batches.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-23T17:47:15.752-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-11T11:03:31.615-07:00")
 public class ListOutstandingArchiveBatchesRequest  {
 
   /**
-   * The beginning POSIX epoch time, in milliseconds, for the search range (inclusive).
+   * The beginning timestamp for the search range (inclusive).
    **/
   private ZonedDateTime fromTimestamp = null;
 
   /**
-   * The ending POSIX epoch time, in milliseconds, for the search range (exclusive).
+   * The ending timestamp for the search range (exclusive).
    **/
   private ZonedDateTime toTimestamp = null;
 
@@ -53,7 +53,7 @@ public class ListOutstandingArchiveBatchesRequest  {
 
   /**
    * Getter for fromTimestamp.
-   * The beginning POSIX epoch time, in milliseconds, for the search range (inclusive).
+   * The beginning timestamp for the search range (inclusive).
    **/
   @JsonProperty("fromTimestamp")
   public ZonedDateTime getFromTimestamp() {
@@ -62,7 +62,7 @@ public class ListOutstandingArchiveBatchesRequest  {
 
   /**
    * Setter for fromTimestamp.
-   * The beginning POSIX epoch time, in milliseconds, for the search range (inclusive).
+   * The beginning timestamp for the search range (inclusive).
    **/
   public void setFromTimestamp(ZonedDateTime fromTimestamp) {
     this.fromTimestamp = fromTimestamp;
@@ -70,7 +70,7 @@ public class ListOutstandingArchiveBatchesRequest  {
 
   /**
    * Getter for toTimestamp.
-   * The ending POSIX epoch time, in milliseconds, for the search range (exclusive).
+   * The ending timestamp for the search range (exclusive).
    **/
   @JsonProperty("toTimestamp")
   public ZonedDateTime getToTimestamp() {
@@ -79,7 +79,7 @@ public class ListOutstandingArchiveBatchesRequest  {
 
   /**
    * Setter for toTimestamp.
-   * The ending POSIX epoch time, in milliseconds, for the search range (exclusive).
+   * The ending timestamp for the search range (exclusive).
    **/
   public void setToTimestamp(ZonedDateTime toTimestamp) {
     this.toTimestamp = toTimestamp;

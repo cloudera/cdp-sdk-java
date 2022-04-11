@@ -27,18 +27,18 @@ import com.cloudera.cdp.imagecatalog.model.VmImageRequest;
 import java.util.*;
 
 /**
- * Adds or updates a FreeIPA image in a catalog
+ * The request object to add or update a FreeIPA image in a catalog.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-23T17:47:16.196-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-11T11:03:32.017-07:00")
 public class SetFreeipaImageRequest  {
 
   /**
-   * Image Catalog name
+   * Image catalog name
    **/
   private String catalogName = null;
 
   /**
-   * UUID of the image customized by the current image.
+   * UUID of the image customized by the current image
    **/
   private String sourceImageId = null;
 
@@ -48,7 +48,7 @@ public class SetFreeipaImageRequest  {
   private List<VmImageRequest> vmImages = new ArrayList<VmImageRequest>();
 
   /**
-   * Image UUID. If this is empty, a randomly generated UUID is used.
+   * Image UUID. If this is empty, a randomly generated UUID is used
    **/
   private String imageId = null;
 
@@ -59,7 +59,7 @@ public class SetFreeipaImageRequest  {
 
   /**
    * Getter for catalogName.
-   * Image Catalog name
+   * Image catalog name
    **/
   @JsonProperty("catalogName")
   public String getCatalogName() {
@@ -68,7 +68,7 @@ public class SetFreeipaImageRequest  {
 
   /**
    * Setter for catalogName.
-   * Image Catalog name
+   * Image catalog name
    **/
   public void setCatalogName(String catalogName) {
     this.catalogName = catalogName;
@@ -76,7 +76,7 @@ public class SetFreeipaImageRequest  {
 
   /**
    * Getter for sourceImageId.
-   * UUID of the image customized by the current image.
+   * UUID of the image customized by the current image
    **/
   @JsonProperty("sourceImageId")
   public String getSourceImageId() {
@@ -85,7 +85,7 @@ public class SetFreeipaImageRequest  {
 
   /**
    * Setter for sourceImageId.
-   * UUID of the image customized by the current image.
+   * UUID of the image customized by the current image
    **/
   public void setSourceImageId(String sourceImageId) {
     this.sourceImageId = sourceImageId;
@@ -110,7 +110,7 @@ public class SetFreeipaImageRequest  {
 
   /**
    * Getter for imageId.
-   * Image UUID. If this is empty, a randomly generated UUID is used.
+   * Image UUID. If this is empty, a randomly generated UUID is used
    **/
   @JsonProperty("imageId")
   public String getImageId() {
@@ -119,7 +119,7 @@ public class SetFreeipaImageRequest  {
 
   /**
    * Setter for imageId.
-   * Image UUID. If this is empty, a randomly generated UUID is used.
+   * Image UUID. If this is empty, a randomly generated UUID is used
    **/
   public void setImageId(String imageId) {
     this.imageId = imageId;

@@ -32,6 +32,8 @@ import com.cloudera.cdp.environments.model.CancelFreeipaDiagnosticsRequest;
 import com.cloudera.cdp.environments.model.CancelFreeipaDiagnosticsResponse;
 import com.cloudera.cdp.environments.model.ChangeEnvironmentCredentialRequest;
 import com.cloudera.cdp.environments.model.ChangeEnvironmentCredentialResponse;
+import com.cloudera.cdp.environments.model.CheckDatabaseConnectivityRequest;
+import com.cloudera.cdp.environments.model.CheckDatabaseConnectivityResponse;
 import com.cloudera.cdp.environments.model.CheckEnvironmentConnectivityRequest;
 import com.cloudera.cdp.environments.model.CheckEnvironmentConnectivityResponse;
 import com.cloudera.cdp.environments.model.CheckKubernetesConnectivityRequest;
@@ -141,7 +143,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-23T17:47:15.342-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-11T11:03:31.135-07:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -196,6 +198,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("changeEnvironmentCredential", "/api/v1/environments2/changeEnvironmentCredential", input, new GenericType<ChangeEnvironmentCredentialResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Checks Database connectivity based on the input parameters.
+   * @param input
+   * @return CheckDatabaseConnectivityResponse
+   */
+  public CheckDatabaseConnectivityResponse checkDatabaseConnectivity(CheckDatabaseConnectivityRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling checkDatabaseConnectivity");
+    }
+
+    return this.invokeAPI("checkDatabaseConnectivity", "/api/v1/environments2/checkDatabaseConnectivity", input, new GenericType<CheckDatabaseConnectivityResponse>(){}, NO_EXTENSION);
   }
 
   /**

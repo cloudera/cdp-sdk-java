@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * Request object for create Azure datalake request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-23T17:47:15.034-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-11T11:03:30.843-07:00")
 public class CreateAzureDatalakeRequest  {
 
   /**
@@ -56,7 +56,7 @@ public class CreateAzureDatalakeRequest  {
   private String scale = null;
 
   /**
-   * Tags to be added to Datalake related resources.
+   * Tags to be added to Data Lake related resources.
    **/
   private List<DatalakeResourceTagRequest> tags = new ArrayList<DatalakeResourceTagRequest>();
 
@@ -150,7 +150,7 @@ public class CreateAzureDatalakeRequest  {
 
   /**
    * Getter for tags.
-   * Tags to be added to Datalake related resources.
+   * Tags to be added to Data Lake related resources.
    **/
   @JsonProperty("tags")
   public List<DatalakeResourceTagRequest> getTags() {
@@ -159,7 +159,7 @@ public class CreateAzureDatalakeRequest  {
 
   /**
    * Setter for tags.
-   * Tags to be added to Datalake related resources.
+   * Tags to be added to Data Lake related resources.
    **/
   public void setTags(List<DatalakeResourceTagRequest> tags) {
     this.tags = tags;

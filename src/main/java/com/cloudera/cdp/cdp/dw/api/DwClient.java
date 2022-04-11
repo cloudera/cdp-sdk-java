@@ -28,6 +28,8 @@ import com.cloudera.cdp.client.CdpRequestContext;
 import com.cloudera.cdp.client.Pair;
 import com.cloudera.cdp.client.ResourceResponse;
 import com.cloudera.cdp.client.RestResponse;
+import com.cloudera.cdp.dw.model.AddUserRequest;
+import com.cloudera.cdp.dw.model.AddUserResponse;
 import com.cloudera.cdp.dw.model.CreateClusterRequest;
 import com.cloudera.cdp.dw.model.CreateClusterResponse;
 import com.cloudera.cdp.dw.model.CreateDbcRequest;
@@ -38,6 +40,8 @@ import com.cloudera.cdp.dw.model.DeleteClusterRequest;
 import com.cloudera.cdp.dw.model.DeleteClusterResponse;
 import com.cloudera.cdp.dw.model.DeleteDbcRequest;
 import com.cloudera.cdp.dw.model.DeleteDbcResponse;
+import com.cloudera.cdp.dw.model.DeleteUserRequest;
+import com.cloudera.cdp.dw.model.DeleteUserResponse;
 import com.cloudera.cdp.dw.model.DeleteVwRequest;
 import com.cloudera.cdp.dw.model.DeleteVwResponse;
 import com.cloudera.cdp.dw.model.DescribeClusterRequest;
@@ -53,29 +57,55 @@ import com.cloudera.cdp.dw.model.DescribeKubeconfigResponse;
 import com.cloudera.cdp.dw.model.DescribeVwRequest;
 import com.cloudera.cdp.dw.model.DescribeVwResponse;
 import com.cloudera.cdp.dw.model.Error;
+import com.cloudera.cdp.dw.model.GetUpgradeDbcVersionsRequest;
+import com.cloudera.cdp.dw.model.GetUpgradeDbcVersionsResponse;
+import com.cloudera.cdp.dw.model.GetUpgradeVwVersionsRequest;
+import com.cloudera.cdp.dw.model.GetUpgradeVwVersionsResponse;
+import com.cloudera.cdp.dw.model.HealthCheckRequest;
+import com.cloudera.cdp.dw.model.HealthCheckResponse;
 import com.cloudera.cdp.dw.model.ListClustersRequest;
 import com.cloudera.cdp.dw.model.ListClustersResponse;
 import com.cloudera.cdp.dw.model.ListDbcConfigsRequest;
 import com.cloudera.cdp.dw.model.ListDbcConfigsResponse;
 import com.cloudera.cdp.dw.model.ListDbcsRequest;
 import com.cloudera.cdp.dw.model.ListDbcsResponse;
+import com.cloudera.cdp.dw.model.ListLatestVersionsRequest;
+import com.cloudera.cdp.dw.model.ListLatestVersionsResponse;
+import com.cloudera.cdp.dw.model.ListUsersRequest;
+import com.cloudera.cdp.dw.model.ListUsersResponse;
 import com.cloudera.cdp.dw.model.ListVwConfigsRequest;
 import com.cloudera.cdp.dw.model.ListVwConfigsResponse;
 import com.cloudera.cdp.dw.model.ListVwsRequest;
 import com.cloudera.cdp.dw.model.ListVwsResponse;
+import com.cloudera.cdp.dw.model.PauseVwRequest;
+import com.cloudera.cdp.dw.model.PauseVwResponse;
+import com.cloudera.cdp.dw.model.RenewCertificatesRequest;
+import com.cloudera.cdp.dw.model.RenewCertificatesResponse;
+import com.cloudera.cdp.dw.model.RestartDbcRequest;
+import com.cloudera.cdp.dw.model.RestartDbcResponse;
+import com.cloudera.cdp.dw.model.RestartVwRequest;
+import com.cloudera.cdp.dw.model.RestartVwResponse;
+import com.cloudera.cdp.dw.model.StartVwRequest;
+import com.cloudera.cdp.dw.model.StartVwResponse;
+import com.cloudera.cdp.dw.model.UpdateClusterRequest;
+import com.cloudera.cdp.dw.model.UpdateClusterResponse;
 import com.cloudera.cdp.dw.model.UpdateDbcRequest;
 import com.cloudera.cdp.dw.model.UpdateDbcResponse;
 import com.cloudera.cdp.dw.model.UpdateSshKeyRequest;
 import com.cloudera.cdp.dw.model.UpdateSshKeyResponse;
 import com.cloudera.cdp.dw.model.UpdateVwRequest;
 import com.cloudera.cdp.dw.model.UpdateVwResponse;
+import com.cloudera.cdp.dw.model.UpgradeDbcRequest;
+import com.cloudera.cdp.dw.model.UpgradeDbcResponse;
+import com.cloudera.cdp.dw.model.UpgradeVwRequest;
+import com.cloudera.cdp.dw.model.UpgradeVwResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-23T17:47:14.671-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-11T11:03:30.419-07:00")
 public class DwClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dw";
@@ -104,6 +134,19 @@ public class DwClient extends CdpClient {
   @Override
   protected String getResponseContentType() {
     return "application/json";
+  }
+
+  /**
+   * Adds the given user to the cluster.
+   * @param input
+   * @return AddUserResponse
+   */
+  public AddUserResponse addUser(AddUserRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling addUser");
+    }
+
+    return this.invokeAPI("addUser", "/api/v1/dw/addUser", input, new GenericType<AddUserResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -169,6 +212,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("deleteDbc", "/api/v1/dw/deleteDbc", input, new GenericType<DeleteDbcResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Deletes the given user from the cluster.
+   * @param input
+   * @return DeleteUserResponse
+   */
+  public DeleteUserResponse deleteUser(DeleteUserRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteUser");
+    }
+
+    return this.invokeAPI("deleteUser", "/api/v1/dw/deleteUser", input, new GenericType<DeleteUserResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -263,6 +319,45 @@ public class DwClient extends CdpClient {
   }
 
   /**
+   * Gets the latest version and latest compatible version for Database Catalog.
+   * @param input
+   * @return GetUpgradeDbcVersionsResponse
+   */
+  public GetUpgradeDbcVersionsResponse getUpgradeDbcVersions(GetUpgradeDbcVersionsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getUpgradeDbcVersions");
+    }
+
+    return this.invokeAPI("getUpgradeDbcVersions", "/api/v1/dw/getUpgradeDbcVersions", input, new GenericType<GetUpgradeDbcVersionsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Gets the latest version and latest compatible version for Virtual Warehouse.
+   * @param input
+   * @return GetUpgradeVwVersionsResponse
+   */
+  public GetUpgradeVwVersionsResponse getUpgradeVwVersions(GetUpgradeVwVersionsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getUpgradeVwVersions");
+    }
+
+    return this.invokeAPI("getUpgradeVwVersions", "/api/v1/dw/getUpgradeVwVersions", input, new GenericType<GetUpgradeVwVersionsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Check the health of the API.
+   * @param input
+   * @return HealthCheckResponse
+   */
+  public HealthCheckResponse healthCheck(HealthCheckRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling healthCheck");
+    }
+
+    return this.invokeAPI("healthCheck", "/api/v1/dw/healthCheck", input, new GenericType<HealthCheckResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * List Cloudera Data Warehouse clusters.
    * @param input
    * @return ListClustersResponse
@@ -302,6 +397,32 @@ public class DwClient extends CdpClient {
   }
 
   /**
+   * Lists the latest version of the product (if available) for all catalogs in the environment.
+   * @param input
+   * @return ListLatestVersionsResponse
+   */
+  public ListLatestVersionsResponse listLatestVersions(ListLatestVersionsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listLatestVersions");
+    }
+
+    return this.invokeAPI("listLatestVersions", "/api/v1/dw/listLatestVersions", input, new GenericType<ListLatestVersionsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Lists the users who have access to the cluster.
+   * @param input
+   * @return ListUsersResponse
+   */
+  public ListUsersResponse listUsers(ListUsersRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listUsers");
+    }
+
+    return this.invokeAPI("listUsers", "/api/v1/dw/listUsers", input, new GenericType<ListUsersResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Get the configuration history of a Virtual Warehouse.
    * @param input
    * @return ListVwConfigsResponse
@@ -325,6 +446,84 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("listVws", "/api/v1/dw/listVws", input, new GenericType<ListVwsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Pauses a running Virtual Warehouse.
+   * @param input
+   * @return PauseVwResponse
+   */
+  public PauseVwResponse pauseVw(PauseVwRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling pauseVw");
+    }
+
+    return this.invokeAPI("pauseVw", "/api/v1/dw/pauseVw", input, new GenericType<PauseVwResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Renew certificates for a Cloudera Data Warehouse Azure cluster.
+   * @param input
+   * @return RenewCertificatesResponse
+   */
+  public RenewCertificatesResponse renewCertificates(RenewCertificatesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling renewCertificates");
+    }
+
+    return this.invokeAPI("renewCertificates", "/api/v1/dw/renewCertificates", input, new GenericType<RenewCertificatesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Restart a Database Catalog.
+   * @param input
+   * @return RestartDbcResponse
+   */
+  public RestartDbcResponse restartDbc(RestartDbcRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling restartDbc");
+    }
+
+    return this.invokeAPI("restartDbc", "/api/v1/dw/restartDbc", input, new GenericType<RestartDbcResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Restart a Virtual Warehouse.
+   * @param input
+   * @return RestartVwResponse
+   */
+  public RestartVwResponse restartVw(RestartVwRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling restartVw");
+    }
+
+    return this.invokeAPI("restartVw", "/api/v1/dw/restartVw", input, new GenericType<RestartVwResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Starts a paused Virtual Warehouse.
+   * @param input
+   * @return StartVwResponse
+   */
+  public StartVwResponse startVw(StartVwRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling startVw");
+    }
+
+    return this.invokeAPI("startVw", "/api/v1/dw/startVw", input, new GenericType<StartVwResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Updates the Cloudera Data Warehouse cluster.
+   * @param input
+   * @return UpdateClusterResponse
+   */
+  public UpdateClusterResponse updateCluster(UpdateClusterRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateCluster");
+    }
+
+    return this.invokeAPI("updateCluster", "/api/v1/dw/updateCluster", input, new GenericType<UpdateClusterResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -364,5 +563,31 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("updateVw", "/api/v1/dw/updateVw", input, new GenericType<UpdateVwResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Upgrades the Database Catalog to a compatible version.
+   * @param input
+   * @return UpgradeDbcResponse
+   */
+  public UpgradeDbcResponse upgradeDbc(UpgradeDbcRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling upgradeDbc");
+    }
+
+    return this.invokeAPI("upgradeDbc", "/api/v1/dw/upgradeDbc", input, new GenericType<UpgradeDbcResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Upgrades the Virtual Warehouse to a compatible version.
+   * @param input
+   * @return UpgradeVwResponse
+   */
+  public UpgradeVwResponse upgradeVw(UpgradeVwRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling upgradeVw");
+    }
+
+    return this.invokeAPI("upgradeVw", "/api/v1/dw/upgradeVw", input, new GenericType<UpgradeVwResponse>(){}, NO_EXTENSION);
   }
 }

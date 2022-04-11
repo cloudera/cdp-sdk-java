@@ -35,7 +35,7 @@ import java.util.*;
 /**
  * Request object for a create Azure environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-23T17:47:15.342-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-11T11:03:31.135-07:00")
 public class CreateAzureEnvironmentRequest  {
 
   /**
@@ -59,7 +59,7 @@ public class CreateAzureEnvironmentRequest  {
   private String publicKey = null;
 
   /**
-   * Security control for FreeIPA and Datalake deployment.
+   * Security control for FreeIPA and Data Lake deployment.
    **/
   private SecurityAccessRequest securityAccess = null;
 
@@ -213,7 +213,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Getter for securityAccess.
-   * Security control for FreeIPA and Datalake deployment.
+   * Security control for FreeIPA and Data Lake deployment.
    **/
   @JsonProperty("securityAccess")
   public SecurityAccessRequest getSecurityAccess() {
@@ -222,7 +222,7 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Setter for securityAccess.
-   * Security control for FreeIPA and Datalake deployment.
+   * Security control for FreeIPA and Data Lake deployment.
    **/
   public void setSecurityAccess(SecurityAccessRequest securityAccess) {
     this.securityAccess = securityAccess;

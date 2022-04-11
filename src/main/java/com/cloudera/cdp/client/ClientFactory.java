@@ -39,6 +39,7 @@ import org.glassfish.jersey.apache.connector.ApacheClientProperties;
 import org.glassfish.jersey.apache.connector.ApacheConnectorProvider;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.ClientProperties;
+import org.glassfish.jersey.client.RequestEntityProcessing;
 
 @SdkInternalApi
 public class ClientFactory {
@@ -89,6 +90,9 @@ public class ClientFactory {
     clientConfig.property(
         ApacheClientProperties.KEEPALIVE_STRATEGY,
         keepAliveStrategy);
+    clientConfig.property(
+        ClientProperties.REQUEST_ENTITY_PROCESSING,
+        RequestEntityProcessing.BUFFERED);
     clientConfig.property(
         ClientProperties.PROXY_URI,
         config.getProxyUri());

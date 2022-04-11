@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Detailed description of a CDE service.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-23T17:47:15.881-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-11T11:03:31.679-07:00")
 public class ServiceDescription  {
 
   /**
@@ -117,6 +117,11 @@ public class ServiceDescription  {
    * List of CIDRs that would be allowed to access kubernetes master API server.
    **/
   private String whitelistIps = null;
+
+  /**
+   * Comma-separated CIDRs that would be allowed to access the load balancer.
+   **/
+  private String loadbalancerAllowlist = null;
 
   /**
    * List of Subnet IDs of the CDP subnets used by the kubernetes worker node.
@@ -413,6 +418,23 @@ public class ServiceDescription  {
   }
 
   /**
+   * Getter for loadbalancerAllowlist.
+   * Comma-separated CIDRs that would be allowed to access the load balancer.
+   **/
+  @JsonProperty("loadbalancerAllowlist")
+  public String getLoadbalancerAllowlist() {
+    return loadbalancerAllowlist;
+  }
+
+  /**
+   * Setter for loadbalancerAllowlist.
+   * Comma-separated CIDRs that would be allowed to access the load balancer.
+   **/
+  public void setLoadbalancerAllowlist(String loadbalancerAllowlist) {
+    this.loadbalancerAllowlist = loadbalancerAllowlist;
+  }
+
+  /**
    * Getter for subnets.
    * List of Subnet IDs of the CDP subnets used by the kubernetes worker node.
    **/
@@ -489,6 +511,9 @@ public class ServiceDescription  {
     if (!Objects.equals(this.whitelistIps, serviceDescription.whitelistIps)) {
       return false;
     }
+    if (!Objects.equals(this.loadbalancerAllowlist, serviceDescription.loadbalancerAllowlist)) {
+      return false;
+    }
     if (!Objects.equals(this.subnets, serviceDescription.subnets)) {
       return false;
     }
@@ -497,7 +522,7 @@ public class ServiceDescription  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, clusterId, environmentName, environmentCrn, tenantId, resources, status, creatorEmail, creatorCrn, enablingTime, clusterFqdn, cloudPlatform, dataLakeFileSystems, logLocation, dataLakeAtlasUIEndpoint, chartValueOverrides, whitelistIps, subnets);
+    return Objects.hash(name, clusterId, environmentName, environmentCrn, tenantId, resources, status, creatorEmail, creatorCrn, enablingTime, clusterFqdn, cloudPlatform, dataLakeFileSystems, logLocation, dataLakeAtlasUIEndpoint, chartValueOverrides, whitelistIps, loadbalancerAllowlist, subnets);
   }
 
   @Override
@@ -521,6 +546,7 @@ public class ServiceDescription  {
     sb.append("    dataLakeAtlasUIEndpoint: ").append(toIndentedString(dataLakeAtlasUIEndpoint)).append("\n");
     sb.append("    chartValueOverrides: ").append(toIndentedString(chartValueOverrides)).append("\n");
     sb.append("    whitelistIps: ").append(toIndentedString(whitelistIps)).append("\n");
+    sb.append("    loadbalancerAllowlist: ").append(toIndentedString(loadbalancerAllowlist)).append("\n");
     sb.append("    subnets: ").append(toIndentedString(subnets)).append("\n");
     sb.append("}");
     return sb.toString();

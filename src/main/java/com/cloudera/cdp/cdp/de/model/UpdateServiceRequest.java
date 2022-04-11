@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for UpdateService method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-23T17:47:15.881-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-11T11:03:31.679-07:00")
 public class UpdateServiceRequest  {
 
   /**
@@ -60,6 +60,11 @@ public class UpdateServiceRequest  {
    * List of CIDRs that would be allowed to access kubernetes master API server.
    **/
   private List<String> whitelistIps = new ArrayList<String>();
+
+  /**
+   * List of CIDRs that would be allowed to access the load balancer.
+   **/
+  private List<String> loadbalancerAllowlist = new ArrayList<String>();
 
   /**
    * Getter for clusterId.
@@ -163,6 +168,23 @@ public class UpdateServiceRequest  {
     this.whitelistIps = whitelistIps;
   }
 
+  /**
+   * Getter for loadbalancerAllowlist.
+   * List of CIDRs that would be allowed to access the load balancer.
+   **/
+  @JsonProperty("loadbalancerAllowlist")
+  public List<String> getLoadbalancerAllowlist() {
+    return loadbalancerAllowlist;
+  }
+
+  /**
+   * Setter for loadbalancerAllowlist.
+   * List of CIDRs that would be allowed to access the load balancer.
+   **/
+  public void setLoadbalancerAllowlist(List<String> loadbalancerAllowlist) {
+    this.loadbalancerAllowlist = loadbalancerAllowlist;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -190,12 +212,15 @@ public class UpdateServiceRequest  {
     if (!Objects.equals(this.whitelistIps, updateServiceRequest.whitelistIps)) {
       return false;
     }
+    if (!Objects.equals(this.loadbalancerAllowlist, updateServiceRequest.loadbalancerAllowlist)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, minimumInstances, maximumInstances, minimumSpotInstances, maximumSpotInstances, whitelistIps);
+    return Objects.hash(clusterId, minimumInstances, maximumInstances, minimumSpotInstances, maximumSpotInstances, whitelistIps, loadbalancerAllowlist);
   }
 
   @Override
@@ -208,6 +233,7 @@ public class UpdateServiceRequest  {
     sb.append("    minimumSpotInstances: ").append(toIndentedString(minimumSpotInstances)).append("\n");
     sb.append("    maximumSpotInstances: ").append(toIndentedString(maximumSpotInstances)).append("\n");
     sb.append("    whitelistIps: ").append(toIndentedString(whitelistIps)).append("\n");
+    sb.append("    loadbalancerAllowlist: ").append(toIndentedString(loadbalancerAllowlist)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -27,13 +27,13 @@ import com.cloudera.cdp.imagecatalog.model.ImageItemResponse;
 import java.util.*;
 
 /**
- * Representing data of a single catalog
+ * The response object holding the retrieved data of a custom catalog.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-23T17:47:16.196-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-11T11:03:32.017-07:00")
 public class DescribeCustomCatalogResponse extends CdpResponse {
 
   /**
-   * Image Catalog name
+   * Image catalog name
    **/
   private String catalogName = null;
 
@@ -49,7 +49,7 @@ public class DescribeCustomCatalogResponse extends CdpResponse {
 
   /**
    * Getter for catalogName.
-   * Image Catalog name
+   * Image catalog name
    **/
   @JsonProperty("catalogName")
   public String getCatalogName() {
@@ -58,7 +58,7 @@ public class DescribeCustomCatalogResponse extends CdpResponse {
 
   /**
    * Setter for catalogName.
-   * Image Catalog name
+   * Image catalog name
    **/
   public void setCatalogName(String catalogName) {
     this.catalogName = catalogName;

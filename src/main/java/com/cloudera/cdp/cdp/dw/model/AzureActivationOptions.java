@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Options for activating an Azure environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-23T17:47:14.671-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-11T11:03:30.419-07:00")
 public class AzureActivationOptions  {
 
   /**
@@ -39,6 +39,11 @@ public class AzureActivationOptions  {
    * Enables Azure Availability Zones for the cluster deployment.
    **/
   private Boolean enableAZ = null;
+
+  /**
+   * Enable Spot instances for compute workloads
+   **/
+  private Boolean enableSpotInstances = false;
 
   /**
    * The generation type of the virtual machines used to create the environment.
@@ -54,6 +59,31 @@ public class AzureActivationOptions  {
    * Docker bridge CIDR range for deployment.
    **/
   private String dockerBridgeCidr = null;
+
+  /**
+   * Enable user defined routing for the cluster deployment.
+   **/
+  private Boolean enableUDR = false;
+
+  /**
+   * Enables private SQL for the cluster deployment.
+   **/
+  private Boolean enablePrivateSQL = false;
+
+  /**
+   * Private DNS zone AKS resource ID.
+   **/
+  private String privateDNSZoneAKS = null;
+
+  /**
+   * Enable Azure Private AKS mode.
+   **/
+  private Boolean enablePrivateAks = false;
+
+  /**
+   * Enable uptime SLA for Kubernetes API server.
+   **/
+  private Boolean enableUptimeSLA = false;
 
   /**
    * Getter for subnetId.
@@ -87,6 +117,23 @@ public class AzureActivationOptions  {
    **/
   public void setEnableAZ(Boolean enableAZ) {
     this.enableAZ = enableAZ;
+  }
+
+  /**
+   * Getter for enableSpotInstances.
+   * Enable Spot instances for compute workloads
+   **/
+  @JsonProperty("enableSpotInstances")
+  public Boolean getEnableSpotInstances() {
+    return enableSpotInstances;
+  }
+
+  /**
+   * Setter for enableSpotInstances.
+   * Enable Spot instances for compute workloads
+   **/
+  public void setEnableSpotInstances(Boolean enableSpotInstances) {
+    this.enableSpotInstances = enableSpotInstances;
   }
 
   /**
@@ -140,6 +187,91 @@ public class AzureActivationOptions  {
     this.dockerBridgeCidr = dockerBridgeCidr;
   }
 
+  /**
+   * Getter for enableUDR.
+   * Enable user defined routing for the cluster deployment.
+   **/
+  @JsonProperty("enableUDR")
+  public Boolean getEnableUDR() {
+    return enableUDR;
+  }
+
+  /**
+   * Setter for enableUDR.
+   * Enable user defined routing for the cluster deployment.
+   **/
+  public void setEnableUDR(Boolean enableUDR) {
+    this.enableUDR = enableUDR;
+  }
+
+  /**
+   * Getter for enablePrivateSQL.
+   * Enables private SQL for the cluster deployment.
+   **/
+  @JsonProperty("enablePrivateSQL")
+  public Boolean getEnablePrivateSQL() {
+    return enablePrivateSQL;
+  }
+
+  /**
+   * Setter for enablePrivateSQL.
+   * Enables private SQL for the cluster deployment.
+   **/
+  public void setEnablePrivateSQL(Boolean enablePrivateSQL) {
+    this.enablePrivateSQL = enablePrivateSQL;
+  }
+
+  /**
+   * Getter for privateDNSZoneAKS.
+   * Private DNS zone AKS resource ID.
+   **/
+  @JsonProperty("privateDNSZoneAKS")
+  public String getPrivateDNSZoneAKS() {
+    return privateDNSZoneAKS;
+  }
+
+  /**
+   * Setter for privateDNSZoneAKS.
+   * Private DNS zone AKS resource ID.
+   **/
+  public void setPrivateDNSZoneAKS(String privateDNSZoneAKS) {
+    this.privateDNSZoneAKS = privateDNSZoneAKS;
+  }
+
+  /**
+   * Getter for enablePrivateAks.
+   * Enable Azure Private AKS mode.
+   **/
+  @JsonProperty("enablePrivateAks")
+  public Boolean getEnablePrivateAks() {
+    return enablePrivateAks;
+  }
+
+  /**
+   * Setter for enablePrivateAks.
+   * Enable Azure Private AKS mode.
+   **/
+  public void setEnablePrivateAks(Boolean enablePrivateAks) {
+    this.enablePrivateAks = enablePrivateAks;
+  }
+
+  /**
+   * Getter for enableUptimeSLA.
+   * Enable uptime SLA for Kubernetes API server.
+   **/
+  @JsonProperty("enableUptimeSLA")
+  public Boolean getEnableUptimeSLA() {
+    return enableUptimeSLA;
+  }
+
+  /**
+   * Setter for enableUptimeSLA.
+   * Enable uptime SLA for Kubernetes API server.
+   **/
+  public void setEnableUptimeSLA(Boolean enableUptimeSLA) {
+    this.enableUptimeSLA = enableUptimeSLA;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -155,6 +287,9 @@ public class AzureActivationOptions  {
     if (!Objects.equals(this.enableAZ, azureActivationOptions.enableAZ)) {
       return false;
     }
+    if (!Objects.equals(this.enableSpotInstances, azureActivationOptions.enableSpotInstances)) {
+      return false;
+    }
     if (!Objects.equals(this.vmGenerationType, azureActivationOptions.vmGenerationType)) {
       return false;
     }
@@ -164,12 +299,27 @@ public class AzureActivationOptions  {
     if (!Objects.equals(this.dockerBridgeCidr, azureActivationOptions.dockerBridgeCidr)) {
       return false;
     }
+    if (!Objects.equals(this.enableUDR, azureActivationOptions.enableUDR)) {
+      return false;
+    }
+    if (!Objects.equals(this.enablePrivateSQL, azureActivationOptions.enablePrivateSQL)) {
+      return false;
+    }
+    if (!Objects.equals(this.privateDNSZoneAKS, azureActivationOptions.privateDNSZoneAKS)) {
+      return false;
+    }
+    if (!Objects.equals(this.enablePrivateAks, azureActivationOptions.enablePrivateAks)) {
+      return false;
+    }
+    if (!Objects.equals(this.enableUptimeSLA, azureActivationOptions.enableUptimeSLA)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subnetId, enableAZ, vmGenerationType, logAnalyticsWorkspaceId, dockerBridgeCidr);
+    return Objects.hash(subnetId, enableAZ, enableSpotInstances, vmGenerationType, logAnalyticsWorkspaceId, dockerBridgeCidr, enableUDR, enablePrivateSQL, privateDNSZoneAKS, enablePrivateAks, enableUptimeSLA);
   }
 
   @Override
@@ -178,9 +328,15 @@ public class AzureActivationOptions  {
     sb.append("class AzureActivationOptions {\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    enableAZ: ").append(toIndentedString(enableAZ)).append("\n");
+    sb.append("    enableSpotInstances: ").append(toIndentedString(enableSpotInstances)).append("\n");
     sb.append("    vmGenerationType: ").append(toIndentedString(vmGenerationType)).append("\n");
     sb.append("    logAnalyticsWorkspaceId: ").append(toIndentedString(logAnalyticsWorkspaceId)).append("\n");
     sb.append("    dockerBridgeCidr: ").append(toIndentedString(dockerBridgeCidr)).append("\n");
+    sb.append("    enableUDR: ").append(toIndentedString(enableUDR)).append("\n");
+    sb.append("    enablePrivateSQL: ").append(toIndentedString(enablePrivateSQL)).append("\n");
+    sb.append("    privateDNSZoneAKS: ").append(toIndentedString(privateDNSZoneAKS)).append("\n");
+    sb.append("    enablePrivateAks: ").append(toIndentedString(enablePrivateAks)).append("\n");
+    sb.append("    enableUptimeSLA: ").append(toIndentedString(enableUptimeSLA)).append("\n");
     sb.append("}");
     return sb.toString();
   }

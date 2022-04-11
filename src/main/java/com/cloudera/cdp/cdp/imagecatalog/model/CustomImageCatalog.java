@@ -25,13 +25,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * Basic image catalog data
+ * Basic image catalog data.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-23T17:47:16.196-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-11T11:03:32.017-07:00")
 public class CustomImageCatalog  {
 
   /**
-   * Image Catalog name
+   * Image catalog name
    **/
   private String name = null;
 
@@ -42,7 +42,7 @@ public class CustomImageCatalog  {
 
   /**
    * Getter for name.
-   * Image Catalog name
+   * Image catalog name
    **/
   @JsonProperty("name")
   public String getName() {
@@ -51,7 +51,7 @@ public class CustomImageCatalog  {
 
   /**
    * Setter for name.
-   * Image Catalog name
+   * Image catalog name
    **/
   public void setName(String name) {
     this.name = name;

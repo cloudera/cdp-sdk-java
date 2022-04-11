@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Healthinfo object contains the health information of a resource.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-23T17:47:14.928-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-11T11:03:30.661-07:00")
 public class HealthInfo  {
 
   /**
@@ -43,7 +43,7 @@ public class HealthInfo  {
   private Boolean isHealthy = null;
 
   /**
-   * The unix timestamp for the heartbeat.
+   * The timestamp for the heartbeat.
    **/
   private ZonedDateTime updatedAt = null;
 
@@ -93,7 +93,7 @@ public class HealthInfo  {
 
   /**
    * Getter for updatedAt.
-   * The unix timestamp for the heartbeat.
+   * The timestamp for the heartbeat.
    **/
   @JsonProperty("updatedAt")
   public ZonedDateTime getUpdatedAt() {
@@ -102,7 +102,7 @@ public class HealthInfo  {
 
   /**
    * Setter for updatedAt.
-   * The unix timestamp for the heartbeat.
+   * The timestamp for the heartbeat.
    **/
   public void setUpdatedAt(ZonedDateTime updatedAt) {
     this.updatedAt = updatedAt;

@@ -30,7 +30,7 @@ import java.util.Map;
 /**
  * Request object for Enable Service method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-03-23T17:47:15.881-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-11T11:03:31.679-07:00")
 public class EnableServiceRequest  {
 
   /**
@@ -107,6 +107,11 @@ public class EnableServiceRequest  {
    * List of CIDRs that would be allowed to access kubernetes master API server.
    **/
   private List<String> whitelistIps = new ArrayList<String>();
+
+  /**
+   * List of CIDRs that would be allowed to access the load balancer.
+   **/
+  private List<String> loadbalancerAllowlist = new ArrayList<String>();
 
   /**
    * User defined labels that tag all provisioned cloud resources.
@@ -379,6 +384,23 @@ public class EnableServiceRequest  {
   }
 
   /**
+   * Getter for loadbalancerAllowlist.
+   * List of CIDRs that would be allowed to access the load balancer.
+   **/
+  @JsonProperty("loadbalancerAllowlist")
+  public List<String> getLoadbalancerAllowlist() {
+    return loadbalancerAllowlist;
+  }
+
+  /**
+   * Setter for loadbalancerAllowlist.
+   * List of CIDRs that would be allowed to access the load balancer.
+   **/
+  public void setLoadbalancerAllowlist(List<String> loadbalancerAllowlist) {
+    this.loadbalancerAllowlist = loadbalancerAllowlist;
+  }
+
+  /**
    * Getter for tags.
    * User defined labels that tag all provisioned cloud resources.
    **/
@@ -483,6 +505,9 @@ public class EnableServiceRequest  {
     if (!Objects.equals(this.whitelistIps, enableServiceRequest.whitelistIps)) {
       return false;
     }
+    if (!Objects.equals(this.loadbalancerAllowlist, enableServiceRequest.loadbalancerAllowlist)) {
+      return false;
+    }
     if (!Objects.equals(this.tags, enableServiceRequest.tags)) {
       return false;
     }
@@ -497,7 +522,7 @@ public class EnableServiceRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, env, instanceType, minimumInstances, maximumInstances, minimumSpotInstances, maximumSpotInstances, initialInstances, initialSpotInstances, rootVolumeSize, enablePublicEndpoint, enableWorkloadAnalytics, useSsd, chartValueOverrides, whitelistIps, tags, skipValidation, subnets);
+    return Objects.hash(name, env, instanceType, minimumInstances, maximumInstances, minimumSpotInstances, maximumSpotInstances, initialInstances, initialSpotInstances, rootVolumeSize, enablePublicEndpoint, enableWorkloadAnalytics, useSsd, chartValueOverrides, whitelistIps, loadbalancerAllowlist, tags, skipValidation, subnets);
   }
 
   @Override
@@ -519,6 +544,7 @@ public class EnableServiceRequest  {
     sb.append("    useSsd: ").append(toIndentedString(useSsd)).append("\n");
     sb.append("    chartValueOverrides: ").append(toIndentedString(chartValueOverrides)).append("\n");
     sb.append("    whitelistIps: ").append(toIndentedString(whitelistIps)).append("\n");
+    sb.append("    loadbalancerAllowlist: ").append(toIndentedString(loadbalancerAllowlist)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    skipValidation: ").append(toIndentedString(skipValidation)).append("\n");
     sb.append("    subnets: ").append(toIndentedString(subnets)).append("\n");
