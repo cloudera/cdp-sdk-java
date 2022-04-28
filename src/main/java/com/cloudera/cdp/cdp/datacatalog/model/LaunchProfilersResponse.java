@@ -28,7 +28,7 @@ import com.cloudera.cdp.datacatalog.model.Cluster;
 /**
  * Profiler launch operation response.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-11T11:03:30.620-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-28T14:39:23.348-07:00")
 public class LaunchProfilersResponse extends CdpResponse {
 
   /**

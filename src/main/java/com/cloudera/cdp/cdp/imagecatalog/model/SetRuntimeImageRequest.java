@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * The request object to add or update a Cloudera Runtime image in a catalog.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-11T11:03:32.017-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-28T14:39:24.770-07:00")
 public class SetRuntimeImageRequest  {
 
   /**

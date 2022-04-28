@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * The request for replacing recipes.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-11T11:03:30.843-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-28T14:39:23.518-07:00")
 public class ReplaceRecipesRequest  {
 
   /**

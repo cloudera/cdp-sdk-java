@@ -75,6 +75,8 @@ import com.cloudera.cdp.datalake.model.RepairDatalakeRequest;
 import com.cloudera.cdp.datalake.model.RepairDatalakeResponse;
 import com.cloudera.cdp.datalake.model.ReplaceRecipesRequest;
 import com.cloudera.cdp.datalake.model.ReplaceRecipesResponse;
+import com.cloudera.cdp.datalake.model.ResizeDatalakeRequest;
+import com.cloudera.cdp.datalake.model.ResizeDatalakeResponse;
 import com.cloudera.cdp.datalake.model.RestoreDatalakeRequest;
 import com.cloudera.cdp.datalake.model.RestoreDatalakeResponse;
 import com.cloudera.cdp.datalake.model.RestoreDatalakeStatusRequest;
@@ -101,7 +103,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-11T11:03:30.843-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-28T14:39:23.518-07:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datalake";
@@ -429,6 +431,19 @@ public class DatalakeClient extends CdpClient {
     }
 
     return this.invokeAPI("replaceRecipes", "/api/v1/datalake/replaceRecipes", input, new GenericType<ReplaceRecipesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Resizes the given datalake to the given target size. Currently, the only valid use of this is for resizing a light duty datalake to a medium duty datalake.
+   * @param input
+   * @return ResizeDatalakeResponse
+   */
+  public ResizeDatalakeResponse resizeDatalake(ResizeDatalakeRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling resizeDatalake");
+    }
+
+    return this.invokeAPI("resizeDatalake", "/api/v1/datalake/resizeDatalake", input, new GenericType<ResizeDatalakeResponse>(){}, NO_EXTENSION);
   }
 
   /**

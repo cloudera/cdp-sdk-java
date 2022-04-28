@@ -23,12 +23,13 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.iam.model.WorkloadPasswordDetails;
 import java.time.ZonedDateTime;
 
 /**
  * Information about a Cloudera CDP machine user.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-11T11:03:31.755-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-28T14:39:24.524-07:00")
 public class MachineUser  {
 
   /**
@@ -50,6 +51,11 @@ public class MachineUser  {
    * The username used in all the workload clusters of the machine user.
    **/
   private String workloadUsername = null;
+
+  /**
+   * Information about the workload password for the machine user.
+   **/
+  private WorkloadPasswordDetails workloadPasswordDetails = null;
 
   /**
    * Getter for machineUserName.
@@ -119,6 +125,23 @@ public class MachineUser  {
     this.workloadUsername = workloadUsername;
   }
 
+  /**
+   * Getter for workloadPasswordDetails.
+   * Information about the workload password for the machine user.
+   **/
+  @JsonProperty("workloadPasswordDetails")
+  public WorkloadPasswordDetails getWorkloadPasswordDetails() {
+    return workloadPasswordDetails;
+  }
+
+  /**
+   * Setter for workloadPasswordDetails.
+   * Information about the workload password for the machine user.
+   **/
+  public void setWorkloadPasswordDetails(WorkloadPasswordDetails workloadPasswordDetails) {
+    this.workloadPasswordDetails = workloadPasswordDetails;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -140,12 +163,15 @@ public class MachineUser  {
     if (!Objects.equals(this.workloadUsername, machineUser.workloadUsername)) {
       return false;
     }
+    if (!Objects.equals(this.workloadPasswordDetails, machineUser.workloadPasswordDetails)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(machineUserName, crn, creationDate, workloadUsername);
+    return Objects.hash(machineUserName, crn, creationDate, workloadUsername, workloadPasswordDetails);
   }
 
   @Override
@@ -156,6 +182,7 @@ public class MachineUser  {
     sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    workloadUsername: ").append(toIndentedString(workloadUsername)).append("\n");
+    sb.append("    workloadPasswordDetails: ").append(toIndentedString(workloadPasswordDetails)).append("\n");
     sb.append("}");
     return sb.toString();
   }
