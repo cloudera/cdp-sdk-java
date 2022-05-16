@@ -27,13 +27,18 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for creating FreeIPA in the environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-28T14:39:23.779-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:45.491-07:00")
 public class AWSFreeIpaCreationRequest  {
 
   /**
    * The number of FreeIPA instances to create per group when creating FreeIPA in the environment
    **/
   private Integer instanceCountByGroup = null;
+
+  /**
+   * Flag which marks that the freeIPA will be deployed in a multi-availability zone way or not.
+   **/
+  private Boolean multiAz = null;
 
   /**
    * Getter for instanceCountByGroup.
@@ -52,6 +57,23 @@ public class AWSFreeIpaCreationRequest  {
     this.instanceCountByGroup = instanceCountByGroup;
   }
 
+  /**
+   * Getter for multiAz.
+   * Flag which marks that the freeIPA will be deployed in a multi-availability zone way or not.
+   **/
+  @JsonProperty("multiAz")
+  public Boolean getMultiAz() {
+    return multiAz;
+  }
+
+  /**
+   * Setter for multiAz.
+   * Flag which marks that the freeIPA will be deployed in a multi-availability zone way or not.
+   **/
+  public void setMultiAz(Boolean multiAz) {
+    this.multiAz = multiAz;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -64,12 +86,15 @@ public class AWSFreeIpaCreationRequest  {
     if (!Objects.equals(this.instanceCountByGroup, aWSFreeIpaCreationRequest.instanceCountByGroup)) {
       return false;
     }
+    if (!Objects.equals(this.multiAz, aWSFreeIpaCreationRequest.multiAz)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceCountByGroup);
+    return Objects.hash(instanceCountByGroup, multiAz);
   }
 
   @Override
@@ -77,6 +102,7 @@ public class AWSFreeIpaCreationRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class AWSFreeIpaCreationRequest {\n");
     sb.append("    instanceCountByGroup: ").append(toIndentedString(instanceCountByGroup)).append("\n");
+    sb.append("    multiAz: ").append(toIndentedString(multiAz)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -44,6 +44,8 @@ import com.cloudera.cdp.datahub.model.CreateClusterDefinitionRequest;
 import com.cloudera.cdp.datahub.model.CreateClusterDefinitionResponse;
 import com.cloudera.cdp.datahub.model.CreateClusterTemplateRequest;
 import com.cloudera.cdp.datahub.model.CreateClusterTemplateResponse;
+import com.cloudera.cdp.datahub.model.CreateCustomConfigurationsRequest;
+import com.cloudera.cdp.datahub.model.CreateCustomConfigurationsResponse;
 import com.cloudera.cdp.datahub.model.CreateGCPClusterRequest;
 import com.cloudera.cdp.datahub.model.CreateGCPClusterResponse;
 import com.cloudera.cdp.datahub.model.CreateRecipeRequest;
@@ -56,6 +58,8 @@ import com.cloudera.cdp.datahub.model.DeleteClusterRequest;
 import com.cloudera.cdp.datahub.model.DeleteClusterResponse;
 import com.cloudera.cdp.datahub.model.DeleteClusterTemplatesRequest;
 import com.cloudera.cdp.datahub.model.DeleteClusterTemplatesResponse;
+import com.cloudera.cdp.datahub.model.DeleteCustomConfigurationsRequest;
+import com.cloudera.cdp.datahub.model.DeleteCustomConfigurationsResponse;
 import com.cloudera.cdp.datahub.model.DeleteInstancesRequest;
 import com.cloudera.cdp.datahub.model.DeleteInstancesResponse;
 import com.cloudera.cdp.datahub.model.DeleteRecipesRequest;
@@ -68,6 +72,8 @@ import com.cloudera.cdp.datahub.model.DescribeClusterRequest;
 import com.cloudera.cdp.datahub.model.DescribeClusterResponse;
 import com.cloudera.cdp.datahub.model.DescribeClusterTemplateRequest;
 import com.cloudera.cdp.datahub.model.DescribeClusterTemplateResponse;
+import com.cloudera.cdp.datahub.model.DescribeCustomConfigurationsRequest;
+import com.cloudera.cdp.datahub.model.DescribeCustomConfigurationsResponse;
 import com.cloudera.cdp.datahub.model.DescribeRecipeRequest;
 import com.cloudera.cdp.datahub.model.DescribeRecipeResponse;
 import com.cloudera.cdp.datahub.model.Error;
@@ -87,6 +93,8 @@ import com.cloudera.cdp.datahub.model.ListClusterTemplatesRequest;
 import com.cloudera.cdp.datahub.model.ListClusterTemplatesResponse;
 import com.cloudera.cdp.datahub.model.ListClustersRequest;
 import com.cloudera.cdp.datahub.model.ListClustersResponse;
+import com.cloudera.cdp.datahub.model.ListCustomConfigurationsRequest;
+import com.cloudera.cdp.datahub.model.ListCustomConfigurationsResponse;
 import com.cloudera.cdp.datahub.model.ListDatahubDiagnosticsRequest;
 import com.cloudera.cdp.datahub.model.ListDatahubDiagnosticsResponse;
 import com.cloudera.cdp.datahub.model.ListRecipesRequest;
@@ -127,7 +135,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-28T14:39:22.553-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:44.187-07:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datahub";
@@ -263,6 +271,19 @@ public class DatahubClient extends CdpClient {
   }
 
   /**
+   * Creates custom configurations. Custom Configurations are sets of properties or name-value pairs that belong to any of the services present in cluster templates. These can be used to override and/or append properties to the corresponding cluster template while launching DataHub clusters.
+   * @param input
+   * @return CreateCustomConfigurationsResponse
+   */
+  public CreateCustomConfigurationsResponse createCustomConfigurations(CreateCustomConfigurationsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createCustomConfigurations");
+    }
+
+    return this.invokeAPI("createCustomConfigurations", "/api/v1/datahub/createCustomConfigurations", input, new GenericType<CreateCustomConfigurationsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Creates a GCP workload cluster.
    * @param input
    * @return CreateGCPClusterResponse
@@ -341,6 +362,19 @@ public class DatahubClient extends CdpClient {
   }
 
   /**
+   * Deletes custom configurations. Custom Configurations are sets of properties or name-value pairs that belong to any of the services present in cluster templates. These can be used to override and/or append properties to the corresponding cluster template while launching DataHub clusters.
+   * @param input
+   * @return DeleteCustomConfigurationsResponse
+   */
+  public DeleteCustomConfigurationsResponse deleteCustomConfigurations(DeleteCustomConfigurationsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteCustomConfigurations");
+    }
+
+    return this.invokeAPI("deleteCustomConfigurations", "/api/v1/datahub/deleteCustomConfigurations", input, new GenericType<DeleteCustomConfigurationsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Deletes instances for the specified cluster.
    * @param input
    * @return DeleteInstancesResponse
@@ -416,6 +450,19 @@ public class DatahubClient extends CdpClient {
     }
 
     return this.invokeAPI("describeClusterTemplate", "/api/v1/datahub/describeClusterTemplate", input, new GenericType<DescribeClusterTemplateResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Describes custom configurations. Custom Configurations are sets of properties or name-value pairs that belong to any of the services present in cluster templates. These can be used to override and/or append properties to the corresponding cluster template while launching DataHub clusters.
+   * @param input
+   * @return DescribeCustomConfigurationsResponse
+   */
+  public DescribeCustomConfigurationsResponse describeCustomConfigurations(DescribeCustomConfigurationsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeCustomConfigurations");
+    }
+
+    return this.invokeAPI("describeCustomConfigurations", "/api/v1/datahub/describeCustomConfigurations", input, new GenericType<DescribeCustomConfigurationsResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -533,6 +580,19 @@ public class DatahubClient extends CdpClient {
     }
 
     return this.invokeAPI("listClusters", "/api/v1/datahub/listClusters", input, new GenericType<ListClustersResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Lists custom configurations. Custom Configurations are sets of properties or name-value pairs that belong to any of the services present in cluster templates. These can be used to override and/or append properties to the corresponding cluster template while launching DataHub clusters.
+   * @param input
+   * @return ListCustomConfigurationsResponse
+   */
+  public ListCustomConfigurationsResponse listCustomConfigurations(ListCustomConfigurationsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listCustomConfigurations");
+    }
+
+    return this.invokeAPI("listCustomConfigurations", "/api/v1/datahub/listCustomConfigurations", input, new GenericType<ListCustomConfigurationsResponse>(){}, NO_EXTENSION);
   }
 
   /**

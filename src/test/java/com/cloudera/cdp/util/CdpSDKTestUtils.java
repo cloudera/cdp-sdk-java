@@ -44,6 +44,7 @@ public class CdpSDKTestUtils {
   private static final String RSA_PRIVATE_KEY;
   private static final String ED25519_PRIVATE_KEY =
       "37yMdtdkJANPn62X5KDKKI3iv5hbAAKvqxHdgIj22bo=";
+  private static final String ECDSA_PRIVATE_KEY;
   public static String DEFAULT_CREDENTIALS_FILENAME = "credentials";
   public static String DEFAULT_CREDENTIALS_FOLDERNAME = ".cdp";
   public static String DEFAULT_CREDENTIALS_PATH = "/" + DEFAULT_CREDENTIALS_FOLDERNAME
@@ -65,6 +66,15 @@ public class CdpSDKTestUtils {
       fail("Could not find private key resource.");
     }
     RSA_PRIVATE_KEY = privateKey;
+
+    String ecdsaPrivateKey = null;
+    try {
+      ecdsaPrivateKey =
+          Resources.toString(Resources.getResource("testECDSAPrivateKey.pem"), Charsets.UTF_8);
+    } catch (IOException e) {
+      fail("Could not find ECDSA private key resource.");
+    }
+    ECDSA_PRIVATE_KEY = ecdsaPrivateKey;
 
     String credentialsFile = null;
     try {
@@ -174,5 +184,14 @@ public class CdpSDKTestUtils {
    */
   public static PrivateKey getEd25519PrivateKey() {
       return CredentialUtilities.decodePrivateKey(ED25519_PRIVATE_KEY);
+  }
+
+  /**
+   * Returns a private key which can be used in test. The key is valid but has
+   * no access to CDP.
+   * @return a test private key
+   */
+  public static PrivateKey getECDSAPrivateKey() {
+    return CredentialUtilities.decodePrivateKey(ECDSA_PRIVATE_KEY);
   }
 }

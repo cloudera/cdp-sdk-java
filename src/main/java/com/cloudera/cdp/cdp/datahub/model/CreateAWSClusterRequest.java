@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object for create AWS cluster request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-28T14:39:22.553-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:44.187-07:00")
 public class CreateAWSClusterRequest  {
 
   /**
@@ -53,6 +53,11 @@ public class CreateAWSClusterRequest  {
    * Name or CRN of the cluster template to use for cluster creation.
    **/
   private String clusterTemplateName = null;
+
+  /**
+   * The name of the custom configurations to use for cluster creation.
+   **/
+  private String customConfigurationsName = null;
 
   /**
    * Instance group details.
@@ -83,6 +88,16 @@ public class CreateAWSClusterRequest  {
    * Database type for datahub. Currently supported values: NONE, NON_HA, HA
    **/
   private String datahubDatabase = null;
+
+  /**
+   * List of subnet IDs in case of multi availability zone setup.
+   **/
+  private List<String> subnetIds = new ArrayList<String>();
+
+  /**
+   * Flag that toggles the multi availability zone for the given datahub cluster when you are not sure what subnet IDs can be used. This way the subnet IDs will be used what the environment suggests.
+   **/
+  private Boolean multiAz = null;
 
   /**
    * Flag that decides whether to provision a load-balancer to front various service endpoints for the given datahub. This will typically be used for HA cluster shapes.
@@ -155,6 +170,23 @@ public class CreateAWSClusterRequest  {
    **/
   public void setClusterTemplateName(String clusterTemplateName) {
     this.clusterTemplateName = clusterTemplateName;
+  }
+
+  /**
+   * Getter for customConfigurationsName.
+   * The name of the custom configurations to use for cluster creation.
+   **/
+  @JsonProperty("customConfigurationsName")
+  public String getCustomConfigurationsName() {
+    return customConfigurationsName;
+  }
+
+  /**
+   * Setter for customConfigurationsName.
+   * The name of the custom configurations to use for cluster creation.
+   **/
+  public void setCustomConfigurationsName(String customConfigurationsName) {
+    this.customConfigurationsName = customConfigurationsName;
   }
 
   /**
@@ -260,6 +292,40 @@ public class CreateAWSClusterRequest  {
   }
 
   /**
+   * Getter for subnetIds.
+   * List of subnet IDs in case of multi availability zone setup.
+   **/
+  @JsonProperty("subnetIds")
+  public List<String> getSubnetIds() {
+    return subnetIds;
+  }
+
+  /**
+   * Setter for subnetIds.
+   * List of subnet IDs in case of multi availability zone setup.
+   **/
+  public void setSubnetIds(List<String> subnetIds) {
+    this.subnetIds = subnetIds;
+  }
+
+  /**
+   * Getter for multiAz.
+   * Flag that toggles the multi availability zone for the given datahub cluster when you are not sure what subnet IDs can be used. This way the subnet IDs will be used what the environment suggests.
+   **/
+  @JsonProperty("multiAz")
+  public Boolean getMultiAz() {
+    return multiAz;
+  }
+
+  /**
+   * Setter for multiAz.
+   * Flag that toggles the multi availability zone for the given datahub cluster when you are not sure what subnet IDs can be used. This way the subnet IDs will be used what the environment suggests.
+   **/
+  public void setMultiAz(Boolean multiAz) {
+    this.multiAz = multiAz;
+  }
+
+  /**
    * Getter for enableLoadBalancer.
    * Flag that decides whether to provision a load-balancer to front various service endpoints for the given datahub. This will typically be used for HA cluster shapes.
    **/
@@ -297,6 +363,9 @@ public class CreateAWSClusterRequest  {
     if (!Objects.equals(this.clusterTemplateName, createAWSClusterRequest.clusterTemplateName)) {
       return false;
     }
+    if (!Objects.equals(this.customConfigurationsName, createAWSClusterRequest.customConfigurationsName)) {
+      return false;
+    }
     if (!Objects.equals(this.instanceGroups, createAWSClusterRequest.instanceGroups)) {
       return false;
     }
@@ -315,6 +384,12 @@ public class CreateAWSClusterRequest  {
     if (!Objects.equals(this.datahubDatabase, createAWSClusterRequest.datahubDatabase)) {
       return false;
     }
+    if (!Objects.equals(this.subnetIds, createAWSClusterRequest.subnetIds)) {
+      return false;
+    }
+    if (!Objects.equals(this.multiAz, createAWSClusterRequest.multiAz)) {
+      return false;
+    }
     if (!Objects.equals(this.enableLoadBalancer, createAWSClusterRequest.enableLoadBalancer)) {
       return false;
     }
@@ -323,7 +398,7 @@ public class CreateAWSClusterRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, clusterDefinitionName, environmentName, clusterTemplateName, instanceGroups, subnetId, image, tags, requestTemplate, datahubDatabase, enableLoadBalancer);
+    return Objects.hash(clusterName, clusterDefinitionName, environmentName, clusterTemplateName, customConfigurationsName, instanceGroups, subnetId, image, tags, requestTemplate, datahubDatabase, subnetIds, multiAz, enableLoadBalancer);
   }
 
   @Override
@@ -334,12 +409,15 @@ public class CreateAWSClusterRequest  {
     sb.append("    clusterDefinitionName: ").append(toIndentedString(clusterDefinitionName)).append("\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    clusterTemplateName: ").append(toIndentedString(clusterTemplateName)).append("\n");
+    sb.append("    customConfigurationsName: ").append(toIndentedString(customConfigurationsName)).append("\n");
     sb.append("    instanceGroups: ").append(toIndentedString(instanceGroups)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    requestTemplate: ").append(toIndentedString(requestTemplate)).append("\n");
     sb.append("    datahubDatabase: ").append(toIndentedString(datahubDatabase)).append("\n");
+    sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
+    sb.append("    multiAz: ").append(toIndentedString(multiAz)).append("\n");
     sb.append("    enableLoadBalancer: ").append(toIndentedString(enableLoadBalancer)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object for create GCP cluster request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-28T14:39:22.553-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:44.187-07:00")
 public class CreateGCPClusterRequest  {
 
   /**
@@ -53,6 +53,11 @@ public class CreateGCPClusterRequest  {
    * Name or CRN of the cluster template to use for cluster creation.
    **/
   private String clusterTemplateName = null;
+
+  /**
+   * The name of the custom configurations to use for cluster creation.
+   **/
+  private String customConfigurationsName = null;
 
   /**
    * Instance group details.
@@ -150,6 +155,23 @@ public class CreateGCPClusterRequest  {
    **/
   public void setClusterTemplateName(String clusterTemplateName) {
     this.clusterTemplateName = clusterTemplateName;
+  }
+
+  /**
+   * Getter for customConfigurationsName.
+   * The name of the custom configurations to use for cluster creation.
+   **/
+  @JsonProperty("customConfigurationsName")
+  public String getCustomConfigurationsName() {
+    return customConfigurationsName;
+  }
+
+  /**
+   * Setter for customConfigurationsName.
+   * The name of the custom configurations to use for cluster creation.
+   **/
+  public void setCustomConfigurationsName(String customConfigurationsName) {
+    this.customConfigurationsName = customConfigurationsName;
   }
 
   /**
@@ -275,6 +297,9 @@ public class CreateGCPClusterRequest  {
     if (!Objects.equals(this.clusterTemplateName, createGCPClusterRequest.clusterTemplateName)) {
       return false;
     }
+    if (!Objects.equals(this.customConfigurationsName, createGCPClusterRequest.customConfigurationsName)) {
+      return false;
+    }
     if (!Objects.equals(this.instanceGroups, createGCPClusterRequest.instanceGroups)) {
       return false;
     }
@@ -298,7 +323,7 @@ public class CreateGCPClusterRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, clusterDefinitionName, environmentName, clusterTemplateName, instanceGroups, subnetName, image, tags, requestTemplate, datahubDatabase);
+    return Objects.hash(clusterName, clusterDefinitionName, environmentName, clusterTemplateName, customConfigurationsName, instanceGroups, subnetName, image, tags, requestTemplate, datahubDatabase);
   }
 
   @Override
@@ -309,6 +334,7 @@ public class CreateGCPClusterRequest  {
     sb.append("    clusterDefinitionName: ").append(toIndentedString(clusterDefinitionName)).append("\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    clusterTemplateName: ").append(toIndentedString(clusterTemplateName)).append("\n");
+    sb.append("    customConfigurationsName: ").append(toIndentedString(customConfigurationsName)).append("\n");
     sb.append("    instanceGroups: ").append(toIndentedString(instanceGroups)).append("\n");
     sb.append("    subnetName: ").append(toIndentedString(subnetName)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");

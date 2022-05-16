@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the createDbc method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-28T14:39:23.078-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:44.653-07:00")
 public class CreateDbcRequest  {
 
   /**
@@ -64,6 +64,21 @@ public class CreateDbcRequest  {
    * Tenant Storage Location if the feature is enabled for the account.
    **/
   private String tenantStorageLocation = "";
+
+  /**
+   * The name of the Metastore database.
+   **/
+  private String dbMetastore = "";
+
+  /**
+   * The name of the DAS database.
+   **/
+  private String dbDas = "";
+
+  /**
+   * The name of the HUE database.
+   **/
+  private String dbHue = "";
 
   /**
    * Getter for clusterId.
@@ -184,6 +199,57 @@ public class CreateDbcRequest  {
     this.tenantStorageLocation = tenantStorageLocation;
   }
 
+  /**
+   * Getter for dbMetastore.
+   * The name of the Metastore database.
+   **/
+  @JsonProperty("dbMetastore")
+  public String getDbMetastore() {
+    return dbMetastore;
+  }
+
+  /**
+   * Setter for dbMetastore.
+   * The name of the Metastore database.
+   **/
+  public void setDbMetastore(String dbMetastore) {
+    this.dbMetastore = dbMetastore;
+  }
+
+  /**
+   * Getter for dbDas.
+   * The name of the DAS database.
+   **/
+  @JsonProperty("dbDas")
+  public String getDbDas() {
+    return dbDas;
+  }
+
+  /**
+   * Setter for dbDas.
+   * The name of the DAS database.
+   **/
+  public void setDbDas(String dbDas) {
+    this.dbDas = dbDas;
+  }
+
+  /**
+   * Getter for dbHue.
+   * The name of the HUE database.
+   **/
+  @JsonProperty("dbHue")
+  public String getDbHue() {
+    return dbHue;
+  }
+
+  /**
+   * Setter for dbHue.
+   * The name of the HUE database.
+   **/
+  public void setDbHue(String dbHue) {
+    this.dbHue = dbHue;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -214,12 +280,21 @@ public class CreateDbcRequest  {
     if (!Objects.equals(this.tenantStorageLocation, createDbcRequest.tenantStorageLocation)) {
       return false;
     }
+    if (!Objects.equals(this.dbMetastore, createDbcRequest.dbMetastore)) {
+      return false;
+    }
+    if (!Objects.equals(this.dbDas, createDbcRequest.dbDas)) {
+      return false;
+    }
+    if (!Objects.equals(this.dbHue, createDbcRequest.dbHue)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, name, loadDemoData, imageVersion, isDefault, tenantStorageRole, tenantStorageLocation);
+    return Objects.hash(clusterId, name, loadDemoData, imageVersion, isDefault, tenantStorageRole, tenantStorageLocation, dbMetastore, dbDas, dbHue);
   }
 
   @Override
@@ -233,6 +308,9 @@ public class CreateDbcRequest  {
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
     sb.append("    tenantStorageRole: ").append(toIndentedString(tenantStorageRole)).append("\n");
     sb.append("    tenantStorageLocation: ").append(toIndentedString(tenantStorageLocation)).append("\n");
+    sb.append("    dbMetastore: ").append(toIndentedString(dbMetastore)).append("\n");
+    sb.append("    dbDas: ").append(toIndentedString(dbDas)).append("\n");
+    sb.append("    dbHue: ").append(toIndentedString(dbHue)).append("\n");
     sb.append("}");
     return sb.toString();
   }

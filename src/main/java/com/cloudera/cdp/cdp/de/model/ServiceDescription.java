@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Detailed description of a CDE service.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-28T14:39:24.425-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:46.017-07:00")
 public class ServiceDescription  {
 
   /**
@@ -127,6 +127,26 @@ public class ServiceDescription  {
    * List of Subnet IDs of the CDP subnets used by the kubernetes worker node.
    **/
   private String subnets = null;
+
+  /**
+   * If true, the CDE service was created with fully private Azure services (AKS, MySQL, etc.).
+   **/
+  private Boolean privateClusterEnabled = null;
+
+  /**
+   * If true, the CDE endpoint was created in a publicly accessible subnet.
+   **/
+  private Boolean publicEndpointEnabled = null;
+
+  /**
+   * If true, diagnostic information about job and query execution is sent to Cloudera Workload Manager.
+   **/
+  private Boolean workloadAnalyticsEnabled = null;
+
+  /**
+   * If true, SSD would have been be used for workload filesystem.
+   **/
+  private Boolean ssdUsed = null;
 
   /**
    * Getter for name.
@@ -451,6 +471,74 @@ public class ServiceDescription  {
     this.subnets = subnets;
   }
 
+  /**
+   * Getter for privateClusterEnabled.
+   * If true, the CDE service was created with fully private Azure services (AKS, MySQL, etc.).
+   **/
+  @JsonProperty("privateClusterEnabled")
+  public Boolean getPrivateClusterEnabled() {
+    return privateClusterEnabled;
+  }
+
+  /**
+   * Setter for privateClusterEnabled.
+   * If true, the CDE service was created with fully private Azure services (AKS, MySQL, etc.).
+   **/
+  public void setPrivateClusterEnabled(Boolean privateClusterEnabled) {
+    this.privateClusterEnabled = privateClusterEnabled;
+  }
+
+  /**
+   * Getter for publicEndpointEnabled.
+   * If true, the CDE endpoint was created in a publicly accessible subnet.
+   **/
+  @JsonProperty("publicEndpointEnabled")
+  public Boolean getPublicEndpointEnabled() {
+    return publicEndpointEnabled;
+  }
+
+  /**
+   * Setter for publicEndpointEnabled.
+   * If true, the CDE endpoint was created in a publicly accessible subnet.
+   **/
+  public void setPublicEndpointEnabled(Boolean publicEndpointEnabled) {
+    this.publicEndpointEnabled = publicEndpointEnabled;
+  }
+
+  /**
+   * Getter for workloadAnalyticsEnabled.
+   * If true, diagnostic information about job and query execution is sent to Cloudera Workload Manager.
+   **/
+  @JsonProperty("workloadAnalyticsEnabled")
+  public Boolean getWorkloadAnalyticsEnabled() {
+    return workloadAnalyticsEnabled;
+  }
+
+  /**
+   * Setter for workloadAnalyticsEnabled.
+   * If true, diagnostic information about job and query execution is sent to Cloudera Workload Manager.
+   **/
+  public void setWorkloadAnalyticsEnabled(Boolean workloadAnalyticsEnabled) {
+    this.workloadAnalyticsEnabled = workloadAnalyticsEnabled;
+  }
+
+  /**
+   * Getter for ssdUsed.
+   * If true, SSD would have been be used for workload filesystem.
+   **/
+  @JsonProperty("ssdUsed")
+  public Boolean getSsdUsed() {
+    return ssdUsed;
+  }
+
+  /**
+   * Setter for ssdUsed.
+   * If true, SSD would have been be used for workload filesystem.
+   **/
+  public void setSsdUsed(Boolean ssdUsed) {
+    this.ssdUsed = ssdUsed;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -517,12 +605,24 @@ public class ServiceDescription  {
     if (!Objects.equals(this.subnets, serviceDescription.subnets)) {
       return false;
     }
+    if (!Objects.equals(this.privateClusterEnabled, serviceDescription.privateClusterEnabled)) {
+      return false;
+    }
+    if (!Objects.equals(this.publicEndpointEnabled, serviceDescription.publicEndpointEnabled)) {
+      return false;
+    }
+    if (!Objects.equals(this.workloadAnalyticsEnabled, serviceDescription.workloadAnalyticsEnabled)) {
+      return false;
+    }
+    if (!Objects.equals(this.ssdUsed, serviceDescription.ssdUsed)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, clusterId, environmentName, environmentCrn, tenantId, resources, status, creatorEmail, creatorCrn, enablingTime, clusterFqdn, cloudPlatform, dataLakeFileSystems, logLocation, dataLakeAtlasUIEndpoint, chartValueOverrides, whitelistIps, loadbalancerAllowlist, subnets);
+    return Objects.hash(name, clusterId, environmentName, environmentCrn, tenantId, resources, status, creatorEmail, creatorCrn, enablingTime, clusterFqdn, cloudPlatform, dataLakeFileSystems, logLocation, dataLakeAtlasUIEndpoint, chartValueOverrides, whitelistIps, loadbalancerAllowlist, subnets, privateClusterEnabled, publicEndpointEnabled, workloadAnalyticsEnabled, ssdUsed);
   }
 
   @Override
@@ -548,6 +648,10 @@ public class ServiceDescription  {
     sb.append("    whitelistIps: ").append(toIndentedString(whitelistIps)).append("\n");
     sb.append("    loadbalancerAllowlist: ").append(toIndentedString(loadbalancerAllowlist)).append("\n");
     sb.append("    subnets: ").append(toIndentedString(subnets)).append("\n");
+    sb.append("    privateClusterEnabled: ").append(toIndentedString(privateClusterEnabled)).append("\n");
+    sb.append("    publicEndpointEnabled: ").append(toIndentedString(publicEndpointEnabled)).append("\n");
+    sb.append("    workloadAnalyticsEnabled: ").append(toIndentedString(workloadAnalyticsEnabled)).append("\n");
+    sb.append("    ssdUsed: ").append(toIndentedString(ssdUsed)).append("\n");
     sb.append("}");
     return sb.toString();
   }

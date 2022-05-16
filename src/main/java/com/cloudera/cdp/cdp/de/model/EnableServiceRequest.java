@@ -30,7 +30,7 @@ import java.util.Map;
 /**
  * Request object for Enable Service method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-28T14:39:24.425-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:46.017-07:00")
 public class EnableServiceRequest  {
 
   /**
@@ -122,6 +122,11 @@ public class EnableServiceRequest  {
    * Skip Validation check.
    **/
   private Boolean skipValidation = false;
+
+  /**
+   * Create CDE with fully private Azure services (AKS, MySQL, etc.) and enable vnet access via private endpoints and private link. This option is available only for Azure services.
+   **/
+  private Boolean enablePrivateNetwork = null;
 
   /**
    * List of Subnet IDs of CDP subnets to use for the kubernetes worker node.
@@ -435,6 +440,23 @@ public class EnableServiceRequest  {
   }
 
   /**
+   * Getter for enablePrivateNetwork.
+   * Create CDE with fully private Azure services (AKS, MySQL, etc.) and enable vnet access via private endpoints and private link. This option is available only for Azure services.
+   **/
+  @JsonProperty("enablePrivateNetwork")
+  public Boolean getEnablePrivateNetwork() {
+    return enablePrivateNetwork;
+  }
+
+  /**
+   * Setter for enablePrivateNetwork.
+   * Create CDE with fully private Azure services (AKS, MySQL, etc.) and enable vnet access via private endpoints and private link. This option is available only for Azure services.
+   **/
+  public void setEnablePrivateNetwork(Boolean enablePrivateNetwork) {
+    this.enablePrivateNetwork = enablePrivateNetwork;
+  }
+
+  /**
    * Getter for subnets.
    * List of Subnet IDs of CDP subnets to use for the kubernetes worker node.
    **/
@@ -514,6 +536,9 @@ public class EnableServiceRequest  {
     if (!Objects.equals(this.skipValidation, enableServiceRequest.skipValidation)) {
       return false;
     }
+    if (!Objects.equals(this.enablePrivateNetwork, enableServiceRequest.enablePrivateNetwork)) {
+      return false;
+    }
     if (!Objects.equals(this.subnets, enableServiceRequest.subnets)) {
       return false;
     }
@@ -522,7 +547,7 @@ public class EnableServiceRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, env, instanceType, minimumInstances, maximumInstances, minimumSpotInstances, maximumSpotInstances, initialInstances, initialSpotInstances, rootVolumeSize, enablePublicEndpoint, enableWorkloadAnalytics, useSsd, chartValueOverrides, whitelistIps, loadbalancerAllowlist, tags, skipValidation, subnets);
+    return Objects.hash(name, env, instanceType, minimumInstances, maximumInstances, minimumSpotInstances, maximumSpotInstances, initialInstances, initialSpotInstances, rootVolumeSize, enablePublicEndpoint, enableWorkloadAnalytics, useSsd, chartValueOverrides, whitelistIps, loadbalancerAllowlist, tags, skipValidation, enablePrivateNetwork, subnets);
   }
 
   @Override
@@ -547,6 +572,7 @@ public class EnableServiceRequest  {
     sb.append("    loadbalancerAllowlist: ").append(toIndentedString(loadbalancerAllowlist)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    skipValidation: ").append(toIndentedString(skipValidation)).append("\n");
+    sb.append("    enablePrivateNetwork: ").append(toIndentedString(enablePrivateNetwork)).append("\n");
     sb.append("    subnets: ").append(toIndentedString(subnets)).append("\n");
     sb.append("}");
     return sb.toString();

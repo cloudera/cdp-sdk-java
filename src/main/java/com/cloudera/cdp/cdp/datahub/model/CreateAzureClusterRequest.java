@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object for create Azure cluster request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-28T14:39:22.553-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:44.187-07:00")
 public class CreateAzureClusterRequest  {
 
   /**
@@ -53,6 +53,11 @@ public class CreateAzureClusterRequest  {
    * Name or CRN of the cluster template to use for cluster creation.
    **/
   private String clusterTemplateName = null;
+
+  /**
+   * The name of the custom configurations to use for cluster creation.
+   **/
+  private String customConfigurationsName = null;
 
   /**
    * Instance group details.
@@ -155,6 +160,23 @@ public class CreateAzureClusterRequest  {
    **/
   public void setClusterTemplateName(String clusterTemplateName) {
     this.clusterTemplateName = clusterTemplateName;
+  }
+
+  /**
+   * Getter for customConfigurationsName.
+   * The name of the custom configurations to use for cluster creation.
+   **/
+  @JsonProperty("customConfigurationsName")
+  public String getCustomConfigurationsName() {
+    return customConfigurationsName;
+  }
+
+  /**
+   * Setter for customConfigurationsName.
+   * The name of the custom configurations to use for cluster creation.
+   **/
+  public void setCustomConfigurationsName(String customConfigurationsName) {
+    this.customConfigurationsName = customConfigurationsName;
   }
 
   /**
@@ -297,6 +319,9 @@ public class CreateAzureClusterRequest  {
     if (!Objects.equals(this.clusterTemplateName, createAzureClusterRequest.clusterTemplateName)) {
       return false;
     }
+    if (!Objects.equals(this.customConfigurationsName, createAzureClusterRequest.customConfigurationsName)) {
+      return false;
+    }
     if (!Objects.equals(this.instanceGroups, createAzureClusterRequest.instanceGroups)) {
       return false;
     }
@@ -323,7 +348,7 @@ public class CreateAzureClusterRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, clusterDefinitionName, environmentName, clusterTemplateName, instanceGroups, subnetId, image, tags, requestTemplate, datahubDatabase, enableLoadBalancer);
+    return Objects.hash(clusterName, clusterDefinitionName, environmentName, clusterTemplateName, customConfigurationsName, instanceGroups, subnetId, image, tags, requestTemplate, datahubDatabase, enableLoadBalancer);
   }
 
   @Override
@@ -334,6 +359,7 @@ public class CreateAzureClusterRequest  {
     sb.append("    clusterDefinitionName: ").append(toIndentedString(clusterDefinitionName)).append("\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    clusterTemplateName: ").append(toIndentedString(clusterTemplateName)).append("\n");
+    sb.append("    customConfigurationsName: ").append(toIndentedString(customConfigurationsName)).append("\n");
     sb.append("    instanceGroups: ").append(toIndentedString(instanceGroups)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");

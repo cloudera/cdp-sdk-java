@@ -25,11 +25,12 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.dw.model.AwsActivationOptions;
 import com.cloudera.cdp.dw.model.AzureActivationOptions;
+import com.cloudera.cdp.dw.model.PrivateCloudActivationOptions;
 
 /**
  * Request object for the createCluster method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-28T14:39:23.078-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:44.653-07:00")
 public class CreateClusterRequest  {
 
   /**
@@ -61,6 +62,11 @@ public class CreateClusterRequest  {
    * Options for activating an Azure environment.
    **/
   private AzureActivationOptions azureOptions = null;
+
+  /**
+   * Options for activating a Private Cloud environment.
+   **/
+  private PrivateCloudActivationOptions privateCloudOptions = null;
 
   /**
    * Getter for environmentCrn.
@@ -164,6 +170,23 @@ public class CreateClusterRequest  {
     this.azureOptions = azureOptions;
   }
 
+  /**
+   * Getter for privateCloudOptions.
+   * Options for activating a Private Cloud environment.
+   **/
+  @JsonProperty("privateCloudOptions")
+  public PrivateCloudActivationOptions getPrivateCloudOptions() {
+    return privateCloudOptions;
+  }
+
+  /**
+   * Setter for privateCloudOptions.
+   * Options for activating a Private Cloud environment.
+   **/
+  public void setPrivateCloudOptions(PrivateCloudActivationOptions privateCloudOptions) {
+    this.privateCloudOptions = privateCloudOptions;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -191,12 +214,15 @@ public class CreateClusterRequest  {
     if (!Objects.equals(this.azureOptions, createClusterRequest.azureOptions)) {
       return false;
     }
+    if (!Objects.equals(this.privateCloudOptions, createClusterRequest.privateCloudOptions)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, useOverlayNetwork, whitelistIpCIDRs, usePrivateLoadBalancer, awsOptions, azureOptions);
+    return Objects.hash(environmentCrn, useOverlayNetwork, whitelistIpCIDRs, usePrivateLoadBalancer, awsOptions, azureOptions, privateCloudOptions);
   }
 
   @Override
@@ -209,6 +235,7 @@ public class CreateClusterRequest  {
     sb.append("    usePrivateLoadBalancer: ").append(toIndentedString(usePrivateLoadBalancer)).append("\n");
     sb.append("    awsOptions: ").append(toIndentedString(awsOptions)).append("\n");
     sb.append("    azureOptions: ").append(toIndentedString(azureOptions)).append("\n");
+    sb.append("    privateCloudOptions: ").append(toIndentedString(privateCloudOptions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

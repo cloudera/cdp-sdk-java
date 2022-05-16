@@ -87,6 +87,18 @@ public class SignerTest {
                              CdpSDKTestUtils.getEd25519PrivateKey());
   }
 
+  @Test
+  public void testValidECDSAKey() {
+    Signer signer = new Signer();
+    signer.computeAuthHeader(
+        "POST",
+        "application/json",
+        "Tue, 22 Feb 2022 22:22:22 GMT",
+        "/iam/listUsers",
+        "abcde-fghij-klmno-pqrst",
+        CdpSDKTestUtils.getECDSAPrivateKey());
+  }
+
   private PrivateKey mockPrivateKey() {
     KeyPair testKeyPair = new KeyPair(mock(RSAPublicKey.class), mock(RSAPrivateKey.class));
     return testKeyPair.getPrivate();

@@ -52,6 +52,9 @@ public class Signer {
   private static final String ED25519_ALGORITHM = "Ed25519";
   private static final String ED25519_AUTH_METHOD = "ed25519v1";
   private static final String ED25519_SIGNATURE_ALGORITHM = "Ed25519";
+  private static final String ECDSA_ALGORITHM = "EC";
+  private static final String ECDSA_AUTH_METHOD = "ecdsav1";
+  private static final String ECDSA_SIGNATURE_ALGORITHM = "SHA512withECDSA";
 
   /**
    * Computes the value for the x-altus-auth header for a request.
@@ -87,6 +90,10 @@ public class Signer {
       authMethod = ED25519_AUTH_METHOD;
       sigAlgo = ED25519_SIGNATURE_ALGORITHM;
       break;
+    case ECDSA_ALGORITHM:
+      authMethod = ECDSA_AUTH_METHOD;
+      sigAlgo = ECDSA_SIGNATURE_ALGORITHM;
+      break;
     default:
       throw new CdpClientException("Unsupported key algorithm: " +
                                      privateKey.getAlgorithm());
@@ -109,6 +116,7 @@ public class Signer {
       byte[] sig;
       switch (sigAlgo) {
       case RSA_SIGNATURE_ALGORITHM:
+      case ECDSA_SIGNATURE_ALGORITHM:
         Signature signature = Signature.getInstance(sigAlgo);
         signature.initSign(privateKey);
         signature.update(bytesToSign);

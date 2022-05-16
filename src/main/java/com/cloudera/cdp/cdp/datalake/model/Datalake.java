@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Information about a datalake.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-04-28T14:39:23.518-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:45.160-07:00")
 public class Datalake  {
 
   /**
@@ -70,6 +70,11 @@ public class Datalake  {
    * Indicates the certificate status on the cluster.
    **/
   private String certificateExpirationState = null;
+
+  /**
+   * Flag which marks that the datalake is deployed in a multi-availability zone way or not.
+   **/
+  private Boolean multiAz = null;
 
   /**
    * Getter for datalakeName.
@@ -207,6 +212,23 @@ public class Datalake  {
     this.certificateExpirationState = certificateExpirationState;
   }
 
+  /**
+   * Getter for multiAz.
+   * Flag which marks that the datalake is deployed in a multi-availability zone way or not.
+   **/
+  @JsonProperty("multiAz")
+  public Boolean getMultiAz() {
+    return multiAz;
+  }
+
+  /**
+   * Setter for multiAz.
+   * Flag which marks that the datalake is deployed in a multi-availability zone way or not.
+   **/
+  public void setMultiAz(Boolean multiAz) {
+    this.multiAz = multiAz;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -240,12 +262,15 @@ public class Datalake  {
     if (!Objects.equals(this.certificateExpirationState, datalake.certificateExpirationState)) {
       return false;
     }
+    if (!Objects.equals(this.multiAz, datalake.multiAz)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, crn, status, environmentCrn, creationDate, statusReason, enableRangerRaz, certificateExpirationState);
+    return Objects.hash(datalakeName, crn, status, environmentCrn, creationDate, statusReason, enableRangerRaz, certificateExpirationState, multiAz);
   }
 
   @Override
@@ -260,6 +285,7 @@ public class Datalake  {
     sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
     sb.append("    enableRangerRaz: ").append(toIndentedString(enableRangerRaz)).append("\n");
     sb.append("    certificateExpirationState: ").append(toIndentedString(certificateExpirationState)).append("\n");
+    sb.append("    multiAz: ").append(toIndentedString(multiAz)).append("\n");
     sb.append("}");
     return sb.toString();
   }
