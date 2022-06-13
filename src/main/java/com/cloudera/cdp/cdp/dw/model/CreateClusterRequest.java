@@ -30,11 +30,11 @@ import com.cloudera.cdp.dw.model.PrivateCloudActivationOptions;
 /**
  * Request object for the createCluster method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:44.653-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-10T11:26:34.865-07:00")
 public class CreateClusterRequest  {
 
   /**
-   * The environment for the cluster to create.
+   * The CRN of the environment for the cluster to create.
    **/
   private String environmentCrn = null;
 
@@ -70,7 +70,7 @@ public class CreateClusterRequest  {
 
   /**
    * Getter for environmentCrn.
-   * The environment for the cluster to create.
+   * The CRN of the environment for the cluster to create.
    **/
   @JsonProperty("environmentCrn")
   public String getEnvironmentCrn() {
@@ -79,7 +79,7 @@ public class CreateClusterRequest  {
 
   /**
    * Setter for environmentCrn.
-   * The environment for the cluster to create.
+   * The CRN of the environment for the cluster to create.
    **/
   public void setEnvironmentCrn(String environmentCrn) {
     this.environmentCrn = environmentCrn;

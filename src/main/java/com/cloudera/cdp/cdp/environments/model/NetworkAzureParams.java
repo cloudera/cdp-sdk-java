@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Azure network parameters.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:45.491-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-10T11:26:35.605-07:00")
 public class NetworkAzureParams  {
 
   /**
@@ -44,6 +44,11 @@ public class NetworkAzureParams  {
    * Whether to associate public ip's to the resources within the network.
    **/
   private Boolean usePublicIp = null;
+
+  /**
+   * The ID of an existing private DNS zone used for the database.
+   **/
+  private String databasePrivateDnsZoneId = null;
 
   /**
    * Getter for networkId.
@@ -96,6 +101,23 @@ public class NetworkAzureParams  {
     this.usePublicIp = usePublicIp;
   }
 
+  /**
+   * Getter for databasePrivateDnsZoneId.
+   * The ID of an existing private DNS zone used for the database.
+   **/
+  @JsonProperty("databasePrivateDnsZoneId")
+  public String getDatabasePrivateDnsZoneId() {
+    return databasePrivateDnsZoneId;
+  }
+
+  /**
+   * Setter for databasePrivateDnsZoneId.
+   * The ID of an existing private DNS zone used for the database.
+   **/
+  public void setDatabasePrivateDnsZoneId(String databasePrivateDnsZoneId) {
+    this.databasePrivateDnsZoneId = databasePrivateDnsZoneId;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -114,12 +136,15 @@ public class NetworkAzureParams  {
     if (!Objects.equals(this.usePublicIp, networkAzureParams.usePublicIp)) {
       return false;
     }
+    if (!Objects.equals(this.databasePrivateDnsZoneId, networkAzureParams.databasePrivateDnsZoneId)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(networkId, resourceGroupName, usePublicIp);
+    return Objects.hash(networkId, resourceGroupName, usePublicIp, databasePrivateDnsZoneId);
   }
 
   @Override
@@ -129,6 +154,7 @@ public class NetworkAzureParams  {
     sb.append("    networkId: ").append(toIndentedString(networkId)).append("\n");
     sb.append("    resourceGroupName: ").append(toIndentedString(resourceGroupName)).append("\n");
     sb.append("    usePublicIp: ").append(toIndentedString(usePublicIp)).append("\n");
+    sb.append("    databasePrivateDnsZoneId: ").append(toIndentedString(databasePrivateDnsZoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

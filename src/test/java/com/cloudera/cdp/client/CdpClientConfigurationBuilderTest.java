@@ -127,6 +127,13 @@ public class CdpClientConfigurationBuilderTest {
   }
 
   @Test
+  public void testDefaultRequestHeaders() {
+    CdpClientConfigurationBuilder builder =
+        CdpClientConfigurationBuilder.defaultBuilder();
+    assertTrue(builder.getRequestHeaders().isEmpty());
+  }
+
+  @Test
   public void testInvalidConnectionTimeout() {
     assertThrows(CdpClientException.class, () -> {
       CdpClientConfigurationBuilder.defaultBuilder()
@@ -163,6 +170,34 @@ public class CdpClientConfigurationBuilderTest {
     assertThrows(CdpClientException.class, () -> {
       CdpClientConfigurationBuilder.defaultBuilder()
           .withTrustedCertificates(null);
+    });
+  }
+
+  @Test
+  public void testInvalidTrustedCertificate() {
+    assertThrows(CdpClientException.class, () -> {
+      CdpClientConfigurationBuilder.defaultBuilder()
+          .addTrustedCertificate(null);
+    });
+  }
+
+  @Test
+  public void testInvalidRequestHeaders() {
+    assertThrows(CdpClientException.class, () -> {
+      CdpClientConfigurationBuilder.defaultBuilder()
+          .withRequestHeaders(null);
+    });
+  }
+
+  @Test
+  public void testInvalidRequestHeader() {
+    assertThrows(CdpClientException.class, () -> {
+      CdpClientConfigurationBuilder.defaultBuilder()
+          .addRequestHeader(null, "bar");
+    });
+    assertThrows(CdpClientException.class, () -> {
+      CdpClientConfigurationBuilder.defaultBuilder()
+          .addRequestHeader("foo", null);
     });
   }
 

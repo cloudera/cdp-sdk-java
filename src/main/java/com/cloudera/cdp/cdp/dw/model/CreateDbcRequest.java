@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the createDbc method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:44.653-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-10T11:26:34.865-07:00")
 public class CreateDbcRequest  {
 
   /**
@@ -71,12 +71,12 @@ public class CreateDbcRequest  {
   private String dbMetastore = "";
 
   /**
-   * The name of the DAS database.
+   * The name of the DAS database. Not required for embedded databases.
    **/
   private String dbDas = "";
 
   /**
-   * The name of the HUE database.
+   * The name of the HUE database. Not required for embedded databases.
    **/
   private String dbHue = "";
 
@@ -218,7 +218,7 @@ public class CreateDbcRequest  {
 
   /**
    * Getter for dbDas.
-   * The name of the DAS database.
+   * The name of the DAS database. Not required for embedded databases.
    **/
   @JsonProperty("dbDas")
   public String getDbDas() {
@@ -227,7 +227,7 @@ public class CreateDbcRequest  {
 
   /**
    * Setter for dbDas.
-   * The name of the DAS database.
+   * The name of the DAS database. Not required for embedded databases.
    **/
   public void setDbDas(String dbDas) {
     this.dbDas = dbDas;
@@ -235,7 +235,7 @@ public class CreateDbcRequest  {
 
   /**
    * Getter for dbHue.
-   * The name of the HUE database.
+   * The name of the HUE database. Not required for embedded databases.
    **/
   @JsonProperty("dbHue")
   public String getDbHue() {
@@ -244,7 +244,7 @@ public class CreateDbcRequest  {
 
   /**
    * Setter for dbHue.
-   * The name of the HUE database.
+   * The name of the HUE database. Not required for embedded databases.
    **/
   public void setDbHue(String dbHue) {
     this.dbHue = dbHue;

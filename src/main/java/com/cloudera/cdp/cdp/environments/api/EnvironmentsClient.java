@@ -137,13 +137,15 @@ import com.cloudera.cdp.environments.model.TestAccountTelemetryRulesRequest;
 import com.cloudera.cdp.environments.model.TestAccountTelemetryRulesResponse;
 import com.cloudera.cdp.environments.model.UpdateAzureEncryptionResourcesRequest;
 import com.cloudera.cdp.environments.model.UpdateAzureEncryptionResourcesResponse;
+import com.cloudera.cdp.environments.model.UpgradeCcmRequest;
+import com.cloudera.cdp.environments.model.UpgradeCcmResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:45.491-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-10T11:26:35.605-07:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -874,5 +876,18 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("updateAzureEncryptionResources", "/api/v1/environments2/updateAzureEncryptionResources", input, new GenericType<UpdateAzureEncryptionResourcesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Upgrades Cluster Connectivity Manager on the environment to the latest available version.
+   * @param input
+   * @return UpgradeCcmResponse
+   */
+  public UpgradeCcmResponse upgradeCcm(UpgradeCcmRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling upgradeCcm");
+    }
+
+    return this.invokeAPI("upgradeCcm", "/api/v1/environments2/upgradeCcm", input, new GenericType<UpgradeCcmResponse>(){}, NO_EXTENSION);
   }
 }

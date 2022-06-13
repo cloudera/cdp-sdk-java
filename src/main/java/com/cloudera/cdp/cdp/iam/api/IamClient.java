@@ -54,6 +54,8 @@ import com.cloudera.cdp.iam.model.CreateMachineUserRequest;
 import com.cloudera.cdp.iam.model.CreateMachineUserResponse;
 import com.cloudera.cdp.iam.model.CreateSamlProviderRequest;
 import com.cloudera.cdp.iam.model.CreateSamlProviderResponse;
+import com.cloudera.cdp.iam.model.CreateScimAccessTokenRequest;
+import com.cloudera.cdp.iam.model.CreateScimAccessTokenResponse;
 import com.cloudera.cdp.iam.model.CreateUserAccessKeyRequest;
 import com.cloudera.cdp.iam.model.CreateUserAccessKeyResponse;
 import com.cloudera.cdp.iam.model.CreateUserRequest;
@@ -66,6 +68,8 @@ import com.cloudera.cdp.iam.model.DeleteMachineUserRequest;
 import com.cloudera.cdp.iam.model.DeleteMachineUserResponse;
 import com.cloudera.cdp.iam.model.DeleteSamlProviderRequest;
 import com.cloudera.cdp.iam.model.DeleteSamlProviderResponse;
+import com.cloudera.cdp.iam.model.DeleteScimAccessTokenRequest;
+import com.cloudera.cdp.iam.model.DeleteScimAccessTokenResponse;
 import com.cloudera.cdp.iam.model.DeleteSshPublicKeyRequest;
 import com.cloudera.cdp.iam.model.DeleteSshPublicKeyResponse;
 import com.cloudera.cdp.iam.model.DeleteUserRequest;
@@ -115,6 +119,8 @@ import com.cloudera.cdp.iam.model.ListRolesRequest;
 import com.cloudera.cdp.iam.model.ListRolesResponse;
 import com.cloudera.cdp.iam.model.ListSamlProvidersRequest;
 import com.cloudera.cdp.iam.model.ListSamlProvidersResponse;
+import com.cloudera.cdp.iam.model.ListScimAccessTokensRequest;
+import com.cloudera.cdp.iam.model.ListScimAccessTokensResponse;
 import com.cloudera.cdp.iam.model.ListSshPublicKeysRequest;
 import com.cloudera.cdp.iam.model.ListSshPublicKeysResponse;
 import com.cloudera.cdp.iam.model.ListUserAssignedResourceRolesRequest;
@@ -161,7 +167,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:46.097-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-10T11:26:36.264-07:00")
 public class IamClient extends CdpClient {
 
   public static final String SERVICE_NAME = "iam";
@@ -362,6 +368,19 @@ public class IamClient extends CdpClient {
   }
 
   /**
+   * Creates a SCIM access token for a SCIM enabled identity provider.
+   * @param input
+   * @return CreateScimAccessTokenResponse
+   */
+  public CreateScimAccessTokenResponse createScimAccessToken(CreateScimAccessTokenRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createScimAccessToken");
+    }
+
+    return this.invokeAPI("createScimAccessToken", "/iam/createScimAccessToken", input, new GenericType<CreateScimAccessTokenResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Creates a user in CDP.
    * @param input
    * @return CreateUserResponse
@@ -437,6 +456,19 @@ public class IamClient extends CdpClient {
     }
 
     return this.invokeAPI("deleteSamlProvider", "/iam/deleteSamlProvider", input, new GenericType<DeleteSamlProviderResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Deletes a SCIM access token.
+   * @param input
+   * @return DeleteScimAccessTokenResponse
+   */
+  public DeleteScimAccessTokenResponse deleteScimAccessToken(DeleteScimAccessTokenRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteScimAccessToken");
+    }
+
+    return this.invokeAPI("deleteScimAccessToken", "/iam/deleteScimAccessToken", input, new GenericType<DeleteScimAccessTokenResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -749,6 +781,19 @@ public class IamClient extends CdpClient {
     }
 
     return this.invokeAPI("listSamlProviders", "/iam/listSamlProviders", input, new GenericType<ListSamlProvidersResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Lists SCIM access tokens for a SCIM enabled identity provider.
+   * @param input
+   * @return ListScimAccessTokensResponse
+   */
+  public ListScimAccessTokensResponse listScimAccessTokens(ListScimAccessTokensRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listScimAccessTokens");
+    }
+
+    return this.invokeAPI("listScimAccessTokens", "/iam/listScimAccessTokens", input, new GenericType<ListScimAccessTokensResponse>(){}, NO_EXTENSION);
   }
 
   /**

@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for ModifyWorkspaceLoadBalancer.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:44.977-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-10T11:26:35.196-07:00")
 public class ModifyWorkspaceLoadBalancerRequest  {
 
   /**

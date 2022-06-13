@@ -26,8 +26,10 @@ import com.cloudera.cdp.annotation.SdkInternalApi;
 import com.cloudera.cdp.authentication.credentials.CdpCredentials;
 import com.cloudera.cdp.http.RetryHandler;
 import com.google.common.annotations.VisibleForTesting;
+import com.google.common.collect.ImmutableMap;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -36,6 +38,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.function.BiFunction;
 import java.util.stream.Collectors;
 import javax.annotation.Nullable;
 import javax.ws.rs.client.Client;
@@ -67,11 +70,19 @@ public abstract class CdpClient {
   private static final String PARAMETER_DATE_TIME_FORMAT_PATTERN = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
   private static final DateTimeFormatter PARAMETER_DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern(PARAMETER_DATE_TIME_FORMAT_PATTERN);
 
+  private static final Map<Class<?>, BiFunction<CdpClientMiddleware, CdpClient, CdpClientMiddleware>> BUILTIN_EXTENSIONS =
+      ImmutableMap.of(
+          CdpClientRetryMiddleware.class,    (next, client) -> new CdpClientRetryMiddleware(next),
+          CdpRequestHeadersMiddleware.class, (next, client) -> new CdpRequestHeadersMiddleware(next, client.headers),
+          CdpRequestAuthMiddleware.class,    (next, client) -> new CdpRequestAuthMiddleware(next),
+          CdpParseResponseMiddleware.class,  (next, client) -> new CdpParseResponseMiddleware(next));
+
   private final CdpCredentials credentials;
   private final String endpoint;
   private final String clientApplicationName;
   private final RetryHandler retryHandler;
   private final Client client;
+  private final Map<String, String> headers;
 
   /**
    * Constructor.
@@ -88,6 +99,7 @@ public abstract class CdpClient {
     checkNotNullAndThrow(config);
     this.clientApplicationName = config.getClientApplicationName();
     this.retryHandler = config.getRetryHandler();
+    this.headers = config.getRequestHeaders();
     this.client = CLIENT_FACTORY.create(config);
   }
 
@@ -101,6 +113,7 @@ public abstract class CdpClient {
     this.endpoint = context.getEndpoint();
     this.clientApplicationName = context.getClientApplicationName();
     this.retryHandler = context.getRetryHandler();
+    this.headers = context.getHeaders();
     this.client = context.getClient();
   }
 
@@ -210,7 +223,7 @@ public abstract class CdpClient {
     CdpClientMiddleware current = new CdpHttpClient();
     current = new CdpParseResponseMiddleware(current);
     current = new CdpRequestAuthMiddleware(current);
-    current = new CdpRequestHeadersMiddleware(current);
+    current = new CdpRequestHeadersMiddleware(current, headers);
     current = new CdpClientRetryMiddleware(current);
     if (extensions != null) {
       // Build in reverse order so the first extension in the list will be called first.
@@ -324,15 +337,26 @@ public abstract class CdpClient {
    * @param next The next extension in the chain
    * @return an instance of the extension.
    */
-  private static CdpClientMiddleware createExtensionInstance(Class<? extends CdpClientMiddleware> extensionClz,
+  private CdpClientMiddleware createExtensionInstance(Class<? extends CdpClientMiddleware> extensionClz,
                                                              CdpClientMiddleware next) {
     checkNotNullAndThrow(extensionClz);
     checkNotNullAndThrow(next);
     try {
       // Create a new instance of the extension.
-      Constructor<?> ctor = extensionClz.getConstructor(CdpClientMiddleware.class);
-      return (CdpClientMiddleware) ctor.newInstance(next);
-    } catch (Exception ex) {
+      BiFunction<CdpClientMiddleware, CdpClient, CdpClientMiddleware> func =
+          BUILTIN_EXTENSIONS.getOrDefault(extensionClz, null);
+      if (func != null) {
+        return func.apply(next, this);
+      } else {
+        Constructor<?> ctor = extensionClz.getConstructor(CdpClientMiddleware.class);
+        return (CdpClientMiddleware) ctor.newInstance(next);
+      }
+    } catch (NoSuchMethodException |
+             SecurityException |
+             InstantiationException |
+             IllegalAccessException |
+             IllegalArgumentException |
+             InvocationTargetException ex) {
       throw new CdpClientException(
           String.format("Failed to initialize extension (%s): %s.", extensionClz.getSimpleName(), ex),
           ex);

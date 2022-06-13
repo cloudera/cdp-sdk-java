@@ -29,7 +29,7 @@ import java.time.ZonedDateTime;
 /**
  * Response object for diagnostic collection flow details.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:45.160-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-10T11:26:35.361-07:00")
 public class DatalakeDiagnosticsCollectionResponse extends CdpResponse {
 
   /**

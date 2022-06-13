@@ -27,13 +27,18 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object for UpdateService request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:46.017-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-10T11:26:36.145-07:00")
 public class UpdateServiceResponse extends CdpResponse {
 
   /**
    * Deprecated. The operation ID of the update request.
    **/
   private String operationId = null;
+
+  /**
+   * Status of update.
+   **/
+  private String status = null;
 
   /**
    * Getter for operationId.
@@ -54,6 +59,23 @@ public class UpdateServiceResponse extends CdpResponse {
     this.operationId = operationId;
   }
 
+  /**
+   * Getter for status.
+   * Status of update.
+   **/
+  @JsonProperty("status")
+  public String getStatus() {
+    return status;
+  }
+
+  /**
+   * Setter for status.
+   * Status of update.
+   **/
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -66,6 +88,9 @@ public class UpdateServiceResponse extends CdpResponse {
     if (!Objects.equals(this.operationId, updateServiceResponse.operationId)) {
       return false;
     }
+    if (!Objects.equals(this.status, updateServiceResponse.status)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -74,7 +99,7 @@ public class UpdateServiceResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(operationId, super.hashCode());
+    return Objects.hash(operationId, status, super.hashCode());
   }
 
   @Override
@@ -83,6 +108,7 @@ public class UpdateServiceResponse extends CdpResponse {
     sb.append("class UpdateServiceResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    operationId: ").append(toIndentedString(operationId)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }

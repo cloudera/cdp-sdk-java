@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for the updateCluster method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:44.653-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-10T11:26:34.865-07:00")
 public class UpdateClusterRequest  {
 
   /**

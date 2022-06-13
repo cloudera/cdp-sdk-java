@@ -36,6 +36,8 @@ import com.cloudera.cdp.opdb.model.DescribeClientConnectivityRequest;
 import com.cloudera.cdp.opdb.model.DescribeClientConnectivityResponse;
 import com.cloudera.cdp.opdb.model.DescribeDatabaseRequest;
 import com.cloudera.cdp.opdb.model.DescribeDatabaseResponse;
+import com.cloudera.cdp.opdb.model.DescribeUpgradeDatabaseRequest;
+import com.cloudera.cdp.opdb.model.DescribeUpgradeDatabaseResponse;
 import com.cloudera.cdp.opdb.model.DropDatabaseRequest;
 import com.cloudera.cdp.opdb.model.DropDatabaseResponse;
 import com.cloudera.cdp.opdb.model.Error;
@@ -49,13 +51,15 @@ import com.cloudera.cdp.opdb.model.StartDatabaseRequest;
 import com.cloudera.cdp.opdb.model.StartDatabaseResponse;
 import com.cloudera.cdp.opdb.model.StopDatabaseRequest;
 import com.cloudera.cdp.opdb.model.StopDatabaseResponse;
+import com.cloudera.cdp.opdb.model.UpgradeDatabaseRequest;
+import com.cloudera.cdp.opdb.model.UpgradeDatabaseResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:45.841-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-10T11:26:35.977-07:00")
 public class OpdbClient extends CdpClient {
 
   public static final String SERVICE_NAME = "opdb";
@@ -139,6 +143,19 @@ public class OpdbClient extends CdpClient {
   }
 
   /**
+   * Describes the upgrade availability.
+   * @param input
+   * @return DescribeUpgradeDatabaseResponse
+   */
+  public DescribeUpgradeDatabaseResponse describeUpgradeDatabase(DescribeUpgradeDatabaseRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeUpgradeDatabase");
+    }
+
+    return this.invokeAPI("describeUpgradeDatabase", "/api/v1/opdb/describeUpgradeDatabase", input, new GenericType<DescribeUpgradeDatabaseResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * drop a opDb
    * @param input
    * @return DropDatabaseResponse
@@ -214,5 +231,18 @@ public class OpdbClient extends CdpClient {
     }
 
     return this.invokeAPI("stopDatabase", "/api/v1/opdb/stopDatabase", input, new GenericType<StopDatabaseResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Upgrades the database.
+   * @param input
+   * @return UpgradeDatabaseResponse
+   */
+  public UpgradeDatabaseResponse upgradeDatabase(UpgradeDatabaseRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling upgradeDatabase");
+    }
+
+    return this.invokeAPI("upgradeDatabase", "/api/v1/opdb/upgradeDatabase", input, new GenericType<UpgradeDatabaseResponse>(){}, NO_EXTENSION);
   }
 }

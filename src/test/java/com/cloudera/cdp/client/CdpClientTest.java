@@ -46,6 +46,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Charsets;
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import com.google.common.io.Resources;
 
@@ -407,7 +408,7 @@ public class CdpClientTest {
     context.setPath("somePath");
     context.setBody("");
     CdpClientMiddleware innerMiddleware = mock(CdpClientMiddleware.class);
-    CdpRequestHeadersMiddleware client = new CdpRequestHeadersMiddleware(innerMiddleware);
+    CdpRequestHeadersMiddleware client = new CdpRequestHeadersMiddleware(innerMiddleware, ImmutableMap.of());
     client.invokeAPI(context);
     Map<String, String> headers = context.getHeaders();
     assertTrue(headers.containsKey(HttpHeaders.USER_AGENT));
@@ -481,7 +482,7 @@ public class CdpClientTest {
     context.setPath("/path");
     context.setBody("");
     CdpClientMiddleware innerMiddleware = mock(CdpClientMiddleware.class);
-    CdpRequestHeadersMiddleware client = new CdpRequestHeadersMiddleware(innerMiddleware);
+    CdpRequestHeadersMiddleware client = new CdpRequestHeadersMiddleware(innerMiddleware, ImmutableMap.of());
     client.invokeAPI(context);
     Map<String, String> headers = context.getHeaders();
     assertEquals("application/xml", headers.get(HttpHeaders.CONTENT_TYPE));
@@ -500,7 +501,7 @@ public class CdpClientTest {
     context.setPath("/path");
     context.getHeaders().put("foo", "bar");
     innerMiddleware = mock(CdpClientMiddleware.class);
-    client = new CdpRequestHeadersMiddleware(innerMiddleware);
+    client = new CdpRequestHeadersMiddleware(innerMiddleware, ImmutableMap.of());
     client.invokeAPI(context);
     headers = context.getHeaders();
     assertEquals("bar", headers.get("foo"));
@@ -519,12 +520,36 @@ public class CdpClientTest {
     context.setMethod("DELETE");
     context.setPath("/path");
     innerMiddleware = mock(CdpClientMiddleware.class);
-    client = new CdpRequestHeadersMiddleware(innerMiddleware);
+    client = new CdpRequestHeadersMiddleware(innerMiddleware, ImmutableMap.of());
     client.invokeAPI(context);
     headers = context.getHeaders();
     assertFalse(headers.containsKey("Content-Type"));
     assertFalse(headers.containsKey("Accept"));
     verify(innerMiddleware, only()).invokeAPI(notNull());
+  }
+
+  @Test
+  public void testHeaders() {
+    CdpClientConfiguration config = CdpClientConfigurationBuilder.defaultBuilder()
+        .addRequestHeader("x-test", "value")
+        .build();
+    CdpRequestContext<TestCdpResponse> context = new CdpRequestContext<>(
+        new ClientFactory().create(config),
+        "test-service", "someOperation", new GenericType<TestCdpResponse>(){});
+    context.setClientApplicationName(config.getClientApplicationName());
+    context.setRetryHandler(config.getRetryHandler());
+    context.setRequestContentType(MediaType.APPLICATION_JSON);
+    context.setResponseContentType(MediaType.APPLICATION_JSON);
+    context.setCredentials(new BasicCdpCredentials("Bearer A.B.C"));
+    context.setMethod("POST");
+    context.setPath("somePath");
+    context.setBody("");
+    CdpClientMiddleware innerMiddleware = mock(CdpClientMiddleware.class);
+    CdpRequestHeadersMiddleware client = new CdpRequestHeadersMiddleware(innerMiddleware, config.getRequestHeaders());
+    client.invokeAPI(context);
+    Map<String, String> headers = context.getHeaders();
+    assertTrue(headers.containsKey("x-test"));
+    assertEquals("value", headers.get("x-test"));
   }
 
   @Test

@@ -23,17 +23,23 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.dw.model.VwFilter;
 
 /**
  * Request object for the listVws method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:44.653-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-10T11:26:34.865-07:00")
 public class ListVwsRequest  {
 
   /**
    * ID of cluster to list.
    **/
   private String clusterId = null;
+
+  /**
+   * Filter object for listVws method.
+   **/
+  private VwFilter filter = null;
 
   /**
    * Getter for clusterId.
@@ -52,6 +58,23 @@ public class ListVwsRequest  {
     this.clusterId = clusterId;
   }
 
+  /**
+   * Getter for filter.
+   * Filter object for listVws method.
+   **/
+  @JsonProperty("filter")
+  public VwFilter getFilter() {
+    return filter;
+  }
+
+  /**
+   * Setter for filter.
+   * Filter object for listVws method.
+   **/
+  public void setFilter(VwFilter filter) {
+    this.filter = filter;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -64,12 +87,15 @@ public class ListVwsRequest  {
     if (!Objects.equals(this.clusterId, listVwsRequest.clusterId)) {
       return false;
     }
+    if (!Objects.equals(this.filter, listVwsRequest.filter)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId);
+    return Objects.hash(clusterId, filter);
   }
 
   @Override
@@ -77,6 +103,7 @@ public class ListVwsRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListVwsRequest {\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
     sb.append("}");
     return sb.toString();
   }

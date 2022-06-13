@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Options for activating a Private Cloud environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:44.653-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-10T11:26:34.865-07:00")
 public class PrivateCloudActivationOptions  {
 
   /**
@@ -49,6 +49,16 @@ public class PrivateCloudActivationOptions  {
    * The storage class for the Local Storage Operator.
    **/
   private String storageClass = null;
+
+  /**
+   * The name of the DAS database. Not required for embedded databases
+   **/
+  private String dbDas = null;
+
+  /**
+   * The name of the HUE database. Not required for embedded databases.
+   **/
+  private String dbHue = null;
 
   /**
    * Getter for delegationUsername.
@@ -118,6 +128,40 @@ public class PrivateCloudActivationOptions  {
     this.storageClass = storageClass;
   }
 
+  /**
+   * Getter for dbDas.
+   * The name of the DAS database. Not required for embedded databases
+   **/
+  @JsonProperty("dbDas")
+  public String getDbDas() {
+    return dbDas;
+  }
+
+  /**
+   * Setter for dbDas.
+   * The name of the DAS database. Not required for embedded databases
+   **/
+  public void setDbDas(String dbDas) {
+    this.dbDas = dbDas;
+  }
+
+  /**
+   * Getter for dbHue.
+   * The name of the HUE database. Not required for embedded databases.
+   **/
+  @JsonProperty("dbHue")
+  public String getDbHue() {
+    return dbHue;
+  }
+
+  /**
+   * Setter for dbHue.
+   * The name of the HUE database. Not required for embedded databases.
+   **/
+  public void setDbHue(String dbHue) {
+    this.dbHue = dbHue;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -139,12 +183,18 @@ public class PrivateCloudActivationOptions  {
     if (!Objects.equals(this.storageClass, privateCloudActivationOptions.storageClass)) {
       return false;
     }
+    if (!Objects.equals(this.dbDas, privateCloudActivationOptions.dbDas)) {
+      return false;
+    }
+    if (!Objects.equals(this.dbHue, privateCloudActivationOptions.dbHue)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(delegationUsername, delegationPassword, securityContextConstraintName, storageClass);
+    return Objects.hash(delegationUsername, delegationPassword, securityContextConstraintName, storageClass, dbDas, dbHue);
   }
 
   @Override
@@ -155,6 +205,8 @@ public class PrivateCloudActivationOptions  {
     sb.append("    delegationPassword: ").append(toIndentedString(delegationPassword)).append("\n");
     sb.append("    securityContextConstraintName: ").append(toIndentedString(securityContextConstraintName)).append("\n");
     sb.append("    storageClass: ").append(toIndentedString(storageClass)).append("\n");
+    sb.append("    dbDas: ").append(toIndentedString(dbDas)).append("\n");
+    sb.append("    dbHue: ").append(toIndentedString(dbHue)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -48,6 +48,7 @@ import com.cloudera.cdp.dfworkload.model.UploadAssetRequest;
 import com.cloudera.cdp.dfworkload.model.UploadAssetResponse;
 import com.cloudera.cdp.http.NeverRetryHandler;
 import com.cloudera.cdp.util.CdpSDKTestUtils;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.io.Resources;
 
 import java.net.URI;
@@ -71,7 +72,8 @@ public class DfExtensionTest {
       new CdpRequestHeadersMiddleware(
           new CdpRequestAuthMiddleware(
               new CdpParseResponseMiddleware(
-                  new CdpHttpClient())));
+                  new CdpHttpClient())),
+          ImmutableMap.of());
 
   private static Client createMockClient(Response uploadResponse) {
     Invocation.Builder builder = mock(Invocation.Builder.class);

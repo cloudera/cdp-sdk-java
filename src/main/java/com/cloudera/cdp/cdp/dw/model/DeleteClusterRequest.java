@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the deleteCluster method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:44.653-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-10T11:26:34.865-07:00")
 public class DeleteClusterRequest  {
 
   /**
@@ -36,7 +36,7 @@ public class DeleteClusterRequest  {
   private String clusterId = null;
 
   /**
-   * Force delete cluster (default: false). Force delete means CDW will delete the cluster even if there are attached DB Catalogs and Virtual Warehouses. All managed data will be lost and won't be recoverable. Force delete attampts all steps of the deletion even if previous steps have failed.
+   * Force delete cluster (default is false). Force delete means CDW will delete the cluster even if there are attached DB Catalogs and Virtual Warehouses. All managed data will be lost and won't be recoverable. Force delete attempts all steps of the deletion even if previous steps have failed.
    **/
   private Boolean force = null;
 
@@ -59,7 +59,7 @@ public class DeleteClusterRequest  {
 
   /**
    * Getter for force.
-   * Force delete cluster (default: false). Force delete means CDW will delete the cluster even if there are attached DB Catalogs and Virtual Warehouses. All managed data will be lost and won&#39;t be recoverable. Force delete attampts all steps of the deletion even if previous steps have failed.
+   * Force delete cluster (default is false). Force delete means CDW will delete the cluster even if there are attached DB Catalogs and Virtual Warehouses. All managed data will be lost and won&#39;t be recoverable. Force delete attempts all steps of the deletion even if previous steps have failed.
    **/
   @JsonProperty("force")
   public Boolean getForce() {
@@ -68,7 +68,7 @@ public class DeleteClusterRequest  {
 
   /**
    * Setter for force.
-   * Force delete cluster (default: false). Force delete means CDW will delete the cluster even if there are attached DB Catalogs and Virtual Warehouses. All managed data will be lost and won&#39;t be recoverable. Force delete attampts all steps of the deletion even if previous steps have failed.
+   * Force delete cluster (default is false). Force delete means CDW will delete the cluster even if there are attached DB Catalogs and Virtual Warehouses. All managed data will be lost and won&#39;t be recoverable. Force delete attempts all steps of the deletion even if previous steps have failed.
    **/
   public void setForce(Boolean force) {
     this.force = force;

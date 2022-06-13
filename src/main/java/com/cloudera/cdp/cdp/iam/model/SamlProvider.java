@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Information used to connect a CDP account to an external identity provider.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:46.097-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-10T11:26:36.264-07:00")
 public class SamlProvider  {
 
   /**
@@ -55,6 +55,21 @@ public class SamlProvider  {
    * Whether users federated with this SAML provider will have their group membership synchronized. Group membership can be passed using the https://cdp.cloudera.com/SAML/Attributes/groups SAML assertion.
    **/
   private Boolean syncGroupsOnLogin = null;
+
+  /**
+   * Whether to generate users' workload username by email or by identity provider user ID (SAML NameID).
+   **/
+  private Boolean generateWorkloadUsernameByEmail = null;
+
+  /**
+   * Whether SCIM is enabled on this SAML provider. System for Cross-domain Identity Management (SCIM) version 2.0 is a standard for automating the provisioning of user and group identity information from identity provider to CDP.
+   **/
+  private Boolean enableScim = null;
+
+  /**
+   * The SCIM URL if SCIM is enabled.
+   **/
+  private String scimUrl = null;
 
   /**
    * The original metadata that was passed while creating the SAML provider connector. This field will not be set when the SAML provider does not have metadata. This field will not be set for listSamlProviders API response.
@@ -152,6 +167,57 @@ public class SamlProvider  {
   }
 
   /**
+   * Getter for generateWorkloadUsernameByEmail.
+   * Whether to generate users&#39; workload username by email or by identity provider user ID (SAML NameID).
+   **/
+  @JsonProperty("generateWorkloadUsernameByEmail")
+  public Boolean getGenerateWorkloadUsernameByEmail() {
+    return generateWorkloadUsernameByEmail;
+  }
+
+  /**
+   * Setter for generateWorkloadUsernameByEmail.
+   * Whether to generate users&#39; workload username by email or by identity provider user ID (SAML NameID).
+   **/
+  public void setGenerateWorkloadUsernameByEmail(Boolean generateWorkloadUsernameByEmail) {
+    this.generateWorkloadUsernameByEmail = generateWorkloadUsernameByEmail;
+  }
+
+  /**
+   * Getter for enableScim.
+   * Whether SCIM is enabled on this SAML provider. System for Cross-domain Identity Management (SCIM) version 2.0 is a standard for automating the provisioning of user and group identity information from identity provider to CDP.
+   **/
+  @JsonProperty("enableScim")
+  public Boolean getEnableScim() {
+    return enableScim;
+  }
+
+  /**
+   * Setter for enableScim.
+   * Whether SCIM is enabled on this SAML provider. System for Cross-domain Identity Management (SCIM) version 2.0 is a standard for automating the provisioning of user and group identity information from identity provider to CDP.
+   **/
+  public void setEnableScim(Boolean enableScim) {
+    this.enableScim = enableScim;
+  }
+
+  /**
+   * Getter for scimUrl.
+   * The SCIM URL if SCIM is enabled.
+   **/
+  @JsonProperty("scimUrl")
+  public String getScimUrl() {
+    return scimUrl;
+  }
+
+  /**
+   * Setter for scimUrl.
+   * The SCIM URL if SCIM is enabled.
+   **/
+  public void setScimUrl(String scimUrl) {
+    this.scimUrl = scimUrl;
+  }
+
+  /**
    * Getter for samlMetadataDocument.
    * The original metadata that was passed while creating the SAML provider connector. This field will not be set when the SAML provider does not have metadata. This field will not be set for listSamlProviders API response.
    **/
@@ -209,6 +275,15 @@ public class SamlProvider  {
     if (!Objects.equals(this.syncGroupsOnLogin, samlProvider.syncGroupsOnLogin)) {
       return false;
     }
+    if (!Objects.equals(this.generateWorkloadUsernameByEmail, samlProvider.generateWorkloadUsernameByEmail)) {
+      return false;
+    }
+    if (!Objects.equals(this.enableScim, samlProvider.enableScim)) {
+      return false;
+    }
+    if (!Objects.equals(this.scimUrl, samlProvider.scimUrl)) {
+      return false;
+    }
     if (!Objects.equals(this.samlMetadataDocument, samlProvider.samlMetadataDocument)) {
       return false;
     }
@@ -220,7 +295,7 @@ public class SamlProvider  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, creationDate, samlProviderName, samlProviderId, syncGroupsOnLogin, samlMetadataDocument, cdpSpMetadata);
+    return Objects.hash(crn, creationDate, samlProviderName, samlProviderId, syncGroupsOnLogin, generateWorkloadUsernameByEmail, enableScim, scimUrl, samlMetadataDocument, cdpSpMetadata);
   }
 
   @Override
@@ -232,6 +307,9 @@ public class SamlProvider  {
     sb.append("    samlProviderName: ").append(toIndentedString(samlProviderName)).append("\n");
     sb.append("    samlProviderId: ").append(toIndentedString(samlProviderId)).append("\n");
     sb.append("    syncGroupsOnLogin: ").append(toIndentedString(syncGroupsOnLogin)).append("\n");
+    sb.append("    generateWorkloadUsernameByEmail: ").append(toIndentedString(generateWorkloadUsernameByEmail)).append("\n");
+    sb.append("    enableScim: ").append(toIndentedString(enableScim)).append("\n");
+    sb.append("    scimUrl: ").append(toIndentedString(scimUrl)).append("\n");
     sb.append("    samlMetadataDocument: ").append(toIndentedString(samlMetadataDocument)).append("\n");
     sb.append("    cdpSpMetadata: ").append(toIndentedString(cdpSpMetadata)).append("\n");
     sb.append("}");

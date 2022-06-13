@@ -23,11 +23,14 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 import com.cloudera.cdp.http.RetryHandler;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 
 import java.security.cert.X509Certificate;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Class encapsulating properties that can be set on a CDP client.
@@ -46,6 +49,7 @@ public class CdpClientConfiguration {
   private final String proxyPassword;
   private final boolean ignoreTls;
   private final ImmutableList<X509Certificate> trustedCertificates;
+  private final Map<String, String> requestHeaders;
 
   /**
    * Constructor.
@@ -65,6 +69,7 @@ public class CdpClientConfiguration {
     proxyPassword = builder.getProxyPassword();
     ignoreTls = builder.getIgnoreTls();
     trustedCertificates = ImmutableList.copyOf(builder.getTrustedCertificates());
+    requestHeaders = ImmutableMap.copyOf(builder.getRequestHeaders());
   }
 
   /**
@@ -84,7 +89,8 @@ public class CdpClientConfiguration {
         .withProxyUsername(proxyUsername)
         .withProxyPassword(proxyPassword)
         .withIgnoreTls(ignoreTls)
-        .withTrustedCertificates(new ArrayList<>(trustedCertificates));
+        .withTrustedCertificates(new ArrayList<>(trustedCertificates))
+        .withRequestHeaders(new HashMap<>(requestHeaders));
   }
 
   /**
@@ -169,6 +175,13 @@ public class CdpClientConfiguration {
    */
   public List<X509Certificate> getTrustedCertificates() {
     return this.trustedCertificates;
+  }
+
+  /**
+   * see: {@link CdpClientConfigurationBuilder#getRequestHeaders()}.
+   */
+  public Map<String, String> getRequestHeaders() {
+    return this.requestHeaders;
   }
 }
 

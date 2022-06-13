@@ -27,6 +27,7 @@ import com.cloudera.cdp.CdpClientException;
 import com.cloudera.cdp.http.RetryHandler;
 import com.cloudera.cdp.http.SimpleRetryHandler;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 
 import java.time.Duration;
 
@@ -50,6 +51,8 @@ public class CdpClientConfigurationTest {
     assertFalse(config.getIgnoreTls());
     assertTrue(config.getTrustedCertificates().isEmpty());
     assertTrue(config.getTrustedCertificates() instanceof ImmutableList);
+    assertTrue(config.getRequestHeaders().isEmpty());
+    assertTrue(config.getRequestHeaders() instanceof ImmutableMap);
   }
 
   @Test
@@ -82,6 +85,7 @@ public class CdpClientConfigurationTest {
             .withProxyUri("proxyUri")
             .withProxyUsername("proxyUsername")
             .withProxyPassword("proxyPassword")
+            .addRequestHeader("foo", "bar")
             .build();
 
     CdpClientConfigurationBuilder builder = config.toBuilder();
@@ -97,5 +101,7 @@ public class CdpClientConfigurationTest {
     assertEquals("proxyUri", config.getProxyUri());
     assertEquals("proxyUsername", config.getProxyUsername());
     assertEquals("proxyPassword", config.getProxyPassword());
+    assertEquals(1, config.getRequestHeaders().size());
+    assertEquals("bar", config.getRequestHeaders().get("foo"));
   }
 }

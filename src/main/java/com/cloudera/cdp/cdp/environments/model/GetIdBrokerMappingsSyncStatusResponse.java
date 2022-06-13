@@ -30,7 +30,7 @@ import java.util.Map;
 /**
  * Response object for getting ID Broker mappings sync status.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:45.491-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-10T11:26:35.605-07:00")
 public class GetIdBrokerMappingsSyncStatusResponse extends CdpResponse {
 
   /**

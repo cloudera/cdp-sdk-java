@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for an updating SAML provider request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:46.097-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-10T11:26:36.264-07:00")
 public class UpdateSamlProviderRequest  {
 
   /**
@@ -44,6 +44,16 @@ public class UpdateSamlProviderRequest  {
    * Whether to sync group information for users federated with this SAML provider. Group membership can be passed using the https://cdp.cloudera.com/SAML/Attributes/groups SAML assertion. The default is to synchronize group membership. Can be omitted if no update is required.
    **/
   private Boolean syncGroupsOnLogin = null;
+
+  /**
+   * Whether to generate users' workload username by email. The default is to generate workload usernames by identity provider user ID (SAML NameID).
+   **/
+  private Boolean generateWorkloadUsernameByEmail = null;
+
+  /**
+   * Whether to enable SCIM on this SAML provider. System for Cross-domain Identity Management (SCIM) version 2.0 is a standard for automating the provisioning of user and group identity information from identity provider to CDP.
+   **/
+  private Boolean enableScim = null;
 
   /**
    * Getter for samlProviderName.
@@ -96,6 +106,40 @@ public class UpdateSamlProviderRequest  {
     this.syncGroupsOnLogin = syncGroupsOnLogin;
   }
 
+  /**
+   * Getter for generateWorkloadUsernameByEmail.
+   * Whether to generate users&#39; workload username by email. The default is to generate workload usernames by identity provider user ID (SAML NameID).
+   **/
+  @JsonProperty("generateWorkloadUsernameByEmail")
+  public Boolean getGenerateWorkloadUsernameByEmail() {
+    return generateWorkloadUsernameByEmail;
+  }
+
+  /**
+   * Setter for generateWorkloadUsernameByEmail.
+   * Whether to generate users&#39; workload username by email. The default is to generate workload usernames by identity provider user ID (SAML NameID).
+   **/
+  public void setGenerateWorkloadUsernameByEmail(Boolean generateWorkloadUsernameByEmail) {
+    this.generateWorkloadUsernameByEmail = generateWorkloadUsernameByEmail;
+  }
+
+  /**
+   * Getter for enableScim.
+   * Whether to enable SCIM on this SAML provider. System for Cross-domain Identity Management (SCIM) version 2.0 is a standard for automating the provisioning of user and group identity information from identity provider to CDP.
+   **/
+  @JsonProperty("enableScim")
+  public Boolean getEnableScim() {
+    return enableScim;
+  }
+
+  /**
+   * Setter for enableScim.
+   * Whether to enable SCIM on this SAML provider. System for Cross-domain Identity Management (SCIM) version 2.0 is a standard for automating the provisioning of user and group identity information from identity provider to CDP.
+   **/
+  public void setEnableScim(Boolean enableScim) {
+    this.enableScim = enableScim;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -114,12 +158,18 @@ public class UpdateSamlProviderRequest  {
     if (!Objects.equals(this.syncGroupsOnLogin, updateSamlProviderRequest.syncGroupsOnLogin)) {
       return false;
     }
+    if (!Objects.equals(this.generateWorkloadUsernameByEmail, updateSamlProviderRequest.generateWorkloadUsernameByEmail)) {
+      return false;
+    }
+    if (!Objects.equals(this.enableScim, updateSamlProviderRequest.enableScim)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(samlProviderName, samlMetadataDocument, syncGroupsOnLogin);
+    return Objects.hash(samlProviderName, samlMetadataDocument, syncGroupsOnLogin, generateWorkloadUsernameByEmail, enableScim);
   }
 
   @Override
@@ -129,6 +179,8 @@ public class UpdateSamlProviderRequest  {
     sb.append("    samlProviderName: ").append(toIndentedString(samlProviderName)).append("\n");
     sb.append("    samlMetadataDocument: ").append(toIndentedString(samlMetadataDocument)).append("\n");
     sb.append("    syncGroupsOnLogin: ").append(toIndentedString(syncGroupsOnLogin)).append("\n");
+    sb.append("    generateWorkloadUsernameByEmail: ").append(toIndentedString(generateWorkloadUsernameByEmail)).append("\n");
+    sb.append("    enableScim: ").append(toIndentedString(enableScim)).append("\n");
     sb.append("}");
     return sb.toString();
   }

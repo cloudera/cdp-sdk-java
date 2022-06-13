@@ -32,12 +32,16 @@ import com.cloudera.cdp.dw.model.AddUserRequest;
 import com.cloudera.cdp.dw.model.AddUserResponse;
 import com.cloudera.cdp.dw.model.CreateClusterRequest;
 import com.cloudera.cdp.dw.model.CreateClusterResponse;
+import com.cloudera.cdp.dw.model.CreateDataVisualizationRequest;
+import com.cloudera.cdp.dw.model.CreateDataVisualizationResponse;
 import com.cloudera.cdp.dw.model.CreateDbcRequest;
 import com.cloudera.cdp.dw.model.CreateDbcResponse;
 import com.cloudera.cdp.dw.model.CreateVwRequest;
 import com.cloudera.cdp.dw.model.CreateVwResponse;
 import com.cloudera.cdp.dw.model.DeleteClusterRequest;
 import com.cloudera.cdp.dw.model.DeleteClusterResponse;
+import com.cloudera.cdp.dw.model.DeleteDataVisualizationRequest;
+import com.cloudera.cdp.dw.model.DeleteDataVisualizationResponse;
 import com.cloudera.cdp.dw.model.DeleteDbcRequest;
 import com.cloudera.cdp.dw.model.DeleteDbcResponse;
 import com.cloudera.cdp.dw.model.DeleteUserRequest;
@@ -50,6 +54,8 @@ import com.cloudera.cdp.dw.model.DescribeConfigDiffRequest;
 import com.cloudera.cdp.dw.model.DescribeConfigDiffResponse;
 import com.cloudera.cdp.dw.model.DescribeConfigRequest;
 import com.cloudera.cdp.dw.model.DescribeConfigResponse;
+import com.cloudera.cdp.dw.model.DescribeDataVisualizationRequest;
+import com.cloudera.cdp.dw.model.DescribeDataVisualizationResponse;
 import com.cloudera.cdp.dw.model.DescribeDbcRequest;
 import com.cloudera.cdp.dw.model.DescribeDbcResponse;
 import com.cloudera.cdp.dw.model.DescribeKubeconfigRequest;
@@ -57,6 +63,8 @@ import com.cloudera.cdp.dw.model.DescribeKubeconfigResponse;
 import com.cloudera.cdp.dw.model.DescribeVwRequest;
 import com.cloudera.cdp.dw.model.DescribeVwResponse;
 import com.cloudera.cdp.dw.model.Error;
+import com.cloudera.cdp.dw.model.GetDataVisualizationUpgradeVersionRequest;
+import com.cloudera.cdp.dw.model.GetDataVisualizationUpgradeVersionResponse;
 import com.cloudera.cdp.dw.model.GetUpgradeDbcVersionsRequest;
 import com.cloudera.cdp.dw.model.GetUpgradeDbcVersionsResponse;
 import com.cloudera.cdp.dw.model.GetUpgradeVwVersionsRequest;
@@ -65,6 +73,8 @@ import com.cloudera.cdp.dw.model.HealthCheckRequest;
 import com.cloudera.cdp.dw.model.HealthCheckResponse;
 import com.cloudera.cdp.dw.model.ListClustersRequest;
 import com.cloudera.cdp.dw.model.ListClustersResponse;
+import com.cloudera.cdp.dw.model.ListDataVisualizationsRequest;
+import com.cloudera.cdp.dw.model.ListDataVisualizationsResponse;
 import com.cloudera.cdp.dw.model.ListDbcConfigsRequest;
 import com.cloudera.cdp.dw.model.ListDbcConfigsResponse;
 import com.cloudera.cdp.dw.model.ListDbcsRequest;
@@ -89,12 +99,16 @@ import com.cloudera.cdp.dw.model.StartVwRequest;
 import com.cloudera.cdp.dw.model.StartVwResponse;
 import com.cloudera.cdp.dw.model.UpdateClusterRequest;
 import com.cloudera.cdp.dw.model.UpdateClusterResponse;
+import com.cloudera.cdp.dw.model.UpdateDataVisualizationRequest;
+import com.cloudera.cdp.dw.model.UpdateDataVisualizationResponse;
 import com.cloudera.cdp.dw.model.UpdateDbcRequest;
 import com.cloudera.cdp.dw.model.UpdateDbcResponse;
 import com.cloudera.cdp.dw.model.UpdateSshKeyRequest;
 import com.cloudera.cdp.dw.model.UpdateSshKeyResponse;
 import com.cloudera.cdp.dw.model.UpdateVwRequest;
 import com.cloudera.cdp.dw.model.UpdateVwResponse;
+import com.cloudera.cdp.dw.model.UpgradeDataVisualizationRequest;
+import com.cloudera.cdp.dw.model.UpgradeDataVisualizationResponse;
 import com.cloudera.cdp.dw.model.UpgradeDbcRequest;
 import com.cloudera.cdp.dw.model.UpgradeDbcResponse;
 import com.cloudera.cdp.dw.model.UpgradeVwRequest;
@@ -105,7 +119,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:44.653-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-10T11:26:34.865-07:00")
 public class DwClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dw";
@@ -163,6 +177,19 @@ public class DwClient extends CdpClient {
   }
 
   /**
+   * Creates a Cloudera Data Visualization.
+   * @param input
+   * @return CreateDataVisualizationResponse
+   */
+  public CreateDataVisualizationResponse createDataVisualization(CreateDataVisualizationRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createDataVisualization");
+    }
+
+    return this.invokeAPI("createDataVisualization", "/api/v1/dw/createDataVisualization", input, new GenericType<CreateDataVisualizationResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Create a Database Catalog.
    * @param input
    * @return CreateDbcResponse
@@ -199,6 +226,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("deleteCluster", "/api/v1/dw/deleteCluster", input, new GenericType<DeleteClusterResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Asynchronous operation that deletes a Cloudera Data Visualization. When the DV is in deleting state, we can still use describe-data-visualization to check the status. Once it is deleted, the describe-data-visualization would return a not found error.
+   * @param input
+   * @return DeleteDataVisualizationResponse
+   */
+  public DeleteDataVisualizationResponse deleteDataVisualization(DeleteDataVisualizationRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteDataVisualization");
+    }
+
+    return this.invokeAPI("deleteDataVisualization", "/api/v1/dw/deleteDataVisualization", input, new GenericType<DeleteDataVisualizationResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -280,6 +320,19 @@ public class DwClient extends CdpClient {
   }
 
   /**
+   * Describes a Cloudera Data Visualization.
+   * @param input
+   * @return DescribeDataVisualizationResponse
+   */
+  public DescribeDataVisualizationResponse describeDataVisualization(DescribeDataVisualizationRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeDataVisualization");
+    }
+
+    return this.invokeAPI("describeDataVisualization", "/api/v1/dw/describeDataVisualization", input, new GenericType<DescribeDataVisualizationResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Describe a Database Catalog.
    * @param input
    * @return DescribeDbcResponse
@@ -316,6 +369,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("describeVw", "/api/v1/dw/describeVw", input, new GenericType<DescribeVwResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Gets latest version and latest compatible version for Cloudera Data Visualization.
+   * @param input
+   * @return GetDataVisualizationUpgradeVersionResponse
+   */
+  public GetDataVisualizationUpgradeVersionResponse getDataVisualizationUpgradeVersion(GetDataVisualizationUpgradeVersionRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getDataVisualizationUpgradeVersion");
+    }
+
+    return this.invokeAPI("getDataVisualizationUpgradeVersion", "/api/v1/dw/getDataVisualizationUpgradeVersion", input, new GenericType<GetDataVisualizationUpgradeVersionResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -368,6 +434,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("listClusters", "/api/v1/dw/listClusters", input, new GenericType<ListClustersResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Lists Cloudera Data Visualization in the provided CDW cluster.
+   * @param input
+   * @return ListDataVisualizationsResponse
+   */
+  public ListDataVisualizationsResponse listDataVisualizations(ListDataVisualizationsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listDataVisualizations");
+    }
+
+    return this.invokeAPI("listDataVisualizations", "/api/v1/dw/listDataVisualizations", input, new GenericType<ListDataVisualizationsResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -527,6 +606,19 @@ public class DwClient extends CdpClient {
   }
 
   /**
+   * Asynchronous operation that updates the configuration of a Cloudera Data Visualization. The describe-data-visualization can be used at any time to get the latest status of a Data Visualization.
+   * @param input
+   * @return UpdateDataVisualizationResponse
+   */
+  public UpdateDataVisualizationResponse updateDataVisualization(UpdateDataVisualizationRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateDataVisualization");
+    }
+
+    return this.invokeAPI("updateDataVisualization", "/api/v1/dw/updateDataVisualization", input, new GenericType<UpdateDataVisualizationResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Update the configuration of a Database Catalog.
    * @param input
    * @return UpdateDbcResponse
@@ -563,6 +655,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("updateVw", "/api/v1/dw/updateVw", input, new GenericType<UpdateVwResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Asynchronous operation that upgrades a Cloudera Data Visualization to a compatible version. The describe-data-visualization can be used at any time to get the latest status of a Data Visualization.
+   * @param input
+   * @return UpgradeDataVisualizationResponse
+   */
+  public UpgradeDataVisualizationResponse upgradeDataVisualization(UpgradeDataVisualizationRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling upgradeDataVisualization");
+    }
+
+    return this.invokeAPI("upgradeDataVisualization", "/api/v1/dw/upgradeDataVisualization", input, new GenericType<UpgradeDataVisualizationResponse>(){}, NO_EXTENSION);
   }
 
   /**

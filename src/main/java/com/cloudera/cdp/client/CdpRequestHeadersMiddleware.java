@@ -60,9 +60,11 @@ public class CdpRequestHeadersMiddleware implements CdpClientMiddleware {
   }
 
   private final CdpClientMiddleware next;
+  private final Map<String, String> headers;
 
-  public CdpRequestHeadersMiddleware(CdpClientMiddleware next) {
+  public CdpRequestHeadersMiddleware(CdpClientMiddleware next, Map<String, String> headers) {
     this.next = checkNotNullAndThrow(next);
+    this.headers = checkNotNullAndThrow(headers);
   }
 
   public <T extends BaseResponse> void invokeAPI(CdpRequestContext<T> context) {
@@ -72,7 +74,7 @@ public class CdpRequestHeadersMiddleware implements CdpClientMiddleware {
   }
 
   private void computeHeaders(CdpRequestContext<?> context) {
-    Map<String, String> headers = new HashMap<>();
+    Map<String, String> headers = new HashMap<>(this.headers);
     headers.putAll(context.getHeaders());
     headers.put(HttpHeaders.USER_AGENT, buildUserAgent());
     String method = context.getMethod();

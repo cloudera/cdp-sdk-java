@@ -23,7 +23,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
-import com.cloudera.cdp.dw.model.AutoscalingOptions;
+import com.cloudera.cdp.dw.model.AutoscalingOptionsCreateRequest;
 import com.cloudera.cdp.dw.model.ServiceConfigReq;
 import com.cloudera.cdp.dw.model.TagRequest;
 import java.util.*;
@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object for the createVw method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:44.653-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-10T11:26:34.865-07:00")
 public class CreateVwRequest  {
 
   /**
@@ -67,7 +67,7 @@ public class CreateVwRequest  {
   /**
    * Autoscaling settings for the Virtual Warehouse.
    **/
-  private AutoscalingOptions autoscaling = null;
+  private AutoscalingOptionsCreateRequest autoscaling = null;
 
   /**
    * Configuration settings for the Virtual Warehouse.
@@ -186,7 +186,7 @@ public class CreateVwRequest  {
    * Autoscaling settings for the Virtual Warehouse.
    **/
   @JsonProperty("autoscaling")
-  public AutoscalingOptions getAutoscaling() {
+  public AutoscalingOptionsCreateRequest getAutoscaling() {
     return autoscaling;
   }
 
@@ -194,7 +194,7 @@ public class CreateVwRequest  {
    * Setter for autoscaling.
    * Autoscaling settings for the Virtual Warehouse.
    **/
-  public void setAutoscaling(AutoscalingOptions autoscaling) {
+  public void setAutoscaling(AutoscalingOptionsCreateRequest autoscaling) {
     this.autoscaling = autoscaling;
   }
 

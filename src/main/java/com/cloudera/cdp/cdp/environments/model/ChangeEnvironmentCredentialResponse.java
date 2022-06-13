@@ -28,7 +28,7 @@ import com.cloudera.cdp.environments.model.EnvironmentSummary;
 /**
  * Response object for a change environment credentials request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-05-16T09:57:45.491-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-10T11:26:35.605-07:00")
 public class ChangeEnvironmentCredentialResponse extends CdpResponse {
 
   /**

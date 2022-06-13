@@ -31,7 +31,9 @@ import com.google.common.base.MoreObjects;
 import java.security.cert.X509Certificate;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.annotation.Nullable;
 
 /**
@@ -58,6 +60,7 @@ public class CdpClientConfigurationBuilder {
       13);
   private boolean ignoreTls = false;
   private List<X509Certificate> trustedCertificates = new ArrayList<>();
+  private Map<String, String> requestHeaders = new HashMap<>();
 
   private CdpClientConfigurationBuilder() {}
 
@@ -333,11 +336,60 @@ public class CdpClientConfigurationBuilder {
   }
 
   /**
+   * Adds the trusted certificate.
+   *
+   * @param trustedCertificate The trusted certificate
+   * @return a reference to the CdpClientConfiguration object so
+   * that method calls can be chained together
+   */
+  public CdpClientConfigurationBuilder addTrustedCertificate(X509Certificate trustedCertificate) {
+    checkNotNullAndThrow(trustedCertificate);
+    this.trustedCertificates.add(trustedCertificate);
+    return this;
+  }
+
+  /**
    * Gets the trusted certificates.
    * @return the trusted certificates
    */
   public List<X509Certificate> getTrustedCertificates() {
     return this.trustedCertificates;
+  }
+
+  /**
+   * Sets the request headers.
+   *
+   * @param requestHeaders The request headers
+   * @return a reference to the CdpClientConfiguration object so
+   * that method calls can be chained together
+   */
+  public CdpClientConfigurationBuilder withRequestHeaders(Map<String, String> requestHeaders) {
+    checkNotNullAndThrow(requestHeaders);
+    this.requestHeaders = requestHeaders;
+    return this;
+  }
+
+  /**
+   * Adds the request header.
+   *
+   * @param name  The request header name
+   * @param value The request header value
+   * @return a reference to the CdpClientConfiguration object so
+   * that method calls can be chained together
+   */
+  public CdpClientConfigurationBuilder addRequestHeader(String name, String value) {
+    checkNotNullAndThrow(name);
+    checkNotNullAndThrow(value);
+    this.requestHeaders.put(name, value);
+    return this;
+  }
+
+  /**
+   * Gets the request headers.
+   * @return the request headers
+   */
+  public Map<String, String> getRequestHeaders() {
+    return this.requestHeaders;
   }
 
   /**
@@ -371,6 +423,7 @@ public class CdpClientConfigurationBuilder {
         .add("Proxy Password", "<hidden>")
         .add("Ignore TLS", this.getIgnoreTls())
         .add("Trusted Certs", "<hidden>")
+        .add("Request Headers", "<hidden>")
         .toString();
   }
 
