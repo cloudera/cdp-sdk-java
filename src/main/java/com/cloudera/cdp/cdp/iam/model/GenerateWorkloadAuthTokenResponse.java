@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Response object for GenerateWorkloadAuthToken method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-10T11:26:36.264-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-17T10:50:07.522-07:00")
 public class GenerateWorkloadAuthTokenResponse extends CdpResponse {
 
   /**

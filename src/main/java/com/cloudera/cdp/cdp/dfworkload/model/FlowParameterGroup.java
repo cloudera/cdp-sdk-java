@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * A flow parameter group
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-10T11:26:36.714-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-17T10:50:08.003-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class FlowParameterGroup  {
 

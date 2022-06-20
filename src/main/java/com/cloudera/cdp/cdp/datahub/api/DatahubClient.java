@@ -89,6 +89,8 @@ import com.cloudera.cdp.datahub.model.ListAutoScaleHistoryRequest;
 import com.cloudera.cdp.datahub.model.ListAutoScaleHistoryResponse;
 import com.cloudera.cdp.datahub.model.ListClusterDefinitionsRequest;
 import com.cloudera.cdp.datahub.model.ListClusterDefinitionsResponse;
+import com.cloudera.cdp.datahub.model.ListClusterLifecycleEventsRequest;
+import com.cloudera.cdp.datahub.model.ListClusterLifecycleEventsResponse;
 import com.cloudera.cdp.datahub.model.ListClusterTemplatesRequest;
 import com.cloudera.cdp.datahub.model.ListClusterTemplatesResponse;
 import com.cloudera.cdp.datahub.model.ListClustersRequest;
@@ -135,7 +137,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-10T11:26:34.312-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-17T10:50:05.488-07:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datahub";
@@ -554,6 +556,19 @@ public class DatahubClient extends CdpClient {
     }
 
     return this.invokeAPI("listClusterDefinitions", "/api/v1/datahub/listClusterDefinitions", input, new GenericType<ListClusterDefinitionsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Lists Workload cluster lifecycle events.
+   * @param input
+   * @return ListClusterLifecycleEventsResponse
+   */
+  public ListClusterLifecycleEventsResponse listClusterLifecycleEvents(ListClusterLifecycleEventsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listClusterLifecycleEvents");
+    }
+
+    return this.invokeAPI("listClusterLifecycleEvents", "/api/v1/datahub/listClusterLifecycleEvents", input, new GenericType<ListClusterLifecycleEventsResponse>(){}, NO_EXTENSION);
   }
 
   /**

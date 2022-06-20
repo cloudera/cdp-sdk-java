@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * A representation of a versioned data flow.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-10T11:26:36.502-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-17T10:50:07.813-07:00")
 public class Flow  {
 
   /**
