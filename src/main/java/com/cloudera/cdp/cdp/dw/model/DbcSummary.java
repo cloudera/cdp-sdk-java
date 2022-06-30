@@ -23,13 +23,13 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
-import com.cloudera.cdp.dw.model.Actor;
+import com.cloudera.cdp.dw.model.ActorResponse;
 import java.time.ZonedDateTime;
 
 /**
  * A Database Catalog.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-17T10:50:06.028-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-29T15:24:02.444-07:00")
 public class DbcSummary  {
 
   /**
@@ -55,7 +55,7 @@ public class DbcSummary  {
   /**
    * The creator of the Database Catalog.
    **/
-  private Actor creator = null;
+  private ActorResponse creator = null;
 
   /**
    * Creation date of Database Catalog.
@@ -135,7 +135,7 @@ public class DbcSummary  {
    * The creator of the Database Catalog.
    **/
   @JsonProperty("creator")
-  public Actor getCreator() {
+  public ActorResponse getCreator() {
     return creator;
   }
 
@@ -143,7 +143,7 @@ public class DbcSummary  {
    * Setter for creator.
    * The creator of the Database Catalog.
    **/
-  public void setCreator(Actor creator) {
+  public void setCreator(ActorResponse creator) {
     this.creator = creator;
   }
 

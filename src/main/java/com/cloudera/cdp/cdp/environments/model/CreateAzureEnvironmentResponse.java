@@ -28,7 +28,7 @@ import com.cloudera.cdp.environments.model.Environment;
 /**
  * Response object for a create Azure environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-17T10:50:06.954-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-29T15:24:03.141-07:00")
 public class CreateAzureEnvironmentResponse extends CdpResponse {
 
   /**

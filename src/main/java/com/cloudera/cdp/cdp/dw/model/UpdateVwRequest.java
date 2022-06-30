@@ -23,12 +23,14 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.dw.model.AutoscalingOptionsUpdateRequest;
+import com.cloudera.cdp.dw.model.QueryIsolationOptionsRequest;
 import com.cloudera.cdp.dw.model.ServiceConfigReq;
 
 /**
  * Request object for the updateVw method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-17T10:50:06.028-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-29T15:24:02.444-07:00")
 public class UpdateVwRequest  {
 
   /**
@@ -45,6 +47,16 @@ public class UpdateVwRequest  {
    * The service configuration to update the VW with. This will be applied on top of the existing configuration so there's no need to list configurations that stay the same.
    **/
   private ServiceConfigReq config = null;
+
+  /**
+   * Autoscaling settings for the Virtual Warehouse.
+   **/
+  private AutoscalingOptionsUpdateRequest autoscaling = null;
+
+  /**
+   * Query isolation settings for Hive Virtual Warehouses.
+   **/
+  private QueryIsolationOptionsRequest queryIsolationOptions = null;
 
   /**
    * Getter for clusterId.
@@ -97,6 +109,40 @@ public class UpdateVwRequest  {
     this.config = config;
   }
 
+  /**
+   * Getter for autoscaling.
+   * Autoscaling settings for the Virtual Warehouse.
+   **/
+  @JsonProperty("autoscaling")
+  public AutoscalingOptionsUpdateRequest getAutoscaling() {
+    return autoscaling;
+  }
+
+  /**
+   * Setter for autoscaling.
+   * Autoscaling settings for the Virtual Warehouse.
+   **/
+  public void setAutoscaling(AutoscalingOptionsUpdateRequest autoscaling) {
+    this.autoscaling = autoscaling;
+  }
+
+  /**
+   * Getter for queryIsolationOptions.
+   * Query isolation settings for Hive Virtual Warehouses.
+   **/
+  @JsonProperty("queryIsolationOptions")
+  public QueryIsolationOptionsRequest getQueryIsolationOptions() {
+    return queryIsolationOptions;
+  }
+
+  /**
+   * Setter for queryIsolationOptions.
+   * Query isolation settings for Hive Virtual Warehouses.
+   **/
+  public void setQueryIsolationOptions(QueryIsolationOptionsRequest queryIsolationOptions) {
+    this.queryIsolationOptions = queryIsolationOptions;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -115,12 +161,18 @@ public class UpdateVwRequest  {
     if (!Objects.equals(this.config, updateVwRequest.config)) {
       return false;
     }
+    if (!Objects.equals(this.autoscaling, updateVwRequest.autoscaling)) {
+      return false;
+    }
+    if (!Objects.equals(this.queryIsolationOptions, updateVwRequest.queryIsolationOptions)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, vwId, config);
+    return Objects.hash(clusterId, vwId, config, autoscaling, queryIsolationOptions);
   }
 
   @Override
@@ -130,6 +182,8 @@ public class UpdateVwRequest  {
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    vwId: ").append(toIndentedString(vwId)).append("\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
+    sb.append("    autoscaling: ").append(toIndentedString(autoscaling)).append("\n");
+    sb.append("    queryIsolationOptions: ").append(toIndentedString(queryIsolationOptions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

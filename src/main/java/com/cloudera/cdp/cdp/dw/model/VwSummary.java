@@ -23,7 +23,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
-import com.cloudera.cdp.dw.model.Actor;
+import com.cloudera.cdp.dw.model.ActorResponse;
 import com.cloudera.cdp.dw.model.TagResponse;
 import java.time.ZonedDateTime;
 import java.util.*;
@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * A Virtual Warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-17T10:50:06.028-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-29T15:24:02.444-07:00")
 public class VwSummary  {
 
   /**
@@ -67,7 +67,7 @@ public class VwSummary  {
   /**
    * The creator of the Virtual Warehouse.
    **/
-  private Actor creator = null;
+  private ActorResponse creator = null;
 
   /**
    * Creation date of Virtual Warehouse.
@@ -186,7 +186,7 @@ public class VwSummary  {
    * The creator of the Virtual Warehouse.
    **/
   @JsonProperty("creator")
-  public Actor getCreator() {
+  public ActorResponse getCreator() {
     return creator;
   }
 
@@ -194,7 +194,7 @@ public class VwSummary  {
    * Setter for creator.
    * The creator of the Virtual Warehouse.
    **/
-  public void setCreator(Actor creator) {
+  public void setCreator(ActorResponse creator) {
     this.creator = creator;
   }
 

@@ -37,7 +37,7 @@ import java.time.ZonedDateTime;
 /**
  * The environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-17T10:50:06.954-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-29T15:24:03.141-07:00")
 public class Environment  {
 
   /**
@@ -124,6 +124,11 @@ public class Environment  {
    * 
    **/
   private EnvironmentGcpDetails gcpDetails = null;
+
+  /**
+   * When this is enabled, diagnostic information about job and query execution is sent to Workload Manager for Data Hub clusters created within this environment.
+   **/
+  private Boolean workloadAnalytics = null;
 
   /**
    * When true, this will report additional diagnostic information back to Cloudera.
@@ -430,6 +435,23 @@ public class Environment  {
   }
 
   /**
+   * Getter for workloadAnalytics.
+   * When this is enabled, diagnostic information about job and query execution is sent to Workload Manager for Data Hub clusters created within this environment.
+   **/
+  @JsonProperty("workloadAnalytics")
+  public Boolean getWorkloadAnalytics() {
+    return workloadAnalytics;
+  }
+
+  /**
+   * Setter for workloadAnalytics.
+   * When this is enabled, diagnostic information about job and query execution is sent to Workload Manager for Data Hub clusters created within this environment.
+   **/
+  public void setWorkloadAnalytics(Boolean workloadAnalytics) {
+    this.workloadAnalytics = workloadAnalytics;
+  }
+
+  /**
    * Getter for reportDeploymentLogs.
    * When true, this will report additional diagnostic information back to Cloudera.
    **/
@@ -540,6 +562,9 @@ public class Environment  {
     if (!Objects.equals(this.gcpDetails, environment.gcpDetails)) {
       return false;
     }
+    if (!Objects.equals(this.workloadAnalytics, environment.workloadAnalytics)) {
+      return false;
+    }
     if (!Objects.equals(this.reportDeploymentLogs, environment.reportDeploymentLogs)) {
       return false;
     }
@@ -554,7 +579,7 @@ public class Environment  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, network, logStorage, backupStorage, authentication, securityAccess, description, statusReason, created, creator, awsDetails, gcpDetails, reportDeploymentLogs, freeipa, proxyConfig);
+    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, network, logStorage, backupStorage, authentication, securityAccess, description, statusReason, created, creator, awsDetails, gcpDetails, workloadAnalytics, reportDeploymentLogs, freeipa, proxyConfig);
   }
 
   @Override
@@ -578,6 +603,7 @@ public class Environment  {
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    awsDetails: ").append(toIndentedString(awsDetails)).append("\n");
     sb.append("    gcpDetails: ").append(toIndentedString(gcpDetails)).append("\n");
+    sb.append("    workloadAnalytics: ").append(toIndentedString(workloadAnalytics)).append("\n");
     sb.append("    reportDeploymentLogs: ").append(toIndentedString(reportDeploymentLogs)).append("\n");
     sb.append("    freeipa: ").append(toIndentedString(freeipa)).append("\n");
     sb.append("    proxyConfig: ").append(toIndentedString(proxyConfig)).append("\n");

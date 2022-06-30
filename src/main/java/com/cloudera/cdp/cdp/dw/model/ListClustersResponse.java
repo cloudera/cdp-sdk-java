@@ -23,26 +23,26 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
-import com.cloudera.cdp.dw.model.ClusterSummary;
+import com.cloudera.cdp.dw.model.ClusterSummaryResponse;
 import java.util.*;
 
 /**
  * Response object for the listClusters method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-17T10:50:06.028-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-29T15:24:02.444-07:00")
 public class ListClustersResponse extends CdpResponse {
 
   /**
    * The list of clusters.
    **/
-  private List<ClusterSummary> clusters = new ArrayList<ClusterSummary>();
+  private List<ClusterSummaryResponse> clusters = new ArrayList<ClusterSummaryResponse>();
 
   /**
    * Getter for clusters.
    * The list of clusters.
    **/
   @JsonProperty("clusters")
-  public List<ClusterSummary> getClusters() {
+  public List<ClusterSummaryResponse> getClusters() {
     return clusters;
   }
 
@@ -50,7 +50,7 @@ public class ListClustersResponse extends CdpResponse {
    * Setter for clusters.
    * The list of clusters.
    **/
-  public void setClusters(List<ClusterSummary> clusters) {
+  public void setClusters(List<ClusterSummaryResponse> clusters) {
     this.clusters = clusters;
   }
 

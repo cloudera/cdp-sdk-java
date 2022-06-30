@@ -23,25 +23,25 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
-import com.cloudera.cdp.dw.model.ClusterSummary;
+import com.cloudera.cdp.dw.model.ClusterSummaryResponse;
 
 /**
  * Response object for the describeCluster method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-17T10:50:06.028-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-29T15:24:02.444-07:00")
 public class DescribeClusterResponse extends CdpResponse {
 
   /**
    * The cluster.
    **/
-  private ClusterSummary cluster = null;
+  private ClusterSummaryResponse cluster = null;
 
   /**
    * Getter for cluster.
    * The cluster.
    **/
   @JsonProperty("cluster")
-  public ClusterSummary getCluster() {
+  public ClusterSummaryResponse getCluster() {
     return cluster;
   }
 
@@ -49,7 +49,7 @@ public class DescribeClusterResponse extends CdpResponse {
    * Setter for cluster.
    * The cluster.
    **/
-  public void setCluster(ClusterSummary cluster) {
+  public void setCluster(ClusterSummaryResponse cluster) {
     this.cluster = cluster;
   }
 

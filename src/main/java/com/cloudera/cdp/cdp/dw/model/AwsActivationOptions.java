@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Options for activating an AWS environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-17T10:50:06.028-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-29T15:24:02.444-07:00")
 public class AwsActivationOptions  {
 
   /**
@@ -42,7 +42,7 @@ public class AwsActivationOptions  {
   private List<String> publicSubnetIds = new ArrayList<String>();
 
   /**
-   * URL for custom ECR repository
+   * DEPRECATED, superseded by the CustomRegistryOptions. URL for custom ECR repository
    **/
   private String customEcrRepository = null;
 
@@ -87,8 +87,9 @@ public class AwsActivationOptions  {
 
   /**
    * Getter for customEcrRepository.
-   * URL for custom ECR repository
+   * DEPRECATED, superseded by the CustomRegistryOptions. URL for custom ECR repository
    **/
+  @Deprecated
   @JsonProperty("customEcrRepository")
   public String getCustomEcrRepository() {
     return customEcrRepository;
@@ -96,8 +97,9 @@ public class AwsActivationOptions  {
 
   /**
    * Setter for customEcrRepository.
-   * URL for custom ECR repository
+   * DEPRECATED, superseded by the CustomRegistryOptions. URL for custom ECR repository
    **/
+  @Deprecated
   public void setCustomEcrRepository(String customEcrRepository) {
     this.customEcrRepository = customEcrRepository;
   }

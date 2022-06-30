@@ -28,13 +28,18 @@ import com.cloudera.cdp.iam.model.WorkloadPasswordPolicy;
 /**
  * Information about a Cloudera CDP account.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-17T10:50:07.522-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-29T15:24:03.879-07:00")
 public class Account  {
 
   /**
    * Whether interactive login using Cloudera SSO is enabled for users who are not account administrators. Its default value is 'true'. When it is 'true', the account administrators, as well as non-administrator users can login through Cloudera SSO. When it is 'false', Cloudera SSO users who are not account administrators will not be able to login.
    **/
   private Boolean clouderaSSOLoginEnabled = null;
+
+  /**
+   * Whether login is enabled for Cloudera SSO users. It can only be set by Cloudera upon request and disables interactive login through Cloudera SSO. Note that restricting Cloudera SSO login will prevent account administrators from logging in interactively. Its default value is 'true'. When it is 'true', the Cloudera SSO interactive login behavior is controlled according to the existing `clouderaSSOLoginEnabled` flag. When it is 'false', it overrides the setting for `clouderaSSOLoginEnabled`.
+   **/
+  private Boolean clouderaSSOAllLoginEnabled = null;
 
   /**
    * The workload password policy object.
@@ -61,6 +66,23 @@ public class Account  {
    **/
   public void setClouderaSSOLoginEnabled(Boolean clouderaSSOLoginEnabled) {
     this.clouderaSSOLoginEnabled = clouderaSSOLoginEnabled;
+  }
+
+  /**
+   * Getter for clouderaSSOAllLoginEnabled.
+   * Whether login is enabled for Cloudera SSO users. It can only be set by Cloudera upon request and disables interactive login through Cloudera SSO. Note that restricting Cloudera SSO login will prevent account administrators from logging in interactively. Its default value is &#39;true&#39;. When it is &#39;true&#39;, the Cloudera SSO interactive login behavior is controlled according to the existing &#x60;clouderaSSOLoginEnabled&#x60; flag. When it is &#39;false&#39;, it overrides the setting for &#x60;clouderaSSOLoginEnabled&#x60;.
+   **/
+  @JsonProperty("clouderaSSOAllLoginEnabled")
+  public Boolean getClouderaSSOAllLoginEnabled() {
+    return clouderaSSOAllLoginEnabled;
+  }
+
+  /**
+   * Setter for clouderaSSOAllLoginEnabled.
+   * Whether login is enabled for Cloudera SSO users. It can only be set by Cloudera upon request and disables interactive login through Cloudera SSO. Note that restricting Cloudera SSO login will prevent account administrators from logging in interactively. Its default value is &#39;true&#39;. When it is &#39;true&#39;, the Cloudera SSO interactive login behavior is controlled according to the existing &#x60;clouderaSSOLoginEnabled&#x60; flag. When it is &#39;false&#39;, it overrides the setting for &#x60;clouderaSSOLoginEnabled&#x60;.
+   **/
+  public void setClouderaSSOAllLoginEnabled(Boolean clouderaSSOAllLoginEnabled) {
+    this.clouderaSSOAllLoginEnabled = clouderaSSOAllLoginEnabled;
   }
 
   /**
@@ -109,6 +131,9 @@ public class Account  {
     if (!Objects.equals(this.clouderaSSOLoginEnabled, account.clouderaSSOLoginEnabled)) {
       return false;
     }
+    if (!Objects.equals(this.clouderaSSOAllLoginEnabled, account.clouderaSSOAllLoginEnabled)) {
+      return false;
+    }
     if (!Objects.equals(this.workloadPasswordPolicy, account.workloadPasswordPolicy)) {
       return false;
     }
@@ -120,7 +145,7 @@ public class Account  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clouderaSSOLoginEnabled, workloadPasswordPolicy, machineUserWorkloadPasswordPolicy);
+    return Objects.hash(clouderaSSOLoginEnabled, clouderaSSOAllLoginEnabled, workloadPasswordPolicy, machineUserWorkloadPasswordPolicy);
   }
 
   @Override
@@ -128,6 +153,7 @@ public class Account  {
     StringBuilder sb = new StringBuilder();
     sb.append("class Account {\n");
     sb.append("    clouderaSSOLoginEnabled: ").append(toIndentedString(clouderaSSOLoginEnabled)).append("\n");
+    sb.append("    clouderaSSOAllLoginEnabled: ").append(toIndentedString(clouderaSSOAllLoginEnabled)).append("\n");
     sb.append("    workloadPasswordPolicy: ").append(toIndentedString(workloadPasswordPolicy)).append("\n");
     sb.append("    machineUserWorkloadPasswordPolicy: ").append(toIndentedString(machineUserWorkloadPasswordPolicy)).append("\n");
     sb.append("}");

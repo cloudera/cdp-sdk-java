@@ -66,6 +66,8 @@ import com.cloudera.cdp.environments.model.DeleteProxyConfigRequest;
 import com.cloudera.cdp.environments.model.DeleteProxyConfigResponse;
 import com.cloudera.cdp.environments.model.DescribeEnvironmentRequest;
 import com.cloudera.cdp.environments.model.DescribeEnvironmentResponse;
+import com.cloudera.cdp.environments.model.DownscaleFreeipaRequest;
+import com.cloudera.cdp.environments.model.DownscaleFreeipaResponse;
 import com.cloudera.cdp.environments.model.Error;
 import com.cloudera.cdp.environments.model.GetAccountTelemetryDefaultRequest;
 import com.cloudera.cdp.environments.model.GetAccountTelemetryDefaultResponse;
@@ -139,13 +141,15 @@ import com.cloudera.cdp.environments.model.UpdateAzureEncryptionResourcesRequest
 import com.cloudera.cdp.environments.model.UpdateAzureEncryptionResourcesResponse;
 import com.cloudera.cdp.environments.model.UpgradeCcmRequest;
 import com.cloudera.cdp.environments.model.UpgradeCcmResponse;
+import com.cloudera.cdp.environments.model.UpscaleFreeipaRequest;
+import com.cloudera.cdp.environments.model.UpscaleFreeipaResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-17T10:50:06.954-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-29T15:24:03.141-07:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -421,6 +425,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("describeEnvironment", "/api/v1/environments2/describeEnvironment", input, new GenericType<DescribeEnvironmentResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Downscales FreeIPA instances.
+   * @param input
+   * @return DownscaleFreeipaResponse
+   */
+  public DownscaleFreeipaResponse downscaleFreeipa(DownscaleFreeipaRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling downscaleFreeipa");
+    }
+
+    return this.invokeAPI("downscaleFreeipa", "/api/v1/environments2/downscaleFreeipa", input, new GenericType<DownscaleFreeipaResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -889,5 +906,18 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("upgradeCcm", "/api/v1/environments2/upgradeCcm", input, new GenericType<UpgradeCcmResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Upscales FreeIPA instances.
+   * @param input
+   * @return UpscaleFreeipaResponse
+   */
+  public UpscaleFreeipaResponse upscaleFreeipa(UpscaleFreeipaRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling upscaleFreeipa");
+    }
+
+    return this.invokeAPI("upscaleFreeipa", "/api/v1/environments2/upscaleFreeipa", input, new GenericType<UpscaleFreeipaResponse>(){}, NO_EXTENSION);
   }
 }

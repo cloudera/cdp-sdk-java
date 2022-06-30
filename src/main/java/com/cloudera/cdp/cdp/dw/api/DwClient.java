@@ -34,18 +34,26 @@ import com.cloudera.cdp.dw.model.CreateClusterRequest;
 import com.cloudera.cdp.dw.model.CreateClusterResponse;
 import com.cloudera.cdp.dw.model.CreateDataVisualizationRequest;
 import com.cloudera.cdp.dw.model.CreateDataVisualizationResponse;
+import com.cloudera.cdp.dw.model.CreateDbcDiagnosticDataJobRequest;
+import com.cloudera.cdp.dw.model.CreateDbcDiagnosticDataJobResponse;
 import com.cloudera.cdp.dw.model.CreateDbcRequest;
 import com.cloudera.cdp.dw.model.CreateDbcResponse;
+import com.cloudera.cdp.dw.model.CreateVwDiagnosticDataJobRequest;
+import com.cloudera.cdp.dw.model.CreateVwDiagnosticDataJobResponse;
 import com.cloudera.cdp.dw.model.CreateVwRequest;
 import com.cloudera.cdp.dw.model.CreateVwResponse;
 import com.cloudera.cdp.dw.model.DeleteClusterRequest;
 import com.cloudera.cdp.dw.model.DeleteClusterResponse;
 import com.cloudera.cdp.dw.model.DeleteDataVisualizationRequest;
 import com.cloudera.cdp.dw.model.DeleteDataVisualizationResponse;
+import com.cloudera.cdp.dw.model.DeleteDbcDiagnosticDataJobRequest;
+import com.cloudera.cdp.dw.model.DeleteDbcDiagnosticDataJobResponse;
 import com.cloudera.cdp.dw.model.DeleteDbcRequest;
 import com.cloudera.cdp.dw.model.DeleteDbcResponse;
 import com.cloudera.cdp.dw.model.DeleteUserRequest;
 import com.cloudera.cdp.dw.model.DeleteUserResponse;
+import com.cloudera.cdp.dw.model.DeleteVwDiagnosticDataJobRequest;
+import com.cloudera.cdp.dw.model.DeleteVwDiagnosticDataJobResponse;
 import com.cloudera.cdp.dw.model.DeleteVwRequest;
 import com.cloudera.cdp.dw.model.DeleteVwResponse;
 import com.cloudera.cdp.dw.model.DescribeClusterRequest;
@@ -56,10 +64,14 @@ import com.cloudera.cdp.dw.model.DescribeConfigRequest;
 import com.cloudera.cdp.dw.model.DescribeConfigResponse;
 import com.cloudera.cdp.dw.model.DescribeDataVisualizationRequest;
 import com.cloudera.cdp.dw.model.DescribeDataVisualizationResponse;
+import com.cloudera.cdp.dw.model.DescribeDbcDiagnosticDataJobRequest;
+import com.cloudera.cdp.dw.model.DescribeDbcDiagnosticDataJobResponse;
 import com.cloudera.cdp.dw.model.DescribeDbcRequest;
 import com.cloudera.cdp.dw.model.DescribeDbcResponse;
 import com.cloudera.cdp.dw.model.DescribeKubeconfigRequest;
 import com.cloudera.cdp.dw.model.DescribeKubeconfigResponse;
+import com.cloudera.cdp.dw.model.DescribeVwDiagnosticDataJobRequest;
+import com.cloudera.cdp.dw.model.DescribeVwDiagnosticDataJobResponse;
 import com.cloudera.cdp.dw.model.DescribeVwRequest;
 import com.cloudera.cdp.dw.model.DescribeVwResponse;
 import com.cloudera.cdp.dw.model.Error;
@@ -77,6 +89,8 @@ import com.cloudera.cdp.dw.model.ListDataVisualizationsRequest;
 import com.cloudera.cdp.dw.model.ListDataVisualizationsResponse;
 import com.cloudera.cdp.dw.model.ListDbcConfigsRequest;
 import com.cloudera.cdp.dw.model.ListDbcConfigsResponse;
+import com.cloudera.cdp.dw.model.ListDbcDiagnosticDataJobsRequest;
+import com.cloudera.cdp.dw.model.ListDbcDiagnosticDataJobsResponse;
 import com.cloudera.cdp.dw.model.ListDbcsRequest;
 import com.cloudera.cdp.dw.model.ListDbcsResponse;
 import com.cloudera.cdp.dw.model.ListLatestVersionsRequest;
@@ -85,6 +99,8 @@ import com.cloudera.cdp.dw.model.ListUsersRequest;
 import com.cloudera.cdp.dw.model.ListUsersResponse;
 import com.cloudera.cdp.dw.model.ListVwConfigsRequest;
 import com.cloudera.cdp.dw.model.ListVwConfigsResponse;
+import com.cloudera.cdp.dw.model.ListVwDiagnosticDataJobsRequest;
+import com.cloudera.cdp.dw.model.ListVwDiagnosticDataJobsResponse;
 import com.cloudera.cdp.dw.model.ListVwsRequest;
 import com.cloudera.cdp.dw.model.ListVwsResponse;
 import com.cloudera.cdp.dw.model.PauseVwRequest;
@@ -119,7 +135,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-17T10:50:06.028-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-29T15:24:02.444-07:00")
 public class DwClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dw";
@@ -203,6 +219,19 @@ public class DwClient extends CdpClient {
   }
 
   /**
+   * Create a diganostic data job for the given Database Catalog.
+   * @param input
+   * @return CreateDbcDiagnosticDataJobResponse
+   */
+  public CreateDbcDiagnosticDataJobResponse createDbcDiagnosticDataJob(CreateDbcDiagnosticDataJobRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createDbcDiagnosticDataJob");
+    }
+
+    return this.invokeAPI("createDbcDiagnosticDataJob", "/api/v1/dw/createDbcDiagnosticDataJob", input, new GenericType<CreateDbcDiagnosticDataJobResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Create a Virtual Warehouse.
    * @param input
    * @return CreateVwResponse
@@ -213,6 +242,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("createVw", "/api/v1/dw/createVw", input, new GenericType<CreateVwResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Create a diganostic data job for the given Virtual Warehouse.
+   * @param input
+   * @return CreateVwDiagnosticDataJobResponse
+   */
+  public CreateVwDiagnosticDataJobResponse createVwDiagnosticDataJob(CreateVwDiagnosticDataJobRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createVwDiagnosticDataJob");
+    }
+
+    return this.invokeAPI("createVwDiagnosticDataJob", "/api/v1/dw/createVwDiagnosticDataJob", input, new GenericType<CreateVwDiagnosticDataJobResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -255,6 +297,19 @@ public class DwClient extends CdpClient {
   }
 
   /**
+   * Delete a diagnostic job for the given Database Catalog.
+   * @param input
+   * @return DeleteDbcDiagnosticDataJobResponse
+   */
+  public DeleteDbcDiagnosticDataJobResponse deleteDbcDiagnosticDataJob(DeleteDbcDiagnosticDataJobRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteDbcDiagnosticDataJob");
+    }
+
+    return this.invokeAPI("deleteDbcDiagnosticDataJob", "/api/v1/dw/deleteDbcDiagnosticDataJob", input, new GenericType<DeleteDbcDiagnosticDataJobResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Deletes the given user from the cluster.
    * @param input
    * @return DeleteUserResponse
@@ -278,6 +333,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("deleteVw", "/api/v1/dw/deleteVw", input, new GenericType<DeleteVwResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Delete a diagnostic job for the given Virtual Warehouse.
+   * @param input
+   * @return DeleteVwDiagnosticDataJobResponse
+   */
+  public DeleteVwDiagnosticDataJobResponse deleteVwDiagnosticDataJob(DeleteVwDiagnosticDataJobRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteVwDiagnosticDataJob");
+    }
+
+    return this.invokeAPI("deleteVwDiagnosticDataJob", "/api/v1/dw/deleteVwDiagnosticDataJob", input, new GenericType<DeleteVwDiagnosticDataJobResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -346,6 +414,19 @@ public class DwClient extends CdpClient {
   }
 
   /**
+   * Describe a diagnostic job for the given Database Catalog.
+   * @param input
+   * @return DescribeDbcDiagnosticDataJobResponse
+   */
+  public DescribeDbcDiagnosticDataJobResponse describeDbcDiagnosticDataJob(DescribeDbcDiagnosticDataJobRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeDbcDiagnosticDataJob");
+    }
+
+    return this.invokeAPI("describeDbcDiagnosticDataJob", "/api/v1/dw/describeDbcDiagnosticDataJob", input, new GenericType<DescribeDbcDiagnosticDataJobResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Get Kubeconfig for a Cloudera Data Warehouse cluster.
    * @param input
    * @return DescribeKubeconfigResponse
@@ -369,6 +450,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("describeVw", "/api/v1/dw/describeVw", input, new GenericType<DescribeVwResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Describe a diagnostic jobs for the given Virtual Warehouse.
+   * @param input
+   * @return DescribeVwDiagnosticDataJobResponse
+   */
+  public DescribeVwDiagnosticDataJobResponse describeVwDiagnosticDataJob(DescribeVwDiagnosticDataJobRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeVwDiagnosticDataJob");
+    }
+
+    return this.invokeAPI("describeVwDiagnosticDataJob", "/api/v1/dw/describeVwDiagnosticDataJob", input, new GenericType<DescribeVwDiagnosticDataJobResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -463,6 +557,19 @@ public class DwClient extends CdpClient {
   }
 
   /**
+   * Get the list of diagnostic jobs for the given Database Catalog.
+   * @param input
+   * @return ListDbcDiagnosticDataJobsResponse
+   */
+  public ListDbcDiagnosticDataJobsResponse listDbcDiagnosticDataJobs(ListDbcDiagnosticDataJobsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listDbcDiagnosticDataJobs");
+    }
+
+    return this.invokeAPI("listDbcDiagnosticDataJobs", "/api/v1/dw/listDbcDiagnosticDataJobs", input, new GenericType<ListDbcDiagnosticDataJobsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * List Database Catalogs.
    * @param input
    * @return ListDbcsResponse
@@ -512,6 +619,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("listVwConfigs", "/api/v1/dw/listVwConfigs", input, new GenericType<ListVwConfigsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Get the list of diagnostic jobs for the given Virtual Warehouse.
+   * @param input
+   * @return ListVwDiagnosticDataJobsResponse
+   */
+  public ListVwDiagnosticDataJobsResponse listVwDiagnosticDataJobs(ListVwDiagnosticDataJobsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listVwDiagnosticDataJobs");
+    }
+
+    return this.invokeAPI("listVwDiagnosticDataJobs", "/api/v1/dw/listVwDiagnosticDataJobs", input, new GenericType<ListVwDiagnosticDataJobsResponse>(){}, NO_EXTENSION);
   }
 
   /**
