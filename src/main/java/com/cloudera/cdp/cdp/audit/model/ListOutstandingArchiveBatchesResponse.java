@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * The response from listing outstanding archive batches.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-29T15:24:03.715-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-07-12T15:09:59.928-07:00")
 public class ListOutstandingArchiveBatchesResponse extends CdpResponse {
 
   /**

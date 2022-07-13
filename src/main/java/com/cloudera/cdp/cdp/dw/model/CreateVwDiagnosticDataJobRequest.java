@@ -32,7 +32,7 @@ import java.util.Map;
 /**
  * Request object for the createVwDiagnosticDataJob method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-29T15:24:02.444-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-07-12T15:09:58.707-07:00")
 public class CreateVwDiagnosticDataJobRequest  {
 
   /**

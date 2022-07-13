@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object for create AWS cluster request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-29T15:24:01.906-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-07-12T15:09:58.089-07:00")
 public class CreateAWSClusterRequest  {
 
   /**
@@ -40,19 +40,34 @@ public class CreateAWSClusterRequest  {
   private String clusterName = null;
 
   /**
-   * The name or CRN of the cluster definition to use for cluster creation.
+   * Deprecated, the name or CRN of the cluster definition to use for cluster creation.
    **/
   private String clusterDefinitionName = null;
 
   /**
-   * Name or CRN of the environment to use when creating the cluster. The environment must be an AWS environment.
+   * The name or CRN of the cluster definition to use for cluster creation.
+   **/
+  private String clusterDefinition = null;
+
+  /**
+   * Deprecated, name or CRN of the environment to use when creating the cluster. The environment must be an AWS environment.
    **/
   private String environmentName = null;
 
   /**
-   * Name or CRN of the cluster template to use for cluster creation.
+   * Name or CRN of the environment to use when creating the cluster. The environment must be an AWS environment.
+   **/
+  private String environment = null;
+
+  /**
+   * Deprecated, name or CRN of the cluster template to use for cluster creation.
    **/
   private String clusterTemplateName = null;
+
+  /**
+   * Name or CRN of the cluster template to use for cluster creation.
+   **/
+  private String clusterTemplate = null;
 
   /**
    * The name of the custom configurations to use for cluster creation.
@@ -123,8 +138,9 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Getter for clusterDefinitionName.
-   * The name or CRN of the cluster definition to use for cluster creation.
+   * Deprecated, the name or CRN of the cluster definition to use for cluster creation.
    **/
+  @Deprecated
   @JsonProperty("clusterDefinitionName")
   public String getClusterDefinitionName() {
     return clusterDefinitionName;
@@ -132,16 +148,35 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Setter for clusterDefinitionName.
-   * The name or CRN of the cluster definition to use for cluster creation.
+   * Deprecated, the name or CRN of the cluster definition to use for cluster creation.
    **/
+  @Deprecated
   public void setClusterDefinitionName(String clusterDefinitionName) {
     this.clusterDefinitionName = clusterDefinitionName;
   }
 
   /**
-   * Getter for environmentName.
-   * Name or CRN of the environment to use when creating the cluster. The environment must be an AWS environment.
+   * Getter for clusterDefinition.
+   * The name or CRN of the cluster definition to use for cluster creation.
    **/
+  @JsonProperty("clusterDefinition")
+  public String getClusterDefinition() {
+    return clusterDefinition;
+  }
+
+  /**
+   * Setter for clusterDefinition.
+   * The name or CRN of the cluster definition to use for cluster creation.
+   **/
+  public void setClusterDefinition(String clusterDefinition) {
+    this.clusterDefinition = clusterDefinition;
+  }
+
+  /**
+   * Getter for environmentName.
+   * Deprecated, name or CRN of the environment to use when creating the cluster. The environment must be an AWS environment.
+   **/
+  @Deprecated
   @JsonProperty("environmentName")
   public String getEnvironmentName() {
     return environmentName;
@@ -149,16 +184,35 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Setter for environmentName.
-   * Name or CRN of the environment to use when creating the cluster. The environment must be an AWS environment.
+   * Deprecated, name or CRN of the environment to use when creating the cluster. The environment must be an AWS environment.
    **/
+  @Deprecated
   public void setEnvironmentName(String environmentName) {
     this.environmentName = environmentName;
   }
 
   /**
-   * Getter for clusterTemplateName.
-   * Name or CRN of the cluster template to use for cluster creation.
+   * Getter for environment.
+   * Name or CRN of the environment to use when creating the cluster. The environment must be an AWS environment.
    **/
+  @JsonProperty("environment")
+  public String getEnvironment() {
+    return environment;
+  }
+
+  /**
+   * Setter for environment.
+   * Name or CRN of the environment to use when creating the cluster. The environment must be an AWS environment.
+   **/
+  public void setEnvironment(String environment) {
+    this.environment = environment;
+  }
+
+  /**
+   * Getter for clusterTemplateName.
+   * Deprecated, name or CRN of the cluster template to use for cluster creation.
+   **/
+  @Deprecated
   @JsonProperty("clusterTemplateName")
   public String getClusterTemplateName() {
     return clusterTemplateName;
@@ -166,10 +220,28 @@ public class CreateAWSClusterRequest  {
 
   /**
    * Setter for clusterTemplateName.
-   * Name or CRN of the cluster template to use for cluster creation.
+   * Deprecated, name or CRN of the cluster template to use for cluster creation.
    **/
+  @Deprecated
   public void setClusterTemplateName(String clusterTemplateName) {
     this.clusterTemplateName = clusterTemplateName;
+  }
+
+  /**
+   * Getter for clusterTemplate.
+   * Name or CRN of the cluster template to use for cluster creation.
+   **/
+  @JsonProperty("clusterTemplate")
+  public String getClusterTemplate() {
+    return clusterTemplate;
+  }
+
+  /**
+   * Setter for clusterTemplate.
+   * Name or CRN of the cluster template to use for cluster creation.
+   **/
+  public void setClusterTemplate(String clusterTemplate) {
+    this.clusterTemplate = clusterTemplate;
   }
 
   /**
@@ -357,10 +429,19 @@ public class CreateAWSClusterRequest  {
     if (!Objects.equals(this.clusterDefinitionName, createAWSClusterRequest.clusterDefinitionName)) {
       return false;
     }
+    if (!Objects.equals(this.clusterDefinition, createAWSClusterRequest.clusterDefinition)) {
+      return false;
+    }
     if (!Objects.equals(this.environmentName, createAWSClusterRequest.environmentName)) {
       return false;
     }
+    if (!Objects.equals(this.environment, createAWSClusterRequest.environment)) {
+      return false;
+    }
     if (!Objects.equals(this.clusterTemplateName, createAWSClusterRequest.clusterTemplateName)) {
+      return false;
+    }
+    if (!Objects.equals(this.clusterTemplate, createAWSClusterRequest.clusterTemplate)) {
       return false;
     }
     if (!Objects.equals(this.customConfigurationsName, createAWSClusterRequest.customConfigurationsName)) {
@@ -398,7 +479,7 @@ public class CreateAWSClusterRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, clusterDefinitionName, environmentName, clusterTemplateName, customConfigurationsName, instanceGroups, subnetId, image, tags, requestTemplate, datahubDatabase, subnetIds, multiAz, enableLoadBalancer);
+    return Objects.hash(clusterName, clusterDefinitionName, clusterDefinition, environmentName, environment, clusterTemplateName, clusterTemplate, customConfigurationsName, instanceGroups, subnetId, image, tags, requestTemplate, datahubDatabase, subnetIds, multiAz, enableLoadBalancer);
   }
 
   @Override
@@ -407,8 +488,11 @@ public class CreateAWSClusterRequest  {
     sb.append("class CreateAWSClusterRequest {\n");
     sb.append("    clusterName: ").append(toIndentedString(clusterName)).append("\n");
     sb.append("    clusterDefinitionName: ").append(toIndentedString(clusterDefinitionName)).append("\n");
+    sb.append("    clusterDefinition: ").append(toIndentedString(clusterDefinition)).append("\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
+    sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
     sb.append("    clusterTemplateName: ").append(toIndentedString(clusterTemplateName)).append("\n");
+    sb.append("    clusterTemplate: ").append(toIndentedString(clusterTemplate)).append("\n");
     sb.append("    customConfigurationsName: ").append(toIndentedString(customConfigurationsName)).append("\n");
     sb.append("    instanceGroups: ").append(toIndentedString(instanceGroups)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");

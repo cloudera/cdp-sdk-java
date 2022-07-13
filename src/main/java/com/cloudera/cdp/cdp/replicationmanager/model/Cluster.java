@@ -29,7 +29,7 @@ import com.cloudera.cdp.replicationmanager.model.Location;
 /**
  * Describes a Datalake, Datahub or Classic cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-29T15:24:04.614-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-07-12T15:10:00.785-07:00")
 public class Cluster  {
 
   /**

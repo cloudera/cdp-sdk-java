@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Datalake recover request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-06-29T15:24:02.925-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-07-12T15:09:59.282-07:00")
 public class RecoverDatalakeRequest  {
 
   /**
@@ -36,7 +36,7 @@ public class RecoverDatalakeRequest  {
   private String datalakeName = null;
 
   /**
-   * The type of the recovery. The default value is RECOVER_WITHOUT_DATA.
+   * The type of the recovery. The default value is RECOVER_WITHOUT_DATA. The recovery always runs with RECOVER_WITH_DATA if the on resize failure.
    **/
   private String recoveryType = null;
 
@@ -59,7 +59,7 @@ public class RecoverDatalakeRequest  {
 
   /**
    * Getter for recoveryType.
-   * The type of the recovery. The default value is RECOVER_WITHOUT_DATA.
+   * The type of the recovery. The default value is RECOVER_WITHOUT_DATA. The recovery always runs with RECOVER_WITH_DATA if the on resize failure.
    **/
   @JsonProperty("recoveryType")
   public String getRecoveryType() {
@@ -68,7 +68,7 @@ public class RecoverDatalakeRequest  {
 
   /**
    * Setter for recoveryType.
-   * The type of the recovery. The default value is RECOVER_WITHOUT_DATA.
+   * The type of the recovery. The default value is RECOVER_WITHOUT_DATA. The recovery always runs with RECOVER_WITH_DATA if the on resize failure.
    **/
   public void setRecoveryType(String recoveryType) {
     this.recoveryType = recoveryType;
