@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * An entry in the configuration history of a service.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-07-12T15:09:58.707-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-03T22:29:41.325-07:00")
 public class ConfigHistoryItem  {
 
   /**

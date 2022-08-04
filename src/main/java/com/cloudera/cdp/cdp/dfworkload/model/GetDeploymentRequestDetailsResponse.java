@@ -28,7 +28,7 @@ import com.cloudera.cdp.dfworkload.model.RpcDeploymentConfigurationMetadata;
 /**
  * Response object for retrieving deployment request details request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-07-12T15:10:00.591-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-03T22:29:43.526-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class GetDeploymentRequestDetailsResponse extends CdpResponse {
 

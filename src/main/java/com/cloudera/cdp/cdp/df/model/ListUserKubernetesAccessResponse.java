@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * The response for listing the users that have access to a cluster
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-07-12T15:10:00.396-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-03T22:29:43.311-07:00")
 public class ListUserKubernetesAccessResponse extends CdpResponse {
 
   /**

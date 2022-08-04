@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Audit event descibes an performed or performing in a given workspace.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-07-12T15:09:59.108-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-03T22:29:41.755-07:00")
 public class AuditEvent  {
 
   /**

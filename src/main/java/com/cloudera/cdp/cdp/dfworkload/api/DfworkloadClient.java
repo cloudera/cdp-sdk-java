@@ -40,6 +40,12 @@ import com.cloudera.cdp.dfworkload.model.CreateCustomNarConfigurationRequest;
 import com.cloudera.cdp.dfworkload.model.CreateCustomNarConfigurationResponse;
 import com.cloudera.cdp.dfworkload.model.CreateDeploymentRequest;
 import com.cloudera.cdp.dfworkload.model.CreateDeploymentResponse;
+import com.cloudera.cdp.dfworkload.model.CreateInboundConnectionEndpointRequest;
+import com.cloudera.cdp.dfworkload.model.CreateInboundConnectionEndpointResponse;
+import com.cloudera.cdp.dfworkload.model.DeleteInboundConnectionEndpointRequest;
+import com.cloudera.cdp.dfworkload.model.DeleteInboundConnectionEndpointResponse;
+import com.cloudera.cdp.dfworkload.model.DescribeInboundConnectionEndpointRequest;
+import com.cloudera.cdp.dfworkload.model.DescribeInboundConnectionEndpointResponse;
 import com.cloudera.cdp.dfworkload.model.Error;
 import com.cloudera.cdp.dfworkload.model.GetCustomNarConfigurationRequest;
 import com.cloudera.cdp.dfworkload.model.GetCustomNarConfigurationResponse;
@@ -52,6 +58,12 @@ import com.cloudera.cdp.dfworkload.model.GetDeploymentConfigurationResponse;
 import com.cloudera.cdp.dfworkload.model.GetDeploymentRequestDetailsRequest;
 import com.cloudera.cdp.dfworkload.model.GetDeploymentRequestDetailsResponse;
 import com.google.common.collect.ImmutableList;
+import com.cloudera.cdp.dfworkload.model.InboundConnectionEndpointClientCertificateRequest;
+import com.cloudera.cdp.dfworkload.model.InboundConnectionEndpointClientCertificateResponse;
+import com.cloudera.cdp.dfworkload.model.InboundConnectionEndpointClientPrivateKeyRequest;
+import com.cloudera.cdp.dfworkload.model.InboundConnectionEndpointClientPrivateKeyResponse;
+import com.cloudera.cdp.dfworkload.model.ListInboundConnectionEndpointsRequest;
+import com.cloudera.cdp.dfworkload.model.ListInboundConnectionEndpointsResponse;
 import com.cloudera.cdp.dfworkload.model.ListNifiVersionsRequest;
 import com.cloudera.cdp.dfworkload.model.ListNifiVersionsResponse;
 import com.cloudera.cdp.dfworkload.model.TerminateDeploymentRequest;
@@ -74,7 +86,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-07-12T15:10:00.591-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-03T22:29:43.526-07:00")
 public class DfworkloadClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dfworkload";
@@ -190,6 +202,76 @@ public class DfworkloadClient extends CdpClient {
   }
 
   /**
+   * Create Inbound Connection Endpoint
+   * @param input Create Inbound Connection Endpoint request
+   * @return CreateInboundConnectionEndpointResponse
+   */
+  @WorkloadApi
+  public CreateInboundConnectionEndpointResponse createInboundConnectionEndpoint(CreateInboundConnectionEndpointRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createInboundConnectionEndpoint");
+    }
+
+    return this.invokeAPI("createInboundConnectionEndpoint", "/dfx/api/rpc-v1/inbound-connection-endpoints/create-inbound-connection-endpoint", input, new GenericType<CreateInboundConnectionEndpointResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Delete Inbound Connection Endpoint
+   * @param input Delete Inbound Connection Endpoint request
+   * @return DeleteInboundConnectionEndpointResponse
+   */
+  @WorkloadApi
+  public DeleteInboundConnectionEndpointResponse deleteInboundConnectionEndpoint(DeleteInboundConnectionEndpointRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteInboundConnectionEndpoint");
+    }
+
+    return this.invokeAPI("deleteInboundConnectionEndpoint", "/dfx/api/rpc-v1/inbound-connection-endpoints/delete-inbound-connection-endpoint", input, new GenericType<DeleteInboundConnectionEndpointResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Describe Inbound Connection Endpoint
+   * @param input Describe Inbound Connection Endpoint request
+   * @return DescribeInboundConnectionEndpointResponse
+   */
+  @WorkloadApi
+  public DescribeInboundConnectionEndpointResponse describeInboundConnectionEndpoint(DescribeInboundConnectionEndpointRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeInboundConnectionEndpoint");
+    }
+
+    return this.invokeAPI("describeInboundConnectionEndpoint", "/dfx/api/rpc-v1/inbound-connection-endpoints/describe-inbound-connection-endpoint", input, new GenericType<DescribeInboundConnectionEndpointResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Get Inbound Connection Endpoint Client Certificate (in PEM encoding)
+   * @param input Get Inbound Connection Endpoint client&#39;s certificate request
+   * @return InboundConnectionEndpointClientCertificateResponse
+   */
+  @WorkloadApi
+  public InboundConnectionEndpointClientCertificateResponse getClientCertificateEncoded(InboundConnectionEndpointClientCertificateRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getClientCertificateEncoded");
+    }
+
+    return this.invokeAPI("getClientCertificateEncoded", "/dfx/api/rpc-v1/inbound-connection-endpoint-certificates/download-client-certificate-encoded", input, new GenericType<InboundConnectionEndpointClientCertificateResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Get Inbound Connection Endpoint Client&#39;s Private Key (in PEM encoding)
+   * @param input Get Inbound Connection Endpoint client&#39;s private key request
+   * @return InboundConnectionEndpointClientPrivateKeyResponse
+   */
+  @WorkloadApi
+  public InboundConnectionEndpointClientPrivateKeyResponse getClientPrivateKeyEncoded(InboundConnectionEndpointClientPrivateKeyRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getClientPrivateKeyEncoded");
+    }
+
+    return this.invokeAPI("getClientPrivateKeyEncoded", "/dfx/api/rpc-v1/inbound-connection-endpoint-certificates/download-client-private-key-encoded", input, new GenericType<InboundConnectionEndpointClientPrivateKeyResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
    * Get a custom NAR configuration.
    * @param input Get Custom NAR Configuration Request
    * @return GetCustomNarConfigurationResponse
@@ -257,6 +339,20 @@ public class DfworkloadClient extends CdpClient {
     }
 
     return this.invokeAPI("getDeploymentRequestDetails", "/dfx/api/rpc-v1/deployments/get-deployment-request-details", input, new GenericType<GetDeploymentRequestDetailsResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * List Inbound Connection Endpoints
+   * @param input List Inbound Connection Endpoints request
+   * @return ListInboundConnectionEndpointsResponse
+   */
+  @WorkloadApi
+  public ListInboundConnectionEndpointsResponse listInboundConnectionEndpoints(ListInboundConnectionEndpointsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listInboundConnectionEndpoints");
+    }
+
+    return this.invokeAPI("listInboundConnectionEndpoints", "/dfx/api/rpc-v1/inbound-connection-endpoints/list-inbound-connection-endpoints", input, new GenericType<ListInboundConnectionEndpointsResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
   }
 
   /**

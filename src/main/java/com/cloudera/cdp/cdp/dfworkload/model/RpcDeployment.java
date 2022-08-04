@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Provides details about a deployment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-07-12T15:10:00.591-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-03T22:29:43.526-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcDeployment  {
 
@@ -193,6 +193,11 @@ public class RpcDeployment  {
    * The ID of Inbound Connection Endpoint assigned to the deployment
    **/
   private String inboundConnectionEndpointId = null;
+
+  /**
+   * Indicates this deployment was created as a test session for designing a flow
+   **/
+  private Boolean testSession = null;
 
   /**
    * Getter for name.
@@ -738,6 +743,23 @@ public class RpcDeployment  {
     this.inboundConnectionEndpointId = inboundConnectionEndpointId;
   }
 
+  /**
+   * Getter for testSession.
+   * Indicates this deployment was created as a test session for designing a flow
+   **/
+  @JsonProperty("testSession")
+  public Boolean getTestSession() {
+    return testSession;
+  }
+
+  /**
+   * Setter for testSession.
+   * Indicates this deployment was created as a test session for designing a flow
+   **/
+  public void setTestSession(Boolean testSession) {
+    this.testSession = testSession;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -843,12 +865,15 @@ public class RpcDeployment  {
     if (!Objects.equals(this.inboundConnectionEndpointId, rpcDeployment.inboundConnectionEndpointId)) {
       return false;
     }
+    if (!Objects.equals(this.testSession, rpcDeployment.testSession)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, status, service, crn, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, created, updated, validActions, nifiUrl, clusterSize, coresPerNode, heapSize, autoscalingEnabled, autoscaleMinNodes, autoscaleMaxNodes, staticNodeCount, flowName, flowVersion, flowVersionCrn, flowCrn, artifactTypeName, currentNodeCount, deployedByUsername, deployedByName, dfxLocalUrl, configurationVersion, lastUpdatedByUsername, cfmNifiVersion, memoryLimit, inboundConnectionEndpointId);
+    return Objects.hash(name, status, service, crn, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, created, updated, validActions, nifiUrl, clusterSize, coresPerNode, heapSize, autoscalingEnabled, autoscaleMinNodes, autoscaleMaxNodes, staticNodeCount, flowName, flowVersion, flowVersionCrn, flowCrn, artifactTypeName, currentNodeCount, deployedByUsername, deployedByName, dfxLocalUrl, configurationVersion, lastUpdatedByUsername, cfmNifiVersion, memoryLimit, inboundConnectionEndpointId, testSession);
   }
 
   @Override
@@ -887,6 +912,7 @@ public class RpcDeployment  {
     sb.append("    cfmNifiVersion: ").append(toIndentedString(cfmNifiVersion)).append("\n");
     sb.append("    memoryLimit: ").append(toIndentedString(memoryLimit)).append("\n");
     sb.append("    inboundConnectionEndpointId: ").append(toIndentedString(inboundConnectionEndpointId)).append("\n");
+    sb.append("    testSession: ").append(toIndentedString(testSession)).append("\n");
     sb.append("}");
     return sb.toString();
   }

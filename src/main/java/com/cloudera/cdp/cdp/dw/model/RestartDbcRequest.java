@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the restartDbc method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-07-12T15:09:58.707-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-03T22:29:41.325-07:00")
 public class RestartDbcRequest  {
 
   /**
@@ -36,7 +36,7 @@ public class RestartDbcRequest  {
   private String clusterId = null;
 
   /**
-   * ID of the Database Catalog to delete.
+   * The id of the Database Catalog to restart.
    **/
   private String dbcId = null;
 
@@ -59,7 +59,7 @@ public class RestartDbcRequest  {
 
   /**
    * Getter for dbcId.
-   * ID of the Database Catalog to delete.
+   * The id of the Database Catalog to restart.
    **/
   @JsonProperty("dbcId")
   public String getDbcId() {
@@ -68,7 +68,7 @@ public class RestartDbcRequest  {
 
   /**
    * Setter for dbcId.
-   * ID of the Database Catalog to delete.
+   * The id of the Database Catalog to restart.
    **/
   public void setDbcId(String dbcId) {
     this.dbcId = dbcId;

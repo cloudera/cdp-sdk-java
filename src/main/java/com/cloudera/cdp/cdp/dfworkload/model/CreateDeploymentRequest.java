@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object to create a deployment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-07-12T15:10:00.591-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-03T22:29:43.526-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class CreateDeploymentRequest  {
 
@@ -101,7 +101,7 @@ public class CreateDeploymentRequest  {
   private Boolean autoStartFlow = null;
 
   /**
-   * The inbound hostname
+   * The FQDN of inbound hostname or just the prefix part
    **/
   private String inboundHostname = null;
 
@@ -338,7 +338,7 @@ public class CreateDeploymentRequest  {
 
   /**
    * Getter for inboundHostname.
-   * The inbound hostname
+   * The FQDN of inbound hostname or just the prefix part
    **/
   @JsonProperty("inboundHostname")
   public String getInboundHostname() {
@@ -347,7 +347,7 @@ public class CreateDeploymentRequest  {
 
   /**
    * Setter for inboundHostname.
-   * The inbound hostname
+   * The FQDN of inbound hostname or just the prefix part
    **/
   public void setInboundHostname(String inboundHostname) {
     this.inboundHostname = inboundHostname;

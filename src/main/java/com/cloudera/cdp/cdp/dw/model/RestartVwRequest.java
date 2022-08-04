@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the restartVw method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-07-12T15:09:58.707-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-03T22:29:41.325-07:00")
 public class RestartVwRequest  {
 
   /**
@@ -36,7 +36,7 @@ public class RestartVwRequest  {
   private String clusterId = null;
 
   /**
-   * ID of the Virtual Warehouse to delete.
+   * The id of the Virtual Warehouse to restart.
    **/
   private String vwId = null;
 
@@ -59,7 +59,7 @@ public class RestartVwRequest  {
 
   /**
    * Getter for vwId.
-   * ID of the Virtual Warehouse to delete.
+   * The id of the Virtual Warehouse to restart.
    **/
   @JsonProperty("vwId")
   public String getVwId() {
@@ -68,7 +68,7 @@ public class RestartVwRequest  {
 
   /**
    * Setter for vwId.
-   * ID of the Virtual Warehouse to delete.
+   * The id of the Virtual Warehouse to restart.
    **/
   public void setVwId(String vwId) {
     this.vwId = vwId;

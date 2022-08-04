@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Options for activating an Azure environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-07-12T15:09:58.707-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-03T22:29:41.325-07:00")
 public class AzureActivationOptions  {
 
   /**
@@ -41,7 +41,7 @@ public class AzureActivationOptions  {
   private Boolean enableAZ = null;
 
   /**
-   * Enable Spot instances for compute workloads
+   * Whether to enable spot instances for Virtual warehouses. It cannot be updated later. If the AzureActivationOptions is not provided it defaults to false.
    **/
   private Boolean enableSpotInstances = false;
 
@@ -121,7 +121,7 @@ public class AzureActivationOptions  {
 
   /**
    * Getter for enableSpotInstances.
-   * Enable Spot instances for compute workloads
+   * Whether to enable spot instances for Virtual warehouses. It cannot be updated later. If the AzureActivationOptions is not provided it defaults to false.
    **/
   @JsonProperty("enableSpotInstances")
   public Boolean getEnableSpotInstances() {
@@ -130,7 +130,7 @@ public class AzureActivationOptions  {
 
   /**
    * Setter for enableSpotInstances.
-   * Enable Spot instances for compute workloads
+   * Whether to enable spot instances for Virtual warehouses. It cannot be updated later. If the AzureActivationOptions is not provided it defaults to false.
    **/
   public void setEnableSpotInstances(Boolean enableSpotInstances) {
     this.enableSpotInstances = enableSpotInstances;

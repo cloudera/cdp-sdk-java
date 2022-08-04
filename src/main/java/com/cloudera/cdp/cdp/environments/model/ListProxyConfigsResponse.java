@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for a list proxy configs request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-07-12T15:09:59.507-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-03T22:29:42.201-07:00")
 public class ListProxyConfigsResponse extends CdpResponse {
 
   /**

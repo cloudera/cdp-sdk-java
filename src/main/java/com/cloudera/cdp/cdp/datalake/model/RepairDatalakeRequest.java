@@ -23,11 +23,13 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.datalake.model.RepairInstancesRequest;
+import java.util.*;
 
 /**
  * Request object for repair datalake request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-07-12T15:09:59.282-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-03T22:29:41.922-07:00")
 public class RepairDatalakeRequest  {
 
   /**
@@ -36,9 +38,19 @@ public class RepairDatalakeRequest  {
   private String datalakeName = null;
 
   /**
+   * List of instance groups where the failed instances will be repaired.
+   **/
+  private List<String> instanceGroupNames = new ArrayList<String>();
+
+  /**
    * The instance group where the failed instances will be repaired.
    **/
   private String instanceGroupName = null;
+
+  /**
+   * List of instances.
+   **/
+  private RepairInstancesRequest instances = null;
 
   /**
    * Getter for datalakeName.
@@ -58,6 +70,23 @@ public class RepairDatalakeRequest  {
   }
 
   /**
+   * Getter for instanceGroupNames.
+   * List of instance groups where the failed instances will be repaired.
+   **/
+  @JsonProperty("instanceGroupNames")
+  public List<String> getInstanceGroupNames() {
+    return instanceGroupNames;
+  }
+
+  /**
+   * Setter for instanceGroupNames.
+   * List of instance groups where the failed instances will be repaired.
+   **/
+  public void setInstanceGroupNames(List<String> instanceGroupNames) {
+    this.instanceGroupNames = instanceGroupNames;
+  }
+
+  /**
    * Getter for instanceGroupName.
    * The instance group where the failed instances will be repaired.
    **/
@@ -74,6 +103,23 @@ public class RepairDatalakeRequest  {
     this.instanceGroupName = instanceGroupName;
   }
 
+  /**
+   * Getter for instances.
+   * List of instances.
+   **/
+  @JsonProperty("instances")
+  public RepairInstancesRequest getInstances() {
+    return instances;
+  }
+
+  /**
+   * Setter for instances.
+   * List of instances.
+   **/
+  public void setInstances(RepairInstancesRequest instances) {
+    this.instances = instances;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -86,7 +132,13 @@ public class RepairDatalakeRequest  {
     if (!Objects.equals(this.datalakeName, repairDatalakeRequest.datalakeName)) {
       return false;
     }
+    if (!Objects.equals(this.instanceGroupNames, repairDatalakeRequest.instanceGroupNames)) {
+      return false;
+    }
     if (!Objects.equals(this.instanceGroupName, repairDatalakeRequest.instanceGroupName)) {
+      return false;
+    }
+    if (!Objects.equals(this.instances, repairDatalakeRequest.instances)) {
       return false;
     }
     return true;
@@ -94,7 +146,7 @@ public class RepairDatalakeRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, instanceGroupName);
+    return Objects.hash(datalakeName, instanceGroupNames, instanceGroupName, instances);
   }
 
   @Override
@@ -102,7 +154,9 @@ public class RepairDatalakeRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class RepairDatalakeRequest {\n");
     sb.append("    datalakeName: ").append(toIndentedString(datalakeName)).append("\n");
+    sb.append("    instanceGroupNames: ").append(toIndentedString(instanceGroupNames)).append("\n");
     sb.append("    instanceGroupName: ").append(toIndentedString(instanceGroupName)).append("\n");
+    sb.append("    instances: ").append(toIndentedString(instances)).append("\n");
     sb.append("}");
     return sb.toString();
   }

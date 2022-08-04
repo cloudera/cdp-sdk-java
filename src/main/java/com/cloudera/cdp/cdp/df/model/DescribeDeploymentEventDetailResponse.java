@@ -28,7 +28,7 @@ import com.cloudera.cdp.df.model.EventDetail;
 /**
  * A response to describe event details for development
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-07-12T15:10:00.396-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-03T22:29:43.311-07:00")
 public class DescribeDeploymentEventDetailResponse extends CdpResponse {
 
   /**
