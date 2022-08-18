@@ -24,12 +24,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.dw.model.ActorResponse;
+import com.cloudera.cdp.dw.model.AwsOptionsResponse;
+import com.cloudera.cdp.dw.model.AzureOptionsResponse;
 import java.time.ZonedDateTime;
 
 /**
  * A Cloudera Data Warehouse cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-03T22:29:41.325-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-16T15:45:11.677-07:00")
 public class ClusterSummaryResponse extends CdpResponse {
 
   /**
@@ -66,6 +68,21 @@ public class ClusterSummaryResponse extends CdpResponse {
    * The cloud platform of the environment that was used to create this cluster.
    **/
   private String cloudPlatform = null;
+
+  /**
+   * Enable Storage Roles checkbox was checked when creating/activating this cluster.
+   **/
+  private Boolean enableStorageRoles = null;
+
+  /**
+   * Response object of AWS related cluster options.
+   **/
+  private AwsOptionsResponse awsOptions = null;
+
+  /**
+   * Response object of Azure related cluster options.
+   **/
+  private AzureOptionsResponse azureOptions = null;
 
   /**
    * Getter for crn.
@@ -186,6 +203,57 @@ public class ClusterSummaryResponse extends CdpResponse {
     this.cloudPlatform = cloudPlatform;
   }
 
+  /**
+   * Getter for enableStorageRoles.
+   * Enable Storage Roles checkbox was checked when creating/activating this cluster.
+   **/
+  @JsonProperty("enableStorageRoles")
+  public Boolean getEnableStorageRoles() {
+    return enableStorageRoles;
+  }
+
+  /**
+   * Setter for enableStorageRoles.
+   * Enable Storage Roles checkbox was checked when creating/activating this cluster.
+   **/
+  public void setEnableStorageRoles(Boolean enableStorageRoles) {
+    this.enableStorageRoles = enableStorageRoles;
+  }
+
+  /**
+   * Getter for awsOptions.
+   * Response object of AWS related cluster options.
+   **/
+  @JsonProperty("awsOptions")
+  public AwsOptionsResponse getAwsOptions() {
+    return awsOptions;
+  }
+
+  /**
+   * Setter for awsOptions.
+   * Response object of AWS related cluster options.
+   **/
+  public void setAwsOptions(AwsOptionsResponse awsOptions) {
+    this.awsOptions = awsOptions;
+  }
+
+  /**
+   * Getter for azureOptions.
+   * Response object of Azure related cluster options.
+   **/
+  @JsonProperty("azureOptions")
+  public AzureOptionsResponse getAzureOptions() {
+    return azureOptions;
+  }
+
+  /**
+   * Setter for azureOptions.
+   * Response object of Azure related cluster options.
+   **/
+  public void setAzureOptions(AzureOptionsResponse azureOptions) {
+    this.azureOptions = azureOptions;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -216,6 +284,15 @@ public class ClusterSummaryResponse extends CdpResponse {
     if (!Objects.equals(this.cloudPlatform, clusterSummaryResponse.cloudPlatform)) {
       return false;
     }
+    if (!Objects.equals(this.enableStorageRoles, clusterSummaryResponse.enableStorageRoles)) {
+      return false;
+    }
+    if (!Objects.equals(this.awsOptions, clusterSummaryResponse.awsOptions)) {
+      return false;
+    }
+    if (!Objects.equals(this.azureOptions, clusterSummaryResponse.azureOptions)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -224,7 +301,7 @@ public class ClusterSummaryResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, environmentCrn, status, creator, creationDate, cloudPlatform, super.hashCode());
+    return Objects.hash(crn, id, environmentCrn, status, creator, creationDate, cloudPlatform, enableStorageRoles, awsOptions, azureOptions, super.hashCode());
   }
 
   @Override
@@ -239,6 +316,9 @@ public class ClusterSummaryResponse extends CdpResponse {
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    cloudPlatform: ").append(toIndentedString(cloudPlatform)).append("\n");
+    sb.append("    enableStorageRoles: ").append(toIndentedString(enableStorageRoles)).append("\n");
+    sb.append("    awsOptions: ").append(toIndentedString(awsOptions)).append("\n");
+    sb.append("    azureOptions: ").append(toIndentedString(azureOptions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

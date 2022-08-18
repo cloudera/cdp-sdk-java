@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Options for activating an Azure environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-03T22:29:41.325-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-16T15:45:11.677-07:00")
 public class AzureActivationOptions  {
 
   /**
@@ -51,7 +51,7 @@ public class AzureActivationOptions  {
   private String vmGenerationType = null;
 
   /**
-   * Workspace ID for Azure log analytics.
+   * Enable monitoring of Azure Kubernetes Service (AKS) cluster. Workspace ID for Azure log analytics.
    **/
   private String logAnalyticsWorkspaceId = null;
 
@@ -61,9 +61,14 @@ public class AzureActivationOptions  {
   private String dockerBridgeCidr = null;
 
   /**
-   * Enable user defined routing for the cluster deployment.
+   * DEPRECATED in favour of outbound-type. The current value of the enable-udr translates as follows. The false value is equal to LoadBalancer, whereas the true value is equal to UserDefinedRouting. Enable user defined routing for the cluster deployment.
    **/
   private Boolean enableUDR = false;
+
+  /**
+   * This option supersedes the enableUDR option. If the enableUDR is set to true, then the outbound type must be set to empty or \"UserAssignedNATGateway\". The enableUDR will be deprecated in the upcoming release.
+   **/
+  private String outboundType = null;
 
   /**
    * Enables private SQL for the cluster deployment.
@@ -155,7 +160,7 @@ public class AzureActivationOptions  {
 
   /**
    * Getter for logAnalyticsWorkspaceId.
-   * Workspace ID for Azure log analytics.
+   * Enable monitoring of Azure Kubernetes Service (AKS) cluster. Workspace ID for Azure log analytics.
    **/
   @JsonProperty("logAnalyticsWorkspaceId")
   public String getLogAnalyticsWorkspaceId() {
@@ -164,7 +169,7 @@ public class AzureActivationOptions  {
 
   /**
    * Setter for logAnalyticsWorkspaceId.
-   * Workspace ID for Azure log analytics.
+   * Enable monitoring of Azure Kubernetes Service (AKS) cluster. Workspace ID for Azure log analytics.
    **/
   public void setLogAnalyticsWorkspaceId(String logAnalyticsWorkspaceId) {
     this.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
@@ -189,8 +194,9 @@ public class AzureActivationOptions  {
 
   /**
    * Getter for enableUDR.
-   * Enable user defined routing for the cluster deployment.
+   * DEPRECATED in favour of outbound-type. The current value of the enable-udr translates as follows. The false value is equal to LoadBalancer, whereas the true value is equal to UserDefinedRouting. Enable user defined routing for the cluster deployment.
    **/
+  @Deprecated
   @JsonProperty("enableUDR")
   public Boolean getEnableUDR() {
     return enableUDR;
@@ -198,10 +204,28 @@ public class AzureActivationOptions  {
 
   /**
    * Setter for enableUDR.
-   * Enable user defined routing for the cluster deployment.
+   * DEPRECATED in favour of outbound-type. The current value of the enable-udr translates as follows. The false value is equal to LoadBalancer, whereas the true value is equal to UserDefinedRouting. Enable user defined routing for the cluster deployment.
    **/
+  @Deprecated
   public void setEnableUDR(Boolean enableUDR) {
     this.enableUDR = enableUDR;
+  }
+
+  /**
+   * Getter for outboundType.
+   * This option supersedes the enableUDR option. If the enableUDR is set to true, then the outbound type must be set to empty or \&quot;UserAssignedNATGateway\&quot;. The enableUDR will be deprecated in the upcoming release.
+   **/
+  @JsonProperty("outboundType")
+  public String getOutboundType() {
+    return outboundType;
+  }
+
+  /**
+   * Setter for outboundType.
+   * This option supersedes the enableUDR option. If the enableUDR is set to true, then the outbound type must be set to empty or \&quot;UserAssignedNATGateway\&quot;. The enableUDR will be deprecated in the upcoming release.
+   **/
+  public void setOutboundType(String outboundType) {
+    this.outboundType = outboundType;
   }
 
   /**
@@ -302,6 +326,9 @@ public class AzureActivationOptions  {
     if (!Objects.equals(this.enableUDR, azureActivationOptions.enableUDR)) {
       return false;
     }
+    if (!Objects.equals(this.outboundType, azureActivationOptions.outboundType)) {
+      return false;
+    }
     if (!Objects.equals(this.enablePrivateSQL, azureActivationOptions.enablePrivateSQL)) {
       return false;
     }
@@ -319,7 +346,7 @@ public class AzureActivationOptions  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(subnetId, enableAZ, enableSpotInstances, vmGenerationType, logAnalyticsWorkspaceId, dockerBridgeCidr, enableUDR, enablePrivateSQL, privateDNSZoneAKS, enablePrivateAks, enableUptimeSLA);
+    return Objects.hash(subnetId, enableAZ, enableSpotInstances, vmGenerationType, logAnalyticsWorkspaceId, dockerBridgeCidr, enableUDR, outboundType, enablePrivateSQL, privateDNSZoneAKS, enablePrivateAks, enableUptimeSLA);
   }
 
   @Override
@@ -333,6 +360,7 @@ public class AzureActivationOptions  {
     sb.append("    logAnalyticsWorkspaceId: ").append(toIndentedString(logAnalyticsWorkspaceId)).append("\n");
     sb.append("    dockerBridgeCidr: ").append(toIndentedString(dockerBridgeCidr)).append("\n");
     sb.append("    enableUDR: ").append(toIndentedString(enableUDR)).append("\n");
+    sb.append("    outboundType: ").append(toIndentedString(outboundType)).append("\n");
     sb.append("    enablePrivateSQL: ").append(toIndentedString(enablePrivateSQL)).append("\n");
     sb.append("    privateDNSZoneAKS: ").append(toIndentedString(privateDNSZoneAKS)).append("\n");
     sb.append("    enablePrivateAks: ").append(toIndentedString(enablePrivateAks)).append("\n");

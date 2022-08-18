@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Options for activating an AWS environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-03T22:29:41.325-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-16T15:45:11.677-07:00")
 public class AwsActivationOptions  {
 
   /**
@@ -40,11 +40,6 @@ public class AwsActivationOptions  {
    * IDs of public AWS subnets where the cluster should be deployed.
    **/
   private List<String> publicSubnetIds = new ArrayList<String>();
-
-  /**
-   * DEPRECATED, superseded by the CustomRegistryOptions. URL for custom ECR repository
-   **/
-  private String customEcrRepository = null;
 
   /**
    * Custom AMI ID.
@@ -86,25 +81,6 @@ public class AwsActivationOptions  {
   }
 
   /**
-   * Getter for customEcrRepository.
-   * DEPRECATED, superseded by the CustomRegistryOptions. URL for custom ECR repository
-   **/
-  @Deprecated
-  @JsonProperty("customEcrRepository")
-  public String getCustomEcrRepository() {
-    return customEcrRepository;
-  }
-
-  /**
-   * Setter for customEcrRepository.
-   * DEPRECATED, superseded by the CustomRegistryOptions. URL for custom ECR repository
-   **/
-  @Deprecated
-  public void setCustomEcrRepository(String customEcrRepository) {
-    this.customEcrRepository = customEcrRepository;
-  }
-
-  /**
    * Getter for customAmiId.
    * Custom AMI ID.
    **/
@@ -136,9 +112,6 @@ public class AwsActivationOptions  {
     if (!Objects.equals(this.publicSubnetIds, awsActivationOptions.publicSubnetIds)) {
       return false;
     }
-    if (!Objects.equals(this.customEcrRepository, awsActivationOptions.customEcrRepository)) {
-      return false;
-    }
     if (!Objects.equals(this.customAmiId, awsActivationOptions.customAmiId)) {
       return false;
     }
@@ -147,7 +120,7 @@ public class AwsActivationOptions  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(privateSubnetIds, publicSubnetIds, customEcrRepository, customAmiId);
+    return Objects.hash(privateSubnetIds, publicSubnetIds, customAmiId);
   }
 
   @Override
@@ -156,7 +129,6 @@ public class AwsActivationOptions  {
     sb.append("class AwsActivationOptions {\n");
     sb.append("    privateSubnetIds: ").append(toIndentedString(privateSubnetIds)).append("\n");
     sb.append("    publicSubnetIds: ").append(toIndentedString(publicSubnetIds)).append("\n");
-    sb.append("    customEcrRepository: ").append(toIndentedString(customEcrRepository)).append("\n");
     sb.append("    customAmiId: ").append(toIndentedString(customAmiId)).append("\n");
     sb.append("}");
     return sb.toString();

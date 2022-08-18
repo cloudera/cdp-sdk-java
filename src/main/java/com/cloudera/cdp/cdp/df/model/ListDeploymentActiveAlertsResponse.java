@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * A response to list active alerts for deployment
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-03T22:29:43.311-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-16T15:45:13.367-07:00")
 public class ListDeploymentActiveAlertsResponse extends CdpResponse {
 
   /**

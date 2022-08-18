@@ -3,13 +3,14 @@
 
   <groupId>com.cloudera.cdp</groupId>
   <artifactId>cdp-sdk-java</artifactId>
-  <version>0.9.66</version>
+  <version>0.9.67</version>
   <name>Cloudera CDP Java SDK</name>
   <packaging>jar</packaging>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <javaVersion>8</javaVersion>
     <minSupportedJvmJavaVersion>1.8</minSupportedJvmJavaVersion>
     <shade-prefix>com.cloudera.cdp.shaded</shade-prefix>
 
@@ -49,9 +50,9 @@
     <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
     <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
     <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
-    <maven-javadoc-plugin.version>3.1.0</maven-javadoc-plugin.version>
+    <maven-javadoc-plugin.version>3.4.0</maven-javadoc-plugin.version>
     <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
-    <maven-shade-plugin.version>3.2.4</maven-shade-plugin.version>
+    <maven-shade-plugin.version>3.3.0</maven-shade-plugin.version>
     <maven-site-plugin.version>3.8.2</maven-site-plugin.version>
     <maven-source-plugin.version>3.2.0</maven-source-plugin.version>
     <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
@@ -431,7 +432,7 @@
               <goal>jar</goal>
             </goals>
             <configuration>
-              <additionalOptions>-source 8</additionalOptions>
+              <source>${javaVersion}</source>
               <doclint>none</doclint>
               <quiet>true</quiet>
             </configuration>

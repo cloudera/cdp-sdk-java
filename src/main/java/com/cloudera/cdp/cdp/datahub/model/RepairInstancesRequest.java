@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Details for repair instances.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-03T22:29:40.606-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-16T15:45:10.856-07:00")
 public class RepairInstancesRequest  {
 
   /**

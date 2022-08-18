@@ -27,13 +27,28 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Filter object for Virtual Warehouses.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-03T22:29:41.325-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-16T15:45:11.677-07:00")
 public class VwFilter  {
 
   /**
    * Virtual Warehouse type.
    **/
   private String vwType = null;
+
+  /**
+   * Filter Virtual Warehouses by Database Catalog Id.
+   **/
+  private String dbcId = null;
+
+  /**
+   * Filter Virtual Warehouses whether it is a Compactor or not.
+   **/
+  private Boolean compactor = null;
+
+  /**
+   * Filter the Virtual Warehouses based on whether it has Data Visualisation.
+   **/
+  private Boolean viz = null;
 
   /**
    * Getter for vwType.
@@ -52,6 +67,57 @@ public class VwFilter  {
     this.vwType = vwType;
   }
 
+  /**
+   * Getter for dbcId.
+   * Filter Virtual Warehouses by Database Catalog Id.
+   **/
+  @JsonProperty("dbcId")
+  public String getDbcId() {
+    return dbcId;
+  }
+
+  /**
+   * Setter for dbcId.
+   * Filter Virtual Warehouses by Database Catalog Id.
+   **/
+  public void setDbcId(String dbcId) {
+    this.dbcId = dbcId;
+  }
+
+  /**
+   * Getter for compactor.
+   * Filter Virtual Warehouses whether it is a Compactor or not.
+   **/
+  @JsonProperty("compactor")
+  public Boolean getCompactor() {
+    return compactor;
+  }
+
+  /**
+   * Setter for compactor.
+   * Filter Virtual Warehouses whether it is a Compactor or not.
+   **/
+  public void setCompactor(Boolean compactor) {
+    this.compactor = compactor;
+  }
+
+  /**
+   * Getter for viz.
+   * Filter the Virtual Warehouses based on whether it has Data Visualisation.
+   **/
+  @JsonProperty("viz")
+  public Boolean getViz() {
+    return viz;
+  }
+
+  /**
+   * Setter for viz.
+   * Filter the Virtual Warehouses based on whether it has Data Visualisation.
+   **/
+  public void setViz(Boolean viz) {
+    this.viz = viz;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -64,12 +130,21 @@ public class VwFilter  {
     if (!Objects.equals(this.vwType, vwFilter.vwType)) {
       return false;
     }
+    if (!Objects.equals(this.dbcId, vwFilter.dbcId)) {
+      return false;
+    }
+    if (!Objects.equals(this.compactor, vwFilter.compactor)) {
+      return false;
+    }
+    if (!Objects.equals(this.viz, vwFilter.viz)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(vwType);
+    return Objects.hash(vwType, dbcId, compactor, viz);
   }
 
   @Override
@@ -77,6 +152,9 @@ public class VwFilter  {
     StringBuilder sb = new StringBuilder();
     sb.append("class VwFilter {\n");
     sb.append("    vwType: ").append(toIndentedString(vwType)).append("\n");
+    sb.append("    dbcId: ").append(toIndentedString(dbcId)).append("\n");
+    sb.append("    compactor: ").append(toIndentedString(compactor)).append("\n");
+    sb.append("    viz: ").append(toIndentedString(viz)).append("\n");
     sb.append("}");
     return sb.toString();
   }

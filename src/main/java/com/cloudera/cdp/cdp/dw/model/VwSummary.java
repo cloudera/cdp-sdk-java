@@ -24,6 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.dw.model.ActorResponse;
+import com.cloudera.cdp.dw.model.AutoscalingOptionsResponse;
+import com.cloudera.cdp.dw.model.QueryIsolationOptionsResponse;
 import com.cloudera.cdp.dw.model.TagResponse;
 import java.time.ZonedDateTime;
 import java.util.*;
@@ -31,7 +33,7 @@ import java.util.*;
 /**
  * A Virtual Warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-03T22:29:41.325-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-16T15:45:11.677-07:00")
 public class VwSummary  {
 
   /**
@@ -78,6 +80,26 @@ public class VwSummary  {
    * Tags associated with the resources.
    **/
   private List<TagResponse> tags = new ArrayList<TagResponse>();
+
+  /**
+   * Denotes whether the Hive Virtual Warehouse is a compactor or not.
+   **/
+  private Boolean compactor = null;
+
+  /**
+   * Denotes whether the Virtual Warehouse has Data Visualisation or not.
+   **/
+  private Boolean viz = null;
+
+  /**
+   * The current settings stored for atuoscaling.
+   **/
+  private AutoscalingOptionsResponse autoscalingOptions = null;
+
+  /**
+   * The current settings stored for query-isolation.
+   **/
+  private QueryIsolationOptionsResponse queryIsolationOptions = null;
 
   /**
    * Getter for crn.
@@ -232,6 +254,74 @@ public class VwSummary  {
     this.tags = tags;
   }
 
+  /**
+   * Getter for compactor.
+   * Denotes whether the Hive Virtual Warehouse is a compactor or not.
+   **/
+  @JsonProperty("compactor")
+  public Boolean getCompactor() {
+    return compactor;
+  }
+
+  /**
+   * Setter for compactor.
+   * Denotes whether the Hive Virtual Warehouse is a compactor or not.
+   **/
+  public void setCompactor(Boolean compactor) {
+    this.compactor = compactor;
+  }
+
+  /**
+   * Getter for viz.
+   * Denotes whether the Virtual Warehouse has Data Visualisation or not.
+   **/
+  @JsonProperty("viz")
+  public Boolean getViz() {
+    return viz;
+  }
+
+  /**
+   * Setter for viz.
+   * Denotes whether the Virtual Warehouse has Data Visualisation or not.
+   **/
+  public void setViz(Boolean viz) {
+    this.viz = viz;
+  }
+
+  /**
+   * Getter for autoscalingOptions.
+   * The current settings stored for atuoscaling.
+   **/
+  @JsonProperty("autoscalingOptions")
+  public AutoscalingOptionsResponse getAutoscalingOptions() {
+    return autoscalingOptions;
+  }
+
+  /**
+   * Setter for autoscalingOptions.
+   * The current settings stored for atuoscaling.
+   **/
+  public void setAutoscalingOptions(AutoscalingOptionsResponse autoscalingOptions) {
+    this.autoscalingOptions = autoscalingOptions;
+  }
+
+  /**
+   * Getter for queryIsolationOptions.
+   * The current settings stored for query-isolation.
+   **/
+  @JsonProperty("queryIsolationOptions")
+  public QueryIsolationOptionsResponse getQueryIsolationOptions() {
+    return queryIsolationOptions;
+  }
+
+  /**
+   * Setter for queryIsolationOptions.
+   * The current settings stored for query-isolation.
+   **/
+  public void setQueryIsolationOptions(QueryIsolationOptionsResponse queryIsolationOptions) {
+    this.queryIsolationOptions = queryIsolationOptions;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -268,12 +358,24 @@ public class VwSummary  {
     if (!Objects.equals(this.tags, vwSummary.tags)) {
       return false;
     }
+    if (!Objects.equals(this.compactor, vwSummary.compactor)) {
+      return false;
+    }
+    if (!Objects.equals(this.viz, vwSummary.viz)) {
+      return false;
+    }
+    if (!Objects.equals(this.autoscalingOptions, vwSummary.autoscalingOptions)) {
+      return false;
+    }
+    if (!Objects.equals(this.queryIsolationOptions, vwSummary.queryIsolationOptions)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, name, vwType, dbcId, status, creator, creationDate, tags);
+    return Objects.hash(crn, id, name, vwType, dbcId, status, creator, creationDate, tags, compactor, viz, autoscalingOptions, queryIsolationOptions);
   }
 
   @Override
@@ -289,6 +391,10 @@ public class VwSummary  {
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    compactor: ").append(toIndentedString(compactor)).append("\n");
+    sb.append("    viz: ").append(toIndentedString(viz)).append("\n");
+    sb.append("    autoscalingOptions: ").append(toIndentedString(autoscalingOptions)).append("\n");
+    sb.append("    queryIsolationOptions: ").append(toIndentedString(queryIsolationOptions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

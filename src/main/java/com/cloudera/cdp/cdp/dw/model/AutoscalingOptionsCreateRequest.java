@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Auto-scaling configuration for a Virtual Warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-03T22:29:41.325-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-16T15:45:11.677-07:00")
 public class AutoscalingOptionsCreateRequest  {
 
   /**
@@ -39,6 +39,66 @@ public class AutoscalingOptionsCreateRequest  {
    * Maximum number of available compute groups.
    **/
   private Integer maxClusters = 10;
+
+  /**
+   * Turn off auto suspend for Virtual Warehouse.
+   **/
+  private Boolean disableAutoSuspend = null;
+
+  /**
+   * Auto suspend threshold for Virtual Warehouse.
+   **/
+  private Integer autoSuspendTimeoutSeconds = null;
+
+  /**
+   * Enable Unified Analytics. In case of Hive Virtual Warehouses this cannot be provided, because this value is inferred. In case of Impala this can be set. Passing --query-isolation will be considered if this flag is set to true. If Unified Analytics enabled then the \"impalaEnableShutdownOfCoordinator\" explicitly disabled and should not be provided, furthermore the \"impalaHighAvailabilityMode\" cannot be set to ACTIVE_ACTIVE.
+   **/
+  private Boolean enableUnifiedAnalytics = null;
+
+  /**
+   * Set wait time before a scale event happens. Either \"hiveScaleWaitTimeSeconds\" or \"hiveDesiredFreeCapacity\" can be provided.
+   **/
+  private Integer hiveScaleWaitTimeSeconds = null;
+
+  /**
+   * Set Desired free capacity. Either \"hiveScaleWaitTimeSeconds\" or \"hiveDesiredFreeCapacity\" can be provided.
+   **/
+  private Integer hiveDesiredFreeCapacity = null;
+
+  /**
+   * Set High Availability mode. If not provided the default will apply. This value is disregarded for Hive.
+   **/
+  private String impalaHighAvailabilityMode = null;
+
+  /**
+   * Scale up the scaling up threshold in seconds. If not provided defaults will apply.
+   **/
+  private Integer impalaScaleUpDelaySeconds = null;
+
+  /**
+   * Scale down threshold in seconds. If not provided defaults will apply.
+   **/
+  private Integer impalaScaleDownDelaySeconds = null;
+
+  /**
+   * Enables a shutdown of the coordinator. If Unified Analytics enabled then this setting explicitly disabled and should not be provided.
+   **/
+  private Boolean impalaEnableShutdownOfCoordinator = null;
+
+  /**
+   * Delay in seconds before the shutdown of coordinator event happens.
+   **/
+  private Integer impalaShutdownOfCoordinatorDelaySeconds = null;
+
+  /**
+   * Number of the active coordinators.
+   **/
+  private Integer impalaNumOfActiveCoordinators = null;
+
+  /**
+   * Name of the pod configuration.
+   **/
+  private String podConfigName = null;
 
   /**
    * Getter for minClusters.
@@ -74,6 +134,210 @@ public class AutoscalingOptionsCreateRequest  {
     this.maxClusters = maxClusters;
   }
 
+  /**
+   * Getter for disableAutoSuspend.
+   * Turn off auto suspend for Virtual Warehouse.
+   **/
+  @JsonProperty("disableAutoSuspend")
+  public Boolean getDisableAutoSuspend() {
+    return disableAutoSuspend;
+  }
+
+  /**
+   * Setter for disableAutoSuspend.
+   * Turn off auto suspend for Virtual Warehouse.
+   **/
+  public void setDisableAutoSuspend(Boolean disableAutoSuspend) {
+    this.disableAutoSuspend = disableAutoSuspend;
+  }
+
+  /**
+   * Getter for autoSuspendTimeoutSeconds.
+   * Auto suspend threshold for Virtual Warehouse.
+   **/
+  @JsonProperty("autoSuspendTimeoutSeconds")
+  public Integer getAutoSuspendTimeoutSeconds() {
+    return autoSuspendTimeoutSeconds;
+  }
+
+  /**
+   * Setter for autoSuspendTimeoutSeconds.
+   * Auto suspend threshold for Virtual Warehouse.
+   **/
+  public void setAutoSuspendTimeoutSeconds(Integer autoSuspendTimeoutSeconds) {
+    this.autoSuspendTimeoutSeconds = autoSuspendTimeoutSeconds;
+  }
+
+  /**
+   * Getter for enableUnifiedAnalytics.
+   * Enable Unified Analytics. In case of Hive Virtual Warehouses this cannot be provided, because this value is inferred. In case of Impala this can be set. Passing --query-isolation will be considered if this flag is set to true. If Unified Analytics enabled then the \&quot;impalaEnableShutdownOfCoordinator\&quot; explicitly disabled and should not be provided, furthermore the \&quot;impalaHighAvailabilityMode\&quot; cannot be set to ACTIVE_ACTIVE.
+   **/
+  @JsonProperty("enableUnifiedAnalytics")
+  public Boolean getEnableUnifiedAnalytics() {
+    return enableUnifiedAnalytics;
+  }
+
+  /**
+   * Setter for enableUnifiedAnalytics.
+   * Enable Unified Analytics. In case of Hive Virtual Warehouses this cannot be provided, because this value is inferred. In case of Impala this can be set. Passing --query-isolation will be considered if this flag is set to true. If Unified Analytics enabled then the \&quot;impalaEnableShutdownOfCoordinator\&quot; explicitly disabled and should not be provided, furthermore the \&quot;impalaHighAvailabilityMode\&quot; cannot be set to ACTIVE_ACTIVE.
+   **/
+  public void setEnableUnifiedAnalytics(Boolean enableUnifiedAnalytics) {
+    this.enableUnifiedAnalytics = enableUnifiedAnalytics;
+  }
+
+  /**
+   * Getter for hiveScaleWaitTimeSeconds.
+   * Set wait time before a scale event happens. Either \&quot;hiveScaleWaitTimeSeconds\&quot; or \&quot;hiveDesiredFreeCapacity\&quot; can be provided.
+   **/
+  @JsonProperty("hiveScaleWaitTimeSeconds")
+  public Integer getHiveScaleWaitTimeSeconds() {
+    return hiveScaleWaitTimeSeconds;
+  }
+
+  /**
+   * Setter for hiveScaleWaitTimeSeconds.
+   * Set wait time before a scale event happens. Either \&quot;hiveScaleWaitTimeSeconds\&quot; or \&quot;hiveDesiredFreeCapacity\&quot; can be provided.
+   **/
+  public void setHiveScaleWaitTimeSeconds(Integer hiveScaleWaitTimeSeconds) {
+    this.hiveScaleWaitTimeSeconds = hiveScaleWaitTimeSeconds;
+  }
+
+  /**
+   * Getter for hiveDesiredFreeCapacity.
+   * Set Desired free capacity. Either \&quot;hiveScaleWaitTimeSeconds\&quot; or \&quot;hiveDesiredFreeCapacity\&quot; can be provided.
+   **/
+  @JsonProperty("hiveDesiredFreeCapacity")
+  public Integer getHiveDesiredFreeCapacity() {
+    return hiveDesiredFreeCapacity;
+  }
+
+  /**
+   * Setter for hiveDesiredFreeCapacity.
+   * Set Desired free capacity. Either \&quot;hiveScaleWaitTimeSeconds\&quot; or \&quot;hiveDesiredFreeCapacity\&quot; can be provided.
+   **/
+  public void setHiveDesiredFreeCapacity(Integer hiveDesiredFreeCapacity) {
+    this.hiveDesiredFreeCapacity = hiveDesiredFreeCapacity;
+  }
+
+  /**
+   * Getter for impalaHighAvailabilityMode.
+   * Set High Availability mode. If not provided the default will apply. This value is disregarded for Hive.
+   **/
+  @JsonProperty("impalaHighAvailabilityMode")
+  public String getImpalaHighAvailabilityMode() {
+    return impalaHighAvailabilityMode;
+  }
+
+  /**
+   * Setter for impalaHighAvailabilityMode.
+   * Set High Availability mode. If not provided the default will apply. This value is disregarded for Hive.
+   **/
+  public void setImpalaHighAvailabilityMode(String impalaHighAvailabilityMode) {
+    this.impalaHighAvailabilityMode = impalaHighAvailabilityMode;
+  }
+
+  /**
+   * Getter for impalaScaleUpDelaySeconds.
+   * Scale up the scaling up threshold in seconds. If not provided defaults will apply.
+   **/
+  @JsonProperty("impalaScaleUpDelaySeconds")
+  public Integer getImpalaScaleUpDelaySeconds() {
+    return impalaScaleUpDelaySeconds;
+  }
+
+  /**
+   * Setter for impalaScaleUpDelaySeconds.
+   * Scale up the scaling up threshold in seconds. If not provided defaults will apply.
+   **/
+  public void setImpalaScaleUpDelaySeconds(Integer impalaScaleUpDelaySeconds) {
+    this.impalaScaleUpDelaySeconds = impalaScaleUpDelaySeconds;
+  }
+
+  /**
+   * Getter for impalaScaleDownDelaySeconds.
+   * Scale down threshold in seconds. If not provided defaults will apply.
+   **/
+  @JsonProperty("impalaScaleDownDelaySeconds")
+  public Integer getImpalaScaleDownDelaySeconds() {
+    return impalaScaleDownDelaySeconds;
+  }
+
+  /**
+   * Setter for impalaScaleDownDelaySeconds.
+   * Scale down threshold in seconds. If not provided defaults will apply.
+   **/
+  public void setImpalaScaleDownDelaySeconds(Integer impalaScaleDownDelaySeconds) {
+    this.impalaScaleDownDelaySeconds = impalaScaleDownDelaySeconds;
+  }
+
+  /**
+   * Getter for impalaEnableShutdownOfCoordinator.
+   * Enables a shutdown of the coordinator. If Unified Analytics enabled then this setting explicitly disabled and should not be provided.
+   **/
+  @JsonProperty("impalaEnableShutdownOfCoordinator")
+  public Boolean getImpalaEnableShutdownOfCoordinator() {
+    return impalaEnableShutdownOfCoordinator;
+  }
+
+  /**
+   * Setter for impalaEnableShutdownOfCoordinator.
+   * Enables a shutdown of the coordinator. If Unified Analytics enabled then this setting explicitly disabled and should not be provided.
+   **/
+  public void setImpalaEnableShutdownOfCoordinator(Boolean impalaEnableShutdownOfCoordinator) {
+    this.impalaEnableShutdownOfCoordinator = impalaEnableShutdownOfCoordinator;
+  }
+
+  /**
+   * Getter for impalaShutdownOfCoordinatorDelaySeconds.
+   * Delay in seconds before the shutdown of coordinator event happens.
+   **/
+  @JsonProperty("impalaShutdownOfCoordinatorDelaySeconds")
+  public Integer getImpalaShutdownOfCoordinatorDelaySeconds() {
+    return impalaShutdownOfCoordinatorDelaySeconds;
+  }
+
+  /**
+   * Setter for impalaShutdownOfCoordinatorDelaySeconds.
+   * Delay in seconds before the shutdown of coordinator event happens.
+   **/
+  public void setImpalaShutdownOfCoordinatorDelaySeconds(Integer impalaShutdownOfCoordinatorDelaySeconds) {
+    this.impalaShutdownOfCoordinatorDelaySeconds = impalaShutdownOfCoordinatorDelaySeconds;
+  }
+
+  /**
+   * Getter for impalaNumOfActiveCoordinators.
+   * Number of the active coordinators.
+   **/
+  @JsonProperty("impalaNumOfActiveCoordinators")
+  public Integer getImpalaNumOfActiveCoordinators() {
+    return impalaNumOfActiveCoordinators;
+  }
+
+  /**
+   * Setter for impalaNumOfActiveCoordinators.
+   * Number of the active coordinators.
+   **/
+  public void setImpalaNumOfActiveCoordinators(Integer impalaNumOfActiveCoordinators) {
+    this.impalaNumOfActiveCoordinators = impalaNumOfActiveCoordinators;
+  }
+
+  /**
+   * Getter for podConfigName.
+   * Name of the pod configuration.
+   **/
+  @JsonProperty("podConfigName")
+  public String getPodConfigName() {
+    return podConfigName;
+  }
+
+  /**
+   * Setter for podConfigName.
+   * Name of the pod configuration.
+   **/
+  public void setPodConfigName(String podConfigName) {
+    this.podConfigName = podConfigName;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -89,12 +353,48 @@ public class AutoscalingOptionsCreateRequest  {
     if (!Objects.equals(this.maxClusters, autoscalingOptionsCreateRequest.maxClusters)) {
       return false;
     }
+    if (!Objects.equals(this.disableAutoSuspend, autoscalingOptionsCreateRequest.disableAutoSuspend)) {
+      return false;
+    }
+    if (!Objects.equals(this.autoSuspendTimeoutSeconds, autoscalingOptionsCreateRequest.autoSuspendTimeoutSeconds)) {
+      return false;
+    }
+    if (!Objects.equals(this.enableUnifiedAnalytics, autoscalingOptionsCreateRequest.enableUnifiedAnalytics)) {
+      return false;
+    }
+    if (!Objects.equals(this.hiveScaleWaitTimeSeconds, autoscalingOptionsCreateRequest.hiveScaleWaitTimeSeconds)) {
+      return false;
+    }
+    if (!Objects.equals(this.hiveDesiredFreeCapacity, autoscalingOptionsCreateRequest.hiveDesiredFreeCapacity)) {
+      return false;
+    }
+    if (!Objects.equals(this.impalaHighAvailabilityMode, autoscalingOptionsCreateRequest.impalaHighAvailabilityMode)) {
+      return false;
+    }
+    if (!Objects.equals(this.impalaScaleUpDelaySeconds, autoscalingOptionsCreateRequest.impalaScaleUpDelaySeconds)) {
+      return false;
+    }
+    if (!Objects.equals(this.impalaScaleDownDelaySeconds, autoscalingOptionsCreateRequest.impalaScaleDownDelaySeconds)) {
+      return false;
+    }
+    if (!Objects.equals(this.impalaEnableShutdownOfCoordinator, autoscalingOptionsCreateRequest.impalaEnableShutdownOfCoordinator)) {
+      return false;
+    }
+    if (!Objects.equals(this.impalaShutdownOfCoordinatorDelaySeconds, autoscalingOptionsCreateRequest.impalaShutdownOfCoordinatorDelaySeconds)) {
+      return false;
+    }
+    if (!Objects.equals(this.impalaNumOfActiveCoordinators, autoscalingOptionsCreateRequest.impalaNumOfActiveCoordinators)) {
+      return false;
+    }
+    if (!Objects.equals(this.podConfigName, autoscalingOptionsCreateRequest.podConfigName)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(minClusters, maxClusters);
+    return Objects.hash(minClusters, maxClusters, disableAutoSuspend, autoSuspendTimeoutSeconds, enableUnifiedAnalytics, hiveScaleWaitTimeSeconds, hiveDesiredFreeCapacity, impalaHighAvailabilityMode, impalaScaleUpDelaySeconds, impalaScaleDownDelaySeconds, impalaEnableShutdownOfCoordinator, impalaShutdownOfCoordinatorDelaySeconds, impalaNumOfActiveCoordinators, podConfigName);
   }
 
   @Override
@@ -103,6 +403,18 @@ public class AutoscalingOptionsCreateRequest  {
     sb.append("class AutoscalingOptionsCreateRequest {\n");
     sb.append("    minClusters: ").append(toIndentedString(minClusters)).append("\n");
     sb.append("    maxClusters: ").append(toIndentedString(maxClusters)).append("\n");
+    sb.append("    disableAutoSuspend: ").append(toIndentedString(disableAutoSuspend)).append("\n");
+    sb.append("    autoSuspendTimeoutSeconds: ").append(toIndentedString(autoSuspendTimeoutSeconds)).append("\n");
+    sb.append("    enableUnifiedAnalytics: ").append(toIndentedString(enableUnifiedAnalytics)).append("\n");
+    sb.append("    hiveScaleWaitTimeSeconds: ").append(toIndentedString(hiveScaleWaitTimeSeconds)).append("\n");
+    sb.append("    hiveDesiredFreeCapacity: ").append(toIndentedString(hiveDesiredFreeCapacity)).append("\n");
+    sb.append("    impalaHighAvailabilityMode: ").append(toIndentedString(impalaHighAvailabilityMode)).append("\n");
+    sb.append("    impalaScaleUpDelaySeconds: ").append(toIndentedString(impalaScaleUpDelaySeconds)).append("\n");
+    sb.append("    impalaScaleDownDelaySeconds: ").append(toIndentedString(impalaScaleDownDelaySeconds)).append("\n");
+    sb.append("    impalaEnableShutdownOfCoordinator: ").append(toIndentedString(impalaEnableShutdownOfCoordinator)).append("\n");
+    sb.append("    impalaShutdownOfCoordinatorDelaySeconds: ").append(toIndentedString(impalaShutdownOfCoordinatorDelaySeconds)).append("\n");
+    sb.append("    impalaNumOfActiveCoordinators: ").append(toIndentedString(impalaNumOfActiveCoordinators)).append("\n");
+    sb.append("    podConfigName: ").append(toIndentedString(podConfigName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
