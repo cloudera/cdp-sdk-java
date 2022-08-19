@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for the CreateWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-16T15:45:12.002-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-18T19:29:50.818-07:00")
 public class CreateWorkspaceRequest  {
 
   /**
@@ -54,7 +54,7 @@ public class CreateWorkspaceRequest  {
   private Boolean disableTLS = null;
 
   /**
-   * The request for Kubernetes workspace provision.
+   * The request for Kubernetes workspace provision. Required in public cloud.
    **/
   private ProvisionK8sRequest provisionK8sRequest = null;
 
@@ -102,6 +102,11 @@ public class CreateWorkspaceRequest  {
    * The whitelist of CIDR blocks which can access the API server.
    **/
   private List<String> authorizedIPRanges = new ArrayList<String>();
+
+  /**
+   * The static subdomain to be used for the workspace.
+   **/
+  private String staticSubdomain = null;
 
   /**
    * Getter for environmentName.
@@ -173,7 +178,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Getter for provisionK8sRequest.
-   * The request for Kubernetes workspace provision.
+   * The request for Kubernetes workspace provision. Required in public cloud.
    **/
   @JsonProperty("provisionK8sRequest")
   public ProvisionK8sRequest getProvisionK8sRequest() {
@@ -182,7 +187,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Setter for provisionK8sRequest.
-   * The request for Kubernetes workspace provision.
+   * The request for Kubernetes workspace provision. Required in public cloud.
    **/
   public void setProvisionK8sRequest(ProvisionK8sRequest provisionK8sRequest) {
     this.provisionK8sRequest = provisionK8sRequest;
@@ -341,6 +346,23 @@ public class CreateWorkspaceRequest  {
     this.authorizedIPRanges = authorizedIPRanges;
   }
 
+  /**
+   * Getter for staticSubdomain.
+   * The static subdomain to be used for the workspace.
+   **/
+  @JsonProperty("staticSubdomain")
+  public String getStaticSubdomain() {
+    return staticSubdomain;
+  }
+
+  /**
+   * Setter for staticSubdomain.
+   * The static subdomain to be used for the workspace.
+   **/
+  public void setStaticSubdomain(String staticSubdomain) {
+    this.staticSubdomain = staticSubdomain;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -392,12 +414,15 @@ public class CreateWorkspaceRequest  {
     if (!Objects.equals(this.authorizedIPRanges, createWorkspaceRequest.authorizedIPRanges)) {
       return false;
     }
+    if (!Objects.equals(this.staticSubdomain, createWorkspaceRequest.staticSubdomain)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, workspaceName, usePublicLoadBalancer, disableTLS, provisionK8sRequest, enableMonitoring, enableGovernance, existingNFS, loadBalancerIPWhitelists, nfsVersion, enableModelMetrics, existingDatabaseConfig, whitelistAuthorizedIPRanges, authorizedIPRanges);
+    return Objects.hash(environmentName, workspaceName, usePublicLoadBalancer, disableTLS, provisionK8sRequest, enableMonitoring, enableGovernance, existingNFS, loadBalancerIPWhitelists, nfsVersion, enableModelMetrics, existingDatabaseConfig, whitelistAuthorizedIPRanges, authorizedIPRanges, staticSubdomain);
   }
 
   @Override
@@ -418,6 +443,7 @@ public class CreateWorkspaceRequest  {
     sb.append("    existingDatabaseConfig: ").append(toIndentedString(existingDatabaseConfig)).append("\n");
     sb.append("    whitelistAuthorizedIPRanges: ").append(toIndentedString(whitelistAuthorizedIPRanges)).append("\n");
     sb.append("    authorizedIPRanges: ").append(toIndentedString(authorizedIPRanges)).append("\n");
+    sb.append("    staticSubdomain: ").append(toIndentedString(staticSubdomain)).append("\n");
     sb.append("}");
     return sb.toString();
   }

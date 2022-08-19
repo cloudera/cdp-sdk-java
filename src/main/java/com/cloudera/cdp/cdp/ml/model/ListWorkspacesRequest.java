@@ -23,12 +23,35 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import java.util.*;
 
 /**
  * Request object for the ListWorkspaces method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-16T15:45:12.002-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-18T19:29:50.818-07:00")
 public class ListWorkspacesRequest  {
+
+  /**
+   * Additional query options.
+   **/
+  private List<String> queryOptions = new ArrayList<String>();
+
+  /**
+   * Getter for queryOptions.
+   * Additional query options.
+   **/
+  @JsonProperty("queryOptions")
+  public List<String> getQueryOptions() {
+    return queryOptions;
+  }
+
+  /**
+   * Setter for queryOptions.
+   * Additional query options.
+   **/
+  public void setQueryOptions(List<String> queryOptions) {
+    this.queryOptions = queryOptions;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -38,18 +61,23 @@ public class ListWorkspacesRequest  {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
+    ListWorkspacesRequest listWorkspacesRequest = (ListWorkspacesRequest) o;
+    if (!Objects.equals(this.queryOptions, listWorkspacesRequest.queryOptions)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash();
+    return Objects.hash(queryOptions);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListWorkspacesRequest {\n");
+    sb.append("    queryOptions: ").append(toIndentedString(queryOptions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

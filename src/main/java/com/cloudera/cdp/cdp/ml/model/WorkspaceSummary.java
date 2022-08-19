@@ -23,6 +23,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.ml.model.BackupMetadata;
 import com.cloudera.cdp.ml.model.HealthInfo;
 import java.time.ZonedDateTime;
 import java.util.*;
@@ -30,7 +31,7 @@ import java.util.*;
 /**
  * A Cloudera Machine Learning workspace which includes the deployed configuration details.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-16T15:45:12.002-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-18T19:29:50.818-07:00")
 public class WorkspaceSummary  {
 
   /**
@@ -117,6 +118,16 @@ public class WorkspaceSummary  {
    * The health info information of the workspace.
    **/
   private List<HealthInfo> healthInfoLists = new ArrayList<HealthInfo>();
+
+  /**
+   * The Backup Metadata for the workspace.
+   **/
+  private BackupMetadata backupMetadata = null;
+
+  /**
+   * The Cluster ID for the workspace.
+   **/
+  private String clusterID = null;
 
   /**
    * Getter for instanceName.
@@ -407,6 +418,40 @@ public class WorkspaceSummary  {
     this.healthInfoLists = healthInfoLists;
   }
 
+  /**
+   * Getter for backupMetadata.
+   * The Backup Metadata for the workspace.
+   **/
+  @JsonProperty("backupMetadata")
+  public BackupMetadata getBackupMetadata() {
+    return backupMetadata;
+  }
+
+  /**
+   * Setter for backupMetadata.
+   * The Backup Metadata for the workspace.
+   **/
+  public void setBackupMetadata(BackupMetadata backupMetadata) {
+    this.backupMetadata = backupMetadata;
+  }
+
+  /**
+   * Getter for clusterID.
+   * The Cluster ID for the workspace.
+   **/
+  @JsonProperty("clusterID")
+  public String getClusterID() {
+    return clusterID;
+  }
+
+  /**
+   * Setter for clusterID.
+   * The Cluster ID for the workspace.
+   **/
+  public void setClusterID(String clusterID) {
+    this.clusterID = clusterID;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -467,12 +512,18 @@ public class WorkspaceSummary  {
     if (!Objects.equals(this.healthInfoLists, workspaceSummary.healthInfoLists)) {
       return false;
     }
+    if (!Objects.equals(this.backupMetadata, workspaceSummary.backupMetadata)) {
+      return false;
+    }
+    if (!Objects.equals(this.clusterID, workspaceSummary.clusterID)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, filesystemID, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, failureMessage, healthInfoLists);
+    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, filesystemID, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, failureMessage, healthInfoLists, backupMetadata, clusterID);
   }
 
   @Override
@@ -496,6 +547,8 @@ public class WorkspaceSummary  {
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
     sb.append("    healthInfoLists: ").append(toIndentedString(healthInfoLists)).append("\n");
+    sb.append("    backupMetadata: ").append(toIndentedString(backupMetadata)).append("\n");
+    sb.append("    clusterID: ").append(toIndentedString(clusterID)).append("\n");
     sb.append("}");
     return sb.toString();
   }

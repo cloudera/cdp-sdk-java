@@ -23,6 +23,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.ml.model.BackupMetadata;
 import com.cloudera.cdp.ml.model.HealthInfo;
 import com.cloudera.cdp.ml.model.Tag;
 import com.cloudera.cdp.ml.model.WorkspaceInstanceGroup;
@@ -32,7 +33,7 @@ import java.util.*;
 /**
  * A ML workspace, which includes the cluster and storage.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-16T15:45:12.002-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-18T19:29:50.818-07:00")
 public class Workspace  {
 
   /**
@@ -159,6 +160,11 @@ public class Workspace  {
    * The whitelist of CIDR blocks which can access the API server.
    **/
   private List<String> authorizedIPRanges = new ArrayList<String>();
+
+  /**
+   * The Backup MetaData for this Workspace
+   **/
+  private BackupMetadata backupMetadata = null;
 
   /**
    * Getter for instanceName.
@@ -585,6 +591,23 @@ public class Workspace  {
     this.authorizedIPRanges = authorizedIPRanges;
   }
 
+  /**
+   * Getter for backupMetadata.
+   * The Backup MetaData for this Workspace
+   **/
+  @JsonProperty("backupMetadata")
+  public BackupMetadata getBackupMetadata() {
+    return backupMetadata;
+  }
+
+  /**
+   * Setter for backupMetadata.
+   * The Backup MetaData for this Workspace
+   **/
+  public void setBackupMetadata(BackupMetadata backupMetadata) {
+    this.backupMetadata = backupMetadata;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -669,12 +692,15 @@ public class Workspace  {
     if (!Objects.equals(this.authorizedIPRanges, workspace.authorizedIPRanges)) {
       return false;
     }
+    if (!Objects.equals(this.backupMetadata, workspace.backupMetadata)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, endpointPublicAccess, filesystemID, tags, instanceGroups, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, healthInfoLists, failureMessage, clusterBaseDomain, modelMetricsEnabled, governanceEnabled, whitelistAuthorizedIPRanges, authorizedIPRanges);
+    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, endpointPublicAccess, filesystemID, tags, instanceGroups, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, healthInfoLists, failureMessage, clusterBaseDomain, modelMetricsEnabled, governanceEnabled, whitelistAuthorizedIPRanges, authorizedIPRanges, backupMetadata);
   }
 
   @Override
@@ -706,6 +732,7 @@ public class Workspace  {
     sb.append("    governanceEnabled: ").append(toIndentedString(governanceEnabled)).append("\n");
     sb.append("    whitelistAuthorizedIPRanges: ").append(toIndentedString(whitelistAuthorizedIPRanges)).append("\n");
     sb.append("    authorizedIPRanges: ").append(toIndentedString(authorizedIPRanges)).append("\n");
+    sb.append("    backupMetadata: ").append(toIndentedString(backupMetadata)).append("\n");
     sb.append("}");
     return sb.toString();
   }

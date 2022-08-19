@@ -24,7 +24,7 @@ import com.cloudera.cdp.client.CdpClientBuilder;
 /**
 * This class can be used to build a DatahubClient object.
 **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-16T15:45:10.856-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-18T19:29:49.831-07:00")
 public class DatahubClientBuilder extends CdpClientBuilder<DatahubClientBuilder> {
 
   private DatahubClientBuilder() {

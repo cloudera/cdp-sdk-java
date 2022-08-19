@@ -30,7 +30,7 @@ import java.util.Map;
 /**
  * The response object holding the data of the image retrieved from the given custom catalog.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-16T15:45:13.757-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-18T19:29:52.656-07:00")
 public class DescribeCustomImageResponse extends CdpResponse {
 
   /**

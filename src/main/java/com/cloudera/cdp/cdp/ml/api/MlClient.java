@@ -28,8 +28,12 @@ import com.cloudera.cdp.client.CdpRequestContext;
 import com.cloudera.cdp.client.Pair;
 import com.cloudera.cdp.client.ResourceResponse;
 import com.cloudera.cdp.client.RestResponse;
+import com.cloudera.cdp.ml.model.BackupWorkspaceRequest;
+import com.cloudera.cdp.ml.model.BackupWorkspaceResponse;
 import com.cloudera.cdp.ml.model.CreateWorkspaceRequest;
 import com.cloudera.cdp.ml.model.CreateWorkspaceResponse;
+import com.cloudera.cdp.ml.model.DeleteBackupRequest;
+import com.cloudera.cdp.ml.model.DeleteBackupResponse;
 import com.cloudera.cdp.ml.model.DeleteWorkspaceRequest;
 import com.cloudera.cdp.ml.model.DeleteWorkspaceResponse;
 import com.cloudera.cdp.ml.model.DescribeWorkspaceRequest;
@@ -47,6 +51,8 @@ import com.cloudera.cdp.ml.model.GrantWorkspaceAccessRequest;
 import com.cloudera.cdp.ml.model.GrantWorkspaceAccessResponse;
 import com.cloudera.cdp.ml.model.ListWorkspaceAccessRequest;
 import com.cloudera.cdp.ml.model.ListWorkspaceAccessResponse;
+import com.cloudera.cdp.ml.model.ListWorkspaceBackupsRequest;
+import com.cloudera.cdp.ml.model.ListWorkspaceBackupsResponse;
 import com.cloudera.cdp.ml.model.ListWorkspacesRequest;
 import com.cloudera.cdp.ml.model.ListWorkspacesResponse;
 import com.cloudera.cdp.ml.model.ModifyClusterInstanceGroupRequest;
@@ -55,6 +61,8 @@ import com.cloudera.cdp.ml.model.ModifyClusterSecurityRequest;
 import com.cloudera.cdp.ml.model.ModifyClusterSecurityResponse;
 import com.cloudera.cdp.ml.model.ModifyWorkspaceLoadBalancerRequest;
 import com.cloudera.cdp.ml.model.ModifyWorkspaceLoadBalancerResponse;
+import com.cloudera.cdp.ml.model.RestoreWorkspaceRequest;
+import com.cloudera.cdp.ml.model.RestoreWorkspaceResponse;
 import com.cloudera.cdp.ml.model.RevokeWorkspaceAccessRequest;
 import com.cloudera.cdp.ml.model.RevokeWorkspaceAccessResponse;
 import com.cloudera.cdp.ml.model.UpgradeWorkspaceRequest;
@@ -65,7 +73,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-16T15:45:12.002-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-18T19:29:50.818-07:00")
 public class MlClient extends CdpClient {
 
   public static final String SERVICE_NAME = "ml";
@@ -97,6 +105,19 @@ public class MlClient extends CdpClient {
   }
 
   /**
+   * Backup a workspace.
+   * @param input
+   * @return BackupWorkspaceResponse
+   */
+  public BackupWorkspaceResponse backupWorkspace(BackupWorkspaceRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling backupWorkspace");
+    }
+
+    return this.invokeAPI("backupWorkspace", "/api/v1/ml/backupWorkspace", input, new GenericType<BackupWorkspaceResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Create a Cloudera Machine Learning workspace.
    * @param input
    * @return CreateWorkspaceResponse
@@ -107,6 +128,19 @@ public class MlClient extends CdpClient {
     }
 
     return this.invokeAPI("createWorkspace", "/api/v1/ml/createWorkspace", input, new GenericType<CreateWorkspaceResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Deletes a backup snapshot.
+   * @param input
+   * @return DeleteBackupResponse
+   */
+  public DeleteBackupResponse deleteBackup(DeleteBackupRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteBackup");
+    }
+
+    return this.invokeAPI("deleteBackup", "/api/v1/ml/deleteBackup", input, new GenericType<DeleteBackupResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -214,6 +248,19 @@ public class MlClient extends CdpClient {
   }
 
   /**
+   * List backup snapshots of a workspace.
+   * @param input
+   * @return ListWorkspaceBackupsResponse
+   */
+  public ListWorkspaceBackupsResponse listWorkspaceBackups(ListWorkspaceBackupsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listWorkspaceBackups");
+    }
+
+    return this.invokeAPI("listWorkspaceBackups", "/api/v1/ml/listWorkspaceBackups", input, new GenericType<ListWorkspaceBackupsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * List Cloudera Machine Learning workspaces.
    * @param input
    * @return ListWorkspacesResponse
@@ -263,6 +310,19 @@ public class MlClient extends CdpClient {
     }
 
     return this.invokeAPI("modifyWorkspaceLoadBalancer", "/api/v1/ml/modifyWorkspaceLoadBalancer", input, new GenericType<ModifyWorkspaceLoadBalancerResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Restore a Cloudera Machine Learning workspace.
+   * @param input
+   * @return RestoreWorkspaceResponse
+   */
+  public RestoreWorkspaceResponse restoreWorkspace(RestoreWorkspaceRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling restoreWorkspace");
+    }
+
+    return this.invokeAPI("restoreWorkspace", "/api/v1/ml/restoreWorkspace", input, new GenericType<RestoreWorkspaceResponse>(){}, NO_EXTENSION);
   }
 
   /**

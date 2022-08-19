@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the UpgradeWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-16T15:45:12.002-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-18T19:29:50.818-07:00")
 public class UpgradeWorkspaceRequest  {
 
   /**
@@ -41,7 +41,7 @@ public class UpgradeWorkspaceRequest  {
   private String workspaceName = null;
 
   /**
-   * The version of workspace to upgrade to.
+   * The version of workspace to upgrade to. (Deprecated).
    **/
   private String mlVersion = null;
 
@@ -86,8 +86,9 @@ public class UpgradeWorkspaceRequest  {
 
   /**
    * Getter for mlVersion.
-   * The version of workspace to upgrade to.
+   * The version of workspace to upgrade to. (Deprecated).
    **/
+  @Deprecated
   @JsonProperty("mlVersion")
   public String getMlVersion() {
     return mlVersion;
@@ -95,8 +96,9 @@ public class UpgradeWorkspaceRequest  {
 
   /**
    * Setter for mlVersion.
-   * The version of workspace to upgrade to.
+   * The version of workspace to upgrade to. (Deprecated).
    **/
+  @Deprecated
   public void setMlVersion(String mlVersion) {
     this.mlVersion = mlVersion;
   }

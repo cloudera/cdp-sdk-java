@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for obtaining log descriptors. (useful for diagnostics collection filtering)
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-16T15:45:12.161-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-18T19:29:51.006-07:00")
 public class GetDatalakeLogDescriptorsResponse extends CdpResponse {
 
   /**

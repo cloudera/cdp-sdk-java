@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Instance group information to show in workspace details.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-16T15:45:12.002-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-18T19:29:50.818-07:00")
 public class WorkspaceInstanceGroup  {
 
   /**

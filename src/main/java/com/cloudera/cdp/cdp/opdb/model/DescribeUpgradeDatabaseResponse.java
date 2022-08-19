@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response with upgrade availability of CDP Runtime and Operating System for a database.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-16T15:45:12.822-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-18T19:29:51.698-07:00")
 public class DescribeUpgradeDatabaseResponse extends CdpResponse {
 
   /**
