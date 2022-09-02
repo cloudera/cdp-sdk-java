@@ -7,7 +7,7 @@ CDP services.
 
 ### Prerequisites
 
-* **Java 1.8** or later
+* **Java 11** or later
 * **Maven 3.5** or later
 
 ### Installing the SDK

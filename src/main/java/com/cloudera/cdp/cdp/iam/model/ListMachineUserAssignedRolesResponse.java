@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Response object for a list machine user assigned roles request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-18T19:29:51.953-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-01T19:38:42.413-07:00")
 public class ListMachineUserAssignedRolesResponse extends CdpResponse {
 
   /**

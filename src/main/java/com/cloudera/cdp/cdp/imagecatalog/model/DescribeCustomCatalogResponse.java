@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * The response object holding the retrieved data of a custom catalog.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-18T19:29:52.656-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-01T19:38:43.249-07:00")
 public class DescribeCustomCatalogResponse extends CdpResponse {
 
   /**

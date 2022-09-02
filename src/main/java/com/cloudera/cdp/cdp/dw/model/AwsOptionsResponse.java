@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Response object of the cluster Aws settings.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-18T19:29:50.369-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-01T19:38:40.467-07:00")
 public class AwsOptionsResponse extends CdpResponse {
 
   /**

@@ -3,49 +3,47 @@
 
   <groupId>com.cloudera.cdp</groupId>
   <artifactId>cdp-sdk-java</artifactId>
-  <version>0.9.68</version>
+  <version>0.9.69</version>
   <name>Cloudera CDP Java SDK</name>
   <packaging>jar</packaging>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <javaVersion>8</javaVersion>
-    <minSupportedJvmJavaVersion>1.8</minSupportedJvmJavaVersion>
+    <javaVersion>11</javaVersion>
+    <minSupportedJvmJavaVersion>${javaVersion}</minSupportedJvmJavaVersion>
     <shade-prefix>com.cloudera.cdp.shaded</shade-prefix>
 
     <skipUTs>${skipTests}</skipUTs>
 
-    
     <animal-sniffer-annotations.version>1.18</animal-sniffer-annotations.version>
     <bouncycastle.version>1.69</bouncycastle.version>
     <byte-buddy.version>1.10.13</byte-buddy.version>
     <commons-cli.version>1.4</commons-cli.version>
     <commons-codec.version>1.13</commons-codec.version>
+    <commons-httpclient.version>4.5.13</commons-httpclient.version>
     <commons-io.version>2.11.0</commons-io.version>
     <commons-lang3.version>3.11</commons-lang3.version>
-    <commons-httpclient.version>4.5.13</commons-httpclient.version>
     <errorprone.version>2.4.0</errorprone.version>
     <guava.version>30.1.1-jre</guava.version>
     <hamcrest.version>2.2</hamcrest.version>
     <ini4j.version>0.5.4</ini4j.version>
+    <jackson-databind.version>2.10.5.1</jackson-databind.version>
+    <jackson.version>2.10.5</jackson.version>
     <jakarta-annotation-api.version>1.3.5</jakarta-annotation-api.version>
     <jakarta-xml-bind-api.version>2.3.2</jakarta-xml-bind-api.version>
     <javassist.version>3.26.0-GA</javassist.version>
     <jersey.version>2.32</jersey.version>
-    <jackson.version>2.10.5</jackson.version>
-    <jackson-databind.version>2.10.5.1</jackson-databind.version>
     <jsr305.version>3.0.2</jsr305.version>
     <junit.jupiter.version>5.5.2</junit.jupiter.version>
     <junit.platform.version>1.5.2</junit.platform.version>
     <mockito.version>3.5.13</mockito.version>
+    <nanohttpd.version>2.3.1</nanohttpd.version>
     <slf4j-api.version>1.7.29</slf4j-api.version>
     <spotbugs.version>3.1.12</spotbugs.version>
-    <nanohttpd.version>2.3.1</nanohttpd.version>
 
-    <spotbugs-maven-plugin.version>3.1.12.2</spotbugs-maven-plugin.version>
     <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
-    <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+    <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
     <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
     <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
     <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
@@ -56,9 +54,9 @@
     <maven-site-plugin.version>3.8.2</maven-site-plugin.version>
     <maven-source-plugin.version>3.2.0</maven-source-plugin.version>
     <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+    <spotbugs-maven-plugin.version>3.1.12.2</spotbugs-maven-plugin.version>
     <versions-maven-plugin.version>2.7</versions-maven-plugin.version>
-
-    </properties>
+  </properties>
 
   <dependencies>
     <dependency>
@@ -194,7 +192,7 @@
       <groupId>com.github.spotbugs</groupId>
       <artifactId>spotbugs-annotations</artifactId>
       <version>${spotbugs.version}</version>
-      <scope>compile</scope>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 
@@ -543,11 +541,11 @@
               <transformers>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer" />
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheNoticeResourceTransformer">
-                    <addHeader>false</addHeader>
+                  <addHeader>false</addHeader>
                 </transformer>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
-                    <file>NOTICES/Cloudera_CDP_SDK_NOTICES.txt</file>
-                    <resource>META-INF/NOTICE.txt</resource>
+                  <file>NOTICES/Cloudera_CDP_SDK_NOTICES.txt</file>
+                  <resource>META-INF/NOTICE.txt</resource>
                 </transformer>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
               </transformers>

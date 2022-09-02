@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Datalake resize response.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-18T19:29:51.006-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-01T19:38:41.218-07:00")
 public class ResizeDatalakeResponse extends CdpResponse {
 
   /**
@@ -61,7 +61,7 @@ public class ResizeDatalakeResponse extends CdpResponse {
   private String statusReason = null;
 
   /**
-   * The Cloudbreak version used to create the datalake.
+   * The Cloudbreak version used to create the data lake.
    **/
   private String cloudbreakVersion = null;
 
@@ -169,7 +169,7 @@ public class ResizeDatalakeResponse extends CdpResponse {
 
   /**
    * Getter for cloudbreakVersion.
-   * The Cloudbreak version used to create the datalake.
+   * The Cloudbreak version used to create the data lake.
    **/
   @JsonProperty("cloudbreakVersion")
   public String getCloudbreakVersion() {
@@ -178,7 +178,7 @@ public class ResizeDatalakeResponse extends CdpResponse {
 
   /**
    * Setter for cloudbreakVersion.
-   * The Cloudbreak version used to create the datalake.
+   * The Cloudbreak version used to create the data lake.
    **/
   public void setCloudbreakVersion(String cloudbreakVersion) {
     this.cloudbreakVersion = cloudbreakVersion;

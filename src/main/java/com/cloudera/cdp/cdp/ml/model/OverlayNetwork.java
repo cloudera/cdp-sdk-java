@@ -28,7 +28,7 @@ import com.cloudera.cdp.ml.model.Topology;
 /**
  * Contains the information about overlay network.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-18T19:29:50.818-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-01T19:38:40.996-07:00")
 public class OverlayNetwork  {
 
   /**

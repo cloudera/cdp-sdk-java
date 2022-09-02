@@ -24,13 +24,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.de.model.ChartValueOverridesRequest;
+import com.cloudera.cdp.de.model.CustomAzureFilesConfigs;
 import java.util.*;
 import java.util.Map;
 
 /**
  * Request object for Enable Service method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-18T19:29:51.868-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-01T19:38:42.263-07:00")
 public class EnableServiceRequest  {
 
   /**
@@ -132,6 +133,11 @@ public class EnableServiceRequest  {
    * List of Subnet IDs of CDP subnets to use for the kubernetes worker node.
    **/
   private List<String> subnets = new ArrayList<String>();
+
+  /**
+   * CDE uses a default public File Shares storage provisioned by AKS. Enable this option to use your own public/private File Shares.
+   **/
+  private CustomAzureFilesConfigs customAzureFilesConfigs = null;
 
   /**
    * Getter for name.
@@ -473,6 +479,23 @@ public class EnableServiceRequest  {
     this.subnets = subnets;
   }
 
+  /**
+   * Getter for customAzureFilesConfigs.
+   * CDE uses a default public File Shares storage provisioned by AKS. Enable this option to use your own public/private File Shares.
+   **/
+  @JsonProperty("customAzureFilesConfigs")
+  public CustomAzureFilesConfigs getCustomAzureFilesConfigs() {
+    return customAzureFilesConfigs;
+  }
+
+  /**
+   * Setter for customAzureFilesConfigs.
+   * CDE uses a default public File Shares storage provisioned by AKS. Enable this option to use your own public/private File Shares.
+   **/
+  public void setCustomAzureFilesConfigs(CustomAzureFilesConfigs customAzureFilesConfigs) {
+    this.customAzureFilesConfigs = customAzureFilesConfigs;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -542,12 +565,15 @@ public class EnableServiceRequest  {
     if (!Objects.equals(this.subnets, enableServiceRequest.subnets)) {
       return false;
     }
+    if (!Objects.equals(this.customAzureFilesConfigs, enableServiceRequest.customAzureFilesConfigs)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, env, instanceType, minimumInstances, maximumInstances, minimumSpotInstances, maximumSpotInstances, initialInstances, initialSpotInstances, rootVolumeSize, enablePublicEndpoint, enableWorkloadAnalytics, useSsd, chartValueOverrides, whitelistIps, loadbalancerAllowlist, tags, skipValidation, enablePrivateNetwork, subnets);
+    return Objects.hash(name, env, instanceType, minimumInstances, maximumInstances, minimumSpotInstances, maximumSpotInstances, initialInstances, initialSpotInstances, rootVolumeSize, enablePublicEndpoint, enableWorkloadAnalytics, useSsd, chartValueOverrides, whitelistIps, loadbalancerAllowlist, tags, skipValidation, enablePrivateNetwork, subnets, customAzureFilesConfigs);
   }
 
   @Override
@@ -574,6 +600,7 @@ public class EnableServiceRequest  {
     sb.append("    skipValidation: ").append(toIndentedString(skipValidation)).append("\n");
     sb.append("    enablePrivateNetwork: ").append(toIndentedString(enablePrivateNetwork)).append("\n");
     sb.append("    subnets: ").append(toIndentedString(subnets)).append("\n");
+    sb.append("    customAzureFilesConfigs: ").append(toIndentedString(customAzureFilesConfigs)).append("\n");
     sb.append("}");
     return sb.toString();
   }

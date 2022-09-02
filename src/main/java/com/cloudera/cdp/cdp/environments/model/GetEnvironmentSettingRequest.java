@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object to query environment configuration settings.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-08-18T19:29:51.335-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-01T19:38:41.592-07:00")
 public class GetEnvironmentSettingRequest  {
 
   /**
