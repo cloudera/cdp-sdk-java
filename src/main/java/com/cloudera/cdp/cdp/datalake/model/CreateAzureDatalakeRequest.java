@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * Request object for create Azure datalake request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-01T19:38:41.218-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-20T12:01:40.239-07:00")
 public class CreateAzureDatalakeRequest  {
 
   /**

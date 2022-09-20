@@ -65,6 +65,8 @@ import com.cloudera.cdp.datalake.model.ListDatalakesRequest;
 import com.cloudera.cdp.datalake.model.ListDatalakesResponse;
 import com.cloudera.cdp.datalake.model.ListRuntimesRequest;
 import com.cloudera.cdp.datalake.model.ListRuntimesResponse;
+import com.cloudera.cdp.datalake.model.PrepareDatalakeUpgradeRequest;
+import com.cloudera.cdp.datalake.model.PrepareDatalakeUpgradeResponse;
 import com.cloudera.cdp.datalake.model.RecoverDatalakeRequest;
 import com.cloudera.cdp.datalake.model.RecoverDatalakeResponse;
 import com.cloudera.cdp.datalake.model.RenewCertificateRequest;
@@ -103,7 +105,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-01T19:38:41.218-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-20T12:01:40.239-07:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datalake";
@@ -366,6 +368,19 @@ public class DatalakeClient extends CdpClient {
     }
 
     return this.invokeAPI("listRuntimes", "/api/v1/datalake/listRuntimes", input, new GenericType<ListRuntimesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Prepares the Data Lake cluster for upgrade.
+   * @param input
+   * @return PrepareDatalakeUpgradeResponse
+   */
+  public PrepareDatalakeUpgradeResponse prepareDatalakeUpgrade(PrepareDatalakeUpgradeRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling prepareDatalakeUpgrade");
+    }
+
+    return this.invokeAPI("prepareDatalakeUpgrade", "/api/v1/datalake/prepareDatalakeUpgrade", input, new GenericType<PrepareDatalakeUpgradeResponse>(){}, NO_EXTENSION);
   }
 
   /**

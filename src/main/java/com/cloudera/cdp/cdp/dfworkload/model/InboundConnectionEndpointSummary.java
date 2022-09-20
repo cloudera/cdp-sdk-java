@@ -25,9 +25,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * Inbound Connection Endpoint summary
+ * Inbound Connection Endpoint Summary
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-01T19:38:43.069-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-20T12:01:41.759-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class InboundConnectionEndpointSummary  {
 
@@ -37,17 +37,17 @@ public class InboundConnectionEndpointSummary  {
   private String fullyQualifiedDomainName = null;
 
   /**
-   * State of the inbound connection endpoint
+   * State of the Inbound Connection Endpoint
    **/
   private String state = null;
 
   /**
-   * ID of deployment the hostname is assigned to
+   * The identifier of the deployment the hostname is assigned to
    **/
   private String deploymentId = null;
 
   /**
-   * Internal identifier of the inbound connection endpoint
+   * The identifier of the Inbound Connection Endpoint
    **/
   private String id = null;
 
@@ -70,7 +70,7 @@ public class InboundConnectionEndpointSummary  {
 
   /**
    * Getter for state.
-   * State of the inbound connection endpoint
+   * State of the Inbound Connection Endpoint
    **/
   @JsonProperty("state")
   public String getState() {
@@ -79,7 +79,7 @@ public class InboundConnectionEndpointSummary  {
 
   /**
    * Setter for state.
-   * State of the inbound connection endpoint
+   * State of the Inbound Connection Endpoint
    **/
   public void setState(String state) {
     this.state = state;
@@ -87,7 +87,7 @@ public class InboundConnectionEndpointSummary  {
 
   /**
    * Getter for deploymentId.
-   * ID of deployment the hostname is assigned to
+   * The identifier of the deployment the hostname is assigned to
    **/
   @JsonProperty("deploymentId")
   public String getDeploymentId() {
@@ -96,7 +96,7 @@ public class InboundConnectionEndpointSummary  {
 
   /**
    * Setter for deploymentId.
-   * ID of deployment the hostname is assigned to
+   * The identifier of the deployment the hostname is assigned to
    **/
   public void setDeploymentId(String deploymentId) {
     this.deploymentId = deploymentId;
@@ -104,7 +104,7 @@ public class InboundConnectionEndpointSummary  {
 
   /**
    * Getter for id.
-   * Internal identifier of the inbound connection endpoint
+   * The identifier of the Inbound Connection Endpoint
    **/
   @JsonProperty("id")
   public String getId() {
@@ -113,7 +113,7 @@ public class InboundConnectionEndpointSummary  {
 
   /**
    * Setter for id.
-   * Internal identifier of the inbound connection endpoint
+   * The identifier of the Inbound Connection Endpoint
    **/
   public void setId(String id) {
     this.id = id;

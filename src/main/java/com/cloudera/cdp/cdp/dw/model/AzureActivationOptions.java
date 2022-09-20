@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Options for activating an Azure environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-01T19:38:40.467-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-20T12:01:39.624-07:00")
 public class AzureActivationOptions  {
 
   /**
@@ -46,7 +46,7 @@ public class AzureActivationOptions  {
   private Boolean enableSpotInstances = false;
 
   /**
-   * The generation type of the virtual machines used to create the environment.
+   * DEPRECATED in favour of compute-instance-types. The generation type of the virtual machines used to create the environment.
    **/
   private String vmGenerationType = null;
 
@@ -143,8 +143,9 @@ public class AzureActivationOptions  {
 
   /**
    * Getter for vmGenerationType.
-   * The generation type of the virtual machines used to create the environment.
+   * DEPRECATED in favour of compute-instance-types. The generation type of the virtual machines used to create the environment.
    **/
+  @Deprecated
   @JsonProperty("vmGenerationType")
   public String getVmGenerationType() {
     return vmGenerationType;
@@ -152,8 +153,9 @@ public class AzureActivationOptions  {
 
   /**
    * Setter for vmGenerationType.
-   * The generation type of the virtual machines used to create the environment.
+   * DEPRECATED in favour of compute-instance-types. The generation type of the virtual machines used to create the environment.
    **/
+  @Deprecated
   public void setVmGenerationType(String vmGenerationType) {
     this.vmGenerationType = vmGenerationType;
   }

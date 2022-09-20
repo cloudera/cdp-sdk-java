@@ -101,6 +101,8 @@ import com.cloudera.cdp.datahub.model.ListDatahubDiagnosticsRequest;
 import com.cloudera.cdp.datahub.model.ListDatahubDiagnosticsResponse;
 import com.cloudera.cdp.datahub.model.ListRecipesRequest;
 import com.cloudera.cdp.datahub.model.ListRecipesResponse;
+import com.cloudera.cdp.datahub.model.PrepareClusterUpgradeRequest;
+import com.cloudera.cdp.datahub.model.PrepareClusterUpgradeResponse;
 import com.cloudera.cdp.datahub.model.RenewCertificateRequest;
 import com.cloudera.cdp.datahub.model.RenewCertificateResponse;
 import com.cloudera.cdp.datahub.model.RenewPublicCertificateRequest;
@@ -137,7 +139,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-01T19:38:39.949-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-20T12:01:38.868-07:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datahub";
@@ -634,6 +636,19 @@ public class DatahubClient extends CdpClient {
     }
 
     return this.invokeAPI("listRecipes", "/api/v1/datahub/listRecipes", input, new GenericType<ListRecipesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Running upgrade related validations and prepares the required parcels for the upgrade.
+   * @param input
+   * @return PrepareClusterUpgradeResponse
+   */
+  public PrepareClusterUpgradeResponse prepareClusterUpgrade(PrepareClusterUpgradeRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling prepareClusterUpgrade");
+    }
+
+    return this.invokeAPI("prepareClusterUpgrade", "/api/v1/datahub/prepareClusterUpgrade", input, new GenericType<PrepareClusterUpgradeResponse>(){}, NO_EXTENSION);
   }
 
   /**
