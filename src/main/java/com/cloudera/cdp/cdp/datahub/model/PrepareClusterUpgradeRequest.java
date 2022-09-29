@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object to Data Hub upgrade preparation. This command indicates the upgrade preparation for a specific image or a selected runtime version. Important to note that the imageId or the runtime parameter must be present in the request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-20T12:01:38.868-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-28T16:30:04.432-07:00")
 public class PrepareClusterUpgradeRequest  {
 
   /**

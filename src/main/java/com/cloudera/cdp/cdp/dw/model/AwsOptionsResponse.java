@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Response object of the cluster AWS settings.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-20T12:01:39.624-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-28T16:30:04.902-07:00")
 public class AwsOptionsResponse extends CdpResponse {
 
   /**
@@ -40,6 +40,11 @@ public class AwsOptionsResponse extends CdpResponse {
    * Id of the Custom Amazon Machine Image
    **/
   private String customAmiId = null;
+
+  /**
+   * Denotes whether the Reduced Permission mode is enabled.
+   **/
+  private Boolean reducedPermissionMode = null;
 
   /**
    * Getter for subnetIds.
@@ -75,6 +80,23 @@ public class AwsOptionsResponse extends CdpResponse {
     this.customAmiId = customAmiId;
   }
 
+  /**
+   * Getter for reducedPermissionMode.
+   * Denotes whether the Reduced Permission mode is enabled.
+   **/
+  @JsonProperty("reducedPermissionMode")
+  public Boolean getReducedPermissionMode() {
+    return reducedPermissionMode;
+  }
+
+  /**
+   * Setter for reducedPermissionMode.
+   * Denotes whether the Reduced Permission mode is enabled.
+   **/
+  public void setReducedPermissionMode(Boolean reducedPermissionMode) {
+    this.reducedPermissionMode = reducedPermissionMode;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -90,6 +112,9 @@ public class AwsOptionsResponse extends CdpResponse {
     if (!Objects.equals(this.customAmiId, awsOptionsResponse.customAmiId)) {
       return false;
     }
+    if (!Objects.equals(this.reducedPermissionMode, awsOptionsResponse.reducedPermissionMode)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -98,7 +123,7 @@ public class AwsOptionsResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(subnetIds, customAmiId, super.hashCode());
+    return Objects.hash(subnetIds, customAmiId, reducedPermissionMode, super.hashCode());
   }
 
   @Override
@@ -108,6 +133,7 @@ public class AwsOptionsResponse extends CdpResponse {
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
     sb.append("    customAmiId: ").append(toIndentedString(customAmiId)).append("\n");
+    sb.append("    reducedPermissionMode: ").append(toIndentedString(reducedPermissionMode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

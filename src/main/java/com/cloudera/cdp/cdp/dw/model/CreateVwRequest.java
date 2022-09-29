@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.dw.model.AutoscalingOptionsCreateRequest;
+import com.cloudera.cdp.dw.model.QueryIsolationOptionsRequest;
 import com.cloudera.cdp.dw.model.ServiceConfigReq;
 import com.cloudera.cdp.dw.model.TagRequest;
 import java.util.*;
@@ -31,7 +32,7 @@ import java.util.*;
 /**
  * Request object for the createVw method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-20T12:01:39.624-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-28T16:30:04.902-07:00")
 public class CreateVwRequest  {
 
   /**
@@ -65,6 +66,11 @@ public class CreateVwRequest  {
   private String template = null;
 
   /**
+   * Node Count per compute cluster. Implies 'custom' template, even if you pass template explicitly.
+   **/
+  private Integer nodeCount = 0;
+
+  /**
    * Autoscaling settings for the Virtual Warehouse.
    **/
   private AutoscalingOptionsCreateRequest autoscaling = null;
@@ -73,6 +79,11 @@ public class CreateVwRequest  {
    * Configuration settings for the Virtual Warehouse.
    **/
   private ServiceConfigReq config = null;
+
+  /**
+   * Query isolation settings for the Virtual Warehouse.
+   **/
+  private QueryIsolationOptionsRequest queryIsolationOptions = null;
 
   /**
    * Tags associated with the resources.
@@ -182,6 +193,23 @@ public class CreateVwRequest  {
   }
 
   /**
+   * Getter for nodeCount.
+   * Node Count per compute cluster. Implies &#39;custom&#39; template, even if you pass template explicitly.
+   **/
+  @JsonProperty("nodeCount")
+  public Integer getNodeCount() {
+    return nodeCount;
+  }
+
+  /**
+   * Setter for nodeCount.
+   * Node Count per compute cluster. Implies &#39;custom&#39; template, even if you pass template explicitly.
+   **/
+  public void setNodeCount(Integer nodeCount) {
+    this.nodeCount = nodeCount;
+  }
+
+  /**
    * Getter for autoscaling.
    * Autoscaling settings for the Virtual Warehouse.
    **/
@@ -213,6 +241,23 @@ public class CreateVwRequest  {
    **/
   public void setConfig(ServiceConfigReq config) {
     this.config = config;
+  }
+
+  /**
+   * Getter for queryIsolationOptions.
+   * Query isolation settings for the Virtual Warehouse.
+   **/
+  @JsonProperty("queryIsolationOptions")
+  public QueryIsolationOptionsRequest getQueryIsolationOptions() {
+    return queryIsolationOptions;
+  }
+
+  /**
+   * Setter for queryIsolationOptions.
+   * Query isolation settings for the Virtual Warehouse.
+   **/
+  public void setQueryIsolationOptions(QueryIsolationOptionsRequest queryIsolationOptions) {
+    this.queryIsolationOptions = queryIsolationOptions;
   }
 
   /**
@@ -259,10 +304,16 @@ public class CreateVwRequest  {
     if (!Objects.equals(this.template, createVwRequest.template)) {
       return false;
     }
+    if (!Objects.equals(this.nodeCount, createVwRequest.nodeCount)) {
+      return false;
+    }
     if (!Objects.equals(this.autoscaling, createVwRequest.autoscaling)) {
       return false;
     }
     if (!Objects.equals(this.config, createVwRequest.config)) {
+      return false;
+    }
+    if (!Objects.equals(this.queryIsolationOptions, createVwRequest.queryIsolationOptions)) {
       return false;
     }
     if (!Objects.equals(this.tags, createVwRequest.tags)) {
@@ -273,7 +324,7 @@ public class CreateVwRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, dbcId, vwType, name, imageVersion, template, autoscaling, config, tags);
+    return Objects.hash(clusterId, dbcId, vwType, name, imageVersion, template, nodeCount, autoscaling, config, queryIsolationOptions, tags);
   }
 
   @Override
@@ -286,8 +337,10 @@ public class CreateVwRequest  {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    imageVersion: ").append(toIndentedString(imageVersion)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
+    sb.append("    nodeCount: ").append(toIndentedString(nodeCount)).append("\n");
     sb.append("    autoscaling: ").append(toIndentedString(autoscaling)).append("\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
+    sb.append("    queryIsolationOptions: ").append(toIndentedString(queryIsolationOptions)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();

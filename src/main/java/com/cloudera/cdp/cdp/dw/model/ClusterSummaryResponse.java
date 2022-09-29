@@ -31,7 +31,7 @@ import java.time.ZonedDateTime;
 /**
  * A Cloudera Data Warehouse cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-20T12:01:39.624-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-28T16:30:04.902-07:00")
 public class ClusterSummaryResponse extends CdpResponse {
 
   /**
@@ -48,6 +48,11 @@ public class ClusterSummaryResponse extends CdpResponse {
    * The CRN of the environment where the cluster is located.
    **/
   private String environmentCrn = null;
+
+  /**
+   * Name of the cluster (same as the name of the environment).
+   **/
+  private String name = null;
 
   /**
    * Status of the cluster.
@@ -73,6 +78,11 @@ public class ClusterSummaryResponse extends CdpResponse {
    * Enable Storage Roles checkbox was checked when creating/activating this cluster.
    **/
   private Boolean enableStorageRoles = null;
+
+  /**
+   * Denotes whether the spot instances have been enabled for the cluster. This value is only available for AWS and Azure clusters.
+   **/
+  private Boolean enableSpotInstances = null;
 
   /**
    * Response object of AWS related cluster options.
@@ -133,6 +143,23 @@ public class ClusterSummaryResponse extends CdpResponse {
    **/
   public void setEnvironmentCrn(String environmentCrn) {
     this.environmentCrn = environmentCrn;
+  }
+
+  /**
+   * Getter for name.
+   * Name of the cluster (same as the name of the environment).
+   **/
+  @JsonProperty("name")
+  public String getName() {
+    return name;
+  }
+
+  /**
+   * Setter for name.
+   * Name of the cluster (same as the name of the environment).
+   **/
+  public void setName(String name) {
+    this.name = name;
   }
 
   /**
@@ -221,6 +248,23 @@ public class ClusterSummaryResponse extends CdpResponse {
   }
 
   /**
+   * Getter for enableSpotInstances.
+   * Denotes whether the spot instances have been enabled for the cluster. This value is only available for AWS and Azure clusters.
+   **/
+  @JsonProperty("enableSpotInstances")
+  public Boolean getEnableSpotInstances() {
+    return enableSpotInstances;
+  }
+
+  /**
+   * Setter for enableSpotInstances.
+   * Denotes whether the spot instances have been enabled for the cluster. This value is only available for AWS and Azure clusters.
+   **/
+  public void setEnableSpotInstances(Boolean enableSpotInstances) {
+    this.enableSpotInstances = enableSpotInstances;
+  }
+
+  /**
    * Getter for awsOptions.
    * Response object of AWS related cluster options.
    **/
@@ -272,6 +316,9 @@ public class ClusterSummaryResponse extends CdpResponse {
     if (!Objects.equals(this.environmentCrn, clusterSummaryResponse.environmentCrn)) {
       return false;
     }
+    if (!Objects.equals(this.name, clusterSummaryResponse.name)) {
+      return false;
+    }
     if (!Objects.equals(this.status, clusterSummaryResponse.status)) {
       return false;
     }
@@ -285,6 +332,9 @@ public class ClusterSummaryResponse extends CdpResponse {
       return false;
     }
     if (!Objects.equals(this.enableStorageRoles, clusterSummaryResponse.enableStorageRoles)) {
+      return false;
+    }
+    if (!Objects.equals(this.enableSpotInstances, clusterSummaryResponse.enableSpotInstances)) {
       return false;
     }
     if (!Objects.equals(this.awsOptions, clusterSummaryResponse.awsOptions)) {
@@ -301,7 +351,7 @@ public class ClusterSummaryResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, environmentCrn, status, creator, creationDate, cloudPlatform, enableStorageRoles, awsOptions, azureOptions, super.hashCode());
+    return Objects.hash(crn, id, environmentCrn, name, status, creator, creationDate, cloudPlatform, enableStorageRoles, enableSpotInstances, awsOptions, azureOptions, super.hashCode());
   }
 
   @Override
@@ -312,11 +362,13 @@ public class ClusterSummaryResponse extends CdpResponse {
     sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    cloudPlatform: ").append(toIndentedString(cloudPlatform)).append("\n");
     sb.append("    enableStorageRoles: ").append(toIndentedString(enableStorageRoles)).append("\n");
+    sb.append("    enableSpotInstances: ").append(toIndentedString(enableSpotInstances)).append("\n");
     sb.append("    awsOptions: ").append(toIndentedString(awsOptions)).append("\n");
     sb.append("    azureOptions: ").append(toIndentedString(azureOptions)).append("\n");
     sb.append("}");

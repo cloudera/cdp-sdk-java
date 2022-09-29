@@ -25,12 +25,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.dw.model.AwsActivationOptions;
 import com.cloudera.cdp.dw.model.AzureActivationOptions;
+import com.cloudera.cdp.dw.model.CustomRegistryOptions;
 import com.cloudera.cdp.dw.model.PrivateCloudActivationOptions;
 
 /**
  * Request object for the createCluster method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-20T12:01:39.624-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-28T16:30:04.902-07:00")
 public class CreateClusterRequest  {
 
   /**
@@ -42,6 +43,11 @@ public class CreateClusterRequest  {
    * Using an overlay network will save IP addresses in the VPC by using a private IP address range for Pods in the cluster.
    **/
   private Boolean useOverlayNetwork = null;
+
+  /**
+   * PostgreSQL server backup retention days.
+   **/
+  private Integer databaseBackupRetentionPeriod = 30;
 
   /**
    * Comma separated list of IP address CIDRs to whitelist.
@@ -59,6 +65,11 @@ public class CreateClusterRequest  {
   private Boolean enableStorageRoles = false;
 
   /**
+   * Options for custom ACR/ECR/Docker registries.
+   **/
+  private CustomRegistryOptions customRegistryOptions = null;
+
+  /**
    * Options for activating an AWS environment.
    **/
   private AwsActivationOptions awsOptions = null;
@@ -72,6 +83,16 @@ public class CreateClusterRequest  {
    * Options for activating a Private Cloud environment.
    **/
   private PrivateCloudActivationOptions privateCloudOptions = null;
+
+  /**
+   * Custom environment ID provided to the cluster
+   **/
+  private String customId = null;
+
+  /**
+   * Custom environment subdomain. Overrides the environment subdomain using a customized domain either in the old subdomain format like ENV_ID.dw or the new format like dw-ENV_NAME.
+   **/
+  private String customSubdomain = null;
 
   /**
    * Getter for environmentCrn.
@@ -105,6 +126,23 @@ public class CreateClusterRequest  {
    **/
   public void setUseOverlayNetwork(Boolean useOverlayNetwork) {
     this.useOverlayNetwork = useOverlayNetwork;
+  }
+
+  /**
+   * Getter for databaseBackupRetentionPeriod.
+   * PostgreSQL server backup retention days.
+   **/
+  @JsonProperty("databaseBackupRetentionPeriod")
+  public Integer getDatabaseBackupRetentionPeriod() {
+    return databaseBackupRetentionPeriod;
+  }
+
+  /**
+   * Setter for databaseBackupRetentionPeriod.
+   * PostgreSQL server backup retention days.
+   **/
+  public void setDatabaseBackupRetentionPeriod(Integer databaseBackupRetentionPeriod) {
+    this.databaseBackupRetentionPeriod = databaseBackupRetentionPeriod;
   }
 
   /**
@@ -159,6 +197,23 @@ public class CreateClusterRequest  {
   }
 
   /**
+   * Getter for customRegistryOptions.
+   * Options for custom ACR/ECR/Docker registries.
+   **/
+  @JsonProperty("customRegistryOptions")
+  public CustomRegistryOptions getCustomRegistryOptions() {
+    return customRegistryOptions;
+  }
+
+  /**
+   * Setter for customRegistryOptions.
+   * Options for custom ACR/ECR/Docker registries.
+   **/
+  public void setCustomRegistryOptions(CustomRegistryOptions customRegistryOptions) {
+    this.customRegistryOptions = customRegistryOptions;
+  }
+
+  /**
    * Getter for awsOptions.
    * Options for activating an AWS environment.
    **/
@@ -209,6 +264,40 @@ public class CreateClusterRequest  {
     this.privateCloudOptions = privateCloudOptions;
   }
 
+  /**
+   * Getter for customId.
+   * Custom environment ID provided to the cluster
+   **/
+  @JsonProperty("customId")
+  public String getCustomId() {
+    return customId;
+  }
+
+  /**
+   * Setter for customId.
+   * Custom environment ID provided to the cluster
+   **/
+  public void setCustomId(String customId) {
+    this.customId = customId;
+  }
+
+  /**
+   * Getter for customSubdomain.
+   * Custom environment subdomain. Overrides the environment subdomain using a customized domain either in the old subdomain format like ENV_ID.dw or the new format like dw-ENV_NAME.
+   **/
+  @JsonProperty("customSubdomain")
+  public String getCustomSubdomain() {
+    return customSubdomain;
+  }
+
+  /**
+   * Setter for customSubdomain.
+   * Custom environment subdomain. Overrides the environment subdomain using a customized domain either in the old subdomain format like ENV_ID.dw or the new format like dw-ENV_NAME.
+   **/
+  public void setCustomSubdomain(String customSubdomain) {
+    this.customSubdomain = customSubdomain;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -224,6 +313,9 @@ public class CreateClusterRequest  {
     if (!Objects.equals(this.useOverlayNetwork, createClusterRequest.useOverlayNetwork)) {
       return false;
     }
+    if (!Objects.equals(this.databaseBackupRetentionPeriod, createClusterRequest.databaseBackupRetentionPeriod)) {
+      return false;
+    }
     if (!Objects.equals(this.whitelistIpCIDRs, createClusterRequest.whitelistIpCIDRs)) {
       return false;
     }
@@ -231,6 +323,9 @@ public class CreateClusterRequest  {
       return false;
     }
     if (!Objects.equals(this.enableStorageRoles, createClusterRequest.enableStorageRoles)) {
+      return false;
+    }
+    if (!Objects.equals(this.customRegistryOptions, createClusterRequest.customRegistryOptions)) {
       return false;
     }
     if (!Objects.equals(this.awsOptions, createClusterRequest.awsOptions)) {
@@ -242,12 +337,18 @@ public class CreateClusterRequest  {
     if (!Objects.equals(this.privateCloudOptions, createClusterRequest.privateCloudOptions)) {
       return false;
     }
+    if (!Objects.equals(this.customId, createClusterRequest.customId)) {
+      return false;
+    }
+    if (!Objects.equals(this.customSubdomain, createClusterRequest.customSubdomain)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, useOverlayNetwork, whitelistIpCIDRs, usePrivateLoadBalancer, enableStorageRoles, awsOptions, azureOptions, privateCloudOptions);
+    return Objects.hash(environmentCrn, useOverlayNetwork, databaseBackupRetentionPeriod, whitelistIpCIDRs, usePrivateLoadBalancer, enableStorageRoles, customRegistryOptions, awsOptions, azureOptions, privateCloudOptions, customId, customSubdomain);
   }
 
   @Override
@@ -256,12 +357,16 @@ public class CreateClusterRequest  {
     sb.append("class CreateClusterRequest {\n");
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
     sb.append("    useOverlayNetwork: ").append(toIndentedString(useOverlayNetwork)).append("\n");
+    sb.append("    databaseBackupRetentionPeriod: ").append(toIndentedString(databaseBackupRetentionPeriod)).append("\n");
     sb.append("    whitelistIpCIDRs: ").append(toIndentedString(whitelistIpCIDRs)).append("\n");
     sb.append("    usePrivateLoadBalancer: ").append(toIndentedString(usePrivateLoadBalancer)).append("\n");
     sb.append("    enableStorageRoles: ").append(toIndentedString(enableStorageRoles)).append("\n");
+    sb.append("    customRegistryOptions: ").append(toIndentedString(customRegistryOptions)).append("\n");
     sb.append("    awsOptions: ").append(toIndentedString(awsOptions)).append("\n");
     sb.append("    azureOptions: ").append(toIndentedString(azureOptions)).append("\n");
     sb.append("    privateCloudOptions: ").append(toIndentedString(privateCloudOptions)).append("\n");
+    sb.append("    customId: ").append(toIndentedString(customId)).append("\n");
+    sb.append("    customSubdomain: ").append(toIndentedString(customSubdomain)).append("\n");
     sb.append("}");
     return sb.toString();
   }

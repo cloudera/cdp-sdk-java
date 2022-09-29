@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Policy report details.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-20T12:01:42.046-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-28T16:30:07.033-07:00")
 public class PolicyReportDetails  {
 
   /**

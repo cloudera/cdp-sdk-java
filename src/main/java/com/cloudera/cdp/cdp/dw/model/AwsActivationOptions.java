@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Options for activating an AWS environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-20T12:01:39.624-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-28T16:30:04.902-07:00")
 public class AwsActivationOptions  {
 
   /**
@@ -45,6 +45,21 @@ public class AwsActivationOptions  {
    * Custom AMI ID.
    **/
   private String customAmiId = null;
+
+  /**
+   * Managed Policy Arn to be attached to the Node Instance Role.
+   **/
+  private String nodeRoleCDWManagedPolicyArn = null;
+
+  /**
+   * Whether to enable Spot instances for Virtual warehouses. It cannot be updated later. If the aws-options is not provided it defaults to false.
+   **/
+  private Boolean enableSpotInstances = false;
+
+  /**
+   * Use this option to activate the environment with fewer than half of the standard required IAM permissions on your AWS cross-account IAM role.
+   **/
+  private Boolean reducedPermissionMode = null;
 
   /**
    * Getter for privateSubnetIds.
@@ -97,6 +112,57 @@ public class AwsActivationOptions  {
     this.customAmiId = customAmiId;
   }
 
+  /**
+   * Getter for nodeRoleCDWManagedPolicyArn.
+   * Managed Policy Arn to be attached to the Node Instance Role.
+   **/
+  @JsonProperty("nodeRoleCDWManagedPolicyArn")
+  public String getNodeRoleCDWManagedPolicyArn() {
+    return nodeRoleCDWManagedPolicyArn;
+  }
+
+  /**
+   * Setter for nodeRoleCDWManagedPolicyArn.
+   * Managed Policy Arn to be attached to the Node Instance Role.
+   **/
+  public void setNodeRoleCDWManagedPolicyArn(String nodeRoleCDWManagedPolicyArn) {
+    this.nodeRoleCDWManagedPolicyArn = nodeRoleCDWManagedPolicyArn;
+  }
+
+  /**
+   * Getter for enableSpotInstances.
+   * Whether to enable Spot instances for Virtual warehouses. It cannot be updated later. If the aws-options is not provided it defaults to false.
+   **/
+  @JsonProperty("enableSpotInstances")
+  public Boolean getEnableSpotInstances() {
+    return enableSpotInstances;
+  }
+
+  /**
+   * Setter for enableSpotInstances.
+   * Whether to enable Spot instances for Virtual warehouses. It cannot be updated later. If the aws-options is not provided it defaults to false.
+   **/
+  public void setEnableSpotInstances(Boolean enableSpotInstances) {
+    this.enableSpotInstances = enableSpotInstances;
+  }
+
+  /**
+   * Getter for reducedPermissionMode.
+   * Use this option to activate the environment with fewer than half of the standard required IAM permissions on your AWS cross-account IAM role.
+   **/
+  @JsonProperty("reducedPermissionMode")
+  public Boolean getReducedPermissionMode() {
+    return reducedPermissionMode;
+  }
+
+  /**
+   * Setter for reducedPermissionMode.
+   * Use this option to activate the environment with fewer than half of the standard required IAM permissions on your AWS cross-account IAM role.
+   **/
+  public void setReducedPermissionMode(Boolean reducedPermissionMode) {
+    this.reducedPermissionMode = reducedPermissionMode;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -115,12 +181,21 @@ public class AwsActivationOptions  {
     if (!Objects.equals(this.customAmiId, awsActivationOptions.customAmiId)) {
       return false;
     }
+    if (!Objects.equals(this.nodeRoleCDWManagedPolicyArn, awsActivationOptions.nodeRoleCDWManagedPolicyArn)) {
+      return false;
+    }
+    if (!Objects.equals(this.enableSpotInstances, awsActivationOptions.enableSpotInstances)) {
+      return false;
+    }
+    if (!Objects.equals(this.reducedPermissionMode, awsActivationOptions.reducedPermissionMode)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(privateSubnetIds, publicSubnetIds, customAmiId);
+    return Objects.hash(privateSubnetIds, publicSubnetIds, customAmiId, nodeRoleCDWManagedPolicyArn, enableSpotInstances, reducedPermissionMode);
   }
 
   @Override
@@ -130,6 +205,9 @@ public class AwsActivationOptions  {
     sb.append("    privateSubnetIds: ").append(toIndentedString(privateSubnetIds)).append("\n");
     sb.append("    publicSubnetIds: ").append(toIndentedString(publicSubnetIds)).append("\n");
     sb.append("    customAmiId: ").append(toIndentedString(customAmiId)).append("\n");
+    sb.append("    nodeRoleCDWManagedPolicyArn: ").append(toIndentedString(nodeRoleCDWManagedPolicyArn)).append("\n");
+    sb.append("    enableSpotInstances: ").append(toIndentedString(enableSpotInstances)).append("\n");
+    sb.append("    reducedPermissionMode: ").append(toIndentedString(reducedPermissionMode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

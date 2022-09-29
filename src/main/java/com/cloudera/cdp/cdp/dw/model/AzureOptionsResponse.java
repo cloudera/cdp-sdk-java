@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object of the cluster Azure settings.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-20T12:01:39.624-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-28T16:30:04.902-07:00")
 public class AzureOptionsResponse extends CdpResponse {
 
   /**
@@ -49,6 +49,11 @@ public class AzureOptionsResponse extends CdpResponse {
    * The current outbound type setting.
    **/
   private String outboundType = null;
+
+  /**
+   * Workspace ID for Azure log analytics.
+   **/
+  private String logAnalyticsWorkspaceId = null;
 
   /**
    * Getter for subnetId.
@@ -120,6 +125,23 @@ public class AzureOptionsResponse extends CdpResponse {
     this.outboundType = outboundType;
   }
 
+  /**
+   * Getter for logAnalyticsWorkspaceId.
+   * Workspace ID for Azure log analytics.
+   **/
+  @JsonProperty("logAnalyticsWorkspaceId")
+  public String getLogAnalyticsWorkspaceId() {
+    return logAnalyticsWorkspaceId;
+  }
+
+  /**
+   * Setter for logAnalyticsWorkspaceId.
+   * Workspace ID for Azure log analytics.
+   **/
+  public void setLogAnalyticsWorkspaceId(String logAnalyticsWorkspaceId) {
+    this.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -141,6 +163,9 @@ public class AzureOptionsResponse extends CdpResponse {
     if (!Objects.equals(this.outboundType, azureOptionsResponse.outboundType)) {
       return false;
     }
+    if (!Objects.equals(this.logAnalyticsWorkspaceId, azureOptionsResponse.logAnalyticsWorkspaceId)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -149,7 +174,7 @@ public class AzureOptionsResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(subnetId, enableAZ, enableUDR, outboundType, super.hashCode());
+    return Objects.hash(subnetId, enableAZ, enableUDR, outboundType, logAnalyticsWorkspaceId, super.hashCode());
   }
 
   @Override
@@ -161,6 +186,7 @@ public class AzureOptionsResponse extends CdpResponse {
     sb.append("    enableAZ: ").append(toIndentedString(enableAZ)).append("\n");
     sb.append("    enableUDR: ").append(toIndentedString(enableUDR)).append("\n");
     sb.append("    outboundType: ").append(toIndentedString(outboundType)).append("\n");
+    sb.append("    logAnalyticsWorkspaceId: ").append(toIndentedString(logAnalyticsWorkspaceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

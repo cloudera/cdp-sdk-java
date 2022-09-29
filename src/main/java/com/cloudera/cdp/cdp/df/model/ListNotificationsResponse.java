@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * The response for retrieving notifications
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-20T12:01:41.557-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-28T16:30:06.540-07:00")
 public class ListNotificationsResponse extends CdpResponse {
 
   /**

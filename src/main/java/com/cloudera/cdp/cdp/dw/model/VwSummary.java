@@ -27,13 +27,14 @@ import com.cloudera.cdp.dw.model.ActorResponse;
 import com.cloudera.cdp.dw.model.AutoscalingOptionsResponse;
 import com.cloudera.cdp.dw.model.QueryIsolationOptionsResponse;
 import com.cloudera.cdp.dw.model.TagResponse;
+import com.cloudera.cdp.dw.model.VwSummaryEndpoints;
 import java.time.ZonedDateTime;
 import java.util.*;
 
 /**
  * A Virtual Warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-20T12:01:39.624-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-28T16:30:04.902-07:00")
 public class VwSummary  {
 
   /**
@@ -75,6 +76,21 @@ public class VwSummary  {
    * Creation date of Virtual Warehouse.
    **/
   private ZonedDateTime creationDate = null;
+
+  /**
+   * ID of the configuration.
+   **/
+  private String configId = null;
+
+  /**
+   * CDH image version.
+   **/
+  private String cdhVersion = null;
+
+  /**
+   * 
+   **/
+  private VwSummaryEndpoints endpoints = null;
 
   /**
    * Tags associated with the resources.
@@ -238,6 +254,57 @@ public class VwSummary  {
   }
 
   /**
+   * Getter for configId.
+   * ID of the configuration.
+   **/
+  @JsonProperty("configId")
+  public String getConfigId() {
+    return configId;
+  }
+
+  /**
+   * Setter for configId.
+   * ID of the configuration.
+   **/
+  public void setConfigId(String configId) {
+    this.configId = configId;
+  }
+
+  /**
+   * Getter for cdhVersion.
+   * CDH image version.
+   **/
+  @JsonProperty("cdhVersion")
+  public String getCdhVersion() {
+    return cdhVersion;
+  }
+
+  /**
+   * Setter for cdhVersion.
+   * CDH image version.
+   **/
+  public void setCdhVersion(String cdhVersion) {
+    this.cdhVersion = cdhVersion;
+  }
+
+  /**
+   * Getter for endpoints.
+   * 
+   **/
+  @JsonProperty("endpoints")
+  public VwSummaryEndpoints getEndpoints() {
+    return endpoints;
+  }
+
+  /**
+   * Setter for endpoints.
+   * 
+   **/
+  public void setEndpoints(VwSummaryEndpoints endpoints) {
+    this.endpoints = endpoints;
+  }
+
+  /**
    * Getter for tags.
    * Tags associated with the resources.
    **/
@@ -355,6 +422,15 @@ public class VwSummary  {
     if (!Objects.equals(this.creationDate, vwSummary.creationDate)) {
       return false;
     }
+    if (!Objects.equals(this.configId, vwSummary.configId)) {
+      return false;
+    }
+    if (!Objects.equals(this.cdhVersion, vwSummary.cdhVersion)) {
+      return false;
+    }
+    if (!Objects.equals(this.endpoints, vwSummary.endpoints)) {
+      return false;
+    }
     if (!Objects.equals(this.tags, vwSummary.tags)) {
       return false;
     }
@@ -375,7 +451,7 @@ public class VwSummary  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, name, vwType, dbcId, status, creator, creationDate, tags, compactor, viz, autoscalingOptions, queryIsolationOptions);
+    return Objects.hash(crn, id, name, vwType, dbcId, status, creator, creationDate, configId, cdhVersion, endpoints, tags, compactor, viz, autoscalingOptions, queryIsolationOptions);
   }
 
   @Override
@@ -390,6 +466,9 @@ public class VwSummary  {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
+    sb.append("    configId: ").append(toIndentedString(configId)).append("\n");
+    sb.append("    cdhVersion: ").append(toIndentedString(cdhVersion)).append("\n");
+    sb.append("    endpoints: ").append(toIndentedString(endpoints)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    compactor: ").append(toIndentedString(compactor)).append("\n");
     sb.append("    viz: ").append(toIndentedString(viz)).append("\n");
