@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for the listDbcDiagnosticDataJobsRequest method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-28T16:30:04.902-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-10-05T12:07:34.966-07:00")
 public class ListDbcDiagnosticDataJobsResponse extends CdpResponse {
 
   /**

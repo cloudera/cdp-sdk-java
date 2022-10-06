@@ -91,6 +91,8 @@ import com.cloudera.cdp.datalake.model.RotatePrivateCertificatesRequest;
 import com.cloudera.cdp.datalake.model.RotatePrivateCertificatesResponse;
 import com.cloudera.cdp.datalake.model.SetCatalogRequest;
 import com.cloudera.cdp.datalake.model.SetCatalogResponse;
+import com.cloudera.cdp.datalake.model.StartDatabaseUpgradeRequest;
+import com.cloudera.cdp.datalake.model.StartDatabaseUpgradeResponse;
 import com.cloudera.cdp.datalake.model.StartDatalakeRequest;
 import com.cloudera.cdp.datalake.model.StartDatalakeResponse;
 import com.cloudera.cdp.datalake.model.StopDatalakeRequest;
@@ -105,7 +107,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-28T16:30:05.418-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-10-05T12:07:35.674-07:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datalake";
@@ -537,6 +539,19 @@ public class DatalakeClient extends CdpClient {
     }
 
     return this.invokeAPI("setCatalog", "/api/v1/datalake/setCatalog", input, new GenericType<SetCatalogResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Upgrades the database of the Data Lake cluster.
+   * @param input
+   * @return StartDatabaseUpgradeResponse
+   */
+  public StartDatabaseUpgradeResponse startDatabaseUpgrade(StartDatabaseUpgradeRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling startDatabaseUpgrade");
+    }
+
+    return this.invokeAPI("startDatabaseUpgrade", "/api/v1/datalake/startDatabaseUpgrade", input, new GenericType<StartDatabaseUpgradeResponse>(){}, NO_EXTENSION);
   }
 
   /**

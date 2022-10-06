@@ -28,7 +28,7 @@ import com.cloudera.cdp.ml.model.CreateWorkspaceRequest;
 /**
  * Request object for RestoreWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-28T16:30:05.285-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-10-05T12:07:35.466-07:00")
 public class RestoreWorkspaceRequest  {
 
   /**
@@ -45,6 +45,11 @@ public class RestoreWorkspaceRequest  {
    * A boolean value to check if subdomain must be used or not.
    **/
   private Boolean useStaticSubdomain = null;
+
+  /**
+   * The timeout to restore the backup snapshots, in minutes.
+   **/
+  private Integer restoreJobTimeoutMinutes = null;
 
   /**
    * Getter for newWorkspaceParameters.
@@ -97,6 +102,23 @@ public class RestoreWorkspaceRequest  {
     this.useStaticSubdomain = useStaticSubdomain;
   }
 
+  /**
+   * Getter for restoreJobTimeoutMinutes.
+   * The timeout to restore the backup snapshots, in minutes.
+   **/
+  @JsonProperty("restoreJobTimeoutMinutes")
+  public Integer getRestoreJobTimeoutMinutes() {
+    return restoreJobTimeoutMinutes;
+  }
+
+  /**
+   * Setter for restoreJobTimeoutMinutes.
+   * The timeout to restore the backup snapshots, in minutes.
+   **/
+  public void setRestoreJobTimeoutMinutes(Integer restoreJobTimeoutMinutes) {
+    this.restoreJobTimeoutMinutes = restoreJobTimeoutMinutes;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -115,12 +137,15 @@ public class RestoreWorkspaceRequest  {
     if (!Objects.equals(this.useStaticSubdomain, restoreWorkspaceRequest.useStaticSubdomain)) {
       return false;
     }
+    if (!Objects.equals(this.restoreJobTimeoutMinutes, restoreWorkspaceRequest.restoreJobTimeoutMinutes)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(newWorkspaceParameters, backupCrn, useStaticSubdomain);
+    return Objects.hash(newWorkspaceParameters, backupCrn, useStaticSubdomain, restoreJobTimeoutMinutes);
   }
 
   @Override
@@ -130,6 +155,7 @@ public class RestoreWorkspaceRequest  {
     sb.append("    newWorkspaceParameters: ").append(toIndentedString(newWorkspaceParameters)).append("\n");
     sb.append("    backupCrn: ").append(toIndentedString(backupCrn)).append("\n");
     sb.append("    useStaticSubdomain: ").append(toIndentedString(useStaticSubdomain)).append("\n");
+    sb.append("    restoreJobTimeoutMinutes: ").append(toIndentedString(restoreJobTimeoutMinutes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

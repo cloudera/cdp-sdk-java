@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for deleting multiple instance from a cluster
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-28T16:30:04.432-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-10-05T12:07:34.200-07:00")
 public class DeleteInstancesRequest  {
 
   /**

@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Response object for the ListWorkspaceAccess method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-28T16:30:05.285-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-10-05T12:07:35.466-07:00")
 public class ListWorkspaceAccessResponse extends CdpResponse {
 
   /**

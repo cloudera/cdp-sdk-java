@@ -66,6 +66,8 @@ import com.cloudera.cdp.dfworkload.model.ListInboundConnectionEndpointsRequest;
 import com.cloudera.cdp.dfworkload.model.ListInboundConnectionEndpointsResponse;
 import com.cloudera.cdp.dfworkload.model.ListNifiVersionsRequest;
 import com.cloudera.cdp.dfworkload.model.ListNifiVersionsResponse;
+import com.cloudera.cdp.dfworkload.model.RenewInboundConnectionEndpointCertificateRequest;
+import com.cloudera.cdp.dfworkload.model.RenewInboundConnectionEndpointCertificateResponse;
 import com.cloudera.cdp.dfworkload.model.TerminateDeploymentRequest;
 import com.cloudera.cdp.dfworkload.model.TerminateDeploymentResponse;
 import com.cloudera.cdp.dfworkload.model.TransitionFlowRequest;
@@ -86,7 +88,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-28T16:30:06.776-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-10-05T12:07:37.142-07:00")
 public class DfworkloadClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dfworkload";
@@ -367,6 +369,20 @@ public class DfworkloadClient extends CdpClient {
     }
 
     return this.invokeAPI("listNifiVersions", "/dfx/api/rpc-v1/environments/list-nifi-versions", input, new GenericType<ListNifiVersionsResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Renew Inbound Connection Endpoint certificates
+   * @param body Inbound connection endpoint certificates renewal request
+   * @return RenewInboundConnectionEndpointCertificateResponse
+   */
+  @WorkloadApi
+  public RenewInboundConnectionEndpointCertificateResponse renewInboundConnectionEndpointCertificates(RenewInboundConnectionEndpointCertificateRequest body) {
+    if (body == null) {
+      throw new CdpClientException("Missing the required parameter 'body' when calling renewInboundConnectionEndpointCertificates");
+    }
+
+    return this.invokeAPI("renewInboundConnectionEndpointCertificates", "/dfx/api/rpc-v1/inbound-connection-endpoints/renew-certificates", body, new GenericType<RenewInboundConnectionEndpointCertificateResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
   }
 
   /**

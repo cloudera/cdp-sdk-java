@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * The request object for workspace backup.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-09-28T16:30:05.285-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-10-05T12:07:35.466-07:00")
 public class BackupWorkspaceRequest  {
 
   /**
@@ -39,6 +39,16 @@ public class BackupWorkspaceRequest  {
    * Backup name.
    **/
   private String backupName = null;
+
+  /**
+   * The timeout(in minutes) to use for the execution of the backup jobs.
+   **/
+  private Integer backupJobTimeoutMinutes = null;
+
+  /**
+   * Skip pre-flight validations if requested.
+   **/
+  private Boolean skipValidation = null;
 
   /**
    * Getter for workspaceCrn.
@@ -74,6 +84,40 @@ public class BackupWorkspaceRequest  {
     this.backupName = backupName;
   }
 
+  /**
+   * Getter for backupJobTimeoutMinutes.
+   * The timeout(in minutes) to use for the execution of the backup jobs.
+   **/
+  @JsonProperty("backupJobTimeoutMinutes")
+  public Integer getBackupJobTimeoutMinutes() {
+    return backupJobTimeoutMinutes;
+  }
+
+  /**
+   * Setter for backupJobTimeoutMinutes.
+   * The timeout(in minutes) to use for the execution of the backup jobs.
+   **/
+  public void setBackupJobTimeoutMinutes(Integer backupJobTimeoutMinutes) {
+    this.backupJobTimeoutMinutes = backupJobTimeoutMinutes;
+  }
+
+  /**
+   * Getter for skipValidation.
+   * Skip pre-flight validations if requested.
+   **/
+  @JsonProperty("skipValidation")
+  public Boolean getSkipValidation() {
+    return skipValidation;
+  }
+
+  /**
+   * Setter for skipValidation.
+   * Skip pre-flight validations if requested.
+   **/
+  public void setSkipValidation(Boolean skipValidation) {
+    this.skipValidation = skipValidation;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -89,12 +133,18 @@ public class BackupWorkspaceRequest  {
     if (!Objects.equals(this.backupName, backupWorkspaceRequest.backupName)) {
       return false;
     }
+    if (!Objects.equals(this.backupJobTimeoutMinutes, backupWorkspaceRequest.backupJobTimeoutMinutes)) {
+      return false;
+    }
+    if (!Objects.equals(this.skipValidation, backupWorkspaceRequest.skipValidation)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(workspaceCrn, backupName);
+    return Objects.hash(workspaceCrn, backupName, backupJobTimeoutMinutes, skipValidation);
   }
 
   @Override
@@ -103,6 +153,8 @@ public class BackupWorkspaceRequest  {
     sb.append("class BackupWorkspaceRequest {\n");
     sb.append("    workspaceCrn: ").append(toIndentedString(workspaceCrn)).append("\n");
     sb.append("    backupName: ").append(toIndentedString(backupName)).append("\n");
+    sb.append("    backupJobTimeoutMinutes: ").append(toIndentedString(backupJobTimeoutMinutes)).append("\n");
+    sb.append("    skipValidation: ").append(toIndentedString(skipValidation)).append("\n");
     sb.append("}");
     return sb.toString();
   }
