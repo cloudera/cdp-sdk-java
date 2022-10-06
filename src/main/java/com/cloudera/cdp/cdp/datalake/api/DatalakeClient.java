@@ -89,6 +89,8 @@ import com.cloudera.cdp.datalake.model.RotateAutoTlsCertificatesRequest;
 import com.cloudera.cdp.datalake.model.RotateAutoTlsCertificatesResponse;
 import com.cloudera.cdp.datalake.model.RotatePrivateCertificatesRequest;
 import com.cloudera.cdp.datalake.model.RotatePrivateCertificatesResponse;
+import com.cloudera.cdp.datalake.model.RotateSaltPasswordRequest;
+import com.cloudera.cdp.datalake.model.RotateSaltPasswordResponse;
 import com.cloudera.cdp.datalake.model.SetCatalogRequest;
 import com.cloudera.cdp.datalake.model.SetCatalogResponse;
 import com.cloudera.cdp.datalake.model.StartDatabaseUpgradeRequest;
@@ -107,7 +109,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-10-05T12:07:35.674-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-10-06T10:34:44.045-07:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datalake";
@@ -526,6 +528,19 @@ public class DatalakeClient extends CdpClient {
     }
 
     return this.invokeAPI("rotatePrivateCertificates", "/api/v1/datalake/rotatePrivateCertificates", input, new GenericType<RotatePrivateCertificatesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Rotate SaltStack user password on DataLake instances.
+   * @param input
+   * @return RotateSaltPasswordResponse
+   */
+  public RotateSaltPasswordResponse rotateSaltPassword(RotateSaltPasswordRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling rotateSaltPassword");
+    }
+
+    return this.invokeAPI("rotateSaltPassword", "/api/v1/datalake/rotateSaltPassword", input, new GenericType<RotateSaltPasswordResponse>(){}, NO_EXTENSION);
   }
 
   /**

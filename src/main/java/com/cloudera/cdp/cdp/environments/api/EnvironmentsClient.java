@@ -107,6 +107,8 @@ import com.cloudera.cdp.environments.model.ListProxyConfigsRequest;
 import com.cloudera.cdp.environments.model.ListProxyConfigsResponse;
 import com.cloudera.cdp.environments.model.RepairFreeipaRequest;
 import com.cloudera.cdp.environments.model.RepairFreeipaResponse;
+import com.cloudera.cdp.environments.model.RotateSaltPasswordRequest;
+import com.cloudera.cdp.environments.model.RotateSaltPasswordResponse;
 import com.cloudera.cdp.environments.model.SetAWSAuditCredentialRequest;
 import com.cloudera.cdp.environments.model.SetAWSAuditCredentialResponse;
 import com.cloudera.cdp.environments.model.SetAccountTelemetryRequest;
@@ -151,7 +153,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-10-05T12:07:35.961-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-10-06T10:34:44.278-07:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -687,6 +689,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("repairFreeipa", "/api/v1/environments2/repairFreeipa", input, new GenericType<RepairFreeipaResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Rotate SaltStack user password on FreeIPA instances.
+   * @param input
+   * @return RotateSaltPasswordResponse
+   */
+  public RotateSaltPasswordResponse rotateSaltPassword(RotateSaltPasswordRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling rotateSaltPassword");
+    }
+
+    return this.invokeAPI("rotateSaltPassword", "/api/v1/environments2/rotateSaltPassword", input, new GenericType<RotateSaltPasswordResponse>(){}, NO_EXTENSION);
   }
 
   /**
