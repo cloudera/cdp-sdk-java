@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Details of the RDS attached to cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-10-06T10:34:42.550-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:30.915-08:00")
 public class ClusterRdsDetails  {
 
   /**

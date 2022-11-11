@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object of the cluster Azure settings.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-10-06T10:34:43.431-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:31.643-08:00")
 public class AzureOptionsResponse extends CdpResponse {
 
   /**
@@ -39,11 +39,6 @@ public class AzureOptionsResponse extends CdpResponse {
    * Denotes whther the Azure Availability Zones for the cluster is enabled or not.
    **/
   private Boolean enableAZ = false;
-
-  /**
-   * DEPRECATED, Superseded by the outboundType and will be deprecated in the upcoming release. Denotes whther the user defined routing for the cluster deployment is enabled or not.
-   **/
-  private Boolean enableUDR = false;
 
   /**
    * The current outbound type setting.
@@ -87,25 +82,6 @@ public class AzureOptionsResponse extends CdpResponse {
    **/
   public void setEnableAZ(Boolean enableAZ) {
     this.enableAZ = enableAZ;
-  }
-
-  /**
-   * Getter for enableUDR.
-   * DEPRECATED, Superseded by the outboundType and will be deprecated in the upcoming release. Denotes whther the user defined routing for the cluster deployment is enabled or not.
-   **/
-  @Deprecated
-  @JsonProperty("enableUDR")
-  public Boolean getEnableUDR() {
-    return enableUDR;
-  }
-
-  /**
-   * Setter for enableUDR.
-   * DEPRECATED, Superseded by the outboundType and will be deprecated in the upcoming release. Denotes whther the user defined routing for the cluster deployment is enabled or not.
-   **/
-  @Deprecated
-  public void setEnableUDR(Boolean enableUDR) {
-    this.enableUDR = enableUDR;
   }
 
   /**
@@ -157,9 +133,6 @@ public class AzureOptionsResponse extends CdpResponse {
     if (!Objects.equals(this.enableAZ, azureOptionsResponse.enableAZ)) {
       return false;
     }
-    if (!Objects.equals(this.enableUDR, azureOptionsResponse.enableUDR)) {
-      return false;
-    }
     if (!Objects.equals(this.outboundType, azureOptionsResponse.outboundType)) {
       return false;
     }
@@ -174,7 +147,7 @@ public class AzureOptionsResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(subnetId, enableAZ, enableUDR, outboundType, logAnalyticsWorkspaceId, super.hashCode());
+    return Objects.hash(subnetId, enableAZ, outboundType, logAnalyticsWorkspaceId, super.hashCode());
   }
 
   @Override
@@ -184,7 +157,6 @@ public class AzureOptionsResponse extends CdpResponse {
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    enableAZ: ").append(toIndentedString(enableAZ)).append("\n");
-    sb.append("    enableUDR: ").append(toIndentedString(enableUDR)).append("\n");
     sb.append("    outboundType: ").append(toIndentedString(outboundType)).append("\n");
     sb.append("    logAnalyticsWorkspaceId: ").append(toIndentedString(logAnalyticsWorkspaceId)).append("\n");
     sb.append("}");

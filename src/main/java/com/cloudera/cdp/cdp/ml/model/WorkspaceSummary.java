@@ -25,13 +25,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.ml.model.BackupMetadata;
 import com.cloudera.cdp.ml.model.HealthInfo;
+import com.cloudera.cdp.ml.model.UpgradeState;
 import java.time.ZonedDateTime;
 import java.util.*;
 
 /**
  * A Cloudera Machine Learning workspace which includes the deployed configuration details.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-10-06T10:34:43.886-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:32.135-08:00")
 public class WorkspaceSummary  {
 
   /**
@@ -120,6 +121,16 @@ public class WorkspaceSummary  {
   private List<HealthInfo> healthInfoLists = new ArrayList<HealthInfo>();
 
   /**
+   * The upgrade state contains the workspace upgrade information.
+   **/
+  private UpgradeState upgradeState = null;
+
+  /**
+   * NFS Version of the filesystem.
+   **/
+  private String nfsVersion = null;
+
+  /**
    * The Backup Metadata for the workspace.
    **/
   private BackupMetadata backupMetadata = null;
@@ -128,6 +139,11 @@ public class WorkspaceSummary  {
    * The Cluster ID for the workspace.
    **/
   private String clusterID = null;
+
+  /**
+   * The value to indicate if the cluster is private or not.
+   **/
+  private Boolean isPrivate = null;
 
   /**
    * Getter for instanceName.
@@ -419,6 +435,40 @@ public class WorkspaceSummary  {
   }
 
   /**
+   * Getter for upgradeState.
+   * The upgrade state contains the workspace upgrade information.
+   **/
+  @JsonProperty("upgradeState")
+  public UpgradeState getUpgradeState() {
+    return upgradeState;
+  }
+
+  /**
+   * Setter for upgradeState.
+   * The upgrade state contains the workspace upgrade information.
+   **/
+  public void setUpgradeState(UpgradeState upgradeState) {
+    this.upgradeState = upgradeState;
+  }
+
+  /**
+   * Getter for nfsVersion.
+   * NFS Version of the filesystem.
+   **/
+  @JsonProperty("nfsVersion")
+  public String getNfsVersion() {
+    return nfsVersion;
+  }
+
+  /**
+   * Setter for nfsVersion.
+   * NFS Version of the filesystem.
+   **/
+  public void setNfsVersion(String nfsVersion) {
+    this.nfsVersion = nfsVersion;
+  }
+
+  /**
    * Getter for backupMetadata.
    * The Backup Metadata for the workspace.
    **/
@@ -450,6 +500,23 @@ public class WorkspaceSummary  {
    **/
   public void setClusterID(String clusterID) {
     this.clusterID = clusterID;
+  }
+
+  /**
+   * Getter for isPrivate.
+   * The value to indicate if the cluster is private or not.
+   **/
+  @JsonProperty("isPrivate")
+  public Boolean getIsPrivate() {
+    return isPrivate;
+  }
+
+  /**
+   * Setter for isPrivate.
+   * The value to indicate if the cluster is private or not.
+   **/
+  public void setIsPrivate(Boolean isPrivate) {
+    this.isPrivate = isPrivate;
   }
 
   @Override
@@ -512,10 +579,19 @@ public class WorkspaceSummary  {
     if (!Objects.equals(this.healthInfoLists, workspaceSummary.healthInfoLists)) {
       return false;
     }
+    if (!Objects.equals(this.upgradeState, workspaceSummary.upgradeState)) {
+      return false;
+    }
+    if (!Objects.equals(this.nfsVersion, workspaceSummary.nfsVersion)) {
+      return false;
+    }
     if (!Objects.equals(this.backupMetadata, workspaceSummary.backupMetadata)) {
       return false;
     }
     if (!Objects.equals(this.clusterID, workspaceSummary.clusterID)) {
+      return false;
+    }
+    if (!Objects.equals(this.isPrivate, workspaceSummary.isPrivate)) {
       return false;
     }
     return true;
@@ -523,7 +599,7 @@ public class WorkspaceSummary  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, filesystemID, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, failureMessage, healthInfoLists, backupMetadata, clusterID);
+    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, filesystemID, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, failureMessage, healthInfoLists, upgradeState, nfsVersion, backupMetadata, clusterID, isPrivate);
   }
 
   @Override
@@ -547,8 +623,11 @@ public class WorkspaceSummary  {
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    failureMessage: ").append(toIndentedString(failureMessage)).append("\n");
     sb.append("    healthInfoLists: ").append(toIndentedString(healthInfoLists)).append("\n");
+    sb.append("    upgradeState: ").append(toIndentedString(upgradeState)).append("\n");
+    sb.append("    nfsVersion: ").append(toIndentedString(nfsVersion)).append("\n");
     sb.append("    backupMetadata: ").append(toIndentedString(backupMetadata)).append("\n");
     sb.append("    clusterID: ").append(toIndentedString(clusterID)).append("\n");
+    sb.append("    isPrivate: ").append(toIndentedString(isPrivate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

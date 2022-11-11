@@ -26,6 +26,7 @@ import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.ml.model.BackupMetadata;
 import com.cloudera.cdp.ml.model.HealthInfo;
 import com.cloudera.cdp.ml.model.Tag;
+import com.cloudera.cdp.ml.model.UpgradeState;
 import com.cloudera.cdp.ml.model.WorkspaceInstanceGroup;
 import java.time.ZonedDateTime;
 import java.util.*;
@@ -33,7 +34,7 @@ import java.util.*;
 /**
  * A ML workspace, which includes the cluster and storage.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-10-06T10:34:43.886-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:32.135-08:00")
 public class Workspace  {
 
   /**
@@ -152,6 +153,11 @@ public class Workspace  {
   private Boolean governanceEnabled = null;
 
   /**
+   * The subnets of the workspace.
+   **/
+  private List<String> subnets = new ArrayList<String>();
+
+  /**
    * Whether to whitelist only authorizedIPRanges given or all public IPs.
    **/
   private Boolean whitelistAuthorizedIPRanges = null;
@@ -162,9 +168,34 @@ public class Workspace  {
   private List<String> authorizedIPRanges = new ArrayList<String>();
 
   /**
+   * NFS Version of the filesystem.
+   **/
+  private String nfsVersion = null;
+
+  /**
+   * The list of subnets used for the load balancer that CML creates.
+   **/
+  private List<String> subnetsForLoadBalancers = new ArrayList<String>();
+
+  /**
+   * The upgrade state contains the workspace upgrade information.
+   **/
+  private UpgradeState upgradeState = null;
+
+  /**
    * The Backup MetaData for this Workspace
    **/
   private BackupMetadata backupMetadata = null;
+
+  /**
+   * The Cluster ID for the workspace.
+   **/
+  private String clusterID = null;
+
+  /**
+   * The value to indicate if the cluster is private or not.
+   **/
+  private Boolean isPrivate = null;
 
   /**
    * Getter for instanceName.
@@ -558,6 +589,23 @@ public class Workspace  {
   }
 
   /**
+   * Getter for subnets.
+   * The subnets of the workspace.
+   **/
+  @JsonProperty("subnets")
+  public List<String> getSubnets() {
+    return subnets;
+  }
+
+  /**
+   * Setter for subnets.
+   * The subnets of the workspace.
+   **/
+  public void setSubnets(List<String> subnets) {
+    this.subnets = subnets;
+  }
+
+  /**
    * Getter for whitelistAuthorizedIPRanges.
    * Whether to whitelist only authorizedIPRanges given or all public IPs.
    **/
@@ -592,6 +640,57 @@ public class Workspace  {
   }
 
   /**
+   * Getter for nfsVersion.
+   * NFS Version of the filesystem.
+   **/
+  @JsonProperty("nfsVersion")
+  public String getNfsVersion() {
+    return nfsVersion;
+  }
+
+  /**
+   * Setter for nfsVersion.
+   * NFS Version of the filesystem.
+   **/
+  public void setNfsVersion(String nfsVersion) {
+    this.nfsVersion = nfsVersion;
+  }
+
+  /**
+   * Getter for subnetsForLoadBalancers.
+   * The list of subnets used for the load balancer that CML creates.
+   **/
+  @JsonProperty("subnetsForLoadBalancers")
+  public List<String> getSubnetsForLoadBalancers() {
+    return subnetsForLoadBalancers;
+  }
+
+  /**
+   * Setter for subnetsForLoadBalancers.
+   * The list of subnets used for the load balancer that CML creates.
+   **/
+  public void setSubnetsForLoadBalancers(List<String> subnetsForLoadBalancers) {
+    this.subnetsForLoadBalancers = subnetsForLoadBalancers;
+  }
+
+  /**
+   * Getter for upgradeState.
+   * The upgrade state contains the workspace upgrade information.
+   **/
+  @JsonProperty("upgradeState")
+  public UpgradeState getUpgradeState() {
+    return upgradeState;
+  }
+
+  /**
+   * Setter for upgradeState.
+   * The upgrade state contains the workspace upgrade information.
+   **/
+  public void setUpgradeState(UpgradeState upgradeState) {
+    this.upgradeState = upgradeState;
+  }
+
+  /**
    * Getter for backupMetadata.
    * The Backup MetaData for this Workspace
    **/
@@ -606,6 +705,40 @@ public class Workspace  {
    **/
   public void setBackupMetadata(BackupMetadata backupMetadata) {
     this.backupMetadata = backupMetadata;
+  }
+
+  /**
+   * Getter for clusterID.
+   * The Cluster ID for the workspace.
+   **/
+  @JsonProperty("clusterID")
+  public String getClusterID() {
+    return clusterID;
+  }
+
+  /**
+   * Setter for clusterID.
+   * The Cluster ID for the workspace.
+   **/
+  public void setClusterID(String clusterID) {
+    this.clusterID = clusterID;
+  }
+
+  /**
+   * Getter for isPrivate.
+   * The value to indicate if the cluster is private or not.
+   **/
+  @JsonProperty("isPrivate")
+  public Boolean getIsPrivate() {
+    return isPrivate;
+  }
+
+  /**
+   * Setter for isPrivate.
+   * The value to indicate if the cluster is private or not.
+   **/
+  public void setIsPrivate(Boolean isPrivate) {
+    this.isPrivate = isPrivate;
   }
 
   @Override
@@ -686,13 +819,31 @@ public class Workspace  {
     if (!Objects.equals(this.governanceEnabled, workspace.governanceEnabled)) {
       return false;
     }
+    if (!Objects.equals(this.subnets, workspace.subnets)) {
+      return false;
+    }
     if (!Objects.equals(this.whitelistAuthorizedIPRanges, workspace.whitelistAuthorizedIPRanges)) {
       return false;
     }
     if (!Objects.equals(this.authorizedIPRanges, workspace.authorizedIPRanges)) {
       return false;
     }
+    if (!Objects.equals(this.nfsVersion, workspace.nfsVersion)) {
+      return false;
+    }
+    if (!Objects.equals(this.subnetsForLoadBalancers, workspace.subnetsForLoadBalancers)) {
+      return false;
+    }
+    if (!Objects.equals(this.upgradeState, workspace.upgradeState)) {
+      return false;
+    }
     if (!Objects.equals(this.backupMetadata, workspace.backupMetadata)) {
+      return false;
+    }
+    if (!Objects.equals(this.clusterID, workspace.clusterID)) {
+      return false;
+    }
+    if (!Objects.equals(this.isPrivate, workspace.isPrivate)) {
       return false;
     }
     return true;
@@ -700,7 +851,7 @@ public class Workspace  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, endpointPublicAccess, filesystemID, tags, instanceGroups, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, healthInfoLists, failureMessage, clusterBaseDomain, modelMetricsEnabled, governanceEnabled, whitelistAuthorizedIPRanges, authorizedIPRanges, backupMetadata);
+    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, endpointPublicAccess, filesystemID, tags, instanceGroups, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, healthInfoLists, failureMessage, clusterBaseDomain, modelMetricsEnabled, governanceEnabled, subnets, whitelistAuthorizedIPRanges, authorizedIPRanges, nfsVersion, subnetsForLoadBalancers, upgradeState, backupMetadata, clusterID, isPrivate);
   }
 
   @Override
@@ -730,9 +881,15 @@ public class Workspace  {
     sb.append("    clusterBaseDomain: ").append(toIndentedString(clusterBaseDomain)).append("\n");
     sb.append("    modelMetricsEnabled: ").append(toIndentedString(modelMetricsEnabled)).append("\n");
     sb.append("    governanceEnabled: ").append(toIndentedString(governanceEnabled)).append("\n");
+    sb.append("    subnets: ").append(toIndentedString(subnets)).append("\n");
     sb.append("    whitelistAuthorizedIPRanges: ").append(toIndentedString(whitelistAuthorizedIPRanges)).append("\n");
     sb.append("    authorizedIPRanges: ").append(toIndentedString(authorizedIPRanges)).append("\n");
+    sb.append("    nfsVersion: ").append(toIndentedString(nfsVersion)).append("\n");
+    sb.append("    subnetsForLoadBalancers: ").append(toIndentedString(subnetsForLoadBalancers)).append("\n");
+    sb.append("    upgradeState: ").append(toIndentedString(upgradeState)).append("\n");
     sb.append("    backupMetadata: ").append(toIndentedString(backupMetadata)).append("\n");
+    sb.append("    clusterID: ").append(toIndentedString(clusterID)).append("\n");
+    sb.append("    isPrivate: ").append(toIndentedString(isPrivate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

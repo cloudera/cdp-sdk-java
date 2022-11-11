@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for a create user access key request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-10-06T10:34:44.882-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:33.423-08:00")
 public class CreateUserAccessKeyRequest  {
 
   /**
@@ -36,7 +36,7 @@ public class CreateUserAccessKeyRequest  {
   private String user = null;
 
   /**
-   * The version of an access key to create. Default is V2. Use V1 for compatibility with old CLI (< 1.6)  and SDK (< 1.3) releases.
+   * The version of an access key to create.
    **/
   private String type = null;
 
@@ -59,7 +59,7 @@ public class CreateUserAccessKeyRequest  {
 
   /**
    * Getter for type.
-   * The version of an access key to create. Default is V2. Use V1 for compatibility with old CLI (&lt; 1.6)  and SDK (&lt; 1.3) releases.
+   * The version of an access key to create.
    **/
   @JsonProperty("type")
   public String getType() {
@@ -68,7 +68,7 @@ public class CreateUserAccessKeyRequest  {
 
   /**
    * Setter for type.
-   * The version of an access key to create. Default is V2. Use V1 for compatibility with old CLI (&lt; 1.6)  and SDK (&lt; 1.3) releases.
+   * The version of an access key to create.
    **/
   public void setType(String type) {
     this.type = type;

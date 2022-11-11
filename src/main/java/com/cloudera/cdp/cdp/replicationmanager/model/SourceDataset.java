@@ -29,7 +29,7 @@ import com.cloudera.cdp.replicationmanager.model.HiveArguments;
 /**
  * Extra properties for the source dataset.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-10-06T10:34:45.771-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:34.406-08:00")
 public class SourceDataset  {
 
   /**

@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * AuditLogs contains all the logs for a given request id.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-10-06T10:34:43.886-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:32.135-08:00")
 public class AuditLogs  {
 
   /**

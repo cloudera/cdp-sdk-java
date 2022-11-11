@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Options for activating an Azure environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-10-06T10:34:43.431-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:31.643-08:00")
 public class AzureActivationOptions  {
 
   /**
@@ -61,12 +61,7 @@ public class AzureActivationOptions  {
   private String dockerBridgeCidr = null;
 
   /**
-   * DEPRECATED in favour of outbound-type. The current value of the enable-udr translates as follows. The false value is equal to LoadBalancer, whereas the true value is equal to UserDefinedRouting. Enable user defined routing for the cluster deployment.
-   **/
-  private Boolean enableUDR = false;
-
-  /**
-   * This option supersedes the enableUDR option. If the enableUDR is set to true, then the outbound type must be set to empty or \"UserAssignedNATGateway\". The enableUDR will be deprecated in the upcoming release.
+   * Network outbound type. This setting controls the egress traffic for cluster nodes in Azure Kubernetes Service. Please refer to the following AKS documentation on the Azure portal. https://learn.microsoft.com/en-us/azure/aks/egress-outboundtype, https://learn.microsoft.com/en-us/azure/aks/nat-gateway
    **/
   private String outboundType = null;
 
@@ -195,27 +190,8 @@ public class AzureActivationOptions  {
   }
 
   /**
-   * Getter for enableUDR.
-   * DEPRECATED in favour of outbound-type. The current value of the enable-udr translates as follows. The false value is equal to LoadBalancer, whereas the true value is equal to UserDefinedRouting. Enable user defined routing for the cluster deployment.
-   **/
-  @Deprecated
-  @JsonProperty("enableUDR")
-  public Boolean getEnableUDR() {
-    return enableUDR;
-  }
-
-  /**
-   * Setter for enableUDR.
-   * DEPRECATED in favour of outbound-type. The current value of the enable-udr translates as follows. The false value is equal to LoadBalancer, whereas the true value is equal to UserDefinedRouting. Enable user defined routing for the cluster deployment.
-   **/
-  @Deprecated
-  public void setEnableUDR(Boolean enableUDR) {
-    this.enableUDR = enableUDR;
-  }
-
-  /**
    * Getter for outboundType.
-   * This option supersedes the enableUDR option. If the enableUDR is set to true, then the outbound type must be set to empty or \&quot;UserAssignedNATGateway\&quot;. The enableUDR will be deprecated in the upcoming release.
+   * Network outbound type. This setting controls the egress traffic for cluster nodes in Azure Kubernetes Service. Please refer to the following AKS documentation on the Azure portal. https://learn.microsoft.com/en-us/azure/aks/egress-outboundtype, https://learn.microsoft.com/en-us/azure/aks/nat-gateway
    **/
   @JsonProperty("outboundType")
   public String getOutboundType() {
@@ -224,7 +200,7 @@ public class AzureActivationOptions  {
 
   /**
    * Setter for outboundType.
-   * This option supersedes the enableUDR option. If the enableUDR is set to true, then the outbound type must be set to empty or \&quot;UserAssignedNATGateway\&quot;. The enableUDR will be deprecated in the upcoming release.
+   * Network outbound type. This setting controls the egress traffic for cluster nodes in Azure Kubernetes Service. Please refer to the following AKS documentation on the Azure portal. https://learn.microsoft.com/en-us/azure/aks/egress-outboundtype, https://learn.microsoft.com/en-us/azure/aks/nat-gateway
    **/
   public void setOutboundType(String outboundType) {
     this.outboundType = outboundType;
@@ -325,9 +301,6 @@ public class AzureActivationOptions  {
     if (!Objects.equals(this.dockerBridgeCidr, azureActivationOptions.dockerBridgeCidr)) {
       return false;
     }
-    if (!Objects.equals(this.enableUDR, azureActivationOptions.enableUDR)) {
-      return false;
-    }
     if (!Objects.equals(this.outboundType, azureActivationOptions.outboundType)) {
       return false;
     }
@@ -348,7 +321,7 @@ public class AzureActivationOptions  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(subnetId, enableAZ, enableSpotInstances, vmGenerationType, logAnalyticsWorkspaceId, dockerBridgeCidr, enableUDR, outboundType, enablePrivateSQL, privateDNSZoneAKS, enablePrivateAks, enableUptimeSLA);
+    return Objects.hash(subnetId, enableAZ, enableSpotInstances, vmGenerationType, logAnalyticsWorkspaceId, dockerBridgeCidr, outboundType, enablePrivateSQL, privateDNSZoneAKS, enablePrivateAks, enableUptimeSLA);
   }
 
   @Override
@@ -361,7 +334,6 @@ public class AzureActivationOptions  {
     sb.append("    vmGenerationType: ").append(toIndentedString(vmGenerationType)).append("\n");
     sb.append("    logAnalyticsWorkspaceId: ").append(toIndentedString(logAnalyticsWorkspaceId)).append("\n");
     sb.append("    dockerBridgeCidr: ").append(toIndentedString(dockerBridgeCidr)).append("\n");
-    sb.append("    enableUDR: ").append(toIndentedString(enableUDR)).append("\n");
     sb.append("    outboundType: ").append(toIndentedString(outboundType)).append("\n");
     sb.append("    enablePrivateSQL: ").append(toIndentedString(enablePrivateSQL)).append("\n");
     sb.append("    privateDNSZoneAKS: ").append(toIndentedString(privateDNSZoneAKS)).append("\n");

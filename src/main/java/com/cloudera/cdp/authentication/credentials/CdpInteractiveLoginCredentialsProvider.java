@@ -23,22 +23,25 @@ import static com.cloudera.cdp.ValidationUtils.checkNotNullAndThrow;
 
 import com.cloudera.cdp.CdpClientException;
 import com.google.common.annotations.VisibleForTesting;
-import fi.iki.elonen.NanoHTTPD;
 import org.apache.commons.lang3.StringUtils;
+import org.eclipse.jetty.server.Request;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.ServerConnector;
+import org.eclipse.jetty.server.handler.AbstractHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nullable;
+import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.UriBuilder;
 import java.awt.Desktop;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.URI;
-import java.nio.charset.StandardCharsets;
 import java.time.Duration;
-import java.util.List;
-import java.util.Map;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
@@ -56,7 +59,8 @@ public class CdpInteractiveLoginCredentialsProvider
   private static final String DEFAULT_LOGIN_URL = "https://consoleauth.altus.cloudera.com/login";
   private static final String USE_DEFAULT_IDP = null;
   private static final int USE_RANDOM_UNUSED_PORT = 0;
-  private static final byte[] CLOSE_BROWSER_HTML = (
+
+  private static final String CLOSE_BROWSER_HTML =
       "<!DOCTYPE html>\n" +
           "<html>\n" +
           "  <head>\n" +
@@ -66,8 +70,7 @@ public class CdpInteractiveLoginCredentialsProvider
           "  <body onload=\"window.close()\">\n" +
           "    <p>It is safe to close your browser.</p>\n" +
           "  </body>\n" +
-          "</html>")
-      .getBytes(StandardCharsets.UTF_8);
+          "</html>";
 
   private final String accountId;
   private final String idp;
@@ -76,6 +79,7 @@ public class CdpInteractiveLoginCredentialsProvider
   private int listeningPort;
   private CountDownLatch countDownLatch;
   private final Object lockObj = new Object();
+  private Server server;
 
   @VisibleForTesting
   volatile String error = null;
@@ -164,9 +168,8 @@ public class CdpInteractiveLoginCredentialsProvider
   @VisibleForTesting
   void runHttpServer() throws IOException {
     countDownLatch = new CountDownLatch(1);
-    HttpServer httpd = new HttpServer();
-    httpd.start();
-    LOG.debug("HTTPServer started.");
+    startJettyServer();
+    LOG.debug("Jetty Server started.");
 
     try {
       try {
@@ -179,7 +182,7 @@ public class CdpInteractiveLoginCredentialsProvider
           throw new CdpClientException("Login failed: " + error);
         }
       } finally {
-        httpd.stop();
+        stopJettyServer();
       }
     } catch (InterruptedException e) {
       throw new RuntimeException(e);
@@ -194,47 +197,46 @@ public class CdpInteractiveLoginCredentialsProvider
     return port;
   }
 
-  private class HttpServer extends NanoHTTPD {
-
-    public HttpServer() {
-      super("localhost", listeningPort);
-    }
-
-    @Override
-    public Response serve(IHTTPSession session) {
-      LOG.debug("Handle HTTP request: " + session.getUri());
-
-      synchronized (lockObj) {
-        Map<String, List<String>> params = session.getParameters();
-        List<String> errors = params.get("error");
-        if (errors != null && !errors.isEmpty()) {
-          error = errors.get(0);
-        }
-        List<String> accessKeyIds = params.get("accessKeyId");
-        if (accessKeyIds != null && !accessKeyIds.isEmpty()) {
-          accessKeyId = accessKeyIds.get(0);
-        }
-        List<String> privateKeys = params.get("privateKey");
-        if (privateKeys != null && !privateKeys.isEmpty()) {
-          privateKey = privateKeys.get(0);
-        }
+    private void startJettyServer() {
+      try {
+        server = new Server(listeningPort);
+        ServerConnector connector = new ServerConnector(server);
+        connector.setHost("localhost");
+        server.addConnector(connector);
+        server.setHandler(new JettyResponseHandler());
+        server.start();
+      } catch (Exception e) {
+        throw new RuntimeException(e);
       }
 
-      return newResponse();
     }
 
-    private Response newResponse() {
-      return new Response(
-          Response.Status.OK,
-          NanoHTTPD.MIME_HTML,
-          new ByteArrayInputStream(CLOSE_BROWSER_HTML),
-          CLOSE_BROWSER_HTML.length) {
-        @Override
-        public void close() throws IOException {
-          super.close();
-          countDownLatch.countDown();
-        }
-      };
+    private void stopJettyServer() {
+      try {
+        server.stop();
+      } catch (Exception e) {
+        throw new RuntimeException(e);
+      }
+    }
+
+  private class JettyResponseHandler extends AbstractHandler {
+
+    @Override
+    public void handle(String target, Request baseRequest, HttpServletRequest request,
+                       HttpServletResponse response) throws IOException, ServletException {
+
+      synchronized (lockObj) {
+        error = request.getParameter("error");
+        accessKeyId = request.getParameter("accessKeyId");
+        privateKey = request.getParameter("privateKey");
+      }
+      response.setStatus(HttpServletResponse.SC_OK);
+      response.setContentType("text/html");
+      ServletOutputStream out = response.getOutputStream();
+      out.print(CLOSE_BROWSER_HTML);
+      out.flush();
+      countDownLatch.countDown();
     }
   }
+
 }

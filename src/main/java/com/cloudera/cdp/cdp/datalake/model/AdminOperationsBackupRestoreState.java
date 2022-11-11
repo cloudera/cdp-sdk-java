@@ -28,7 +28,7 @@ import com.cloudera.cdp.datalake.model.BackupRestoreOperationStatus;
 /**
  * The state of Cloudera Manager admin operations.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-10-06T10:34:44.045-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:32.277-08:00")
 public class AdminOperationsBackupRestoreState  {
 
   /**
@@ -40,6 +40,16 @@ public class AdminOperationsBackupRestoreState  {
    * The status of the start services operation this is triggered after the backup/restore is complete.
    **/
   private BackupRestoreOperationStatus startServices = null;
+
+  /**
+   * Validate storage permissions before running a backup/restore.
+   **/
+  private BackupRestoreOperationStatus precheckStoragePermission = null;
+
+  /**
+   * Run the ranger audit collection validation in the backup precheck.
+   **/
+  private BackupRestoreOperationStatus rangerAuditCollectionValidation = null;
 
   /**
    * Getter for stopServices.
@@ -75,6 +85,40 @@ public class AdminOperationsBackupRestoreState  {
     this.startServices = startServices;
   }
 
+  /**
+   * Getter for precheckStoragePermission.
+   * Validate storage permissions before running a backup/restore.
+   **/
+  @JsonProperty("precheckStoragePermission")
+  public BackupRestoreOperationStatus getPrecheckStoragePermission() {
+    return precheckStoragePermission;
+  }
+
+  /**
+   * Setter for precheckStoragePermission.
+   * Validate storage permissions before running a backup/restore.
+   **/
+  public void setPrecheckStoragePermission(BackupRestoreOperationStatus precheckStoragePermission) {
+    this.precheckStoragePermission = precheckStoragePermission;
+  }
+
+  /**
+   * Getter for rangerAuditCollectionValidation.
+   * Run the ranger audit collection validation in the backup precheck.
+   **/
+  @JsonProperty("rangerAuditCollectionValidation")
+  public BackupRestoreOperationStatus getRangerAuditCollectionValidation() {
+    return rangerAuditCollectionValidation;
+  }
+
+  /**
+   * Setter for rangerAuditCollectionValidation.
+   * Run the ranger audit collection validation in the backup precheck.
+   **/
+  public void setRangerAuditCollectionValidation(BackupRestoreOperationStatus rangerAuditCollectionValidation) {
+    this.rangerAuditCollectionValidation = rangerAuditCollectionValidation;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -90,12 +134,18 @@ public class AdminOperationsBackupRestoreState  {
     if (!Objects.equals(this.startServices, adminOperationsBackupRestoreState.startServices)) {
       return false;
     }
+    if (!Objects.equals(this.precheckStoragePermission, adminOperationsBackupRestoreState.precheckStoragePermission)) {
+      return false;
+    }
+    if (!Objects.equals(this.rangerAuditCollectionValidation, adminOperationsBackupRestoreState.rangerAuditCollectionValidation)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(stopServices, startServices);
+    return Objects.hash(stopServices, startServices, precheckStoragePermission, rangerAuditCollectionValidation);
   }
 
   @Override
@@ -104,6 +154,8 @@ public class AdminOperationsBackupRestoreState  {
     sb.append("class AdminOperationsBackupRestoreState {\n");
     sb.append("    stopServices: ").append(toIndentedString(stopServices)).append("\n");
     sb.append("    startServices: ").append(toIndentedString(startServices)).append("\n");
+    sb.append("    precheckStoragePermission: ").append(toIndentedString(precheckStoragePermission)).append("\n");
+    sb.append("    rangerAuditCollectionValidation: ").append(toIndentedString(rangerAuditCollectionValidation)).append("\n");
     sb.append("}");
     return sb.toString();
   }

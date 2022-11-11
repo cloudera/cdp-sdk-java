@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for the CreateWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-10-06T10:34:43.886-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:32.135-08:00")
 public class CreateWorkspaceRequest  {
 
   /**
@@ -102,6 +102,16 @@ public class CreateWorkspaceRequest  {
    * The whitelist of CIDR blocks which can access the API server.
    **/
   private List<String> authorizedIPRanges = new ArrayList<String>();
+
+  /**
+   * Skip pre-flight validations if requested
+   **/
+  private Boolean skipValidation = null;
+
+  /**
+   * The list of subnets used for the load balancer that CML creates.
+   **/
+  private List<String> subnetsForLoadBalancers = new ArrayList<String>();
 
   /**
    * The static subdomain to be used for the workspace.
@@ -347,6 +357,40 @@ public class CreateWorkspaceRequest  {
   }
 
   /**
+   * Getter for skipValidation.
+   * Skip pre-flight validations if requested
+   **/
+  @JsonProperty("skipValidation")
+  public Boolean getSkipValidation() {
+    return skipValidation;
+  }
+
+  /**
+   * Setter for skipValidation.
+   * Skip pre-flight validations if requested
+   **/
+  public void setSkipValidation(Boolean skipValidation) {
+    this.skipValidation = skipValidation;
+  }
+
+  /**
+   * Getter for subnetsForLoadBalancers.
+   * The list of subnets used for the load balancer that CML creates.
+   **/
+  @JsonProperty("subnetsForLoadBalancers")
+  public List<String> getSubnetsForLoadBalancers() {
+    return subnetsForLoadBalancers;
+  }
+
+  /**
+   * Setter for subnetsForLoadBalancers.
+   * The list of subnets used for the load balancer that CML creates.
+   **/
+  public void setSubnetsForLoadBalancers(List<String> subnetsForLoadBalancers) {
+    this.subnetsForLoadBalancers = subnetsForLoadBalancers;
+  }
+
+  /**
    * Getter for staticSubdomain.
    * The static subdomain to be used for the workspace.
    **/
@@ -414,6 +458,12 @@ public class CreateWorkspaceRequest  {
     if (!Objects.equals(this.authorizedIPRanges, createWorkspaceRequest.authorizedIPRanges)) {
       return false;
     }
+    if (!Objects.equals(this.skipValidation, createWorkspaceRequest.skipValidation)) {
+      return false;
+    }
+    if (!Objects.equals(this.subnetsForLoadBalancers, createWorkspaceRequest.subnetsForLoadBalancers)) {
+      return false;
+    }
     if (!Objects.equals(this.staticSubdomain, createWorkspaceRequest.staticSubdomain)) {
       return false;
     }
@@ -422,7 +472,7 @@ public class CreateWorkspaceRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, workspaceName, usePublicLoadBalancer, disableTLS, provisionK8sRequest, enableMonitoring, enableGovernance, existingNFS, loadBalancerIPWhitelists, nfsVersion, enableModelMetrics, existingDatabaseConfig, whitelistAuthorizedIPRanges, authorizedIPRanges, staticSubdomain);
+    return Objects.hash(environmentName, workspaceName, usePublicLoadBalancer, disableTLS, provisionK8sRequest, enableMonitoring, enableGovernance, existingNFS, loadBalancerIPWhitelists, nfsVersion, enableModelMetrics, existingDatabaseConfig, whitelistAuthorizedIPRanges, authorizedIPRanges, skipValidation, subnetsForLoadBalancers, staticSubdomain);
   }
 
   @Override
@@ -443,6 +493,8 @@ public class CreateWorkspaceRequest  {
     sb.append("    existingDatabaseConfig: ").append(toIndentedString(existingDatabaseConfig)).append("\n");
     sb.append("    whitelistAuthorizedIPRanges: ").append(toIndentedString(whitelistAuthorizedIPRanges)).append("\n");
     sb.append("    authorizedIPRanges: ").append(toIndentedString(authorizedIPRanges)).append("\n");
+    sb.append("    skipValidation: ").append(toIndentedString(skipValidation)).append("\n");
+    sb.append("    subnetsForLoadBalancers: ").append(toIndentedString(subnetsForLoadBalancers)).append("\n");
     sb.append("    staticSubdomain: ").append(toIndentedString(staticSubdomain)).append("\n");
     sb.append("}");
     return sb.toString();

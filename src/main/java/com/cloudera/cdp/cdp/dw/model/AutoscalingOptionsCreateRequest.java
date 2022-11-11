@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Auto-scaling configuration for a Virtual Warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-10-06T10:34:43.431-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:31.643-08:00")
 public class AutoscalingOptionsCreateRequest  {
 
   /**
@@ -51,7 +51,7 @@ public class AutoscalingOptionsCreateRequest  {
   private Integer autoSuspendTimeoutSeconds = null;
 
   /**
-   * Enable Unified Analytics. In case of Hive Virtual Warehouses this cannot be provided, because this value is inferred. In case of Impala this can be set. Passing --query-isolation will be considered if this flag is set to true. If Unified Analytics enabled then the \"impalaEnableShutdownOfCoordinator\" explicitly disabled and should not be provided, furthermore the \"impalaHighAvailabilityMode\" cannot be set to ACTIVE_ACTIVE.
+   * Enable Unified Analytics. In case of Hive Virtual Warehouses this cannot be provided, because this value is inferred. In case of Impala this can be set. Passing --query-isolation-options will be considered if this flag is set to true. If Unified Analytics enabled then the \"impalaEnableShutdownOfCoordinator\" explicitly disabled and should not be provided, furthermore the \"impalaHighAvailabilityMode\" cannot be set to ACTIVE_ACTIVE.
    **/
   private Boolean enableUnifiedAnalytics = null;
 
@@ -170,7 +170,7 @@ public class AutoscalingOptionsCreateRequest  {
 
   /**
    * Getter for enableUnifiedAnalytics.
-   * Enable Unified Analytics. In case of Hive Virtual Warehouses this cannot be provided, because this value is inferred. In case of Impala this can be set. Passing --query-isolation will be considered if this flag is set to true. If Unified Analytics enabled then the \&quot;impalaEnableShutdownOfCoordinator\&quot; explicitly disabled and should not be provided, furthermore the \&quot;impalaHighAvailabilityMode\&quot; cannot be set to ACTIVE_ACTIVE.
+   * Enable Unified Analytics. In case of Hive Virtual Warehouses this cannot be provided, because this value is inferred. In case of Impala this can be set. Passing --query-isolation-options will be considered if this flag is set to true. If Unified Analytics enabled then the \&quot;impalaEnableShutdownOfCoordinator\&quot; explicitly disabled and should not be provided, furthermore the \&quot;impalaHighAvailabilityMode\&quot; cannot be set to ACTIVE_ACTIVE.
    **/
   @JsonProperty("enableUnifiedAnalytics")
   public Boolean getEnableUnifiedAnalytics() {
@@ -179,7 +179,7 @@ public class AutoscalingOptionsCreateRequest  {
 
   /**
    * Setter for enableUnifiedAnalytics.
-   * Enable Unified Analytics. In case of Hive Virtual Warehouses this cannot be provided, because this value is inferred. In case of Impala this can be set. Passing --query-isolation will be considered if this flag is set to true. If Unified Analytics enabled then the \&quot;impalaEnableShutdownOfCoordinator\&quot; explicitly disabled and should not be provided, furthermore the \&quot;impalaHighAvailabilityMode\&quot; cannot be set to ACTIVE_ACTIVE.
+   * Enable Unified Analytics. In case of Hive Virtual Warehouses this cannot be provided, because this value is inferred. In case of Impala this can be set. Passing --query-isolation-options will be considered if this flag is set to true. If Unified Analytics enabled then the \&quot;impalaEnableShutdownOfCoordinator\&quot; explicitly disabled and should not be provided, furthermore the \&quot;impalaHighAvailabilityMode\&quot; cannot be set to ACTIVE_ACTIVE.
    **/
   public void setEnableUnifiedAnalytics(Boolean enableUnifiedAnalytics) {
     this.enableUnifiedAnalytics = enableUnifiedAnalytics;

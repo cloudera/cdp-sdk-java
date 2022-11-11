@@ -3,7 +3,7 @@
 
   <groupId>com.cloudera.cdp</groupId>
   <artifactId>cdp-sdk-java</artifactId>
-  <version>0.9.73</version>
+  <version>0.9.74</version>
   <name>Cloudera CDP Java SDK</name>
   <packaging>jar</packaging>
 
@@ -28,7 +28,7 @@
     <guava.version>30.1.1-jre</guava.version>
     <hamcrest.version>2.2</hamcrest.version>
     <ini4j.version>0.5.4</ini4j.version>
-    <jackson-databind.version>2.13.4</jackson-databind.version>
+    <jackson-databind.version>2.13.4.1</jackson-databind.version>
     <jackson.version>2.13.4</jackson.version>
     <jakarta-annotation-api.version>1.3.5</jakarta-annotation-api.version>
     <jakarta-xml-bind-api.version>2.3.3</jakarta-xml-bind-api.version>
@@ -38,9 +38,9 @@
     <junit.jupiter.version>5.5.2</junit.jupiter.version>
     <junit.platform.version>1.5.2</junit.platform.version>
     <mockito.version>3.5.13</mockito.version>
-    <nanohttpd.version>2.3.1</nanohttpd.version>
     <slf4j-api.version>1.7.29</slf4j-api.version>
     <spotbugs.version>3.1.12</spotbugs.version>
+    <jetty.version>9.4.48.v20220622</jetty.version>
 
     <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
     <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
@@ -184,15 +184,15 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.nanohttpd</groupId>
-      <artifactId>nanohttpd</artifactId>
-      <version>${nanohttpd.version}</version>
-    </dependency>
-    <dependency>
       <groupId>com.github.spotbugs</groupId>
       <artifactId>spotbugs-annotations</artifactId>
       <version>${spotbugs.version}</version>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.jetty</groupId>
+      <artifactId>jetty-server</artifactId>
+      <version>${jetty.version}</version>
     </dependency>
   </dependencies>
 

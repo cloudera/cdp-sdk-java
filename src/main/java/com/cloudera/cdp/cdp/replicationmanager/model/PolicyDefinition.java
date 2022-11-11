@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Policy creation request definition.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-10-06T10:34:45.771-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:34.406-08:00")
 public class PolicyDefinition  {
 
   /**
@@ -115,7 +115,7 @@ public class PolicyDefinition  {
   private Boolean enableSnapshotBasedReplication = null;
 
   /**
-   * Cloud encryption algorithm.
+   * The type of cloud encryption algorithm. Can be used only for HDP/Ambari managed clusters. Supported values are AES256,SSE-KMS.
    **/
   private String cloudEncryptionAlgorithm = null;
 
@@ -413,7 +413,7 @@ public class PolicyDefinition  {
 
   /**
    * Getter for cloudEncryptionAlgorithm.
-   * Cloud encryption algorithm.
+   * The type of cloud encryption algorithm. Can be used only for HDP/Ambari managed clusters. Supported values are AES256,SSE-KMS.
    **/
   @JsonProperty("cloudEncryptionAlgorithm")
   public String getCloudEncryptionAlgorithm() {
@@ -422,7 +422,7 @@ public class PolicyDefinition  {
 
   /**
    * Setter for cloudEncryptionAlgorithm.
-   * Cloud encryption algorithm.
+   * The type of cloud encryption algorithm. Can be used only for HDP/Ambari managed clusters. Supported values are AES256,SSE-KMS.
    **/
   public void setCloudEncryptionAlgorithm(String cloudEncryptionAlgorithm) {
     this.cloudEncryptionAlgorithm = cloudEncryptionAlgorithm;

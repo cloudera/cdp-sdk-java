@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * A Virtual Warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-10-06T10:34:43.431-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:31.643-08:00")
 public class VwSummary  {
 
   /**
@@ -108,7 +108,7 @@ public class VwSummary  {
   private Boolean viz = null;
 
   /**
-   * The current settings stored for atuoscaling.
+   * The current settings stored for autoscaling.
    **/
   private AutoscalingOptionsResponse autoscalingOptions = null;
 
@@ -357,7 +357,7 @@ public class VwSummary  {
 
   /**
    * Getter for autoscalingOptions.
-   * The current settings stored for atuoscaling.
+   * The current settings stored for autoscaling.
    **/
   @JsonProperty("autoscalingOptions")
   public AutoscalingOptionsResponse getAutoscalingOptions() {
@@ -366,7 +366,7 @@ public class VwSummary  {
 
   /**
    * Setter for autoscalingOptions.
-   * The current settings stored for atuoscaling.
+   * The current settings stored for autoscaling.
    **/
   public void setAutoscalingOptions(AutoscalingOptionsResponse autoscalingOptions) {
     this.autoscalingOptions = autoscalingOptions;

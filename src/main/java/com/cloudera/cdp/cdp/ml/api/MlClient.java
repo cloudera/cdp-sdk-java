@@ -34,6 +34,8 @@ import com.cloudera.cdp.ml.model.CreateWorkspaceRequest;
 import com.cloudera.cdp.ml.model.CreateWorkspaceResponse;
 import com.cloudera.cdp.ml.model.DeleteBackupRequest;
 import com.cloudera.cdp.ml.model.DeleteBackupResponse;
+import com.cloudera.cdp.ml.model.DeleteInstanceGroupRequest;
+import com.cloudera.cdp.ml.model.DeleteInstanceGroupResponse;
 import com.cloudera.cdp.ml.model.DeleteWorkspaceRequest;
 import com.cloudera.cdp.ml.model.DeleteWorkspaceResponse;
 import com.cloudera.cdp.ml.model.DescribeWorkspaceRequest;
@@ -63,8 +65,12 @@ import com.cloudera.cdp.ml.model.ModifyWorkspaceLoadBalancerRequest;
 import com.cloudera.cdp.ml.model.ModifyWorkspaceLoadBalancerResponse;
 import com.cloudera.cdp.ml.model.RestoreWorkspaceRequest;
 import com.cloudera.cdp.ml.model.RestoreWorkspaceResponse;
+import com.cloudera.cdp.ml.model.ResumeWorkspaceRequest;
+import com.cloudera.cdp.ml.model.ResumeWorkspaceResponse;
 import com.cloudera.cdp.ml.model.RevokeWorkspaceAccessRequest;
 import com.cloudera.cdp.ml.model.RevokeWorkspaceAccessResponse;
+import com.cloudera.cdp.ml.model.SuspendWorkspaceRequest;
+import com.cloudera.cdp.ml.model.SuspendWorkspaceResponse;
 import com.cloudera.cdp.ml.model.UpgradeWorkspaceRequest;
 import com.cloudera.cdp.ml.model.UpgradeWorkspaceResponse;
 import java.util.ArrayList;
@@ -73,7 +79,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-10-06T10:34:43.886-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:32.135-08:00")
 public class MlClient extends CdpClient {
 
   public static final String SERVICE_NAME = "ml";
@@ -141,6 +147,19 @@ public class MlClient extends CdpClient {
     }
 
     return this.invokeAPI("deleteBackup", "/api/v1/ml/deleteBackup", input, new GenericType<DeleteBackupResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Deletes an instance group from the cluster.
+   * @param input
+   * @return DeleteInstanceGroupResponse
+   */
+  public DeleteInstanceGroupResponse deleteInstanceGroup(DeleteInstanceGroupRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteInstanceGroup");
+    }
+
+    return this.invokeAPI("deleteInstanceGroup", "/api/v1/ml/deleteInstanceGroup", input, new GenericType<DeleteInstanceGroupResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -326,6 +345,19 @@ public class MlClient extends CdpClient {
   }
 
   /**
+   * Resume Cloudera Machine Learning workspace.
+   * @param input
+   * @return ResumeWorkspaceResponse
+   */
+  public ResumeWorkspaceResponse resumeWorkspace(ResumeWorkspaceRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling resumeWorkspace");
+    }
+
+    return this.invokeAPI("resumeWorkspace", "/api/v1/ml/resumeWorkspace", input, new GenericType<ResumeWorkspaceResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * RevokeWorkspaceAccess Cloudera Machine Learning Workspace.
    * @param input
    * @return RevokeWorkspaceAccessResponse
@@ -336,6 +368,19 @@ public class MlClient extends CdpClient {
     }
 
     return this.invokeAPI("revokeWorkspaceAccess", "/api/v1/ml/revokeWorkspaceAccess", input, new GenericType<RevokeWorkspaceAccessResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Suspend Cloudera Machine Learning workspace.
+   * @param input
+   * @return SuspendWorkspaceResponse
+   */
+  public SuspendWorkspaceResponse suspendWorkspace(SuspendWorkspaceRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling suspendWorkspace");
+    }
+
+    return this.invokeAPI("suspendWorkspace", "/api/v1/ml/suspendWorkspace", input, new GenericType<SuspendWorkspaceResponse>(){}, NO_EXTENSION);
   }
 
   /**

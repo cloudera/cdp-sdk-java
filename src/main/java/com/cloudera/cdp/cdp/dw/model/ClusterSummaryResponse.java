@@ -31,7 +31,7 @@ import java.time.ZonedDateTime;
 /**
  * A Cloudera Data Warehouse cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-10-06T10:34:43.431-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:31.643-08:00")
 public class ClusterSummaryResponse extends CdpResponse {
 
   /**

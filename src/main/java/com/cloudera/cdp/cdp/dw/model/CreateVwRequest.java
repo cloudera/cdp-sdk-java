@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * Request object for the createVw method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-10-06T10:34:43.431-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:31.643-08:00")
 public class CreateVwRequest  {
 
   /**
@@ -81,7 +81,7 @@ public class CreateVwRequest  {
   private ServiceConfigReq config = null;
 
   /**
-   * Query isolation settings for the Virtual Warehouse.
+   * Query isolation settings for the Virtual Warehouse. For Impala this value will be considered only if Unified Analytics is enabled.
    **/
   private QueryIsolationOptionsRequest queryIsolationOptions = null;
 
@@ -245,7 +245,7 @@ public class CreateVwRequest  {
 
   /**
    * Getter for queryIsolationOptions.
-   * Query isolation settings for the Virtual Warehouse.
+   * Query isolation settings for the Virtual Warehouse. For Impala this value will be considered only if Unified Analytics is enabled.
    **/
   @JsonProperty("queryIsolationOptions")
   public QueryIsolationOptionsRequest getQueryIsolationOptions() {
@@ -254,7 +254,7 @@ public class CreateVwRequest  {
 
   /**
    * Setter for queryIsolationOptions.
-   * Query isolation settings for the Virtual Warehouse.
+   * Query isolation settings for the Virtual Warehouse. For Impala this value will be considered only if Unified Analytics is enabled.
    **/
   public void setQueryIsolationOptions(QueryIsolationOptionsRequest queryIsolationOptions) {
     this.queryIsolationOptions = queryIsolationOptions;
