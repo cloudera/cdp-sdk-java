@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * A ML workspace, which includes the cluster and storage.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:32.135-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:17.100-08:00")
 public class Workspace  {
 
   /**
@@ -158,7 +158,7 @@ public class Workspace  {
   private List<String> subnets = new ArrayList<String>();
 
   /**
-   * Whether to whitelist only authorizedIPRanges given or all public IPs.
+   * Whether to whitelist only 'authorizedIPRanges' given or all public IPs.
    **/
   private Boolean whitelistAuthorizedIPRanges = null;
 
@@ -607,7 +607,7 @@ public class Workspace  {
 
   /**
    * Getter for whitelistAuthorizedIPRanges.
-   * Whether to whitelist only authorizedIPRanges given or all public IPs.
+   * Whether to whitelist only &#39;authorizedIPRanges&#39; given or all public IPs.
    **/
   @JsonProperty("whitelistAuthorizedIPRanges")
   public Boolean getWhitelistAuthorizedIPRanges() {
@@ -616,7 +616,7 @@ public class Workspace  {
 
   /**
    * Setter for whitelistAuthorizedIPRanges.
-   * Whether to whitelist only authorizedIPRanges given or all public IPs.
+   * Whether to whitelist only &#39;authorizedIPRanges&#39; given or all public IPs.
    **/
   public void setWhitelistAuthorizedIPRanges(Boolean whitelistAuthorizedIPRanges) {
     this.whitelistAuthorizedIPRanges = whitelistAuthorizedIPRanges;

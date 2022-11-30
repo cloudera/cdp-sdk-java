@@ -30,7 +30,7 @@ import java.util.Map;
 /**
  * Request object for the createDbcDiagnosticDataJob method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:31.643-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:16.656-08:00")
 public class CreateDbcDiagnosticDataJobRequest  {
 
   /**
@@ -44,27 +44,27 @@ public class CreateDbcDiagnosticDataJobRequest  {
   private String dbcId = null;
 
   /**
-   * The resulting bundle will contain logs/metrics after the specified start time.
-   **/
-  private ZonedDateTime startTime = null;
-
-  /**
-   * The resulting bundle will contain logs/metrics before the specified end time.
-   **/
-  private ZonedDateTime endTime = null;
-
-  /**
    * Destination of the diagnostics collection.
    **/
   private String destination = null;
 
   /**
-   * Optional support case number in case of SUPPORT destination, otherwise only act as additional data.
+   * The resulting bundle will contain logs/metrics after the specified start time. If not indicated, then 30 minutes ago from now is taken as the start time.
+   **/
+  private ZonedDateTime startTime = null;
+
+  /**
+   * The resulting bundle will contain logs/metrics before the specified end time. If not indicated, then the current time is taken as the end time.
+   **/
+  private ZonedDateTime endTime = null;
+
+  /**
+   * Optional support case number in case of UPLOAD_TO_CLOUDERA destination, otherwise only act as additional data.
    **/
   private String caseNumber = null;
 
   /**
-   * Metadata information which is attached to bundle-info.json when posting the bundle.
+   * Additional user-defined metadata information which is attached to resulting bundle-info.json when posting the bundle.
    **/
   private Map<String, String> bundleMetadata = new HashMap<String, String>();
 
@@ -108,40 +108,6 @@ public class CreateDbcDiagnosticDataJobRequest  {
   }
 
   /**
-   * Getter for startTime.
-   * The resulting bundle will contain logs/metrics after the specified start time.
-   **/
-  @JsonProperty("startTime")
-  public ZonedDateTime getStartTime() {
-    return startTime;
-  }
-
-  /**
-   * Setter for startTime.
-   * The resulting bundle will contain logs/metrics after the specified start time.
-   **/
-  public void setStartTime(ZonedDateTime startTime) {
-    this.startTime = startTime;
-  }
-
-  /**
-   * Getter for endTime.
-   * The resulting bundle will contain logs/metrics before the specified end time.
-   **/
-  @JsonProperty("endTime")
-  public ZonedDateTime getEndTime() {
-    return endTime;
-  }
-
-  /**
-   * Setter for endTime.
-   * The resulting bundle will contain logs/metrics before the specified end time.
-   **/
-  public void setEndTime(ZonedDateTime endTime) {
-    this.endTime = endTime;
-  }
-
-  /**
    * Getter for destination.
    * Destination of the diagnostics collection.
    **/
@@ -159,8 +125,42 @@ public class CreateDbcDiagnosticDataJobRequest  {
   }
 
   /**
+   * Getter for startTime.
+   * The resulting bundle will contain logs/metrics after the specified start time. If not indicated, then 30 minutes ago from now is taken as the start time.
+   **/
+  @JsonProperty("startTime")
+  public ZonedDateTime getStartTime() {
+    return startTime;
+  }
+
+  /**
+   * Setter for startTime.
+   * The resulting bundle will contain logs/metrics after the specified start time. If not indicated, then 30 minutes ago from now is taken as the start time.
+   **/
+  public void setStartTime(ZonedDateTime startTime) {
+    this.startTime = startTime;
+  }
+
+  /**
+   * Getter for endTime.
+   * The resulting bundle will contain logs/metrics before the specified end time. If not indicated, then the current time is taken as the end time.
+   **/
+  @JsonProperty("endTime")
+  public ZonedDateTime getEndTime() {
+    return endTime;
+  }
+
+  /**
+   * Setter for endTime.
+   * The resulting bundle will contain logs/metrics before the specified end time. If not indicated, then the current time is taken as the end time.
+   **/
+  public void setEndTime(ZonedDateTime endTime) {
+    this.endTime = endTime;
+  }
+
+  /**
    * Getter for caseNumber.
-   * Optional support case number in case of SUPPORT destination, otherwise only act as additional data.
+   * Optional support case number in case of UPLOAD_TO_CLOUDERA destination, otherwise only act as additional data.
    **/
   @JsonProperty("caseNumber")
   public String getCaseNumber() {
@@ -169,7 +169,7 @@ public class CreateDbcDiagnosticDataJobRequest  {
 
   /**
    * Setter for caseNumber.
-   * Optional support case number in case of SUPPORT destination, otherwise only act as additional data.
+   * Optional support case number in case of UPLOAD_TO_CLOUDERA destination, otherwise only act as additional data.
    **/
   public void setCaseNumber(String caseNumber) {
     this.caseNumber = caseNumber;
@@ -177,7 +177,7 @@ public class CreateDbcDiagnosticDataJobRequest  {
 
   /**
    * Getter for bundleMetadata.
-   * Metadata information which is attached to bundle-info.json when posting the bundle.
+   * Additional user-defined metadata information which is attached to resulting bundle-info.json when posting the bundle.
    **/
   @JsonProperty("bundleMetadata")
   public Map<String, String> getBundleMetadata() {
@@ -186,7 +186,7 @@ public class CreateDbcDiagnosticDataJobRequest  {
 
   /**
    * Setter for bundleMetadata.
-   * Metadata information which is attached to bundle-info.json when posting the bundle.
+   * Additional user-defined metadata information which is attached to resulting bundle-info.json when posting the bundle.
    **/
   public void setBundleMetadata(Map<String, String> bundleMetadata) {
     this.bundleMetadata = bundleMetadata;
@@ -224,13 +224,13 @@ public class CreateDbcDiagnosticDataJobRequest  {
     if (!Objects.equals(this.dbcId, createDbcDiagnosticDataJobRequest.dbcId)) {
       return false;
     }
+    if (!Objects.equals(this.destination, createDbcDiagnosticDataJobRequest.destination)) {
+      return false;
+    }
     if (!Objects.equals(this.startTime, createDbcDiagnosticDataJobRequest.startTime)) {
       return false;
     }
     if (!Objects.equals(this.endTime, createDbcDiagnosticDataJobRequest.endTime)) {
-      return false;
-    }
-    if (!Objects.equals(this.destination, createDbcDiagnosticDataJobRequest.destination)) {
       return false;
     }
     if (!Objects.equals(this.caseNumber, createDbcDiagnosticDataJobRequest.caseNumber)) {
@@ -247,7 +247,7 @@ public class CreateDbcDiagnosticDataJobRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, dbcId, startTime, endTime, destination, caseNumber, bundleMetadata, force);
+    return Objects.hash(clusterId, dbcId, destination, startTime, endTime, caseNumber, bundleMetadata, force);
   }
 
   @Override
@@ -256,9 +256,9 @@ public class CreateDbcDiagnosticDataJobRequest  {
     sb.append("class CreateDbcDiagnosticDataJobRequest {\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    dbcId: ").append(toIndentedString(dbcId)).append("\n");
+    sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
-    sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
     sb.append("    caseNumber: ").append(toIndentedString(caseNumber)).append("\n");
     sb.append("    bundleMetadata: ").append(toIndentedString(bundleMetadata)).append("\n");
     sb.append("    force: ").append(toIndentedString(force)).append("\n");

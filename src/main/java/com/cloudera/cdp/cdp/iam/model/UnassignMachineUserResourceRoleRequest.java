@@ -27,11 +27,11 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for an unassign machine user role request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:33.423-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:18.734-08:00")
 public class UnassignMachineUserResourceRoleRequest  {
 
   /**
-   * The machine user to unassign the resource role from.
+   * The machine user to unassign the resource role from. Can be the machine user's name or CRN.
    **/
   private String machineUserName = null;
 
@@ -47,7 +47,7 @@ public class UnassignMachineUserResourceRoleRequest  {
 
   /**
    * Getter for machineUserName.
-   * The machine user to unassign the resource role from.
+   * The machine user to unassign the resource role from. Can be the machine user&#39;s name or CRN.
    **/
   @JsonProperty("machineUserName")
   public String getMachineUserName() {
@@ -56,7 +56,7 @@ public class UnassignMachineUserResourceRoleRequest  {
 
   /**
    * Setter for machineUserName.
-   * The machine user to unassign the resource role from.
+   * The machine user to unassign the resource role from. Can be the machine user&#39;s name or CRN.
    **/
   public void setMachineUserName(String machineUserName) {
     this.machineUserName = machineUserName;

@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for ModifyClusterSecurity.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:32.135-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:17.100-08:00")
 public class ModifyClusterSecurityRequest  {
 
   /**

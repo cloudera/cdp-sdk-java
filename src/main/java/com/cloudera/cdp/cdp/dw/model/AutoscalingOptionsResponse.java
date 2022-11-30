@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Auto-scaling configuration for a Virtual Warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:31.643-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:16.656-08:00")
 public class AutoscalingOptionsResponse extends CdpResponse {
 
   /**
@@ -94,6 +94,11 @@ public class AutoscalingOptionsResponse extends CdpResponse {
    * Delay in seconds before the shutdown of coordinator event happens.
    **/
   private Integer impalaShutdownOfCoordinatorDelaySeconds = null;
+
+  /**
+   * Denotes whether a backup instance for Impala catalog is enabled.
+   **/
+  private Boolean impalaEnableCatalogHighAvailability = null;
 
   /**
    * Name of the pod configuration.
@@ -322,6 +327,23 @@ public class AutoscalingOptionsResponse extends CdpResponse {
   }
 
   /**
+   * Getter for impalaEnableCatalogHighAvailability.
+   * Denotes whether a backup instance for Impala catalog is enabled.
+   **/
+  @JsonProperty("impalaEnableCatalogHighAvailability")
+  public Boolean getImpalaEnableCatalogHighAvailability() {
+    return impalaEnableCatalogHighAvailability;
+  }
+
+  /**
+   * Setter for impalaEnableCatalogHighAvailability.
+   * Denotes whether a backup instance for Impala catalog is enabled.
+   **/
+  public void setImpalaEnableCatalogHighAvailability(Boolean impalaEnableCatalogHighAvailability) {
+    this.impalaEnableCatalogHighAvailability = impalaEnableCatalogHighAvailability;
+  }
+
+  /**
    * Getter for podConfigName.
    * Name of the pod configuration.
    **/
@@ -386,6 +408,9 @@ public class AutoscalingOptionsResponse extends CdpResponse {
     if (!Objects.equals(this.impalaShutdownOfCoordinatorDelaySeconds, autoscalingOptionsResponse.impalaShutdownOfCoordinatorDelaySeconds)) {
       return false;
     }
+    if (!Objects.equals(this.impalaEnableCatalogHighAvailability, autoscalingOptionsResponse.impalaEnableCatalogHighAvailability)) {
+      return false;
+    }
     if (!Objects.equals(this.podConfigName, autoscalingOptionsResponse.podConfigName)) {
       return false;
     }
@@ -397,7 +422,7 @@ public class AutoscalingOptionsResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(minClusters, maxClusters, disableAutoSuspend, autoSuspendTimeoutSeconds, enableUnifiedAnalytics, hiveScaleWaitTimeSeconds, hiveDesiredFreeCapacity, impalaHighAvailabilityMode, impalaScaleUpDelaySeconds, impalaScaleDownDelaySeconds, impalaEnableShutdownOfCoordinator, impalaNumOfActiveCoordinators, impalaShutdownOfCoordinatorDelaySeconds, podConfigName, super.hashCode());
+    return Objects.hash(minClusters, maxClusters, disableAutoSuspend, autoSuspendTimeoutSeconds, enableUnifiedAnalytics, hiveScaleWaitTimeSeconds, hiveDesiredFreeCapacity, impalaHighAvailabilityMode, impalaScaleUpDelaySeconds, impalaScaleDownDelaySeconds, impalaEnableShutdownOfCoordinator, impalaNumOfActiveCoordinators, impalaShutdownOfCoordinatorDelaySeconds, impalaEnableCatalogHighAvailability, podConfigName, super.hashCode());
   }
 
   @Override
@@ -418,6 +443,7 @@ public class AutoscalingOptionsResponse extends CdpResponse {
     sb.append("    impalaEnableShutdownOfCoordinator: ").append(toIndentedString(impalaEnableShutdownOfCoordinator)).append("\n");
     sb.append("    impalaNumOfActiveCoordinators: ").append(toIndentedString(impalaNumOfActiveCoordinators)).append("\n");
     sb.append("    impalaShutdownOfCoordinatorDelaySeconds: ").append(toIndentedString(impalaShutdownOfCoordinatorDelaySeconds)).append("\n");
+    sb.append("    impalaEnableCatalogHighAvailability: ").append(toIndentedString(impalaEnableCatalogHighAvailability)).append("\n");
     sb.append("    podConfigName: ").append(toIndentedString(podConfigName)).append("\n");
     sb.append("}");
     return sb.toString();

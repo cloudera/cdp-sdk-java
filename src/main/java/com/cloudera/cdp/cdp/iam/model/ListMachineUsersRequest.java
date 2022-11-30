@@ -28,11 +28,11 @@ import java.util.*;
 /**
  * Request object for a list machine users request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:33.423-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:18.734-08:00")
 public class ListMachineUsersRequest  {
 
   /**
-   * The machine user names or CRNs of the macihne users. If not provided all machine users for the account are retrieved.
+   * The names or the CRNs of the machine users. If not provided all machine users for the account are retrieved.
    **/
   private List<String> machineUserNames = new ArrayList<String>();
 
@@ -48,7 +48,7 @@ public class ListMachineUsersRequest  {
 
   /**
    * Getter for machineUserNames.
-   * The machine user names or CRNs of the macihne users. If not provided all machine users for the account are retrieved.
+   * The names or the CRNs of the machine users. If not provided all machine users for the account are retrieved.
    **/
   @JsonProperty("machineUserNames")
   public List<String> getMachineUserNames() {
@@ -57,7 +57,7 @@ public class ListMachineUsersRequest  {
 
   /**
    * Setter for machineUserNames.
-   * The machine user names or CRNs of the macihne users. If not provided all machine users for the account are retrieved.
+   * The names or the CRNs of the machine users. If not provided all machine users for the account are retrieved.
    **/
   public void setMachineUserNames(List<String> machineUserNames) {
     this.machineUserNames = machineUserNames;

@@ -29,7 +29,7 @@ import java.time.ZonedDateTime;
 /**
  * A Database Catalog.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:31.643-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:16.656-08:00")
 public class DbcSummary  {
 
   /**
@@ -51,6 +51,11 @@ public class DbcSummary  {
    * Status of the Database Catalog.
    **/
   private String status = null;
+
+  /**
+   * Timestamp of the last status change of the Database Catalog.
+   **/
+  private ZonedDateTime statusChangedAt = null;
 
   /**
    * The creator of the Database Catalog.
@@ -131,6 +136,23 @@ public class DbcSummary  {
   }
 
   /**
+   * Getter for statusChangedAt.
+   * Timestamp of the last status change of the Database Catalog.
+   **/
+  @JsonProperty("statusChangedAt")
+  public ZonedDateTime getStatusChangedAt() {
+    return statusChangedAt;
+  }
+
+  /**
+   * Setter for statusChangedAt.
+   * Timestamp of the last status change of the Database Catalog.
+   **/
+  public void setStatusChangedAt(ZonedDateTime statusChangedAt) {
+    this.statusChangedAt = statusChangedAt;
+  }
+
+  /**
    * Getter for creator.
    * The creator of the Database Catalog.
    **/
@@ -185,6 +207,9 @@ public class DbcSummary  {
     if (!Objects.equals(this.status, dbcSummary.status)) {
       return false;
     }
+    if (!Objects.equals(this.statusChangedAt, dbcSummary.statusChangedAt)) {
+      return false;
+    }
     if (!Objects.equals(this.creator, dbcSummary.creator)) {
       return false;
     }
@@ -196,7 +221,7 @@ public class DbcSummary  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, name, status, creator, creationDate);
+    return Objects.hash(crn, id, name, status, statusChangedAt, creator, creationDate);
   }
 
   @Override
@@ -207,6 +232,7 @@ public class DbcSummary  {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    statusChangedAt: ").append(toIndentedString(statusChangedAt)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("}");

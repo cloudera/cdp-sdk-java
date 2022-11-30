@@ -28,7 +28,7 @@ import com.cloudera.cdp.iam.model.MachineUser;
 /**
  * Response object for create machine user request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:33.423-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:18.734-08:00")
 public class CreateMachineUserResponse extends CdpResponse {
 
   /**

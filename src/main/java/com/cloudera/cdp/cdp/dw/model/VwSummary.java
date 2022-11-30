@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * A Virtual Warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:31.643-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:16.656-08:00")
 public class VwSummary  {
 
   /**
@@ -66,6 +66,11 @@ public class VwSummary  {
    * Status of the Virtual Warehouse.
    **/
   private String status = null;
+
+  /**
+   * Timestamp of the last status change of the Virtual Warehouse.
+   **/
+  private ZonedDateTime statusChangedAt = null;
 
   /**
    * The creator of the Virtual Warehouse.
@@ -217,6 +222,23 @@ public class VwSummary  {
    **/
   public void setStatus(String status) {
     this.status = status;
+  }
+
+  /**
+   * Getter for statusChangedAt.
+   * Timestamp of the last status change of the Virtual Warehouse.
+   **/
+  @JsonProperty("statusChangedAt")
+  public ZonedDateTime getStatusChangedAt() {
+    return statusChangedAt;
+  }
+
+  /**
+   * Setter for statusChangedAt.
+   * Timestamp of the last status change of the Virtual Warehouse.
+   **/
+  public void setStatusChangedAt(ZonedDateTime statusChangedAt) {
+    this.statusChangedAt = statusChangedAt;
   }
 
   /**
@@ -416,6 +438,9 @@ public class VwSummary  {
     if (!Objects.equals(this.status, vwSummary.status)) {
       return false;
     }
+    if (!Objects.equals(this.statusChangedAt, vwSummary.statusChangedAt)) {
+      return false;
+    }
     if (!Objects.equals(this.creator, vwSummary.creator)) {
       return false;
     }
@@ -451,7 +476,7 @@ public class VwSummary  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, name, vwType, dbcId, status, creator, creationDate, configId, cdhVersion, endpoints, tags, compactor, viz, autoscalingOptions, queryIsolationOptions);
+    return Objects.hash(crn, id, name, vwType, dbcId, status, statusChangedAt, creator, creationDate, configId, cdhVersion, endpoints, tags, compactor, viz, autoscalingOptions, queryIsolationOptions);
   }
 
   @Override
@@ -464,6 +489,7 @@ public class VwSummary  {
     sb.append("    vwType: ").append(toIndentedString(vwType)).append("\n");
     sb.append("    dbcId: ").append(toIndentedString(dbcId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    statusChangedAt: ").append(toIndentedString(statusChangedAt)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    configId: ").append(toIndentedString(configId)).append("\n");

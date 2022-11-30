@@ -23,11 +23,12 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import java.util.*;
 
 /**
  * Options for activating an Azure environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:31.643-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:16.656-08:00")
 public class AzureActivationOptions  {
 
   /**
@@ -49,6 +50,11 @@ public class AzureActivationOptions  {
    * DEPRECATED in favour of compute-instance-types. The generation type of the virtual machines used to create the environment.
    **/
   private String vmGenerationType = null;
+
+  /**
+   * Azure compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values and the default value used for the case it is not provided.
+   **/
+  private List<String> computeInstanceTypes = new ArrayList<String>();
 
   /**
    * Enable monitoring of Azure Kubernetes Service (AKS) cluster. Workspace ID for Azure log analytics.
@@ -153,6 +159,23 @@ public class AzureActivationOptions  {
   @Deprecated
   public void setVmGenerationType(String vmGenerationType) {
     this.vmGenerationType = vmGenerationType;
+  }
+
+  /**
+   * Getter for computeInstanceTypes.
+   * Azure compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values and the default value used for the case it is not provided.
+   **/
+  @JsonProperty("computeInstanceTypes")
+  public List<String> getComputeInstanceTypes() {
+    return computeInstanceTypes;
+  }
+
+  /**
+   * Setter for computeInstanceTypes.
+   * Azure compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values and the default value used for the case it is not provided.
+   **/
+  public void setComputeInstanceTypes(List<String> computeInstanceTypes) {
+    this.computeInstanceTypes = computeInstanceTypes;
   }
 
   /**
@@ -295,6 +318,9 @@ public class AzureActivationOptions  {
     if (!Objects.equals(this.vmGenerationType, azureActivationOptions.vmGenerationType)) {
       return false;
     }
+    if (!Objects.equals(this.computeInstanceTypes, azureActivationOptions.computeInstanceTypes)) {
+      return false;
+    }
     if (!Objects.equals(this.logAnalyticsWorkspaceId, azureActivationOptions.logAnalyticsWorkspaceId)) {
       return false;
     }
@@ -321,7 +347,7 @@ public class AzureActivationOptions  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(subnetId, enableAZ, enableSpotInstances, vmGenerationType, logAnalyticsWorkspaceId, dockerBridgeCidr, outboundType, enablePrivateSQL, privateDNSZoneAKS, enablePrivateAks, enableUptimeSLA);
+    return Objects.hash(subnetId, enableAZ, enableSpotInstances, vmGenerationType, computeInstanceTypes, logAnalyticsWorkspaceId, dockerBridgeCidr, outboundType, enablePrivateSQL, privateDNSZoneAKS, enablePrivateAks, enableUptimeSLA);
   }
 
   @Override
@@ -332,6 +358,7 @@ public class AzureActivationOptions  {
     sb.append("    enableAZ: ").append(toIndentedString(enableAZ)).append("\n");
     sb.append("    enableSpotInstances: ").append(toIndentedString(enableSpotInstances)).append("\n");
     sb.append("    vmGenerationType: ").append(toIndentedString(vmGenerationType)).append("\n");
+    sb.append("    computeInstanceTypes: ").append(toIndentedString(computeInstanceTypes)).append("\n");
     sb.append("    logAnalyticsWorkspaceId: ").append(toIndentedString(logAnalyticsWorkspaceId)).append("\n");
     sb.append("    dockerBridgeCidr: ").append(toIndentedString(dockerBridgeCidr)).append("\n");
     sb.append("    outboundType: ").append(toIndentedString(outboundType)).append("\n");

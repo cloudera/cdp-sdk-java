@@ -97,6 +97,8 @@ import com.cloudera.cdp.datalake.model.StartDatabaseUpgradeRequest;
 import com.cloudera.cdp.datalake.model.StartDatabaseUpgradeResponse;
 import com.cloudera.cdp.datalake.model.StartDatalakeRequest;
 import com.cloudera.cdp.datalake.model.StartDatalakeResponse;
+import com.cloudera.cdp.datalake.model.StartDatalakeVerticalScalingRequest;
+import com.cloudera.cdp.datalake.model.StartDatalakeVerticalScalingResponse;
 import com.cloudera.cdp.datalake.model.StopDatalakeRequest;
 import com.cloudera.cdp.datalake.model.StopDatalakeResponse;
 import com.cloudera.cdp.datalake.model.SyncComponentVersionsFromCmRequest;
@@ -109,7 +111,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:32.277-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:17.341-08:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datalake";
@@ -580,6 +582,19 @@ public class DatalakeClient extends CdpClient {
     }
 
     return this.invokeAPI("startDatalake", "/api/v1/datalake/startDatalake", input, new GenericType<StartDatalakeResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Initiates the vertical scaling on Data Lake.
+   * @param input
+   * @return StartDatalakeVerticalScalingResponse
+   */
+  public StartDatalakeVerticalScalingResponse startDatalakeVerticalScaling(StartDatalakeVerticalScalingRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling startDatalakeVerticalScaling");
+    }
+
+    return this.invokeAPI("startDatalakeVerticalScaling", "/api/v1/datalake/startDatalakeVerticalScaling", input, new GenericType<StartDatalakeVerticalScalingResponse>(){}, NO_EXTENSION);
   }
 
   /**

@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * A Cloudera Machine Learning workspace which includes the deployed configuration details.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:32.135-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:17.100-08:00")
 public class WorkspaceSummary  {
 
   /**
@@ -101,7 +101,7 @@ public class WorkspaceSummary  {
   private Boolean monitoringEnabled = null;
 
   /**
-   * The whitelist of ips for loadBalancer.
+   * The whitelist of IPs for load balancer.
    **/
   private List<String> loadBalancerIPWhitelists = new ArrayList<String>();
 
@@ -368,7 +368,7 @@ public class WorkspaceSummary  {
 
   /**
    * Getter for loadBalancerIPWhitelists.
-   * The whitelist of ips for loadBalancer.
+   * The whitelist of IPs for load balancer.
    **/
   @JsonProperty("loadBalancerIPWhitelists")
   public List<String> getLoadBalancerIPWhitelists() {
@@ -377,7 +377,7 @@ public class WorkspaceSummary  {
 
   /**
    * Setter for loadBalancerIPWhitelists.
-   * The whitelist of ips for loadBalancer.
+   * The whitelist of IPs for load balancer.
    **/
   public void setLoadBalancerIPWhitelists(List<String> loadBalancerIPWhitelists) {
     this.loadBalancerIPWhitelists = loadBalancerIPWhitelists;

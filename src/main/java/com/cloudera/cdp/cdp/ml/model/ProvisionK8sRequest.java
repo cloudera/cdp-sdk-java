@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object for workspace provision.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:32.135-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:17.100-08:00")
 public class ProvisionK8sRequest  {
 
   /**
@@ -40,7 +40,7 @@ public class ProvisionK8sRequest  {
   private List<InstanceGroup> instanceGroups = new ArrayList<InstanceGroup>();
 
   /**
-   * The environment for the workspace to create.
+   * The name of the environment for the workspace to create.
    **/
   private String environmentName = null;
 
@@ -73,7 +73,7 @@ public class ProvisionK8sRequest  {
 
   /**
    * Getter for environmentName.
-   * The environment for the workspace to create.
+   * The name of the environment for the workspace to create.
    **/
   @JsonProperty("environmentName")
   public String getEnvironmentName() {
@@ -82,7 +82,7 @@ public class ProvisionK8sRequest  {
 
   /**
    * Setter for environmentName.
-   * The environment for the workspace to create.
+   * The name of the environment for the workspace to create.
    **/
   public void setEnvironmentName(String environmentName) {
     this.environmentName = environmentName;

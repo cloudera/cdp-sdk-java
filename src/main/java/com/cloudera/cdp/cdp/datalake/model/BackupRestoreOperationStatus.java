@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Contains the status and failure reason of an operation.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:32.277-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:17.341-08:00")
 public class BackupRestoreOperationStatus  {
 
   /**
@@ -39,6 +39,11 @@ public class BackupRestoreOperationStatus  {
    * The failure reason if the operation was not successful.
    **/
   private String failureReason = null;
+
+  /**
+   * The duration of each operation, in minutes.
+   **/
+  private String durationInMinutes = null;
 
   /**
    * Getter for status.
@@ -74,6 +79,23 @@ public class BackupRestoreOperationStatus  {
     this.failureReason = failureReason;
   }
 
+  /**
+   * Getter for durationInMinutes.
+   * The duration of each operation, in minutes.
+   **/
+  @JsonProperty("durationInMinutes")
+  public String getDurationInMinutes() {
+    return durationInMinutes;
+  }
+
+  /**
+   * Setter for durationInMinutes.
+   * The duration of each operation, in minutes.
+   **/
+  public void setDurationInMinutes(String durationInMinutes) {
+    this.durationInMinutes = durationInMinutes;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -89,12 +111,15 @@ public class BackupRestoreOperationStatus  {
     if (!Objects.equals(this.failureReason, backupRestoreOperationStatus.failureReason)) {
       return false;
     }
+    if (!Objects.equals(this.durationInMinutes, backupRestoreOperationStatus.durationInMinutes)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, failureReason);
+    return Objects.hash(status, failureReason, durationInMinutes);
   }
 
   @Override
@@ -103,6 +128,7 @@ public class BackupRestoreOperationStatus  {
     sb.append("class BackupRestoreOperationStatus {\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
+    sb.append("    durationInMinutes: ").append(toIndentedString(durationInMinutes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

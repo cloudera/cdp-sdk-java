@@ -127,6 +127,8 @@ import com.cloudera.cdp.environments.model.SetTelemetryFeaturesRequest;
 import com.cloudera.cdp.environments.model.SetTelemetryFeaturesResponse;
 import com.cloudera.cdp.environments.model.StartEnvironmentRequest;
 import com.cloudera.cdp.environments.model.StartEnvironmentResponse;
+import com.cloudera.cdp.environments.model.StartFreeIpaVerticalScalingRequest;
+import com.cloudera.cdp.environments.model.StartFreeIpaVerticalScalingResponse;
 import com.cloudera.cdp.environments.model.StopEnvironmentRequest;
 import com.cloudera.cdp.environments.model.StopEnvironmentResponse;
 import com.cloudera.cdp.environments.model.SyncAllUsersRequest;
@@ -153,7 +155,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:32.513-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:17.865-08:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -819,6 +821,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("startEnvironment", "/api/v1/environments2/startEnvironment", input, new GenericType<StartEnvironmentResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Initiates the vertical scaling on FreeIPA.
+   * @param input
+   * @return StartFreeIpaVerticalScalingResponse
+   */
+  public StartFreeIpaVerticalScalingResponse startFreeIpaVerticalScaling(StartFreeIpaVerticalScalingRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling startFreeIpaVerticalScaling");
+    }
+
+    return this.invokeAPI("startFreeIpaVerticalScaling", "/api/v1/environments2/startFreeIpaVerticalScaling", input, new GenericType<StartFreeIpaVerticalScalingResponse>(){}, NO_EXTENSION);
   }
 
   /**

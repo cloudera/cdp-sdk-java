@@ -23,13 +23,16 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.compute.model.CommonImageCatalogResp;
+import com.cloudera.cdp.compute.model.CommonStorageSpecResp;
+import com.cloudera.cdp.compute.model.ComputeClusterOwner;
 import java.util.*;
 import java.util.Map;
 
 /**
  * List clusters item structure.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:34.331-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:19.631-08:00")
 public class ListClusterItem  {
 
   /**
@@ -86,6 +89,66 @@ public class ListClusterItem  {
    * CDP environment CRN.
    **/
   private String envCrn = null;
+
+  /**
+   * Compute cluster type.
+   **/
+  private String clusterType = null;
+
+  /**
+   * Compute cluster creation time in ISO format.
+   **/
+  private String creationTime = null;
+
+  /**
+   * Compute cluster deletion time in ISO format.
+   **/
+  private String deletionTime = null;
+
+  /**
+   * Compute cluster update time in ISO format.
+   **/
+  private String updateTime = null;
+
+  /**
+   * Cluster state version.
+   **/
+  private Integer clusterStateVersion = null;
+
+  /**
+   * Cluster owner.
+   **/
+  private ComputeClusterOwner clusterOwner = null;
+
+  /**
+   * Region.
+   **/
+  private String region = null;
+
+  /**
+   * Message with additional details about the cluster status.
+   **/
+  private String message = null;
+
+  /**
+   * / CDP account ID.
+   **/
+  private String account = null;
+
+  /**
+   * List of available kubernetes upgrades.
+   **/
+  private List<String> availableUpgrades = new ArrayList<String>();
+
+  /**
+   * The image catalog details.
+   **/
+  private CommonImageCatalogResp imageCatalog = null;
+
+  /**
+   * The storage specifications.
+   **/
+  private CommonStorageSpecResp storage = null;
 
   /**
    * Map of labels associated with this cluster.
@@ -280,6 +343,210 @@ public class ListClusterItem  {
   }
 
   /**
+   * Getter for clusterType.
+   * Compute cluster type.
+   **/
+  @JsonProperty("clusterType")
+  public String getClusterType() {
+    return clusterType;
+  }
+
+  /**
+   * Setter for clusterType.
+   * Compute cluster type.
+   **/
+  public void setClusterType(String clusterType) {
+    this.clusterType = clusterType;
+  }
+
+  /**
+   * Getter for creationTime.
+   * Compute cluster creation time in ISO format.
+   **/
+  @JsonProperty("creationTime")
+  public String getCreationTime() {
+    return creationTime;
+  }
+
+  /**
+   * Setter for creationTime.
+   * Compute cluster creation time in ISO format.
+   **/
+  public void setCreationTime(String creationTime) {
+    this.creationTime = creationTime;
+  }
+
+  /**
+   * Getter for deletionTime.
+   * Compute cluster deletion time in ISO format.
+   **/
+  @JsonProperty("deletionTime")
+  public String getDeletionTime() {
+    return deletionTime;
+  }
+
+  /**
+   * Setter for deletionTime.
+   * Compute cluster deletion time in ISO format.
+   **/
+  public void setDeletionTime(String deletionTime) {
+    this.deletionTime = deletionTime;
+  }
+
+  /**
+   * Getter for updateTime.
+   * Compute cluster update time in ISO format.
+   **/
+  @JsonProperty("updateTime")
+  public String getUpdateTime() {
+    return updateTime;
+  }
+
+  /**
+   * Setter for updateTime.
+   * Compute cluster update time in ISO format.
+   **/
+  public void setUpdateTime(String updateTime) {
+    this.updateTime = updateTime;
+  }
+
+  /**
+   * Getter for clusterStateVersion.
+   * Cluster state version.
+   **/
+  @JsonProperty("clusterStateVersion")
+  public Integer getClusterStateVersion() {
+    return clusterStateVersion;
+  }
+
+  /**
+   * Setter for clusterStateVersion.
+   * Cluster state version.
+   **/
+  public void setClusterStateVersion(Integer clusterStateVersion) {
+    this.clusterStateVersion = clusterStateVersion;
+  }
+
+  /**
+   * Getter for clusterOwner.
+   * Cluster owner.
+   **/
+  @JsonProperty("clusterOwner")
+  public ComputeClusterOwner getClusterOwner() {
+    return clusterOwner;
+  }
+
+  /**
+   * Setter for clusterOwner.
+   * Cluster owner.
+   **/
+  public void setClusterOwner(ComputeClusterOwner clusterOwner) {
+    this.clusterOwner = clusterOwner;
+  }
+
+  /**
+   * Getter for region.
+   * Region.
+   **/
+  @JsonProperty("region")
+  public String getRegion() {
+    return region;
+  }
+
+  /**
+   * Setter for region.
+   * Region.
+   **/
+  public void setRegion(String region) {
+    this.region = region;
+  }
+
+  /**
+   * Getter for message.
+   * Message with additional details about the cluster status.
+   **/
+  @JsonProperty("message")
+  public String getMessage() {
+    return message;
+  }
+
+  /**
+   * Setter for message.
+   * Message with additional details about the cluster status.
+   **/
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
+  /**
+   * Getter for account.
+   * / CDP account ID.
+   **/
+  @JsonProperty("account")
+  public String getAccount() {
+    return account;
+  }
+
+  /**
+   * Setter for account.
+   * / CDP account ID.
+   **/
+  public void setAccount(String account) {
+    this.account = account;
+  }
+
+  /**
+   * Getter for availableUpgrades.
+   * List of available kubernetes upgrades.
+   **/
+  @JsonProperty("availableUpgrades")
+  public List<String> getAvailableUpgrades() {
+    return availableUpgrades;
+  }
+
+  /**
+   * Setter for availableUpgrades.
+   * List of available kubernetes upgrades.
+   **/
+  public void setAvailableUpgrades(List<String> availableUpgrades) {
+    this.availableUpgrades = availableUpgrades;
+  }
+
+  /**
+   * Getter for imageCatalog.
+   * The image catalog details.
+   **/
+  @JsonProperty("imageCatalog")
+  public CommonImageCatalogResp getImageCatalog() {
+    return imageCatalog;
+  }
+
+  /**
+   * Setter for imageCatalog.
+   * The image catalog details.
+   **/
+  public void setImageCatalog(CommonImageCatalogResp imageCatalog) {
+    this.imageCatalog = imageCatalog;
+  }
+
+  /**
+   * Getter for storage.
+   * The storage specifications.
+   **/
+  @JsonProperty("storage")
+  public CommonStorageSpecResp getStorage() {
+    return storage;
+  }
+
+  /**
+   * Setter for storage.
+   * The storage specifications.
+   **/
+  public void setStorage(CommonStorageSpecResp storage) {
+    this.storage = storage;
+  }
+
+  /**
    * Getter for labels.
    * Map of labels associated with this cluster.
    **/
@@ -338,6 +605,42 @@ public class ListClusterItem  {
     if (!Objects.equals(this.envCrn, listClusterItem.envCrn)) {
       return false;
     }
+    if (!Objects.equals(this.clusterType, listClusterItem.clusterType)) {
+      return false;
+    }
+    if (!Objects.equals(this.creationTime, listClusterItem.creationTime)) {
+      return false;
+    }
+    if (!Objects.equals(this.deletionTime, listClusterItem.deletionTime)) {
+      return false;
+    }
+    if (!Objects.equals(this.updateTime, listClusterItem.updateTime)) {
+      return false;
+    }
+    if (!Objects.equals(this.clusterStateVersion, listClusterItem.clusterStateVersion)) {
+      return false;
+    }
+    if (!Objects.equals(this.clusterOwner, listClusterItem.clusterOwner)) {
+      return false;
+    }
+    if (!Objects.equals(this.region, listClusterItem.region)) {
+      return false;
+    }
+    if (!Objects.equals(this.message, listClusterItem.message)) {
+      return false;
+    }
+    if (!Objects.equals(this.account, listClusterItem.account)) {
+      return false;
+    }
+    if (!Objects.equals(this.availableUpgrades, listClusterItem.availableUpgrades)) {
+      return false;
+    }
+    if (!Objects.equals(this.imageCatalog, listClusterItem.imageCatalog)) {
+      return false;
+    }
+    if (!Objects.equals(this.storage, listClusterItem.storage)) {
+      return false;
+    }
     if (!Objects.equals(this.labels, listClusterItem.labels)) {
       return false;
     }
@@ -346,7 +649,7 @@ public class ListClusterItem  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(envName, envCloudProvider, clusterName, clusterCrn, status, computePlatform, computePlatformVersion, kubernetesVersion, clusterSize, clusterId, envCrn, labels);
+    return Objects.hash(envName, envCloudProvider, clusterName, clusterCrn, status, computePlatform, computePlatformVersion, kubernetesVersion, clusterSize, clusterId, envCrn, clusterType, creationTime, deletionTime, updateTime, clusterStateVersion, clusterOwner, region, message, account, availableUpgrades, imageCatalog, storage, labels);
   }
 
   @Override
@@ -364,6 +667,18 @@ public class ListClusterItem  {
     sb.append("    clusterSize: ").append(toIndentedString(clusterSize)).append("\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    envCrn: ").append(toIndentedString(envCrn)).append("\n");
+    sb.append("    clusterType: ").append(toIndentedString(clusterType)).append("\n");
+    sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
+    sb.append("    deletionTime: ").append(toIndentedString(deletionTime)).append("\n");
+    sb.append("    updateTime: ").append(toIndentedString(updateTime)).append("\n");
+    sb.append("    clusterStateVersion: ").append(toIndentedString(clusterStateVersion)).append("\n");
+    sb.append("    clusterOwner: ").append(toIndentedString(clusterOwner)).append("\n");
+    sb.append("    region: ").append(toIndentedString(region)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    account: ").append(toIndentedString(account)).append("\n");
+    sb.append("    availableUpgrades: ").append(toIndentedString(availableUpgrades)).append("\n");
+    sb.append("    imageCatalog: ").append(toIndentedString(imageCatalog)).append("\n");
+    sb.append("    storage: ").append(toIndentedString(storage)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -27,13 +27,23 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object to list clusters.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:34.331-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:19.631-08:00")
 public class ListClustersRequest  {
 
   /**
    * Environment name or crn.
    **/
   private String envNameOrCrn = null;
+
+  /**
+   * Workloads for workload filtering.
+   **/
+  private String workloads = null;
+
+  /**
+   * Cluster Status for status filtering.
+   **/
+  private String status = null;
 
   /**
    * The size of each page. Default is 100.
@@ -60,6 +70,40 @@ public class ListClustersRequest  {
    **/
   public void setEnvNameOrCrn(String envNameOrCrn) {
     this.envNameOrCrn = envNameOrCrn;
+  }
+
+  /**
+   * Getter for workloads.
+   * Workloads for workload filtering.
+   **/
+  @JsonProperty("workloads")
+  public String getWorkloads() {
+    return workloads;
+  }
+
+  /**
+   * Setter for workloads.
+   * Workloads for workload filtering.
+   **/
+  public void setWorkloads(String workloads) {
+    this.workloads = workloads;
+  }
+
+  /**
+   * Getter for status.
+   * Cluster Status for status filtering.
+   **/
+  @JsonProperty("status")
+  public String getStatus() {
+    return status;
+  }
+
+  /**
+   * Setter for status.
+   * Cluster Status for status filtering.
+   **/
+  public void setStatus(String status) {
+    this.status = status;
   }
 
   /**
@@ -108,6 +152,12 @@ public class ListClustersRequest  {
     if (!Objects.equals(this.envNameOrCrn, listClustersRequest.envNameOrCrn)) {
       return false;
     }
+    if (!Objects.equals(this.workloads, listClustersRequest.workloads)) {
+      return false;
+    }
+    if (!Objects.equals(this.status, listClustersRequest.status)) {
+      return false;
+    }
     if (!Objects.equals(this.pageSize, listClustersRequest.pageSize)) {
       return false;
     }
@@ -119,7 +169,7 @@ public class ListClustersRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(envNameOrCrn, pageSize, startingToken);
+    return Objects.hash(envNameOrCrn, workloads, status, pageSize, startingToken);
   }
 
   @Override
@@ -127,6 +177,8 @@ public class ListClustersRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListClustersRequest {\n");
     sb.append("    envNameOrCrn: ").append(toIndentedString(envNameOrCrn)).append("\n");
+    sb.append("    workloads: ").append(toIndentedString(workloads)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    startingToken: ").append(toIndentedString(startingToken)).append("\n");
     sb.append("}");

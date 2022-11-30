@@ -20,6 +20,8 @@ com.cloudera.cdp.df.api
 com.cloudera.cdp.df.model
 com.cloudera.cdp.dfworkload.api
 com.cloudera.cdp.dfworkload.model
+com.cloudera.cdp.drscp.api
+com.cloudera.cdp.drscp.model
 com.cloudera.cdp.dw.api
 com.cloudera.cdp.dw.model
 com.cloudera.cdp.environments.api

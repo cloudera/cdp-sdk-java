@@ -125,6 +125,8 @@ import com.cloudera.cdp.datahub.model.SetCatalogRequest;
 import com.cloudera.cdp.datahub.model.SetCatalogResponse;
 import com.cloudera.cdp.datahub.model.StartClusterRequest;
 import com.cloudera.cdp.datahub.model.StartClusterResponse;
+import com.cloudera.cdp.datahub.model.StartClusterVerticalScalingRequest;
+import com.cloudera.cdp.datahub.model.StartClusterVerticalScalingResponse;
 import com.cloudera.cdp.datahub.model.StartDatabaseUpgradeRequest;
 import com.cloudera.cdp.datahub.model.StartDatabaseUpgradeResponse;
 import com.cloudera.cdp.datahub.model.StopClusterRequest;
@@ -143,7 +145,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:30.915-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:15.936-08:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datahub";
@@ -796,6 +798,19 @@ public class DatahubClient extends CdpClient {
     }
 
     return this.invokeAPI("startCluster", "/api/v1/datahub/startCluster", input, new GenericType<StartClusterResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Initiates the vertical scaling on Data Hub cluster.
+   * @param input
+   * @return StartClusterVerticalScalingResponse
+   */
+  public StartClusterVerticalScalingResponse startClusterVerticalScaling(StartClusterVerticalScalingRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling startClusterVerticalScaling");
+    }
+
+    return this.invokeAPI("startClusterVerticalScaling", "/api/v1/datahub/startClusterVerticalScaling", input, new GenericType<StartClusterVerticalScalingResponse>(){}, NO_EXTENSION);
   }
 
   /**

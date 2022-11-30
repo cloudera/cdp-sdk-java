@@ -27,11 +27,12 @@ import com.cloudera.cdp.dw.model.ActorResponse;
 import com.cloudera.cdp.dw.model.AwsOptionsResponse;
 import com.cloudera.cdp.dw.model.AzureOptionsResponse;
 import java.time.ZonedDateTime;
+import java.util.*;
 
 /**
  * A Cloudera Data Warehouse cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:31.643-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:16.656-08:00")
 public class ClusterSummaryResponse extends CdpResponse {
 
   /**
@@ -83,6 +84,16 @@ public class ClusterSummaryResponse extends CdpResponse {
    * Denotes whether the spot instances have been enabled for the cluster. This value is only available for AWS and Azure clusters.
    **/
   private Boolean enableSpotInstances = null;
+
+  /**
+   * Compute instance types that the environment is restricted to use. This affects the creation of the virtual warehouses where this restriction will apply.
+   **/
+  private List<String> computeInstanceTypes = new ArrayList<String>();
+
+  /**
+   * Additional (fallback) instance types listed in their priority order. They are used instead of the primary compute instance type in case it is unavailable. Since additional instance types are not supported for Azure, this is always empty for it.
+   **/
+  private List<String> additionalInstanceTypes = new ArrayList<String>();
 
   /**
    * Response object of AWS related cluster options.
@@ -265,6 +276,40 @@ public class ClusterSummaryResponse extends CdpResponse {
   }
 
   /**
+   * Getter for computeInstanceTypes.
+   * Compute instance types that the environment is restricted to use. This affects the creation of the virtual warehouses where this restriction will apply.
+   **/
+  @JsonProperty("computeInstanceTypes")
+  public List<String> getComputeInstanceTypes() {
+    return computeInstanceTypes;
+  }
+
+  /**
+   * Setter for computeInstanceTypes.
+   * Compute instance types that the environment is restricted to use. This affects the creation of the virtual warehouses where this restriction will apply.
+   **/
+  public void setComputeInstanceTypes(List<String> computeInstanceTypes) {
+    this.computeInstanceTypes = computeInstanceTypes;
+  }
+
+  /**
+   * Getter for additionalInstanceTypes.
+   * Additional (fallback) instance types listed in their priority order. They are used instead of the primary compute instance type in case it is unavailable. Since additional instance types are not supported for Azure, this is always empty for it.
+   **/
+  @JsonProperty("additionalInstanceTypes")
+  public List<String> getAdditionalInstanceTypes() {
+    return additionalInstanceTypes;
+  }
+
+  /**
+   * Setter for additionalInstanceTypes.
+   * Additional (fallback) instance types listed in their priority order. They are used instead of the primary compute instance type in case it is unavailable. Since additional instance types are not supported for Azure, this is always empty for it.
+   **/
+  public void setAdditionalInstanceTypes(List<String> additionalInstanceTypes) {
+    this.additionalInstanceTypes = additionalInstanceTypes;
+  }
+
+  /**
    * Getter for awsOptions.
    * Response object of AWS related cluster options.
    **/
@@ -337,6 +382,12 @@ public class ClusterSummaryResponse extends CdpResponse {
     if (!Objects.equals(this.enableSpotInstances, clusterSummaryResponse.enableSpotInstances)) {
       return false;
     }
+    if (!Objects.equals(this.computeInstanceTypes, clusterSummaryResponse.computeInstanceTypes)) {
+      return false;
+    }
+    if (!Objects.equals(this.additionalInstanceTypes, clusterSummaryResponse.additionalInstanceTypes)) {
+      return false;
+    }
     if (!Objects.equals(this.awsOptions, clusterSummaryResponse.awsOptions)) {
       return false;
     }
@@ -351,7 +402,7 @@ public class ClusterSummaryResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, environmentCrn, name, status, creator, creationDate, cloudPlatform, enableStorageRoles, enableSpotInstances, awsOptions, azureOptions, super.hashCode());
+    return Objects.hash(crn, id, environmentCrn, name, status, creator, creationDate, cloudPlatform, enableStorageRoles, enableSpotInstances, computeInstanceTypes, additionalInstanceTypes, awsOptions, azureOptions, super.hashCode());
   }
 
   @Override
@@ -369,6 +420,8 @@ public class ClusterSummaryResponse extends CdpResponse {
     sb.append("    cloudPlatform: ").append(toIndentedString(cloudPlatform)).append("\n");
     sb.append("    enableStorageRoles: ").append(toIndentedString(enableStorageRoles)).append("\n");
     sb.append("    enableSpotInstances: ").append(toIndentedString(enableSpotInstances)).append("\n");
+    sb.append("    computeInstanceTypes: ").append(toIndentedString(computeInstanceTypes)).append("\n");
+    sb.append("    additionalInstanceTypes: ").append(toIndentedString(additionalInstanceTypes)).append("\n");
     sb.append("    awsOptions: ").append(toIndentedString(awsOptions)).append("\n");
     sb.append("    azureOptions: ").append(toIndentedString(azureOptions)).append("\n");
     sb.append("}");

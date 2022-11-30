@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for the CreateWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:32.135-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:17.100-08:00")
 public class CreateWorkspaceRequest  {
 
   /**
@@ -44,12 +44,12 @@ public class CreateWorkspaceRequest  {
   private String workspaceName = null;
 
   /**
-   * The boolean flag to request public load balancer. By default private load balancer is used.
+   * The boolean flag to request public load balancer. By default, private load balancer is used.
    **/
   private Boolean usePublicLoadBalancer = null;
 
   /**
-   * The boolean flag to disable TLS setup for workspace. By default the TLS is enabled.
+   * The boolean flag to disable TLS setup for workspace. By default, the TLS is enabled.
    **/
   private Boolean disableTLS = null;
 
@@ -59,7 +59,7 @@ public class CreateWorkspaceRequest  {
   private ProvisionK8sRequest provisionK8sRequest = null;
 
   /**
-   * The boolean flag is used to enable mlonitoring. By default monitoring is disabled.
+   * The boolean flag is used to enable monitoring. By default, monitoring is disabled.
    **/
   private Boolean enableMonitoring = null;
 
@@ -74,7 +74,7 @@ public class CreateWorkspaceRequest  {
   private String existingNFS = null;
 
   /**
-   * The whitelist of ips for loadBalancer.
+   * The whitelist of IPs for load balancer.
    **/
   private List<String> loadBalancerIPWhitelists = new ArrayList<String>();
 
@@ -94,7 +94,7 @@ public class CreateWorkspaceRequest  {
   private ExistingDatabaseConfig existingDatabaseConfig = null;
 
   /**
-   * Whether to whitelist only authorizedIPRanges given or all public IPs.
+   * Whether to whitelist only 'authorizedIPRanges' given or all public IPs.
    **/
   private Boolean whitelistAuthorizedIPRanges = null;
 
@@ -154,7 +154,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Getter for usePublicLoadBalancer.
-   * The boolean flag to request public load balancer. By default private load balancer is used.
+   * The boolean flag to request public load balancer. By default, private load balancer is used.
    **/
   @JsonProperty("usePublicLoadBalancer")
   public Boolean getUsePublicLoadBalancer() {
@@ -163,7 +163,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Setter for usePublicLoadBalancer.
-   * The boolean flag to request public load balancer. By default private load balancer is used.
+   * The boolean flag to request public load balancer. By default, private load balancer is used.
    **/
   public void setUsePublicLoadBalancer(Boolean usePublicLoadBalancer) {
     this.usePublicLoadBalancer = usePublicLoadBalancer;
@@ -171,7 +171,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Getter for disableTLS.
-   * The boolean flag to disable TLS setup for workspace. By default the TLS is enabled.
+   * The boolean flag to disable TLS setup for workspace. By default, the TLS is enabled.
    **/
   @JsonProperty("disableTLS")
   public Boolean getDisableTLS() {
@@ -180,7 +180,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Setter for disableTLS.
-   * The boolean flag to disable TLS setup for workspace. By default the TLS is enabled.
+   * The boolean flag to disable TLS setup for workspace. By default, the TLS is enabled.
    **/
   public void setDisableTLS(Boolean disableTLS) {
     this.disableTLS = disableTLS;
@@ -205,7 +205,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Getter for enableMonitoring.
-   * The boolean flag is used to enable mlonitoring. By default monitoring is disabled.
+   * The boolean flag is used to enable monitoring. By default, monitoring is disabled.
    **/
   @JsonProperty("enableMonitoring")
   public Boolean getEnableMonitoring() {
@@ -214,7 +214,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Setter for enableMonitoring.
-   * The boolean flag is used to enable mlonitoring. By default monitoring is disabled.
+   * The boolean flag is used to enable monitoring. By default, monitoring is disabled.
    **/
   public void setEnableMonitoring(Boolean enableMonitoring) {
     this.enableMonitoring = enableMonitoring;
@@ -256,7 +256,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Getter for loadBalancerIPWhitelists.
-   * The whitelist of ips for loadBalancer.
+   * The whitelist of IPs for load balancer.
    **/
   @JsonProperty("loadBalancerIPWhitelists")
   public List<String> getLoadBalancerIPWhitelists() {
@@ -265,7 +265,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Setter for loadBalancerIPWhitelists.
-   * The whitelist of ips for loadBalancer.
+   * The whitelist of IPs for load balancer.
    **/
   public void setLoadBalancerIPWhitelists(List<String> loadBalancerIPWhitelists) {
     this.loadBalancerIPWhitelists = loadBalancerIPWhitelists;
@@ -324,7 +324,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Getter for whitelistAuthorizedIPRanges.
-   * Whether to whitelist only authorizedIPRanges given or all public IPs.
+   * Whether to whitelist only &#39;authorizedIPRanges&#39; given or all public IPs.
    **/
   @JsonProperty("whitelistAuthorizedIPRanges")
   public Boolean getWhitelistAuthorizedIPRanges() {
@@ -333,7 +333,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Setter for whitelistAuthorizedIPRanges.
-   * Whether to whitelist only authorizedIPRanges given or all public IPs.
+   * Whether to whitelist only &#39;authorizedIPRanges&#39; given or all public IPs.
    **/
   public void setWhitelistAuthorizedIPRanges(Boolean whitelistAuthorizedIPRanges) {
     this.whitelistAuthorizedIPRanges = whitelistAuthorizedIPRanges;

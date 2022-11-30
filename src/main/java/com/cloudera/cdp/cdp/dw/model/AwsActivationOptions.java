@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Options for activating an AWS environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:31.643-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:16.656-08:00")
 public class AwsActivationOptions  {
 
   /**
@@ -60,6 +60,16 @@ public class AwsActivationOptions  {
    * Use this option to activate the environment with fewer than half of the standard required IAM permissions on your AWS cross-account IAM role.
    **/
   private Boolean reducedPermissionMode = null;
+
+  /**
+   * AWS compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values.
+   **/
+  private List<String> computeInstanceTypes = new ArrayList<String>();
+
+  /**
+   * Additional (fallback) instance types listed in their priority order. They will be used instead of the primary compute instance type in case it is unavailable. You cannot include any instance type that was already indicated in computeInstanceTypes. Use describe-allowed-instance-types to see currently supported values and also the default value when nothing is provided for the computeInstanceTypes.
+   **/
+  private List<String> additionalInstanceTypes = new ArrayList<String>();
 
   /**
    * Getter for privateSubnetIds.
@@ -163,6 +173,40 @@ public class AwsActivationOptions  {
     this.reducedPermissionMode = reducedPermissionMode;
   }
 
+  /**
+   * Getter for computeInstanceTypes.
+   * AWS compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values.
+   **/
+  @JsonProperty("computeInstanceTypes")
+  public List<String> getComputeInstanceTypes() {
+    return computeInstanceTypes;
+  }
+
+  /**
+   * Setter for computeInstanceTypes.
+   * AWS compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values.
+   **/
+  public void setComputeInstanceTypes(List<String> computeInstanceTypes) {
+    this.computeInstanceTypes = computeInstanceTypes;
+  }
+
+  /**
+   * Getter for additionalInstanceTypes.
+   * Additional (fallback) instance types listed in their priority order. They will be used instead of the primary compute instance type in case it is unavailable. You cannot include any instance type that was already indicated in computeInstanceTypes. Use describe-allowed-instance-types to see currently supported values and also the default value when nothing is provided for the computeInstanceTypes.
+   **/
+  @JsonProperty("additionalInstanceTypes")
+  public List<String> getAdditionalInstanceTypes() {
+    return additionalInstanceTypes;
+  }
+
+  /**
+   * Setter for additionalInstanceTypes.
+   * Additional (fallback) instance types listed in their priority order. They will be used instead of the primary compute instance type in case it is unavailable. You cannot include any instance type that was already indicated in computeInstanceTypes. Use describe-allowed-instance-types to see currently supported values and also the default value when nothing is provided for the computeInstanceTypes.
+   **/
+  public void setAdditionalInstanceTypes(List<String> additionalInstanceTypes) {
+    this.additionalInstanceTypes = additionalInstanceTypes;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -190,12 +234,18 @@ public class AwsActivationOptions  {
     if (!Objects.equals(this.reducedPermissionMode, awsActivationOptions.reducedPermissionMode)) {
       return false;
     }
+    if (!Objects.equals(this.computeInstanceTypes, awsActivationOptions.computeInstanceTypes)) {
+      return false;
+    }
+    if (!Objects.equals(this.additionalInstanceTypes, awsActivationOptions.additionalInstanceTypes)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(privateSubnetIds, publicSubnetIds, customAmiId, nodeRoleCDWManagedPolicyArn, enableSpotInstances, reducedPermissionMode);
+    return Objects.hash(privateSubnetIds, publicSubnetIds, customAmiId, nodeRoleCDWManagedPolicyArn, enableSpotInstances, reducedPermissionMode, computeInstanceTypes, additionalInstanceTypes);
   }
 
   @Override
@@ -208,6 +258,8 @@ public class AwsActivationOptions  {
     sb.append("    nodeRoleCDWManagedPolicyArn: ").append(toIndentedString(nodeRoleCDWManagedPolicyArn)).append("\n");
     sb.append("    enableSpotInstances: ").append(toIndentedString(enableSpotInstances)).append("\n");
     sb.append("    reducedPermissionMode: ").append(toIndentedString(reducedPermissionMode)).append("\n");
+    sb.append("    computeInstanceTypes: ").append(toIndentedString(computeInstanceTypes)).append("\n");
+    sb.append("    additionalInstanceTypes: ").append(toIndentedString(additionalInstanceTypes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

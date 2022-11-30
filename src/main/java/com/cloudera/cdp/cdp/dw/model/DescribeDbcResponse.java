@@ -28,7 +28,7 @@ import com.cloudera.cdp.dw.model.DbcSummary;
 /**
  * Response object for the describeDbc method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:31.643-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:16.656-08:00")
 public class DescribeDbcResponse extends CdpResponse {
 
   /**

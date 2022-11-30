@@ -56,6 +56,8 @@ import com.cloudera.cdp.dw.model.DeleteVwDiagnosticDataJobRequest;
 import com.cloudera.cdp.dw.model.DeleteVwDiagnosticDataJobResponse;
 import com.cloudera.cdp.dw.model.DeleteVwRequest;
 import com.cloudera.cdp.dw.model.DeleteVwResponse;
+import com.cloudera.cdp.dw.model.DescribeAllowedInstanceTypesRequest;
+import com.cloudera.cdp.dw.model.DescribeAllowedInstanceTypesResponse;
 import com.cloudera.cdp.dw.model.DescribeClusterRequest;
 import com.cloudera.cdp.dw.model.DescribeClusterResponse;
 import com.cloudera.cdp.dw.model.DescribeConfigDiffRequest;
@@ -91,6 +93,8 @@ import com.cloudera.cdp.dw.model.ListDbcConfigsRequest;
 import com.cloudera.cdp.dw.model.ListDbcConfigsResponse;
 import com.cloudera.cdp.dw.model.ListDbcDiagnosticDataJobsRequest;
 import com.cloudera.cdp.dw.model.ListDbcDiagnosticDataJobsResponse;
+import com.cloudera.cdp.dw.model.ListDbcEventsRequest;
+import com.cloudera.cdp.dw.model.ListDbcEventsResponse;
 import com.cloudera.cdp.dw.model.ListDbcsRequest;
 import com.cloudera.cdp.dw.model.ListDbcsResponse;
 import com.cloudera.cdp.dw.model.ListLatestVersionsRequest;
@@ -101,6 +105,8 @@ import com.cloudera.cdp.dw.model.ListVwConfigsRequest;
 import com.cloudera.cdp.dw.model.ListVwConfigsResponse;
 import com.cloudera.cdp.dw.model.ListVwDiagnosticDataJobsRequest;
 import com.cloudera.cdp.dw.model.ListVwDiagnosticDataJobsResponse;
+import com.cloudera.cdp.dw.model.ListVwEventsRequest;
+import com.cloudera.cdp.dw.model.ListVwEventsResponse;
 import com.cloudera.cdp.dw.model.ListVwsRequest;
 import com.cloudera.cdp.dw.model.ListVwsResponse;
 import com.cloudera.cdp.dw.model.PauseVwRequest;
@@ -135,7 +141,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-10T17:48:31.643-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:16.656-08:00")
 public class DwClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dw";
@@ -219,7 +225,7 @@ public class DwClient extends CdpClient {
   }
 
   /**
-   * Create a diganostic data job for the given Database Catalog.
+   * Create a diagnostic job for the given database catalog.
    * @param input
    * @return CreateDbcDiagnosticDataJobResponse
    */
@@ -245,7 +251,7 @@ public class DwClient extends CdpClient {
   }
 
   /**
-   * Create a diganostic data job for the given Virtual Warehouse.
+   * Create a diagnostic job for the given Virtual Warehouse.
    * @param input
    * @return CreateVwDiagnosticDataJobResponse
    */
@@ -297,7 +303,7 @@ public class DwClient extends CdpClient {
   }
 
   /**
-   * Delete a diagnostic job for the given Database Catalog.
+   * Deletes a diagnostic job for the given Database Catalog.
    * @param input
    * @return DeleteDbcDiagnosticDataJobResponse
    */
@@ -346,6 +352,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("deleteVwDiagnosticDataJob", "/api/v1/dw/deleteVwDiagnosticDataJob", input, new GenericType<DeleteVwDiagnosticDataJobResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Get allowed compute instance types for both AWS and Azure cluster types and their default values.
+   * @param input
+   * @return DescribeAllowedInstanceTypesResponse
+   */
+  public DescribeAllowedInstanceTypesResponse describeAllowedInstanceTypes(DescribeAllowedInstanceTypesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeAllowedInstanceTypes");
+    }
+
+    return this.invokeAPI("describeAllowedInstanceTypes", "/api/v1/dw/describeAllowedInstanceTypes", input, new GenericType<DescribeAllowedInstanceTypesResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -414,7 +433,7 @@ public class DwClient extends CdpClient {
   }
 
   /**
-   * Describe a diagnostic job for the given Database Catalog.
+   * Describes a diagnostic job for the given Database Catalog.
    * @param input
    * @return DescribeDbcDiagnosticDataJobResponse
    */
@@ -557,7 +576,7 @@ public class DwClient extends CdpClient {
   }
 
   /**
-   * Get the list of diagnostic jobs for the given Database Catalog.
+   * Get a list of diagnostic jobs for the given Database Catalog.
    * @param input
    * @return ListDbcDiagnosticDataJobsResponse
    */
@@ -567,6 +586,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("listDbcDiagnosticDataJobs", "/api/v1/dw/listDbcDiagnosticDataJobs", input, new GenericType<ListDbcDiagnosticDataJobsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Get the list of events for the given Database Catalog.
+   * @param input
+   * @return ListDbcEventsResponse
+   */
+  public ListDbcEventsResponse listDbcEvents(ListDbcEventsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listDbcEvents");
+    }
+
+    return this.invokeAPI("listDbcEvents", "/api/v1/dw/listDbcEvents", input, new GenericType<ListDbcEventsResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -622,7 +654,7 @@ public class DwClient extends CdpClient {
   }
 
   /**
-   * Get the list of diagnostic jobs for the given Virtual Warehouse.
+   * Get a list of diagnostic jobs for the given Virtual Warehouse.
    * @param input
    * @return ListVwDiagnosticDataJobsResponse
    */
@@ -632,6 +664,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("listVwDiagnosticDataJobs", "/api/v1/dw/listVwDiagnosticDataJobs", input, new GenericType<ListVwDiagnosticDataJobsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Get the list of events for the given Virtual Warehouse.
+   * @param input
+   * @return ListVwEventsResponse
+   */
+  public ListVwEventsResponse listVwEvents(ListVwEventsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listVwEvents");
+    }
+
+    return this.invokeAPI("listVwEvents", "/api/v1/dw/listVwEvents", input, new GenericType<ListVwEventsResponse>(){}, NO_EXTENSION);
   }
 
   /**
