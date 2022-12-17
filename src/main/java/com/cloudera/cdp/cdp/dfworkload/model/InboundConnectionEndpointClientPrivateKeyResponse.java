@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object that contains the client&#39;s private key.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:19.393-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-12-16T12:55:42.454-08:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class InboundConnectionEndpointClientPrivateKeyResponse extends CdpResponse {
 

@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * An object representing a single AutoScale history event for a DataHub cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:15.936-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-12-16T12:55:39.472-08:00")
 public class IndividualAutoScaleHistoryResponse extends CdpResponse {
 
   /**

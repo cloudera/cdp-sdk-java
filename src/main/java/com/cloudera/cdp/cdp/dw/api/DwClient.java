@@ -72,6 +72,8 @@ import com.cloudera.cdp.dw.model.DescribeDbcRequest;
 import com.cloudera.cdp.dw.model.DescribeDbcResponse;
 import com.cloudera.cdp.dw.model.DescribeKubeconfigRequest;
 import com.cloudera.cdp.dw.model.DescribeKubeconfigResponse;
+import com.cloudera.cdp.dw.model.DescribeServerSettingRequest;
+import com.cloudera.cdp.dw.model.DescribeServerSettingResponse;
 import com.cloudera.cdp.dw.model.DescribeVwDiagnosticDataJobRequest;
 import com.cloudera.cdp.dw.model.DescribeVwDiagnosticDataJobResponse;
 import com.cloudera.cdp.dw.model.DescribeVwRequest;
@@ -125,6 +127,8 @@ import com.cloudera.cdp.dw.model.UpdateDataVisualizationRequest;
 import com.cloudera.cdp.dw.model.UpdateDataVisualizationResponse;
 import com.cloudera.cdp.dw.model.UpdateDbcRequest;
 import com.cloudera.cdp.dw.model.UpdateDbcResponse;
+import com.cloudera.cdp.dw.model.UpdateServerSettingRequest;
+import com.cloudera.cdp.dw.model.UpdateServerSettingResponse;
 import com.cloudera.cdp.dw.model.UpdateSshKeyRequest;
 import com.cloudera.cdp.dw.model.UpdateSshKeyResponse;
 import com.cloudera.cdp.dw.model.UpdateVwRequest;
@@ -141,7 +145,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:16.656-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-12-16T12:55:40.129-08:00")
 public class DwClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dw";
@@ -456,6 +460,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("describeKubeconfig", "/api/v1/dw/describeKubeconfig", input, new GenericType<DescribeKubeconfigResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Get the DWX server settings.
+   * @param input
+   * @return DescribeServerSettingResponse
+   */
+  public DescribeServerSettingResponse describeServerSetting(DescribeServerSettingRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeServerSetting");
+    }
+
+    return this.invokeAPI("describeServerSetting", "/api/v1/dw/describeServerSetting", input, new GenericType<DescribeServerSettingResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -794,6 +811,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("updateDbc", "/api/v1/dw/updateDbc", input, new GenericType<UpdateDbcResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Update the DWX server settings.
+   * @param input
+   * @return UpdateServerSettingResponse
+   */
+  public UpdateServerSettingResponse updateServerSetting(UpdateServerSettingRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateServerSetting");
+    }
+
+    return this.invokeAPI("updateServerSetting", "/api/v1/dw/updateServerSetting", input, new GenericType<UpdateServerSettingResponse>(){}, NO_EXTENSION);
   }
 
   /**

@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object to upgrade datalake.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:17.341-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-12-16T12:55:40.926-08:00")
 public class UpgradeDatalakeRequest  {
 
   /**
@@ -69,6 +69,21 @@ public class UpgradeDatalakeRequest  {
    * If provided, will skip the backup flow for the upgrade process.
    **/
   private Boolean skipBackup = null;
+
+  /**
+   * Skips the backup of the databases backing HMS/Ranger services. Redundant if --skip-backup is included. If this option is not provided, the HMS/Ranger services are backed up by default.
+   **/
+  private Boolean skipRangerHmsMetadata = null;
+
+  /**
+   * Skips the backup of the Atlas metadata. Redundant if --skip-backup is included. If this option is not provided, the Atlas metadata is backed up by default.
+   **/
+  private Boolean skipAtlasMetadata = null;
+
+  /**
+   * Skips the backup of the Ranger audits. Redundant if --skip-backup is included. If this option is not provided, Ranger audits are backed up by default.
+   **/
+  private Boolean skipRangerAudits = null;
 
   /**
    * Getter for datalakeName.
@@ -206,6 +221,57 @@ public class UpgradeDatalakeRequest  {
     this.skipBackup = skipBackup;
   }
 
+  /**
+   * Getter for skipRangerHmsMetadata.
+   * Skips the backup of the databases backing HMS/Ranger services. Redundant if --skip-backup is included. If this option is not provided, the HMS/Ranger services are backed up by default.
+   **/
+  @JsonProperty("skipRangerHmsMetadata")
+  public Boolean getSkipRangerHmsMetadata() {
+    return skipRangerHmsMetadata;
+  }
+
+  /**
+   * Setter for skipRangerHmsMetadata.
+   * Skips the backup of the databases backing HMS/Ranger services. Redundant if --skip-backup is included. If this option is not provided, the HMS/Ranger services are backed up by default.
+   **/
+  public void setSkipRangerHmsMetadata(Boolean skipRangerHmsMetadata) {
+    this.skipRangerHmsMetadata = skipRangerHmsMetadata;
+  }
+
+  /**
+   * Getter for skipAtlasMetadata.
+   * Skips the backup of the Atlas metadata. Redundant if --skip-backup is included. If this option is not provided, the Atlas metadata is backed up by default.
+   **/
+  @JsonProperty("skipAtlasMetadata")
+  public Boolean getSkipAtlasMetadata() {
+    return skipAtlasMetadata;
+  }
+
+  /**
+   * Setter for skipAtlasMetadata.
+   * Skips the backup of the Atlas metadata. Redundant if --skip-backup is included. If this option is not provided, the Atlas metadata is backed up by default.
+   **/
+  public void setSkipAtlasMetadata(Boolean skipAtlasMetadata) {
+    this.skipAtlasMetadata = skipAtlasMetadata;
+  }
+
+  /**
+   * Getter for skipRangerAudits.
+   * Skips the backup of the Ranger audits. Redundant if --skip-backup is included. If this option is not provided, Ranger audits are backed up by default.
+   **/
+  @JsonProperty("skipRangerAudits")
+  public Boolean getSkipRangerAudits() {
+    return skipRangerAudits;
+  }
+
+  /**
+   * Setter for skipRangerAudits.
+   * Skips the backup of the Ranger audits. Redundant if --skip-backup is included. If this option is not provided, Ranger audits are backed up by default.
+   **/
+  public void setSkipRangerAudits(Boolean skipRangerAudits) {
+    this.skipRangerAudits = skipRangerAudits;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -239,12 +305,21 @@ public class UpgradeDatalakeRequest  {
     if (!Objects.equals(this.skipBackup, upgradeDatalakeRequest.skipBackup)) {
       return false;
     }
+    if (!Objects.equals(this.skipRangerHmsMetadata, upgradeDatalakeRequest.skipRangerHmsMetadata)) {
+      return false;
+    }
+    if (!Objects.equals(this.skipAtlasMetadata, upgradeDatalakeRequest.skipAtlasMetadata)) {
+      return false;
+    }
+    if (!Objects.equals(this.skipRangerAudits, upgradeDatalakeRequest.skipRangerAudits)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, imageId, runtime, lockComponents, dryRun, showAvailableImages, showLatestAvailableImagePerRuntime, skipBackup);
+    return Objects.hash(datalakeName, imageId, runtime, lockComponents, dryRun, showAvailableImages, showLatestAvailableImagePerRuntime, skipBackup, skipRangerHmsMetadata, skipAtlasMetadata, skipRangerAudits);
   }
 
   @Override
@@ -259,6 +334,9 @@ public class UpgradeDatalakeRequest  {
     sb.append("    showAvailableImages: ").append(toIndentedString(showAvailableImages)).append("\n");
     sb.append("    showLatestAvailableImagePerRuntime: ").append(toIndentedString(showLatestAvailableImagePerRuntime)).append("\n");
     sb.append("    skipBackup: ").append(toIndentedString(skipBackup)).append("\n");
+    sb.append("    skipRangerHmsMetadata: ").append(toIndentedString(skipRangerHmsMetadata)).append("\n");
+    sb.append("    skipAtlasMetadata: ").append(toIndentedString(skipAtlasMetadata)).append("\n");
+    sb.append("    skipRangerAudits: ").append(toIndentedString(skipRangerAudits)).append("\n");
     sb.append("}");
     return sb.toString();
   }

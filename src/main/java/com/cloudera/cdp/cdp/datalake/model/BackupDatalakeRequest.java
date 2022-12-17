@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object to perform a backup of datalake.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:17.341-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-12-16T12:55:40.926-08:00")
 public class BackupDatalakeRequest  {
 
   /**
@@ -64,6 +64,16 @@ public class BackupDatalakeRequest  {
    * Skips the backup of the Ranger audits. If this option is not provided, Ranger audits are backed up by default.
    **/
   private Boolean skipRangerAudits = null;
+
+  /**
+   * Skips the validation step that runs prior to the backup. If this option is not provided, the validations are performed by default.
+   **/
+  private Boolean skipValidation = null;
+
+  /**
+   * Runs only the validation steps and then returns. If this option is not provided, the backup is performed as normal by default.
+   **/
+  private Boolean validationOnly = null;
 
   /**
    * Getter for datalakeName.
@@ -184,6 +194,40 @@ public class BackupDatalakeRequest  {
     this.skipRangerAudits = skipRangerAudits;
   }
 
+  /**
+   * Getter for skipValidation.
+   * Skips the validation step that runs prior to the backup. If this option is not provided, the validations are performed by default.
+   **/
+  @JsonProperty("skipValidation")
+  public Boolean getSkipValidation() {
+    return skipValidation;
+  }
+
+  /**
+   * Setter for skipValidation.
+   * Skips the validation step that runs prior to the backup. If this option is not provided, the validations are performed by default.
+   **/
+  public void setSkipValidation(Boolean skipValidation) {
+    this.skipValidation = skipValidation;
+  }
+
+  /**
+   * Getter for validationOnly.
+   * Runs only the validation steps and then returns. If this option is not provided, the backup is performed as normal by default.
+   **/
+  @JsonProperty("validationOnly")
+  public Boolean getValidationOnly() {
+    return validationOnly;
+  }
+
+  /**
+   * Setter for validationOnly.
+   * Runs only the validation steps and then returns. If this option is not provided, the backup is performed as normal by default.
+   **/
+  public void setValidationOnly(Boolean validationOnly) {
+    this.validationOnly = validationOnly;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -214,12 +258,18 @@ public class BackupDatalakeRequest  {
     if (!Objects.equals(this.skipRangerAudits, backupDatalakeRequest.skipRangerAudits)) {
       return false;
     }
+    if (!Objects.equals(this.skipValidation, backupDatalakeRequest.skipValidation)) {
+      return false;
+    }
+    if (!Objects.equals(this.validationOnly, backupDatalakeRequest.validationOnly)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, backupLocation, backupName, closeDbConnections, skipRangerHmsMetadata, skipAtlasMetadata, skipRangerAudits);
+    return Objects.hash(datalakeName, backupLocation, backupName, closeDbConnections, skipRangerHmsMetadata, skipAtlasMetadata, skipRangerAudits, skipValidation, validationOnly);
   }
 
   @Override
@@ -233,6 +283,8 @@ public class BackupDatalakeRequest  {
     sb.append("    skipRangerHmsMetadata: ").append(toIndentedString(skipRangerHmsMetadata)).append("\n");
     sb.append("    skipAtlasMetadata: ").append(toIndentedString(skipAtlasMetadata)).append("\n");
     sb.append("    skipRangerAudits: ").append(toIndentedString(skipRangerAudits)).append("\n");
+    sb.append("    skipValidation: ").append(toIndentedString(skipValidation)).append("\n");
+    sb.append("    validationOnly: ").append(toIndentedString(validationOnly)).append("\n");
     sb.append("}");
     return sb.toString();
   }

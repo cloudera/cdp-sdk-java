@@ -39,10 +39,10 @@ import com.cloudera.cdp.drscp.model.DescribeRestoreResponse;
 import com.cloudera.cdp.drscp.model.Error;
 import com.cloudera.cdp.drscp.model.GetLogsRequest;
 import com.cloudera.cdp.drscp.model.GetLogsResponse;
+import com.cloudera.cdp.drscp.model.ListBackupEntitiesRequest;
+import com.cloudera.cdp.drscp.model.ListBackupEntitiesResponse;
 import com.cloudera.cdp.drscp.model.ListBackupsRequest;
 import com.cloudera.cdp.drscp.model.ListBackupsResponse;
-import com.cloudera.cdp.drscp.model.ListItemsRequest;
-import com.cloudera.cdp.drscp.model.ListItemsResponse;
 import com.cloudera.cdp.drscp.model.ListRestoresRequest;
 import com.cloudera.cdp.drscp.model.ListRestoresResponse;
 import com.cloudera.cdp.drscp.model.RestoreBackupRequest;
@@ -53,7 +53,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:17.727-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-12-16T12:55:41.207-08:00")
 public class DrscpClient extends CdpClient {
 
   public static final String SERVICE_NAME = "drscp";
@@ -150,6 +150,19 @@ public class DrscpClient extends CdpClient {
   }
 
   /**
+   * Lists potential backup entities associated with the control plane.
+   * @param input
+   * @return ListBackupEntitiesResponse
+   */
+  public ListBackupEntitiesResponse listBackupEntities(ListBackupEntitiesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listBackupEntities");
+    }
+
+    return this.invokeAPI("listBackupEntities", "/api/v1/drscp/listBackupEntities", input, new GenericType<ListBackupEntitiesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Lists backups
    * @param input
    * @return ListBackupsResponse
@@ -160,19 +173,6 @@ public class DrscpClient extends CdpClient {
     }
 
     return this.invokeAPI("listBackups", "/api/v1/drscp/listBackups", input, new GenericType<ListBackupsResponse>(){}, NO_EXTENSION);
-  }
-
-  /**
-   * Lists potential backup entities associated with the control plane.
-   * @param input
-   * @return ListItemsResponse
-   */
-  public ListItemsResponse listItems(ListItemsRequest input) {
-    if (input == null) {
-      throw new CdpClientException("Missing the required parameter 'input' when calling listItems");
-    }
-
-    return this.invokeAPI("listItems", "/api/v1/drscp/listItems", input, new GenericType<ListItemsResponse>(){}, NO_EXTENSION);
   }
 
   /**

@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-package com.cloudera.cdp.drscp.model;
+package com.cloudera.cdp.dw.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -25,32 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * Request object for the list items request.
+ * Request object for the describeServerSetting method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:17.727-08:00")
-public class ListItemsRequest  {
-
-  /**
-   * Maximum number of items to return at once.
-   **/
-  private Integer limit = null;
-
-  /**
-   * Getter for limit.
-   * Maximum number of items to return at once.
-   **/
-  @JsonProperty("limit")
-  public Integer getLimit() {
-    return limit;
-  }
-
-  /**
-   * Setter for limit.
-   * Maximum number of items to return at once.
-   **/
-  public void setLimit(Integer limit) {
-    this.limit = limit;
-  }
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-12-16T12:55:40.129-08:00")
+public class DescribeServerSettingRequest  {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -60,23 +38,18 @@ public class ListItemsRequest  {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListItemsRequest listItemsRequest = (ListItemsRequest) o;
-    if (!Objects.equals(this.limit, listItemsRequest.limit)) {
-      return false;
-    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(limit);
+    return Objects.hash();
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListItemsRequest {\n");
-    sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
+    sb.append("class DescribeServerSettingRequest {\n");
     sb.append("}");
     return sb.toString();
   }

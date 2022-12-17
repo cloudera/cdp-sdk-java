@@ -23,35 +23,12 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
-import java.util.*;
 
 /**
- * Response object for the list items request.
+ * Request object for the list entities request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:17.727-08:00")
-public class ListItemsResponse extends CdpResponse {
-
-  /**
-   * The list of potential candidates for backup. It should be a single entity that indicates the namespace which the control plane is running on.
-   **/
-  private List<String> items = new ArrayList<String>();
-
-  /**
-   * Getter for items.
-   * The list of potential candidates for backup. It should be a single entity that indicates the namespace which the control plane is running on.
-   **/
-  @JsonProperty("items")
-  public List<String> getItems() {
-    return items;
-  }
-
-  /**
-   * Setter for items.
-   * The list of potential candidates for backup. It should be a single entity that indicates the namespace which the control plane is running on.
-   **/
-  public void setItems(List<String> items) {
-    this.items = items;
-  }
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-12-16T12:55:41.207-08:00")
+public class ListBackupEntitiesRequest  {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,27 +38,18 @@ public class ListItemsResponse extends CdpResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ListItemsResponse listItemsResponse = (ListItemsResponse) o;
-    if (!Objects.equals(this.items, listItemsResponse.items)) {
-      return false;
-    }
-    if (!super.equals(o)) {
-      return false;
-    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(items, super.hashCode());
+    return Objects.hash();
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ListItemsResponse {\n");
-    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    items: ").append(toIndentedString(items)).append("\n");
+    sb.append("class ListBackupEntitiesRequest {\n");
     sb.append("}");
     return sb.toString();
   }

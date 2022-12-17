@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request to restore datalake from backup. Restore does not restore the database by default.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:17.341-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-12-16T12:55:40.926-08:00")
 public class RestoreDatalakeRequest  {
 
   /**
@@ -69,6 +69,16 @@ public class RestoreDatalakeRequest  {
    * Backup location. When provided, will be used to lookup the backup. If provided, the --backup-id parameter is required.
    **/
   private String backupLocationOverride = null;
+
+  /**
+   * Skips the validation step that runs prior to the restore. If this option is not provided, the validations are performed by default.
+   **/
+  private Boolean skipValidation = null;
+
+  /**
+   * Runs only the validation steps and then returns. If this option is not provided, the restore is performed as normal by default.
+   **/
+  private Boolean validationOnly = null;
 
   /**
    * Getter for datalakeName.
@@ -206,6 +216,40 @@ public class RestoreDatalakeRequest  {
     this.backupLocationOverride = backupLocationOverride;
   }
 
+  /**
+   * Getter for skipValidation.
+   * Skips the validation step that runs prior to the restore. If this option is not provided, the validations are performed by default.
+   **/
+  @JsonProperty("skipValidation")
+  public Boolean getSkipValidation() {
+    return skipValidation;
+  }
+
+  /**
+   * Setter for skipValidation.
+   * Skips the validation step that runs prior to the restore. If this option is not provided, the validations are performed by default.
+   **/
+  public void setSkipValidation(Boolean skipValidation) {
+    this.skipValidation = skipValidation;
+  }
+
+  /**
+   * Getter for validationOnly.
+   * Runs only the validation steps and then returns. If this option is not provided, the restore is performed as normal by default.
+   **/
+  @JsonProperty("validationOnly")
+  public Boolean getValidationOnly() {
+    return validationOnly;
+  }
+
+  /**
+   * Setter for validationOnly.
+   * Runs only the validation steps and then returns. If this option is not provided, the restore is performed as normal by default.
+   **/
+  public void setValidationOnly(Boolean validationOnly) {
+    this.validationOnly = validationOnly;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -239,12 +283,18 @@ public class RestoreDatalakeRequest  {
     if (!Objects.equals(this.backupLocationOverride, restoreDatalakeRequest.backupLocationOverride)) {
       return false;
     }
+    if (!Objects.equals(this.skipValidation, restoreDatalakeRequest.skipValidation)) {
+      return false;
+    }
+    if (!Objects.equals(this.validationOnly, restoreDatalakeRequest.validationOnly)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, backupId, backupName, includeDatabase, skipRangerHmsMetadata, skipAtlasMetadata, skipRangerAudits, backupLocationOverride);
+    return Objects.hash(datalakeName, backupId, backupName, includeDatabase, skipRangerHmsMetadata, skipAtlasMetadata, skipRangerAudits, backupLocationOverride, skipValidation, validationOnly);
   }
 
   @Override
@@ -259,6 +309,8 @@ public class RestoreDatalakeRequest  {
     sb.append("    skipAtlasMetadata: ").append(toIndentedString(skipAtlasMetadata)).append("\n");
     sb.append("    skipRangerAudits: ").append(toIndentedString(skipRangerAudits)).append("\n");
     sb.append("    backupLocationOverride: ").append(toIndentedString(backupLocationOverride)).append("\n");
+    sb.append("    skipValidation: ").append(toIndentedString(skipValidation)).append("\n");
+    sb.append("    validationOnly: ").append(toIndentedString(validationOnly)).append("\n");
     sb.append("}");
     return sb.toString();
   }

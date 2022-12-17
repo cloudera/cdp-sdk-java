@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Backup entry
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-11-29T14:06:17.727-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-12-16T12:55:41.207-08:00")
 public class Backup  {
 
   /**
