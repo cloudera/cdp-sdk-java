@@ -103,6 +103,8 @@ import com.cloudera.cdp.datalake.model.StopDatalakeRequest;
 import com.cloudera.cdp.datalake.model.StopDatalakeResponse;
 import com.cloudera.cdp.datalake.model.SyncComponentVersionsFromCmRequest;
 import com.cloudera.cdp.datalake.model.SyncComponentVersionsFromCmResponse;
+import com.cloudera.cdp.datalake.model.UpdateOrchestratorStateRequest;
+import com.cloudera.cdp.datalake.model.UpdateOrchestratorStateResponse;
 import com.cloudera.cdp.datalake.model.UpgradeDatalakeRequest;
 import com.cloudera.cdp.datalake.model.UpgradeDatalakeResponse;
 import java.util.ArrayList;
@@ -111,7 +113,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-12-16T12:55:40.926-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-04T11:10:09.034-08:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datalake";
@@ -621,6 +623,19 @@ public class DatalakeClient extends CdpClient {
     }
 
     return this.invokeAPI("syncComponentVersionsFromCm", "/api/v1/datalake/syncComponentVersionsFromCm", input, new GenericType<SyncComponentVersionsFromCmResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Run orchestrator engine state update on the Data Lake cluster.
+   * @param input
+   * @return UpdateOrchestratorStateResponse
+   */
+  public UpdateOrchestratorStateResponse updateOrchestratorState(UpdateOrchestratorStateRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateOrchestratorState");
+    }
+
+    return this.invokeAPI("updateOrchestratorState", "/api/v1/datalake/updateOrchestratorState", input, new GenericType<UpdateOrchestratorStateResponse>(){}, NO_EXTENSION);
   }
 
   /**

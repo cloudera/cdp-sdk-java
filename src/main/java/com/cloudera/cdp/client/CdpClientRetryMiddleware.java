@@ -59,8 +59,8 @@ public class CdpClientRetryMiddleware implements CdpClientMiddleware {
           if (delay == RetryHandler.DO_NOT_RETRY) {
             throw exception;
           }
-          LOG.warn("Caught exception", exception);
-          LOG.warn("Wait {} milli-seconds then retry.", delay.toMillis());
+          LOG.debug("Caught exception", exception);
+          LOG.debug("Wait {} milli-seconds then retry.", delay.toMillis());
           try {
             Thread.sleep(delay.toMillis());
           } catch (InterruptedException e) {

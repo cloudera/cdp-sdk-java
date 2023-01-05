@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * List clusters response.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-12-16T12:55:42.734-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-04T11:10:11.336-08:00")
 public class ListClustersResponse extends CdpResponse {
 
   /**
@@ -41,6 +41,16 @@ public class ListClustersResponse extends CdpResponse {
    * The token to use when requesting the next set of results. If not present, there are no additional results.
    **/
   private String nextToken = null;
+
+  /**
+   * Total number of clusters.
+   **/
+  private Integer totalClusters = null;
+
+  /**
+   * Total number of pages.
+   **/
+  private Integer totalPages = null;
 
   /**
    * Getter for clusters.
@@ -76,6 +86,40 @@ public class ListClustersResponse extends CdpResponse {
     this.nextToken = nextToken;
   }
 
+  /**
+   * Getter for totalClusters.
+   * Total number of clusters.
+   **/
+  @JsonProperty("totalClusters")
+  public Integer getTotalClusters() {
+    return totalClusters;
+  }
+
+  /**
+   * Setter for totalClusters.
+   * Total number of clusters.
+   **/
+  public void setTotalClusters(Integer totalClusters) {
+    this.totalClusters = totalClusters;
+  }
+
+  /**
+   * Getter for totalPages.
+   * Total number of pages.
+   **/
+  @JsonProperty("totalPages")
+  public Integer getTotalPages() {
+    return totalPages;
+  }
+
+  /**
+   * Setter for totalPages.
+   * Total number of pages.
+   **/
+  public void setTotalPages(Integer totalPages) {
+    this.totalPages = totalPages;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -91,6 +135,12 @@ public class ListClustersResponse extends CdpResponse {
     if (!Objects.equals(this.nextToken, listClustersResponse.nextToken)) {
       return false;
     }
+    if (!Objects.equals(this.totalClusters, listClustersResponse.totalClusters)) {
+      return false;
+    }
+    if (!Objects.equals(this.totalPages, listClustersResponse.totalPages)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -99,7 +149,7 @@ public class ListClustersResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusters, nextToken, super.hashCode());
+    return Objects.hash(clusters, nextToken, totalClusters, totalPages, super.hashCode());
   }
 
   @Override
@@ -109,6 +159,8 @@ public class ListClustersResponse extends CdpResponse {
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    clusters: ").append(toIndentedString(clusters)).append("\n");
     sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
+    sb.append("    totalClusters: ").append(toIndentedString(totalClusters)).append("\n");
+    sb.append("    totalPages: ").append(toIndentedString(totalPages)).append("\n");
     sb.append("}");
     return sb.toString();
   }

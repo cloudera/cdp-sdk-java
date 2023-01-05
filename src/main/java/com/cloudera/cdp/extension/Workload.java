@@ -87,10 +87,9 @@ public class Workload implements CdpClientMiddleware {
 
     String workloadUrl = response.getEndpointUrl();
     String workloadAccessToken = response.getToken();
-    LOG.debug(String.format(
-        "Workload service-discovery succeeded. endpointUrl=%s, accessToken=%s...",
+    LOG.debug("Workload service-discovery succeeded. endpointUrl={}, accessToken={}...",
         workloadUrl,
-        sanitizeAccessToken(workloadAccessToken)));
+        sanitizeAccessToken(workloadAccessToken));
 
     if (!Strings.isNullOrEmpty(workloadUrl)) {
       workloadUrl = URI.create(workloadUrl).resolve("/").toString();

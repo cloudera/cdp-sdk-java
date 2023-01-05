@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for getting ID Broker mappings for an environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-12-16T12:55:41.329-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-04T11:10:09.607-08:00")
 public class GetIdBrokerMappingsResponse extends CdpResponse {
 
   /**

@@ -28,13 +28,18 @@ import com.cloudera.cdp.environments.model.CreateAzureCredentialRequestAppBased;
 /**
  * Request object for a create Azure credential request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-12-16T12:55:41.329-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-04T11:10:09.607-08:00")
 public class CreateAzureCredentialRequest  {
 
   /**
    * The name of the credential.
    **/
   private String credentialName = null;
+
+  /**
+   * 
+   **/
+  private CreateAzureCredentialRequestAppBased appBased = null;
 
   /**
    * The Azure subscription ID.
@@ -45,11 +50,6 @@ public class CreateAzureCredentialRequest  {
    * The Azure AD tenant ID for the Azure subscription.
    **/
   private String tenantId = null;
-
-  /**
-   * 
-   **/
-  private CreateAzureCredentialRequestAppBased appBased = null;
 
   /**
    * A description for the credential.
@@ -71,6 +71,23 @@ public class CreateAzureCredentialRequest  {
    **/
   public void setCredentialName(String credentialName) {
     this.credentialName = credentialName;
+  }
+
+  /**
+   * Getter for appBased.
+   * 
+   **/
+  @JsonProperty("appBased")
+  public CreateAzureCredentialRequestAppBased getAppBased() {
+    return appBased;
+  }
+
+  /**
+   * Setter for appBased.
+   * 
+   **/
+  public void setAppBased(CreateAzureCredentialRequestAppBased appBased) {
+    this.appBased = appBased;
   }
 
   /**
@@ -108,23 +125,6 @@ public class CreateAzureCredentialRequest  {
   }
 
   /**
-   * Getter for appBased.
-   * 
-   **/
-  @JsonProperty("appBased")
-  public CreateAzureCredentialRequestAppBased getAppBased() {
-    return appBased;
-  }
-
-  /**
-   * Setter for appBased.
-   * 
-   **/
-  public void setAppBased(CreateAzureCredentialRequestAppBased appBased) {
-    this.appBased = appBased;
-  }
-
-  /**
    * Getter for description.
    * A description for the credential.
    **/
@@ -153,13 +153,13 @@ public class CreateAzureCredentialRequest  {
     if (!Objects.equals(this.credentialName, createAzureCredentialRequest.credentialName)) {
       return false;
     }
+    if (!Objects.equals(this.appBased, createAzureCredentialRequest.appBased)) {
+      return false;
+    }
     if (!Objects.equals(this.subscriptionId, createAzureCredentialRequest.subscriptionId)) {
       return false;
     }
     if (!Objects.equals(this.tenantId, createAzureCredentialRequest.tenantId)) {
-      return false;
-    }
-    if (!Objects.equals(this.appBased, createAzureCredentialRequest.appBased)) {
       return false;
     }
     if (!Objects.equals(this.description, createAzureCredentialRequest.description)) {
@@ -170,7 +170,7 @@ public class CreateAzureCredentialRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(credentialName, subscriptionId, tenantId, appBased, description);
+    return Objects.hash(credentialName, appBased, subscriptionId, tenantId, description);
   }
 
   @Override
@@ -178,9 +178,9 @@ public class CreateAzureCredentialRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateAzureCredentialRequest {\n");
     sb.append("    credentialName: ").append(toIndentedString(credentialName)).append("\n");
+    sb.append("    appBased: ").append(toIndentedString(appBased)).append("\n");
     sb.append("    subscriptionId: ").append(toIndentedString(subscriptionId)).append("\n");
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
-    sb.append("    appBased: ").append(toIndentedString(appBased)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("}");
     return sb.toString();

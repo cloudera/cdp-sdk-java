@@ -137,6 +137,8 @@ import com.cloudera.cdp.datahub.model.SyncComponentVersionsFromCmRequest;
 import com.cloudera.cdp.datahub.model.SyncComponentVersionsFromCmResponse;
 import com.cloudera.cdp.datahub.model.UpdateAutoScaleRulesRequest;
 import com.cloudera.cdp.datahub.model.UpdateAutoScaleRulesResponse;
+import com.cloudera.cdp.datahub.model.UpdateOrchestratorStateRequest;
+import com.cloudera.cdp.datahub.model.UpdateOrchestratorStateResponse;
 import com.cloudera.cdp.datahub.model.UpgradeClusterRequest;
 import com.cloudera.cdp.datahub.model.UpgradeClusterResponse;
 import java.util.ArrayList;
@@ -145,7 +147,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-12-16T12:55:39.472-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-04T11:10:07.615-08:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datahub";
@@ -876,6 +878,19 @@ public class DatahubClient extends CdpClient {
     }
 
     return this.invokeAPI("updateAutoScaleRules", "/api/v1/datahub/updateAutoScaleRules", input, new GenericType<UpdateAutoScaleRulesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Run orchestrator engine state update on the Data Hub cluster.
+   * @param input
+   * @return UpdateOrchestratorStateResponse
+   */
+  public UpdateOrchestratorStateResponse updateOrchestratorState(UpdateOrchestratorStateRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateOrchestratorState");
+    }
+
+    return this.invokeAPI("updateOrchestratorState", "/api/v1/datahub/updateOrchestratorState", input, new GenericType<UpdateOrchestratorStateResponse>(){}, NO_EXTENSION);
   }
 
   /**

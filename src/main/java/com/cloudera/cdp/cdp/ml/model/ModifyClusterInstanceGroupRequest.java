@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for ModifyClusterInstanceGroup.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-12-16T12:55:40.708-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-04T11:10:08.762-08:00")
 public class ModifyClusterInstanceGroupRequest  {
 
   /**
@@ -49,6 +49,11 @@ public class ModifyClusterInstanceGroupRequest  {
    * The desired autoscaling min of the workspace cluster instance group.
    **/
   private Integer max = null;
+
+  /**
+   * The desired instance type of the workspace cluster instance group.
+   **/
+  private String instanceType = null;
 
   /**
    * Getter for workspaceCrn.
@@ -118,6 +123,23 @@ public class ModifyClusterInstanceGroupRequest  {
     this.max = max;
   }
 
+  /**
+   * Getter for instanceType.
+   * The desired instance type of the workspace cluster instance group.
+   **/
+  @JsonProperty("instanceType")
+  public String getInstanceType() {
+    return instanceType;
+  }
+
+  /**
+   * Setter for instanceType.
+   * The desired instance type of the workspace cluster instance group.
+   **/
+  public void setInstanceType(String instanceType) {
+    this.instanceType = instanceType;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -139,12 +161,15 @@ public class ModifyClusterInstanceGroupRequest  {
     if (!Objects.equals(this.max, modifyClusterInstanceGroupRequest.max)) {
       return false;
     }
+    if (!Objects.equals(this.instanceType, modifyClusterInstanceGroupRequest.instanceType)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(workspaceCrn, instanceGroupName, min, max);
+    return Objects.hash(workspaceCrn, instanceGroupName, min, max, instanceType);
   }
 
   @Override
@@ -155,6 +180,7 @@ public class ModifyClusterInstanceGroupRequest  {
     sb.append("    instanceGroupName: ").append(toIndentedString(instanceGroupName)).append("\n");
     sb.append("    min: ").append(toIndentedString(min)).append("\n");
     sb.append("    max: ").append(toIndentedString(max)).append("\n");
+    sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Information about the SCIM access token.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-12-16T12:55:42.002-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-04T11:10:10.513-08:00")
 public class ScimAccessToken  {
 
   /**

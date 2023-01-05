@@ -23,11 +23,12 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import java.util.*;
 
 /**
  * Security control configuration for FreeIPA and Datalake deployment. Choosing a CIDR will automatically create security groups. Alternatively existing security groups can be specified.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-12-16T12:55:41.329-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-04T11:10:09.607-08:00")
 public class SecurityAccessRequest  {
 
   /**
@@ -44,6 +45,16 @@ public class SecurityAccessRequest  {
    * Security group where all other hosts are placed. Mutually exclusive with cidr.
    **/
   private String defaultSecurityGroupId = null;
+
+  /**
+   * Security group IDs where Knox-enabled hosts are placed. Mutually exclusive with CIDR.
+   **/
+  private List<String> securityGroupIDsForKnox = new ArrayList<String>();
+
+  /**
+   * Security group IDs where all other hosts are placed. Mutually exclusive with CIDR.
+   **/
+  private List<String> defaultSecurityGroupIDs = new ArrayList<String>();
 
   /**
    * Getter for cidr.
@@ -96,6 +107,40 @@ public class SecurityAccessRequest  {
     this.defaultSecurityGroupId = defaultSecurityGroupId;
   }
 
+  /**
+   * Getter for securityGroupIDsForKnox.
+   * Security group IDs where Knox-enabled hosts are placed. Mutually exclusive with CIDR.
+   **/
+  @JsonProperty("securityGroupIDsForKnox")
+  public List<String> getSecurityGroupIDsForKnox() {
+    return securityGroupIDsForKnox;
+  }
+
+  /**
+   * Setter for securityGroupIDsForKnox.
+   * Security group IDs where Knox-enabled hosts are placed. Mutually exclusive with CIDR.
+   **/
+  public void setSecurityGroupIDsForKnox(List<String> securityGroupIDsForKnox) {
+    this.securityGroupIDsForKnox = securityGroupIDsForKnox;
+  }
+
+  /**
+   * Getter for defaultSecurityGroupIDs.
+   * Security group IDs where all other hosts are placed. Mutually exclusive with CIDR.
+   **/
+  @JsonProperty("defaultSecurityGroupIDs")
+  public List<String> getDefaultSecurityGroupIDs() {
+    return defaultSecurityGroupIDs;
+  }
+
+  /**
+   * Setter for defaultSecurityGroupIDs.
+   * Security group IDs where all other hosts are placed. Mutually exclusive with CIDR.
+   **/
+  public void setDefaultSecurityGroupIDs(List<String> defaultSecurityGroupIDs) {
+    this.defaultSecurityGroupIDs = defaultSecurityGroupIDs;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -114,12 +159,18 @@ public class SecurityAccessRequest  {
     if (!Objects.equals(this.defaultSecurityGroupId, securityAccessRequest.defaultSecurityGroupId)) {
       return false;
     }
+    if (!Objects.equals(this.securityGroupIDsForKnox, securityAccessRequest.securityGroupIDsForKnox)) {
+      return false;
+    }
+    if (!Objects.equals(this.defaultSecurityGroupIDs, securityAccessRequest.defaultSecurityGroupIDs)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cidr, securityGroupIdForKnox, defaultSecurityGroupId);
+    return Objects.hash(cidr, securityGroupIdForKnox, defaultSecurityGroupId, securityGroupIDsForKnox, defaultSecurityGroupIDs);
   }
 
   @Override
@@ -129,6 +180,8 @@ public class SecurityAccessRequest  {
     sb.append("    cidr: ").append(toIndentedString(cidr)).append("\n");
     sb.append("    securityGroupIdForKnox: ").append(toIndentedString(securityGroupIdForKnox)).append("\n");
     sb.append("    defaultSecurityGroupId: ").append(toIndentedString(defaultSecurityGroupId)).append("\n");
+    sb.append("    securityGroupIDsForKnox: ").append(toIndentedString(securityGroupIDsForKnox)).append("\n");
+    sb.append("    defaultSecurityGroupIDs: ").append(toIndentedString(defaultSecurityGroupIDs)).append("\n");
     sb.append("}");
     return sb.toString();
   }

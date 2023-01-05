@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * A simple backup entry for listBackup usage
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-12-16T12:55:41.207-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-04T11:10:09.414-08:00")
 public class SimpleBackup  {
 
   /**
@@ -44,6 +44,16 @@ public class SimpleBackup  {
    * The time when the backup was created.
    **/
   private String backupCreationTime = null;
+
+  /**
+   * The phase of the backup operation. The values are PENDING, PRE_VALIDATION, SAVING_OBJECTS, CREATING_SNAPSHOTS and FINISHED. PENDING indicates waiting for the job to start executing. PRE_VALIDATION indicates validation of the environment before backup. SAVING_OBJECTS indicates saving all the kubernetes resources related to the backup item. CREATING_SNAPSHOTS indicates creating a snapshot of all Kubernetes PersistentVolumeClaims related to the backup item and FINISHED indicates that the backup job has finished.
+   **/
+  private String backupPhase = null;
+
+  /**
+   * The current state of the backup job. The values are NOT_STARTED, IN_PROGRESS, COMPLETED, PARTIALLY_FAILED and FAILED. NOT_STARTED indicates the job has not started. IN_PROGRESS indicates the job is running. COMPLETED indicates the job has finished running successfully. PARTIALLY_FAILED indicates the job has finished running with some warnings and FAILED indicates the job has finished running with errors.
+   **/
+  private String backupJobState = null;
 
   /**
    * Getter for backupCrn.
@@ -96,6 +106,40 @@ public class SimpleBackup  {
     this.backupCreationTime = backupCreationTime;
   }
 
+  /**
+   * Getter for backupPhase.
+   * The phase of the backup operation. The values are PENDING, PRE_VALIDATION, SAVING_OBJECTS, CREATING_SNAPSHOTS and FINISHED. PENDING indicates waiting for the job to start executing. PRE_VALIDATION indicates validation of the environment before backup. SAVING_OBJECTS indicates saving all the kubernetes resources related to the backup item. CREATING_SNAPSHOTS indicates creating a snapshot of all Kubernetes PersistentVolumeClaims related to the backup item and FINISHED indicates that the backup job has finished.
+   **/
+  @JsonProperty("backupPhase")
+  public String getBackupPhase() {
+    return backupPhase;
+  }
+
+  /**
+   * Setter for backupPhase.
+   * The phase of the backup operation. The values are PENDING, PRE_VALIDATION, SAVING_OBJECTS, CREATING_SNAPSHOTS and FINISHED. PENDING indicates waiting for the job to start executing. PRE_VALIDATION indicates validation of the environment before backup. SAVING_OBJECTS indicates saving all the kubernetes resources related to the backup item. CREATING_SNAPSHOTS indicates creating a snapshot of all Kubernetes PersistentVolumeClaims related to the backup item and FINISHED indicates that the backup job has finished.
+   **/
+  public void setBackupPhase(String backupPhase) {
+    this.backupPhase = backupPhase;
+  }
+
+  /**
+   * Getter for backupJobState.
+   * The current state of the backup job. The values are NOT_STARTED, IN_PROGRESS, COMPLETED, PARTIALLY_FAILED and FAILED. NOT_STARTED indicates the job has not started. IN_PROGRESS indicates the job is running. COMPLETED indicates the job has finished running successfully. PARTIALLY_FAILED indicates the job has finished running with some warnings and FAILED indicates the job has finished running with errors.
+   **/
+  @JsonProperty("backupJobState")
+  public String getBackupJobState() {
+    return backupJobState;
+  }
+
+  /**
+   * Setter for backupJobState.
+   * The current state of the backup job. The values are NOT_STARTED, IN_PROGRESS, COMPLETED, PARTIALLY_FAILED and FAILED. NOT_STARTED indicates the job has not started. IN_PROGRESS indicates the job is running. COMPLETED indicates the job has finished running successfully. PARTIALLY_FAILED indicates the job has finished running with some warnings and FAILED indicates the job has finished running with errors.
+   **/
+  public void setBackupJobState(String backupJobState) {
+    this.backupJobState = backupJobState;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -114,12 +158,18 @@ public class SimpleBackup  {
     if (!Objects.equals(this.backupCreationTime, simpleBackup.backupCreationTime)) {
       return false;
     }
+    if (!Objects.equals(this.backupPhase, simpleBackup.backupPhase)) {
+      return false;
+    }
+    if (!Objects.equals(this.backupJobState, simpleBackup.backupJobState)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupCrn, backupName, backupCreationTime);
+    return Objects.hash(backupCrn, backupName, backupCreationTime, backupPhase, backupJobState);
   }
 
   @Override
@@ -129,6 +179,8 @@ public class SimpleBackup  {
     sb.append("    backupCrn: ").append(toIndentedString(backupCrn)).append("\n");
     sb.append("    backupName: ").append(toIndentedString(backupName)).append("\n");
     sb.append("    backupCreationTime: ").append(toIndentedString(backupCreationTime)).append("\n");
+    sb.append("    backupPhase: ").append(toIndentedString(backupPhase)).append("\n");
+    sb.append("    backupJobState: ").append(toIndentedString(backupJobState)).append("\n");
     sb.append("}");
     return sb.toString();
   }

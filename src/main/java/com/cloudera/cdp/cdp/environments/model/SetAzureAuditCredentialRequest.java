@@ -23,12 +23,12 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
-import com.cloudera.cdp.environments.model.CreateAzureCredentialRequestAppBased;
+import com.cloudera.cdp.environments.model.SetAzureAuditCredentialRequestAppBased;
 
 /**
  * Request object for a set Azure audit credential request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-12-16T12:55:41.329-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-04T11:10:09.607-08:00")
 public class SetAzureAuditCredentialRequest  {
 
   /**
@@ -44,7 +44,7 @@ public class SetAzureAuditCredentialRequest  {
   /**
    * 
    **/
-  private CreateAzureCredentialRequestAppBased appBased = null;
+  private SetAzureAuditCredentialRequestAppBased appBased = null;
 
   /**
    * Getter for subscriptionId.
@@ -85,7 +85,7 @@ public class SetAzureAuditCredentialRequest  {
    * 
    **/
   @JsonProperty("appBased")
-  public CreateAzureCredentialRequestAppBased getAppBased() {
+  public SetAzureAuditCredentialRequestAppBased getAppBased() {
     return appBased;
   }
 
@@ -93,7 +93,7 @@ public class SetAzureAuditCredentialRequest  {
    * Setter for appBased.
    * 
    **/
-  public void setAppBased(CreateAzureCredentialRequestAppBased appBased) {
+  public void setAppBased(SetAzureAuditCredentialRequestAppBased appBased) {
     this.appBased = appBased;
   }
 

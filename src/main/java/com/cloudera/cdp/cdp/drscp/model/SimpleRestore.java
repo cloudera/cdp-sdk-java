@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * A simple Restore entry for listRestore Usage
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-12-16T12:55:41.207-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-04T11:10:09.414-08:00")
 public class SimpleRestore  {
 
   /**
@@ -50,6 +50,16 @@ public class SimpleRestore  {
    * The list of namespaces to be included in restore.
    **/
   private List<String> includedNamespaces = new ArrayList<String>();
+
+  /**
+   * The phase of the restore operation. The values are PENDING, PRE_VALIDATION, STOPPING_APPS, DELETING_OBJECTS, DELETING_OBJECTS_PVC, RESTORING_PVC, RESTORING_OBJECTS, STARTING_APPS and FINISHED. PENDING indicates waiting for the job to start executing. PRE_VALIDATION indicates validation of the environment before restore. STOPPING_APPS indicates stopping the microservices before data restore. DELETING_OBJECTS indicates deletion of Kubernetes resources other than PersistentVolumeClaims. DELETING_OBJECTS_PVC indicates deletion of Kubernetes PersistentVolumeClaims. RESTORING_PVC indicates creation of Kubernetes PersistentVolumeClaims. RESTORING_OBJECTS indicates creating of Kubernetes objects other than PersistentVolumeClaims. STARTING_APPS indicates starting of the microservices after data restore and FINISHED indicates the restore job has finished.
+   **/
+  private String restorePhase = null;
+
+  /**
+   * The current state of the restore job. The values are NOT_STARTED, IN_PROGRESS, COMPLETED, PARTIALLY_FAILED and FAILED. NOT_STARTED indicates the job has not started. IN_PROGRESS indicates the job is running. COMPLETED indicates the job has finished running successfully. PARTIALLY_FAILED indicates the job has finished running with some warnings and FAILED indicates the job has finished running with errors.
+   **/
+  private String restoreJobState = null;
 
   /**
    * Getter for restoreCrn.
@@ -119,6 +129,40 @@ public class SimpleRestore  {
     this.includedNamespaces = includedNamespaces;
   }
 
+  /**
+   * Getter for restorePhase.
+   * The phase of the restore operation. The values are PENDING, PRE_VALIDATION, STOPPING_APPS, DELETING_OBJECTS, DELETING_OBJECTS_PVC, RESTORING_PVC, RESTORING_OBJECTS, STARTING_APPS and FINISHED. PENDING indicates waiting for the job to start executing. PRE_VALIDATION indicates validation of the environment before restore. STOPPING_APPS indicates stopping the microservices before data restore. DELETING_OBJECTS indicates deletion of Kubernetes resources other than PersistentVolumeClaims. DELETING_OBJECTS_PVC indicates deletion of Kubernetes PersistentVolumeClaims. RESTORING_PVC indicates creation of Kubernetes PersistentVolumeClaims. RESTORING_OBJECTS indicates creating of Kubernetes objects other than PersistentVolumeClaims. STARTING_APPS indicates starting of the microservices after data restore and FINISHED indicates the restore job has finished.
+   **/
+  @JsonProperty("restorePhase")
+  public String getRestorePhase() {
+    return restorePhase;
+  }
+
+  /**
+   * Setter for restorePhase.
+   * The phase of the restore operation. The values are PENDING, PRE_VALIDATION, STOPPING_APPS, DELETING_OBJECTS, DELETING_OBJECTS_PVC, RESTORING_PVC, RESTORING_OBJECTS, STARTING_APPS and FINISHED. PENDING indicates waiting for the job to start executing. PRE_VALIDATION indicates validation of the environment before restore. STOPPING_APPS indicates stopping the microservices before data restore. DELETING_OBJECTS indicates deletion of Kubernetes resources other than PersistentVolumeClaims. DELETING_OBJECTS_PVC indicates deletion of Kubernetes PersistentVolumeClaims. RESTORING_PVC indicates creation of Kubernetes PersistentVolumeClaims. RESTORING_OBJECTS indicates creating of Kubernetes objects other than PersistentVolumeClaims. STARTING_APPS indicates starting of the microservices after data restore and FINISHED indicates the restore job has finished.
+   **/
+  public void setRestorePhase(String restorePhase) {
+    this.restorePhase = restorePhase;
+  }
+
+  /**
+   * Getter for restoreJobState.
+   * The current state of the restore job. The values are NOT_STARTED, IN_PROGRESS, COMPLETED, PARTIALLY_FAILED and FAILED. NOT_STARTED indicates the job has not started. IN_PROGRESS indicates the job is running. COMPLETED indicates the job has finished running successfully. PARTIALLY_FAILED indicates the job has finished running with some warnings and FAILED indicates the job has finished running with errors.
+   **/
+  @JsonProperty("restoreJobState")
+  public String getRestoreJobState() {
+    return restoreJobState;
+  }
+
+  /**
+   * Setter for restoreJobState.
+   * The current state of the restore job. The values are NOT_STARTED, IN_PROGRESS, COMPLETED, PARTIALLY_FAILED and FAILED. NOT_STARTED indicates the job has not started. IN_PROGRESS indicates the job is running. COMPLETED indicates the job has finished running successfully. PARTIALLY_FAILED indicates the job has finished running with some warnings and FAILED indicates the job has finished running with errors.
+   **/
+  public void setRestoreJobState(String restoreJobState) {
+    this.restoreJobState = restoreJobState;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -140,12 +184,18 @@ public class SimpleRestore  {
     if (!Objects.equals(this.includedNamespaces, simpleRestore.includedNamespaces)) {
       return false;
     }
+    if (!Objects.equals(this.restorePhase, simpleRestore.restorePhase)) {
+      return false;
+    }
+    if (!Objects.equals(this.restoreJobState, simpleRestore.restoreJobState)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(restoreCrn, backupCrn, restoreCreationTime, includedNamespaces);
+    return Objects.hash(restoreCrn, backupCrn, restoreCreationTime, includedNamespaces, restorePhase, restoreJobState);
   }
 
   @Override
@@ -156,6 +206,8 @@ public class SimpleRestore  {
     sb.append("    backupCrn: ").append(toIndentedString(backupCrn)).append("\n");
     sb.append("    restoreCreationTime: ").append(toIndentedString(restoreCreationTime)).append("\n");
     sb.append("    includedNamespaces: ").append(toIndentedString(includedNamespaces)).append("\n");
+    sb.append("    restorePhase: ").append(toIndentedString(restorePhase)).append("\n");
+    sb.append("    restoreJobState: ").append(toIndentedString(restoreJobState)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object to list clusters.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2022-12-16T12:55:42.734-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-04T11:10:11.336-08:00")
 public class ListClustersRequest  {
 
   /**
@@ -48,7 +48,7 @@ public class ListClustersRequest  {
   /**
    * The size of each page. Default is 100.
    **/
-  private Integer pageSize = null;
+  private Integer pageSize = 100;
 
   /**
    * A token to specify where to start paginating. This is the nextToken from a previously truncated response. 1 or empty for first page.
