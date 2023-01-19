@@ -31,7 +31,7 @@ import com.cloudera.cdp.audit.model.InteractiveLoginEvent;
 /**
  * The model for an audit event.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-04T11:10:10.236-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-18T15:00:50.720-08:00")
 public class CdpAuditEvent  {
 
   /**

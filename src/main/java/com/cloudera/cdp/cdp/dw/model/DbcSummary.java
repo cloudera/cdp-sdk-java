@@ -29,7 +29,7 @@ import java.time.ZonedDateTime;
 /**
  * A Database Catalog.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-04T11:10:08.309-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-18T15:00:49.004-08:00")
 public class DbcSummary  {
 
   /**
@@ -48,7 +48,7 @@ public class DbcSummary  {
   private String name = null;
 
   /**
-   * Status of the Database Catalog.
+   * Status of the Database Catalog. Possible values are: Creating, Created, Accepted, Starting, Running, Stopping, Stopped, Updating, PreUpdate, Upgrading, PreUpgrade, Restarting, Deleting, Waiting, Failed, Error.
    **/
   private String status = null;
 
@@ -120,7 +120,7 @@ public class DbcSummary  {
 
   /**
    * Getter for status.
-   * Status of the Database Catalog.
+   * Status of the Database Catalog. Possible values are: Creating, Created, Accepted, Starting, Running, Stopping, Stopped, Updating, PreUpdate, Upgrading, PreUpgrade, Restarting, Deleting, Waiting, Failed, Error.
    **/
   @JsonProperty("status")
   public String getStatus() {
@@ -129,7 +129,7 @@ public class DbcSummary  {
 
   /**
    * Setter for status.
-   * Status of the Database Catalog.
+   * Status of the Database Catalog. Possible values are: Creating, Created, Accepted, Starting, Running, Stopping, Stopped, Updating, PreUpdate, Upgrading, PreUpgrade, Restarting, Deleting, Waiting, Failed, Error.
    **/
   public void setStatus(String status) {
     this.status = status;

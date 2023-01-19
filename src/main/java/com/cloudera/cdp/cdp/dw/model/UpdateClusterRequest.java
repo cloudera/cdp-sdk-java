@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for the updateCluster method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-04T11:10:08.309-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-18T15:00:49.004-08:00")
 public class UpdateClusterRequest  {
 
   /**
@@ -44,7 +44,7 @@ public class UpdateClusterRequest  {
   private String description = null;
 
   /**
-   * List of IP address CIDRs to whitelist.
+   * List of IP address CIDRs to whitelist. NOTE: CDW is in process of rolling out a new feature to whitelist IP CIDR separately for Kubernetes Clusters and Loadbalancers on CDP Public Cloud. For an existing cluster, if different IP CIDR has been already applied to LoadBalancer and the Kubernetes cluster through the DWX UI, then updating the IP CIDR of such cluster is not supported from CLI. In the upcoming release, the CLI will support this feature. Please make use of UI for the same.
    **/
   private List<String> whitelistIpCIDRs = new ArrayList<String>();
 
@@ -94,7 +94,7 @@ public class UpdateClusterRequest  {
 
   /**
    * Getter for whitelistIpCIDRs.
-   * List of IP address CIDRs to whitelist.
+   * List of IP address CIDRs to whitelist. NOTE: CDW is in process of rolling out a new feature to whitelist IP CIDR separately for Kubernetes Clusters and Loadbalancers on CDP Public Cloud. For an existing cluster, if different IP CIDR has been already applied to LoadBalancer and the Kubernetes cluster through the DWX UI, then updating the IP CIDR of such cluster is not supported from CLI. In the upcoming release, the CLI will support this feature. Please make use of UI for the same.
    **/
   @JsonProperty("whitelistIpCIDRs")
   public List<String> getWhitelistIpCIDRs() {
@@ -103,7 +103,7 @@ public class UpdateClusterRequest  {
 
   /**
    * Setter for whitelistIpCIDRs.
-   * List of IP address CIDRs to whitelist.
+   * List of IP address CIDRs to whitelist. NOTE: CDW is in process of rolling out a new feature to whitelist IP CIDR separately for Kubernetes Clusters and Loadbalancers on CDP Public Cloud. For an existing cluster, if different IP CIDR has been already applied to LoadBalancer and the Kubernetes cluster through the DWX UI, then updating the IP CIDR of such cluster is not supported from CLI. In the upcoming release, the CLI will support this feature. Please make use of UI for the same.
    **/
   public void setWhitelistIpCIDRs(List<String> whitelistIpCIDRs) {
     this.whitelistIpCIDRs = whitelistIpCIDRs;

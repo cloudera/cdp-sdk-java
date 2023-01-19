@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Contains the necessary info for an instance group.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-04T11:10:08.762-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-18T15:00:49.626-08:00")
 public class InstanceGroup  {
 
   /**

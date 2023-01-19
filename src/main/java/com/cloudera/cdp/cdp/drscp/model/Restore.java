@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Restore entry
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-04T11:10:09.414-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-18T15:00:50.027-08:00")
 public class Restore  {
 
   /**

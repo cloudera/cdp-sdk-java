@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * The list of in-progress diagnostic bundle operations
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-04T11:10:10.128-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-18T15:00:50.580-08:00")
 public class ListDiagnosticsResponse extends CdpResponse {
 
   /**

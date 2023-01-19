@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request to restore datalake from backup. Restore does not restore the database by default.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-04T11:10:09.034-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-18T15:00:49.770-08:00")
 public class RestoreDatalakeRequest  {
 
   /**
@@ -46,7 +46,7 @@ public class RestoreDatalakeRequest  {
   private String backupName = null;
 
   /**
-   * DEPRECATED - The database is included in the restore by default. To skip it, use the --skip-database flag.
+   * DEPRECATED - The database is included in the restore by default. To skip it, use the --skip-ranger-hms-metadata flag.
    **/
   private Boolean includeDatabase = null;
 
@@ -133,7 +133,7 @@ public class RestoreDatalakeRequest  {
 
   /**
    * Getter for includeDatabase.
-   * DEPRECATED - The database is included in the restore by default. To skip it, use the --skip-database flag.
+   * DEPRECATED - The database is included in the restore by default. To skip it, use the --skip-ranger-hms-metadata flag.
    **/
   @JsonProperty("includeDatabase")
   public Boolean getIncludeDatabase() {
@@ -142,7 +142,7 @@ public class RestoreDatalakeRequest  {
 
   /**
    * Setter for includeDatabase.
-   * DEPRECATED - The database is included in the restore by default. To skip it, use the --skip-database flag.
+   * DEPRECATED - The database is included in the restore by default. To skip it, use the --skip-ranger-hms-metadata flag.
    **/
   public void setIncludeDatabase(Boolean includeDatabase) {
     this.includeDatabase = includeDatabase;

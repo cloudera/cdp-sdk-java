@@ -63,6 +63,8 @@ import com.cloudera.cdp.ml.model.ModifyClusterSecurityRequest;
 import com.cloudera.cdp.ml.model.ModifyClusterSecurityResponse;
 import com.cloudera.cdp.ml.model.ModifyWorkspaceLoadBalancerRequest;
 import com.cloudera.cdp.ml.model.ModifyWorkspaceLoadBalancerResponse;
+import com.cloudera.cdp.ml.model.RequestWorkflowCancellationRequest;
+import com.cloudera.cdp.ml.model.RequestWorkflowCancellationResponse;
 import com.cloudera.cdp.ml.model.RestoreWorkspaceRequest;
 import com.cloudera.cdp.ml.model.RestoreWorkspaceResponse;
 import com.cloudera.cdp.ml.model.ResumeWorkspaceRequest;
@@ -79,7 +81,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-04T11:10:08.762-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-18T15:00:49.626-08:00")
 public class MlClient extends CdpClient {
 
   public static final String SERVICE_NAME = "ml";
@@ -329,6 +331,19 @@ public class MlClient extends CdpClient {
     }
 
     return this.invokeAPI("modifyWorkspaceLoadBalancer", "/api/v1/ml/modifyWorkspaceLoadBalancer", input, new GenericType<ModifyWorkspaceLoadBalancerResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Request a workflow cancellation.
+   * @param input
+   * @return RequestWorkflowCancellationResponse
+   */
+  public RequestWorkflowCancellationResponse requestWorkflowCancellation(RequestWorkflowCancellationRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling requestWorkflowCancellation");
+    }
+
+    return this.invokeAPI("requestWorkflowCancellation", "/api/v1/ml/requestWorkflowCancellation", input, new GenericType<RequestWorkflowCancellationResponse>(){}, NO_EXTENSION);
   }
 
   /**

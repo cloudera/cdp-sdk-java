@@ -28,7 +28,7 @@ import com.cloudera.cdp.environments.model.CreateAzureCredentialRequestAppBased;
 /**
  * Request object for a create Azure credential request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-04T11:10:09.607-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-18T15:00:50.178-08:00")
 public class CreateAzureCredentialRequest  {
 
   /**
@@ -42,12 +42,12 @@ public class CreateAzureCredentialRequest  {
   private CreateAzureCredentialRequestAppBased appBased = null;
 
   /**
-   * The Azure subscription ID.
+   * The Azure subscription ID. Required for secret based credentials and optional for certificate based ones.
    **/
   private String subscriptionId = null;
 
   /**
-   * The Azure AD tenant ID for the Azure subscription.
+   * The Azure AD tenant ID for the Azure subscription. Required for secret based credentials and optional for certificate based ones.
    **/
   private String tenantId = null;
 
@@ -92,7 +92,7 @@ public class CreateAzureCredentialRequest  {
 
   /**
    * Getter for subscriptionId.
-   * The Azure subscription ID.
+   * The Azure subscription ID. Required for secret based credentials and optional for certificate based ones.
    **/
   @JsonProperty("subscriptionId")
   public String getSubscriptionId() {
@@ -101,7 +101,7 @@ public class CreateAzureCredentialRequest  {
 
   /**
    * Setter for subscriptionId.
-   * The Azure subscription ID.
+   * The Azure subscription ID. Required for secret based credentials and optional for certificate based ones.
    **/
   public void setSubscriptionId(String subscriptionId) {
     this.subscriptionId = subscriptionId;
@@ -109,7 +109,7 @@ public class CreateAzureCredentialRequest  {
 
   /**
    * Getter for tenantId.
-   * The Azure AD tenant ID for the Azure subscription.
+   * The Azure AD tenant ID for the Azure subscription. Required for secret based credentials and optional for certificate based ones.
    **/
   @JsonProperty("tenantId")
   public String getTenantId() {
@@ -118,7 +118,7 @@ public class CreateAzureCredentialRequest  {
 
   /**
    * Setter for tenantId.
-   * The Azure AD tenant ID for the Azure subscription.
+   * The Azure AD tenant ID for the Azure subscription. Required for secret based credentials and optional for certificate based ones.
    **/
   public void setTenantId(String tenantId) {
     this.tenantId = tenantId;

@@ -31,7 +31,7 @@ import com.cloudera.cdp.dw.model.PrivateCloudActivationOptions;
 /**
  * Request object for the createCluster method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-04T11:10:08.309-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-18T15:00:49.004-08:00")
 public class CreateClusterRequest  {
 
   /**

@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for an updating SAML provider request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-04T11:10:10.513-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-18T15:00:51.017-08:00")
 public class UpdateSamlProviderRequest  {
 
   /**
@@ -51,7 +51,7 @@ public class UpdateSamlProviderRequest  {
   private Boolean generateWorkloadUsernameByEmail = null;
 
   /**
-   * Whether to enable SCIM on this SAML provider. System for Cross-domain Identity Management (SCIM) version 2.0 is a standard for automating the provisioning of user and group identity information from identity provider to CDP.
+   * Whether to enable SCIM on this SAML provider. System for Cross-domain Identity Management (SCIM) version 2.0 is a standard for automating the provisioning of user and group identity information from identity provider to CDP. It is not supported for Cloudera for Government.
    **/
   private Boolean enableScim = null;
 
@@ -125,7 +125,7 @@ public class UpdateSamlProviderRequest  {
 
   /**
    * Getter for enableScim.
-   * Whether to enable SCIM on this SAML provider. System for Cross-domain Identity Management (SCIM) version 2.0 is a standard for automating the provisioning of user and group identity information from identity provider to CDP.
+   * Whether to enable SCIM on this SAML provider. System for Cross-domain Identity Management (SCIM) version 2.0 is a standard for automating the provisioning of user and group identity information from identity provider to CDP. It is not supported for Cloudera for Government.
    **/
   @JsonProperty("enableScim")
   public Boolean getEnableScim() {
@@ -134,7 +134,7 @@ public class UpdateSamlProviderRequest  {
 
   /**
    * Setter for enableScim.
-   * Whether to enable SCIM on this SAML provider. System for Cross-domain Identity Management (SCIM) version 2.0 is a standard for automating the provisioning of user and group identity information from identity provider to CDP.
+   * Whether to enable SCIM on this SAML provider. System for Cross-domain Identity Management (SCIM) version 2.0 is a standard for automating the provisioning of user and group identity information from identity provider to CDP. It is not supported for Cloudera for Government.
    **/
   public void setEnableScim(Boolean enableScim) {
     this.enableScim = enableScim;

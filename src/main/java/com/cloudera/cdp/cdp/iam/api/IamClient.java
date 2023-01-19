@@ -151,6 +151,10 @@ import com.cloudera.cdp.iam.model.UnassignUserResourceRoleRequest;
 import com.cloudera.cdp.iam.model.UnassignUserResourceRoleResponse;
 import com.cloudera.cdp.iam.model.UnassignUserRoleRequest;
 import com.cloudera.cdp.iam.model.UnassignUserRoleResponse;
+import com.cloudera.cdp.iam.model.UnlockMachineUserInControlPlaneRequest;
+import com.cloudera.cdp.iam.model.UnlockMachineUserInControlPlaneResponse;
+import com.cloudera.cdp.iam.model.UnlockUserInControlPlaneRequest;
+import com.cloudera.cdp.iam.model.UnlockUserInControlPlaneResponse;
 import com.cloudera.cdp.iam.model.UnsetWorkloadPasswordMinLifetimeRequest;
 import com.cloudera.cdp.iam.model.UnsetWorkloadPasswordMinLifetimeResponse;
 import com.cloudera.cdp.iam.model.UnsetWorkloadPasswordPolicyRequest;
@@ -161,13 +165,15 @@ import com.cloudera.cdp.iam.model.UpdateGroupRequest;
 import com.cloudera.cdp.iam.model.UpdateGroupResponse;
 import com.cloudera.cdp.iam.model.UpdateSamlProviderRequest;
 import com.cloudera.cdp.iam.model.UpdateSamlProviderResponse;
+import com.cloudera.cdp.iam.model.UpdateUserRequest;
+import com.cloudera.cdp.iam.model.UpdateUserResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-04T11:10:10.513-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-18T15:00:51.017-08:00")
 public class IamClient extends CdpClient {
 
   public static final String SERVICE_NAME = "iam";
@@ -992,6 +998,32 @@ public class IamClient extends CdpClient {
   }
 
   /**
+   * Unlocks machine user in the CDP control plane.
+   * @param input
+   * @return UnlockMachineUserInControlPlaneResponse
+   */
+  public UnlockMachineUserInControlPlaneResponse unlockMachineUserInControlPlane(UnlockMachineUserInControlPlaneRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling unlockMachineUserInControlPlane");
+    }
+
+    return this.invokeAPI("unlockMachineUserInControlPlane", "/iam/unlockMachineUserInControlPlane", input, new GenericType<UnlockMachineUserInControlPlaneResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Unlocks user in the CDP control plane.
+   * @param input
+   * @return UnlockUserInControlPlaneResponse
+   */
+  public UnlockUserInControlPlaneResponse unlockUserInControlPlane(UnlockUserInControlPlaneRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling unlockUserInControlPlane");
+    }
+
+    return this.invokeAPI("unlockUserInControlPlane", "/iam/unlockUserInControlPlane", input, new GenericType<UnlockUserInControlPlaneResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Removes workload password minimum lifetime date for an actor.
    * @param input
    * @return UnsetWorkloadPasswordMinLifetimeResponse
@@ -1054,5 +1086,18 @@ public class IamClient extends CdpClient {
     }
 
     return this.invokeAPI("updateSamlProvider", "/iam/updateSamlProvider", input, new GenericType<UpdateSamlProviderResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Updates a user.
+   * @param input
+   * @return UpdateUserResponse
+   */
+  public UpdateUserResponse updateUser(UpdateUserRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateUser");
+    }
+
+    return this.invokeAPI("updateUser", "/iam/updateUser", input, new GenericType<UpdateUserResponse>(){}, NO_EXTENSION);
   }
 }
