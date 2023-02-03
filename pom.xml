@@ -3,7 +3,7 @@
 
   <groupId>com.cloudera.cdp</groupId>
   <artifactId>cdp-sdk-java</artifactId>
-  <version>0.9.78</version>
+  <version>0.9.79</version>
   <name>Cloudera CDP Java SDK</name>
   <packaging>jar</packaging>
 
@@ -22,6 +22,7 @@
     <httpclient.version>4.5.13</httpclient.version>
     <ini4j.version>0.5.4</ini4j.version>
     <jackson.version>2.14.1</jackson.version>
+    <javax-ws-rs.version>2.1.1</javax-ws-rs.version>
     <jersey.version>2.34</jersey.version>
     <jetty.version>9.4.48.v20220622</jetty.version>
     <jsr305.version>3.0.2</jsr305.version>
@@ -66,6 +67,11 @@
       <groupId>com.fasterxml.jackson.jaxrs</groupId>
       <artifactId>jackson-jaxrs-json-provider</artifactId>
       <version>${jackson.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.ws.rs</groupId>
+      <artifactId>javax.ws.rs-api</artifactId>
+      <version>${javax-ws-rs.version}</version>
     </dependency>
     <dependency>
       <groupId>com.google.code.findbugs</groupId>

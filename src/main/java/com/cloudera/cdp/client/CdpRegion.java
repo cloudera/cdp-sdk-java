@@ -25,7 +25,8 @@ package com.cloudera.cdp.client;
 public enum CdpRegion {
   US_WEST_1("us-west-1"),
   EU_1("eu-1"),
-  AP_1("ap-1");
+  AP_1("ap-1"),
+  USG_1("usg-1");
 
   private final String value;
 

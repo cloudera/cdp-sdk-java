@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for the CreateWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-18T15:00:49.626-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-02T11:30:59.400-08:00")
 public class CreateWorkspaceRequest  {
 
   /**
@@ -117,6 +117,16 @@ public class CreateWorkspaceRequest  {
    * The static subdomain to be used for the workspace.
    **/
   private String staticSubdomain = null;
+
+  /**
+   * Toggle for cdsw migration preflight validation
+   **/
+  private String cdswMigrationMode = null;
+
+  /**
+   * Outbound Types provided for the workspace.
+   **/
+  private List<String> outboundTypes = new ArrayList<String>();;
 
   /**
    * Getter for environmentName.
@@ -407,6 +417,40 @@ public class CreateWorkspaceRequest  {
     this.staticSubdomain = staticSubdomain;
   }
 
+  /**
+   * Getter for cdswMigrationMode.
+   * Toggle for cdsw migration preflight validation
+   **/
+  @JsonProperty("cdswMigrationMode")
+  public String getCdswMigrationMode() {
+    return cdswMigrationMode;
+  }
+
+  /**
+   * Setter for cdswMigrationMode.
+   * Toggle for cdsw migration preflight validation
+   **/
+  public void setCdswMigrationMode(String cdswMigrationMode) {
+    this.cdswMigrationMode = cdswMigrationMode;
+  }
+
+  /**
+   * Getter for outboundTypes.
+   * Outbound Types provided for the workspace.
+   **/
+  @JsonProperty("outboundTypes")
+  public List<String> getOutboundTypes() {
+    return outboundTypes;
+  }
+
+  /**
+   * Setter for outboundTypes.
+   * Outbound Types provided for the workspace.
+   **/
+  public void setOutboundTypes(List<String> outboundTypes) {
+    this.outboundTypes = outboundTypes;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -467,12 +511,18 @@ public class CreateWorkspaceRequest  {
     if (!Objects.equals(this.staticSubdomain, createWorkspaceRequest.staticSubdomain)) {
       return false;
     }
+    if (!Objects.equals(this.cdswMigrationMode, createWorkspaceRequest.cdswMigrationMode)) {
+      return false;
+    }
+    if (!Objects.equals(this.outboundTypes, createWorkspaceRequest.outboundTypes)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, workspaceName, usePublicLoadBalancer, disableTLS, provisionK8sRequest, enableMonitoring, enableGovernance, existingNFS, loadBalancerIPWhitelists, nfsVersion, enableModelMetrics, existingDatabaseConfig, whitelistAuthorizedIPRanges, authorizedIPRanges, skipValidation, subnetsForLoadBalancers, staticSubdomain);
+    return Objects.hash(environmentName, workspaceName, usePublicLoadBalancer, disableTLS, provisionK8sRequest, enableMonitoring, enableGovernance, existingNFS, loadBalancerIPWhitelists, nfsVersion, enableModelMetrics, existingDatabaseConfig, whitelistAuthorizedIPRanges, authorizedIPRanges, skipValidation, subnetsForLoadBalancers, staticSubdomain, cdswMigrationMode, outboundTypes);
   }
 
   @Override
@@ -496,6 +546,8 @@ public class CreateWorkspaceRequest  {
     sb.append("    skipValidation: ").append(toIndentedString(skipValidation)).append("\n");
     sb.append("    subnetsForLoadBalancers: ").append(toIndentedString(subnetsForLoadBalancers)).append("\n");
     sb.append("    staticSubdomain: ").append(toIndentedString(staticSubdomain)).append("\n");
+    sb.append("    cdswMigrationMode: ").append(toIndentedString(cdswMigrationMode)).append("\n");
+    sb.append("    outboundTypes: ").append(toIndentedString(outboundTypes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

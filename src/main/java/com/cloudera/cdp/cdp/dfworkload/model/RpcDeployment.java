@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Provides details about a deployment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-18T15:00:51.610-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-02T11:31:01.571-08:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcDeployment  {
 
@@ -198,6 +198,16 @@ public class RpcDeployment  {
    * Indicates this deployment was created as a test session for designing a flow
    **/
   private Boolean testSession = null;
+
+  /**
+   * The ID of the flow design for a test session deployment.
+   **/
+  private String flowDesignerId = null;
+
+  /**
+   * The identifier of the custom NAR configuration, if used.
+   **/
+  private String customNarConfigurationId = null;
 
   /**
    * Getter for name.
@@ -760,6 +770,40 @@ public class RpcDeployment  {
     this.testSession = testSession;
   }
 
+  /**
+   * Getter for flowDesignerId.
+   * The ID of the flow design for a test session deployment.
+   **/
+  @JsonProperty("flowDesignerId")
+  public String getFlowDesignerId() {
+    return flowDesignerId;
+  }
+
+  /**
+   * Setter for flowDesignerId.
+   * The ID of the flow design for a test session deployment.
+   **/
+  public void setFlowDesignerId(String flowDesignerId) {
+    this.flowDesignerId = flowDesignerId;
+  }
+
+  /**
+   * Getter for customNarConfigurationId.
+   * The identifier of the custom NAR configuration, if used.
+   **/
+  @JsonProperty("customNarConfigurationId")
+  public String getCustomNarConfigurationId() {
+    return customNarConfigurationId;
+  }
+
+  /**
+   * Setter for customNarConfigurationId.
+   * The identifier of the custom NAR configuration, if used.
+   **/
+  public void setCustomNarConfigurationId(String customNarConfigurationId) {
+    this.customNarConfigurationId = customNarConfigurationId;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -868,12 +912,18 @@ public class RpcDeployment  {
     if (!Objects.equals(this.testSession, rpcDeployment.testSession)) {
       return false;
     }
+    if (!Objects.equals(this.flowDesignerId, rpcDeployment.flowDesignerId)) {
+      return false;
+    }
+    if (!Objects.equals(this.customNarConfigurationId, rpcDeployment.customNarConfigurationId)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, status, service, crn, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, created, updated, validActions, nifiUrl, clusterSize, coresPerNode, heapSize, autoscalingEnabled, autoscaleMinNodes, autoscaleMaxNodes, staticNodeCount, flowName, flowVersion, flowVersionCrn, flowCrn, artifactTypeName, currentNodeCount, deployedByUsername, deployedByName, dfxLocalUrl, configurationVersion, lastUpdatedByUsername, cfmNifiVersion, memoryLimit, inboundConnectionEndpointId, testSession);
+    return Objects.hash(name, status, service, crn, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, created, updated, validActions, nifiUrl, clusterSize, coresPerNode, heapSize, autoscalingEnabled, autoscaleMinNodes, autoscaleMaxNodes, staticNodeCount, flowName, flowVersion, flowVersionCrn, flowCrn, artifactTypeName, currentNodeCount, deployedByUsername, deployedByName, dfxLocalUrl, configurationVersion, lastUpdatedByUsername, cfmNifiVersion, memoryLimit, inboundConnectionEndpointId, testSession, flowDesignerId, customNarConfigurationId);
   }
 
   @Override
@@ -913,6 +963,8 @@ public class RpcDeployment  {
     sb.append("    memoryLimit: ").append(toIndentedString(memoryLimit)).append("\n");
     sb.append("    inboundConnectionEndpointId: ").append(toIndentedString(inboundConnectionEndpointId)).append("\n");
     sb.append("    testSession: ").append(toIndentedString(testSession)).append("\n");
+    sb.append("    flowDesignerId: ").append(toIndentedString(flowDesignerId)).append("\n");
+    sb.append("    customNarConfigurationId: ").append(toIndentedString(customNarConfigurationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

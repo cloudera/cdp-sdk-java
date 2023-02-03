@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for creating an Azure environment using existing VNet and subnets.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-18T15:00:50.178-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-02T11:31:00.095-08:00")
 public class ExistingAzureNetworkRequest  {
 
   /**
@@ -50,6 +50,11 @@ public class ExistingAzureNetworkRequest  {
    * The ID of an existing private DNS zone used for the database.
    **/
   private String databasePrivateDnsZoneId = null;
+
+  /**
+   * The ID of an existing private DNS zone used for the AKS.
+   **/
+  private String aksPrivateDnsZoneId = null;
 
   /**
    * Getter for networkId.
@@ -119,6 +124,23 @@ public class ExistingAzureNetworkRequest  {
     this.databasePrivateDnsZoneId = databasePrivateDnsZoneId;
   }
 
+  /**
+   * Getter for aksPrivateDnsZoneId.
+   * The ID of an existing private DNS zone used for the AKS.
+   **/
+  @JsonProperty("aksPrivateDnsZoneId")
+  public String getAksPrivateDnsZoneId() {
+    return aksPrivateDnsZoneId;
+  }
+
+  /**
+   * Setter for aksPrivateDnsZoneId.
+   * The ID of an existing private DNS zone used for the AKS.
+   **/
+  public void setAksPrivateDnsZoneId(String aksPrivateDnsZoneId) {
+    this.aksPrivateDnsZoneId = aksPrivateDnsZoneId;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -140,12 +162,15 @@ public class ExistingAzureNetworkRequest  {
     if (!Objects.equals(this.databasePrivateDnsZoneId, existingAzureNetworkRequest.databasePrivateDnsZoneId)) {
       return false;
     }
+    if (!Objects.equals(this.aksPrivateDnsZoneId, existingAzureNetworkRequest.aksPrivateDnsZoneId)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(networkId, resourceGroupName, subnetIds, databasePrivateDnsZoneId);
+    return Objects.hash(networkId, resourceGroupName, subnetIds, databasePrivateDnsZoneId, aksPrivateDnsZoneId);
   }
 
   @Override
@@ -156,6 +181,7 @@ public class ExistingAzureNetworkRequest  {
     sb.append("    resourceGroupName: ").append(toIndentedString(resourceGroupName)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
     sb.append("    databasePrivateDnsZoneId: ").append(toIndentedString(databasePrivateDnsZoneId)).append("\n");
+    sb.append("    aksPrivateDnsZoneId: ").append(toIndentedString(aksPrivateDnsZoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

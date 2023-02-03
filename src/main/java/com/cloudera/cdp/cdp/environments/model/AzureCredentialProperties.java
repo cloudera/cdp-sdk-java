@@ -23,11 +23,12 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.environments.model.AzureCredentialCertificateProperties;
 
 /**
  * The credential properties that closely related to those that have been created on Azure.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-18T15:00:50.178-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-02T11:31:00.095-08:00")
 public class AzureCredentialProperties  {
 
   /**
@@ -44,6 +45,16 @@ public class AzureCredentialProperties  {
    * The ID of the created Azure app.
    **/
   private String appId = null;
+
+  /**
+   * Authentication type of the credential
+   **/
+  private String authenticationType = null;
+
+  /**
+   * The public certificate used by the Azure credential.
+   **/
+  private AzureCredentialCertificateProperties certificate = null;
 
   /**
    * Getter for subscriptionId.
@@ -96,6 +107,40 @@ public class AzureCredentialProperties  {
     this.appId = appId;
   }
 
+  /**
+   * Getter for authenticationType.
+   * Authentication type of the credential
+   **/
+  @JsonProperty("authenticationType")
+  public String getAuthenticationType() {
+    return authenticationType;
+  }
+
+  /**
+   * Setter for authenticationType.
+   * Authentication type of the credential
+   **/
+  public void setAuthenticationType(String authenticationType) {
+    this.authenticationType = authenticationType;
+  }
+
+  /**
+   * Getter for certificate.
+   * The public certificate used by the Azure credential.
+   **/
+  @JsonProperty("certificate")
+  public AzureCredentialCertificateProperties getCertificate() {
+    return certificate;
+  }
+
+  /**
+   * Setter for certificate.
+   * The public certificate used by the Azure credential.
+   **/
+  public void setCertificate(AzureCredentialCertificateProperties certificate) {
+    this.certificate = certificate;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -114,12 +159,18 @@ public class AzureCredentialProperties  {
     if (!Objects.equals(this.appId, azureCredentialProperties.appId)) {
       return false;
     }
+    if (!Objects.equals(this.authenticationType, azureCredentialProperties.authenticationType)) {
+      return false;
+    }
+    if (!Objects.equals(this.certificate, azureCredentialProperties.certificate)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(subscriptionId, tenantId, appId);
+    return Objects.hash(subscriptionId, tenantId, appId, authenticationType, certificate);
   }
 
   @Override
@@ -129,6 +180,8 @@ public class AzureCredentialProperties  {
     sb.append("    subscriptionId: ").append(toIndentedString(subscriptionId)).append("\n");
     sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
     sb.append("    appId: ").append(toIndentedString(appId)).append("\n");
+    sb.append("    authenticationType: ").append(toIndentedString(authenticationType)).append("\n");
+    sb.append("    certificate: ").append(toIndentedString(certificate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

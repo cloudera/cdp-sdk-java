@@ -197,17 +197,31 @@ public class CdpClientBuilderTest {
   }
 
   @Test
-  public void testWithCdpRegion() {
+  public void testWithDefaultCdpRegion() {
+    MockClientBuilderCdpEndpoint builder = new MockClientBuilderCdpEndpoint();
+    assertEquals("https://api.us-west-1.cdp.cloudera.com:443",
+        builder.withCdpRegion(CdpRegion.US_WEST_1).getCdpEndPoint());
+  }
+
+  @Test
+  public void testWithCdpRegionEu() {
     MockClientBuilderCdpEndpoint builder = new MockClientBuilderCdpEndpoint();
     assertEquals("https://api.eu-1.cdp.cloudera.com:443",
         builder.withCdpRegion(CdpRegion.EU_1).getCdpEndPoint());
   }
 
   @Test
-  public void testWithDefaultCdpRegion() {
+  public void testWithCdpRegionAp() {
     MockClientBuilderCdpEndpoint builder = new MockClientBuilderCdpEndpoint();
-    assertEquals("https://api.us-west-1.cdp.cloudera.com:443",
-        builder.withCdpRegion(CdpRegion.US_WEST_1).getCdpEndPoint());
+    assertEquals("https://api.ap-1.cdp.cloudera.com:443",
+        builder.withCdpRegion(CdpRegion.AP_1).getCdpEndPoint());
+  }
+
+  @Test
+  public void testWithCdpRegionUsg() {
+    MockClientBuilderCdpEndpoint builder = new MockClientBuilderCdpEndpoint();
+    assertEquals("https://api.usg-1.cdp.cloudera.com:443",
+        builder.withCdpRegion(CdpRegion.USG_1).getCdpEndPoint());
   }
 
   @Test

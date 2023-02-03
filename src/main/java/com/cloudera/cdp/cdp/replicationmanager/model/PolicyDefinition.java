@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Policy creation request definition.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-18T15:00:51.979-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-02T11:31:01.939-08:00")
 public class PolicyDefinition  {
 
   /**

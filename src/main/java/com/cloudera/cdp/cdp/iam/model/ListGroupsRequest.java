@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for a list groups request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-18T15:00:51.017-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-02T11:31:01.018-08:00")
 public class ListGroupsRequest  {
 
   /**

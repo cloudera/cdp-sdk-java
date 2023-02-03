@@ -143,6 +143,8 @@ import com.cloudera.cdp.environments.model.TestAccountTelemetryRulesRequest;
 import com.cloudera.cdp.environments.model.TestAccountTelemetryRulesResponse;
 import com.cloudera.cdp.environments.model.UpdateAwsDiskEncryptionParametersRequest;
 import com.cloudera.cdp.environments.model.UpdateAwsDiskEncryptionParametersResponse;
+import com.cloudera.cdp.environments.model.UpdateAzureCredentialRequest;
+import com.cloudera.cdp.environments.model.UpdateAzureCredentialResponse;
 import com.cloudera.cdp.environments.model.UpdateAzureEncryptionResourcesRequest;
 import com.cloudera.cdp.environments.model.UpdateAzureEncryptionResourcesResponse;
 import com.cloudera.cdp.environments.model.UpgradeCcmRequest;
@@ -155,7 +157,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-18T15:00:50.178-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-02T11:31:00.095-08:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -925,6 +927,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("updateAwsDiskEncryptionParameters", "/api/v1/environments2/updateAwsDiskEncryptionParameters", input, new GenericType<UpdateAwsDiskEncryptionParametersResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Updates a new certificate based Azure credential that can be attached to an environment. The credential is used for authorization to provision resources such as compute instances within your cloud provider account.
+   * @param input
+   * @return UpdateAzureCredentialResponse
+   */
+  public UpdateAzureCredentialResponse updateAzureCredential(UpdateAzureCredentialRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateAzureCredential");
+    }
+
+    return this.invokeAPI("updateAzureCredential", "/api/v1/environments2/updateAzureCredential", input, new GenericType<UpdateAzureCredentialResponse>(){}, NO_EXTENSION);
   }
 
   /**

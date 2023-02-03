@@ -27,8 +27,13 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Additional configurations needed for app-based authentication.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-18T15:00:50.178-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-02T11:31:00.095-08:00")
 public class CreateAzureCredentialRequestAppBased  {
+
+  /**
+   * Authentication type of the credential
+   **/
+  private String authenticationType = null;
 
   /**
    * The id of the application registered in Azure.
@@ -39,6 +44,23 @@ public class CreateAzureCredentialRequestAppBased  {
    * The client secret key (also referred to as application password) for the registered application.
    **/
   private String secretKey = null;
+
+  /**
+   * Getter for authenticationType.
+   * Authentication type of the credential
+   **/
+  @JsonProperty("authenticationType")
+  public String getAuthenticationType() {
+    return authenticationType;
+  }
+
+  /**
+   * Setter for authenticationType.
+   * Authentication type of the credential
+   **/
+  public void setAuthenticationType(String authenticationType) {
+    this.authenticationType = authenticationType;
+  }
 
   /**
    * Getter for applicationId.
@@ -83,6 +105,9 @@ public class CreateAzureCredentialRequestAppBased  {
       return false;
     }
     CreateAzureCredentialRequestAppBased createAzureCredentialRequestAppBased = (CreateAzureCredentialRequestAppBased) o;
+    if (!Objects.equals(this.authenticationType, createAzureCredentialRequestAppBased.authenticationType)) {
+      return false;
+    }
     if (!Objects.equals(this.applicationId, createAzureCredentialRequestAppBased.applicationId)) {
       return false;
     }
@@ -94,13 +119,14 @@ public class CreateAzureCredentialRequestAppBased  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicationId, secretKey);
+    return Objects.hash(authenticationType, applicationId, secretKey);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateAzureCredentialRequestAppBased {\n");
+    sb.append("    authenticationType: ").append(toIndentedString(authenticationType)).append("\n");
     sb.append("    applicationId: ").append(toIndentedString(applicationId)).append("\n");
     sb.append("    secretKey: ").append(toIndentedString(secretKey)).append("\n");
     sb.append("}");

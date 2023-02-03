@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * A Virtual Warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-18T15:00:49.004-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-02T11:30:58.765-08:00")
 public class VwSummary  {
 
   /**

@@ -30,6 +30,8 @@ import com.cloudera.cdp.client.ResourceResponse;
 import com.cloudera.cdp.client.RestResponse;
 import com.cloudera.cdp.dw.model.AddUserRequest;
 import com.cloudera.cdp.dw.model.AddUserResponse;
+import com.cloudera.cdp.dw.model.CreateBackupRequest;
+import com.cloudera.cdp.dw.model.CreateBackupResponse;
 import com.cloudera.cdp.dw.model.CreateClusterRequest;
 import com.cloudera.cdp.dw.model.CreateClusterResponse;
 import com.cloudera.cdp.dw.model.CreateDataVisualizationRequest;
@@ -42,6 +44,8 @@ import com.cloudera.cdp.dw.model.CreateVwDiagnosticDataJobRequest;
 import com.cloudera.cdp.dw.model.CreateVwDiagnosticDataJobResponse;
 import com.cloudera.cdp.dw.model.CreateVwRequest;
 import com.cloudera.cdp.dw.model.CreateVwResponse;
+import com.cloudera.cdp.dw.model.DeleteBackupRequest;
+import com.cloudera.cdp.dw.model.DeleteBackupResponse;
 import com.cloudera.cdp.dw.model.DeleteClusterRequest;
 import com.cloudera.cdp.dw.model.DeleteClusterResponse;
 import com.cloudera.cdp.dw.model.DeleteDataVisualizationRequest;
@@ -58,6 +62,8 @@ import com.cloudera.cdp.dw.model.DeleteVwRequest;
 import com.cloudera.cdp.dw.model.DeleteVwResponse;
 import com.cloudera.cdp.dw.model.DescribeAllowedInstanceTypesRequest;
 import com.cloudera.cdp.dw.model.DescribeAllowedInstanceTypesResponse;
+import com.cloudera.cdp.dw.model.DescribeBackupRequest;
+import com.cloudera.cdp.dw.model.DescribeBackupResponse;
 import com.cloudera.cdp.dw.model.DescribeClusterRequest;
 import com.cloudera.cdp.dw.model.DescribeClusterResponse;
 import com.cloudera.cdp.dw.model.DescribeConfigDiffRequest;
@@ -72,6 +78,8 @@ import com.cloudera.cdp.dw.model.DescribeDbcRequest;
 import com.cloudera.cdp.dw.model.DescribeDbcResponse;
 import com.cloudera.cdp.dw.model.DescribeKubeconfigRequest;
 import com.cloudera.cdp.dw.model.DescribeKubeconfigResponse;
+import com.cloudera.cdp.dw.model.DescribeRestoreRequest;
+import com.cloudera.cdp.dw.model.DescribeRestoreResponse;
 import com.cloudera.cdp.dw.model.DescribeServerSettingRequest;
 import com.cloudera.cdp.dw.model.DescribeServerSettingResponse;
 import com.cloudera.cdp.dw.model.DescribeVwDiagnosticDataJobRequest;
@@ -81,12 +89,18 @@ import com.cloudera.cdp.dw.model.DescribeVwResponse;
 import com.cloudera.cdp.dw.model.Error;
 import com.cloudera.cdp.dw.model.GetDataVisualizationUpgradeVersionRequest;
 import com.cloudera.cdp.dw.model.GetDataVisualizationUpgradeVersionResponse;
+import com.cloudera.cdp.dw.model.GetLogsRequest;
+import com.cloudera.cdp.dw.model.GetLogsResponse;
 import com.cloudera.cdp.dw.model.GetUpgradeDbcVersionsRequest;
 import com.cloudera.cdp.dw.model.GetUpgradeDbcVersionsResponse;
 import com.cloudera.cdp.dw.model.GetUpgradeVwVersionsRequest;
 import com.cloudera.cdp.dw.model.GetUpgradeVwVersionsResponse;
 import com.cloudera.cdp.dw.model.HealthCheckRequest;
 import com.cloudera.cdp.dw.model.HealthCheckResponse;
+import com.cloudera.cdp.dw.model.ListBackupEntitiesRequest;
+import com.cloudera.cdp.dw.model.ListBackupEntitiesResponse;
+import com.cloudera.cdp.dw.model.ListBackupsRequest;
+import com.cloudera.cdp.dw.model.ListBackupsResponse;
 import com.cloudera.cdp.dw.model.ListClustersRequest;
 import com.cloudera.cdp.dw.model.ListClustersResponse;
 import com.cloudera.cdp.dw.model.ListDataVisualizationsRequest;
@@ -101,6 +115,8 @@ import com.cloudera.cdp.dw.model.ListDbcsRequest;
 import com.cloudera.cdp.dw.model.ListDbcsResponse;
 import com.cloudera.cdp.dw.model.ListLatestVersionsRequest;
 import com.cloudera.cdp.dw.model.ListLatestVersionsResponse;
+import com.cloudera.cdp.dw.model.ListRestoresRequest;
+import com.cloudera.cdp.dw.model.ListRestoresResponse;
 import com.cloudera.cdp.dw.model.ListUsersRequest;
 import com.cloudera.cdp.dw.model.ListUsersResponse;
 import com.cloudera.cdp.dw.model.ListVwConfigsRequest;
@@ -119,6 +135,8 @@ import com.cloudera.cdp.dw.model.RestartDbcRequest;
 import com.cloudera.cdp.dw.model.RestartDbcResponse;
 import com.cloudera.cdp.dw.model.RestartVwRequest;
 import com.cloudera.cdp.dw.model.RestartVwResponse;
+import com.cloudera.cdp.dw.model.RestoreBackupRequest;
+import com.cloudera.cdp.dw.model.RestoreBackupResponse;
 import com.cloudera.cdp.dw.model.StartVwRequest;
 import com.cloudera.cdp.dw.model.StartVwResponse;
 import com.cloudera.cdp.dw.model.UpdateClusterRequest;
@@ -145,7 +163,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-01-18T15:00:49.004-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-02T11:30:58.765-08:00")
 public class DwClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dw";
@@ -187,6 +205,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("addUser", "/api/v1/dw/addUser", input, new GenericType<AddUserResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Creates a backup for the data warehouse.
+   * @param input
+   * @return CreateBackupResponse
+   */
+  public CreateBackupResponse createBackup(CreateBackupRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createBackup");
+    }
+
+    return this.invokeAPI("createBackup", "/api/v1/dw/createBackup", input, new GenericType<CreateBackupResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -265,6 +296,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("createVwDiagnosticDataJob", "/api/v1/dw/createVwDiagnosticDataJob", input, new GenericType<CreateVwDiagnosticDataJobResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Deletes a data warehouse backup.
+   * @param input
+   * @return DeleteBackupResponse
+   */
+  public DeleteBackupResponse deleteBackup(DeleteBackupRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteBackup");
+    }
+
+    return this.invokeAPI("deleteBackup", "/api/v1/dw/deleteBackup", input, new GenericType<DeleteBackupResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -372,6 +416,19 @@ public class DwClient extends CdpClient {
   }
 
   /**
+   * Describes the backup.
+   * @param input
+   * @return DescribeBackupResponse
+   */
+  public DescribeBackupResponse describeBackup(DescribeBackupRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeBackup");
+    }
+
+    return this.invokeAPI("describeBackup", "/api/v1/dw/describeBackup", input, new GenericType<DescribeBackupResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Describe a Cloudera Data Warehouse cluster.
    * @param input
    * @return DescribeClusterResponse
@@ -463,6 +520,19 @@ public class DwClient extends CdpClient {
   }
 
   /**
+   * Describes the restore.
+   * @param input
+   * @return DescribeRestoreResponse
+   */
+  public DescribeRestoreResponse describeRestore(DescribeRestoreRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeRestore");
+    }
+
+    return this.invokeAPI("describeRestore", "/api/v1/dw/describeRestore", input, new GenericType<DescribeRestoreResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Get the DWX server settings.
    * @param input
    * @return DescribeServerSettingResponse
@@ -515,6 +585,19 @@ public class DwClient extends CdpClient {
   }
 
   /**
+   * Gets job logs.
+   * @param input
+   * @return GetLogsResponse
+   */
+  public GetLogsResponse getLogs(GetLogsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getLogs");
+    }
+
+    return this.invokeAPI("getLogs", "/api/v1/dw/getLogs", input, new GenericType<GetLogsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Gets the latest version and latest compatible version for Database Catalog.
    * @param input
    * @return GetUpgradeDbcVersionsResponse
@@ -551,6 +634,32 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("healthCheck", "/api/v1/dw/healthCheck", input, new GenericType<HealthCheckResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Lists potential backup entities associated with the data warehouse.
+   * @param input
+   * @return ListBackupEntitiesResponse
+   */
+  public ListBackupEntitiesResponse listBackupEntities(ListBackupEntitiesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listBackupEntities");
+    }
+
+    return this.invokeAPI("listBackupEntities", "/api/v1/dw/listBackupEntities", input, new GenericType<ListBackupEntitiesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Lists backups.
+   * @param input
+   * @return ListBackupsResponse
+   */
+  public ListBackupsResponse listBackups(ListBackupsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listBackups");
+    }
+
+    return this.invokeAPI("listBackups", "/api/v1/dw/listBackups", input, new GenericType<ListBackupsResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -642,6 +751,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("listLatestVersions", "/api/v1/dw/listLatestVersions", input, new GenericType<ListLatestVersionsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Lists restores.
+   * @param input
+   * @return ListRestoresResponse
+   */
+  public ListRestoresResponse listRestores(ListRestoresRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listRestores");
+    }
+
+    return this.invokeAPI("listRestores", "/api/v1/dw/listRestores", input, new GenericType<ListRestoresResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -759,6 +881,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("restartVw", "/api/v1/dw/restartVw", input, new GenericType<RestartVwResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Restores backup.
+   * @param input
+   * @return RestoreBackupResponse
+   */
+  public RestoreBackupResponse restoreBackup(RestoreBackupRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling restoreBackup");
+    }
+
+    return this.invokeAPI("restoreBackup", "/api/v1/dw/restoreBackup", input, new GenericType<RestoreBackupResponse>(){}, NO_EXTENSION);
   }
 
   /**
