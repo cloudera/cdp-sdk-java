@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response Object for single user sync operation.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-02T11:31:00.095-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-10T14:31:15.539-08:00")
 public class SyncUserResponse extends CdpResponse {
 
   /**

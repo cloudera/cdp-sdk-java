@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Auto-scaling configuration for a Virtual Warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-02T11:30:58.765-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-10T14:31:14.380-08:00")
 public class AutoscalingOptionsCreateRequest  {
 
   /**
@@ -51,7 +51,7 @@ public class AutoscalingOptionsCreateRequest  {
   private Integer autoSuspendTimeoutSeconds = null;
 
   /**
-   * Enable Unified Analytics. In case of Hive Virtual Warehouses this cannot be provided, because this value is inferred. In case of Impala this can be set. Passing --query-isolation-options will be considered if this flag is set to true. If Unified Analytics enabled then the \"impalaEnableShutdownOfCoordinator\" explicitly disabled and should not be provided, furthermore the \"impalaHighAvailabilityMode\" cannot be set to ACTIVE_ACTIVE.
+   * DEPRECATED in favor of the top level enableUnifiedAnalytics flag. Enable Unified Analytics. In case of Hive Virtual Warehouses this cannot be provided, because this value is inferred. In case of Impala this can be set. Passing --query-isolation-options will be considered if this flag is set to true. If Unified Analytics enabled then the \"impalaEnableShutdownOfCoordinator\" explicitly disabled and should not be provided, furthermore the \"impalaHighAvailabilityMode\" cannot be set to ACTIVE_ACTIVE.
    **/
   private Boolean enableUnifiedAnalytics = null;
 
@@ -66,7 +66,7 @@ public class AutoscalingOptionsCreateRequest  {
   private Integer hiveDesiredFreeCapacity = null;
 
   /**
-   * Set High Availability mode. If not provided the default will apply. This value is disregarded for Hive.
+   * DEPRECATED in favor of the top level impalaHASettings object. Set High Availability mode. If not provided the default will apply. This value is disregarded for Hive.
    **/
   private String impalaHighAvailabilityMode = null;
 
@@ -81,22 +81,22 @@ public class AutoscalingOptionsCreateRequest  {
   private Integer impalaScaleDownDelaySeconds = null;
 
   /**
-   * Enables a shutdown of the coordinator. If Unified Analytics enabled then this setting explicitly disabled and should not be provided.
+   * DEPRECATED in favor of the top level impalaHASettings object. Enables a shutdown of the coordinator. If Unified Analytics enabled then this setting explicitly disabled and should not be provided.
    **/
   private Boolean impalaEnableShutdownOfCoordinator = null;
 
   /**
-   * Delay in seconds before the shutdown of coordinator event happens.
+   * DEPRECATED in favor of the top level impalaHASettings object. Delay in seconds before the shutdown of coordinator event happens.
    **/
   private Integer impalaShutdownOfCoordinatorDelaySeconds = null;
 
   /**
-   * Number of the active coordinators.
+   * DEPRECATED in favor of the top level impalaHASettings object. Number of the active coordinators.
    **/
   private Integer impalaNumOfActiveCoordinators = null;
 
   /**
-   * Enables a backup instance for Impala catalog to ensure high availability.
+   * DEPRECATED in favor of the top level impalaHASettings object. Enables a backup instance for Impala catalog to ensure high availability.
    **/
   private Boolean impalaEnableCatalogHighAvailability = null;
 
@@ -175,8 +175,9 @@ public class AutoscalingOptionsCreateRequest  {
 
   /**
    * Getter for enableUnifiedAnalytics.
-   * Enable Unified Analytics. In case of Hive Virtual Warehouses this cannot be provided, because this value is inferred. In case of Impala this can be set. Passing --query-isolation-options will be considered if this flag is set to true. If Unified Analytics enabled then the \&quot;impalaEnableShutdownOfCoordinator\&quot; explicitly disabled and should not be provided, furthermore the \&quot;impalaHighAvailabilityMode\&quot; cannot be set to ACTIVE_ACTIVE.
+   * DEPRECATED in favor of the top level enableUnifiedAnalytics flag. Enable Unified Analytics. In case of Hive Virtual Warehouses this cannot be provided, because this value is inferred. In case of Impala this can be set. Passing --query-isolation-options will be considered if this flag is set to true. If Unified Analytics enabled then the \&quot;impalaEnableShutdownOfCoordinator\&quot; explicitly disabled and should not be provided, furthermore the \&quot;impalaHighAvailabilityMode\&quot; cannot be set to ACTIVE_ACTIVE.
    **/
+  @Deprecated
   @JsonProperty("enableUnifiedAnalytics")
   public Boolean getEnableUnifiedAnalytics() {
     return enableUnifiedAnalytics;
@@ -184,8 +185,9 @@ public class AutoscalingOptionsCreateRequest  {
 
   /**
    * Setter for enableUnifiedAnalytics.
-   * Enable Unified Analytics. In case of Hive Virtual Warehouses this cannot be provided, because this value is inferred. In case of Impala this can be set. Passing --query-isolation-options will be considered if this flag is set to true. If Unified Analytics enabled then the \&quot;impalaEnableShutdownOfCoordinator\&quot; explicitly disabled and should not be provided, furthermore the \&quot;impalaHighAvailabilityMode\&quot; cannot be set to ACTIVE_ACTIVE.
+   * DEPRECATED in favor of the top level enableUnifiedAnalytics flag. Enable Unified Analytics. In case of Hive Virtual Warehouses this cannot be provided, because this value is inferred. In case of Impala this can be set. Passing --query-isolation-options will be considered if this flag is set to true. If Unified Analytics enabled then the \&quot;impalaEnableShutdownOfCoordinator\&quot; explicitly disabled and should not be provided, furthermore the \&quot;impalaHighAvailabilityMode\&quot; cannot be set to ACTIVE_ACTIVE.
    **/
+  @Deprecated
   public void setEnableUnifiedAnalytics(Boolean enableUnifiedAnalytics) {
     this.enableUnifiedAnalytics = enableUnifiedAnalytics;
   }
@@ -226,8 +228,9 @@ public class AutoscalingOptionsCreateRequest  {
 
   /**
    * Getter for impalaHighAvailabilityMode.
-   * Set High Availability mode. If not provided the default will apply. This value is disregarded for Hive.
+   * DEPRECATED in favor of the top level impalaHASettings object. Set High Availability mode. If not provided the default will apply. This value is disregarded for Hive.
    **/
+  @Deprecated
   @JsonProperty("impalaHighAvailabilityMode")
   public String getImpalaHighAvailabilityMode() {
     return impalaHighAvailabilityMode;
@@ -235,8 +238,9 @@ public class AutoscalingOptionsCreateRequest  {
 
   /**
    * Setter for impalaHighAvailabilityMode.
-   * Set High Availability mode. If not provided the default will apply. This value is disregarded for Hive.
+   * DEPRECATED in favor of the top level impalaHASettings object. Set High Availability mode. If not provided the default will apply. This value is disregarded for Hive.
    **/
+  @Deprecated
   public void setImpalaHighAvailabilityMode(String impalaHighAvailabilityMode) {
     this.impalaHighAvailabilityMode = impalaHighAvailabilityMode;
   }
@@ -277,8 +281,9 @@ public class AutoscalingOptionsCreateRequest  {
 
   /**
    * Getter for impalaEnableShutdownOfCoordinator.
-   * Enables a shutdown of the coordinator. If Unified Analytics enabled then this setting explicitly disabled and should not be provided.
+   * DEPRECATED in favor of the top level impalaHASettings object. Enables a shutdown of the coordinator. If Unified Analytics enabled then this setting explicitly disabled and should not be provided.
    **/
+  @Deprecated
   @JsonProperty("impalaEnableShutdownOfCoordinator")
   public Boolean getImpalaEnableShutdownOfCoordinator() {
     return impalaEnableShutdownOfCoordinator;
@@ -286,16 +291,18 @@ public class AutoscalingOptionsCreateRequest  {
 
   /**
    * Setter for impalaEnableShutdownOfCoordinator.
-   * Enables a shutdown of the coordinator. If Unified Analytics enabled then this setting explicitly disabled and should not be provided.
+   * DEPRECATED in favor of the top level impalaHASettings object. Enables a shutdown of the coordinator. If Unified Analytics enabled then this setting explicitly disabled and should not be provided.
    **/
+  @Deprecated
   public void setImpalaEnableShutdownOfCoordinator(Boolean impalaEnableShutdownOfCoordinator) {
     this.impalaEnableShutdownOfCoordinator = impalaEnableShutdownOfCoordinator;
   }
 
   /**
    * Getter for impalaShutdownOfCoordinatorDelaySeconds.
-   * Delay in seconds before the shutdown of coordinator event happens.
+   * DEPRECATED in favor of the top level impalaHASettings object. Delay in seconds before the shutdown of coordinator event happens.
    **/
+  @Deprecated
   @JsonProperty("impalaShutdownOfCoordinatorDelaySeconds")
   public Integer getImpalaShutdownOfCoordinatorDelaySeconds() {
     return impalaShutdownOfCoordinatorDelaySeconds;
@@ -303,16 +310,18 @@ public class AutoscalingOptionsCreateRequest  {
 
   /**
    * Setter for impalaShutdownOfCoordinatorDelaySeconds.
-   * Delay in seconds before the shutdown of coordinator event happens.
+   * DEPRECATED in favor of the top level impalaHASettings object. Delay in seconds before the shutdown of coordinator event happens.
    **/
+  @Deprecated
   public void setImpalaShutdownOfCoordinatorDelaySeconds(Integer impalaShutdownOfCoordinatorDelaySeconds) {
     this.impalaShutdownOfCoordinatorDelaySeconds = impalaShutdownOfCoordinatorDelaySeconds;
   }
 
   /**
    * Getter for impalaNumOfActiveCoordinators.
-   * Number of the active coordinators.
+   * DEPRECATED in favor of the top level impalaHASettings object. Number of the active coordinators.
    **/
+  @Deprecated
   @JsonProperty("impalaNumOfActiveCoordinators")
   public Integer getImpalaNumOfActiveCoordinators() {
     return impalaNumOfActiveCoordinators;
@@ -320,16 +329,18 @@ public class AutoscalingOptionsCreateRequest  {
 
   /**
    * Setter for impalaNumOfActiveCoordinators.
-   * Number of the active coordinators.
+   * DEPRECATED in favor of the top level impalaHASettings object. Number of the active coordinators.
    **/
+  @Deprecated
   public void setImpalaNumOfActiveCoordinators(Integer impalaNumOfActiveCoordinators) {
     this.impalaNumOfActiveCoordinators = impalaNumOfActiveCoordinators;
   }
 
   /**
    * Getter for impalaEnableCatalogHighAvailability.
-   * Enables a backup instance for Impala catalog to ensure high availability.
+   * DEPRECATED in favor of the top level impalaHASettings object. Enables a backup instance for Impala catalog to ensure high availability.
    **/
+  @Deprecated
   @JsonProperty("impalaEnableCatalogHighAvailability")
   public Boolean getImpalaEnableCatalogHighAvailability() {
     return impalaEnableCatalogHighAvailability;
@@ -337,8 +348,9 @@ public class AutoscalingOptionsCreateRequest  {
 
   /**
    * Setter for impalaEnableCatalogHighAvailability.
-   * Enables a backup instance for Impala catalog to ensure high availability.
+   * DEPRECATED in favor of the top level impalaHASettings object. Enables a backup instance for Impala catalog to ensure high availability.
    **/
+  @Deprecated
   public void setImpalaEnableCatalogHighAvailability(Boolean impalaEnableCatalogHighAvailability) {
     this.impalaEnableCatalogHighAvailability = impalaEnableCatalogHighAvailability;
   }

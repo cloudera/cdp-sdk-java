@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Auto-scaling configuration for a Virtual Warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-02T11:30:58.765-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-10T14:31:14.380-08:00")
 public class AutoscalingOptionsResponse extends CdpResponse {
 
   /**
@@ -51,7 +51,7 @@ public class AutoscalingOptionsResponse extends CdpResponse {
   private Integer autoSuspendTimeoutSeconds = null;
 
   /**
-   * Whether the Unified Analytics is enabled.
+   * DEPRECATED in favor of the top level enableUnifiedAnalytics flag. Whether the Unified Analytics is enabled.
    **/
   private Boolean enableUnifiedAnalytics = null;
 
@@ -66,7 +66,7 @@ public class AutoscalingOptionsResponse extends CdpResponse {
   private Integer hiveDesiredFreeCapacity = null;
 
   /**
-   * High Availability mode.
+   * DEPRECATED in favor of the top level impalaHASettings object. High Availability mode.
    **/
   private String impalaHighAvailabilityMode = null;
 
@@ -81,22 +81,22 @@ public class AutoscalingOptionsResponse extends CdpResponse {
   private Integer impalaScaleDownDelaySeconds = null;
 
   /**
-   * Whether a shutdown of the coordinator is enabled.
+   * DEPRECATED in favor of the top level impalaHASettings object. Whether a shutdown of the coordinator is enabled.
    **/
   private Boolean impalaEnableShutdownOfCoordinator = null;
 
   /**
-   * Number of the active coordinators.
+   * DEPRECATED in favor of the top level impalaHASettings object. Number of the active coordinators.
    **/
   private Integer impalaNumOfActiveCoordinators = null;
 
   /**
-   * Delay in seconds before the shutdown of coordinator event happens.
+   * DEPRECATED in favor of the top level impalaHASettings object. Delay in seconds before the shutdown of coordinator event happens.
    **/
   private Integer impalaShutdownOfCoordinatorDelaySeconds = null;
 
   /**
-   * Denotes whether a backup instance for Impala catalog is enabled.
+   * DEPRECATED in favor of the top level impalaHASettings object. Denotes whether a backup instance for Impala catalog is enabled.
    **/
   private Boolean impalaEnableCatalogHighAvailability = null;
 
@@ -175,8 +175,9 @@ public class AutoscalingOptionsResponse extends CdpResponse {
 
   /**
    * Getter for enableUnifiedAnalytics.
-   * Whether the Unified Analytics is enabled.
+   * DEPRECATED in favor of the top level enableUnifiedAnalytics flag. Whether the Unified Analytics is enabled.
    **/
+  @Deprecated
   @JsonProperty("enableUnifiedAnalytics")
   public Boolean getEnableUnifiedAnalytics() {
     return enableUnifiedAnalytics;
@@ -184,8 +185,9 @@ public class AutoscalingOptionsResponse extends CdpResponse {
 
   /**
    * Setter for enableUnifiedAnalytics.
-   * Whether the Unified Analytics is enabled.
+   * DEPRECATED in favor of the top level enableUnifiedAnalytics flag. Whether the Unified Analytics is enabled.
    **/
+  @Deprecated
   public void setEnableUnifiedAnalytics(Boolean enableUnifiedAnalytics) {
     this.enableUnifiedAnalytics = enableUnifiedAnalytics;
   }
@@ -226,8 +228,9 @@ public class AutoscalingOptionsResponse extends CdpResponse {
 
   /**
    * Getter for impalaHighAvailabilityMode.
-   * High Availability mode.
+   * DEPRECATED in favor of the top level impalaHASettings object. High Availability mode.
    **/
+  @Deprecated
   @JsonProperty("impalaHighAvailabilityMode")
   public String getImpalaHighAvailabilityMode() {
     return impalaHighAvailabilityMode;
@@ -235,8 +238,9 @@ public class AutoscalingOptionsResponse extends CdpResponse {
 
   /**
    * Setter for impalaHighAvailabilityMode.
-   * High Availability mode.
+   * DEPRECATED in favor of the top level impalaHASettings object. High Availability mode.
    **/
+  @Deprecated
   public void setImpalaHighAvailabilityMode(String impalaHighAvailabilityMode) {
     this.impalaHighAvailabilityMode = impalaHighAvailabilityMode;
   }
@@ -277,8 +281,9 @@ public class AutoscalingOptionsResponse extends CdpResponse {
 
   /**
    * Getter for impalaEnableShutdownOfCoordinator.
-   * Whether a shutdown of the coordinator is enabled.
+   * DEPRECATED in favor of the top level impalaHASettings object. Whether a shutdown of the coordinator is enabled.
    **/
+  @Deprecated
   @JsonProperty("impalaEnableShutdownOfCoordinator")
   public Boolean getImpalaEnableShutdownOfCoordinator() {
     return impalaEnableShutdownOfCoordinator;
@@ -286,16 +291,18 @@ public class AutoscalingOptionsResponse extends CdpResponse {
 
   /**
    * Setter for impalaEnableShutdownOfCoordinator.
-   * Whether a shutdown of the coordinator is enabled.
+   * DEPRECATED in favor of the top level impalaHASettings object. Whether a shutdown of the coordinator is enabled.
    **/
+  @Deprecated
   public void setImpalaEnableShutdownOfCoordinator(Boolean impalaEnableShutdownOfCoordinator) {
     this.impalaEnableShutdownOfCoordinator = impalaEnableShutdownOfCoordinator;
   }
 
   /**
    * Getter for impalaNumOfActiveCoordinators.
-   * Number of the active coordinators.
+   * DEPRECATED in favor of the top level impalaHASettings object. Number of the active coordinators.
    **/
+  @Deprecated
   @JsonProperty("impalaNumOfActiveCoordinators")
   public Integer getImpalaNumOfActiveCoordinators() {
     return impalaNumOfActiveCoordinators;
@@ -303,16 +310,18 @@ public class AutoscalingOptionsResponse extends CdpResponse {
 
   /**
    * Setter for impalaNumOfActiveCoordinators.
-   * Number of the active coordinators.
+   * DEPRECATED in favor of the top level impalaHASettings object. Number of the active coordinators.
    **/
+  @Deprecated
   public void setImpalaNumOfActiveCoordinators(Integer impalaNumOfActiveCoordinators) {
     this.impalaNumOfActiveCoordinators = impalaNumOfActiveCoordinators;
   }
 
   /**
    * Getter for impalaShutdownOfCoordinatorDelaySeconds.
-   * Delay in seconds before the shutdown of coordinator event happens.
+   * DEPRECATED in favor of the top level impalaHASettings object. Delay in seconds before the shutdown of coordinator event happens.
    **/
+  @Deprecated
   @JsonProperty("impalaShutdownOfCoordinatorDelaySeconds")
   public Integer getImpalaShutdownOfCoordinatorDelaySeconds() {
     return impalaShutdownOfCoordinatorDelaySeconds;
@@ -320,16 +329,18 @@ public class AutoscalingOptionsResponse extends CdpResponse {
 
   /**
    * Setter for impalaShutdownOfCoordinatorDelaySeconds.
-   * Delay in seconds before the shutdown of coordinator event happens.
+   * DEPRECATED in favor of the top level impalaHASettings object. Delay in seconds before the shutdown of coordinator event happens.
    **/
+  @Deprecated
   public void setImpalaShutdownOfCoordinatorDelaySeconds(Integer impalaShutdownOfCoordinatorDelaySeconds) {
     this.impalaShutdownOfCoordinatorDelaySeconds = impalaShutdownOfCoordinatorDelaySeconds;
   }
 
   /**
    * Getter for impalaEnableCatalogHighAvailability.
-   * Denotes whether a backup instance for Impala catalog is enabled.
+   * DEPRECATED in favor of the top level impalaHASettings object. Denotes whether a backup instance for Impala catalog is enabled.
    **/
+  @Deprecated
   @JsonProperty("impalaEnableCatalogHighAvailability")
   public Boolean getImpalaEnableCatalogHighAvailability() {
     return impalaEnableCatalogHighAvailability;
@@ -337,8 +348,9 @@ public class AutoscalingOptionsResponse extends CdpResponse {
 
   /**
    * Setter for impalaEnableCatalogHighAvailability.
-   * Denotes whether a backup instance for Impala catalog is enabled.
+   * DEPRECATED in favor of the top level impalaHASettings object. Denotes whether a backup instance for Impala catalog is enabled.
    **/
+  @Deprecated
   public void setImpalaEnableCatalogHighAvailability(Boolean impalaEnableCatalogHighAvailability) {
     this.impalaEnableCatalogHighAvailability = impalaEnableCatalogHighAvailability;
   }

@@ -32,6 +32,8 @@ import com.cloudera.cdp.dw.model.AddUserRequest;
 import com.cloudera.cdp.dw.model.AddUserResponse;
 import com.cloudera.cdp.dw.model.CreateBackupRequest;
 import com.cloudera.cdp.dw.model.CreateBackupResponse;
+import com.cloudera.cdp.dw.model.CreateClusterDiagnosticDataJobRequest;
+import com.cloudera.cdp.dw.model.CreateClusterDiagnosticDataJobResponse;
 import com.cloudera.cdp.dw.model.CreateClusterRequest;
 import com.cloudera.cdp.dw.model.CreateClusterResponse;
 import com.cloudera.cdp.dw.model.CreateDataVisualizationRequest;
@@ -46,6 +48,8 @@ import com.cloudera.cdp.dw.model.CreateVwRequest;
 import com.cloudera.cdp.dw.model.CreateVwResponse;
 import com.cloudera.cdp.dw.model.DeleteBackupRequest;
 import com.cloudera.cdp.dw.model.DeleteBackupResponse;
+import com.cloudera.cdp.dw.model.DeleteClusterDiagnosticDataJobRequest;
+import com.cloudera.cdp.dw.model.DeleteClusterDiagnosticDataJobResponse;
 import com.cloudera.cdp.dw.model.DeleteClusterRequest;
 import com.cloudera.cdp.dw.model.DeleteClusterResponse;
 import com.cloudera.cdp.dw.model.DeleteDataVisualizationRequest;
@@ -64,6 +68,8 @@ import com.cloudera.cdp.dw.model.DescribeAllowedInstanceTypesRequest;
 import com.cloudera.cdp.dw.model.DescribeAllowedInstanceTypesResponse;
 import com.cloudera.cdp.dw.model.DescribeBackupRequest;
 import com.cloudera.cdp.dw.model.DescribeBackupResponse;
+import com.cloudera.cdp.dw.model.DescribeClusterDiagnosticDataJobRequest;
+import com.cloudera.cdp.dw.model.DescribeClusterDiagnosticDataJobResponse;
 import com.cloudera.cdp.dw.model.DescribeClusterRequest;
 import com.cloudera.cdp.dw.model.DescribeClusterResponse;
 import com.cloudera.cdp.dw.model.DescribeConfigDiffRequest;
@@ -101,6 +107,8 @@ import com.cloudera.cdp.dw.model.ListBackupEntitiesRequest;
 import com.cloudera.cdp.dw.model.ListBackupEntitiesResponse;
 import com.cloudera.cdp.dw.model.ListBackupsRequest;
 import com.cloudera.cdp.dw.model.ListBackupsResponse;
+import com.cloudera.cdp.dw.model.ListClusterDiagnosticDataJobsRequest;
+import com.cloudera.cdp.dw.model.ListClusterDiagnosticDataJobsResponse;
 import com.cloudera.cdp.dw.model.ListClustersRequest;
 import com.cloudera.cdp.dw.model.ListClustersResponse;
 import com.cloudera.cdp.dw.model.ListDataVisualizationsRequest;
@@ -129,6 +137,10 @@ import com.cloudera.cdp.dw.model.ListVwsRequest;
 import com.cloudera.cdp.dw.model.ListVwsResponse;
 import com.cloudera.cdp.dw.model.PauseVwRequest;
 import com.cloudera.cdp.dw.model.PauseVwResponse;
+import com.cloudera.cdp.dw.model.RebuildDbcRequest;
+import com.cloudera.cdp.dw.model.RebuildDbcResponse;
+import com.cloudera.cdp.dw.model.RebuildVwRequest;
+import com.cloudera.cdp.dw.model.RebuildVwResponse;
 import com.cloudera.cdp.dw.model.RenewCertificatesRequest;
 import com.cloudera.cdp.dw.model.RenewCertificatesResponse;
 import com.cloudera.cdp.dw.model.RestartDbcRequest;
@@ -139,6 +151,10 @@ import com.cloudera.cdp.dw.model.RestoreBackupRequest;
 import com.cloudera.cdp.dw.model.RestoreBackupResponse;
 import com.cloudera.cdp.dw.model.StartVwRequest;
 import com.cloudera.cdp.dw.model.StartVwResponse;
+import com.cloudera.cdp.dw.model.SuspendDbcRequest;
+import com.cloudera.cdp.dw.model.SuspendDbcResponse;
+import com.cloudera.cdp.dw.model.SuspendVwRequest;
+import com.cloudera.cdp.dw.model.SuspendVwResponse;
 import com.cloudera.cdp.dw.model.UpdateClusterRequest;
 import com.cloudera.cdp.dw.model.UpdateClusterResponse;
 import com.cloudera.cdp.dw.model.UpdateDataVisualizationRequest;
@@ -151,6 +167,8 @@ import com.cloudera.cdp.dw.model.UpdateSshKeyRequest;
 import com.cloudera.cdp.dw.model.UpdateSshKeyResponse;
 import com.cloudera.cdp.dw.model.UpdateVwRequest;
 import com.cloudera.cdp.dw.model.UpdateVwResponse;
+import com.cloudera.cdp.dw.model.UpgradeClusterRequest;
+import com.cloudera.cdp.dw.model.UpgradeClusterResponse;
 import com.cloudera.cdp.dw.model.UpgradeDataVisualizationRequest;
 import com.cloudera.cdp.dw.model.UpgradeDataVisualizationResponse;
 import com.cloudera.cdp.dw.model.UpgradeDbcRequest;
@@ -163,7 +181,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-02T11:30:58.765-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-10T14:31:14.380-08:00")
 public class DwClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dw";
@@ -231,6 +249,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("createCluster", "/api/v1/dw/createCluster", input, new GenericType<CreateClusterResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Create a diagnostic job for the given cluster.
+   * @param input
+   * @return CreateClusterDiagnosticDataJobResponse
+   */
+  public CreateClusterDiagnosticDataJobResponse createClusterDiagnosticDataJob(CreateClusterDiagnosticDataJobRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createClusterDiagnosticDataJob");
+    }
+
+    return this.invokeAPI("createClusterDiagnosticDataJob", "/api/v1/dw/createClusterDiagnosticDataJob", input, new GenericType<CreateClusterDiagnosticDataJobResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -322,6 +353,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("deleteCluster", "/api/v1/dw/deleteCluster", input, new GenericType<DeleteClusterResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Deletes a diagnostic job for the given cluster.
+   * @param input
+   * @return DeleteClusterDiagnosticDataJobResponse
+   */
+  public DeleteClusterDiagnosticDataJobResponse deleteClusterDiagnosticDataJob(DeleteClusterDiagnosticDataJobRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteClusterDiagnosticDataJob");
+    }
+
+    return this.invokeAPI("deleteClusterDiagnosticDataJob", "/api/v1/dw/deleteClusterDiagnosticDataJob", input, new GenericType<DeleteClusterDiagnosticDataJobResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -439,6 +483,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("describeCluster", "/api/v1/dw/describeCluster", input, new GenericType<DescribeClusterResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Describes a diagnostic job for the given Cluster.
+   * @param input
+   * @return DescribeClusterDiagnosticDataJobResponse
+   */
+  public DescribeClusterDiagnosticDataJobResponse describeClusterDiagnosticDataJob(DescribeClusterDiagnosticDataJobRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeClusterDiagnosticDataJob");
+    }
+
+    return this.invokeAPI("describeClusterDiagnosticDataJob", "/api/v1/dw/describeClusterDiagnosticDataJob", input, new GenericType<DescribeClusterDiagnosticDataJobResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -663,6 +720,19 @@ public class DwClient extends CdpClient {
   }
 
   /**
+   * Get a list of diagnostic jobs for the given cluster.
+   * @param input
+   * @return ListClusterDiagnosticDataJobsResponse
+   */
+  public ListClusterDiagnosticDataJobsResponse listClusterDiagnosticDataJobs(ListClusterDiagnosticDataJobsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listClusterDiagnosticDataJobs");
+    }
+
+    return this.invokeAPI("listClusterDiagnosticDataJobs", "/api/v1/dw/listClusterDiagnosticDataJobs", input, new GenericType<ListClusterDiagnosticDataJobsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * List Cloudera Data Warehouse clusters.
    * @param input
    * @return ListClustersResponse
@@ -845,6 +915,32 @@ public class DwClient extends CdpClient {
   }
 
   /**
+   * Rebuild a Database Catalog.
+   * @param input
+   * @return RebuildDbcResponse
+   */
+  public RebuildDbcResponse rebuildDbc(RebuildDbcRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling rebuildDbc");
+    }
+
+    return this.invokeAPI("rebuildDbc", "/api/v1/dw/rebuildDbc", input, new GenericType<RebuildDbcResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Rebuild a Virtual Warehouse.
+   * @param input
+   * @return RebuildVwResponse
+   */
+  public RebuildVwResponse rebuildVw(RebuildVwRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling rebuildVw");
+    }
+
+    return this.invokeAPI("rebuildVw", "/api/v1/dw/rebuildVw", input, new GenericType<RebuildVwResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Renew certificates for a Cloudera Data Warehouse Azure cluster.
    * @param input
    * @return RenewCertificatesResponse
@@ -907,6 +1003,32 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("startVw", "/api/v1/dw/startVw", input, new GenericType<StartVwResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Suspends a running Database Catalog.
+   * @param input
+   * @return SuspendDbcResponse
+   */
+  public SuspendDbcResponse suspendDbc(SuspendDbcRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling suspendDbc");
+    }
+
+    return this.invokeAPI("suspendDbc", "/api/v1/dw/suspendDbc", input, new GenericType<SuspendDbcResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Suspends a running Virtual Warehouse.
+   * @param input
+   * @return SuspendVwResponse
+   */
+  public SuspendVwResponse suspendVw(SuspendVwRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling suspendVw");
+    }
+
+    return this.invokeAPI("suspendVw", "/api/v1/dw/suspendVw", input, new GenericType<SuspendVwResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -985,6 +1107,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("updateVw", "/api/v1/dw/updateVw", input, new GenericType<UpdateVwResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Upgrade the Cloudera Data Warehouse cluster.
+   * @param input
+   * @return UpgradeClusterResponse
+   */
+  public UpgradeClusterResponse upgradeCluster(UpgradeClusterRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling upgradeCluster");
+    }
+
+    return this.invokeAPI("upgradeCluster", "/api/v1/dw/upgradeCluster", input, new GenericType<UpgradeClusterResponse>(){}, NO_EXTENSION);
   }
 
   /**

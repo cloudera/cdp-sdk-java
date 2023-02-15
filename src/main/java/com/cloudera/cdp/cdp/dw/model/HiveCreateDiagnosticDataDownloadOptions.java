@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Flags that denote which diagnostics to include for a Hive Virtual Warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-02T11:30:58.765-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-10T14:31:14.380-08:00")
 public class HiveCreateDiagnosticDataDownloadOptions  {
 
   /**
@@ -54,6 +54,16 @@ public class HiveCreateDiagnosticDataDownloadOptions  {
    * Include logs.
    **/
   private Boolean includeLogs = false;
+
+  /**
+   * Include compute resource info.
+   **/
+  private Boolean includeComputeResourceInfo = false;
+
+  /**
+   * Include Kubernetes resource info.
+   **/
+  private Boolean includeKubernetesResourceInfo = false;
 
   /**
    * Getter for includeHms.
@@ -140,6 +150,40 @@ public class HiveCreateDiagnosticDataDownloadOptions  {
     this.includeLogs = includeLogs;
   }
 
+  /**
+   * Getter for includeComputeResourceInfo.
+   * Include compute resource info.
+   **/
+  @JsonProperty("includeComputeResourceInfo")
+  public Boolean getIncludeComputeResourceInfo() {
+    return includeComputeResourceInfo;
+  }
+
+  /**
+   * Setter for includeComputeResourceInfo.
+   * Include compute resource info.
+   **/
+  public void setIncludeComputeResourceInfo(Boolean includeComputeResourceInfo) {
+    this.includeComputeResourceInfo = includeComputeResourceInfo;
+  }
+
+  /**
+   * Getter for includeKubernetesResourceInfo.
+   * Include Kubernetes resource info.
+   **/
+  @JsonProperty("includeKubernetesResourceInfo")
+  public Boolean getIncludeKubernetesResourceInfo() {
+    return includeKubernetesResourceInfo;
+  }
+
+  /**
+   * Setter for includeKubernetesResourceInfo.
+   * Include Kubernetes resource info.
+   **/
+  public void setIncludeKubernetesResourceInfo(Boolean includeKubernetesResourceInfo) {
+    this.includeKubernetesResourceInfo = includeKubernetesResourceInfo;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -164,12 +208,18 @@ public class HiveCreateDiagnosticDataDownloadOptions  {
     if (!Objects.equals(this.includeLogs, hiveCreateDiagnosticDataDownloadOptions.includeLogs)) {
       return false;
     }
+    if (!Objects.equals(this.includeComputeResourceInfo, hiveCreateDiagnosticDataDownloadOptions.includeComputeResourceInfo)) {
+      return false;
+    }
+    if (!Objects.equals(this.includeKubernetesResourceInfo, hiveCreateDiagnosticDataDownloadOptions.includeKubernetesResourceInfo)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(includeHms, includeErrordump, includeGclogs, includeHeapdump, includeLogs);
+    return Objects.hash(includeHms, includeErrordump, includeGclogs, includeHeapdump, includeLogs, includeComputeResourceInfo, includeKubernetesResourceInfo);
   }
 
   @Override
@@ -181,6 +231,8 @@ public class HiveCreateDiagnosticDataDownloadOptions  {
     sb.append("    includeGclogs: ").append(toIndentedString(includeGclogs)).append("\n");
     sb.append("    includeHeapdump: ").append(toIndentedString(includeHeapdump)).append("\n");
     sb.append("    includeLogs: ").append(toIndentedString(includeLogs)).append("\n");
+    sb.append("    includeComputeResourceInfo: ").append(toIndentedString(includeComputeResourceInfo)).append("\n");
+    sb.append("    includeKubernetesResourceInfo: ").append(toIndentedString(includeKubernetesResourceInfo)).append("\n");
     sb.append("}");
     return sb.toString();
   }

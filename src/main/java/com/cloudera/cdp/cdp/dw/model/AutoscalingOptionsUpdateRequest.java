@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Auto-scaling configuration for a Virtual Warehouse. Provide those values only that you want to update.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-02T11:30:58.765-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-10T14:31:14.380-08:00")
 public class AutoscalingOptionsUpdateRequest  {
 
   /**
@@ -71,12 +71,12 @@ public class AutoscalingOptionsUpdateRequest  {
   private Integer impalaScaleDownDelaySeconds = null;
 
   /**
-   * Delay in seconds before the shutdown of coordinator event happens.
+   * DEPRECATED in favor of the top level impalaHASettings object. Delay in seconds before the shutdown of coordinator event happens.
    **/
   private Integer impalaShutdownOfCoordinatorDelaySeconds = null;
 
   /**
-   * Number of the active coordinators.
+   * DEPRECATED in favor of the top level impalaHASettings object. Number of the active coordinators.
    **/
   private Integer impalaNumOfActiveCoordinators = null;
 
@@ -218,8 +218,9 @@ public class AutoscalingOptionsUpdateRequest  {
 
   /**
    * Getter for impalaShutdownOfCoordinatorDelaySeconds.
-   * Delay in seconds before the shutdown of coordinator event happens.
+   * DEPRECATED in favor of the top level impalaHASettings object. Delay in seconds before the shutdown of coordinator event happens.
    **/
+  @Deprecated
   @JsonProperty("impalaShutdownOfCoordinatorDelaySeconds")
   public Integer getImpalaShutdownOfCoordinatorDelaySeconds() {
     return impalaShutdownOfCoordinatorDelaySeconds;
@@ -227,16 +228,18 @@ public class AutoscalingOptionsUpdateRequest  {
 
   /**
    * Setter for impalaShutdownOfCoordinatorDelaySeconds.
-   * Delay in seconds before the shutdown of coordinator event happens.
+   * DEPRECATED in favor of the top level impalaHASettings object. Delay in seconds before the shutdown of coordinator event happens.
    **/
+  @Deprecated
   public void setImpalaShutdownOfCoordinatorDelaySeconds(Integer impalaShutdownOfCoordinatorDelaySeconds) {
     this.impalaShutdownOfCoordinatorDelaySeconds = impalaShutdownOfCoordinatorDelaySeconds;
   }
 
   /**
    * Getter for impalaNumOfActiveCoordinators.
-   * Number of the active coordinators.
+   * DEPRECATED in favor of the top level impalaHASettings object. Number of the active coordinators.
    **/
+  @Deprecated
   @JsonProperty("impalaNumOfActiveCoordinators")
   public Integer getImpalaNumOfActiveCoordinators() {
     return impalaNumOfActiveCoordinators;
@@ -244,8 +247,9 @@ public class AutoscalingOptionsUpdateRequest  {
 
   /**
    * Setter for impalaNumOfActiveCoordinators.
-   * Number of the active coordinators.
+   * DEPRECATED in favor of the top level impalaHASettings object. Number of the active coordinators.
    **/
+  @Deprecated
   public void setImpalaNumOfActiveCoordinators(Integer impalaNumOfActiveCoordinators) {
     this.impalaNumOfActiveCoordinators = impalaNumOfActiveCoordinators;
   }

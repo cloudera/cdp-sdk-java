@@ -24,6 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.dw.model.AutoscalingOptionsCreateRequest;
+import com.cloudera.cdp.dw.model.ImpalaHASettingsCreateRequest;
+import com.cloudera.cdp.dw.model.ImpalaOptionsCreateRequest;
 import com.cloudera.cdp.dw.model.QueryIsolationOptionsRequest;
 import com.cloudera.cdp.dw.model.ServiceConfigReq;
 import com.cloudera.cdp.dw.model.TagRequest;
@@ -32,7 +34,7 @@ import java.util.*;
 /**
  * Request object for the createVw method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-02T11:30:58.765-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-10T14:31:14.380-08:00")
 public class CreateVwRequest  {
 
   /**
@@ -69,6 +71,26 @@ public class CreateVwRequest  {
    * Node Count per compute cluster. Implies 'custom' template, even if you pass template explicitly.
    **/
   private Integer nodeCount = 0;
+
+  /**
+   * This feature works only for AWS cluster type. An availability zone to host compute instances. If not specified, defaults to a randomly selected availability zone inferred from available subnets. In order to query possible options, see \"availabilityZones\" field of describe-cluster or list-clusters command response.
+   **/
+  private String availabilityZone = null;
+
+  /**
+   * Enable Unified Analytics. In the case of Hive Virtual Warehouses, this cannot be provided, because this value is inferred. In the case of Impala, this can be set. Passing --query-isolation-options will be considered only if this flag is set to true. If Unified Analytics is enabled then the \"enableShutdownOfCoordinator\" in --impala-ha-settings is explicitly disabled (ignored) and should not be provided, furthermore the \"highAvailabilityMode\" in --impala-ha-settings cannot be set to ACTIVE_ACTIVE.
+   **/
+  private Boolean enableUnifiedAnalytics = null;
+
+  /**
+   * Impala specific options. It cannot be provided for Virtual Warehouse types other than Impala.
+   **/
+  private ImpalaOptionsCreateRequest impalaOptions = null;
+
+  /**
+   * High Availability settings for the Impala Virtual Warehouse. NOTE that in --autoscaling object you should avoid using the same deprecated properties because only the --impala-ha-setting properties will be considered if any of its values are set.
+   **/
+  private ImpalaHASettingsCreateRequest impalaHaSettings = null;
 
   /**
    * Autoscaling settings for the Virtual Warehouse.
@@ -210,6 +232,74 @@ public class CreateVwRequest  {
   }
 
   /**
+   * Getter for availabilityZone.
+   * This feature works only for AWS cluster type. An availability zone to host compute instances. If not specified, defaults to a randomly selected availability zone inferred from available subnets. In order to query possible options, see \&quot;availabilityZones\&quot; field of describe-cluster or list-clusters command response.
+   **/
+  @JsonProperty("availabilityZone")
+  public String getAvailabilityZone() {
+    return availabilityZone;
+  }
+
+  /**
+   * Setter for availabilityZone.
+   * This feature works only for AWS cluster type. An availability zone to host compute instances. If not specified, defaults to a randomly selected availability zone inferred from available subnets. In order to query possible options, see \&quot;availabilityZones\&quot; field of describe-cluster or list-clusters command response.
+   **/
+  public void setAvailabilityZone(String availabilityZone) {
+    this.availabilityZone = availabilityZone;
+  }
+
+  /**
+   * Getter for enableUnifiedAnalytics.
+   * Enable Unified Analytics. In the case of Hive Virtual Warehouses, this cannot be provided, because this value is inferred. In the case of Impala, this can be set. Passing --query-isolation-options will be considered only if this flag is set to true. If Unified Analytics is enabled then the \&quot;enableShutdownOfCoordinator\&quot; in --impala-ha-settings is explicitly disabled (ignored) and should not be provided, furthermore the \&quot;highAvailabilityMode\&quot; in --impala-ha-settings cannot be set to ACTIVE_ACTIVE.
+   **/
+  @JsonProperty("enableUnifiedAnalytics")
+  public Boolean getEnableUnifiedAnalytics() {
+    return enableUnifiedAnalytics;
+  }
+
+  /**
+   * Setter for enableUnifiedAnalytics.
+   * Enable Unified Analytics. In the case of Hive Virtual Warehouses, this cannot be provided, because this value is inferred. In the case of Impala, this can be set. Passing --query-isolation-options will be considered only if this flag is set to true. If Unified Analytics is enabled then the \&quot;enableShutdownOfCoordinator\&quot; in --impala-ha-settings is explicitly disabled (ignored) and should not be provided, furthermore the \&quot;highAvailabilityMode\&quot; in --impala-ha-settings cannot be set to ACTIVE_ACTIVE.
+   **/
+  public void setEnableUnifiedAnalytics(Boolean enableUnifiedAnalytics) {
+    this.enableUnifiedAnalytics = enableUnifiedAnalytics;
+  }
+
+  /**
+   * Getter for impalaOptions.
+   * Impala specific options. It cannot be provided for Virtual Warehouse types other than Impala.
+   **/
+  @JsonProperty("impalaOptions")
+  public ImpalaOptionsCreateRequest getImpalaOptions() {
+    return impalaOptions;
+  }
+
+  /**
+   * Setter for impalaOptions.
+   * Impala specific options. It cannot be provided for Virtual Warehouse types other than Impala.
+   **/
+  public void setImpalaOptions(ImpalaOptionsCreateRequest impalaOptions) {
+    this.impalaOptions = impalaOptions;
+  }
+
+  /**
+   * Getter for impalaHaSettings.
+   * High Availability settings for the Impala Virtual Warehouse. NOTE that in --autoscaling object you should avoid using the same deprecated properties because only the --impala-ha-setting properties will be considered if any of its values are set.
+   **/
+  @JsonProperty("impalaHaSettings")
+  public ImpalaHASettingsCreateRequest getImpalaHaSettings() {
+    return impalaHaSettings;
+  }
+
+  /**
+   * Setter for impalaHaSettings.
+   * High Availability settings for the Impala Virtual Warehouse. NOTE that in --autoscaling object you should avoid using the same deprecated properties because only the --impala-ha-setting properties will be considered if any of its values are set.
+   **/
+  public void setImpalaHaSettings(ImpalaHASettingsCreateRequest impalaHaSettings) {
+    this.impalaHaSettings = impalaHaSettings;
+  }
+
+  /**
    * Getter for autoscaling.
    * Autoscaling settings for the Virtual Warehouse.
    **/
@@ -307,6 +397,18 @@ public class CreateVwRequest  {
     if (!Objects.equals(this.nodeCount, createVwRequest.nodeCount)) {
       return false;
     }
+    if (!Objects.equals(this.availabilityZone, createVwRequest.availabilityZone)) {
+      return false;
+    }
+    if (!Objects.equals(this.enableUnifiedAnalytics, createVwRequest.enableUnifiedAnalytics)) {
+      return false;
+    }
+    if (!Objects.equals(this.impalaOptions, createVwRequest.impalaOptions)) {
+      return false;
+    }
+    if (!Objects.equals(this.impalaHaSettings, createVwRequest.impalaHaSettings)) {
+      return false;
+    }
     if (!Objects.equals(this.autoscaling, createVwRequest.autoscaling)) {
       return false;
     }
@@ -324,7 +426,7 @@ public class CreateVwRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, dbcId, vwType, name, imageVersion, template, nodeCount, autoscaling, config, queryIsolationOptions, tags);
+    return Objects.hash(clusterId, dbcId, vwType, name, imageVersion, template, nodeCount, availabilityZone, enableUnifiedAnalytics, impalaOptions, impalaHaSettings, autoscaling, config, queryIsolationOptions, tags);
   }
 
   @Override
@@ -338,6 +440,10 @@ public class CreateVwRequest  {
     sb.append("    imageVersion: ").append(toIndentedString(imageVersion)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    nodeCount: ").append(toIndentedString(nodeCount)).append("\n");
+    sb.append("    availabilityZone: ").append(toIndentedString(availabilityZone)).append("\n");
+    sb.append("    enableUnifiedAnalytics: ").append(toIndentedString(enableUnifiedAnalytics)).append("\n");
+    sb.append("    impalaOptions: ").append(toIndentedString(impalaOptions)).append("\n");
+    sb.append("    impalaHaSettings: ").append(toIndentedString(impalaHaSettings)).append("\n");
     sb.append("    autoscaling: ").append(toIndentedString(autoscaling)).append("\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    queryIsolationOptions: ").append(toIndentedString(queryIsolationOptions)).append("\n");

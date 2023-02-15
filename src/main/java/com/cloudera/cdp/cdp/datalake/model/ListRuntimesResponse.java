@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for list datalake runtime versions.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-02T11:30:59.634-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-10T14:31:15.107-08:00")
 public class ListRuntimesResponse extends CdpResponse {
 
   /**

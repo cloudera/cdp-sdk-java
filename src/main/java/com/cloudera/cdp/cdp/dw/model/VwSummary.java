@@ -25,7 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.dw.model.ActorResponse;
 import com.cloudera.cdp.dw.model.AutoscalingOptionsResponse;
+import com.cloudera.cdp.dw.model.ImpalaHASettingsOptionsResponse;
+import com.cloudera.cdp.dw.model.ImpalaOptionsResponse;
 import com.cloudera.cdp.dw.model.QueryIsolationOptionsResponse;
+import com.cloudera.cdp.dw.model.ReplicaStatus;
 import com.cloudera.cdp.dw.model.TagResponse;
 import com.cloudera.cdp.dw.model.VwSummaryEndpoints;
 import java.time.ZonedDateTime;
@@ -34,7 +37,7 @@ import java.util.*;
 /**
  * A Virtual Warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-02T11:30:58.765-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-10T14:31:14.380-08:00")
 public class VwSummary  {
 
   /**
@@ -93,6 +96,11 @@ public class VwSummary  {
   private String cdhVersion = null;
 
   /**
+   * Availability zone in which the Virtual Warehouse is running.
+   **/
+  private String availabilityZone = null;
+
+  /**
    * 
    **/
   private VwSummaryEndpoints endpoints = null;
@@ -113,14 +121,34 @@ public class VwSummary  {
   private Boolean viz = null;
 
   /**
+   * Denotes whether the Unified Analytics is enabled.
+   **/
+  private Boolean enableUnifiedAnalytics = null;
+
+  /**
    * The current settings stored for autoscaling.
    **/
   private AutoscalingOptionsResponse autoscalingOptions = null;
 
   /**
+   * Current Impala settings.
+   **/
+  private ImpalaOptionsResponse impalaOptions = null;
+
+  /**
+   * Current Impala High Availability settings.
+   **/
+  private ImpalaHASettingsOptionsResponse impalaHaSettingsOptions = null;
+
+  /**
    * The current settings stored for query-isolation.
    **/
   private QueryIsolationOptionsResponse queryIsolationOptions = null;
+
+  /**
+   * Status information on the current state of replicas in the virtual warehouse.
+   **/
+  private ReplicaStatus replicaStatus = null;
 
   /**
    * Getter for crn.
@@ -310,6 +338,23 @@ public class VwSummary  {
   }
 
   /**
+   * Getter for availabilityZone.
+   * Availability zone in which the Virtual Warehouse is running.
+   **/
+  @JsonProperty("availabilityZone")
+  public String getAvailabilityZone() {
+    return availabilityZone;
+  }
+
+  /**
+   * Setter for availabilityZone.
+   * Availability zone in which the Virtual Warehouse is running.
+   **/
+  public void setAvailabilityZone(String availabilityZone) {
+    this.availabilityZone = availabilityZone;
+  }
+
+  /**
    * Getter for endpoints.
    * 
    **/
@@ -378,6 +423,23 @@ public class VwSummary  {
   }
 
   /**
+   * Getter for enableUnifiedAnalytics.
+   * Denotes whether the Unified Analytics is enabled.
+   **/
+  @JsonProperty("enableUnifiedAnalytics")
+  public Boolean getEnableUnifiedAnalytics() {
+    return enableUnifiedAnalytics;
+  }
+
+  /**
+   * Setter for enableUnifiedAnalytics.
+   * Denotes whether the Unified Analytics is enabled.
+   **/
+  public void setEnableUnifiedAnalytics(Boolean enableUnifiedAnalytics) {
+    this.enableUnifiedAnalytics = enableUnifiedAnalytics;
+  }
+
+  /**
    * Getter for autoscalingOptions.
    * The current settings stored for autoscaling.
    **/
@@ -395,6 +457,40 @@ public class VwSummary  {
   }
 
   /**
+   * Getter for impalaOptions.
+   * Current Impala settings.
+   **/
+  @JsonProperty("impalaOptions")
+  public ImpalaOptionsResponse getImpalaOptions() {
+    return impalaOptions;
+  }
+
+  /**
+   * Setter for impalaOptions.
+   * Current Impala settings.
+   **/
+  public void setImpalaOptions(ImpalaOptionsResponse impalaOptions) {
+    this.impalaOptions = impalaOptions;
+  }
+
+  /**
+   * Getter for impalaHaSettingsOptions.
+   * Current Impala High Availability settings.
+   **/
+  @JsonProperty("impalaHaSettingsOptions")
+  public ImpalaHASettingsOptionsResponse getImpalaHaSettingsOptions() {
+    return impalaHaSettingsOptions;
+  }
+
+  /**
+   * Setter for impalaHaSettingsOptions.
+   * Current Impala High Availability settings.
+   **/
+  public void setImpalaHaSettingsOptions(ImpalaHASettingsOptionsResponse impalaHaSettingsOptions) {
+    this.impalaHaSettingsOptions = impalaHaSettingsOptions;
+  }
+
+  /**
    * Getter for queryIsolationOptions.
    * The current settings stored for query-isolation.
    **/
@@ -409,6 +505,23 @@ public class VwSummary  {
    **/
   public void setQueryIsolationOptions(QueryIsolationOptionsResponse queryIsolationOptions) {
     this.queryIsolationOptions = queryIsolationOptions;
+  }
+
+  /**
+   * Getter for replicaStatus.
+   * Status information on the current state of replicas in the virtual warehouse.
+   **/
+  @JsonProperty("replicaStatus")
+  public ReplicaStatus getReplicaStatus() {
+    return replicaStatus;
+  }
+
+  /**
+   * Setter for replicaStatus.
+   * Status information on the current state of replicas in the virtual warehouse.
+   **/
+  public void setReplicaStatus(ReplicaStatus replicaStatus) {
+    this.replicaStatus = replicaStatus;
   }
 
   @Override
@@ -453,6 +566,9 @@ public class VwSummary  {
     if (!Objects.equals(this.cdhVersion, vwSummary.cdhVersion)) {
       return false;
     }
+    if (!Objects.equals(this.availabilityZone, vwSummary.availabilityZone)) {
+      return false;
+    }
     if (!Objects.equals(this.endpoints, vwSummary.endpoints)) {
       return false;
     }
@@ -465,10 +581,22 @@ public class VwSummary  {
     if (!Objects.equals(this.viz, vwSummary.viz)) {
       return false;
     }
+    if (!Objects.equals(this.enableUnifiedAnalytics, vwSummary.enableUnifiedAnalytics)) {
+      return false;
+    }
     if (!Objects.equals(this.autoscalingOptions, vwSummary.autoscalingOptions)) {
       return false;
     }
+    if (!Objects.equals(this.impalaOptions, vwSummary.impalaOptions)) {
+      return false;
+    }
+    if (!Objects.equals(this.impalaHaSettingsOptions, vwSummary.impalaHaSettingsOptions)) {
+      return false;
+    }
     if (!Objects.equals(this.queryIsolationOptions, vwSummary.queryIsolationOptions)) {
+      return false;
+    }
+    if (!Objects.equals(this.replicaStatus, vwSummary.replicaStatus)) {
       return false;
     }
     return true;
@@ -476,7 +604,7 @@ public class VwSummary  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, name, vwType, dbcId, status, statusChangedAt, creator, creationDate, configId, cdhVersion, endpoints, tags, compactor, viz, autoscalingOptions, queryIsolationOptions);
+    return Objects.hash(crn, id, name, vwType, dbcId, status, statusChangedAt, creator, creationDate, configId, cdhVersion, availabilityZone, endpoints, tags, compactor, viz, enableUnifiedAnalytics, autoscalingOptions, impalaOptions, impalaHaSettingsOptions, queryIsolationOptions, replicaStatus);
   }
 
   @Override
@@ -494,12 +622,17 @@ public class VwSummary  {
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    configId: ").append(toIndentedString(configId)).append("\n");
     sb.append("    cdhVersion: ").append(toIndentedString(cdhVersion)).append("\n");
+    sb.append("    availabilityZone: ").append(toIndentedString(availabilityZone)).append("\n");
     sb.append("    endpoints: ").append(toIndentedString(endpoints)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    compactor: ").append(toIndentedString(compactor)).append("\n");
     sb.append("    viz: ").append(toIndentedString(viz)).append("\n");
+    sb.append("    enableUnifiedAnalytics: ").append(toIndentedString(enableUnifiedAnalytics)).append("\n");
     sb.append("    autoscalingOptions: ").append(toIndentedString(autoscalingOptions)).append("\n");
+    sb.append("    impalaOptions: ").append(toIndentedString(impalaOptions)).append("\n");
+    sb.append("    impalaHaSettingsOptions: ").append(toIndentedString(impalaHaSettingsOptions)).append("\n");
     sb.append("    queryIsolationOptions: ").append(toIndentedString(queryIsolationOptions)).append("\n");
+    sb.append("    replicaStatus: ").append(toIndentedString(replicaStatus)).append("\n");
     sb.append("}");
     return sb.toString();
   }

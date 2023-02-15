@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Flags that denote which diagnostics to include for an Impala Virtual Warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-02T11:30:58.765-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-10T14:31:14.380-08:00")
 public class ImpalaCreateDiagnosticDataDownloadOptions  {
 
   /**
@@ -54,6 +54,11 @@ public class ImpalaCreateDiagnosticDataDownloadOptions  {
    * Include the workload diagnostics.
    **/
   private Boolean includeWorkload = false;
+
+  /**
+   * Include kubernetes resource info.
+   **/
+  private Boolean includeKubernetesResourceInfo = false;
 
   /**
    * Getter for includeHms.
@@ -140,6 +145,23 @@ public class ImpalaCreateDiagnosticDataDownloadOptions  {
     this.includeWorkload = includeWorkload;
   }
 
+  /**
+   * Getter for includeKubernetesResourceInfo.
+   * Include kubernetes resource info.
+   **/
+  @JsonProperty("includeKubernetesResourceInfo")
+  public Boolean getIncludeKubernetesResourceInfo() {
+    return includeKubernetesResourceInfo;
+  }
+
+  /**
+   * Setter for includeKubernetesResourceInfo.
+   * Include kubernetes resource info.
+   **/
+  public void setIncludeKubernetesResourceInfo(Boolean includeKubernetesResourceInfo) {
+    this.includeKubernetesResourceInfo = includeKubernetesResourceInfo;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -164,12 +186,15 @@ public class ImpalaCreateDiagnosticDataDownloadOptions  {
     if (!Objects.equals(this.includeWorkload, impalaCreateDiagnosticDataDownloadOptions.includeWorkload)) {
       return false;
     }
+    if (!Objects.equals(this.includeKubernetesResourceInfo, impalaCreateDiagnosticDataDownloadOptions.includeKubernetesResourceInfo)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(includeHms, includeMinidump, includeProfile, includeSidecar, includeWorkload);
+    return Objects.hash(includeHms, includeMinidump, includeProfile, includeSidecar, includeWorkload, includeKubernetesResourceInfo);
   }
 
   @Override
@@ -181,6 +206,7 @@ public class ImpalaCreateDiagnosticDataDownloadOptions  {
     sb.append("    includeProfile: ").append(toIndentedString(includeProfile)).append("\n");
     sb.append("    includeSidecar: ").append(toIndentedString(includeSidecar)).append("\n");
     sb.append("    includeWorkload: ").append(toIndentedString(includeWorkload)).append("\n");
+    sb.append("    includeKubernetesResourceInfo: ").append(toIndentedString(includeKubernetesResourceInfo)).append("\n");
     sb.append("}");
     return sb.toString();
   }

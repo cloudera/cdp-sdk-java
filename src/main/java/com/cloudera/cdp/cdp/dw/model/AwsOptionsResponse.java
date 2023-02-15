@@ -28,13 +28,18 @@ import java.util.*;
 /**
  * Response object of the cluster AWS settings.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-02T11:30:58.765-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-10T14:31:14.380-08:00")
 public class AwsOptionsResponse extends CdpResponse {
 
   /**
    * IDs of AWS subnets where the cluster has been deployed.
    **/
   private List<String> subnetIds = new ArrayList<String>();
+
+  /**
+   * List of availability zones that the cluster is restricted to use.
+   **/
+  private List<String> availabilityZones = new ArrayList<String>();
 
   /**
    * Id of the Custom Amazon Machine Image
@@ -61,6 +66,23 @@ public class AwsOptionsResponse extends CdpResponse {
    **/
   public void setSubnetIds(List<String> subnetIds) {
     this.subnetIds = subnetIds;
+  }
+
+  /**
+   * Getter for availabilityZones.
+   * List of availability zones that the cluster is restricted to use.
+   **/
+  @JsonProperty("availabilityZones")
+  public List<String> getAvailabilityZones() {
+    return availabilityZones;
+  }
+
+  /**
+   * Setter for availabilityZones.
+   * List of availability zones that the cluster is restricted to use.
+   **/
+  public void setAvailabilityZones(List<String> availabilityZones) {
+    this.availabilityZones = availabilityZones;
   }
 
   /**
@@ -109,6 +131,9 @@ public class AwsOptionsResponse extends CdpResponse {
     if (!Objects.equals(this.subnetIds, awsOptionsResponse.subnetIds)) {
       return false;
     }
+    if (!Objects.equals(this.availabilityZones, awsOptionsResponse.availabilityZones)) {
+      return false;
+    }
     if (!Objects.equals(this.customAmiId, awsOptionsResponse.customAmiId)) {
       return false;
     }
@@ -123,7 +148,7 @@ public class AwsOptionsResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(subnetIds, customAmiId, reducedPermissionMode, super.hashCode());
+    return Objects.hash(subnetIds, availabilityZones, customAmiId, reducedPermissionMode, super.hashCode());
   }
 
   @Override
@@ -132,6 +157,7 @@ public class AwsOptionsResponse extends CdpResponse {
     sb.append("class AwsOptionsResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
+    sb.append("    availabilityZones: ").append(toIndentedString(availabilityZones)).append("\n");
     sb.append("    customAmiId: ").append(toIndentedString(customAmiId)).append("\n");
     sb.append("    reducedPermissionMode: ").append(toIndentedString(reducedPermissionMode)).append("\n");
     sb.append("}");

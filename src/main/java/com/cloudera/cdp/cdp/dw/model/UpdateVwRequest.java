@@ -24,13 +24,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.dw.model.AutoscalingOptionsUpdateRequest;
+import com.cloudera.cdp.dw.model.ImpalaHASettingsUpdateRequest;
 import com.cloudera.cdp.dw.model.QueryIsolationOptionsRequest;
 import com.cloudera.cdp.dw.model.ServiceConfigReq;
 
 /**
  * Request object for the updateVw method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-02T11:30:58.765-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-10T14:31:14.380-08:00")
 public class UpdateVwRequest  {
 
   /**
@@ -52,6 +53,11 @@ public class UpdateVwRequest  {
    * Autoscaling settings for the Virtual Warehouse.
    **/
   private AutoscalingOptionsUpdateRequest autoscaling = null;
+
+  /**
+   * High Availability settings update for the Impala Virtual Warehouse.
+   **/
+  private ImpalaHASettingsUpdateRequest impalaHaSettings = null;
 
   /**
    * Query isolation settings for Hive Virtual Warehouses.
@@ -127,6 +133,23 @@ public class UpdateVwRequest  {
   }
 
   /**
+   * Getter for impalaHaSettings.
+   * High Availability settings update for the Impala Virtual Warehouse.
+   **/
+  @JsonProperty("impalaHaSettings")
+  public ImpalaHASettingsUpdateRequest getImpalaHaSettings() {
+    return impalaHaSettings;
+  }
+
+  /**
+   * Setter for impalaHaSettings.
+   * High Availability settings update for the Impala Virtual Warehouse.
+   **/
+  public void setImpalaHaSettings(ImpalaHASettingsUpdateRequest impalaHaSettings) {
+    this.impalaHaSettings = impalaHaSettings;
+  }
+
+  /**
    * Getter for queryIsolationOptions.
    * Query isolation settings for Hive Virtual Warehouses.
    **/
@@ -164,6 +187,9 @@ public class UpdateVwRequest  {
     if (!Objects.equals(this.autoscaling, updateVwRequest.autoscaling)) {
       return false;
     }
+    if (!Objects.equals(this.impalaHaSettings, updateVwRequest.impalaHaSettings)) {
+      return false;
+    }
     if (!Objects.equals(this.queryIsolationOptions, updateVwRequest.queryIsolationOptions)) {
       return false;
     }
@@ -172,7 +198,7 @@ public class UpdateVwRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, vwId, config, autoscaling, queryIsolationOptions);
+    return Objects.hash(clusterId, vwId, config, autoscaling, impalaHaSettings, queryIsolationOptions);
   }
 
   @Override
@@ -183,6 +209,7 @@ public class UpdateVwRequest  {
     sb.append("    vwId: ").append(toIndentedString(vwId)).append("\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    autoscaling: ").append(toIndentedString(autoscaling)).append("\n");
+    sb.append("    impalaHaSettings: ").append(toIndentedString(impalaHaSettings)).append("\n");
     sb.append("    queryIsolationOptions: ").append(toIndentedString(queryIsolationOptions)).append("\n");
     sb.append("}");
     return sb.toString();

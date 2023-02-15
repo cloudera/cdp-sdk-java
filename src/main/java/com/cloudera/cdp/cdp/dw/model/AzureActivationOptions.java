@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Options for activating an Azure environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-02T11:30:58.765-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-10T14:31:14.380-08:00")
 public class AzureActivationOptions  {
 
   /**
@@ -45,11 +45,6 @@ public class AzureActivationOptions  {
    * Whether to enable spot instances for Virtual warehouses. It cannot be updated later. If the AzureActivationOptions is not provided it defaults to false.
    **/
   private Boolean enableSpotInstances = false;
-
-  /**
-   * DEPRECATED in favour of compute-instance-types. The generation type of the virtual machines used to create the environment.
-   **/
-  private String vmGenerationType = null;
 
   /**
    * Azure compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values and the default value used for the case it is not provided.
@@ -140,25 +135,6 @@ public class AzureActivationOptions  {
    **/
   public void setEnableSpotInstances(Boolean enableSpotInstances) {
     this.enableSpotInstances = enableSpotInstances;
-  }
-
-  /**
-   * Getter for vmGenerationType.
-   * DEPRECATED in favour of compute-instance-types. The generation type of the virtual machines used to create the environment.
-   **/
-  @Deprecated
-  @JsonProperty("vmGenerationType")
-  public String getVmGenerationType() {
-    return vmGenerationType;
-  }
-
-  /**
-   * Setter for vmGenerationType.
-   * DEPRECATED in favour of compute-instance-types. The generation type of the virtual machines used to create the environment.
-   **/
-  @Deprecated
-  public void setVmGenerationType(String vmGenerationType) {
-    this.vmGenerationType = vmGenerationType;
   }
 
   /**
@@ -315,9 +291,6 @@ public class AzureActivationOptions  {
     if (!Objects.equals(this.enableSpotInstances, azureActivationOptions.enableSpotInstances)) {
       return false;
     }
-    if (!Objects.equals(this.vmGenerationType, azureActivationOptions.vmGenerationType)) {
-      return false;
-    }
     if (!Objects.equals(this.computeInstanceTypes, azureActivationOptions.computeInstanceTypes)) {
       return false;
     }
@@ -347,7 +320,7 @@ public class AzureActivationOptions  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(subnetId, enableAZ, enableSpotInstances, vmGenerationType, computeInstanceTypes, logAnalyticsWorkspaceId, dockerBridgeCidr, outboundType, enablePrivateSQL, privateDNSZoneAKS, enablePrivateAks, enableUptimeSLA);
+    return Objects.hash(subnetId, enableAZ, enableSpotInstances, computeInstanceTypes, logAnalyticsWorkspaceId, dockerBridgeCidr, outboundType, enablePrivateSQL, privateDNSZoneAKS, enablePrivateAks, enableUptimeSLA);
   }
 
   @Override
@@ -357,7 +330,6 @@ public class AzureActivationOptions  {
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    enableAZ: ").append(toIndentedString(enableAZ)).append("\n");
     sb.append("    enableSpotInstances: ").append(toIndentedString(enableSpotInstances)).append("\n");
-    sb.append("    vmGenerationType: ").append(toIndentedString(vmGenerationType)).append("\n");
     sb.append("    computeInstanceTypes: ").append(toIndentedString(computeInstanceTypes)).append("\n");
     sb.append("    logAnalyticsWorkspaceId: ").append(toIndentedString(logAnalyticsWorkspaceId)).append("\n");
     sb.append("    dockerBridgeCidr: ").append(toIndentedString(dockerBridgeCidr)).append("\n");
