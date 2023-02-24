@@ -34,6 +34,8 @@ public abstract class CdpClientBuilder<T extends CdpClientBuilder<T>> {
   private static final String
       CDP_ENDPOINT = "https://api.%s.cdp.cloudera.com:443";
   private static final String
+      GOVT_CDP_ENDPOINT = "https://api.%s.cdp.clouderagovt.com:443";
+  private static final String
       ALTUS_ENDPOINT_FORMAT_STRING = "https://%sapi.%s.altus.cloudera.com:443";
 
   private CdpCredentialsProvider cdpCredentialsProvider;
@@ -113,6 +115,8 @@ public abstract class CdpClientBuilder<T extends CdpClientBuilder<T>> {
   private String getCdpFormatEndpoint() {
     if (this.cdpRegion == CdpRegion.US_WEST_1) {
       return String.format(CDP_ENDPOINT, CdpRegion.US_WEST_1);
+    } else if (this.cdpRegion == CdpRegion.USG_1) {
+      return String.format(GOVT_CDP_ENDPOINT, CdpRegion.USG_1);
     } else {
       return String.format(CDP_ENDPOINT, this.cdpRegion);
     }
@@ -126,6 +130,8 @@ public abstract class CdpClientBuilder<T extends CdpClientBuilder<T>> {
   private String getAltusFormatEndpoint() {
     if (this.cdpRegion == CdpRegion.US_WEST_1) {
       return String.format(ALTUS_ENDPOINT_FORMAT_STRING, this.serviceName, CdpRegion.US_WEST_1);
+    } else if (this.cdpRegion == CdpRegion.USG_1) {
+      return String.format(GOVT_CDP_ENDPOINT, CdpRegion.USG_1);
     } else {
       return String.format(CDP_ENDPOINT, this.cdpRegion);
     }

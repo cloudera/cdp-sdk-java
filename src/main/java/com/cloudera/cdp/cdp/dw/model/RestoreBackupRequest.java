@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for the restore backup request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-10T14:31:14.380-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-22T17:07:45.249-08:00")
 public class RestoreBackupRequest  {
 
   /**
@@ -37,7 +37,7 @@ public class RestoreBackupRequest  {
   private String backupCrn = null;
 
   /**
-   * A comma-separated list of namespaces of the potential candidates for restore. If not set, all of the Data Warehouse namespaces within the backup CRN will be restored.
+   * A list of namespaces of the potential candidates for restore. If not set, all of the Data Warehouse namespaces within the backup CRN will be restored.
    **/
   private List<String> namespaceNames = new ArrayList<String>();
 
@@ -60,7 +60,7 @@ public class RestoreBackupRequest  {
 
   /**
    * Getter for namespaceNames.
-   * A comma-separated list of namespaces of the potential candidates for restore. If not set, all of the Data Warehouse namespaces within the backup CRN will be restored.
+   * A list of namespaces of the potential candidates for restore. If not set, all of the Data Warehouse namespaces within the backup CRN will be restored.
    **/
   @JsonProperty("namespaceNames")
   public List<String> getNamespaceNames() {
@@ -69,7 +69,7 @@ public class RestoreBackupRequest  {
 
   /**
    * Setter for namespaceNames.
-   * A comma-separated list of namespaces of the potential candidates for restore. If not set, all of the Data Warehouse namespaces within the backup CRN will be restored.
+   * A list of namespaces of the potential candidates for restore. If not set, all of the Data Warehouse namespaces within the backup CRN will be restored.
    **/
   public void setNamespaceNames(List<String> namespaceNames) {
     this.namespaceNames = namespaceNames;

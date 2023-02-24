@@ -26,8 +26,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.cloudera.cdp.CdpClientException;
+import com.cloudera.cdp.client.CdpRegion;
 import com.cloudera.cdp.util.CdpSDKTestUtils;
-import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -36,6 +36,8 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.time.Duration;
 import java.util.HashMap;
+
+import org.junit.jupiter.api.Test;
 
 public class CdpInteractiveLoginCredentialsProviderTest {
 
@@ -166,5 +168,18 @@ public class CdpInteractiveLoginCredentialsProviderTest {
     assertEquals("error_message", ilcp.error);
     assertNull(ilcp.accessKeyId);
     assertNull(ilcp.privateKey);
+  }
+
+  @Test
+  public void testLoginUrl() {
+    String loginUrl;
+    loginUrl = CdpInteractiveLoginCredentialsProvider.getLoginUrl(CdpRegion.US_WEST_1);
+    assertEquals("https://consoleauth.altus.cloudera.com/login", loginUrl);
+    loginUrl = CdpInteractiveLoginCredentialsProvider.getLoginUrl(CdpRegion.EU_1);
+    assertEquals("https://console.eu-1.cdp.cloudera.com/consoleauth/login", loginUrl);
+    loginUrl = CdpInteractiveLoginCredentialsProvider.getLoginUrl(CdpRegion.AP_1);
+    assertEquals("https://console.ap-1.cdp.cloudera.com/consoleauth/login", loginUrl);
+    loginUrl = CdpInteractiveLoginCredentialsProvider.getLoginUrl(CdpRegion.USG_1);
+    assertEquals("https://console.usg-1.cdp.clouderagovt.com/consoleauth/login", loginUrl);
   }
 }

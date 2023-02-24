@@ -29,7 +29,7 @@ import com.cloudera.cdp.dfworkload.model.ConfiguredAlertThreshold;
 /**
  * An alert configuration that specifies a configured frequency with lower and/or upper thresholds
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-10T14:31:16.772-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-22T17:07:48.110-08:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class ConfiguredAlert  {
 

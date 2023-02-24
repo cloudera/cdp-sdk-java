@@ -220,7 +220,7 @@ public class CdpClientBuilderTest {
   @Test
   public void testWithCdpRegionUsg() {
     MockClientBuilderCdpEndpoint builder = new MockClientBuilderCdpEndpoint();
-    assertEquals("https://api.usg-1.cdp.cloudera.com:443",
+    assertEquals("https://api.usg-1.cdp.clouderagovt.com:443",
         builder.withCdpRegion(CdpRegion.USG_1).getCdpEndPoint());
   }
 

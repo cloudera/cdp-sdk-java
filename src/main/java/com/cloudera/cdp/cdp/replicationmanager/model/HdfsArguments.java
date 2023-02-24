@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Extra properties for HDFS.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-10T14:31:17.124-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-22T17:07:48.516-08:00")
 public class HdfsArguments  {
 
   /**

@@ -22,21 +22,9 @@ package com.cloudera.cdp.authentication.credentials;
 import static com.cloudera.cdp.ValidationUtils.checkNotNullAndThrow;
 
 import com.cloudera.cdp.CdpClientException;
+import com.cloudera.cdp.client.CdpRegion;
 import com.google.common.annotations.VisibleForTesting;
-import org.apache.commons.lang3.StringUtils;
-import org.eclipse.jetty.server.Request;
-import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.ServerConnector;
-import org.eclipse.jetty.server.handler.AbstractHandler;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import javax.annotation.Nullable;
-import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.ws.rs.core.UriBuilder;
 import java.awt.Desktop;
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -44,6 +32,20 @@ import java.net.URI;
 import java.time.Duration;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
+import javax.annotation.Nullable;
+import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.core.UriBuilder;
+
+import org.apache.commons.lang3.StringUtils;
+import org.eclipse.jetty.server.Request;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.ServerConnector;
+import org.eclipse.jetty.server.handler.AbstractHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * CdpCredentialsProvider implementation that provides credentials by
@@ -56,7 +58,9 @@ public class CdpInteractiveLoginCredentialsProvider
       LoggerFactory.getLogger(CdpInteractiveLoginCredentialsProvider.class);
 
   private static final Duration DEFAULT_LOGIN_TIMEOUT = Duration.ofMinutes(10);
-  private static final String DEFAULT_LOGIN_URL = "https://consoleauth.altus.cloudera.com/login";
+  private static final String ALTUS_LOGIN_URL = "https://consoleauth.altus.cloudera.com/login";
+  private static final String LOGIN_URL_FORMAT = "https://console.%s.cdp.cloudera.com/consoleauth/login";
+  private static final String GOVT_LOGIN_URL_FORMAT = "https://console.%s.cdp.clouderagovt.com/consoleauth/login";
   private static final String USE_DEFAULT_IDP = null;
   private static final int USE_RANDOM_UNUSED_PORT = 0;
 
@@ -97,13 +101,33 @@ public class CdpInteractiveLoginCredentialsProvider
   }
 
   /**
+   * Login to CDP interactively by the default identity provider.
+   * @param cdpRegion The region of the account.
+   * @param accountId The account id.
+   */
+  public CdpInteractiveLoginCredentialsProvider(CdpRegion cdpRegion, String accountId) {
+    this(cdpRegion, accountId, USE_DEFAULT_IDP);
+  }
+
+  /**
    * Login to CDP interactively.
    * @param accountId The account id.
    * @param identityProvider The name or CRN of IdP used to login with.
    *                         The default IdP will be used if null or empty.
    */
   public CdpInteractiveLoginCredentialsProvider(String accountId, @Nullable String identityProvider) {
-    this(accountId, identityProvider, DEFAULT_LOGIN_URL, USE_RANDOM_UNUSED_PORT, DEFAULT_LOGIN_TIMEOUT);
+    this(accountId, identityProvider, ALTUS_LOGIN_URL, USE_RANDOM_UNUSED_PORT, DEFAULT_LOGIN_TIMEOUT);
+  }
+
+  /**
+   * Login to CDP interactively.
+   * @param cdpRegion The region of the account.
+   * @param accountId The account id.
+   * @param identityProvider The name or CRN of IdP used to login with.
+   *                         The default IdP will be used if null or empty.
+   */
+  public CdpInteractiveLoginCredentialsProvider(CdpRegion cdpRegion, String accountId, @Nullable String identityProvider) {
+    this(accountId, identityProvider, getLoginUrl(cdpRegion), USE_RANDOM_UNUSED_PORT, DEFAULT_LOGIN_TIMEOUT);
   }
 
   /**
@@ -197,27 +221,38 @@ public class CdpInteractiveLoginCredentialsProvider
     return port;
   }
 
-    private void startJettyServer() {
-      try {
-        server = new Server(listeningPort);
-        ServerConnector connector = new ServerConnector(server);
-        connector.setHost("localhost");
-        server.addConnector(connector);
-        server.setHandler(new JettyResponseHandler());
-        server.start();
-      } catch (Exception e) {
-        throw new RuntimeException(e);
-      }
+  @VisibleForTesting
+  static String getLoginUrl(CdpRegion cdpRegion) {
+    if (cdpRegion == CdpRegion.US_WEST_1) {
+      return ALTUS_LOGIN_URL;
+    } else if (cdpRegion == CdpRegion.USG_1) {
+      return String.format(GOVT_LOGIN_URL_FORMAT, cdpRegion);
+    } else {
+      return String.format(LOGIN_URL_FORMAT, cdpRegion);
+    }
+  }
 
+  private void startJettyServer() {
+    try {
+      server = new Server(listeningPort);
+      ServerConnector connector = new ServerConnector(server);
+      connector.setHost("localhost");
+      server.addConnector(connector);
+      server.setHandler(new JettyResponseHandler());
+      server.start();
+    } catch (Exception e) {
+      throw new RuntimeException(e);
     }
 
-    private void stopJettyServer() {
-      try {
-        server.stop();
-      } catch (Exception e) {
-        throw new RuntimeException(e);
-      }
+  }
+
+  private void stopJettyServer() {
+    try {
+      server.stop();
+    } catch (Exception e) {
+      throw new RuntimeException(e);
     }
+  }
 
   private class JettyResponseHandler extends AbstractHandler {
 
