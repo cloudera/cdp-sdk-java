@@ -29,7 +29,7 @@ import com.cloudera.cdp.datahub.model.AutoScaleScheduleResponse;
 /**
  * An individual AutoScale Policy
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-22T17:07:44.695-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:06.038-08:00")
 public class AutoScalePolicyResponse extends CdpResponse {
 
   /**
@@ -45,7 +45,7 @@ public class AutoScalePolicyResponse extends CdpResponse {
   /**
    * Load based policy
    **/
-  private AutoScaleLoadResponse loadBasdePolicy = null;
+  private AutoScaleLoadResponse loadBasedPolicy = null;
 
   /**
    * Getter for hostGroups.
@@ -82,20 +82,20 @@ public class AutoScalePolicyResponse extends CdpResponse {
   }
 
   /**
-   * Getter for loadBasdePolicy.
+   * Getter for loadBasedPolicy.
    * Load based policy
    **/
-  @JsonProperty("loadBasdePolicy")
-  public AutoScaleLoadResponse getLoadBasdePolicy() {
-    return loadBasdePolicy;
+  @JsonProperty("loadBasedPolicy")
+  public AutoScaleLoadResponse getLoadBasedPolicy() {
+    return loadBasedPolicy;
   }
 
   /**
-   * Setter for loadBasdePolicy.
+   * Setter for loadBasedPolicy.
    * Load based policy
    **/
-  public void setLoadBasdePolicy(AutoScaleLoadResponse loadBasdePolicy) {
-    this.loadBasdePolicy = loadBasdePolicy;
+  public void setLoadBasedPolicy(AutoScaleLoadResponse loadBasedPolicy) {
+    this.loadBasedPolicy = loadBasedPolicy;
   }
 
   @Override
@@ -113,7 +113,7 @@ public class AutoScalePolicyResponse extends CdpResponse {
     if (!Objects.equals(this.scheduleBasedPolicy, autoScalePolicyResponse.scheduleBasedPolicy)) {
       return false;
     }
-    if (!Objects.equals(this.loadBasdePolicy, autoScalePolicyResponse.loadBasdePolicy)) {
+    if (!Objects.equals(this.loadBasedPolicy, autoScalePolicyResponse.loadBasedPolicy)) {
       return false;
     }
     if (!super.equals(o)) {
@@ -124,7 +124,7 @@ public class AutoScalePolicyResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hostGroups, scheduleBasedPolicy, loadBasdePolicy, super.hashCode());
+    return Objects.hash(hostGroups, scheduleBasedPolicy, loadBasedPolicy, super.hashCode());
   }
 
   @Override
@@ -134,7 +134,7 @@ public class AutoScalePolicyResponse extends CdpResponse {
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    hostGroups: ").append(toIndentedString(hostGroups)).append("\n");
     sb.append("    scheduleBasedPolicy: ").append(toIndentedString(scheduleBasedPolicy)).append("\n");
-    sb.append("    loadBasdePolicy: ").append(toIndentedString(loadBasdePolicy)).append("\n");
+    sb.append("    loadBasedPolicy: ").append(toIndentedString(loadBasedPolicy)).append("\n");
     sb.append("}");
     return sb.toString();
   }

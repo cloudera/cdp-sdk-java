@@ -147,7 +147,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-22T17:07:44.695-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:06.038-08:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datahub";
@@ -664,6 +664,7 @@ public class DatahubClient extends CdpClient {
    * @param input
    * @return RenewCertificateResponse
    */
+  @Deprecated
   public RenewCertificateResponse renewCertificate(RenewCertificateRequest input) {
     if (input == null) {
       throw new CdpClientException("Missing the required parameter 'input' when calling renewCertificate");
@@ -729,6 +730,7 @@ public class DatahubClient extends CdpClient {
    * @param input
    * @return RotateAutoTlsCertificatesResponse
    */
+  @Deprecated
   public RotateAutoTlsCertificatesResponse rotateAutoTlsCertificates(RotateAutoTlsCertificatesRequest input) {
     if (input == null) {
       throw new CdpClientException("Missing the required parameter 'input' when calling rotateAutoTlsCertificates");

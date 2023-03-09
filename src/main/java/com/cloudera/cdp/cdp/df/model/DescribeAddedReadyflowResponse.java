@@ -28,7 +28,7 @@ import com.cloudera.cdp.df.model.AddedReadyflowDetails;
 /**
  * Response object for the DescribeAddedReadyflow method
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-22T17:07:47.896-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:09.266-08:00")
 public class DescribeAddedReadyflowResponse extends CdpResponse {
 
   /**

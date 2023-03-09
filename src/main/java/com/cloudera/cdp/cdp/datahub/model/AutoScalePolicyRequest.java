@@ -29,7 +29,7 @@ import com.cloudera.cdp.datahub.model.AutoScaleScheduleRequest;
 /**
  * An individual AutoScale Policy
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-22T17:07:44.695-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:06.038-08:00")
 public class AutoScalePolicyRequest  {
 
   /**
@@ -45,7 +45,7 @@ public class AutoScalePolicyRequest  {
   /**
    * Load based policy
    **/
-  private AutoScaleLoadRequest loadBasdePolicy = null;
+  private AutoScaleLoadRequest loadBasedPolicy = null;
 
   /**
    * Getter for hostGroups.
@@ -82,20 +82,20 @@ public class AutoScalePolicyRequest  {
   }
 
   /**
-   * Getter for loadBasdePolicy.
+   * Getter for loadBasedPolicy.
    * Load based policy
    **/
-  @JsonProperty("loadBasdePolicy")
-  public AutoScaleLoadRequest getLoadBasdePolicy() {
-    return loadBasdePolicy;
+  @JsonProperty("loadBasedPolicy")
+  public AutoScaleLoadRequest getLoadBasedPolicy() {
+    return loadBasedPolicy;
   }
 
   /**
-   * Setter for loadBasdePolicy.
+   * Setter for loadBasedPolicy.
    * Load based policy
    **/
-  public void setLoadBasdePolicy(AutoScaleLoadRequest loadBasdePolicy) {
-    this.loadBasdePolicy = loadBasdePolicy;
+  public void setLoadBasedPolicy(AutoScaleLoadRequest loadBasedPolicy) {
+    this.loadBasedPolicy = loadBasedPolicy;
   }
 
   @Override
@@ -113,7 +113,7 @@ public class AutoScalePolicyRequest  {
     if (!Objects.equals(this.scheduleBasedPolicy, autoScalePolicyRequest.scheduleBasedPolicy)) {
       return false;
     }
-    if (!Objects.equals(this.loadBasdePolicy, autoScalePolicyRequest.loadBasdePolicy)) {
+    if (!Objects.equals(this.loadBasedPolicy, autoScalePolicyRequest.loadBasedPolicy)) {
       return false;
     }
     return true;
@@ -121,7 +121,7 @@ public class AutoScalePolicyRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hostGroups, scheduleBasedPolicy, loadBasdePolicy);
+    return Objects.hash(hostGroups, scheduleBasedPolicy, loadBasedPolicy);
   }
 
   @Override
@@ -130,7 +130,7 @@ public class AutoScalePolicyRequest  {
     sb.append("class AutoScalePolicyRequest {\n");
     sb.append("    hostGroups: ").append(toIndentedString(hostGroups)).append("\n");
     sb.append("    scheduleBasedPolicy: ").append(toIndentedString(scheduleBasedPolicy)).append("\n");
-    sb.append("    loadBasdePolicy: ").append(toIndentedString(loadBasdePolicy)).append("\n");
+    sb.append("    loadBasedPolicy: ").append(toIndentedString(loadBasedPolicy)).append("\n");
     sb.append("}");
     return sb.toString();
   }

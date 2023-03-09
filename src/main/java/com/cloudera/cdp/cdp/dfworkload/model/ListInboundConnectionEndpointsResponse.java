@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object that contains a list of Inbound Connection Endpoints
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-22T17:07:48.110-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:09.490-08:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class ListInboundConnectionEndpointsResponse extends CdpResponse {
 

@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * The response object for holding data about an image retrieved from the default image catalog.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-22T17:07:48.284-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:09.657-08:00")
 public class DescribeDefaultImageResponse extends CdpResponse {
 
   /**

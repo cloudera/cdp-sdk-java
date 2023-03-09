@@ -27,13 +27,18 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * The request object for DeleteBackup operation.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-22T17:07:46.046-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:07.597-08:00")
 public class DeleteBackupRequest  {
 
   /**
    * The CRN of the backup to be deleted.
    **/
   private String backupCrn = null;
+
+  /**
+   * Skip pre-flight validations if requested.
+   **/
+  private Boolean skipValidation = null;
 
   /**
    * Getter for backupCrn.
@@ -52,6 +57,23 @@ public class DeleteBackupRequest  {
     this.backupCrn = backupCrn;
   }
 
+  /**
+   * Getter for skipValidation.
+   * Skip pre-flight validations if requested.
+   **/
+  @JsonProperty("skipValidation")
+  public Boolean getSkipValidation() {
+    return skipValidation;
+  }
+
+  /**
+   * Setter for skipValidation.
+   * Skip pre-flight validations if requested.
+   **/
+  public void setSkipValidation(Boolean skipValidation) {
+    this.skipValidation = skipValidation;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -64,12 +86,15 @@ public class DeleteBackupRequest  {
     if (!Objects.equals(this.backupCrn, deleteBackupRequest.backupCrn)) {
       return false;
     }
+    if (!Objects.equals(this.skipValidation, deleteBackupRequest.skipValidation)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupCrn);
+    return Objects.hash(backupCrn, skipValidation);
   }
 
   @Override
@@ -77,6 +102,7 @@ public class DeleteBackupRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteBackupRequest {\n");
     sb.append("    backupCrn: ").append(toIndentedString(backupCrn)).append("\n");
+    sb.append("    skipValidation: ").append(toIndentedString(skipValidation)).append("\n");
     sb.append("}");
     return sb.toString();
   }

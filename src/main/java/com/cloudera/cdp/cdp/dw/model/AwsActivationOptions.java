@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Options for activating an AWS environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-22T17:07:45.249-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:06.872-08:00")
 public class AwsActivationOptions  {
 
   /**

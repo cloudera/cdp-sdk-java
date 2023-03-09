@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * A simple Restore entry for listRestore Usage
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-22T17:07:46.590-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:08.049-08:00")
 public class SimpleRestore  {
 
   /**
@@ -57,7 +57,7 @@ public class SimpleRestore  {
   private String restorePhase = null;
 
   /**
-   * The current state of the restore job. The values are NOT_STARTED, IN_PROGRESS, COMPLETED, PARTIALLY_FAILED and FAILED. NOT_STARTED indicates the job has not started. IN_PROGRESS indicates the job is running. COMPLETED indicates the job has finished running successfully. PARTIALLY_FAILED indicates the job has finished running with some warnings and FAILED indicates the job has finished running with errors.
+   * The current state of the restore job. The values are NOT_STARTED, IN_PROGRESS, COMPLETED, PARTIALLY_FAILED, FAILED and TERMINATING. NOT_STARTED indicates the job has not started. IN_PROGRESS indicates the job is running. COMPLETED indicates the job has finished running successfully. PARTIALLY_FAILED indicates the job has finished running with some warnings. FAILED indicates the job has finished running with errors and TERMINATING indicates that the entity containing this job is being deleted.
    **/
   private String restoreJobState = null;
 
@@ -148,7 +148,7 @@ public class SimpleRestore  {
 
   /**
    * Getter for restoreJobState.
-   * The current state of the restore job. The values are NOT_STARTED, IN_PROGRESS, COMPLETED, PARTIALLY_FAILED and FAILED. NOT_STARTED indicates the job has not started. IN_PROGRESS indicates the job is running. COMPLETED indicates the job has finished running successfully. PARTIALLY_FAILED indicates the job has finished running with some warnings and FAILED indicates the job has finished running with errors.
+   * The current state of the restore job. The values are NOT_STARTED, IN_PROGRESS, COMPLETED, PARTIALLY_FAILED, FAILED and TERMINATING. NOT_STARTED indicates the job has not started. IN_PROGRESS indicates the job is running. COMPLETED indicates the job has finished running successfully. PARTIALLY_FAILED indicates the job has finished running with some warnings. FAILED indicates the job has finished running with errors and TERMINATING indicates that the entity containing this job is being deleted.
    **/
   @JsonProperty("restoreJobState")
   public String getRestoreJobState() {
@@ -157,7 +157,7 @@ public class SimpleRestore  {
 
   /**
    * Setter for restoreJobState.
-   * The current state of the restore job. The values are NOT_STARTED, IN_PROGRESS, COMPLETED, PARTIALLY_FAILED and FAILED. NOT_STARTED indicates the job has not started. IN_PROGRESS indicates the job is running. COMPLETED indicates the job has finished running successfully. PARTIALLY_FAILED indicates the job has finished running with some warnings and FAILED indicates the job has finished running with errors.
+   * The current state of the restore job. The values are NOT_STARTED, IN_PROGRESS, COMPLETED, PARTIALLY_FAILED, FAILED and TERMINATING. NOT_STARTED indicates the job has not started. IN_PROGRESS indicates the job is running. COMPLETED indicates the job has finished running successfully. PARTIALLY_FAILED indicates the job has finished running with some warnings. FAILED indicates the job has finished running with errors and TERMINATING indicates that the entity containing this job is being deleted.
    **/
   public void setRestoreJobState(String restoreJobState) {
     this.restoreJobState = restoreJobState;

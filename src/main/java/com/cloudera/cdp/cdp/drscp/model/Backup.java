@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Backup entry
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-22T17:07:46.590-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:08.049-08:00")
 public class Backup  {
 
   /**
@@ -58,7 +58,7 @@ public class Backup  {
   private String backupPhase = null;
 
   /**
-   * The current state of the backup job. The values are NOT_STARTED, IN_PROGRESS, COMPLETED, PARTIALLY_FAILED and FAILED. NOT_STARTED indicates the job has not started. IN_PROGRESS indicates the job is running. COMPLETED indicates the job has finished running successfully. PARTIALLY_FAILED indicates the job has finished running with some warnings and FAILED indicates the job has finished running with errors.
+   * The current state of the backup job. The values are NOT_STARTED, IN_PROGRESS, COMPLETED, PARTIALLY_FAILED, FAILED and TERMINATING. NOT_STARTED indicates the job has not started. IN_PROGRESS indicates the job is running. COMPLETED indicates the job has finished running successfully. PARTIALLY_FAILED indicates the job has finished running with some warnings. FAILED indicates the job has finished running with errors and TERMINATING indicates that the entity containing this job is being deleted.
    **/
   private String backupJobState = null;
 
@@ -169,7 +169,7 @@ public class Backup  {
 
   /**
    * Getter for backupJobState.
-   * The current state of the backup job. The values are NOT_STARTED, IN_PROGRESS, COMPLETED, PARTIALLY_FAILED and FAILED. NOT_STARTED indicates the job has not started. IN_PROGRESS indicates the job is running. COMPLETED indicates the job has finished running successfully. PARTIALLY_FAILED indicates the job has finished running with some warnings and FAILED indicates the job has finished running with errors.
+   * The current state of the backup job. The values are NOT_STARTED, IN_PROGRESS, COMPLETED, PARTIALLY_FAILED, FAILED and TERMINATING. NOT_STARTED indicates the job has not started. IN_PROGRESS indicates the job is running. COMPLETED indicates the job has finished running successfully. PARTIALLY_FAILED indicates the job has finished running with some warnings. FAILED indicates the job has finished running with errors and TERMINATING indicates that the entity containing this job is being deleted.
    **/
   @JsonProperty("backupJobState")
   public String getBackupJobState() {
@@ -178,7 +178,7 @@ public class Backup  {
 
   /**
    * Setter for backupJobState.
-   * The current state of the backup job. The values are NOT_STARTED, IN_PROGRESS, COMPLETED, PARTIALLY_FAILED and FAILED. NOT_STARTED indicates the job has not started. IN_PROGRESS indicates the job is running. COMPLETED indicates the job has finished running successfully. PARTIALLY_FAILED indicates the job has finished running with some warnings and FAILED indicates the job has finished running with errors.
+   * The current state of the backup job. The values are NOT_STARTED, IN_PROGRESS, COMPLETED, PARTIALLY_FAILED, FAILED and TERMINATING. NOT_STARTED indicates the job has not started. IN_PROGRESS indicates the job is running. COMPLETED indicates the job has finished running successfully. PARTIALLY_FAILED indicates the job has finished running with some warnings. FAILED indicates the job has finished running with errors and TERMINATING indicates that the entity containing this job is being deleted.
    **/
   public void setBackupJobState(String backupJobState) {
     this.backupJobState = backupJobState;

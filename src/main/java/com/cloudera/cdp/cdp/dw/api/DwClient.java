@@ -181,7 +181,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-22T17:07:45.249-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:06.872-08:00")
 public class DwClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dw";
@@ -906,6 +906,7 @@ public class DwClient extends CdpClient {
    * @param input
    * @return PauseVwResponse
    */
+  @Deprecated
   public PauseVwResponse pauseVw(PauseVwRequest input) {
     if (input == null) {
       throw new CdpClientException("Missing the required parameter 'input' when calling pauseVw");

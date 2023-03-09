@@ -29,7 +29,7 @@ import java.util.Map;
 /**
  * Contents of a ConfigBlock.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-02-22T17:07:45.249-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:06.872-08:00")
 public class ConfigContentResp  {
 
   /**
