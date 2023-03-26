@@ -32,7 +32,7 @@ import java.util.Map;
 /**
  * List clusters item structure.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:09.791-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-24T14:52:54.911-07:00")
 public class ListClusterItem  {
 
   /**

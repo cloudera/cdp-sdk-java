@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request to restore datalake from backup. Restore does not restore the database by default.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:07.764-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-24T14:52:52.703-07:00")
 public class RestoreDatalakeRequest  {
 
   /**
@@ -64,6 +64,11 @@ public class RestoreDatalakeRequest  {
    * Skips the restore of the Ranger audits. If this option is not provided, then by default the Ranger audits will be restored if the backup used includes the Ranger audits.
    **/
   private Boolean skipRangerAudits = null;
+
+  /**
+   * Skips the restore of the Atlas indexes. If this option or --skipAtlasMetadata is not provided, then by default the Atlas indexes will be restored if the backup used includes the Atlas indexes. Redundant if --skipAtlasMetadata is included.
+   **/
+  private Boolean skipAtlasIndexes = null;
 
   /**
    * Backup location. When provided, will be used to lookup the backup. If provided, the --backup-id parameter is required.
@@ -200,6 +205,23 @@ public class RestoreDatalakeRequest  {
   }
 
   /**
+   * Getter for skipAtlasIndexes.
+   * Skips the restore of the Atlas indexes. If this option or --skipAtlasMetadata is not provided, then by default the Atlas indexes will be restored if the backup used includes the Atlas indexes. Redundant if --skipAtlasMetadata is included.
+   **/
+  @JsonProperty("skipAtlasIndexes")
+  public Boolean getSkipAtlasIndexes() {
+    return skipAtlasIndexes;
+  }
+
+  /**
+   * Setter for skipAtlasIndexes.
+   * Skips the restore of the Atlas indexes. If this option or --skipAtlasMetadata is not provided, then by default the Atlas indexes will be restored if the backup used includes the Atlas indexes. Redundant if --skipAtlasMetadata is included.
+   **/
+  public void setSkipAtlasIndexes(Boolean skipAtlasIndexes) {
+    this.skipAtlasIndexes = skipAtlasIndexes;
+  }
+
+  /**
    * Getter for backupLocationOverride.
    * Backup location. When provided, will be used to lookup the backup. If provided, the --backup-id parameter is required.
    **/
@@ -280,6 +302,9 @@ public class RestoreDatalakeRequest  {
     if (!Objects.equals(this.skipRangerAudits, restoreDatalakeRequest.skipRangerAudits)) {
       return false;
     }
+    if (!Objects.equals(this.skipAtlasIndexes, restoreDatalakeRequest.skipAtlasIndexes)) {
+      return false;
+    }
     if (!Objects.equals(this.backupLocationOverride, restoreDatalakeRequest.backupLocationOverride)) {
       return false;
     }
@@ -294,7 +319,7 @@ public class RestoreDatalakeRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, backupId, backupName, includeDatabase, skipRangerHmsMetadata, skipAtlasMetadata, skipRangerAudits, backupLocationOverride, skipValidation, validationOnly);
+    return Objects.hash(datalakeName, backupId, backupName, includeDatabase, skipRangerHmsMetadata, skipAtlasMetadata, skipRangerAudits, skipAtlasIndexes, backupLocationOverride, skipValidation, validationOnly);
   }
 
   @Override
@@ -308,6 +333,7 @@ public class RestoreDatalakeRequest  {
     sb.append("    skipRangerHmsMetadata: ").append(toIndentedString(skipRangerHmsMetadata)).append("\n");
     sb.append("    skipAtlasMetadata: ").append(toIndentedString(skipAtlasMetadata)).append("\n");
     sb.append("    skipRangerAudits: ").append(toIndentedString(skipRangerAudits)).append("\n");
+    sb.append("    skipAtlasIndexes: ").append(toIndentedString(skipAtlasIndexes)).append("\n");
     sb.append("    backupLocationOverride: ").append(toIndentedString(backupLocationOverride)).append("\n");
     sb.append("    skipValidation: ").append(toIndentedString(skipValidation)).append("\n");
     sb.append("    validationOnly: ").append(toIndentedString(validationOnly)).append("\n");

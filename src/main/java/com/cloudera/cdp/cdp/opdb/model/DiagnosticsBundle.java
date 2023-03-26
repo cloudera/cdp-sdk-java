@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Describe a diagnostics bundle
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:08.636-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-24T14:52:53.494-07:00")
 public class DiagnosticsBundle  {
 
   /**

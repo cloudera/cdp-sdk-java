@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Inbound Connection Endpoint Summary
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:09.490-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-24T14:52:54.505-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class InboundConnectionEndpointSummary  {
 
@@ -44,11 +44,6 @@ public class InboundConnectionEndpointSummary  {
   private String state = null;
 
   /**
-   * The identifier of the deployment the hostname is assigned to.  Deprecated.  Use 'deploymentCrn' instead
-   **/
-  private String deploymentId = null;
-
-  /**
    * The CRN of the deployment the hostname is assigned to
    **/
   private String deploymentCrn = null;
@@ -57,11 +52,6 @@ public class InboundConnectionEndpointSummary  {
    * The CRN of the Inbound Connection Endpoint
    **/
   private String crn = null;
-
-  /**
-   * The identifier of the Inbound Connection Endpoint. Deprecated. Use 'crn' instead
-   **/
-  private String id = null;
 
   /**
    * The summaries of certificates associated with the Inbound Connection Endpoint
@@ -103,25 +93,6 @@ public class InboundConnectionEndpointSummary  {
   }
 
   /**
-   * Getter for deploymentId.
-   * The identifier of the deployment the hostname is assigned to.  Deprecated.  Use &#39;deploymentCrn&#39; instead
-   **/
-  @Deprecated
-  @JsonProperty("deploymentId")
-  public String getDeploymentId() {
-    return deploymentId;
-  }
-
-  /**
-   * Setter for deploymentId.
-   * The identifier of the deployment the hostname is assigned to.  Deprecated.  Use &#39;deploymentCrn&#39; instead
-   **/
-  @Deprecated
-  public void setDeploymentId(String deploymentId) {
-    this.deploymentId = deploymentId;
-  }
-
-  /**
    * Getter for deploymentCrn.
    * The CRN of the deployment the hostname is assigned to
    **/
@@ -156,25 +127,6 @@ public class InboundConnectionEndpointSummary  {
   }
 
   /**
-   * Getter for id.
-   * The identifier of the Inbound Connection Endpoint. Deprecated. Use &#39;crn&#39; instead
-   **/
-  @Deprecated
-  @JsonProperty("id")
-  public String getId() {
-    return id;
-  }
-
-  /**
-   * Setter for id.
-   * The identifier of the Inbound Connection Endpoint. Deprecated. Use &#39;crn&#39; instead
-   **/
-  @Deprecated
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  /**
    * Getter for certificateSummaries.
    * The summaries of certificates associated with the Inbound Connection Endpoint
    **/
@@ -206,16 +158,10 @@ public class InboundConnectionEndpointSummary  {
     if (!Objects.equals(this.state, inboundConnectionEndpointSummary.state)) {
       return false;
     }
-    if (!Objects.equals(this.deploymentId, inboundConnectionEndpointSummary.deploymentId)) {
-      return false;
-    }
     if (!Objects.equals(this.deploymentCrn, inboundConnectionEndpointSummary.deploymentCrn)) {
       return false;
     }
     if (!Objects.equals(this.crn, inboundConnectionEndpointSummary.crn)) {
-      return false;
-    }
-    if (!Objects.equals(this.id, inboundConnectionEndpointSummary.id)) {
       return false;
     }
     if (!Objects.equals(this.certificateSummaries, inboundConnectionEndpointSummary.certificateSummaries)) {
@@ -226,7 +172,7 @@ public class InboundConnectionEndpointSummary  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(fullyQualifiedDomainName, state, deploymentId, deploymentCrn, crn, id, certificateSummaries);
+    return Objects.hash(fullyQualifiedDomainName, state, deploymentCrn, crn, certificateSummaries);
   }
 
   @Override
@@ -235,10 +181,8 @@ public class InboundConnectionEndpointSummary  {
     sb.append("class InboundConnectionEndpointSummary {\n");
     sb.append("    fullyQualifiedDomainName: ").append(toIndentedString(fullyQualifiedDomainName)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
-    sb.append("    deploymentId: ").append(toIndentedString(deploymentId)).append("\n");
     sb.append("    deploymentCrn: ").append(toIndentedString(deploymentCrn)).append("\n");
     sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    certificateSummaries: ").append(toIndentedString(certificateSummaries)).append("\n");
     sb.append("}");
     return sb.toString();

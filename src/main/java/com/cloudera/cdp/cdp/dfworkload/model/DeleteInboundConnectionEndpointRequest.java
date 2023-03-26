@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object that contains the identifier of the Inbound Connection Endpoint to delete
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:09.490-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-24T14:52:54.505-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class DeleteInboundConnectionEndpointRequest  {
 
@@ -35,11 +35,6 @@ public class DeleteInboundConnectionEndpointRequest  {
    * The CRN of an environment to execute the command.
    **/
   private String environmentCrn = null;
-
-  /**
-   * The identifier of the Inbound Connection Endpoint. Deprecated. Use 'crn' instead
-   **/
-  private String id = null;
 
   /**
    * The CRN of the Inbound Connection Endpoint
@@ -61,25 +56,6 @@ public class DeleteInboundConnectionEndpointRequest  {
    **/
   public void setEnvironmentCrn(String environmentCrn) {
     this.environmentCrn = environmentCrn;
-  }
-
-  /**
-   * Getter for id.
-   * The identifier of the Inbound Connection Endpoint. Deprecated. Use &#39;crn&#39; instead
-   **/
-  @Deprecated
-  @JsonProperty("id")
-  public String getId() {
-    return id;
-  }
-
-  /**
-   * Setter for id.
-   * The identifier of the Inbound Connection Endpoint. Deprecated. Use &#39;crn&#39; instead
-   **/
-  @Deprecated
-  public void setId(String id) {
-    this.id = id;
   }
 
   /**
@@ -111,9 +87,6 @@ public class DeleteInboundConnectionEndpointRequest  {
     if (!Objects.equals(this.environmentCrn, deleteInboundConnectionEndpointRequest.environmentCrn)) {
       return false;
     }
-    if (!Objects.equals(this.id, deleteInboundConnectionEndpointRequest.id)) {
-      return false;
-    }
     if (!Objects.equals(this.crn, deleteInboundConnectionEndpointRequest.crn)) {
       return false;
     }
@@ -122,7 +95,7 @@ public class DeleteInboundConnectionEndpointRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, id, crn);
+    return Objects.hash(environmentCrn, crn);
   }
 
   @Override
@@ -130,7 +103,6 @@ public class DeleteInboundConnectionEndpointRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteInboundConnectionEndpointRequest {\n");
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
     sb.append("}");
     return sb.toString();

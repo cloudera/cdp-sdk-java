@@ -30,7 +30,7 @@ import java.util.Map;
 /**
  * The DataFlow view of a CDP service.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:09.266-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-24T14:52:54.190-07:00")
 public class Service  {
 
   /**
@@ -182,6 +182,11 @@ public class Service  {
    * The kubernetes version of the cluster
    **/
   private String k8sServerVersion = null;
+
+  /**
+   * The available kubernetes version that cluster can be upgraded to.
+   **/
+  private String availableK8sVersionUpgrade = null;
 
   /**
    * Getter for crn.
@@ -693,6 +698,23 @@ public class Service  {
     this.k8sServerVersion = k8sServerVersion;
   }
 
+  /**
+   * Getter for availableK8sVersionUpgrade.
+   * The available kubernetes version that cluster can be upgraded to.
+   **/
+  @JsonProperty("availableK8sVersionUpgrade")
+  public String getAvailableK8sVersionUpgrade() {
+    return availableK8sVersionUpgrade;
+  }
+
+  /**
+   * Setter for availableK8sVersionUpgrade.
+   * The available kubernetes version that cluster can be upgraded to.
+   **/
+  public void setAvailableK8sVersionUpgrade(String availableK8sVersionUpgrade) {
+    this.availableK8sVersionUpgrade = availableK8sVersionUpgrade;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -792,12 +814,15 @@ public class Service  {
     if (!Objects.equals(this.k8sServerVersion, service.k8sServerVersion)) {
       return false;
     }
+    if (!Objects.equals(this.availableK8sVersionUpgrade, service.availableK8sVersionUpgrade)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, environmentCrn, name, cloudPlatform, region, deploymentCount, minK8sNodeCount, maxK8sNodeCount, status, workloadVersion, runningK8sNodeCount, instanceType, dfLocalUrl, kubeApiAuthorizedIpRanges, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, clusterId, clusterUsable, validActions, usePublicLoadBalancer, tags, loadBalancerAuthorizedIpRanges, clusterSubnets, creatingK8sNodeCount, terminatingK8sNodeCount, loadBalancerSubnets, privateCluster, proxyName, k8sServerVersion);
+    return Objects.hash(crn, environmentCrn, name, cloudPlatform, region, deploymentCount, minK8sNodeCount, maxK8sNodeCount, status, workloadVersion, runningK8sNodeCount, instanceType, dfLocalUrl, kubeApiAuthorizedIpRanges, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, clusterId, clusterUsable, validActions, usePublicLoadBalancer, tags, loadBalancerAuthorizedIpRanges, clusterSubnets, creatingK8sNodeCount, terminatingK8sNodeCount, loadBalancerSubnets, privateCluster, proxyName, k8sServerVersion, availableK8sVersionUpgrade);
   }
 
   @Override
@@ -834,6 +859,7 @@ public class Service  {
     sb.append("    privateCluster: ").append(toIndentedString(privateCluster)).append("\n");
     sb.append("    proxyName: ").append(toIndentedString(proxyName)).append("\n");
     sb.append("    k8sServerVersion: ").append(toIndentedString(k8sServerVersion)).append("\n");
+    sb.append("    availableK8sVersionUpgrade: ").append(toIndentedString(availableK8sVersionUpgrade)).append("\n");
     sb.append("}");
     return sb.toString();
   }

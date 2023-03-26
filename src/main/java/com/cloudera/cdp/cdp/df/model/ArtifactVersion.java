@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * A representation of a artifact detail version
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:09.266-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-24T14:52:54.190-07:00")
 public class ArtifactVersion  {
 
   /**
@@ -64,6 +64,11 @@ public class ArtifactVersion  {
    * Comments about the version
    **/
   private String comments = null;
+
+  /**
+   * The number of drafts associated with the version.
+   **/
+  private Integer draftCount = null;
 
   /**
    * Getter for crn.
@@ -184,6 +189,23 @@ public class ArtifactVersion  {
     this.comments = comments;
   }
 
+  /**
+   * Getter for draftCount.
+   * The number of drafts associated with the version.
+   **/
+  @JsonProperty("draftCount")
+  public Integer getDraftCount() {
+    return draftCount;
+  }
+
+  /**
+   * Setter for draftCount.
+   * The number of drafts associated with the version.
+   **/
+  public void setDraftCount(Integer draftCount) {
+    this.draftCount = draftCount;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -214,12 +236,15 @@ public class ArtifactVersion  {
     if (!Objects.equals(this.comments, artifactVersion.comments)) {
       return false;
     }
+    if (!Objects.equals(this.draftCount, artifactVersion.draftCount)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, bucketIdentifier, author, version, timestamp, deploymentCount, comments);
+    return Objects.hash(crn, bucketIdentifier, author, version, timestamp, deploymentCount, comments, draftCount);
   }
 
   @Override
@@ -233,6 +258,7 @@ public class ArtifactVersion  {
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    deploymentCount: ").append(toIndentedString(deploymentCount)).append("\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
+    sb.append("    draftCount: ").append(toIndentedString(draftCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

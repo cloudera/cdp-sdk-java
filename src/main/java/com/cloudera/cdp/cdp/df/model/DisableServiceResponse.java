@@ -28,7 +28,7 @@ import com.cloudera.cdp.df.model.ServiceStatus;
 /**
  * Response object for DisableService
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:09.266-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-24T14:52:54.190-07:00")
 public class DisableServiceResponse extends CdpResponse {
 
   /**

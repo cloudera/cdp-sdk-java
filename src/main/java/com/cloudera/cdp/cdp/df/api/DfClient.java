@@ -53,6 +53,10 @@ import com.cloudera.cdp.df.model.DisableServiceResponse;
 import com.cloudera.cdp.df.model.EnableServiceRequest;
 import com.cloudera.cdp.df.model.EnableServiceResponse;
 import com.cloudera.cdp.df.model.Error;
+import com.cloudera.cdp.df.model.GetFlowVersionRequest;
+import com.cloudera.cdp.df.model.GetFlowVersionResponse;
+import com.cloudera.cdp.df.model.GetKubeconfigRequest;
+import com.cloudera.cdp.df.model.GetKubeconfigResponse;
 import com.cloudera.cdp.df.model.GrantUserKubernetesAccessRequest;
 import com.cloudera.cdp.df.model.GrantUserKubernetesAccessResponse;
 import com.google.common.collect.ImmutableList;
@@ -74,6 +78,8 @@ import com.cloudera.cdp.df.model.ListDeploymentSystemMetricsRequest;
 import com.cloudera.cdp.df.model.ListDeploymentSystemMetricsResponse;
 import com.cloudera.cdp.df.model.ListDeploymentsRequest;
 import com.cloudera.cdp.df.model.ListDeploymentsResponse;
+import com.cloudera.cdp.df.model.ListDiagnosticsRequest;
+import com.cloudera.cdp.df.model.ListDiagnosticsResponse;
 import com.cloudera.cdp.df.model.ListFilterOptionsRequest;
 import com.cloudera.cdp.df.model.ListFilterOptionsResponse;
 import com.cloudera.cdp.df.model.ListFlowDefinitionsRequest;
@@ -98,6 +104,8 @@ import com.cloudera.cdp.df.model.ResetServiceRequest;
 import com.cloudera.cdp.df.model.ResetServiceResponse;
 import com.cloudera.cdp.df.model.RevokeUserKubernetesAccessRequest;
 import com.cloudera.cdp.df.model.RevokeUserKubernetesAccessResponse;
+import com.cloudera.cdp.df.model.StartGetDiagnosticsCollectionRequest;
+import com.cloudera.cdp.df.model.StartGetDiagnosticsCollectionResponse;
 import com.cloudera.cdp.df.model.UpdateServiceRequest;
 import com.cloudera.cdp.df.model.UpdateServiceResponse;
 import java.util.ArrayList;
@@ -106,7 +114,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:09.266-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-24T14:52:54.190-07:00")
 public class DfClient extends CdpClient {
 
   public static final String SERVICE_NAME = "df";
@@ -294,6 +302,32 @@ public class DfClient extends CdpClient {
   }
 
   /**
+   * Get flow version.
+   * @param input
+   * @return GetFlowVersionResponse
+   */
+  public GetFlowVersionResponse getFlowVersion(GetFlowVersionRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getFlowVersion");
+    }
+
+    return this.invokeAPI("getFlowVersion", "/api/v1/df/getFlowVersion", input, new GenericType<GetFlowVersionResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Df.class));
+  }
+
+  /**
+   * Get Kubeconfig.
+   * @param input
+   * @return GetKubeconfigResponse
+   */
+  public GetKubeconfigResponse getKubeconfig(GetKubeconfigRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getKubeconfig");
+    }
+
+    return this.invokeAPI("getKubeconfig", "/api/v1/df/getKubeconfig", input, new GenericType<GetKubeconfigResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Grant remote user access to the service&#39;s cluster.
    * @param input
    * @return GrantUserKubernetesAccessResponse
@@ -421,6 +455,19 @@ public class DfClient extends CdpClient {
     }
 
     return this.invokeAPI("listDeployments", "/api/v1/df/listDeployments", input, new GenericType<ListDeploymentsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * List diagnostics.
+   * @param input
+   * @return ListDiagnosticsResponse
+   */
+  public ListDiagnosticsResponse listDiagnostics(ListDiagnosticsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listDiagnostics");
+    }
+
+    return this.invokeAPI("listDiagnostics", "/api/v1/df/listDiagnostics", input, new GenericType<ListDiagnosticsResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -577,6 +624,19 @@ public class DfClient extends CdpClient {
     }
 
     return this.invokeAPI("revokeUserKubernetesAccess", "/api/v1/df/revokeUserKubernetesAccess", input, new GenericType<RevokeUserKubernetesAccessResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Start diagnostics collection.
+   * @param input
+   * @return StartGetDiagnosticsCollectionResponse
+   */
+  public StartGetDiagnosticsCollectionResponse startGetDiagnosticsCollection(StartGetDiagnosticsCollectionRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling startGetDiagnosticsCollection");
+    }
+
+    return this.invokeAPI("startGetDiagnosticsCollection", "/api/v1/df/startGetDiagnosticsCollection", input, new GenericType<StartGetDiagnosticsCollectionResponse>(){}, NO_EXTENSION);
   }
 
   /**

@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object to retrieve Inbound Connection Endpoint client&#39;s private key.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:09.490-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-24T14:52:54.505-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class InboundConnectionEndpointClientPrivateKeyRequest  {
 
@@ -37,9 +37,14 @@ public class InboundConnectionEndpointClientPrivateKeyRequest  {
   private String environmentCrn = null;
 
   /**
-   * The Inbound Connection Endpoint identifier
+   * The Inbound Connection Endpoint identifier. Deprecated. Use 'crn' instead
    **/
   private String id = null;
+
+  /**
+   * The CRN of the Inbound Connection Endpoint
+   **/
+  private String crn = null;
 
   /**
    * Getter for environmentCrn.
@@ -60,8 +65,9 @@ public class InboundConnectionEndpointClientPrivateKeyRequest  {
 
   /**
    * Getter for id.
-   * The Inbound Connection Endpoint identifier
+   * The Inbound Connection Endpoint identifier. Deprecated. Use &#39;crn&#39; instead
    **/
+  @Deprecated
   @JsonProperty("id")
   public String getId() {
     return id;
@@ -69,10 +75,28 @@ public class InboundConnectionEndpointClientPrivateKeyRequest  {
 
   /**
    * Setter for id.
-   * The Inbound Connection Endpoint identifier
+   * The Inbound Connection Endpoint identifier. Deprecated. Use &#39;crn&#39; instead
    **/
+  @Deprecated
   public void setId(String id) {
     this.id = id;
+  }
+
+  /**
+   * Getter for crn.
+   * The CRN of the Inbound Connection Endpoint
+   **/
+  @JsonProperty("crn")
+  public String getCrn() {
+    return crn;
+  }
+
+  /**
+   * Setter for crn.
+   * The CRN of the Inbound Connection Endpoint
+   **/
+  public void setCrn(String crn) {
+    this.crn = crn;
   }
 
   @Override
@@ -90,12 +114,15 @@ public class InboundConnectionEndpointClientPrivateKeyRequest  {
     if (!Objects.equals(this.id, inboundConnectionEndpointClientPrivateKeyRequest.id)) {
       return false;
     }
+    if (!Objects.equals(this.crn, inboundConnectionEndpointClientPrivateKeyRequest.crn)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, id);
+    return Objects.hash(environmentCrn, id, crn);
   }
 
   @Override
@@ -104,6 +131,7 @@ public class InboundConnectionEndpointClientPrivateKeyRequest  {
     sb.append("class InboundConnectionEndpointClientPrivateKeyRequest {\n");
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

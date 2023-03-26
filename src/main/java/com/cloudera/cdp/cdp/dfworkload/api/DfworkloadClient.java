@@ -42,6 +42,8 @@ import com.cloudera.cdp.dfworkload.model.CreateDeploymentRequest;
 import com.cloudera.cdp.dfworkload.model.CreateDeploymentResponse;
 import com.cloudera.cdp.dfworkload.model.CreateInboundConnectionEndpointRequest;
 import com.cloudera.cdp.dfworkload.model.CreateInboundConnectionEndpointResponse;
+import com.cloudera.cdp.dfworkload.model.DeleteCustomNarConfigurationRequest;
+import com.cloudera.cdp.dfworkload.model.DeleteCustomNarConfigurationResponse;
 import com.cloudera.cdp.dfworkload.model.DeleteInboundConnectionEndpointRequest;
 import com.cloudera.cdp.dfworkload.model.DeleteInboundConnectionEndpointResponse;
 import com.cloudera.cdp.dfworkload.model.DescribeInboundConnectionEndpointRequest;
@@ -88,7 +90,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:09.490-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-24T14:52:54.505-07:00")
 public class DfworkloadClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dfworkload";
@@ -215,6 +217,20 @@ public class DfworkloadClient extends CdpClient {
     }
 
     return this.invokeAPI("createInboundConnectionEndpoint", "/dfx/api/rpc-v1/inbound-connection-endpoints/create-inbound-connection-endpoint", input, new GenericType<CreateInboundConnectionEndpointResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Deletes an orphaned custom NAR configuration.
+   * @param input Delete Custom NAR Configuration Request
+   * @return DeleteCustomNarConfigurationResponse
+   */
+  @WorkloadApi
+  public DeleteCustomNarConfigurationResponse deleteCustomNarConfiguration(DeleteCustomNarConfigurationRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteCustomNarConfiguration");
+    }
+
+    return this.invokeAPI("deleteCustomNarConfiguration", "/dfx/api/rpc-v1/custom-nar-configurations/delete-custom-nar-configuration", input, new GenericType<DeleteCustomNarConfigurationResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
   }
 
   /**

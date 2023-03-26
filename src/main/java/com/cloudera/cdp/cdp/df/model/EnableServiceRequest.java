@@ -29,7 +29,7 @@ import java.util.Map;
 /**
  * Request object for EnableService
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:09.266-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-24T14:52:54.190-07:00")
 public class EnableServiceRequest  {
 
   /**
@@ -81,6 +81,11 @@ public class EnableServiceRequest  {
    * Indicates whether to provision private k8s cluster.
    **/
   private Boolean privateCluster = null;
+
+  /**
+   * Indicates custom instance type to be used
+   **/
+  private String instanceType = null;
 
   /**
    * Getter for environmentCrn.
@@ -252,6 +257,23 @@ public class EnableServiceRequest  {
     this.privateCluster = privateCluster;
   }
 
+  /**
+   * Getter for instanceType.
+   * Indicates custom instance type to be used
+   **/
+  @JsonProperty("instanceType")
+  public String getInstanceType() {
+    return instanceType;
+  }
+
+  /**
+   * Setter for instanceType.
+   * Indicates custom instance type to be used
+   **/
+  public void setInstanceType(String instanceType) {
+    this.instanceType = instanceType;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -291,12 +313,15 @@ public class EnableServiceRequest  {
     if (!Objects.equals(this.privateCluster, enableServiceRequest.privateCluster)) {
       return false;
     }
+    if (!Objects.equals(this.instanceType, enableServiceRequest.instanceType)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, minK8sNodeCount, maxK8sNodeCount, usePublicLoadBalancer, kubeApiAuthorizedIpRanges, tags, loadBalancerAuthorizedIpRanges, clusterSubnets, loadBalancerSubnets, privateCluster);
+    return Objects.hash(environmentCrn, minK8sNodeCount, maxK8sNodeCount, usePublicLoadBalancer, kubeApiAuthorizedIpRanges, tags, loadBalancerAuthorizedIpRanges, clusterSubnets, loadBalancerSubnets, privateCluster, instanceType);
   }
 
   @Override
@@ -313,6 +338,7 @@ public class EnableServiceRequest  {
     sb.append("    clusterSubnets: ").append(toIndentedString(clusterSubnets)).append("\n");
     sb.append("    loadBalancerSubnets: ").append(toIndentedString(loadBalancerSubnets)).append("\n");
     sb.append("    privateCluster: ").append(toIndentedString(privateCluster)).append("\n");
+    sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

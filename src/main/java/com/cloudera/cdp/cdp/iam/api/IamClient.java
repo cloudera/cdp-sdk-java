@@ -74,6 +74,8 @@ import com.cloudera.cdp.iam.model.DeleteSshPublicKeyRequest;
 import com.cloudera.cdp.iam.model.DeleteSshPublicKeyResponse;
 import com.cloudera.cdp.iam.model.DeleteUserRequest;
 import com.cloudera.cdp.iam.model.DeleteUserResponse;
+import com.cloudera.cdp.iam.model.DescribeSamlProviderRequest;
+import com.cloudera.cdp.iam.model.DescribeSamlProviderResponse;
 import com.cloudera.cdp.iam.model.DescribeSshPublicKeyRequest;
 import com.cloudera.cdp.iam.model.DescribeSshPublicKeyResponse;
 import com.cloudera.cdp.iam.model.DisableClouderaSSOLoginRequest;
@@ -173,7 +175,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:09.027-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-24T14:52:53.915-07:00")
 public class IamClient extends CdpClient {
 
   public static final String SERVICE_NAME = "iam";
@@ -501,6 +503,19 @@ public class IamClient extends CdpClient {
     }
 
     return this.invokeAPI("deleteUser", "/iam/deleteUser", input, new GenericType<DeleteUserResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Describes one SAML provider.
+   * @param input
+   * @return DescribeSamlProviderResponse
+   */
+  public DescribeSamlProviderResponse describeSamlProvider(DescribeSamlProviderRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeSamlProvider");
+    }
+
+    return this.invokeAPI("describeSamlProvider", "/iam/describeSamlProvider", input, new GenericType<DescribeSamlProviderResponse>(){}, NO_EXTENSION);
   }
 
   /**

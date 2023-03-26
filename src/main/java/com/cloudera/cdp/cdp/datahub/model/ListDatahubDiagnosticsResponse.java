@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for listing recent Datahub diagnostics collections.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:06.038-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-24T14:52:51.199-07:00")
 public class ListDatahubDiagnosticsResponse extends CdpResponse {
 
   /**

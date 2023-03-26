@@ -29,7 +29,7 @@ import com.cloudera.cdp.df.model.ServiceMeta;
 /**
  * A deployment
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:09.266-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-24T14:52:54.190-07:00")
 public class Deployment  {
 
   /**
@@ -151,6 +151,11 @@ public class Deployment  {
    * The version of the configuration for this deployment
    **/
   private Long configurationVersion = null;
+
+  /**
+   * The version of NiFi being used by this deployment.
+   **/
+  private String cfmNifiVersion = null;
 
   /**
    * Getter for crn.
@@ -560,6 +565,23 @@ public class Deployment  {
     this.configurationVersion = configurationVersion;
   }
 
+  /**
+   * Getter for cfmNifiVersion.
+   * The version of NiFi being used by this deployment.
+   **/
+  @JsonProperty("cfmNifiVersion")
+  public String getCfmNifiVersion() {
+    return cfmNifiVersion;
+  }
+
+  /**
+   * Setter for cfmNifiVersion.
+   * The version of NiFi being used by this deployment.
+   **/
+  public void setCfmNifiVersion(String cfmNifiVersion) {
+    this.cfmNifiVersion = cfmNifiVersion;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -641,12 +663,15 @@ public class Deployment  {
     if (!Objects.equals(this.configurationVersion, deployment.configurationVersion)) {
       return false;
     }
+    if (!Objects.equals(this.cfmNifiVersion, deployment.cfmNifiVersion)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, name, status, service, updated, clusterSize, flowVersionCrn, flowCrn, nifiUrl, autoscaleMaxNodes, flowName, flowVersion, currentNodeCount, deployedByCrn, deployedByName, autoscalingEnabled, autoscaleMinNodes, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, staticNodeCount, dfxLocalUrl, lastUpdatedByName, configurationVersion);
+    return Objects.hash(crn, name, status, service, updated, clusterSize, flowVersionCrn, flowCrn, nifiUrl, autoscaleMaxNodes, flowName, flowVersion, currentNodeCount, deployedByCrn, deployedByName, autoscalingEnabled, autoscaleMinNodes, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, staticNodeCount, dfxLocalUrl, lastUpdatedByName, configurationVersion, cfmNifiVersion);
   }
 
   @Override
@@ -677,6 +702,7 @@ public class Deployment  {
     sb.append("    dfxLocalUrl: ").append(toIndentedString(dfxLocalUrl)).append("\n");
     sb.append("    lastUpdatedByName: ").append(toIndentedString(lastUpdatedByName)).append("\n");
     sb.append("    configurationVersion: ").append(toIndentedString(configurationVersion)).append("\n");
+    sb.append("    cfmNifiVersion: ").append(toIndentedString(cfmNifiVersion)).append("\n");
     sb.append("}");
     return sb.toString();
   }

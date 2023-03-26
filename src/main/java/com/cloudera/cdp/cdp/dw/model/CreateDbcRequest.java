@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the createDbc method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:06.872-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-24T14:52:51.788-07:00")
 public class CreateDbcRequest  {
 
   /**
@@ -59,11 +59,6 @@ public class CreateDbcRequest  {
    * Tenant Storage Role if the feature is enabled for the account.
    **/
   private String tenantStorageRole = "";
-
-  /**
-   * Tenant Storage Location if the feature is enabled for the account.
-   **/
-  private String tenantStorageLocation = "";
 
   /**
    * The name of the Metastore database.
@@ -183,23 +178,6 @@ public class CreateDbcRequest  {
   }
 
   /**
-   * Getter for tenantStorageLocation.
-   * Tenant Storage Location if the feature is enabled for the account.
-   **/
-  @JsonProperty("tenantStorageLocation")
-  public String getTenantStorageLocation() {
-    return tenantStorageLocation;
-  }
-
-  /**
-   * Setter for tenantStorageLocation.
-   * Tenant Storage Location if the feature is enabled for the account.
-   **/
-  public void setTenantStorageLocation(String tenantStorageLocation) {
-    this.tenantStorageLocation = tenantStorageLocation;
-  }
-
-  /**
    * Getter for dbMetastore.
    * The name of the Metastore database.
    **/
@@ -277,9 +255,6 @@ public class CreateDbcRequest  {
     if (!Objects.equals(this.tenantStorageRole, createDbcRequest.tenantStorageRole)) {
       return false;
     }
-    if (!Objects.equals(this.tenantStorageLocation, createDbcRequest.tenantStorageLocation)) {
-      return false;
-    }
     if (!Objects.equals(this.dbMetastore, createDbcRequest.dbMetastore)) {
       return false;
     }
@@ -294,7 +269,7 @@ public class CreateDbcRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, name, loadDemoData, imageVersion, isDefault, tenantStorageRole, tenantStorageLocation, dbMetastore, dbDas, dbHue);
+    return Objects.hash(clusterId, name, loadDemoData, imageVersion, isDefault, tenantStorageRole, dbMetastore, dbDas, dbHue);
   }
 
   @Override
@@ -307,7 +282,6 @@ public class CreateDbcRequest  {
     sb.append("    imageVersion: ").append(toIndentedString(imageVersion)).append("\n");
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
     sb.append("    tenantStorageRole: ").append(toIndentedString(tenantStorageRole)).append("\n");
-    sb.append("    tenantStorageLocation: ").append(toIndentedString(tenantStorageLocation)).append("\n");
     sb.append("    dbMetastore: ").append(toIndentedString(dbMetastore)).append("\n");
     sb.append("    dbDas: ").append(toIndentedString(dbDas)).append("\n");
     sb.append("    dbHue: ").append(toIndentedString(dbHue)).append("\n");

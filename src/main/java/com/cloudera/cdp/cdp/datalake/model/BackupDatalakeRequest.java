@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object to perform a backup of datalake.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-09T11:03:07.764-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-24T14:52:52.703-07:00")
 public class BackupDatalakeRequest  {
 
   /**
@@ -64,6 +64,11 @@ public class BackupDatalakeRequest  {
    * Skips the backup of the Ranger audits. If this option is not provided, Ranger audits are backed up by default.
    **/
   private Boolean skipRangerAudits = null;
+
+  /**
+   * Skips the backup of the Atlas indexes. If this option or --skipAtlasMetadata is not provided, Atlas indexes are backed up by default. Redundant if --skipAtlasMetadata is included.
+   **/
+  private Boolean skipAtlasIndexes = null;
 
   /**
    * Skips the validation step that runs prior to the backup. If this option is not provided, the validations are performed by default.
@@ -195,6 +200,23 @@ public class BackupDatalakeRequest  {
   }
 
   /**
+   * Getter for skipAtlasIndexes.
+   * Skips the backup of the Atlas indexes. If this option or --skipAtlasMetadata is not provided, Atlas indexes are backed up by default. Redundant if --skipAtlasMetadata is included.
+   **/
+  @JsonProperty("skipAtlasIndexes")
+  public Boolean getSkipAtlasIndexes() {
+    return skipAtlasIndexes;
+  }
+
+  /**
+   * Setter for skipAtlasIndexes.
+   * Skips the backup of the Atlas indexes. If this option or --skipAtlasMetadata is not provided, Atlas indexes are backed up by default. Redundant if --skipAtlasMetadata is included.
+   **/
+  public void setSkipAtlasIndexes(Boolean skipAtlasIndexes) {
+    this.skipAtlasIndexes = skipAtlasIndexes;
+  }
+
+  /**
    * Getter for skipValidation.
    * Skips the validation step that runs prior to the backup. If this option is not provided, the validations are performed by default.
    **/
@@ -258,6 +280,9 @@ public class BackupDatalakeRequest  {
     if (!Objects.equals(this.skipRangerAudits, backupDatalakeRequest.skipRangerAudits)) {
       return false;
     }
+    if (!Objects.equals(this.skipAtlasIndexes, backupDatalakeRequest.skipAtlasIndexes)) {
+      return false;
+    }
     if (!Objects.equals(this.skipValidation, backupDatalakeRequest.skipValidation)) {
       return false;
     }
@@ -269,7 +294,7 @@ public class BackupDatalakeRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, backupLocation, backupName, closeDbConnections, skipRangerHmsMetadata, skipAtlasMetadata, skipRangerAudits, skipValidation, validationOnly);
+    return Objects.hash(datalakeName, backupLocation, backupName, closeDbConnections, skipRangerHmsMetadata, skipAtlasMetadata, skipRangerAudits, skipAtlasIndexes, skipValidation, validationOnly);
   }
 
   @Override
@@ -283,6 +308,7 @@ public class BackupDatalakeRequest  {
     sb.append("    skipRangerHmsMetadata: ").append(toIndentedString(skipRangerHmsMetadata)).append("\n");
     sb.append("    skipAtlasMetadata: ").append(toIndentedString(skipAtlasMetadata)).append("\n");
     sb.append("    skipRangerAudits: ").append(toIndentedString(skipRangerAudits)).append("\n");
+    sb.append("    skipAtlasIndexes: ").append(toIndentedString(skipAtlasIndexes)).append("\n");
     sb.append("    skipValidation: ").append(toIndentedString(skipValidation)).append("\n");
     sb.append("    validationOnly: ").append(toIndentedString(validationOnly)).append("\n");
     sb.append("}");
