@@ -28,7 +28,7 @@ import com.cloudera.cdp.compute.model.Chart;
 /**
  * Response structure for upgrading a deployment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-24T14:52:54.911-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-10T13:24:01.486-07:00")
 public class UpgradeDeploymentResponse extends CdpResponse {
 
   /**
@@ -52,7 +52,7 @@ public class UpgradeDeploymentResponse extends CdpResponse {
   private String message = null;
 
   /**
-   * Status of the deployment. Currently supported values are UNKNOWN, DEPLOYED, UNINSTALLED, SUPERSEDED, and FAILED. New values may be added in the future.
+   * Status of the deployment. Currently supported values are UNKNOWN, DEPLOYED, UNINSTALLED, SUPERSEDED, FAILED, PENDING-INSTALL, PENDING-UPGRADE and PENDING-ROLLBACK. New values may be added in the future.
    **/
   private String status = null;
 
@@ -131,7 +131,7 @@ public class UpgradeDeploymentResponse extends CdpResponse {
 
   /**
    * Getter for status.
-   * Status of the deployment. Currently supported values are UNKNOWN, DEPLOYED, UNINSTALLED, SUPERSEDED, and FAILED. New values may be added in the future.
+   * Status of the deployment. Currently supported values are UNKNOWN, DEPLOYED, UNINSTALLED, SUPERSEDED, FAILED, PENDING-INSTALL, PENDING-UPGRADE and PENDING-ROLLBACK. New values may be added in the future.
    **/
   @JsonProperty("status")
   public String getStatus() {
@@ -140,7 +140,7 @@ public class UpgradeDeploymentResponse extends CdpResponse {
 
   /**
    * Setter for status.
-   * Status of the deployment. Currently supported values are UNKNOWN, DEPLOYED, UNINSTALLED, SUPERSEDED, and FAILED. New values may be added in the future.
+   * Status of the deployment. Currently supported values are UNKNOWN, DEPLOYED, UNINSTALLED, SUPERSEDED, FAILED, PENDING-INSTALL, PENDING-UPGRADE and PENDING-ROLLBACK. New values may be added in the future.
    **/
   public void setStatus(String status) {
     this.status = status;

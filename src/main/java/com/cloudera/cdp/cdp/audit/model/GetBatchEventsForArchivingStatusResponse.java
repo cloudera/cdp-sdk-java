@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response from getting the status of creating batches of audit events to be archived.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-24T14:52:53.629-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-10T13:24:00.293-07:00")
 public class GetBatchEventsForArchivingStatusResponse extends CdpResponse {
 
   /**

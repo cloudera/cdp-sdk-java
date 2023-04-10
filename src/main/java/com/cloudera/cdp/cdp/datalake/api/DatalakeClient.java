@@ -32,6 +32,8 @@ import com.cloudera.cdp.datalake.model.BackupDatalakeRequest;
 import com.cloudera.cdp.datalake.model.BackupDatalakeResponse;
 import com.cloudera.cdp.datalake.model.BackupDatalakeStatusRequest;
 import com.cloudera.cdp.datalake.model.BackupDatalakeStatusResponse;
+import com.cloudera.cdp.datalake.model.CancelBackupRequest;
+import com.cloudera.cdp.datalake.model.CancelBackupResponse;
 import com.cloudera.cdp.datalake.model.CancelDatalakeDiagnosticsRequest;
 import com.cloudera.cdp.datalake.model.CancelDatalakeDiagnosticsResponse;
 import com.cloudera.cdp.datalake.model.CollectCmDiagnosticsRequest;
@@ -113,7 +115,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-24T14:52:52.703-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-10T13:23:59.308-07:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datalake";
@@ -168,6 +170,19 @@ public class DatalakeClient extends CdpClient {
     }
 
     return this.invokeAPI("backupDatalakeStatus", "/api/v1/datalake/backupDatalakeStatus", input, new GenericType<BackupDatalakeStatusResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Cancels the specified ongoing backup operation.
+   * @param input
+   * @return CancelBackupResponse
+   */
+  public CancelBackupResponse cancelBackup(CancelBackupRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling cancelBackup");
+    }
+
+    return this.invokeAPI("cancelBackup", "/api/v1/datalake/cancelBackup", input, new GenericType<CancelBackupResponse>(){}, NO_EXTENSION);
   }
 
   /**

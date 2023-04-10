@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object for setting ID Broker mappings for an environment. Overwrites all existing mappings.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-24T14:52:53.122-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-10T13:23:59.726-07:00")
 public class SetIdBrokerMappingsRequest  {
 
   /**

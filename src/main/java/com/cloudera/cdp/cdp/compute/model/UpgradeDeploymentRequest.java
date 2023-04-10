@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request structure for upgrading a deployment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-24T14:52:54.911-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-10T13:24:01.486-07:00")
 public class UpgradeDeploymentRequest  {
 
   /**
@@ -51,7 +51,7 @@ public class UpgradeDeploymentRequest  {
   private String chartVersion = null;
 
   /**
-   * JSON overrides for the deployment's properties.
+   * Escaped JSON overrides for the deployment's properties.
    **/
   private String overrides = null;
 
@@ -125,7 +125,7 @@ public class UpgradeDeploymentRequest  {
 
   /**
    * Getter for overrides.
-   * JSON overrides for the deployment&#39;s properties.
+   * Escaped JSON overrides for the deployment&#39;s properties.
    **/
   @JsonProperty("overrides")
   public String getOverrides() {
@@ -134,7 +134,7 @@ public class UpgradeDeploymentRequest  {
 
   /**
    * Setter for overrides.
-   * JSON overrides for the deployment&#39;s properties.
+   * Escaped JSON overrides for the deployment&#39;s properties.
    **/
   public void setOverrides(String overrides) {
     this.overrides = overrides;

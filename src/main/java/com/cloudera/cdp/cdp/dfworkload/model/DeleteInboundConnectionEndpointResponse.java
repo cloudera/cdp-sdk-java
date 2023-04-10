@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object returned during deletion of an Inbound Connection Endpoint
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-24T14:52:54.505-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-10T13:24:01.152-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class DeleteInboundConnectionEndpointResponse extends CdpResponse {
 

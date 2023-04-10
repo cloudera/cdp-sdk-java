@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Response structure for describing a deployment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-03-24T14:52:54.911-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-10T13:24:01.486-07:00")
 public class DescribeDeploymentResponse extends CdpResponse {
 
   /**
@@ -44,7 +44,7 @@ public class DescribeDeploymentResponse extends CdpResponse {
   private List<History> history = new ArrayList<History>();
 
   /**
-   * JSON overrides for the deployment's properties. Deprecated.
+   * Escaped JSON overrides for the deployment's properties. Deprecated.
    **/
   private String overrides = null;
 
@@ -84,7 +84,7 @@ public class DescribeDeploymentResponse extends CdpResponse {
 
   /**
    * Getter for overrides.
-   * JSON overrides for the deployment&#39;s properties. Deprecated.
+   * Escaped JSON overrides for the deployment&#39;s properties. Deprecated.
    **/
   @Deprecated
   @JsonProperty("overrides")
@@ -94,7 +94,7 @@ public class DescribeDeploymentResponse extends CdpResponse {
 
   /**
    * Setter for overrides.
-   * JSON overrides for the deployment&#39;s properties. Deprecated.
+   * Escaped JSON overrides for the deployment&#39;s properties. Deprecated.
    **/
   @Deprecated
   public void setOverrides(String overrides) {
