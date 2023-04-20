@@ -29,7 +29,7 @@ import java.util.Map;
 /**
  * Model holding detailed information about a custom VM image.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-10T13:24:01.345-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-20T13:40:36.761-07:00")
 public class ImageItemResponse extends CdpResponse {
 
   /**

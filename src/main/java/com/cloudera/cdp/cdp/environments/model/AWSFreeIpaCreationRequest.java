@@ -23,17 +23,23 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import java.util.*;
 
 /**
  * Request object for creating FreeIPA in the environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-10T13:23:59.726-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-20T13:40:34.949-07:00")
 public class AWSFreeIpaCreationRequest  {
 
   /**
    * The number of FreeIPA instances to create per group when creating FreeIPA in the environment
    **/
   private Integer instanceCountByGroup = null;
+
+  /**
+   * The recipes for the FreeIPA cluster.
+   **/
+  private List<String> recipes = new ArrayList<String>();
 
   /**
    * Flag which marks that the freeIPA will be deployed in a multi-availability zone way or not.
@@ -55,6 +61,23 @@ public class AWSFreeIpaCreationRequest  {
    **/
   public void setInstanceCountByGroup(Integer instanceCountByGroup) {
     this.instanceCountByGroup = instanceCountByGroup;
+  }
+
+  /**
+   * Getter for recipes.
+   * The recipes for the FreeIPA cluster.
+   **/
+  @JsonProperty("recipes")
+  public List<String> getRecipes() {
+    return recipes;
+  }
+
+  /**
+   * Setter for recipes.
+   * The recipes for the FreeIPA cluster.
+   **/
+  public void setRecipes(List<String> recipes) {
+    this.recipes = recipes;
   }
 
   /**
@@ -86,6 +109,9 @@ public class AWSFreeIpaCreationRequest  {
     if (!Objects.equals(this.instanceCountByGroup, aWSFreeIpaCreationRequest.instanceCountByGroup)) {
       return false;
     }
+    if (!Objects.equals(this.recipes, aWSFreeIpaCreationRequest.recipes)) {
+      return false;
+    }
     if (!Objects.equals(this.multiAz, aWSFreeIpaCreationRequest.multiAz)) {
       return false;
     }
@@ -94,7 +120,7 @@ public class AWSFreeIpaCreationRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceCountByGroup, multiAz);
+    return Objects.hash(instanceCountByGroup, recipes, multiAz);
   }
 
   @Override
@@ -102,6 +128,7 @@ public class AWSFreeIpaCreationRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class AWSFreeIpaCreationRequest {\n");
     sb.append("    instanceCountByGroup: ").append(toIndentedString(instanceCountByGroup)).append("\n");
+    sb.append("    recipes: ").append(toIndentedString(recipes)).append("\n");
     sb.append("    multiAz: ").append(toIndentedString(multiAz)).append("\n");
     sb.append("}");
     return sb.toString();

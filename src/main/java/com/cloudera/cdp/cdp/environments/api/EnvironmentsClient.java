@@ -28,6 +28,8 @@ import com.cloudera.cdp.client.CdpRequestContext;
 import com.cloudera.cdp.client.Pair;
 import com.cloudera.cdp.client.ResourceResponse;
 import com.cloudera.cdp.client.RestResponse;
+import com.cloudera.cdp.environments.model.AttachFreeIpaRecipesRequest;
+import com.cloudera.cdp.environments.model.AttachFreeIpaRecipesResponse;
 import com.cloudera.cdp.environments.model.CancelFreeipaDiagnosticsRequest;
 import com.cloudera.cdp.environments.model.CancelFreeipaDiagnosticsResponse;
 import com.cloudera.cdp.environments.model.ChangeEnvironmentCredentialRequest;
@@ -66,6 +68,8 @@ import com.cloudera.cdp.environments.model.DeleteProxyConfigRequest;
 import com.cloudera.cdp.environments.model.DeleteProxyConfigResponse;
 import com.cloudera.cdp.environments.model.DescribeEnvironmentRequest;
 import com.cloudera.cdp.environments.model.DescribeEnvironmentResponse;
+import com.cloudera.cdp.environments.model.DetachFreeIpaRecipesRequest;
+import com.cloudera.cdp.environments.model.DetachFreeIpaRecipesResponse;
 import com.cloudera.cdp.environments.model.DownscaleFreeipaRequest;
 import com.cloudera.cdp.environments.model.DownscaleFreeipaResponse;
 import com.cloudera.cdp.environments.model.Error;
@@ -157,7 +161,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-10T13:23:59.726-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-20T13:40:34.949-07:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -186,6 +190,19 @@ public class EnvironmentsClient extends CdpClient {
   @Override
   protected String getResponseContentType() {
     return "application/json";
+  }
+
+  /**
+   * Attach recipes to FreeIPA.
+   * @param input
+   * @return AttachFreeIpaRecipesResponse
+   */
+  public AttachFreeIpaRecipesResponse attachFreeIpaRecipes(AttachFreeIpaRecipesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling attachFreeIpaRecipes");
+    }
+
+    return this.invokeAPI("attachFreeIpaRecipes", "/api/v1/environments2/attachFreeIpaRecipes", input, new GenericType<AttachFreeIpaRecipesResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -433,6 +450,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("describeEnvironment", "/api/v1/environments2/describeEnvironment", input, new GenericType<DescribeEnvironmentResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Detach recipes from FreeIPA.
+   * @param input
+   * @return DetachFreeIpaRecipesResponse
+   */
+  public DetachFreeIpaRecipesResponse detachFreeIpaRecipes(DetachFreeIpaRecipesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling detachFreeIpaRecipes");
+    }
+
+    return this.invokeAPI("detachFreeIpaRecipes", "/api/v1/environments2/detachFreeIpaRecipes", input, new GenericType<DetachFreeIpaRecipesResponse>(){}, NO_EXTENSION);
   }
 
   /**

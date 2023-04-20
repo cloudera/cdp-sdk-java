@@ -23,17 +23,23 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import java.util.*;
 
 /**
  * Request object for creating FreeIPA in the environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-10T13:23:59.726-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-20T13:40:34.949-07:00")
 public class GCPFreeIpaCreationRequest  {
 
   /**
    * The number of FreeIPA instances to create per group when creating FreeIPA in the environment
    **/
   private Integer instanceCountByGroup = null;
+
+  /**
+   * The recipes for the FreeIPA cluster.
+   **/
+  private List<String> recipes = new ArrayList<String>();
 
   /**
    * Getter for instanceCountByGroup.
@@ -52,6 +58,23 @@ public class GCPFreeIpaCreationRequest  {
     this.instanceCountByGroup = instanceCountByGroup;
   }
 
+  /**
+   * Getter for recipes.
+   * The recipes for the FreeIPA cluster.
+   **/
+  @JsonProperty("recipes")
+  public List<String> getRecipes() {
+    return recipes;
+  }
+
+  /**
+   * Setter for recipes.
+   * The recipes for the FreeIPA cluster.
+   **/
+  public void setRecipes(List<String> recipes) {
+    this.recipes = recipes;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -64,12 +87,15 @@ public class GCPFreeIpaCreationRequest  {
     if (!Objects.equals(this.instanceCountByGroup, gCPFreeIpaCreationRequest.instanceCountByGroup)) {
       return false;
     }
+    if (!Objects.equals(this.recipes, gCPFreeIpaCreationRequest.recipes)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceCountByGroup);
+    return Objects.hash(instanceCountByGroup, recipes);
   }
 
   @Override
@@ -77,6 +103,7 @@ public class GCPFreeIpaCreationRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class GCPFreeIpaCreationRequest {\n");
     sb.append("    instanceCountByGroup: ").append(toIndentedString(instanceCountByGroup)).append("\n");
+    sb.append("    recipes: ").append(toIndentedString(recipes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

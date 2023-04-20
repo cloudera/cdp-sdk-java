@@ -40,6 +40,8 @@ import com.cloudera.cdp.client.CdpParseResponseMiddleware;
 import com.cloudera.cdp.client.CdpRequestAuthMiddleware;
 import com.cloudera.cdp.client.CdpRequestContext;
 import com.cloudera.cdp.client.CdpRequestHeadersMiddleware;
+import com.cloudera.cdp.df.model.GetFlowVersionRequest;
+import com.cloudera.cdp.df.model.GetFlowVersionResponse;
 import com.cloudera.cdp.df.model.ImportFlowDefinitionRequest;
 import com.cloudera.cdp.df.model.ImportFlowDefinitionResponse;
 import com.cloudera.cdp.df.model.ImportFlowDefinitionVersionRequest;
@@ -52,6 +54,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.io.Resources;
 
 import java.net.URI;
+import java.nio.charset.Charset;
 import java.util.Map;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.Entity;
@@ -75,19 +78,20 @@ public class DfExtensionTest {
                   new CdpHttpClient())),
           ImmutableMap.of());
 
-  private static Client createMockClient(Response uploadResponse) {
+  private static Client createMockClient(Response response) {
     Invocation.Builder builder = mock(Invocation.Builder.class);
     when(builder.accept(eq(MediaType.APPLICATION_JSON))).thenReturn(builder);
     when(builder.accept(eq(MediaType.APPLICATION_OCTET_STREAM))).thenReturn(builder);
     when(builder.headers(any(MultivaluedMap.class))).thenReturn(builder);
     when(builder.header(any(String.class), any())).thenReturn(builder);
-    when(builder.method(eq("POST"), any(Entity.class))).thenReturn(uploadResponse);
+    when(builder.method(eq("POST"), any(Entity.class))).thenReturn(response);
     WebTarget webTarget = mock(WebTarget.class);
     when(webTarget.request()).thenReturn(builder);
     Client client = mock(Client.class);
     when(client.target(eq(URI.create("http://dfx-global.com/dfx/api/flows")))).thenReturn(webTarget);
     when(client.target(eq(URI.create("http://dfx-global.com/dfx/api/flows/flow-crn")))).thenReturn(webTarget);
     when(client.target(eq(URI.create("http://dfx-local.com/dfx/api/rpc-v1/deployments/upload-asset-content")))).thenReturn(webTarget);
+    when(client.target(eq(URI.create("http://dfx-global.com/api/v1/df/getFlowVersion")))).thenReturn(webTarget);
     return client;
   }
 
@@ -498,5 +502,64 @@ public class DfExtensionTest {
     Df dfExtension = new Df(INNER_MIDDLEWARE);
     CdpClientException e = assertThrows(CdpClientException.class, () -> dfExtension.invokeAPI(context));
     assertEquals("com.cloudera.cdp.CdpServiceException: 400: unknown: test error message unknown", e.getMessage());
+  }
+
+  private static Response createSuccessfulResponse(GetFlowVersionResponse getFlowVersionResponse) {
+    Response response = mock(Response.class);
+    when(response.getStatusInfo()).thenReturn(Response.Status.OK);
+    when(response.getHeaders()).thenReturn(new MultivaluedHashMap<>());
+    when(response.readEntity(argThat((ArgumentMatcher<GenericType>) t -> t.getRawType().equals(GetFlowVersionResponse.class)))).thenReturn(getFlowVersionResponse);
+    return response;
+  }
+
+  private static Client createMockClient(GetFlowVersionResponse getFlowVersionResponse) {
+    Response response = createSuccessfulResponse(getFlowVersionResponse);
+    return createMockClient(response);
+  }
+
+  private static CdpRequestContext<GetFlowVersionResponse> createContext(Client client, GetFlowVersionRequest input) {
+    CdpRequestContext<GetFlowVersionResponse> context = new CdpRequestContext<>(
+        client,
+        "df",
+        "getFlowVersion",
+        new GenericType<GetFlowVersionResponse>(){});
+    context.setRetryHandler(new NeverRetryHandler());
+    context.setRequestContentType(MediaType.APPLICATION_JSON);
+    context.setResponseContentType(MediaType.APPLICATION_JSON);
+    context.setCredentials(new BasicCdpCredentials("access-key-id", CdpSDKTestUtils.getRSAPrivateKey()));
+    context.setEndpoint("http://dfx-global.com");
+    context.setMethod("POST");
+    context.setPath("/api/v1/df/getFlowVersion");
+    context.setBody(input);
+    return context;
+  }
+  @Test
+  public void testGetFlowVersionSuccess() {
+    GetFlowVersionRequest input = new GetFlowVersionRequest();
+    input.setFlowVersionCrn("flow-version-crn");
+    GetFlowVersionResponse output = new GetFlowVersionResponse();
+    output.setFlowDefinition("{\"flowContents\": \"some-flow\"}".getBytes(Charset.defaultCharset()));
+    Client client = createMockClient(output);
+
+    CdpRequestContext<GetFlowVersionResponse> context = createContext(client, input);
+
+    Df dfExtension = new Df(INNER_MIDDLEWARE);
+    dfExtension.invokeAPI(context);
+    assertEquals(output, context.getResponse());
+    verify(client, only()).target(URI.create("http://dfx-global.com/api/v1/df/getFlowVersion"));
+  }
+
+  @Test
+  public void testGetFlowVersionMissingFlowVersionCrn() {
+    GetFlowVersionRequest input = new GetFlowVersionRequest();
+    GetFlowVersionResponse output = new GetFlowVersionResponse();
+    output.setFlowDefinition("{\"flowContents\": \"some-flow\"}".getBytes(Charset.defaultCharset()));
+    Client client = createMockClient(output);
+
+    CdpRequestContext<GetFlowVersionResponse> context = createContext(client, input);
+
+    Df dfExtension = new Df(INNER_MIDDLEWARE);
+    CdpClientException e = assertThrows(CdpClientException.class, () -> dfExtension.invokeAPI(context));
+    assertEquals("Flow Version CRN argument is null or empty", e.getMessage());
   }
 }

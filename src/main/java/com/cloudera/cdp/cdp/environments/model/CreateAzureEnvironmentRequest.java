@@ -35,7 +35,7 @@ import java.util.*;
 /**
  * Request object for a create Azure environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-10T13:23:59.726-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-20T13:40:34.949-07:00")
 public class CreateAzureEnvironmentRequest  {
 
   /**
@@ -142,6 +142,11 @@ public class CreateAzureEnvironmentRequest  {
    * Name of the existing Azure resource group hosting the Azure Key Vault containing customer managed key which will be used to encrypt the Azure Managed Disks. It is required only when the entitlement is granted and the resource group of the key vault is different from the resource group in which the environment is to be created. Omitting it implies that, the key vault containing the encryption key is present in the same resource group where the environment would be created.
    **/
   private String encryptionKeyResourceGroupName = null;
+
+  /**
+   * Whether or not outbound load balancers should be created for Azure environments. The default behavior is to not create the outbound load balancer.
+   **/
+  private Boolean enableOutboundLoadBalancer = null;
 
   /**
    * Getter for environmentName.
@@ -500,6 +505,23 @@ public class CreateAzureEnvironmentRequest  {
     this.encryptionKeyResourceGroupName = encryptionKeyResourceGroupName;
   }
 
+  /**
+   * Getter for enableOutboundLoadBalancer.
+   * Whether or not outbound load balancers should be created for Azure environments. The default behavior is to not create the outbound load balancer.
+   **/
+  @JsonProperty("enableOutboundLoadBalancer")
+  public Boolean getEnableOutboundLoadBalancer() {
+    return enableOutboundLoadBalancer;
+  }
+
+  /**
+   * Setter for enableOutboundLoadBalancer.
+   * Whether or not outbound load balancers should be created for Azure environments. The default behavior is to not create the outbound load balancer.
+   **/
+  public void setEnableOutboundLoadBalancer(Boolean enableOutboundLoadBalancer) {
+    this.enableOutboundLoadBalancer = enableOutboundLoadBalancer;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -572,12 +594,15 @@ public class CreateAzureEnvironmentRequest  {
     if (!Objects.equals(this.encryptionKeyResourceGroupName, createAzureEnvironmentRequest.encryptionKeyResourceGroupName)) {
       return false;
     }
+    if (!Objects.equals(this.enableOutboundLoadBalancer, createAzureEnvironmentRequest.enableOutboundLoadBalancer)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints, encryptionKeyUrl, encryptionKeyResourceGroupName);
+    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints, encryptionKeyUrl, encryptionKeyResourceGroupName, enableOutboundLoadBalancer);
   }
 
   @Override
@@ -605,6 +630,7 @@ public class CreateAzureEnvironmentRequest  {
     sb.append("    createPrivateEndpoints: ").append(toIndentedString(createPrivateEndpoints)).append("\n");
     sb.append("    encryptionKeyUrl: ").append(toIndentedString(encryptionKeyUrl)).append("\n");
     sb.append("    encryptionKeyResourceGroupName: ").append(toIndentedString(encryptionKeyResourceGroupName)).append("\n");
+    sb.append("    enableOutboundLoadBalancer: ").append(toIndentedString(enableOutboundLoadBalancer)).append("\n");
     sb.append("}");
     return sb.toString();
   }

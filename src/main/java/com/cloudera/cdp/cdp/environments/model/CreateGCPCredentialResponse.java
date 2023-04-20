@@ -28,7 +28,7 @@ import com.cloudera.cdp.environments.model.Credential;
 /**
  * Response object for a create GCP credential request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-10T13:23:59.726-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-20T13:40:34.949-07:00")
 public class CreateGCPCredentialResponse extends CdpResponse {
 
   /**

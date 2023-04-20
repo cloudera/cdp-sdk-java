@@ -28,7 +28,7 @@ import com.cloudera.cdp.datahub.model.ClusterTemplate;
 /**
  * Response object for describe cluster template request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-10T13:23:57.787-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-20T13:40:32.936-07:00")
 public class DescribeClusterTemplateResponse extends CdpResponse {
 
   /**

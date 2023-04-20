@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Details of a FreeIPA cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-10T13:23:59.726-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-20T13:40:34.949-07:00")
 public class FreeipaDetails  {
 
   /**
@@ -50,6 +50,11 @@ public class FreeipaDetails  {
    * The IP addresses of the FreeIPA cluster.
    **/
   private List<String> serverIP = new ArrayList<String>();
+
+  /**
+   * The recipes for the FreeIPA cluster.
+   **/
+  private List<String> recipes = new ArrayList<String>();
 
   /**
    * Getter for crn.
@@ -119,6 +124,23 @@ public class FreeipaDetails  {
     this.serverIP = serverIP;
   }
 
+  /**
+   * Getter for recipes.
+   * The recipes for the FreeIPA cluster.
+   **/
+  @JsonProperty("recipes")
+  public List<String> getRecipes() {
+    return recipes;
+  }
+
+  /**
+   * Setter for recipes.
+   * The recipes for the FreeIPA cluster.
+   **/
+  public void setRecipes(List<String> recipes) {
+    this.recipes = recipes;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -140,12 +162,15 @@ public class FreeipaDetails  {
     if (!Objects.equals(this.serverIP, freeipaDetails.serverIP)) {
       return false;
     }
+    if (!Objects.equals(this.recipes, freeipaDetails.recipes)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, domain, hostname, serverIP);
+    return Objects.hash(crn, domain, hostname, serverIP, recipes);
   }
 
   @Override
@@ -156,6 +181,7 @@ public class FreeipaDetails  {
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    serverIP: ").append(toIndentedString(serverIP)).append("\n");
+    sb.append("    recipes: ").append(toIndentedString(recipes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

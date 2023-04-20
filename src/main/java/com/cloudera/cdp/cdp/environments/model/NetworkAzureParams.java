@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Azure network parameters.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-10T13:23:59.726-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-20T13:40:34.949-07:00")
 public class NetworkAzureParams  {
 
   /**
@@ -54,6 +54,11 @@ public class NetworkAzureParams  {
    * The ID of an existing private DNS zone used for the AKS.
    **/
   private String aksPrivateDnsZoneId = null;
+
+  /**
+   * Whether the outbound load balancer was created for this environment.
+   **/
+  private Boolean enableOutboundLoadBalancer = null;
 
   /**
    * Getter for networkId.
@@ -140,6 +145,23 @@ public class NetworkAzureParams  {
     this.aksPrivateDnsZoneId = aksPrivateDnsZoneId;
   }
 
+  /**
+   * Getter for enableOutboundLoadBalancer.
+   * Whether the outbound load balancer was created for this environment.
+   **/
+  @JsonProperty("enableOutboundLoadBalancer")
+  public Boolean getEnableOutboundLoadBalancer() {
+    return enableOutboundLoadBalancer;
+  }
+
+  /**
+   * Setter for enableOutboundLoadBalancer.
+   * Whether the outbound load balancer was created for this environment.
+   **/
+  public void setEnableOutboundLoadBalancer(Boolean enableOutboundLoadBalancer) {
+    this.enableOutboundLoadBalancer = enableOutboundLoadBalancer;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -164,12 +186,15 @@ public class NetworkAzureParams  {
     if (!Objects.equals(this.aksPrivateDnsZoneId, networkAzureParams.aksPrivateDnsZoneId)) {
       return false;
     }
+    if (!Objects.equals(this.enableOutboundLoadBalancer, networkAzureParams.enableOutboundLoadBalancer)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(networkId, resourceGroupName, usePublicIp, databasePrivateDnsZoneId, aksPrivateDnsZoneId);
+    return Objects.hash(networkId, resourceGroupName, usePublicIp, databasePrivateDnsZoneId, aksPrivateDnsZoneId, enableOutboundLoadBalancer);
   }
 
   @Override
@@ -181,6 +206,7 @@ public class NetworkAzureParams  {
     sb.append("    usePublicIp: ").append(toIndentedString(usePublicIp)).append("\n");
     sb.append("    databasePrivateDnsZoneId: ").append(toIndentedString(databasePrivateDnsZoneId)).append("\n");
     sb.append("    aksPrivateDnsZoneId: ").append(toIndentedString(aksPrivateDnsZoneId)).append("\n");
+    sb.append("    enableOutboundLoadBalancer: ").append(toIndentedString(enableOutboundLoadBalancer)).append("\n");
     sb.append("}");
     return sb.toString();
   }

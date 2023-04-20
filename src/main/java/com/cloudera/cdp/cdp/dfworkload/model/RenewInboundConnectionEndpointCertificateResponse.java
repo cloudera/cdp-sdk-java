@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object for Inbound Connection Endpoint certificate renewal request
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-10T13:24:01.152-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-20T13:40:36.573-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RenewInboundConnectionEndpointCertificateResponse extends CdpResponse {
 

@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for the list restores request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-10T13:23:59.559-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-20T13:40:34.783-07:00")
 public class ListRestoresResponse extends CdpResponse {
 
   /**

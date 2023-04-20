@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request to restore datalake from backup. Restore does not restore the database by default.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-10T13:23:59.308-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-20T13:40:34.468-07:00")
 public class RestoreDatalakeRequest  {
 
   /**
@@ -76,7 +76,7 @@ public class RestoreDatalakeRequest  {
   private String backupLocationOverride = null;
 
   /**
-   * Skips the validation step that runs prior to the restore. If this option is not provided, the validations are performed by default.
+   * Skips the validation steps that run prior to the restore. If this option is not provided, the validations are performed by default.
    **/
   private Boolean skipValidation = null;
 
@@ -240,7 +240,7 @@ public class RestoreDatalakeRequest  {
 
   /**
    * Getter for skipValidation.
-   * Skips the validation step that runs prior to the restore. If this option is not provided, the validations are performed by default.
+   * Skips the validation steps that run prior to the restore. If this option is not provided, the validations are performed by default.
    **/
   @JsonProperty("skipValidation")
   public Boolean getSkipValidation() {
@@ -249,7 +249,7 @@ public class RestoreDatalakeRequest  {
 
   /**
    * Setter for skipValidation.
-   * Skips the validation step that runs prior to the restore. If this option is not provided, the validations are performed by default.
+   * Skips the validation steps that run prior to the restore. If this option is not provided, the validations are performed by default.
    **/
   public void setSkipValidation(Boolean skipValidation) {
     this.skipValidation = skipValidation;

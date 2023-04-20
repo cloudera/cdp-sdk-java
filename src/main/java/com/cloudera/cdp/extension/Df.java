@@ -26,6 +26,8 @@ import com.cloudera.cdp.annotation.SdkInternalApi;
 import com.cloudera.cdp.client.BaseResponse;
 import com.cloudera.cdp.client.CdpRequestContext;
 import com.cloudera.cdp.client.CdpClientMiddleware;
+import com.cloudera.cdp.df.model.GetFlowVersionRequest;
+import com.cloudera.cdp.df.model.GetFlowVersionResponse;
 import com.cloudera.cdp.df.model.ImportFlowDefinitionRequest;
 import com.cloudera.cdp.df.model.ImportFlowDefinitionResponse;
 import com.cloudera.cdp.df.model.ImportFlowDefinitionVersionRequest;
@@ -57,6 +59,8 @@ public class Df implements CdpClientMiddleware {
       dfImportFlowDefinition((CdpRequestContext<ImportFlowDefinitionResponse>) context);
     } else if (context.getServiceName().equals("df") && context.getOperationName().equals("importFlowDefinitionVersion")) {
       dfImportFlowDefinitionVersion((CdpRequestContext<ImportFlowDefinitionVersionResponse>) context);
+    } else if (context.getServiceName().equals("df") && context.getOperationName().equals("getFlowVersion")) {
+      dfGetFlowVersion((CdpRequestContext<GetFlowVersionResponse>) context);
     } else if (context.getServiceName().equals("dfworkload") && context.getOperationName().equals("uploadAsset")) {
       dfWorkloadUploadAsset((CdpRequestContext<UploadAssetResponse>) context);
     } else {
@@ -164,4 +168,15 @@ public class Df implements CdpClientMiddleware {
       throw new CdpClientException("Unable to load file at " + filePath, ioe);
     }
   }
+
+  private void dfGetFlowVersion(CdpRequestContext<GetFlowVersionResponse> context) {
+    GetFlowVersionRequest getFlowVersionRequest = (GetFlowVersionRequest) context.getBody();
+    String flowVersionCrn = getFlowVersionRequest.getFlowVersionCrn();
+
+    if (Strings.isNullOrEmpty(flowVersionCrn)) {
+      throw new CdpClientException("Flow Version CRN argument is null or empty");
+    }
+    next.invokeAPI(context);
+  }
+
 }
