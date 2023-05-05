@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Extra properties for HDFS.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-20T13:40:36.979-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-04T19:25:17.129-07:00")
 public class HdfsArguments  {
 
   /**
@@ -77,7 +77,7 @@ public class HdfsArguments  {
   /**
    * Exclusion filters in glob format.
    **/
-  private List<String> exclusionFilters = new ArrayList<String>();
+  private List<String> exclusionFilters = null;
 
   /**
    * Getter for _path.

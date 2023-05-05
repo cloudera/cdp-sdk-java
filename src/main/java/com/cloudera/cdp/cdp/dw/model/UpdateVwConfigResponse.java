@@ -25,54 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * The request object for the pauseVw method.
+ * Response object for the updateVwConfig method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-20T13:40:33.540-07:00")
-public class PauseVwRequest  {
-
-  /**
-   * The ID of the Virtual Warehouse cluster.
-   **/
-  private String clusterId = null;
-
-  /**
-   * The ID of the Virtual Warehouse.
-   **/
-  private String vwId = null;
-
-  /**
-   * Getter for clusterId.
-   * The ID of the Virtual Warehouse cluster.
-   **/
-  @JsonProperty("clusterId")
-  public String getClusterId() {
-    return clusterId;
-  }
-
-  /**
-   * Setter for clusterId.
-   * The ID of the Virtual Warehouse cluster.
-   **/
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
-  }
-
-  /**
-   * Getter for vwId.
-   * The ID of the Virtual Warehouse.
-   **/
-  @JsonProperty("vwId")
-  public String getVwId() {
-    return vwId;
-  }
-
-  /**
-   * Setter for vwId.
-   * The ID of the Virtual Warehouse.
-   **/
-  public void setVwId(String vwId) {
-    this.vwId = vwId;
-  }
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-04T19:25:13.802-07:00")
+public class UpdateVwConfigResponse extends CdpResponse {
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,11 +38,7 @@ public class PauseVwRequest  {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PauseVwRequest pauseVwRequest = (PauseVwRequest) o;
-    if (!Objects.equals(this.clusterId, pauseVwRequest.clusterId)) {
-      return false;
-    }
-    if (!Objects.equals(this.vwId, pauseVwRequest.vwId)) {
+    if (!super.equals(o)) {
       return false;
     }
     return true;
@@ -94,15 +46,14 @@ public class PauseVwRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, vwId);
+    return Objects.hash( super.hashCode());
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PauseVwRequest {\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
-    sb.append("    vwId: ").append(toIndentedString(vwId)).append("\n");
+    sb.append("class UpdateVwConfigResponse {\n");
+    sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("}");
     return sb.toString();
   }

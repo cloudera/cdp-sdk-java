@@ -31,7 +31,7 @@ import com.cloudera.cdp.dw.model.ServiceConfigReq;
 /**
  * Request object for the updateVw method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-20T13:40:33.540-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-04T19:25:13.802-07:00")
 public class UpdateVwRequest  {
 
   /**
@@ -63,6 +63,11 @@ public class UpdateVwRequest  {
    * Query isolation settings for Hive Virtual Warehouses.
    **/
   private QueryIsolationOptionsRequest queryIsolationOptions = null;
+
+  /**
+   * Value of 'true' automatically configures the Virtual Warehouse to support JWTs issues by the CDP JWT token provider.  Value of 'false' does not enable JWT auth on the Virtual Warehouse.  If this field is not specified, it defaults to 'false'.
+   **/
+  private Boolean platformJwtAuth = null;
 
   /**
    * Getter for clusterId.
@@ -166,6 +171,23 @@ public class UpdateVwRequest  {
     this.queryIsolationOptions = queryIsolationOptions;
   }
 
+  /**
+   * Getter for platformJwtAuth.
+   * Value of &#39;true&#39; automatically configures the Virtual Warehouse to support JWTs issues by the CDP JWT token provider.  Value of &#39;false&#39; does not enable JWT auth on the Virtual Warehouse.  If this field is not specified, it defaults to &#39;false&#39;.
+   **/
+  @JsonProperty("platformJwtAuth")
+  public Boolean getPlatformJwtAuth() {
+    return platformJwtAuth;
+  }
+
+  /**
+   * Setter for platformJwtAuth.
+   * Value of &#39;true&#39; automatically configures the Virtual Warehouse to support JWTs issues by the CDP JWT token provider.  Value of &#39;false&#39; does not enable JWT auth on the Virtual Warehouse.  If this field is not specified, it defaults to &#39;false&#39;.
+   **/
+  public void setPlatformJwtAuth(Boolean platformJwtAuth) {
+    this.platformJwtAuth = platformJwtAuth;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -193,12 +215,15 @@ public class UpdateVwRequest  {
     if (!Objects.equals(this.queryIsolationOptions, updateVwRequest.queryIsolationOptions)) {
       return false;
     }
+    if (!Objects.equals(this.platformJwtAuth, updateVwRequest.platformJwtAuth)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, vwId, config, autoscaling, impalaHaSettings, queryIsolationOptions);
+    return Objects.hash(clusterId, vwId, config, autoscaling, impalaHaSettings, queryIsolationOptions, platformJwtAuth);
   }
 
   @Override
@@ -211,6 +236,7 @@ public class UpdateVwRequest  {
     sb.append("    autoscaling: ").append(toIndentedString(autoscaling)).append("\n");
     sb.append("    impalaHaSettings: ").append(toIndentedString(impalaHaSettings)).append("\n");
     sb.append("    queryIsolationOptions: ").append(toIndentedString(queryIsolationOptions)).append("\n");
+    sb.append("    platformJwtAuth: ").append(toIndentedString(platformJwtAuth)).append("\n");
     sb.append("}");
     return sb.toString();
   }

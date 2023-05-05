@@ -28,8 +28,13 @@ import java.util.*;
 /**
  * Options for activating an Azure environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-20T13:40:33.540-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-04T19:25:13.802-07:00")
 public class AzureActivationOptions  {
+
+  /**
+   * Resource ID of the managed identity used by AKS. It is a mandatory parameter for Azure cluster creation.
+   **/
+  private String userAssignedManagedIdentity = null;
 
   /**
    * ID of Azure subnet where the cluster should be deployed.
@@ -57,11 +62,6 @@ public class AzureActivationOptions  {
   private String logAnalyticsWorkspaceId = null;
 
   /**
-   * Docker bridge CIDR range for deployment.
-   **/
-  private String dockerBridgeCidr = null;
-
-  /**
    * Network outbound type. This setting controls the egress traffic for cluster nodes in Azure Kubernetes Service. Please refer to the following AKS documentation on the Azure portal. https://learn.microsoft.com/en-us/azure/aks/egress-outboundtype, https://learn.microsoft.com/en-us/azure/aks/nat-gateway
    **/
   private String outboundType = null;
@@ -82,9 +82,26 @@ public class AzureActivationOptions  {
   private Boolean enablePrivateAks = false;
 
   /**
-   * Enable uptime SLA for Kubernetes API server.
+   * Enable uptime SLA for Kubernetes API server. This option is deprecated and will be removed upon the next release of the DWX Public Cloud. The uptime SLA for the Kubernetes API server will be always enabled.
    **/
   private Boolean enableUptimeSLA = false;
+
+  /**
+   * Getter for userAssignedManagedIdentity.
+   * Resource ID of the managed identity used by AKS. It is a mandatory parameter for Azure cluster creation.
+   **/
+  @JsonProperty("userAssignedManagedIdentity")
+  public String getUserAssignedManagedIdentity() {
+    return userAssignedManagedIdentity;
+  }
+
+  /**
+   * Setter for userAssignedManagedIdentity.
+   * Resource ID of the managed identity used by AKS. It is a mandatory parameter for Azure cluster creation.
+   **/
+  public void setUserAssignedManagedIdentity(String userAssignedManagedIdentity) {
+    this.userAssignedManagedIdentity = userAssignedManagedIdentity;
+  }
 
   /**
    * Getter for subnetId.
@@ -172,23 +189,6 @@ public class AzureActivationOptions  {
   }
 
   /**
-   * Getter for dockerBridgeCidr.
-   * Docker bridge CIDR range for deployment.
-   **/
-  @JsonProperty("dockerBridgeCidr")
-  public String getDockerBridgeCidr() {
-    return dockerBridgeCidr;
-  }
-
-  /**
-   * Setter for dockerBridgeCidr.
-   * Docker bridge CIDR range for deployment.
-   **/
-  public void setDockerBridgeCidr(String dockerBridgeCidr) {
-    this.dockerBridgeCidr = dockerBridgeCidr;
-  }
-
-  /**
    * Getter for outboundType.
    * Network outbound type. This setting controls the egress traffic for cluster nodes in Azure Kubernetes Service. Please refer to the following AKS documentation on the Azure portal. https://learn.microsoft.com/en-us/azure/aks/egress-outboundtype, https://learn.microsoft.com/en-us/azure/aks/nat-gateway
    **/
@@ -258,8 +258,9 @@ public class AzureActivationOptions  {
 
   /**
    * Getter for enableUptimeSLA.
-   * Enable uptime SLA for Kubernetes API server.
+   * Enable uptime SLA for Kubernetes API server. This option is deprecated and will be removed upon the next release of the DWX Public Cloud. The uptime SLA for the Kubernetes API server will be always enabled.
    **/
+  @Deprecated
   @JsonProperty("enableUptimeSLA")
   public Boolean getEnableUptimeSLA() {
     return enableUptimeSLA;
@@ -267,8 +268,9 @@ public class AzureActivationOptions  {
 
   /**
    * Setter for enableUptimeSLA.
-   * Enable uptime SLA for Kubernetes API server.
+   * Enable uptime SLA for Kubernetes API server. This option is deprecated and will be removed upon the next release of the DWX Public Cloud. The uptime SLA for the Kubernetes API server will be always enabled.
    **/
+  @Deprecated
   public void setEnableUptimeSLA(Boolean enableUptimeSLA) {
     this.enableUptimeSLA = enableUptimeSLA;
   }
@@ -282,6 +284,9 @@ public class AzureActivationOptions  {
       return false;
     }
     AzureActivationOptions azureActivationOptions = (AzureActivationOptions) o;
+    if (!Objects.equals(this.userAssignedManagedIdentity, azureActivationOptions.userAssignedManagedIdentity)) {
+      return false;
+    }
     if (!Objects.equals(this.subnetId, azureActivationOptions.subnetId)) {
       return false;
     }
@@ -295,9 +300,6 @@ public class AzureActivationOptions  {
       return false;
     }
     if (!Objects.equals(this.logAnalyticsWorkspaceId, azureActivationOptions.logAnalyticsWorkspaceId)) {
-      return false;
-    }
-    if (!Objects.equals(this.dockerBridgeCidr, azureActivationOptions.dockerBridgeCidr)) {
       return false;
     }
     if (!Objects.equals(this.outboundType, azureActivationOptions.outboundType)) {
@@ -320,19 +322,19 @@ public class AzureActivationOptions  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(subnetId, enableAZ, enableSpotInstances, computeInstanceTypes, logAnalyticsWorkspaceId, dockerBridgeCidr, outboundType, enablePrivateSQL, privateDNSZoneAKS, enablePrivateAks, enableUptimeSLA);
+    return Objects.hash(userAssignedManagedIdentity, subnetId, enableAZ, enableSpotInstances, computeInstanceTypes, logAnalyticsWorkspaceId, outboundType, enablePrivateSQL, privateDNSZoneAKS, enablePrivateAks, enableUptimeSLA);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AzureActivationOptions {\n");
+    sb.append("    userAssignedManagedIdentity: ").append(toIndentedString(userAssignedManagedIdentity)).append("\n");
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    enableAZ: ").append(toIndentedString(enableAZ)).append("\n");
     sb.append("    enableSpotInstances: ").append(toIndentedString(enableSpotInstances)).append("\n");
     sb.append("    computeInstanceTypes: ").append(toIndentedString(computeInstanceTypes)).append("\n");
     sb.append("    logAnalyticsWorkspaceId: ").append(toIndentedString(logAnalyticsWorkspaceId)).append("\n");
-    sb.append("    dockerBridgeCidr: ").append(toIndentedString(dockerBridgeCidr)).append("\n");
     sb.append("    outboundType: ").append(toIndentedString(outboundType)).append("\n");
     sb.append("    enablePrivateSQL: ").append(toIndentedString(enablePrivateSQL)).append("\n");
     sb.append("    privateDNSZoneAKS: ").append(toIndentedString(privateDNSZoneAKS)).append("\n");

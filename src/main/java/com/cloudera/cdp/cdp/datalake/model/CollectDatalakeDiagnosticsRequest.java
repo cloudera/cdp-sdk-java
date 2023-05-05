@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for collecting DataLake diagnostics.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-20T13:40:34.468-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-04T19:25:14.703-07:00")
 public class CollectDatalakeDiagnosticsRequest  {
 
   /**

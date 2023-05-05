@@ -28,7 +28,7 @@ import com.cloudera.cdp.dw.model.VwFilter;
 /**
  * Request object for the listVws method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-20T13:40:33.540-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-04T19:25:13.802-07:00")
 public class ListVwsRequest  {
 
   /**

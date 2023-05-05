@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * Request object for the createVw method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-20T13:40:33.540-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-04T19:25:13.802-07:00")
 public class CreateVwRequest  {
 
   /**
@@ -111,6 +111,11 @@ public class CreateVwRequest  {
    * Tags associated with the resources.
    **/
   private List<TagRequest> tags = new ArrayList<TagRequest>();
+
+  /**
+   * Value of 'true' automatically configures the Virtual Warehouse to support JWTs issues by the CDP JWT token provider.  Value of 'false' does not enable JWT auth on the Virtual Warehouse.  If this field is not specified, it defaults to 'false'.
+   **/
+  private Boolean platformJwtAuth = false;
 
   /**
    * Getter for clusterId.
@@ -367,6 +372,23 @@ public class CreateVwRequest  {
     this.tags = tags;
   }
 
+  /**
+   * Getter for platformJwtAuth.
+   * Value of &#39;true&#39; automatically configures the Virtual Warehouse to support JWTs issues by the CDP JWT token provider.  Value of &#39;false&#39; does not enable JWT auth on the Virtual Warehouse.  If this field is not specified, it defaults to &#39;false&#39;.
+   **/
+  @JsonProperty("platformJwtAuth")
+  public Boolean getPlatformJwtAuth() {
+    return platformJwtAuth;
+  }
+
+  /**
+   * Setter for platformJwtAuth.
+   * Value of &#39;true&#39; automatically configures the Virtual Warehouse to support JWTs issues by the CDP JWT token provider.  Value of &#39;false&#39; does not enable JWT auth on the Virtual Warehouse.  If this field is not specified, it defaults to &#39;false&#39;.
+   **/
+  public void setPlatformJwtAuth(Boolean platformJwtAuth) {
+    this.platformJwtAuth = platformJwtAuth;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -421,12 +443,15 @@ public class CreateVwRequest  {
     if (!Objects.equals(this.tags, createVwRequest.tags)) {
       return false;
     }
+    if (!Objects.equals(this.platformJwtAuth, createVwRequest.platformJwtAuth)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, dbcId, vwType, name, imageVersion, template, nodeCount, availabilityZone, enableUnifiedAnalytics, impalaOptions, impalaHaSettings, autoscaling, config, queryIsolationOptions, tags);
+    return Objects.hash(clusterId, dbcId, vwType, name, imageVersion, template, nodeCount, availabilityZone, enableUnifiedAnalytics, impalaOptions, impalaHaSettings, autoscaling, config, queryIsolationOptions, tags, platformJwtAuth);
   }
 
   @Override
@@ -448,6 +473,7 @@ public class CreateVwRequest  {
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    queryIsolationOptions: ").append(toIndentedString(queryIsolationOptions)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    platformJwtAuth: ").append(toIndentedString(platformJwtAuth)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -78,6 +78,8 @@ import com.cloudera.cdp.dw.model.DescribeConfigRequest;
 import com.cloudera.cdp.dw.model.DescribeConfigResponse;
 import com.cloudera.cdp.dw.model.DescribeDataVisualizationRequest;
 import com.cloudera.cdp.dw.model.DescribeDataVisualizationResponse;
+import com.cloudera.cdp.dw.model.DescribeDbcConfigRequest;
+import com.cloudera.cdp.dw.model.DescribeDbcConfigResponse;
 import com.cloudera.cdp.dw.model.DescribeDbcDiagnosticDataJobRequest;
 import com.cloudera.cdp.dw.model.DescribeDbcDiagnosticDataJobResponse;
 import com.cloudera.cdp.dw.model.DescribeDbcRequest;
@@ -88,6 +90,8 @@ import com.cloudera.cdp.dw.model.DescribeRestoreRequest;
 import com.cloudera.cdp.dw.model.DescribeRestoreResponse;
 import com.cloudera.cdp.dw.model.DescribeServerSettingRequest;
 import com.cloudera.cdp.dw.model.DescribeServerSettingResponse;
+import com.cloudera.cdp.dw.model.DescribeVwConfigRequest;
+import com.cloudera.cdp.dw.model.DescribeVwConfigResponse;
 import com.cloudera.cdp.dw.model.DescribeVwDiagnosticDataJobRequest;
 import com.cloudera.cdp.dw.model.DescribeVwDiagnosticDataJobResponse;
 import com.cloudera.cdp.dw.model.DescribeVwRequest;
@@ -135,8 +139,6 @@ import com.cloudera.cdp.dw.model.ListVwEventsRequest;
 import com.cloudera.cdp.dw.model.ListVwEventsResponse;
 import com.cloudera.cdp.dw.model.ListVwsRequest;
 import com.cloudera.cdp.dw.model.ListVwsResponse;
-import com.cloudera.cdp.dw.model.PauseVwRequest;
-import com.cloudera.cdp.dw.model.PauseVwResponse;
 import com.cloudera.cdp.dw.model.RebuildDbcRequest;
 import com.cloudera.cdp.dw.model.RebuildDbcResponse;
 import com.cloudera.cdp.dw.model.RebuildVwRequest;
@@ -159,12 +161,16 @@ import com.cloudera.cdp.dw.model.UpdateClusterRequest;
 import com.cloudera.cdp.dw.model.UpdateClusterResponse;
 import com.cloudera.cdp.dw.model.UpdateDataVisualizationRequest;
 import com.cloudera.cdp.dw.model.UpdateDataVisualizationResponse;
+import com.cloudera.cdp.dw.model.UpdateDbcConfigRequest;
+import com.cloudera.cdp.dw.model.UpdateDbcConfigResponse;
 import com.cloudera.cdp.dw.model.UpdateDbcRequest;
 import com.cloudera.cdp.dw.model.UpdateDbcResponse;
 import com.cloudera.cdp.dw.model.UpdateServerSettingRequest;
 import com.cloudera.cdp.dw.model.UpdateServerSettingResponse;
 import com.cloudera.cdp.dw.model.UpdateSshKeyRequest;
 import com.cloudera.cdp.dw.model.UpdateSshKeyResponse;
+import com.cloudera.cdp.dw.model.UpdateVwConfigRequest;
+import com.cloudera.cdp.dw.model.UpdateVwConfigResponse;
 import com.cloudera.cdp.dw.model.UpdateVwRequest;
 import com.cloudera.cdp.dw.model.UpdateVwResponse;
 import com.cloudera.cdp.dw.model.UpgradeClusterRequest;
@@ -181,7 +187,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-20T13:40:33.540-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-04T19:25:13.802-07:00")
 public class DwClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dw";
@@ -551,6 +557,19 @@ public class DwClient extends CdpClient {
   }
 
   /**
+   * Describes the Database Catalog current configuration.
+   * @param input
+   * @return DescribeDbcConfigResponse
+   */
+  public DescribeDbcConfigResponse describeDbcConfig(DescribeDbcConfigRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeDbcConfig");
+    }
+
+    return this.invokeAPI("describeDbcConfig", "/api/v1/dw/describeDbcConfig", input, new GenericType<DescribeDbcConfigResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Describes a diagnostic job for the given Database Catalog.
    * @param input
    * @return DescribeDbcDiagnosticDataJobResponse
@@ -613,6 +632,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("describeVw", "/api/v1/dw/describeVw", input, new GenericType<DescribeVwResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Describes the current configuration of a Hive or Impala Virtual Warehouse.
+   * @param input
+   * @return DescribeVwConfigResponse
+   */
+  public DescribeVwConfigResponse describeVwConfig(DescribeVwConfigRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeVwConfig");
+    }
+
+    return this.invokeAPI("describeVwConfig", "/api/v1/dw/describeVwConfig", input, new GenericType<DescribeVwConfigResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -902,20 +934,6 @@ public class DwClient extends CdpClient {
   }
 
   /**
-   * Pauses a running Virtual Warehouse.
-   * @param input
-   * @return PauseVwResponse
-   */
-  @Deprecated
-  public PauseVwResponse pauseVw(PauseVwRequest input) {
-    if (input == null) {
-      throw new CdpClientException("Missing the required parameter 'input' when calling pauseVw");
-    }
-
-    return this.invokeAPI("pauseVw", "/api/v1/dw/pauseVw", input, new GenericType<PauseVwResponse>(){}, NO_EXTENSION);
-  }
-
-  /**
    * Rebuild a Database Catalog.
    * @param input
    * @return RebuildDbcResponse
@@ -994,7 +1012,7 @@ public class DwClient extends CdpClient {
   }
 
   /**
-   * Starts a paused Virtual Warehouse.
+   * Starts a suspended Virtual Warehouse.
    * @param input
    * @return StartVwResponse
    */
@@ -1072,6 +1090,19 @@ public class DwClient extends CdpClient {
   }
 
   /**
+   * Update a Database Catalog configuration.
+   * @param input
+   * @return UpdateDbcConfigResponse
+   */
+  public UpdateDbcConfigResponse updateDbcConfig(UpdateDbcConfigRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateDbcConfig");
+    }
+
+    return this.invokeAPI("updateDbcConfig", "/api/v1/dw/updateDbcConfig", input, new GenericType<UpdateDbcConfigResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Update the DWX server settings.
    * @param input
    * @return UpdateServerSettingResponse
@@ -1108,6 +1139,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("updateVw", "/api/v1/dw/updateVw", input, new GenericType<UpdateVwResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Update a Virtual Warehouse configuration.
+   * @param input
+   * @return UpdateVwConfigResponse
+   */
+  public UpdateVwConfigResponse updateVwConfig(UpdateVwConfigRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateVwConfig");
+    }
+
+    return this.invokeAPI("updateVwConfig", "/api/v1/dw/updateVwConfig", input, new GenericType<UpdateVwConfigResponse>(){}, NO_EXTENSION);
   }
 
   /**

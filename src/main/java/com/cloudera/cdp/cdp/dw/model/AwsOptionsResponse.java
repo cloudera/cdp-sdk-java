@@ -28,13 +28,23 @@ import java.util.*;
 /**
  * Response object of the cluster AWS settings.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-20T13:40:33.540-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-04T19:25:13.802-07:00")
 public class AwsOptionsResponse extends CdpResponse {
 
   /**
    * IDs of AWS subnets where the cluster has been deployed.
    **/
   private List<String> subnetIds = new ArrayList<String>();
+
+  /**
+   * IDs of AWS subnets where the cluster worker nodes should be deployed.
+   **/
+  private List<String> workerSubnetIds = new ArrayList<String>();
+
+  /**
+   * IDs of AWS subnets where the cluster load balancer should be deployed.
+   **/
+  private List<String> lbSubnetIds = new ArrayList<String>();
 
   /**
    * List of availability zones that the cluster is restricted to use.
@@ -66,6 +76,40 @@ public class AwsOptionsResponse extends CdpResponse {
    **/
   public void setSubnetIds(List<String> subnetIds) {
     this.subnetIds = subnetIds;
+  }
+
+  /**
+   * Getter for workerSubnetIds.
+   * IDs of AWS subnets where the cluster worker nodes should be deployed.
+   **/
+  @JsonProperty("workerSubnetIds")
+  public List<String> getWorkerSubnetIds() {
+    return workerSubnetIds;
+  }
+
+  /**
+   * Setter for workerSubnetIds.
+   * IDs of AWS subnets where the cluster worker nodes should be deployed.
+   **/
+  public void setWorkerSubnetIds(List<String> workerSubnetIds) {
+    this.workerSubnetIds = workerSubnetIds;
+  }
+
+  /**
+   * Getter for lbSubnetIds.
+   * IDs of AWS subnets where the cluster load balancer should be deployed.
+   **/
+  @JsonProperty("lbSubnetIds")
+  public List<String> getLbSubnetIds() {
+    return lbSubnetIds;
+  }
+
+  /**
+   * Setter for lbSubnetIds.
+   * IDs of AWS subnets where the cluster load balancer should be deployed.
+   **/
+  public void setLbSubnetIds(List<String> lbSubnetIds) {
+    this.lbSubnetIds = lbSubnetIds;
   }
 
   /**
@@ -131,6 +175,12 @@ public class AwsOptionsResponse extends CdpResponse {
     if (!Objects.equals(this.subnetIds, awsOptionsResponse.subnetIds)) {
       return false;
     }
+    if (!Objects.equals(this.workerSubnetIds, awsOptionsResponse.workerSubnetIds)) {
+      return false;
+    }
+    if (!Objects.equals(this.lbSubnetIds, awsOptionsResponse.lbSubnetIds)) {
+      return false;
+    }
     if (!Objects.equals(this.availabilityZones, awsOptionsResponse.availabilityZones)) {
       return false;
     }
@@ -148,7 +198,7 @@ public class AwsOptionsResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(subnetIds, availabilityZones, customAmiId, reducedPermissionMode, super.hashCode());
+    return Objects.hash(subnetIds, workerSubnetIds, lbSubnetIds, availabilityZones, customAmiId, reducedPermissionMode, super.hashCode());
   }
 
   @Override
@@ -157,6 +207,8 @@ public class AwsOptionsResponse extends CdpResponse {
     sb.append("class AwsOptionsResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
+    sb.append("    workerSubnetIds: ").append(toIndentedString(workerSubnetIds)).append("\n");
+    sb.append("    lbSubnetIds: ").append(toIndentedString(lbSubnetIds)).append("\n");
     sb.append("    availabilityZones: ").append(toIndentedString(availabilityZones)).append("\n");
     sb.append("    customAmiId: ").append(toIndentedString(customAmiId)).append("\n");
     sb.append("    reducedPermissionMode: ").append(toIndentedString(reducedPermissionMode)).append("\n");

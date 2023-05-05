@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Policy creation request definition.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-20T13:40:36.979-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-04T19:25:17.129-07:00")
 public class PolicyDefinition  {
 
   /**
@@ -127,7 +127,7 @@ public class PolicyDefinition  {
   /**
    * Plugins.
    **/
-  private List<String> plugins = new ArrayList<String>();
+  private List<String> plugins = null;
 
   /**
    * Hive external table base directory.

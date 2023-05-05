@@ -23,12 +23,35 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.dw.model.ServiceConfigResp;
 
 /**
- * The response object for the pauseVw method.
+ * Response object for the describeVwConfig method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-20T13:40:33.540-07:00")
-public class PauseVwResponse extends CdpResponse {
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-04T19:25:13.802-07:00")
+public class DescribeVwConfigResponse extends CdpResponse {
+
+  /**
+   * The Virtual Warehouse configuration.
+   **/
+  private ServiceConfigResp config = null;
+
+  /**
+   * Getter for config.
+   * The Virtual Warehouse configuration.
+   **/
+  @JsonProperty("config")
+  public ServiceConfigResp getConfig() {
+    return config;
+  }
+
+  /**
+   * Setter for config.
+   * The Virtual Warehouse configuration.
+   **/
+  public void setConfig(ServiceConfigResp config) {
+    this.config = config;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -36,6 +59,10 @@ public class PauseVwResponse extends CdpResponse {
       return true;
     }
     if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    DescribeVwConfigResponse describeVwConfigResponse = (DescribeVwConfigResponse) o;
+    if (!Objects.equals(this.config, describeVwConfigResponse.config)) {
       return false;
     }
     if (!super.equals(o)) {
@@ -46,14 +73,15 @@ public class PauseVwResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash( super.hashCode());
+    return Objects.hash(config, super.hashCode());
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PauseVwResponse {\n");
+    sb.append("class DescribeVwConfigResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("}");
     return sb.toString();
   }

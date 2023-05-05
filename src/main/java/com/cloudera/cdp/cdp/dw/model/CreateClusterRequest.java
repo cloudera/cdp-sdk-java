@@ -27,11 +27,12 @@ import com.cloudera.cdp.dw.model.AwsActivationOptions;
 import com.cloudera.cdp.dw.model.AzureActivationOptions;
 import com.cloudera.cdp.dw.model.CustomRegistryOptions;
 import com.cloudera.cdp.dw.model.PrivateCloudActivationOptions;
+import java.util.*;
 
 /**
  * Request object for the createCluster method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-20T13:40:33.540-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-04T19:25:13.802-07:00")
 public class CreateClusterRequest  {
 
   /**
@@ -50,9 +51,19 @@ public class CreateClusterRequest  {
   private Integer databaseBackupRetentionPeriod = 30;
 
   /**
-   * Comma separated list of IP address CIDRs to whitelist.
+   * This field is still available for Private Cloud deployments, however it'll be removed for Public Cloud in the next DWX release. Please use the use 'whitelistK8sClusterAccessIpCIDRs' in combination of 'whitelistWorkloadAccessIpCIDRs' on Public Cloud. Comma separated list of IP address CIDRs to whitelist.
    **/
   private String whitelistIpCIDRs = null;
+
+  /**
+   * List of IP address CIDRs to whitelist for kubernetes cluster access.
+   **/
+  private List<String> whitelistK8sClusterAccessIpCIDRs = new ArrayList<String>();
+
+  /**
+   * List of IP address CIDRs to whitelist for workload access.
+   **/
+  private List<String> whitelistWorkloadAccessIpCIDRs = new ArrayList<String>();
 
   /**
    * Set up load balancer with private IP address. In AWS it is created in private subnets. In Azure an internal load balancer gets created. Make sure there is connectivity between your client network and the network (VPC/VNet) where CDW environment is deployed.
@@ -83,11 +94,6 @@ public class CreateClusterRequest  {
    * Options for activating a Private Cloud environment.
    **/
   private PrivateCloudActivationOptions privateCloudOptions = null;
-
-  /**
-   * Custom environment ID provided to the cluster
-   **/
-  private String customId = null;
 
   /**
    * Custom environment subdomain. Overrides the environment subdomain using a customized domain either in the old subdomain format like ENV_ID.dw or the new format like dw-ENV_NAME.
@@ -147,7 +153,7 @@ public class CreateClusterRequest  {
 
   /**
    * Getter for whitelistIpCIDRs.
-   * Comma separated list of IP address CIDRs to whitelist.
+   * This field is still available for Private Cloud deployments, however it&#39;ll be removed for Public Cloud in the next DWX release. Please use the use &#39;whitelistK8sClusterAccessIpCIDRs&#39; in combination of &#39;whitelistWorkloadAccessIpCIDRs&#39; on Public Cloud. Comma separated list of IP address CIDRs to whitelist.
    **/
   @JsonProperty("whitelistIpCIDRs")
   public String getWhitelistIpCIDRs() {
@@ -156,10 +162,44 @@ public class CreateClusterRequest  {
 
   /**
    * Setter for whitelistIpCIDRs.
-   * Comma separated list of IP address CIDRs to whitelist.
+   * This field is still available for Private Cloud deployments, however it&#39;ll be removed for Public Cloud in the next DWX release. Please use the use &#39;whitelistK8sClusterAccessIpCIDRs&#39; in combination of &#39;whitelistWorkloadAccessIpCIDRs&#39; on Public Cloud. Comma separated list of IP address CIDRs to whitelist.
    **/
   public void setWhitelistIpCIDRs(String whitelistIpCIDRs) {
     this.whitelistIpCIDRs = whitelistIpCIDRs;
+  }
+
+  /**
+   * Getter for whitelistK8sClusterAccessIpCIDRs.
+   * List of IP address CIDRs to whitelist for kubernetes cluster access.
+   **/
+  @JsonProperty("whitelistK8sClusterAccessIpCIDRs")
+  public List<String> getWhitelistK8sClusterAccessIpCIDRs() {
+    return whitelistK8sClusterAccessIpCIDRs;
+  }
+
+  /**
+   * Setter for whitelistK8sClusterAccessIpCIDRs.
+   * List of IP address CIDRs to whitelist for kubernetes cluster access.
+   **/
+  public void setWhitelistK8sClusterAccessIpCIDRs(List<String> whitelistK8sClusterAccessIpCIDRs) {
+    this.whitelistK8sClusterAccessIpCIDRs = whitelistK8sClusterAccessIpCIDRs;
+  }
+
+  /**
+   * Getter for whitelistWorkloadAccessIpCIDRs.
+   * List of IP address CIDRs to whitelist for workload access.
+   **/
+  @JsonProperty("whitelistWorkloadAccessIpCIDRs")
+  public List<String> getWhitelistWorkloadAccessIpCIDRs() {
+    return whitelistWorkloadAccessIpCIDRs;
+  }
+
+  /**
+   * Setter for whitelistWorkloadAccessIpCIDRs.
+   * List of IP address CIDRs to whitelist for workload access.
+   **/
+  public void setWhitelistWorkloadAccessIpCIDRs(List<String> whitelistWorkloadAccessIpCIDRs) {
+    this.whitelistWorkloadAccessIpCIDRs = whitelistWorkloadAccessIpCIDRs;
   }
 
   /**
@@ -265,23 +305,6 @@ public class CreateClusterRequest  {
   }
 
   /**
-   * Getter for customId.
-   * Custom environment ID provided to the cluster
-   **/
-  @JsonProperty("customId")
-  public String getCustomId() {
-    return customId;
-  }
-
-  /**
-   * Setter for customId.
-   * Custom environment ID provided to the cluster
-   **/
-  public void setCustomId(String customId) {
-    this.customId = customId;
-  }
-
-  /**
    * Getter for customSubdomain.
    * Custom environment subdomain. Overrides the environment subdomain using a customized domain either in the old subdomain format like ENV_ID.dw or the new format like dw-ENV_NAME.
    **/
@@ -319,6 +342,12 @@ public class CreateClusterRequest  {
     if (!Objects.equals(this.whitelistIpCIDRs, createClusterRequest.whitelistIpCIDRs)) {
       return false;
     }
+    if (!Objects.equals(this.whitelistK8sClusterAccessIpCIDRs, createClusterRequest.whitelistK8sClusterAccessIpCIDRs)) {
+      return false;
+    }
+    if (!Objects.equals(this.whitelistWorkloadAccessIpCIDRs, createClusterRequest.whitelistWorkloadAccessIpCIDRs)) {
+      return false;
+    }
     if (!Objects.equals(this.usePrivateLoadBalancer, createClusterRequest.usePrivateLoadBalancer)) {
       return false;
     }
@@ -337,9 +366,6 @@ public class CreateClusterRequest  {
     if (!Objects.equals(this.privateCloudOptions, createClusterRequest.privateCloudOptions)) {
       return false;
     }
-    if (!Objects.equals(this.customId, createClusterRequest.customId)) {
-      return false;
-    }
     if (!Objects.equals(this.customSubdomain, createClusterRequest.customSubdomain)) {
       return false;
     }
@@ -348,7 +374,7 @@ public class CreateClusterRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, useOverlayNetwork, databaseBackupRetentionPeriod, whitelistIpCIDRs, usePrivateLoadBalancer, enableStorageRoles, customRegistryOptions, awsOptions, azureOptions, privateCloudOptions, customId, customSubdomain);
+    return Objects.hash(environmentCrn, useOverlayNetwork, databaseBackupRetentionPeriod, whitelistIpCIDRs, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, usePrivateLoadBalancer, enableStorageRoles, customRegistryOptions, awsOptions, azureOptions, privateCloudOptions, customSubdomain);
   }
 
   @Override
@@ -359,13 +385,14 @@ public class CreateClusterRequest  {
     sb.append("    useOverlayNetwork: ").append(toIndentedString(useOverlayNetwork)).append("\n");
     sb.append("    databaseBackupRetentionPeriod: ").append(toIndentedString(databaseBackupRetentionPeriod)).append("\n");
     sb.append("    whitelistIpCIDRs: ").append(toIndentedString(whitelistIpCIDRs)).append("\n");
+    sb.append("    whitelistK8sClusterAccessIpCIDRs: ").append(toIndentedString(whitelistK8sClusterAccessIpCIDRs)).append("\n");
+    sb.append("    whitelistWorkloadAccessIpCIDRs: ").append(toIndentedString(whitelistWorkloadAccessIpCIDRs)).append("\n");
     sb.append("    usePrivateLoadBalancer: ").append(toIndentedString(usePrivateLoadBalancer)).append("\n");
     sb.append("    enableStorageRoles: ").append(toIndentedString(enableStorageRoles)).append("\n");
     sb.append("    customRegistryOptions: ").append(toIndentedString(customRegistryOptions)).append("\n");
     sb.append("    awsOptions: ").append(toIndentedString(awsOptions)).append("\n");
     sb.append("    azureOptions: ").append(toIndentedString(azureOptions)).append("\n");
     sb.append("    privateCloudOptions: ").append(toIndentedString(privateCloudOptions)).append("\n");
-    sb.append("    customId: ").append(toIndentedString(customId)).append("\n");
     sb.append("    customSubdomain: ").append(toIndentedString(customSubdomain)).append("\n");
     sb.append("}");
     return sb.toString();

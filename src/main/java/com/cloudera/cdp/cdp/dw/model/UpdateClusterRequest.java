@@ -25,12 +25,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.dw.model.UpdateClusterRequestAwsUpdate;
 import com.cloudera.cdp.dw.model.UpdateClusterRequestAzureUpdate;
+import com.cloudera.cdp.dw.model.UpdateClusterRequestObservabilityConfig;
 import java.util.*;
 
 /**
  * Request object for the updateCluster method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-20T13:40:33.540-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-04T19:25:13.802-07:00")
 public class UpdateClusterRequest  {
 
   /**
@@ -49,6 +50,16 @@ public class UpdateClusterRequest  {
   private List<String> whitelistIpCIDRs = new ArrayList<String>();
 
   /**
+   * List of IP address CIDRs to whitelist for kubernetes cluster access.
+   **/
+  private List<String> whitelistK8sClusterAccessIpCIDRs = new ArrayList<String>();
+
+  /**
+   * List of IP address CIDRs to whitelist for workload access.
+   **/
+  private List<String> whitelistWorkloadAccessIpCIDRs = new ArrayList<String>();
+
+  /**
    * 
    **/
   private UpdateClusterRequestAwsUpdate awsUpdate = null;
@@ -57,6 +68,11 @@ public class UpdateClusterRequest  {
    * 
    **/
   private UpdateClusterRequestAzureUpdate azureUpdate = null;
+
+  /**
+   * 
+   **/
+  private UpdateClusterRequestObservabilityConfig observabilityConfig = null;
 
   /**
    * Getter for clusterId.
@@ -110,6 +126,40 @@ public class UpdateClusterRequest  {
   }
 
   /**
+   * Getter for whitelistK8sClusterAccessIpCIDRs.
+   * List of IP address CIDRs to whitelist for kubernetes cluster access.
+   **/
+  @JsonProperty("whitelistK8sClusterAccessIpCIDRs")
+  public List<String> getWhitelistK8sClusterAccessIpCIDRs() {
+    return whitelistK8sClusterAccessIpCIDRs;
+  }
+
+  /**
+   * Setter for whitelistK8sClusterAccessIpCIDRs.
+   * List of IP address CIDRs to whitelist for kubernetes cluster access.
+   **/
+  public void setWhitelistK8sClusterAccessIpCIDRs(List<String> whitelistK8sClusterAccessIpCIDRs) {
+    this.whitelistK8sClusterAccessIpCIDRs = whitelistK8sClusterAccessIpCIDRs;
+  }
+
+  /**
+   * Getter for whitelistWorkloadAccessIpCIDRs.
+   * List of IP address CIDRs to whitelist for workload access.
+   **/
+  @JsonProperty("whitelistWorkloadAccessIpCIDRs")
+  public List<String> getWhitelistWorkloadAccessIpCIDRs() {
+    return whitelistWorkloadAccessIpCIDRs;
+  }
+
+  /**
+   * Setter for whitelistWorkloadAccessIpCIDRs.
+   * List of IP address CIDRs to whitelist for workload access.
+   **/
+  public void setWhitelistWorkloadAccessIpCIDRs(List<String> whitelistWorkloadAccessIpCIDRs) {
+    this.whitelistWorkloadAccessIpCIDRs = whitelistWorkloadAccessIpCIDRs;
+  }
+
+  /**
    * Getter for awsUpdate.
    * 
    **/
@@ -143,6 +193,23 @@ public class UpdateClusterRequest  {
     this.azureUpdate = azureUpdate;
   }
 
+  /**
+   * Getter for observabilityConfig.
+   * 
+   **/
+  @JsonProperty("observabilityConfig")
+  public UpdateClusterRequestObservabilityConfig getObservabilityConfig() {
+    return observabilityConfig;
+  }
+
+  /**
+   * Setter for observabilityConfig.
+   * 
+   **/
+  public void setObservabilityConfig(UpdateClusterRequestObservabilityConfig observabilityConfig) {
+    this.observabilityConfig = observabilityConfig;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -161,10 +228,19 @@ public class UpdateClusterRequest  {
     if (!Objects.equals(this.whitelistIpCIDRs, updateClusterRequest.whitelistIpCIDRs)) {
       return false;
     }
+    if (!Objects.equals(this.whitelistK8sClusterAccessIpCIDRs, updateClusterRequest.whitelistK8sClusterAccessIpCIDRs)) {
+      return false;
+    }
+    if (!Objects.equals(this.whitelistWorkloadAccessIpCIDRs, updateClusterRequest.whitelistWorkloadAccessIpCIDRs)) {
+      return false;
+    }
     if (!Objects.equals(this.awsUpdate, updateClusterRequest.awsUpdate)) {
       return false;
     }
     if (!Objects.equals(this.azureUpdate, updateClusterRequest.azureUpdate)) {
+      return false;
+    }
+    if (!Objects.equals(this.observabilityConfig, updateClusterRequest.observabilityConfig)) {
       return false;
     }
     return true;
@@ -172,7 +248,7 @@ public class UpdateClusterRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, description, whitelistIpCIDRs, awsUpdate, azureUpdate);
+    return Objects.hash(clusterId, description, whitelistIpCIDRs, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, awsUpdate, azureUpdate, observabilityConfig);
   }
 
   @Override
@@ -182,8 +258,11 @@ public class UpdateClusterRequest  {
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    whitelistIpCIDRs: ").append(toIndentedString(whitelistIpCIDRs)).append("\n");
+    sb.append("    whitelistK8sClusterAccessIpCIDRs: ").append(toIndentedString(whitelistK8sClusterAccessIpCIDRs)).append("\n");
+    sb.append("    whitelistWorkloadAccessIpCIDRs: ").append(toIndentedString(whitelistWorkloadAccessIpCIDRs)).append("\n");
     sb.append("    awsUpdate: ").append(toIndentedString(awsUpdate)).append("\n");
     sb.append("    azureUpdate: ").append(toIndentedString(azureUpdate)).append("\n");
+    sb.append("    observabilityConfig: ").append(toIndentedString(observabilityConfig)).append("\n");
     sb.append("}");
     return sb.toString();
   }

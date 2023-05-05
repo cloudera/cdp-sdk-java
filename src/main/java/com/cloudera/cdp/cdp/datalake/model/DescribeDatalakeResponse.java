@@ -28,7 +28,7 @@ import com.cloudera.cdp.datalake.model.DatalakeDetails;
 /**
  * Response object for describe datalake request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-20T13:40:34.468-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-04T19:25:14.703-07:00")
 public class DescribeDatalakeResponse extends CdpResponse {
 
   /**

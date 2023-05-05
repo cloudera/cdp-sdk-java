@@ -31,13 +31,15 @@ import com.cloudera.cdp.dw.model.QueryIsolationOptionsResponse;
 import com.cloudera.cdp.dw.model.ReplicaStatus;
 import com.cloudera.cdp.dw.model.TagResponse;
 import com.cloudera.cdp.dw.model.VwSummaryEndpoints;
+import com.cloudera.cdp.dw.model.VwSummaryJwtAuth;
+import com.cloudera.cdp.dw.model.VwSummarySupportedAuthMethods;
 import java.time.ZonedDateTime;
 import java.util.*;
 
 /**
  * A Virtual Warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-04-20T13:40:33.540-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-04T19:25:13.802-07:00")
 public class VwSummary  {
 
   /**
@@ -104,6 +106,16 @@ public class VwSummary  {
    * 
    **/
   private VwSummaryEndpoints endpoints = null;
+
+  /**
+   * 
+   **/
+  private VwSummarySupportedAuthMethods supportedAuthMethods = null;
+
+  /**
+   * 
+   **/
+  private VwSummaryJwtAuth jwtAuth = null;
 
   /**
    * Tags associated with the resources.
@@ -372,6 +384,40 @@ public class VwSummary  {
   }
 
   /**
+   * Getter for supportedAuthMethods.
+   * 
+   **/
+  @JsonProperty("supportedAuthMethods")
+  public VwSummarySupportedAuthMethods getSupportedAuthMethods() {
+    return supportedAuthMethods;
+  }
+
+  /**
+   * Setter for supportedAuthMethods.
+   * 
+   **/
+  public void setSupportedAuthMethods(VwSummarySupportedAuthMethods supportedAuthMethods) {
+    this.supportedAuthMethods = supportedAuthMethods;
+  }
+
+  /**
+   * Getter for jwtAuth.
+   * 
+   **/
+  @JsonProperty("jwtAuth")
+  public VwSummaryJwtAuth getJwtAuth() {
+    return jwtAuth;
+  }
+
+  /**
+   * Setter for jwtAuth.
+   * 
+   **/
+  public void setJwtAuth(VwSummaryJwtAuth jwtAuth) {
+    this.jwtAuth = jwtAuth;
+  }
+
+  /**
    * Getter for tags.
    * Tags associated with the resources.
    **/
@@ -572,6 +618,12 @@ public class VwSummary  {
     if (!Objects.equals(this.endpoints, vwSummary.endpoints)) {
       return false;
     }
+    if (!Objects.equals(this.supportedAuthMethods, vwSummary.supportedAuthMethods)) {
+      return false;
+    }
+    if (!Objects.equals(this.jwtAuth, vwSummary.jwtAuth)) {
+      return false;
+    }
     if (!Objects.equals(this.tags, vwSummary.tags)) {
       return false;
     }
@@ -604,7 +656,7 @@ public class VwSummary  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, name, vwType, dbcId, status, statusChangedAt, creator, creationDate, configId, cdhVersion, availabilityZone, endpoints, tags, compactor, viz, enableUnifiedAnalytics, autoscalingOptions, impalaOptions, impalaHaSettingsOptions, queryIsolationOptions, replicaStatus);
+    return Objects.hash(crn, id, name, vwType, dbcId, status, statusChangedAt, creator, creationDate, configId, cdhVersion, availabilityZone, endpoints, supportedAuthMethods, jwtAuth, tags, compactor, viz, enableUnifiedAnalytics, autoscalingOptions, impalaOptions, impalaHaSettingsOptions, queryIsolationOptions, replicaStatus);
   }
 
   @Override
@@ -624,6 +676,8 @@ public class VwSummary  {
     sb.append("    cdhVersion: ").append(toIndentedString(cdhVersion)).append("\n");
     sb.append("    availabilityZone: ").append(toIndentedString(availabilityZone)).append("\n");
     sb.append("    endpoints: ").append(toIndentedString(endpoints)).append("\n");
+    sb.append("    supportedAuthMethods: ").append(toIndentedString(supportedAuthMethods)).append("\n");
+    sb.append("    jwtAuth: ").append(toIndentedString(jwtAuth)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    compactor: ").append(toIndentedString(compactor)).append("\n");
     sb.append("    viz: ").append(toIndentedString(viz)).append("\n");
