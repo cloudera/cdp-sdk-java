@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * The type of the instance group which also contains the actual instance(s)
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-04T19:25:13.163-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-19T00:55:24.161-07:00")
 public class InstanceGroup  {
 
   /**
@@ -38,7 +38,7 @@ public class InstanceGroup  {
   private String name = null;
 
   /**
-   * Some information about the given instance.
+   * List of instances in this instance group.
    **/
   private List<Instance> instances = new ArrayList<Instance>();
 
@@ -61,7 +61,7 @@ public class InstanceGroup  {
 
   /**
    * Getter for instances.
-   * Some information about the given instance.
+   * List of instances in this instance group.
    **/
   @JsonProperty("instances")
   public List<Instance> getInstances() {
@@ -70,7 +70,7 @@ public class InstanceGroup  {
 
   /**
    * Setter for instances.
-   * Some information about the given instance.
+   * List of instances in this instance group.
    **/
   public void setInstances(List<Instance> instances) {
     this.instances = instances;

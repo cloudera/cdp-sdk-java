@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * The attached volume configuration.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-04T19:25:15.283-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-19T00:55:26.598-07:00")
 public class AttachedVolume  {
 
   /**
@@ -41,7 +41,7 @@ public class AttachedVolume  {
   private String volumeType = null;
 
   /**
-   * The size of volumes.
+   * The size of each volume in GB.
    **/
   private Long size = null;
 
@@ -81,7 +81,7 @@ public class AttachedVolume  {
 
   /**
    * Getter for size.
-   * The size of volumes.
+   * The size of each volume in GB.
    **/
   @JsonProperty("size")
   public Long getSize() {
@@ -90,7 +90,7 @@ public class AttachedVolume  {
 
   /**
    * Setter for size.
-   * The size of volumes.
+   * The size of each volume in GB.
    **/
   public void setSize(Long size) {
     this.size = size;

@@ -28,7 +28,7 @@ import com.cloudera.cdp.iam.model.SshPublicKey;
 /**
  * Response object for describe user SSH public key.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-04T19:25:16.095-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-19T00:55:27.347-07:00")
 public class DescribeSshPublicKeyResponse extends CdpResponse {
 
   /**

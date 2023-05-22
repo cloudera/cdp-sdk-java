@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Deployment structure.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-04T19:25:17.047-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-19T00:55:28.311-07:00")
 public class Deployment  {
 
   /**

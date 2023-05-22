@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Object which holds some details of an instance for the given cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-04T19:25:14.703-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-19T00:55:26.073-07:00")
 public class Instance  {
 
   /**
@@ -41,14 +41,44 @@ public class Instance  {
   private String state = null;
 
   /**
-   * The private ip of the given instance.
+   * The FQDN of the instance.
+   **/
+  private String discoveryFQDN = null;
+
+  /**
+   * The status of the instance.
+   **/
+  private String instanceStatus = null;
+
+  /**
+   * The reason for the current status of this instance.
+   **/
+  private String statusReason = null;
+
+  /**
+   * The private IP of the given instance.
    **/
   private String privateIp = null;
 
   /**
-   * The public ip of the given instance.
+   * The public IP of the given instance.
    **/
   private String publicIp = null;
+
+  /**
+   * The SSH port for the instance.
+   **/
+  private Integer sshPort = null;
+
+  /**
+   * The name of the instance group this instance belongs to.
+   **/
+  private String instanceGroup = null;
+
+  /**
+   * The instance type.
+   **/
+  private String instanceTypeVal = null;
 
   /**
    * Getter for id.
@@ -85,8 +115,59 @@ public class Instance  {
   }
 
   /**
+   * Getter for discoveryFQDN.
+   * The FQDN of the instance.
+   **/
+  @JsonProperty("discoveryFQDN")
+  public String getDiscoveryFQDN() {
+    return discoveryFQDN;
+  }
+
+  /**
+   * Setter for discoveryFQDN.
+   * The FQDN of the instance.
+   **/
+  public void setDiscoveryFQDN(String discoveryFQDN) {
+    this.discoveryFQDN = discoveryFQDN;
+  }
+
+  /**
+   * Getter for instanceStatus.
+   * The status of the instance.
+   **/
+  @JsonProperty("instanceStatus")
+  public String getInstanceStatus() {
+    return instanceStatus;
+  }
+
+  /**
+   * Setter for instanceStatus.
+   * The status of the instance.
+   **/
+  public void setInstanceStatus(String instanceStatus) {
+    this.instanceStatus = instanceStatus;
+  }
+
+  /**
+   * Getter for statusReason.
+   * The reason for the current status of this instance.
+   **/
+  @JsonProperty("statusReason")
+  public String getStatusReason() {
+    return statusReason;
+  }
+
+  /**
+   * Setter for statusReason.
+   * The reason for the current status of this instance.
+   **/
+  public void setStatusReason(String statusReason) {
+    this.statusReason = statusReason;
+  }
+
+  /**
    * Getter for privateIp.
-   * The private ip of the given instance.
+   * The private IP of the given instance.
    **/
   @JsonProperty("privateIp")
   public String getPrivateIp() {
@@ -95,7 +176,7 @@ public class Instance  {
 
   /**
    * Setter for privateIp.
-   * The private ip of the given instance.
+   * The private IP of the given instance.
    **/
   public void setPrivateIp(String privateIp) {
     this.privateIp = privateIp;
@@ -103,7 +184,7 @@ public class Instance  {
 
   /**
    * Getter for publicIp.
-   * The public ip of the given instance.
+   * The public IP of the given instance.
    **/
   @JsonProperty("publicIp")
   public String getPublicIp() {
@@ -112,10 +193,61 @@ public class Instance  {
 
   /**
    * Setter for publicIp.
-   * The public ip of the given instance.
+   * The public IP of the given instance.
    **/
   public void setPublicIp(String publicIp) {
     this.publicIp = publicIp;
+  }
+
+  /**
+   * Getter for sshPort.
+   * The SSH port for the instance.
+   **/
+  @JsonProperty("sshPort")
+  public Integer getSshPort() {
+    return sshPort;
+  }
+
+  /**
+   * Setter for sshPort.
+   * The SSH port for the instance.
+   **/
+  public void setSshPort(Integer sshPort) {
+    this.sshPort = sshPort;
+  }
+
+  /**
+   * Getter for instanceGroup.
+   * The name of the instance group this instance belongs to.
+   **/
+  @JsonProperty("instanceGroup")
+  public String getInstanceGroup() {
+    return instanceGroup;
+  }
+
+  /**
+   * Setter for instanceGroup.
+   * The name of the instance group this instance belongs to.
+   **/
+  public void setInstanceGroup(String instanceGroup) {
+    this.instanceGroup = instanceGroup;
+  }
+
+  /**
+   * Getter for instanceTypeVal.
+   * The instance type.
+   **/
+  @JsonProperty("instanceTypeVal")
+  public String getInstanceTypeVal() {
+    return instanceTypeVal;
+  }
+
+  /**
+   * Setter for instanceTypeVal.
+   * The instance type.
+   **/
+  public void setInstanceTypeVal(String instanceTypeVal) {
+    this.instanceTypeVal = instanceTypeVal;
   }
 
   @Override
@@ -133,10 +265,28 @@ public class Instance  {
     if (!Objects.equals(this.state, instance.state)) {
       return false;
     }
+    if (!Objects.equals(this.discoveryFQDN, instance.discoveryFQDN)) {
+      return false;
+    }
+    if (!Objects.equals(this.instanceStatus, instance.instanceStatus)) {
+      return false;
+    }
+    if (!Objects.equals(this.statusReason, instance.statusReason)) {
+      return false;
+    }
     if (!Objects.equals(this.privateIp, instance.privateIp)) {
       return false;
     }
     if (!Objects.equals(this.publicIp, instance.publicIp)) {
+      return false;
+    }
+    if (!Objects.equals(this.sshPort, instance.sshPort)) {
+      return false;
+    }
+    if (!Objects.equals(this.instanceGroup, instance.instanceGroup)) {
+      return false;
+    }
+    if (!Objects.equals(this.instanceTypeVal, instance.instanceTypeVal)) {
       return false;
     }
     return true;
@@ -144,7 +294,7 @@ public class Instance  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, state, privateIp, publicIp);
+    return Objects.hash(id, state, discoveryFQDN, instanceStatus, statusReason, privateIp, publicIp, sshPort, instanceGroup, instanceTypeVal);
   }
 
   @Override
@@ -153,8 +303,14 @@ public class Instance  {
     sb.append("class Instance {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    discoveryFQDN: ").append(toIndentedString(discoveryFQDN)).append("\n");
+    sb.append("    instanceStatus: ").append(toIndentedString(instanceStatus)).append("\n");
+    sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
     sb.append("    privateIp: ").append(toIndentedString(privateIp)).append("\n");
     sb.append("    publicIp: ").append(toIndentedString(publicIp)).append("\n");
+    sb.append("    sshPort: ").append(toIndentedString(sshPort)).append("\n");
+    sb.append("    instanceGroup: ").append(toIndentedString(instanceGroup)).append("\n");
+    sb.append("    instanceTypeVal: ").append(toIndentedString(instanceTypeVal)).append("\n");
     sb.append("}");
     return sb.toString();
   }

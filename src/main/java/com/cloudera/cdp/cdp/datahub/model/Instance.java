@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Object which holds some details of an instance for the given cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-04T19:25:13.163-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-19T00:55:24.161-07:00")
 public class Instance  {
 
   /**
@@ -41,17 +41,22 @@ public class Instance  {
   private String state = null;
 
   /**
-   * The private ip of the given instance.
+   * The type of the given instance (either GATEWAY, GATEWAY_PRIMARY, or CORE).
+   **/
+  private String instanceType = null;
+
+  /**
+   * The private IP of the given instance.
    **/
   private String privateIp = null;
 
   /**
-   * The public ip of the given instance.
+   * The public IP of the given instance.
    **/
   private String publicIp = null;
 
   /**
-   * The FQDN for the instance
+   * The FQDN of the instance.
    **/
   private String fqdn = null;
 
@@ -95,8 +100,25 @@ public class Instance  {
   }
 
   /**
+   * Getter for instanceType.
+   * The type of the given instance (either GATEWAY, GATEWAY_PRIMARY, or CORE).
+   **/
+  @JsonProperty("instanceType")
+  public String getInstanceType() {
+    return instanceType;
+  }
+
+  /**
+   * Setter for instanceType.
+   * The type of the given instance (either GATEWAY, GATEWAY_PRIMARY, or CORE).
+   **/
+  public void setInstanceType(String instanceType) {
+    this.instanceType = instanceType;
+  }
+
+  /**
    * Getter for privateIp.
-   * The private ip of the given instance.
+   * The private IP of the given instance.
    **/
   @JsonProperty("privateIp")
   public String getPrivateIp() {
@@ -105,7 +127,7 @@ public class Instance  {
 
   /**
    * Setter for privateIp.
-   * The private ip of the given instance.
+   * The private IP of the given instance.
    **/
   public void setPrivateIp(String privateIp) {
     this.privateIp = privateIp;
@@ -113,7 +135,7 @@ public class Instance  {
 
   /**
    * Getter for publicIp.
-   * The public ip of the given instance.
+   * The public IP of the given instance.
    **/
   @JsonProperty("publicIp")
   public String getPublicIp() {
@@ -122,7 +144,7 @@ public class Instance  {
 
   /**
    * Setter for publicIp.
-   * The public ip of the given instance.
+   * The public IP of the given instance.
    **/
   public void setPublicIp(String publicIp) {
     this.publicIp = publicIp;
@@ -130,7 +152,7 @@ public class Instance  {
 
   /**
    * Getter for fqdn.
-   * The FQDN for the instance
+   * The FQDN of the instance.
    **/
   @JsonProperty("fqdn")
   public String getFqdn() {
@@ -139,7 +161,7 @@ public class Instance  {
 
   /**
    * Setter for fqdn.
-   * The FQDN for the instance
+   * The FQDN of the instance.
    **/
   public void setFqdn(String fqdn) {
     this.fqdn = fqdn;
@@ -177,6 +199,9 @@ public class Instance  {
     if (!Objects.equals(this.state, instance.state)) {
       return false;
     }
+    if (!Objects.equals(this.instanceType, instance.instanceType)) {
+      return false;
+    }
     if (!Objects.equals(this.privateIp, instance.privateIp)) {
       return false;
     }
@@ -194,7 +219,7 @@ public class Instance  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, state, privateIp, publicIp, fqdn, status);
+    return Objects.hash(id, state, instanceType, privateIp, publicIp, fqdn, status);
   }
 
   @Override
@@ -203,6 +228,7 @@ public class Instance  {
     sb.append("class Instance {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    privateIp: ").append(toIndentedString(privateIp)).append("\n");
     sb.append("    publicIp: ").append(toIndentedString(publicIp)).append("\n");
     sb.append("    fqdn: ").append(toIndentedString(fqdn)).append("\n");

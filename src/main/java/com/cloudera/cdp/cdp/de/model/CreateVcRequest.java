@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for CreateVc method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-04T19:25:15.964-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-19T00:55:27.217-07:00")
 public class CreateVcRequest  {
 
   /**
@@ -69,7 +69,7 @@ public class CreateVcRequest  {
   private String runtimeSpotComponent = null;
 
   /**
-   * Spark version for the virtual cluster. Currently supported spark versions are 2.4.7 and 3.1.1. This feature is only supported in CDE-1.7.0 and beyond.
+   * Spark version for the virtual cluster. Currently supported spark versions are SPARK2(deprecated), SPARK3 and SPARK3_3. This feature is only supported in CDE-1.7.0 and beyond. SPARK3_3 is supported in CDE-1.19 and beyond.
    **/
   private String sparkVersion = null;
 
@@ -199,7 +199,7 @@ public class CreateVcRequest  {
 
   /**
    * Getter for sparkVersion.
-   * Spark version for the virtual cluster. Currently supported spark versions are 2.4.7 and 3.1.1. This feature is only supported in CDE-1.7.0 and beyond.
+   * Spark version for the virtual cluster. Currently supported spark versions are SPARK2(deprecated), SPARK3 and SPARK3_3. This feature is only supported in CDE-1.7.0 and beyond. SPARK3_3 is supported in CDE-1.19 and beyond.
    **/
   @JsonProperty("sparkVersion")
   public String getSparkVersion() {
@@ -208,7 +208,7 @@ public class CreateVcRequest  {
 
   /**
    * Setter for sparkVersion.
-   * Spark version for the virtual cluster. Currently supported spark versions are 2.4.7 and 3.1.1. This feature is only supported in CDE-1.7.0 and beyond.
+   * Spark version for the virtual cluster. Currently supported spark versions are SPARK2(deprecated), SPARK3 and SPARK3_3. This feature is only supported in CDE-1.7.0 and beyond. SPARK3_3 is supported in CDE-1.19 and beyond.
    **/
   public void setSparkVersion(String sparkVersion) {
     this.sparkVersion = sparkVersion;
