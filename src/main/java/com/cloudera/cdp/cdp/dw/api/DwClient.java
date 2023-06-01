@@ -30,6 +30,8 @@ import com.cloudera.cdp.client.ResourceResponse;
 import com.cloudera.cdp.client.RestResponse;
 import com.cloudera.cdp.dw.model.AddUserRequest;
 import com.cloudera.cdp.dw.model.AddUserResponse;
+import com.cloudera.cdp.dw.model.BackupClusterRequest;
+import com.cloudera.cdp.dw.model.BackupClusterResponse;
 import com.cloudera.cdp.dw.model.CreateBackupRequest;
 import com.cloudera.cdp.dw.model.CreateBackupResponse;
 import com.cloudera.cdp.dw.model.CreateClusterDiagnosticDataJobRequest;
@@ -151,6 +153,8 @@ import com.cloudera.cdp.dw.model.RestartVwRequest;
 import com.cloudera.cdp.dw.model.RestartVwResponse;
 import com.cloudera.cdp.dw.model.RestoreBackupRequest;
 import com.cloudera.cdp.dw.model.RestoreBackupResponse;
+import com.cloudera.cdp.dw.model.RestoreClusterRequest;
+import com.cloudera.cdp.dw.model.RestoreClusterResponse;
 import com.cloudera.cdp.dw.model.StartVwRequest;
 import com.cloudera.cdp.dw.model.StartVwResponse;
 import com.cloudera.cdp.dw.model.SuspendDbcRequest;
@@ -187,7 +191,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-19T00:55:24.982-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-01T14:27:20.055-07:00")
 public class DwClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dw";
@@ -229,6 +233,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("addUser", "/api/v1/dw/addUser", input, new GenericType<AddUserResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Creates a backup from the cluster configuration and settings.
+   * @param input
+   * @return BackupClusterResponse
+   */
+  public BackupClusterResponse backupCluster(BackupClusterRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling backupCluster");
+    }
+
+    return this.invokeAPI("backupCluster", "/api/v1/dw/backupCluster", input, new GenericType<BackupClusterResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -1009,6 +1026,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("restoreBackup", "/api/v1/dw/restoreBackup", input, new GenericType<RestoreBackupResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Restores the cluster from a backup data made by \&quot;backup-cluster\&quot; command.
+   * @param input
+   * @return RestoreClusterResponse
+   */
+  public RestoreClusterResponse restoreCluster(RestoreClusterRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling restoreCluster");
+    }
+
+    return this.invokeAPI("restoreCluster", "/api/v1/dw/restoreCluster", input, new GenericType<RestoreClusterResponse>(){}, NO_EXTENSION);
   }
 
   /**

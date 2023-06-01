@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * Request object for create GCP Data Lake request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-19T00:55:26.073-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-01T14:27:20.990-07:00")
 public class CreateGCPDatalakeRequest  {
 
   /**
@@ -74,6 +74,11 @@ public class CreateGCPDatalakeRequest  {
    * Additional recipes that will be attached on the datalake instances (by instance groups, most common ones are like 'master' or 'idbroker').
    **/
   private List<InstanceGroupRecipeRequest> recipes = new ArrayList<InstanceGroupRecipeRequest>();
+
+  /**
+   * Configure the major version of Java on the cluster.
+   **/
+  private Integer javaVersion = null;
 
   /**
    * Getter for datalakeName.
@@ -211,6 +216,23 @@ public class CreateGCPDatalakeRequest  {
     this.recipes = recipes;
   }
 
+  /**
+   * Getter for javaVersion.
+   * Configure the major version of Java on the cluster.
+   **/
+  @JsonProperty("javaVersion")
+  public Integer getJavaVersion() {
+    return javaVersion;
+  }
+
+  /**
+   * Setter for javaVersion.
+   * Configure the major version of Java on the cluster.
+   **/
+  public void setJavaVersion(Integer javaVersion) {
+    this.javaVersion = javaVersion;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -244,12 +266,15 @@ public class CreateGCPDatalakeRequest  {
     if (!Objects.equals(this.recipes, createGCPDatalakeRequest.recipes)) {
       return false;
     }
+    if (!Objects.equals(this.javaVersion, createGCPDatalakeRequest.javaVersion)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, tags, scale, runtime, image, recipes);
+    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, tags, scale, runtime, image, recipes, javaVersion);
   }
 
   @Override
@@ -264,6 +289,7 @@ public class CreateGCPDatalakeRequest  {
     sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    recipes: ").append(toIndentedString(recipes)).append("\n");
+    sb.append("    javaVersion: ").append(toIndentedString(javaVersion)).append("\n");
     sb.append("}");
     return sb.toString();
   }

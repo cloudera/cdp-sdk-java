@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object for create Azure cluster request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-19T00:55:24.161-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-01T14:27:19.310-07:00")
 public class CreateAzureClusterRequest  {
 
   /**
@@ -93,6 +93,11 @@ public class CreateAzureClusterRequest  {
    * Flag that decides whether to provision a load-balancer to front various service endpoints for the given datahub. This will typically be used for HA cluster shapes.
    **/
   private Boolean enableLoadBalancer = null;
+
+  /**
+   * Configure the major version of Java on the cluster.
+   **/
+  private Integer javaVersion = null;
 
   /**
    * Getter for clusterName.
@@ -298,6 +303,23 @@ public class CreateAzureClusterRequest  {
     this.enableLoadBalancer = enableLoadBalancer;
   }
 
+  /**
+   * Getter for javaVersion.
+   * Configure the major version of Java on the cluster.
+   **/
+  @JsonProperty("javaVersion")
+  public Integer getJavaVersion() {
+    return javaVersion;
+  }
+
+  /**
+   * Setter for javaVersion.
+   * Configure the major version of Java on the cluster.
+   **/
+  public void setJavaVersion(Integer javaVersion) {
+    this.javaVersion = javaVersion;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -343,12 +365,15 @@ public class CreateAzureClusterRequest  {
     if (!Objects.equals(this.enableLoadBalancer, createAzureClusterRequest.enableLoadBalancer)) {
       return false;
     }
+    if (!Objects.equals(this.javaVersion, createAzureClusterRequest.javaVersion)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, clusterDefinitionName, environmentName, clusterTemplateName, customConfigurationsName, instanceGroups, subnetId, image, tags, requestTemplate, datahubDatabase, enableLoadBalancer);
+    return Objects.hash(clusterName, clusterDefinitionName, environmentName, clusterTemplateName, customConfigurationsName, instanceGroups, subnetId, image, tags, requestTemplate, datahubDatabase, enableLoadBalancer, javaVersion);
   }
 
   @Override
@@ -367,6 +392,7 @@ public class CreateAzureClusterRequest  {
     sb.append("    requestTemplate: ").append(toIndentedString(requestTemplate)).append("\n");
     sb.append("    datahubDatabase: ").append(toIndentedString(datahubDatabase)).append("\n");
     sb.append("    enableLoadBalancer: ").append(toIndentedString(enableLoadBalancer)).append("\n");
+    sb.append("    javaVersion: ").append(toIndentedString(javaVersion)).append("\n");
     sb.append("}");
     return sb.toString();
   }

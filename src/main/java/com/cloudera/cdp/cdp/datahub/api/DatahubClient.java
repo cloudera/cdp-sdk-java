@@ -76,6 +76,8 @@ import com.cloudera.cdp.datahub.model.DescribeCustomConfigurationsRequest;
 import com.cloudera.cdp.datahub.model.DescribeCustomConfigurationsResponse;
 import com.cloudera.cdp.datahub.model.DescribeRecipeRequest;
 import com.cloudera.cdp.datahub.model.DescribeRecipeResponse;
+import com.cloudera.cdp.datahub.model.DescribeScalingActivityRequest;
+import com.cloudera.cdp.datahub.model.DescribeScalingActivityResponse;
 import com.cloudera.cdp.datahub.model.Error;
 import com.cloudera.cdp.datahub.model.GetClusterHostStatusRequest;
 import com.cloudera.cdp.datahub.model.GetClusterHostStatusResponse;
@@ -101,6 +103,8 @@ import com.cloudera.cdp.datahub.model.ListDatahubDiagnosticsRequest;
 import com.cloudera.cdp.datahub.model.ListDatahubDiagnosticsResponse;
 import com.cloudera.cdp.datahub.model.ListRecipesRequest;
 import com.cloudera.cdp.datahub.model.ListRecipesResponse;
+import com.cloudera.cdp.datahub.model.ListScalingActivitiesRequest;
+import com.cloudera.cdp.datahub.model.ListScalingActivitiesResponse;
 import com.cloudera.cdp.datahub.model.PrepareClusterUpgradeRequest;
 import com.cloudera.cdp.datahub.model.PrepareClusterUpgradeResponse;
 import com.cloudera.cdp.datahub.model.RenewCertificateRequest;
@@ -147,7 +151,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-19T00:55:24.161-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-01T14:27:19.310-07:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datahub";
@@ -491,6 +495,19 @@ public class DatahubClient extends CdpClient {
   }
 
   /**
+   * Describes the Scaling Activity using Cluster CRN or Cluster NAME and operation ID.
+   * @param input
+   * @return DescribeScalingActivityResponse
+   */
+  public DescribeScalingActivityResponse describeScalingActivity(DescribeScalingActivityRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeScalingActivity");
+    }
+
+    return this.invokeAPI("describeScalingActivity", "/api/v1/datahub/describeScalingActivity", input, new GenericType<DescribeScalingActivityResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Get cluster host status.
    * @param input
    * @return GetClusterHostStatusResponse
@@ -644,6 +661,19 @@ public class DatahubClient extends CdpClient {
     }
 
     return this.invokeAPI("listRecipes", "/api/v1/datahub/listRecipes", input, new GenericType<ListRecipesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Lists Scaling activities for a cluster.
+   * @param input
+   * @return ListScalingActivitiesResponse
+   */
+  public ListScalingActivitiesResponse listScalingActivities(ListScalingActivitiesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listScalingActivities");
+    }
+
+    return this.invokeAPI("listScalingActivities", "/api/v1/datahub/listScalingActivities", input, new GenericType<ListScalingActivitiesResponse>(){}, NO_EXTENSION);
   }
 
   /**

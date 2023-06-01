@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Options for activating an Azure environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-19T00:55:24.982-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-01T14:27:20.055-07:00")
 public class AzureActivationOptions  {
 
   /**
@@ -80,11 +80,6 @@ public class AzureActivationOptions  {
    * Enable Azure Private AKS mode.
    **/
   private Boolean enablePrivateAks = false;
-
-  /**
-   * Enable uptime SLA for Kubernetes API server. This option is deprecated and will be removed upon the next release of the DWX Public Cloud. The uptime SLA for the Kubernetes API server will be always enabled.
-   **/
-  private Boolean enableUptimeSLA = false;
 
   /**
    * Getter for userAssignedManagedIdentity.
@@ -256,25 +251,6 @@ public class AzureActivationOptions  {
     this.enablePrivateAks = enablePrivateAks;
   }
 
-  /**
-   * Getter for enableUptimeSLA.
-   * Enable uptime SLA for Kubernetes API server. This option is deprecated and will be removed upon the next release of the DWX Public Cloud. The uptime SLA for the Kubernetes API server will be always enabled.
-   **/
-  @Deprecated
-  @JsonProperty("enableUptimeSLA")
-  public Boolean getEnableUptimeSLA() {
-    return enableUptimeSLA;
-  }
-
-  /**
-   * Setter for enableUptimeSLA.
-   * Enable uptime SLA for Kubernetes API server. This option is deprecated and will be removed upon the next release of the DWX Public Cloud. The uptime SLA for the Kubernetes API server will be always enabled.
-   **/
-  @Deprecated
-  public void setEnableUptimeSLA(Boolean enableUptimeSLA) {
-    this.enableUptimeSLA = enableUptimeSLA;
-  }
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -314,15 +290,12 @@ public class AzureActivationOptions  {
     if (!Objects.equals(this.enablePrivateAks, azureActivationOptions.enablePrivateAks)) {
       return false;
     }
-    if (!Objects.equals(this.enableUptimeSLA, azureActivationOptions.enableUptimeSLA)) {
-      return false;
-    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userAssignedManagedIdentity, subnetId, enableAZ, enableSpotInstances, computeInstanceTypes, logAnalyticsWorkspaceId, outboundType, enablePrivateSQL, privateDNSZoneAKS, enablePrivateAks, enableUptimeSLA);
+    return Objects.hash(userAssignedManagedIdentity, subnetId, enableAZ, enableSpotInstances, computeInstanceTypes, logAnalyticsWorkspaceId, outboundType, enablePrivateSQL, privateDNSZoneAKS, enablePrivateAks);
   }
 
   @Override
@@ -339,7 +312,6 @@ public class AzureActivationOptions  {
     sb.append("    enablePrivateSQL: ").append(toIndentedString(enablePrivateSQL)).append("\n");
     sb.append("    privateDNSZoneAKS: ").append(toIndentedString(privateDNSZoneAKS)).append("\n");
     sb.append("    enablePrivateAks: ").append(toIndentedString(enablePrivateAks)).append("\n");
-    sb.append("    enableUptimeSLA: ").append(toIndentedString(enableUptimeSLA)).append("\n");
     sb.append("}");
     return sb.toString();
   }

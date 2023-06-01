@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object for create GCP cluster request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-05-19T00:55:24.161-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-01T14:27:19.310-07:00")
 public class CreateGCPClusterRequest  {
 
   /**
@@ -88,6 +88,11 @@ public class CreateGCPClusterRequest  {
    * Database type for datahub. Currently supported values: NONE, NON_HA, HA
    **/
   private String datahubDatabase = null;
+
+  /**
+   * Configure the major version of Java on the cluster.
+   **/
+  private Integer javaVersion = null;
 
   /**
    * Getter for clusterName.
@@ -276,6 +281,23 @@ public class CreateGCPClusterRequest  {
     this.datahubDatabase = datahubDatabase;
   }
 
+  /**
+   * Getter for javaVersion.
+   * Configure the major version of Java on the cluster.
+   **/
+  @JsonProperty("javaVersion")
+  public Integer getJavaVersion() {
+    return javaVersion;
+  }
+
+  /**
+   * Setter for javaVersion.
+   * Configure the major version of Java on the cluster.
+   **/
+  public void setJavaVersion(Integer javaVersion) {
+    this.javaVersion = javaVersion;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -318,12 +340,15 @@ public class CreateGCPClusterRequest  {
     if (!Objects.equals(this.datahubDatabase, createGCPClusterRequest.datahubDatabase)) {
       return false;
     }
+    if (!Objects.equals(this.javaVersion, createGCPClusterRequest.javaVersion)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, clusterDefinitionName, environmentName, clusterTemplateName, customConfigurationsName, instanceGroups, subnetName, image, tags, requestTemplate, datahubDatabase);
+    return Objects.hash(clusterName, clusterDefinitionName, environmentName, clusterTemplateName, customConfigurationsName, instanceGroups, subnetName, image, tags, requestTemplate, datahubDatabase, javaVersion);
   }
 
   @Override
@@ -341,6 +366,7 @@ public class CreateGCPClusterRequest  {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    requestTemplate: ").append(toIndentedString(requestTemplate)).append("\n");
     sb.append("    datahubDatabase: ").append(toIndentedString(datahubDatabase)).append("\n");
+    sb.append("    javaVersion: ").append(toIndentedString(javaVersion)).append("\n");
     sb.append("}");
     return sb.toString();
   }
