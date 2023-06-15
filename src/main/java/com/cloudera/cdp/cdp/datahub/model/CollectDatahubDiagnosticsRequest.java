@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for collecting DataHub diagnostics.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-01T14:27:19.310-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-14T15:47:15.532-07:00")
 public class CollectDatahubDiagnosticsRequest  {
 
   /**

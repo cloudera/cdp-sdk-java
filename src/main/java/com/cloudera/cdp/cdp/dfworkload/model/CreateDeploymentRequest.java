@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object to create a deployment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-01T14:27:22.850-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-14T15:47:19.045-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class CreateDeploymentRequest  {
 

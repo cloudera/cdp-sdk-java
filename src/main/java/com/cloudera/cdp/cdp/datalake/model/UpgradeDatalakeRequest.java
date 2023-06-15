@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object to upgrade datalake.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-01T14:27:20.990-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-14T15:47:17.175-07:00")
 public class UpgradeDatalakeRequest  {
 
   /**
@@ -84,6 +84,11 @@ public class UpgradeDatalakeRequest  {
    * Skips the backup of the Ranger audits. Redundant if --skip-backup is included. If this option is not provided, Ranger audits are backed up by default.
    **/
   private Boolean skipRangerAudits = null;
+
+  /**
+   * Skips the validation steps that run prior to the backup. Redundant if --skip-backup is included. If this option is not provided, the validations are performed by default.
+   **/
+  private Boolean skipBackupValidation = null;
 
   /**
    * Getter for datalakeName.
@@ -272,6 +277,23 @@ public class UpgradeDatalakeRequest  {
     this.skipRangerAudits = skipRangerAudits;
   }
 
+  /**
+   * Getter for skipBackupValidation.
+   * Skips the validation steps that run prior to the backup. Redundant if --skip-backup is included. If this option is not provided, the validations are performed by default.
+   **/
+  @JsonProperty("skipBackupValidation")
+  public Boolean getSkipBackupValidation() {
+    return skipBackupValidation;
+  }
+
+  /**
+   * Setter for skipBackupValidation.
+   * Skips the validation steps that run prior to the backup. Redundant if --skip-backup is included. If this option is not provided, the validations are performed by default.
+   **/
+  public void setSkipBackupValidation(Boolean skipBackupValidation) {
+    this.skipBackupValidation = skipBackupValidation;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -314,12 +336,15 @@ public class UpgradeDatalakeRequest  {
     if (!Objects.equals(this.skipRangerAudits, upgradeDatalakeRequest.skipRangerAudits)) {
       return false;
     }
+    if (!Objects.equals(this.skipBackupValidation, upgradeDatalakeRequest.skipBackupValidation)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, imageId, runtime, lockComponents, dryRun, showAvailableImages, showLatestAvailableImagePerRuntime, skipBackup, skipRangerHmsMetadata, skipAtlasMetadata, skipRangerAudits);
+    return Objects.hash(datalakeName, imageId, runtime, lockComponents, dryRun, showAvailableImages, showLatestAvailableImagePerRuntime, skipBackup, skipRangerHmsMetadata, skipAtlasMetadata, skipRangerAudits, skipBackupValidation);
   }
 
   @Override
@@ -337,6 +362,7 @@ public class UpgradeDatalakeRequest  {
     sb.append("    skipRangerHmsMetadata: ").append(toIndentedString(skipRangerHmsMetadata)).append("\n");
     sb.append("    skipAtlasMetadata: ").append(toIndentedString(skipAtlasMetadata)).append("\n");
     sb.append("    skipRangerAudits: ").append(toIndentedString(skipRangerAudits)).append("\n");
+    sb.append("    skipBackupValidation: ").append(toIndentedString(skipBackupValidation)).append("\n");
     sb.append("}");
     return sb.toString();
   }

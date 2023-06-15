@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * Request object for Enable Service method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-01T14:27:22.100-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-14T15:47:18.258-07:00")
 public class EnableServiceRequest  {
 
   /**
@@ -88,6 +88,11 @@ public class EnableServiceRequest  {
    * Creates a CDE endpoint (Load Balancer) in a publicly accessible subnet. If set false, the endpoint will be created in a private subnet and you will need to setup access to the endpoint manually in your cloud account.
    **/
   private Boolean enablePublicEndpoint = false;
+
+  /**
+   * If set to \"true\", the previous version of the CDE service will be deployed.
+   **/
+  private Boolean deployPreviousVersion = false;
 
   /**
    * If set false, diagnostic information about job and query execution is sent to Cloudera Workload Manager. Anonymization can be configured under Environments / Shared Resources / Telemetry. Refer documentation for more info at https://docs.cloudera.com/workload-manager/cloud/index.html.
@@ -327,6 +332,23 @@ public class EnableServiceRequest  {
   }
 
   /**
+   * Getter for deployPreviousVersion.
+   * If set to \&quot;true\&quot;, the previous version of the CDE service will be deployed.
+   **/
+  @JsonProperty("deployPreviousVersion")
+  public Boolean getDeployPreviousVersion() {
+    return deployPreviousVersion;
+  }
+
+  /**
+   * Setter for deployPreviousVersion.
+   * If set to \&quot;true\&quot;, the previous version of the CDE service will be deployed.
+   **/
+  public void setDeployPreviousVersion(Boolean deployPreviousVersion) {
+    this.deployPreviousVersion = deployPreviousVersion;
+  }
+
+  /**
    * Getter for enableWorkloadAnalytics.
    * If set false, diagnostic information about job and query execution is sent to Cloudera Workload Manager. Anonymization can be configured under Environments / Shared Resources / Telemetry. Refer documentation for more info at https://docs.cloudera.com/workload-manager/cloud/index.html.
    **/
@@ -538,6 +560,9 @@ public class EnableServiceRequest  {
     if (!Objects.equals(this.enablePublicEndpoint, enableServiceRequest.enablePublicEndpoint)) {
       return false;
     }
+    if (!Objects.equals(this.deployPreviousVersion, enableServiceRequest.deployPreviousVersion)) {
+      return false;
+    }
     if (!Objects.equals(this.enableWorkloadAnalytics, enableServiceRequest.enableWorkloadAnalytics)) {
       return false;
     }
@@ -573,7 +598,7 @@ public class EnableServiceRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, env, instanceType, minimumInstances, maximumInstances, minimumSpotInstances, maximumSpotInstances, initialInstances, initialSpotInstances, rootVolumeSize, enablePublicEndpoint, enableWorkloadAnalytics, useSsd, chartValueOverrides, whitelistIps, loadbalancerAllowlist, tags, skipValidation, enablePrivateNetwork, subnets, customAzureFilesConfigs);
+    return Objects.hash(name, env, instanceType, minimumInstances, maximumInstances, minimumSpotInstances, maximumSpotInstances, initialInstances, initialSpotInstances, rootVolumeSize, enablePublicEndpoint, deployPreviousVersion, enableWorkloadAnalytics, useSsd, chartValueOverrides, whitelistIps, loadbalancerAllowlist, tags, skipValidation, enablePrivateNetwork, subnets, customAzureFilesConfigs);
   }
 
   @Override
@@ -591,6 +616,7 @@ public class EnableServiceRequest  {
     sb.append("    initialSpotInstances: ").append(toIndentedString(initialSpotInstances)).append("\n");
     sb.append("    rootVolumeSize: ").append(toIndentedString(rootVolumeSize)).append("\n");
     sb.append("    enablePublicEndpoint: ").append(toIndentedString(enablePublicEndpoint)).append("\n");
+    sb.append("    deployPreviousVersion: ").append(toIndentedString(deployPreviousVersion)).append("\n");
     sb.append("    enableWorkloadAnalytics: ").append(toIndentedString(enableWorkloadAnalytics)).append("\n");
     sb.append("    useSsd: ").append(toIndentedString(useSsd)).append("\n");
     sb.append("    chartValueOverrides: ").append(toIndentedString(chartValueOverrides)).append("\n");

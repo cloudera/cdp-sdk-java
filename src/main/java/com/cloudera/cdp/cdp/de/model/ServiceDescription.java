@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Detailed description of a CDE service.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-01T14:27:22.100-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-14T15:47:18.258-07:00")
 public class ServiceDescription  {
 
   /**
@@ -137,6 +137,11 @@ public class ServiceDescription  {
    * If true, the CDE endpoint was created in a publicly accessible subnet.
    **/
   private Boolean publicEndpointEnabled = null;
+
+  /**
+   * The \"true\" value indicates that the previous version of the CDE service was requested to be deployed.
+   **/
+  private Boolean previousVersionDeployed = null;
 
   /**
    * If true, diagnostic information about job and query execution is sent to Cloudera Workload Manager.
@@ -506,6 +511,23 @@ public class ServiceDescription  {
   }
 
   /**
+   * Getter for previousVersionDeployed.
+   * The \&quot;true\&quot; value indicates that the previous version of the CDE service was requested to be deployed.
+   **/
+  @JsonProperty("previousVersionDeployed")
+  public Boolean getPreviousVersionDeployed() {
+    return previousVersionDeployed;
+  }
+
+  /**
+   * Setter for previousVersionDeployed.
+   * The \&quot;true\&quot; value indicates that the previous version of the CDE service was requested to be deployed.
+   **/
+  public void setPreviousVersionDeployed(Boolean previousVersionDeployed) {
+    this.previousVersionDeployed = previousVersionDeployed;
+  }
+
+  /**
    * Getter for workloadAnalyticsEnabled.
    * If true, diagnostic information about job and query execution is sent to Cloudera Workload Manager.
    **/
@@ -611,6 +633,9 @@ public class ServiceDescription  {
     if (!Objects.equals(this.publicEndpointEnabled, serviceDescription.publicEndpointEnabled)) {
       return false;
     }
+    if (!Objects.equals(this.previousVersionDeployed, serviceDescription.previousVersionDeployed)) {
+      return false;
+    }
     if (!Objects.equals(this.workloadAnalyticsEnabled, serviceDescription.workloadAnalyticsEnabled)) {
       return false;
     }
@@ -622,7 +647,7 @@ public class ServiceDescription  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, clusterId, environmentName, environmentCrn, tenantId, resources, status, creatorEmail, creatorCrn, enablingTime, clusterFqdn, cloudPlatform, dataLakeFileSystems, logLocation, dataLakeAtlasUIEndpoint, chartValueOverrides, whitelistIps, loadbalancerAllowlist, subnets, privateClusterEnabled, publicEndpointEnabled, workloadAnalyticsEnabled, ssdUsed);
+    return Objects.hash(name, clusterId, environmentName, environmentCrn, tenantId, resources, status, creatorEmail, creatorCrn, enablingTime, clusterFqdn, cloudPlatform, dataLakeFileSystems, logLocation, dataLakeAtlasUIEndpoint, chartValueOverrides, whitelistIps, loadbalancerAllowlist, subnets, privateClusterEnabled, publicEndpointEnabled, previousVersionDeployed, workloadAnalyticsEnabled, ssdUsed);
   }
 
   @Override
@@ -650,6 +675,7 @@ public class ServiceDescription  {
     sb.append("    subnets: ").append(toIndentedString(subnets)).append("\n");
     sb.append("    privateClusterEnabled: ").append(toIndentedString(privateClusterEnabled)).append("\n");
     sb.append("    publicEndpointEnabled: ").append(toIndentedString(publicEndpointEnabled)).append("\n");
+    sb.append("    previousVersionDeployed: ").append(toIndentedString(previousVersionDeployed)).append("\n");
     sb.append("    workloadAnalyticsEnabled: ").append(toIndentedString(workloadAnalyticsEnabled)).append("\n");
     sb.append("    ssdUsed: ").append(toIndentedString(ssdUsed)).append("\n");
     sb.append("}");

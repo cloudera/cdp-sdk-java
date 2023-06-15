@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * CDE virtual cluster summary.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-01T14:27:22.100-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-14T15:47:18.258-07:00")
 public class VcDescription  {
 
   /**
@@ -124,6 +124,11 @@ public class VcDescription  {
    * SMTP Configurations for Airflow Email Alerts.
    **/
   private SmtpConfigResponse smtpConfig = null;
+
+  /**
+   * Tier of the Virtual Cluster.
+   **/
+  private String vcTier = null;
 
   /**
    * Getter for vcId.
@@ -431,6 +436,23 @@ public class VcDescription  {
     this.smtpConfig = smtpConfig;
   }
 
+  /**
+   * Getter for vcTier.
+   * Tier of the Virtual Cluster.
+   **/
+  @JsonProperty("vcTier")
+  public String getVcTier() {
+    return vcTier;
+  }
+
+  /**
+   * Setter for vcTier.
+   * Tier of the Virtual Cluster.
+   **/
+  public void setVcTier(String vcTier) {
+    this.vcTier = vcTier;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -494,12 +516,15 @@ public class VcDescription  {
     if (!Objects.equals(this.smtpConfig, vcDescription.smtpConfig)) {
       return false;
     }
+    if (!Objects.equals(this.vcTier, vcDescription.vcTier)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(vcId, vcName, clusterId, status, resources, creatorEmail, creatorID, creatorName, vcApiUrl, vcUiUrl, historyServerUrl, livyServerUrl, safariUrl, creationTime, sparkVersion, chartValueOverrides, accessControl, smtpConfig);
+    return Objects.hash(vcId, vcName, clusterId, status, resources, creatorEmail, creatorID, creatorName, vcApiUrl, vcUiUrl, historyServerUrl, livyServerUrl, safariUrl, creationTime, sparkVersion, chartValueOverrides, accessControl, smtpConfig, vcTier);
   }
 
   @Override
@@ -524,6 +549,7 @@ public class VcDescription  {
     sb.append("    chartValueOverrides: ").append(toIndentedString(chartValueOverrides)).append("\n");
     sb.append("    accessControl: ").append(toIndentedString(accessControl)).append("\n");
     sb.append("    smtpConfig: ").append(toIndentedString(smtpConfig)).append("\n");
+    sb.append("    vcTier: ").append(toIndentedString(vcTier)).append("\n");
     sb.append("}");
     return sb.toString();
   }

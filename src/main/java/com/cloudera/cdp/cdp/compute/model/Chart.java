@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Chart structure.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-01T14:27:23.184-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-14T15:47:19.372-07:00")
 public class Chart  {
 
   /**
@@ -49,6 +49,11 @@ public class Chart  {
    * The chart name.
    **/
   private String name = null;
+
+  /**
+   * Escaped JSON for values.yaml of that chart.
+   **/
+  private String values = null;
 
   /**
    * Getter for applicationVersion.
@@ -118,6 +123,23 @@ public class Chart  {
     this.name = name;
   }
 
+  /**
+   * Getter for values.
+   * Escaped JSON for values.yaml of that chart.
+   **/
+  @JsonProperty("values")
+  public String getValues() {
+    return values;
+  }
+
+  /**
+   * Setter for values.
+   * Escaped JSON for values.yaml of that chart.
+   **/
+  public void setValues(String values) {
+    this.values = values;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -139,12 +161,15 @@ public class Chart  {
     if (!Objects.equals(this.name, chart.name)) {
       return false;
     }
+    if (!Objects.equals(this.values, chart.values)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(applicationVersion, deploymentVersion, description, name);
+    return Objects.hash(applicationVersion, deploymentVersion, description, name, values);
   }
 
   @Override
@@ -155,6 +180,7 @@ public class Chart  {
     sb.append("    deploymentVersion: ").append(toIndentedString(deploymentVersion)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    values: ").append(toIndentedString(values)).append("\n");
     sb.append("}");
     return sb.toString();
   }

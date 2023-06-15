@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * A policy contains a list of one or more policy statements.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-01T14:27:22.245-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-14T15:47:18.441-07:00")
 public class Policy  {
 
   /**

@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object to list clusters.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-01T14:27:23.184-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-14T15:47:19.372-07:00")
 public class ListClustersRequest  {
 
   /**
@@ -54,6 +54,11 @@ public class ListClustersRequest  {
    * A token to specify where to start paginating. This is the nextToken from a previously truncated response. 1 or empty for first page.
    **/
   private String startingToken = null;
+
+  /**
+   * Include deleted clusters in the response. Optional.
+   **/
+  private Boolean includeDeleted = false;
 
   /**
    * Getter for envNameOrCrn.
@@ -140,6 +145,23 @@ public class ListClustersRequest  {
     this.startingToken = startingToken;
   }
 
+  /**
+   * Getter for includeDeleted.
+   * Include deleted clusters in the response. Optional.
+   **/
+  @JsonProperty("includeDeleted")
+  public Boolean getIncludeDeleted() {
+    return includeDeleted;
+  }
+
+  /**
+   * Setter for includeDeleted.
+   * Include deleted clusters in the response. Optional.
+   **/
+  public void setIncludeDeleted(Boolean includeDeleted) {
+    this.includeDeleted = includeDeleted;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -164,12 +186,15 @@ public class ListClustersRequest  {
     if (!Objects.equals(this.startingToken, listClustersRequest.startingToken)) {
       return false;
     }
+    if (!Objects.equals(this.includeDeleted, listClustersRequest.includeDeleted)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(envNameOrCrn, workloads, status, pageSize, startingToken);
+    return Objects.hash(envNameOrCrn, workloads, status, pageSize, startingToken, includeDeleted);
   }
 
   @Override
@@ -181,6 +206,7 @@ public class ListClustersRequest  {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    startingToken: ").append(toIndentedString(startingToken)).append("\n");
+    sb.append("    includeDeleted: ").append(toIndentedString(includeDeleted)).append("\n");
     sb.append("}");
     return sb.toString();
   }

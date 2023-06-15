@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Deployment structure.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-01T14:27:23.184-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-14T15:47:19.372-07:00")
 public class Deployment  {
 
   /**
@@ -67,6 +67,11 @@ public class Deployment  {
    * Any upgrades available for this deployment.
    **/
   private List<AvailableDeploymentUpgrade> upgrades = new ArrayList<AvailableDeploymentUpgrade>();
+
+  /**
+   * Escaped JSON overrides for the deployment's properties.
+   **/
+  private String overrides = null;
 
   /**
    * Getter for name.
@@ -187,6 +192,23 @@ public class Deployment  {
     this.upgrades = upgrades;
   }
 
+  /**
+   * Getter for overrides.
+   * Escaped JSON overrides for the deployment&#39;s properties.
+   **/
+  @JsonProperty("overrides")
+  public String getOverrides() {
+    return overrides;
+  }
+
+  /**
+   * Setter for overrides.
+   * Escaped JSON overrides for the deployment&#39;s properties.
+   **/
+  public void setOverrides(String overrides) {
+    this.overrides = overrides;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -217,12 +239,15 @@ public class Deployment  {
     if (!Objects.equals(this.upgrades, deployment.upgrades)) {
       return false;
     }
+    if (!Objects.equals(this.overrides, deployment.overrides)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, namespace, revision, liftieManaged, chart, status, upgrades);
+    return Objects.hash(name, namespace, revision, liftieManaged, chart, status, upgrades, overrides);
   }
 
   @Override
@@ -236,6 +261,7 @@ public class Deployment  {
     sb.append("    chart: ").append(toIndentedString(chart)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    upgrades: ").append(toIndentedString(upgrades)).append("\n");
+    sb.append("    overrides: ").append(toIndentedString(overrides)).append("\n");
     sb.append("}");
     return sb.toString();
   }

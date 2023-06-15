@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for CreateVc method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-01T14:27:22.100-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-14T15:47:18.258-07:00")
 public class CreateVcRequest  {
 
   /**
@@ -72,6 +72,11 @@ public class CreateVcRequest  {
    * Spark version for the virtual cluster. Currently supported spark versions are SPARK2(deprecated), SPARK3 and SPARK3_3. This feature is only supported in CDE-1.7.0 and beyond. SPARK3_3 is supported in CDE-1.19 and beyond.
    **/
   private String sparkVersion = null;
+
+  /**
+   * Tier of the virtual cluster. Currently supported tiers are CORE and ALLP. CORE tiered virtual cluster enables operational deployment via batch jobs. ALLP virtual clusters are all-purpose virtual clusters supporting both operational batch jobs and interactive sessions. This feature is only supported in CDE-1.19.0 and beyond.
+   **/
+  private String vcTier = null;
 
   /**
    * Comma-separated Workload usernames of CDP users to be granted access to the Virtual Cluster.
@@ -215,6 +220,23 @@ public class CreateVcRequest  {
   }
 
   /**
+   * Getter for vcTier.
+   * Tier of the virtual cluster. Currently supported tiers are CORE and ALLP. CORE tiered virtual cluster enables operational deployment via batch jobs. ALLP virtual clusters are all-purpose virtual clusters supporting both operational batch jobs and interactive sessions. This feature is only supported in CDE-1.19.0 and beyond.
+   **/
+  @JsonProperty("vcTier")
+  public String getVcTier() {
+    return vcTier;
+  }
+
+  /**
+   * Setter for vcTier.
+   * Tier of the virtual cluster. Currently supported tiers are CORE and ALLP. CORE tiered virtual cluster enables operational deployment via batch jobs. ALLP virtual clusters are all-purpose virtual clusters supporting both operational batch jobs and interactive sessions. This feature is only supported in CDE-1.19.0 and beyond.
+   **/
+  public void setVcTier(String vcTier) {
+    this.vcTier = vcTier;
+  }
+
+  /**
    * Getter for aclUsers.
    * Comma-separated Workload usernames of CDP users to be granted access to the Virtual Cluster.
    **/
@@ -264,6 +286,9 @@ public class CreateVcRequest  {
     if (!Objects.equals(this.sparkVersion, createVcRequest.sparkVersion)) {
       return false;
     }
+    if (!Objects.equals(this.vcTier, createVcRequest.vcTier)) {
+      return false;
+    }
     if (!Objects.equals(this.aclUsers, createVcRequest.aclUsers)) {
       return false;
     }
@@ -272,7 +297,7 @@ public class CreateVcRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, clusterId, cpuRequests, memoryRequests, chartValueOverrides, smtpConfigs, runtimeSpotComponent, sparkVersion, aclUsers);
+    return Objects.hash(name, clusterId, cpuRequests, memoryRequests, chartValueOverrides, smtpConfigs, runtimeSpotComponent, sparkVersion, vcTier, aclUsers);
   }
 
   @Override
@@ -287,6 +312,7 @@ public class CreateVcRequest  {
     sb.append("    smtpConfigs: ").append(toIndentedString(smtpConfigs)).append("\n");
     sb.append("    runtimeSpotComponent: ").append(toIndentedString(runtimeSpotComponent)).append("\n");
     sb.append("    sparkVersion: ").append(toIndentedString(sparkVersion)).append("\n");
+    sb.append("    vcTier: ").append(toIndentedString(vcTier)).append("\n");
     sb.append("    aclUsers: ").append(toIndentedString(aclUsers)).append("\n");
     sb.append("}");
     return sb.toString();

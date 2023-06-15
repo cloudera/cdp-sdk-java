@@ -28,7 +28,7 @@ import com.cloudera.cdp.compute.model.Chart;
 /**
  * History structure.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-01T14:27:23.184-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-14T15:47:19.372-07:00")
 public class History  {
 
   /**
@@ -45,6 +45,11 @@ public class History  {
    * Chart that the deployment was created from.
    **/
   private Chart chart = null;
+
+  /**
+   * Escaped JSON overrides for the deployment's properties for given revision.
+   **/
+  private String overrides = null;
 
   /**
    * Getter for revision.
@@ -97,6 +102,23 @@ public class History  {
     this.chart = chart;
   }
 
+  /**
+   * Getter for overrides.
+   * Escaped JSON overrides for the deployment&#39;s properties for given revision.
+   **/
+  @JsonProperty("overrides")
+  public String getOverrides() {
+    return overrides;
+  }
+
+  /**
+   * Setter for overrides.
+   * Escaped JSON overrides for the deployment&#39;s properties for given revision.
+   **/
+  public void setOverrides(String overrides) {
+    this.overrides = overrides;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -115,12 +137,15 @@ public class History  {
     if (!Objects.equals(this.chart, history.chart)) {
       return false;
     }
+    if (!Objects.equals(this.overrides, history.overrides)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(revision, status, chart);
+    return Objects.hash(revision, status, chart, overrides);
   }
 
   @Override
@@ -130,6 +155,7 @@ public class History  {
     sb.append("    revision: ").append(toIndentedString(revision)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    chart: ").append(toIndentedString(chart)).append("\n");
+    sb.append("    overrides: ").append(toIndentedString(overrides)).append("\n");
     sb.append("}");
     return sb.toString();
   }

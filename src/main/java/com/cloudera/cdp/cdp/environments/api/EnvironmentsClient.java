@@ -151,6 +151,8 @@ import com.cloudera.cdp.environments.model.UpdateAzureCredentialRequest;
 import com.cloudera.cdp.environments.model.UpdateAzureCredentialResponse;
 import com.cloudera.cdp.environments.model.UpdateAzureEncryptionResourcesRequest;
 import com.cloudera.cdp.environments.model.UpdateAzureEncryptionResourcesResponse;
+import com.cloudera.cdp.environments.model.UpdateOrchestratorStateRequest;
+import com.cloudera.cdp.environments.model.UpdateOrchestratorStateResponse;
 import com.cloudera.cdp.environments.model.UpgradeCcmRequest;
 import com.cloudera.cdp.environments.model.UpgradeCcmResponse;
 import com.cloudera.cdp.environments.model.UpscaleFreeipaRequest;
@@ -161,7 +163,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-01T14:27:21.445-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-14T15:47:17.601-07:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -984,6 +986,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("updateAzureEncryptionResources", "/api/v1/environments2/updateAzureEncryptionResources", input, new GenericType<UpdateAzureEncryptionResourcesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Run orchestrator engine state update on the FreeIPA cluster.
+   * @param input
+   * @return UpdateOrchestratorStateResponse
+   */
+  public UpdateOrchestratorStateResponse updateOrchestratorState(UpdateOrchestratorStateRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateOrchestratorState");
+    }
+
+    return this.invokeAPI("updateOrchestratorState", "/api/v1/environments2/updateOrchestratorState", input, new GenericType<UpdateOrchestratorStateResponse>(){}, NO_EXTENSION);
   }
 
   /**
