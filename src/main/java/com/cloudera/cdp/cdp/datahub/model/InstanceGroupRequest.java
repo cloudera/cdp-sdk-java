@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Configurations for instance group
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-14T15:47:15.532-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-21T23:16:14.526-07:00")
 public class InstanceGroupRequest  {
 
   /**
@@ -77,6 +77,11 @@ public class InstanceGroupRequest  {
    * The volume encryption settings. This setting does not apply to Azure which always encrypts volumes.
    **/
   private VolumeEncryptionRequest volumeEncryption = null;
+
+  /**
+   * The list of subnet IDs in case of multi-availability zone setup. Specifying this field overrides the datahub level subnet ID setup for the multi-availability zone configuration.
+   **/
+  private List<String> subnetIds = new ArrayList<String>();
 
   /**
    * Getter for nodeCount.
@@ -231,6 +236,23 @@ public class InstanceGroupRequest  {
     this.volumeEncryption = volumeEncryption;
   }
 
+  /**
+   * Getter for subnetIds.
+   * The list of subnet IDs in case of multi-availability zone setup. Specifying this field overrides the datahub level subnet ID setup for the multi-availability zone configuration.
+   **/
+  @JsonProperty("subnetIds")
+  public List<String> getSubnetIds() {
+    return subnetIds;
+  }
+
+  /**
+   * Setter for subnetIds.
+   * The list of subnet IDs in case of multi-availability zone setup. Specifying this field overrides the datahub level subnet ID setup for the multi-availability zone configuration.
+   **/
+  public void setSubnetIds(List<String> subnetIds) {
+    this.subnetIds = subnetIds;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -267,12 +289,15 @@ public class InstanceGroupRequest  {
     if (!Objects.equals(this.volumeEncryption, instanceGroupRequest.volumeEncryption)) {
       return false;
     }
+    if (!Objects.equals(this.subnetIds, instanceGroupRequest.subnetIds)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(nodeCount, instanceGroupName, instanceGroupType, instanceType, attachedVolumeConfiguration, rootVolumeSize, recipeNames, recoveryMode, volumeEncryption);
+    return Objects.hash(nodeCount, instanceGroupName, instanceGroupType, instanceType, attachedVolumeConfiguration, rootVolumeSize, recipeNames, recoveryMode, volumeEncryption, subnetIds);
   }
 
   @Override
@@ -288,6 +313,7 @@ public class InstanceGroupRequest  {
     sb.append("    recipeNames: ").append(toIndentedString(recipeNames)).append("\n");
     sb.append("    recoveryMode: ").append(toIndentedString(recoveryMode)).append("\n");
     sb.append("    volumeEncryption: ").append(toIndentedString(volumeEncryption)).append("\n");
+    sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

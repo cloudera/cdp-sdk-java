@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * Request object for the createCluster method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-14T15:47:16.233-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-21T23:16:15.495-07:00")
 public class CreateClusterRequest  {
 
   /**
@@ -69,6 +69,11 @@ public class CreateClusterRequest  {
    * Set up load balancer with private IP address. In AWS it is created in private subnets. In Azure an internal load balancer gets created. Make sure there is connectivity between your client network and the network (VPC/VNet) where CDW environment is deployed.
    **/
   private Boolean usePrivateLoadBalancer = null;
+
+  /**
+   * Set up worker node with public IP address. In AWS it is created in public subnets.
+   **/
+  private Boolean usePublicWorkerNode = null;
 
   /**
    * Enable Storage Roles
@@ -220,6 +225,23 @@ public class CreateClusterRequest  {
   }
 
   /**
+   * Getter for usePublicWorkerNode.
+   * Set up worker node with public IP address. In AWS it is created in public subnets.
+   **/
+  @JsonProperty("usePublicWorkerNode")
+  public Boolean getUsePublicWorkerNode() {
+    return usePublicWorkerNode;
+  }
+
+  /**
+   * Setter for usePublicWorkerNode.
+   * Set up worker node with public IP address. In AWS it is created in public subnets.
+   **/
+  public void setUsePublicWorkerNode(Boolean usePublicWorkerNode) {
+    this.usePublicWorkerNode = usePublicWorkerNode;
+  }
+
+  /**
    * Getter for enableStorageRoles.
    * Enable Storage Roles
    **/
@@ -351,6 +373,9 @@ public class CreateClusterRequest  {
     if (!Objects.equals(this.usePrivateLoadBalancer, createClusterRequest.usePrivateLoadBalancer)) {
       return false;
     }
+    if (!Objects.equals(this.usePublicWorkerNode, createClusterRequest.usePublicWorkerNode)) {
+      return false;
+    }
     if (!Objects.equals(this.enableStorageRoles, createClusterRequest.enableStorageRoles)) {
       return false;
     }
@@ -374,7 +399,7 @@ public class CreateClusterRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, useOverlayNetwork, databaseBackupRetentionPeriod, whitelistIpCIDRs, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, usePrivateLoadBalancer, enableStorageRoles, customRegistryOptions, awsOptions, azureOptions, privateCloudOptions, customSubdomain);
+    return Objects.hash(environmentCrn, useOverlayNetwork, databaseBackupRetentionPeriod, whitelistIpCIDRs, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, usePrivateLoadBalancer, usePublicWorkerNode, enableStorageRoles, customRegistryOptions, awsOptions, azureOptions, privateCloudOptions, customSubdomain);
   }
 
   @Override
@@ -388,6 +413,7 @@ public class CreateClusterRequest  {
     sb.append("    whitelistK8sClusterAccessIpCIDRs: ").append(toIndentedString(whitelistK8sClusterAccessIpCIDRs)).append("\n");
     sb.append("    whitelistWorkloadAccessIpCIDRs: ").append(toIndentedString(whitelistWorkloadAccessIpCIDRs)).append("\n");
     sb.append("    usePrivateLoadBalancer: ").append(toIndentedString(usePrivateLoadBalancer)).append("\n");
+    sb.append("    usePublicWorkerNode: ").append(toIndentedString(usePublicWorkerNode)).append("\n");
     sb.append("    enableStorageRoles: ").append(toIndentedString(enableStorageRoles)).append("\n");
     sb.append("    customRegistryOptions: ").append(toIndentedString(customRegistryOptions)).append("\n");
     sb.append("    awsOptions: ").append(toIndentedString(awsOptions)).append("\n");

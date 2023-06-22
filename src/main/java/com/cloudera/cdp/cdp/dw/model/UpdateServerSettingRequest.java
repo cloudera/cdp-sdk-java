@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object for the updateServerSetting method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-14T15:47:16.233-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-21T23:16:15.495-07:00")
 public class UpdateServerSettingRequest  {
 
   /**

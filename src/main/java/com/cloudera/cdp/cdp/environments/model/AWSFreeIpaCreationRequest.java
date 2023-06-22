@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for creating FreeIPA in the environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-14T15:47:17.601-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-21T23:16:16.858-07:00")
 public class AWSFreeIpaCreationRequest  {
 
   /**
@@ -42,7 +42,7 @@ public class AWSFreeIpaCreationRequest  {
   private List<String> recipes = new ArrayList<String>();
 
   /**
-   * Flag which marks that the freeIPA will be deployed in a multi-availability zone way or not.
+   * Flag which marks that the FreeIPA will be deployed in a multi-availability zone way or not.
    **/
   private Boolean multiAz = null;
 
@@ -82,7 +82,7 @@ public class AWSFreeIpaCreationRequest  {
 
   /**
    * Getter for multiAz.
-   * Flag which marks that the freeIPA will be deployed in a multi-availability zone way or not.
+   * Flag which marks that the FreeIPA will be deployed in a multi-availability zone way or not.
    **/
   @JsonProperty("multiAz")
   public Boolean getMultiAz() {
@@ -91,7 +91,7 @@ public class AWSFreeIpaCreationRequest  {
 
   /**
    * Setter for multiAz.
-   * Flag which marks that the freeIPA will be deployed in a multi-availability zone way or not.
+   * Flag which marks that the FreeIPA will be deployed in a multi-availability zone way or not.
    **/
   public void setMultiAz(Boolean multiAz) {
     this.multiAz = multiAz;

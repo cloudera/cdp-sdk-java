@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * Request object for create AWS datalake request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-14T15:47:17.175-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-21T23:16:16.408-07:00")
 public class CreateAWSDatalakeRequest  {
 
   /**
@@ -74,6 +74,11 @@ public class CreateAWSDatalakeRequest  {
    * Whether to enable Ranger RAZ for the datalake. Defaults to not being enabled.
    **/
   private Boolean enableRangerRaz = null;
+
+  /**
+   * Controls if the datalake is deployed in a multi-availability zone way.
+   **/
+  private Boolean multiAz = null;
 
   /**
    * Additional recipes that will be attached on the datalake instances (by instance groups, most common ones are like 'master' or 'idbroker').
@@ -222,6 +227,23 @@ public class CreateAWSDatalakeRequest  {
   }
 
   /**
+   * Getter for multiAz.
+   * Controls if the datalake is deployed in a multi-availability zone way.
+   **/
+  @JsonProperty("multiAz")
+  public Boolean getMultiAz() {
+    return multiAz;
+  }
+
+  /**
+   * Setter for multiAz.
+   * Controls if the datalake is deployed in a multi-availability zone way.
+   **/
+  public void setMultiAz(Boolean multiAz) {
+    this.multiAz = multiAz;
+  }
+
+  /**
    * Getter for recipes.
    * Additional recipes that will be attached on the datalake instances (by instance groups, most common ones are like &#39;master&#39; or &#39;idbroker&#39;).
    **/
@@ -288,6 +310,9 @@ public class CreateAWSDatalakeRequest  {
     if (!Objects.equals(this.enableRangerRaz, createAWSDatalakeRequest.enableRangerRaz)) {
       return false;
     }
+    if (!Objects.equals(this.multiAz, createAWSDatalakeRequest.multiAz)) {
+      return false;
+    }
     if (!Objects.equals(this.recipes, createAWSDatalakeRequest.recipes)) {
       return false;
     }
@@ -299,7 +324,7 @@ public class CreateAWSDatalakeRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, scale, tags, runtime, image, enableRangerRaz, recipes, javaVersion);
+    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, scale, tags, runtime, image, enableRangerRaz, multiAz, recipes, javaVersion);
   }
 
   @Override
@@ -314,6 +339,7 @@ public class CreateAWSDatalakeRequest  {
     sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    enableRangerRaz: ").append(toIndentedString(enableRangerRaz)).append("\n");
+    sb.append("    multiAz: ").append(toIndentedString(multiAz)).append("\n");
     sb.append("    recipes: ").append(toIndentedString(recipes)).append("\n");
     sb.append("    javaVersion: ").append(toIndentedString(javaVersion)).append("\n");
     sb.append("}");

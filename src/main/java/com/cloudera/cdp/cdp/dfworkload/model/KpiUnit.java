@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Captures the legal units for a metric, a means to avoid large numbers either before or after a decimal point
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-14T15:47:19.045-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-21T23:16:18.220-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class KpiUnit  {
 

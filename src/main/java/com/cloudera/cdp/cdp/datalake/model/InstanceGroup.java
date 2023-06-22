@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * The type of the instance group which also contains the actual instance(s)
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-14T15:47:17.175-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-21T23:16:16.408-07:00")
 public class InstanceGroup  {
 
   /**
@@ -41,6 +41,11 @@ public class InstanceGroup  {
    * List of instances in this instance group.
    **/
   private List<Instance> instances = new ArrayList<Instance>();
+
+  /**
+   * List of availability zones that this instance group is associated with.
+   **/
+  private List<String> availabilityZones = new ArrayList<String>();
 
   /**
    * Getter for name.
@@ -76,6 +81,23 @@ public class InstanceGroup  {
     this.instances = instances;
   }
 
+  /**
+   * Getter for availabilityZones.
+   * List of availability zones that this instance group is associated with.
+   **/
+  @JsonProperty("availabilityZones")
+  public List<String> getAvailabilityZones() {
+    return availabilityZones;
+  }
+
+  /**
+   * Setter for availabilityZones.
+   * List of availability zones that this instance group is associated with.
+   **/
+  public void setAvailabilityZones(List<String> availabilityZones) {
+    this.availabilityZones = availabilityZones;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -91,12 +113,15 @@ public class InstanceGroup  {
     if (!Objects.equals(this.instances, instanceGroup.instances)) {
       return false;
     }
+    if (!Objects.equals(this.availabilityZones, instanceGroup.availabilityZones)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, instances);
+    return Objects.hash(name, instances, availabilityZones);
   }
 
   @Override
@@ -105,6 +130,7 @@ public class InstanceGroup  {
     sb.append("class InstanceGroup {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    instances: ").append(toIndentedString(instances)).append("\n");
+    sb.append("    availabilityZones: ").append(toIndentedString(availabilityZones)).append("\n");
     sb.append("}");
     return sb.toString();
   }

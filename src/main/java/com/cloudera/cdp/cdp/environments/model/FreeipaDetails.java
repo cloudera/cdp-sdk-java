@@ -23,12 +23,13 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.environments.model.FreeIpaInstance;
 import java.util.*;
 
 /**
  * Details of a FreeIPA cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-14T15:47:17.601-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-21T23:16:16.858-07:00")
 public class FreeipaDetails  {
 
   /**
@@ -55,6 +56,11 @@ public class FreeipaDetails  {
    * The recipes for the FreeIPA cluster.
    **/
   private List<String> recipes = new ArrayList<String>();
+
+  /**
+   * The instances of the FreeIPA cluster.
+   **/
+  private List<FreeIpaInstance> instances = new ArrayList<FreeIpaInstance>();
 
   /**
    * Getter for crn.
@@ -141,6 +147,23 @@ public class FreeipaDetails  {
     this.recipes = recipes;
   }
 
+  /**
+   * Getter for instances.
+   * The instances of the FreeIPA cluster.
+   **/
+  @JsonProperty("instances")
+  public List<FreeIpaInstance> getInstances() {
+    return instances;
+  }
+
+  /**
+   * Setter for instances.
+   * The instances of the FreeIPA cluster.
+   **/
+  public void setInstances(List<FreeIpaInstance> instances) {
+    this.instances = instances;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -165,12 +188,15 @@ public class FreeipaDetails  {
     if (!Objects.equals(this.recipes, freeipaDetails.recipes)) {
       return false;
     }
+    if (!Objects.equals(this.instances, freeipaDetails.instances)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, domain, hostname, serverIP, recipes);
+    return Objects.hash(crn, domain, hostname, serverIP, recipes, instances);
   }
 
   @Override
@@ -182,6 +208,7 @@ public class FreeipaDetails  {
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    serverIP: ").append(toIndentedString(serverIP)).append("\n");
     sb.append("    recipes: ").append(toIndentedString(recipes)).append("\n");
+    sb.append("    instances: ").append(toIndentedString(instances)).append("\n");
     sb.append("}");
     return sb.toString();
   }

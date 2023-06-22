@@ -1,0 +1,146 @@
+/*
+ * Copyright (c) 2018 Cloudera, Inc. All Rights Reserved.
+ *
+ * Portions Copyright (c) Copyright 2013-2018 Amazon.com, Inc. or its
+ * affiliates. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.cloudera.cdp.datahub.model;
+
+import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.cloudera.cdp.client.CdpResponse;
+
+/**
+ * The attached volume configuration.
+ **/
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-21T23:16:14.526-07:00")
+public class AttachedVolumeDetail  {
+
+  /**
+   * The number of volumes.
+   **/
+  private Integer count = null;
+
+  /**
+   * The type of volumes.
+   **/
+  private String volumeType = null;
+
+  /**
+   * The size of each volume in GB.
+   **/
+  private Integer size = null;
+
+  /**
+   * Getter for count.
+   * The number of volumes.
+   **/
+  @JsonProperty("count")
+  public Integer getCount() {
+    return count;
+  }
+
+  /**
+   * Setter for count.
+   * The number of volumes.
+   **/
+  public void setCount(Integer count) {
+    this.count = count;
+  }
+
+  /**
+   * Getter for volumeType.
+   * The type of volumes.
+   **/
+  @JsonProperty("volumeType")
+  public String getVolumeType() {
+    return volumeType;
+  }
+
+  /**
+   * Setter for volumeType.
+   * The type of volumes.
+   **/
+  public void setVolumeType(String volumeType) {
+    this.volumeType = volumeType;
+  }
+
+  /**
+   * Getter for size.
+   * The size of each volume in GB.
+   **/
+  @JsonProperty("size")
+  public Integer getSize() {
+    return size;
+  }
+
+  /**
+   * Setter for size.
+   * The size of each volume in GB.
+   **/
+  public void setSize(Integer size) {
+    this.size = size;
+  }
+
+  @Override
+  public boolean equals(java.lang.Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    AttachedVolumeDetail attachedVolumeDetail = (AttachedVolumeDetail) o;
+    if (!Objects.equals(this.count, attachedVolumeDetail.count)) {
+      return false;
+    }
+    if (!Objects.equals(this.volumeType, attachedVolumeDetail.volumeType)) {
+      return false;
+    }
+    if (!Objects.equals(this.size, attachedVolumeDetail.size)) {
+      return false;
+    }
+    return true;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(count, volumeType, size);
+  }
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("class AttachedVolumeDetail {\n");
+    sb.append("    count: ").append(toIndentedString(count)).append("\n");
+    sb.append("    volumeType: ").append(toIndentedString(volumeType)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("}");
+    return sb.toString();
+  }
+
+  /**
+   * Convert the given object to string with each line except the first indented by 4 spaces.
+   */
+  private String toIndentedString(java.lang.Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
+}
+

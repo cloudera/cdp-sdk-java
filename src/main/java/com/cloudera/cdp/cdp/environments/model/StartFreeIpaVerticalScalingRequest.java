@@ -28,7 +28,7 @@ import com.cloudera.cdp.environments.model.InstanceTemplate;
 /**
  * The request object for FreeIPA vertical scaling.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-14T15:47:17.601-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-21T23:16:16.858-07:00")
 public class StartFreeIpaVerticalScalingRequest  {
 
   /**

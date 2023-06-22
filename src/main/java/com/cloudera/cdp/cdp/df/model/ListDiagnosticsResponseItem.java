@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Object representation of a diagnostics request list item.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-14T15:47:18.822-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-21T23:16:17.949-07:00")
 public class ListDiagnosticsResponseItem  {
 
   /**

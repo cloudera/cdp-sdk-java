@@ -23,11 +23,13 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.datahub.model.AttachedVolumeDetail;
+import java.util.*;
 
 /**
  * Object which holds some details of an instance for the given cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-14T15:47:15.532-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-21T23:16:14.526-07:00")
 public class Instance  {
 
   /**
@@ -64,6 +66,51 @@ public class Instance  {
    * The status of the instance. This includes information like whether the instance is being provisioned, stopped, decommissioning failures etc.
    **/
   private String status = null;
+
+  /**
+   * The reason for the current status of this instance.
+   **/
+  private String statusReason = null;
+
+  /**
+   * The SSH port for the instance.
+   **/
+  private Integer sshPort = null;
+
+  /**
+   * Whether the instance has Cloudera Manager deployed or not.
+   **/
+  private Boolean clouderaManagerServer = null;
+
+  /**
+   * The name of the instance group this instance belongs to.
+   **/
+  private String instanceGroup = null;
+
+  /**
+   * List of volumes attached to this instance.
+   **/
+  private List<AttachedVolumeDetail> attachedVolumes = new ArrayList<AttachedVolumeDetail>();
+
+  /**
+   * The availability zone of the instance.
+   **/
+  private String availabilityZone = null;
+
+  /**
+   * The VM type of the instance. Supported values depend on the cloud platform.
+   **/
+  private String instanceVmType = null;
+
+  /**
+   * The rack ID of the instance in Cloudera Manager.
+   **/
+  private String rackId = null;
+
+  /**
+   * The subnet ID of the instance.
+   **/
+  private String subnetId = null;
 
   /**
    * Getter for id.
@@ -184,6 +231,159 @@ public class Instance  {
     this.status = status;
   }
 
+  /**
+   * Getter for statusReason.
+   * The reason for the current status of this instance.
+   **/
+  @JsonProperty("statusReason")
+  public String getStatusReason() {
+    return statusReason;
+  }
+
+  /**
+   * Setter for statusReason.
+   * The reason for the current status of this instance.
+   **/
+  public void setStatusReason(String statusReason) {
+    this.statusReason = statusReason;
+  }
+
+  /**
+   * Getter for sshPort.
+   * The SSH port for the instance.
+   **/
+  @JsonProperty("sshPort")
+  public Integer getSshPort() {
+    return sshPort;
+  }
+
+  /**
+   * Setter for sshPort.
+   * The SSH port for the instance.
+   **/
+  public void setSshPort(Integer sshPort) {
+    this.sshPort = sshPort;
+  }
+
+  /**
+   * Getter for clouderaManagerServer.
+   * Whether the instance has Cloudera Manager deployed or not.
+   **/
+  @JsonProperty("clouderaManagerServer")
+  public Boolean getClouderaManagerServer() {
+    return clouderaManagerServer;
+  }
+
+  /**
+   * Setter for clouderaManagerServer.
+   * Whether the instance has Cloudera Manager deployed or not.
+   **/
+  public void setClouderaManagerServer(Boolean clouderaManagerServer) {
+    this.clouderaManagerServer = clouderaManagerServer;
+  }
+
+  /**
+   * Getter for instanceGroup.
+   * The name of the instance group this instance belongs to.
+   **/
+  @JsonProperty("instanceGroup")
+  public String getInstanceGroup() {
+    return instanceGroup;
+  }
+
+  /**
+   * Setter for instanceGroup.
+   * The name of the instance group this instance belongs to.
+   **/
+  public void setInstanceGroup(String instanceGroup) {
+    this.instanceGroup = instanceGroup;
+  }
+
+  /**
+   * Getter for attachedVolumes.
+   * List of volumes attached to this instance.
+   **/
+  @JsonProperty("attachedVolumes")
+  public List<AttachedVolumeDetail> getAttachedVolumes() {
+    return attachedVolumes;
+  }
+
+  /**
+   * Setter for attachedVolumes.
+   * List of volumes attached to this instance.
+   **/
+  public void setAttachedVolumes(List<AttachedVolumeDetail> attachedVolumes) {
+    this.attachedVolumes = attachedVolumes;
+  }
+
+  /**
+   * Getter for availabilityZone.
+   * The availability zone of the instance.
+   **/
+  @JsonProperty("availabilityZone")
+  public String getAvailabilityZone() {
+    return availabilityZone;
+  }
+
+  /**
+   * Setter for availabilityZone.
+   * The availability zone of the instance.
+   **/
+  public void setAvailabilityZone(String availabilityZone) {
+    this.availabilityZone = availabilityZone;
+  }
+
+  /**
+   * Getter for instanceVmType.
+   * The VM type of the instance. Supported values depend on the cloud platform.
+   **/
+  @JsonProperty("instanceVmType")
+  public String getInstanceVmType() {
+    return instanceVmType;
+  }
+
+  /**
+   * Setter for instanceVmType.
+   * The VM type of the instance. Supported values depend on the cloud platform.
+   **/
+  public void setInstanceVmType(String instanceVmType) {
+    this.instanceVmType = instanceVmType;
+  }
+
+  /**
+   * Getter for rackId.
+   * The rack ID of the instance in Cloudera Manager.
+   **/
+  @JsonProperty("rackId")
+  public String getRackId() {
+    return rackId;
+  }
+
+  /**
+   * Setter for rackId.
+   * The rack ID of the instance in Cloudera Manager.
+   **/
+  public void setRackId(String rackId) {
+    this.rackId = rackId;
+  }
+
+  /**
+   * Getter for subnetId.
+   * The subnet ID of the instance.
+   **/
+  @JsonProperty("subnetId")
+  public String getSubnetId() {
+    return subnetId;
+  }
+
+  /**
+   * Setter for subnetId.
+   * The subnet ID of the instance.
+   **/
+  public void setSubnetId(String subnetId) {
+    this.subnetId = subnetId;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -214,12 +414,39 @@ public class Instance  {
     if (!Objects.equals(this.status, instance.status)) {
       return false;
     }
+    if (!Objects.equals(this.statusReason, instance.statusReason)) {
+      return false;
+    }
+    if (!Objects.equals(this.sshPort, instance.sshPort)) {
+      return false;
+    }
+    if (!Objects.equals(this.clouderaManagerServer, instance.clouderaManagerServer)) {
+      return false;
+    }
+    if (!Objects.equals(this.instanceGroup, instance.instanceGroup)) {
+      return false;
+    }
+    if (!Objects.equals(this.attachedVolumes, instance.attachedVolumes)) {
+      return false;
+    }
+    if (!Objects.equals(this.availabilityZone, instance.availabilityZone)) {
+      return false;
+    }
+    if (!Objects.equals(this.instanceVmType, instance.instanceVmType)) {
+      return false;
+    }
+    if (!Objects.equals(this.rackId, instance.rackId)) {
+      return false;
+    }
+    if (!Objects.equals(this.subnetId, instance.subnetId)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, state, instanceType, privateIp, publicIp, fqdn, status);
+    return Objects.hash(id, state, instanceType, privateIp, publicIp, fqdn, status, statusReason, sshPort, clouderaManagerServer, instanceGroup, attachedVolumes, availabilityZone, instanceVmType, rackId, subnetId);
   }
 
   @Override
@@ -233,6 +460,15 @@ public class Instance  {
     sb.append("    publicIp: ").append(toIndentedString(publicIp)).append("\n");
     sb.append("    fqdn: ").append(toIndentedString(fqdn)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
+    sb.append("    sshPort: ").append(toIndentedString(sshPort)).append("\n");
+    sb.append("    clouderaManagerServer: ").append(toIndentedString(clouderaManagerServer)).append("\n");
+    sb.append("    instanceGroup: ").append(toIndentedString(instanceGroup)).append("\n");
+    sb.append("    attachedVolumes: ").append(toIndentedString(attachedVolumes)).append("\n");
+    sb.append("    availabilityZone: ").append(toIndentedString(availabilityZone)).append("\n");
+    sb.append("    instanceVmType: ").append(toIndentedString(instanceVmType)).append("\n");
+    sb.append("    rackId: ").append(toIndentedString(rackId)).append("\n");
+    sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
