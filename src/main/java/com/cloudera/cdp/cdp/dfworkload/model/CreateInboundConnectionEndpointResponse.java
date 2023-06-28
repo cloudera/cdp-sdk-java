@@ -28,7 +28,7 @@ import com.cloudera.cdp.dfworkload.model.InboundConnectionEndpointSummary;
 /**
  * Response object returned during Inbound Connection Endpoint creation
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-21T23:16:18.220-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-28T12:35:43.624-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class CreateInboundConnectionEndpointResponse extends CdpResponse {
 

@@ -108,13 +108,15 @@ import com.cloudera.cdp.df.model.StartGetDiagnosticsCollectionRequest;
 import com.cloudera.cdp.df.model.StartGetDiagnosticsCollectionResponse;
 import com.cloudera.cdp.df.model.UpdateServiceRequest;
 import com.cloudera.cdp.df.model.UpdateServiceResponse;
+import com.cloudera.cdp.df.model.UpgradeServiceRequest;
+import com.cloudera.cdp.df.model.UpgradeServiceResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-21T23:16:17.949-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-28T12:35:43.241-07:00")
 public class DfClient extends CdpClient {
 
   public static final String SERVICE_NAME = "df";
@@ -650,5 +652,18 @@ public class DfClient extends CdpClient {
     }
 
     return this.invokeAPI("updateService", "/api/v1/df/updateService", input, new GenericType<UpdateServiceResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Upgrade service.
+   * @param input
+   * @return UpgradeServiceResponse
+   */
+  public UpgradeServiceResponse upgradeService(UpgradeServiceRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling upgradeService");
+    }
+
+    return this.invokeAPI("upgradeService", "/api/v1/df/upgradeService", input, new GenericType<UpgradeServiceResponse>(){}, NO_EXTENSION);
   }
 }

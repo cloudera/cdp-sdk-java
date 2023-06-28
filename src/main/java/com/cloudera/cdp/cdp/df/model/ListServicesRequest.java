@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for the ListServices method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-21T23:16:17.949-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-28T12:35:43.241-07:00")
 public class ListServicesRequest  {
 
   /**
@@ -42,7 +42,7 @@ public class ListServicesRequest  {
   private Integer pageSize = null;
 
   /**
-   * The starting page token.
+   * The token pointing to the next element to be retrieved.
    **/
   private String startingToken = null;
 
@@ -87,7 +87,7 @@ public class ListServicesRequest  {
 
   /**
    * Getter for startingToken.
-   * The starting page token.
+   * The token pointing to the next element to be retrieved.
    **/
   @JsonProperty("startingToken")
   public String getStartingToken() {
@@ -96,7 +96,7 @@ public class ListServicesRequest  {
 
   /**
    * Setter for startingToken.
-   * The starting page token.
+   * The token pointing to the next element to be retrieved.
    **/
   public void setStartingToken(String startingToken) {
     this.startingToken = startingToken;

@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for UpdateService
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-21T23:16:17.949-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-28T12:35:43.241-07:00")
 public class UpdateServiceRequest  {
 
   /**
@@ -55,6 +55,11 @@ public class UpdateServiceRequest  {
    * IP Ranges that are authorized to access CDF local endpoints.
    **/
   private List<String> loadBalancerAuthorizedIpRanges = new ArrayList<String>();
+
+  /**
+   * Indicates whether to skip Liftie's pre-flight checks.
+   **/
+  private Boolean skipPreflightChecks = null;
 
   /**
    * Getter for serviceCrn.
@@ -141,6 +146,23 @@ public class UpdateServiceRequest  {
     this.loadBalancerAuthorizedIpRanges = loadBalancerAuthorizedIpRanges;
   }
 
+  /**
+   * Getter for skipPreflightChecks.
+   * Indicates whether to skip Liftie&#39;s pre-flight checks.
+   **/
+  @JsonProperty("skipPreflightChecks")
+  public Boolean getSkipPreflightChecks() {
+    return skipPreflightChecks;
+  }
+
+  /**
+   * Setter for skipPreflightChecks.
+   * Indicates whether to skip Liftie&#39;s pre-flight checks.
+   **/
+  public void setSkipPreflightChecks(Boolean skipPreflightChecks) {
+    this.skipPreflightChecks = skipPreflightChecks;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -165,12 +187,15 @@ public class UpdateServiceRequest  {
     if (!Objects.equals(this.loadBalancerAuthorizedIpRanges, updateServiceRequest.loadBalancerAuthorizedIpRanges)) {
       return false;
     }
+    if (!Objects.equals(this.skipPreflightChecks, updateServiceRequest.skipPreflightChecks)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(serviceCrn, minK8sNodeCount, maxK8sNodeCount, kubeApiAuthorizedIpRanges, loadBalancerAuthorizedIpRanges);
+    return Objects.hash(serviceCrn, minK8sNodeCount, maxK8sNodeCount, kubeApiAuthorizedIpRanges, loadBalancerAuthorizedIpRanges, skipPreflightChecks);
   }
 
   @Override
@@ -182,6 +207,7 @@ public class UpdateServiceRequest  {
     sb.append("    maxK8sNodeCount: ").append(toIndentedString(maxK8sNodeCount)).append("\n");
     sb.append("    kubeApiAuthorizedIpRanges: ").append(toIndentedString(kubeApiAuthorizedIpRanges)).append("\n");
     sb.append("    loadBalancerAuthorizedIpRanges: ").append(toIndentedString(loadBalancerAuthorizedIpRanges)).append("\n");
+    sb.append("    skipPreflightChecks: ").append(toIndentedString(skipPreflightChecks)).append("\n");
     sb.append("}");
     return sb.toString();
   }

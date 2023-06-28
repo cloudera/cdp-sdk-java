@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for the CreateWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-21T23:16:16.254-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-28T12:35:41.194-07:00")
 public class CreateWorkspaceRequest  {
 
   /**
@@ -82,6 +82,11 @@ public class CreateWorkspaceRequest  {
    * The NFS Protocol version of the NFS server we are using for Azure and Private Cloud.
    **/
   private String nfsVersion = null;
+
+  /**
+   * The version of ML workload app to install.
+   **/
+  private String mlVersion = null;
 
   /**
    * Enables the model metrics service for exporting metrics for models to a metrics store.
@@ -299,6 +304,23 @@ public class CreateWorkspaceRequest  {
   }
 
   /**
+   * Getter for mlVersion.
+   * The version of ML workload app to install.
+   **/
+  @JsonProperty("mlVersion")
+  public String getMlVersion() {
+    return mlVersion;
+  }
+
+  /**
+   * Setter for mlVersion.
+   * The version of ML workload app to install.
+   **/
+  public void setMlVersion(String mlVersion) {
+    this.mlVersion = mlVersion;
+  }
+
+  /**
    * Getter for enableModelMetrics.
    * Enables the model metrics service for exporting metrics for models to a metrics store.
    **/
@@ -490,6 +512,9 @@ public class CreateWorkspaceRequest  {
     if (!Objects.equals(this.nfsVersion, createWorkspaceRequest.nfsVersion)) {
       return false;
     }
+    if (!Objects.equals(this.mlVersion, createWorkspaceRequest.mlVersion)) {
+      return false;
+    }
     if (!Objects.equals(this.enableModelMetrics, createWorkspaceRequest.enableModelMetrics)) {
       return false;
     }
@@ -522,7 +547,7 @@ public class CreateWorkspaceRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, workspaceName, usePublicLoadBalancer, disableTLS, provisionK8sRequest, enableMonitoring, enableGovernance, existingNFS, loadBalancerIPWhitelists, nfsVersion, enableModelMetrics, existingDatabaseConfig, whitelistAuthorizedIPRanges, authorizedIPRanges, skipValidation, subnetsForLoadBalancers, staticSubdomain, cdswMigrationMode, outboundTypes);
+    return Objects.hash(environmentName, workspaceName, usePublicLoadBalancer, disableTLS, provisionK8sRequest, enableMonitoring, enableGovernance, existingNFS, loadBalancerIPWhitelists, nfsVersion, mlVersion, enableModelMetrics, existingDatabaseConfig, whitelistAuthorizedIPRanges, authorizedIPRanges, skipValidation, subnetsForLoadBalancers, staticSubdomain, cdswMigrationMode, outboundTypes);
   }
 
   @Override
@@ -539,6 +564,7 @@ public class CreateWorkspaceRequest  {
     sb.append("    existingNFS: ").append(toIndentedString(existingNFS)).append("\n");
     sb.append("    loadBalancerIPWhitelists: ").append(toIndentedString(loadBalancerIPWhitelists)).append("\n");
     sb.append("    nfsVersion: ").append(toIndentedString(nfsVersion)).append("\n");
+    sb.append("    mlVersion: ").append(toIndentedString(mlVersion)).append("\n");
     sb.append("    enableModelMetrics: ").append(toIndentedString(enableModelMetrics)).append("\n");
     sb.append("    existingDatabaseConfig: ").append(toIndentedString(existingDatabaseConfig)).append("\n");
     sb.append("    whitelistAuthorizedIPRanges: ").append(toIndentedString(whitelistAuthorizedIPRanges)).append("\n");

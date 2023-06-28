@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * The summary of the DF Service enabled in a CDP Environment
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-21T23:16:17.949-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-28T12:35:43.241-07:00")
 public class ServiceSummary  {
 
   /**
@@ -108,7 +108,7 @@ public class ServiceSummary  {
   private String instanceType = null;
 
   /**
-   * Whether or not a successfully created and usable cluster exists
+   * Whether or not a successfully created and usable cluster exists. Deprecated. Use 'validActions' instead.
    **/
   private Boolean clusterUsable = null;
 
@@ -379,8 +379,9 @@ public class ServiceSummary  {
 
   /**
    * Getter for clusterUsable.
-   * Whether or not a successfully created and usable cluster exists
+   * Whether or not a successfully created and usable cluster exists. Deprecated. Use &#39;validActions&#39; instead.
    **/
+  @Deprecated
   @JsonProperty("clusterUsable")
   public Boolean getClusterUsable() {
     return clusterUsable;
@@ -388,8 +389,9 @@ public class ServiceSummary  {
 
   /**
    * Setter for clusterUsable.
-   * Whether or not a successfully created and usable cluster exists
+   * Whether or not a successfully created and usable cluster exists. Deprecated. Use &#39;validActions&#39; instead.
    **/
+  @Deprecated
   public void setClusterUsable(Boolean clusterUsable) {
     this.clusterUsable = clusterUsable;
   }

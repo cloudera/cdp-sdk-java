@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * Request object for a create GCP environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-21T23:16:16.858-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-28T12:35:41.822-07:00")
 public class CreateGCPEnvironmentRequest  {
 
   /**
@@ -115,6 +115,11 @@ public class CreateGCPEnvironmentRequest  {
    * Key Resource ID of the customer managed encryption key to encrypt GCP resources.
    **/
   private String encryptionKey = null;
+
+  /**
+   * The zones of the environment in the given region. Multi-zone selection is not supported in GCP yet. It accepts only one zone until support is added.
+   **/
+  private List<String> availabilityZones = new ArrayList<String>();
 
   /**
    * Getter for environmentName.
@@ -388,6 +393,23 @@ public class CreateGCPEnvironmentRequest  {
     this.encryptionKey = encryptionKey;
   }
 
+  /**
+   * Getter for availabilityZones.
+   * The zones of the environment in the given region. Multi-zone selection is not supported in GCP yet. It accepts only one zone until support is added.
+   **/
+  @JsonProperty("availabilityZones")
+  public List<String> getAvailabilityZones() {
+    return availabilityZones;
+  }
+
+  /**
+   * Setter for availabilityZones.
+   * The zones of the environment in the given region. Multi-zone selection is not supported in GCP yet. It accepts only one zone until support is added.
+   **/
+  public void setAvailabilityZones(List<String> availabilityZones) {
+    this.availabilityZones = availabilityZones;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -445,12 +467,15 @@ public class CreateGCPEnvironmentRequest  {
     if (!Objects.equals(this.encryptionKey, createGCPEnvironmentRequest.encryptionKey)) {
       return false;
     }
+    if (!Objects.equals(this.availabilityZones, createGCPEnvironmentRequest.availabilityZones)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, publicKey, usePublicIp, existingNetworkParams, securityAccess, logStorage, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, tags, proxyConfigName, encryptionKey);
+    return Objects.hash(environmentName, credentialName, region, publicKey, usePublicIp, existingNetworkParams, securityAccess, logStorage, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, tags, proxyConfigName, encryptionKey, availabilityZones);
   }
 
   @Override
@@ -473,6 +498,7 @@ public class CreateGCPEnvironmentRequest  {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    proxyConfigName: ").append(toIndentedString(proxyConfigName)).append("\n");
     sb.append("    encryptionKey: ").append(toIndentedString(encryptionKey)).append("\n");
+    sb.append("    availabilityZones: ").append(toIndentedString(availabilityZones)).append("\n");
     sb.append("}");
     return sb.toString();
   }

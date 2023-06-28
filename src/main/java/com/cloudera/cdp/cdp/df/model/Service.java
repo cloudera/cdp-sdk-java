@@ -30,7 +30,7 @@ import java.util.Map;
 /**
  * The DataFlow view of a CDP service.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-21T23:16:17.949-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-28T12:35:43.241-07:00")
 public class Service  {
 
   /**
@@ -124,7 +124,7 @@ public class Service  {
   private String clusterId = null;
 
   /**
-   * Whether or not a successfully created and usable cluster exists
+   * Whether or not a successfully created and usable cluster exists. Deprecated. Use 'validActions' instead.
    **/
   private Boolean clusterUsable = null;
 
@@ -496,8 +496,9 @@ public class Service  {
 
   /**
    * Getter for clusterUsable.
-   * Whether or not a successfully created and usable cluster exists
+   * Whether or not a successfully created and usable cluster exists. Deprecated. Use &#39;validActions&#39; instead.
    **/
+  @Deprecated
   @JsonProperty("clusterUsable")
   public Boolean getClusterUsable() {
     return clusterUsable;
@@ -505,8 +506,9 @@ public class Service  {
 
   /**
    * Setter for clusterUsable.
-   * Whether or not a successfully created and usable cluster exists
+   * Whether or not a successfully created and usable cluster exists. Deprecated. Use &#39;validActions&#39; instead.
    **/
+  @Deprecated
   public void setClusterUsable(Boolean clusterUsable) {
     this.clusterUsable = clusterUsable;
   }

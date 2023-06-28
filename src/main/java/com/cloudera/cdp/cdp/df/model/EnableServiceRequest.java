@@ -29,7 +29,7 @@ import java.util.Map;
 /**
  * Request object for EnableService
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-21T23:16:17.949-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-28T12:35:43.241-07:00")
 public class EnableServiceRequest  {
 
   /**
@@ -86,6 +86,11 @@ public class EnableServiceRequest  {
    * Indicates custom instance type to be used
    **/
   private String instanceType = null;
+
+  /**
+   * Indicates whether to skip Liftie's pre-flight checks.
+   **/
+  private Boolean skipPreflightChecks = null;
 
   /**
    * Getter for environmentCrn.
@@ -274,6 +279,23 @@ public class EnableServiceRequest  {
     this.instanceType = instanceType;
   }
 
+  /**
+   * Getter for skipPreflightChecks.
+   * Indicates whether to skip Liftie&#39;s pre-flight checks.
+   **/
+  @JsonProperty("skipPreflightChecks")
+  public Boolean getSkipPreflightChecks() {
+    return skipPreflightChecks;
+  }
+
+  /**
+   * Setter for skipPreflightChecks.
+   * Indicates whether to skip Liftie&#39;s pre-flight checks.
+   **/
+  public void setSkipPreflightChecks(Boolean skipPreflightChecks) {
+    this.skipPreflightChecks = skipPreflightChecks;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -316,12 +338,15 @@ public class EnableServiceRequest  {
     if (!Objects.equals(this.instanceType, enableServiceRequest.instanceType)) {
       return false;
     }
+    if (!Objects.equals(this.skipPreflightChecks, enableServiceRequest.skipPreflightChecks)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, minK8sNodeCount, maxK8sNodeCount, usePublicLoadBalancer, kubeApiAuthorizedIpRanges, tags, loadBalancerAuthorizedIpRanges, clusterSubnets, loadBalancerSubnets, privateCluster, instanceType);
+    return Objects.hash(environmentCrn, minK8sNodeCount, maxK8sNodeCount, usePublicLoadBalancer, kubeApiAuthorizedIpRanges, tags, loadBalancerAuthorizedIpRanges, clusterSubnets, loadBalancerSubnets, privateCluster, instanceType, skipPreflightChecks);
   }
 
   @Override
@@ -339,6 +364,7 @@ public class EnableServiceRequest  {
     sb.append("    loadBalancerSubnets: ").append(toIndentedString(loadBalancerSubnets)).append("\n");
     sb.append("    privateCluster: ").append(toIndentedString(privateCluster)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
+    sb.append("    skipPreflightChecks: ").append(toIndentedString(skipPreflightChecks)).append("\n");
     sb.append("}");
     return sb.toString();
   }

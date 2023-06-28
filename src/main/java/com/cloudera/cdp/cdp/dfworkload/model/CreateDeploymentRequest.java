@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object to create a deployment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-21T23:16:18.220-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-28T12:35:43.624-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class CreateDeploymentRequest  {
 
@@ -69,6 +69,11 @@ public class CreateDeploymentRequest  {
    * Specifies that auto-scaling should be enabled.
    **/
   private Boolean autoScalingEnabled = null;
+
+  /**
+   * Specifies that Flow metrics should be enabled for scaling.
+   **/
+  private Boolean flowMetricsScalingEnabled = null;
 
   /**
    * The minimum number of nodes that the cluster should allocate. May only be specified when autoScalingEnabled is true.
@@ -232,6 +237,23 @@ public class CreateDeploymentRequest  {
    **/
   public void setAutoScalingEnabled(Boolean autoScalingEnabled) {
     this.autoScalingEnabled = autoScalingEnabled;
+  }
+
+  /**
+   * Getter for flowMetricsScalingEnabled.
+   * Specifies that Flow metrics should be enabled for scaling.
+   **/
+  @JsonProperty("flowMetricsScalingEnabled")
+  public Boolean getFlowMetricsScalingEnabled() {
+    return flowMetricsScalingEnabled;
+  }
+
+  /**
+   * Setter for flowMetricsScalingEnabled.
+   * Specifies that Flow metrics should be enabled for scaling.
+   **/
+  public void setFlowMetricsScalingEnabled(Boolean flowMetricsScalingEnabled) {
+    this.flowMetricsScalingEnabled = flowMetricsScalingEnabled;
   }
 
   /**
@@ -417,6 +439,9 @@ public class CreateDeploymentRequest  {
     if (!Objects.equals(this.autoScalingEnabled, createDeploymentRequest.autoScalingEnabled)) {
       return false;
     }
+    if (!Objects.equals(this.flowMetricsScalingEnabled, createDeploymentRequest.flowMetricsScalingEnabled)) {
+      return false;
+    }
     if (!Objects.equals(this.autoScaleMinNodes, createDeploymentRequest.autoScaleMinNodes)) {
       return false;
     }
@@ -449,7 +474,7 @@ public class CreateDeploymentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, configurationVersion, name, clusterSizeName, deploymentRequestCrn, parameterGroups, autoScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, cfmNifiVersion, autoStartFlow, inboundHostname, listenComponents, customNarConfigurationCrn);
+    return Objects.hash(environmentCrn, configurationVersion, name, clusterSizeName, deploymentRequestCrn, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, cfmNifiVersion, autoStartFlow, inboundHostname, listenComponents, customNarConfigurationCrn);
   }
 
   @Override
@@ -463,6 +488,7 @@ public class CreateDeploymentRequest  {
     sb.append("    deploymentRequestCrn: ").append(toIndentedString(deploymentRequestCrn)).append("\n");
     sb.append("    parameterGroups: ").append(toIndentedString(parameterGroups)).append("\n");
     sb.append("    autoScalingEnabled: ").append(toIndentedString(autoScalingEnabled)).append("\n");
+    sb.append("    flowMetricsScalingEnabled: ").append(toIndentedString(flowMetricsScalingEnabled)).append("\n");
     sb.append("    autoScaleMinNodes: ").append(toIndentedString(autoScaleMinNodes)).append("\n");
     sb.append("    autoScaleMaxNodes: ").append(toIndentedString(autoScaleMaxNodes)).append("\n");
     sb.append("    staticNodeCount: ").append(toIndentedString(staticNodeCount)).append("\n");

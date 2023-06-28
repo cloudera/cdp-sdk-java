@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Provides details about a deployment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-21T23:16:18.220-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-28T12:35:43.624-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcDeployment  {
 
@@ -108,6 +108,11 @@ public class RpcDeployment  {
    * Whether or not autoscaling is enabled for this deployment
    **/
   private Boolean autoscalingEnabled = null;
+
+  /**
+   * Whether or not flow metrics scaling is enabled for this deployment
+   **/
+  private Boolean flowMetricsScalingEnabled = null;
 
   /**
    * The minimum number of nodes that the deployment will allocate; can only be used when autoscalingEnabled is true
@@ -462,6 +467,23 @@ public class RpcDeployment  {
    **/
   public void setAutoscalingEnabled(Boolean autoscalingEnabled) {
     this.autoscalingEnabled = autoscalingEnabled;
+  }
+
+  /**
+   * Getter for flowMetricsScalingEnabled.
+   * Whether or not flow metrics scaling is enabled for this deployment
+   **/
+  @JsonProperty("flowMetricsScalingEnabled")
+  public Boolean getFlowMetricsScalingEnabled() {
+    return flowMetricsScalingEnabled;
+  }
+
+  /**
+   * Setter for flowMetricsScalingEnabled.
+   * Whether or not flow metrics scaling is enabled for this deployment
+   **/
+  public void setFlowMetricsScalingEnabled(Boolean flowMetricsScalingEnabled) {
+    this.flowMetricsScalingEnabled = flowMetricsScalingEnabled;
   }
 
   /**
@@ -858,6 +880,9 @@ public class RpcDeployment  {
     if (!Objects.equals(this.autoscalingEnabled, rpcDeployment.autoscalingEnabled)) {
       return false;
     }
+    if (!Objects.equals(this.flowMetricsScalingEnabled, rpcDeployment.flowMetricsScalingEnabled)) {
+      return false;
+    }
     if (!Objects.equals(this.autoscaleMinNodes, rpcDeployment.autoscaleMinNodes)) {
       return false;
     }
@@ -923,7 +948,7 @@ public class RpcDeployment  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, status, service, crn, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, created, updated, validActions, nifiUrl, clusterSize, coresPerNode, heapSize, autoscalingEnabled, autoscaleMinNodes, autoscaleMaxNodes, staticNodeCount, flowName, flowVersion, flowVersionCrn, flowCrn, artifactTypeName, currentNodeCount, deployedByUsername, deployedByName, dfxLocalUrl, configurationVersion, lastUpdatedByUsername, cfmNifiVersion, memoryLimit, inboundConnectionEndpointId, testSession, flowDesignerId, customNarConfigurationId);
+    return Objects.hash(name, status, service, crn, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, created, updated, validActions, nifiUrl, clusterSize, coresPerNode, heapSize, autoscalingEnabled, flowMetricsScalingEnabled, autoscaleMinNodes, autoscaleMaxNodes, staticNodeCount, flowName, flowVersion, flowVersionCrn, flowCrn, artifactTypeName, currentNodeCount, deployedByUsername, deployedByName, dfxLocalUrl, configurationVersion, lastUpdatedByUsername, cfmNifiVersion, memoryLimit, inboundConnectionEndpointId, testSession, flowDesignerId, customNarConfigurationId);
   }
 
   @Override
@@ -945,6 +970,7 @@ public class RpcDeployment  {
     sb.append("    coresPerNode: ").append(toIndentedString(coresPerNode)).append("\n");
     sb.append("    heapSize: ").append(toIndentedString(heapSize)).append("\n");
     sb.append("    autoscalingEnabled: ").append(toIndentedString(autoscalingEnabled)).append("\n");
+    sb.append("    flowMetricsScalingEnabled: ").append(toIndentedString(flowMetricsScalingEnabled)).append("\n");
     sb.append("    autoscaleMinNodes: ").append(toIndentedString(autoscaleMinNodes)).append("\n");
     sb.append("    autoscaleMaxNodes: ").append(toIndentedString(autoscaleMaxNodes)).append("\n");
     sb.append("    staticNodeCount: ").append(toIndentedString(staticNodeCount)).append("\n");

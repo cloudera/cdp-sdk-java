@@ -30,10 +30,20 @@ import com.cloudera.cdp.client.ResourceResponse;
 import com.cloudera.cdp.client.RestResponse;
 import com.cloudera.cdp.replicationmanager.model.ActivatePolicyRequest;
 import com.cloudera.cdp.replicationmanager.model.ActivatePolicyResponse;
+import com.cloudera.cdp.replicationmanager.model.CollectDiagnosticBundleRequest;
+import com.cloudera.cdp.replicationmanager.model.CollectDiagnosticBundleResponse;
+import com.cloudera.cdp.replicationmanager.model.CreateAbfsCredentialRequest;
+import com.cloudera.cdp.replicationmanager.model.CreateAbfsCredentialResponse;
+import com.cloudera.cdp.replicationmanager.model.CreateAwsCredentialRequest;
+import com.cloudera.cdp.replicationmanager.model.CreateAwsCredentialResponse;
 import com.cloudera.cdp.replicationmanager.model.CreatePolicyRequest;
 import com.cloudera.cdp.replicationmanager.model.CreatePolicyResponse;
+import com.cloudera.cdp.replicationmanager.model.DeleteCredentialRequest;
+import com.cloudera.cdp.replicationmanager.model.DeleteCredentialResponse;
 import com.cloudera.cdp.replicationmanager.model.DeletePolicyRequest;
 import com.cloudera.cdp.replicationmanager.model.DeletePolicyResponse;
+import com.cloudera.cdp.replicationmanager.model.DownloadDiagnosticBundleRequest;
+import com.cloudera.cdp.replicationmanager.model.DownloadDiagnosticBundleResponse;
 import com.cloudera.cdp.replicationmanager.model.Error;
 import com.cloudera.cdp.replicationmanager.model.GetCredentialsRequest;
 import com.cloudera.cdp.replicationmanager.model.GetCredentialsResponse;
@@ -53,7 +63,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-21T23:16:18.667-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-28T12:35:44.071-07:00")
 public class ReplicationmanagerClient extends CdpClient {
 
   public static final String SERVICE_NAME = "replicationmanager";
@@ -98,6 +108,45 @@ public class ReplicationmanagerClient extends CdpClient {
   }
 
   /**
+   * Collect diagnostic bundle for a policy.
+   * @param input
+   * @return CollectDiagnosticBundleResponse
+   */
+  public CollectDiagnosticBundleResponse collectDiagnosticBundle(CollectDiagnosticBundleRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling collectDiagnosticBundle");
+    }
+
+    return this.invokeAPI("collectDiagnosticBundle", "/api/v1/replicationmanager/collectDiagnosticBundle", input, new GenericType<CollectDiagnosticBundleResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Create an ABFS Cloud Credential.
+   * @param input
+   * @return CreateAbfsCredentialResponse
+   */
+  public CreateAbfsCredentialResponse createAbfsCredential(CreateAbfsCredentialRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createAbfsCredential");
+    }
+
+    return this.invokeAPI("createAbfsCredential", "/api/v1/replicationmanager/createAbfsCredential", input, new GenericType<CreateAbfsCredentialResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Create an AWS Cloud Credential.
+   * @param input
+   * @return CreateAwsCredentialResponse
+   */
+  public CreateAwsCredentialResponse createAwsCredential(CreateAwsCredentialRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createAwsCredential");
+    }
+
+    return this.invokeAPI("createAwsCredential", "/api/v1/replicationmanager/createAwsCredential", input, new GenericType<CreateAwsCredentialResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Create a Replication Policy.
    * @param input
    * @return CreatePolicyResponse
@@ -111,6 +160,19 @@ public class ReplicationmanagerClient extends CdpClient {
   }
 
   /**
+   * Delete Cloud Credential.
+   * @param input
+   * @return DeleteCredentialResponse
+   */
+  public DeleteCredentialResponse deleteCredential(DeleteCredentialRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteCredential");
+    }
+
+    return this.invokeAPI("deleteCredential", "/api/v1/replicationmanager/deleteCredential", input, new GenericType<DeleteCredentialResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Delete Replication Policy.
    * @param input
    * @return DeletePolicyResponse
@@ -121,6 +183,19 @@ public class ReplicationmanagerClient extends CdpClient {
     }
 
     return this.invokeAPI("deletePolicy", "/api/v1/replicationmanager/deletePolicy", input, new GenericType<DeletePolicyResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Download diagnostic bundle for a policy.
+   * @param input
+   * @return DownloadDiagnosticBundleResponse
+   */
+  public DownloadDiagnosticBundleResponse downloadDiagnosticBundle(DownloadDiagnosticBundleRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling downloadDiagnosticBundle");
+    }
+
+    return this.invokeAPI("downloadDiagnosticBundle", "/api/v1/replicationmanager/downloadDiagnosticBundle", input, new GenericType<DownloadDiagnosticBundleResponse>(){}, NO_EXTENSION);
   }
 
   /**

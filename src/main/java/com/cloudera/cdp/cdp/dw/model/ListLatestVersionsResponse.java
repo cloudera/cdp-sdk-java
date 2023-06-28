@@ -29,7 +29,7 @@ import java.util.Map;
 /**
  * Response object of the listLatestVersions call.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-21T23:16:15.495-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-28T12:35:40.477-07:00")
 public class ListLatestVersionsResponse extends CdpResponse {
 
   /**
