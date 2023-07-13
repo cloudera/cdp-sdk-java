@@ -45,6 +45,8 @@ import com.cloudera.cdp.replicationmanager.model.DeletePolicyResponse;
 import com.cloudera.cdp.replicationmanager.model.DownloadDiagnosticBundleRequest;
 import com.cloudera.cdp.replicationmanager.model.DownloadDiagnosticBundleResponse;
 import com.cloudera.cdp.replicationmanager.model.Error;
+import com.cloudera.cdp.replicationmanager.model.GetCommandStatusRequest;
+import com.cloudera.cdp.replicationmanager.model.GetCommandStatusResponse;
 import com.cloudera.cdp.replicationmanager.model.GetCredentialsRequest;
 import com.cloudera.cdp.replicationmanager.model.GetCredentialsResponse;
 import com.cloudera.cdp.replicationmanager.model.ListAllCredentialsRequest;
@@ -63,7 +65,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-28T12:35:44.071-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-13T10:29:24.647-07:00")
 public class ReplicationmanagerClient extends CdpClient {
 
   public static final String SERVICE_NAME = "replicationmanager";
@@ -196,6 +198,19 @@ public class ReplicationmanagerClient extends CdpClient {
     }
 
     return this.invokeAPI("downloadDiagnosticBundle", "/api/v1/replicationmanager/downloadDiagnosticBundle", input, new GenericType<DownloadDiagnosticBundleResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Get the status of the given CM command.
+   * @param input
+   * @return GetCommandStatusResponse
+   */
+  public GetCommandStatusResponse getCommandStatus(GetCommandStatusRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getCommandStatus");
+    }
+
+    return this.invokeAPI("getCommandStatus", "/api/v1/replicationmanager/getCommandStatus", input, new GenericType<GetCommandStatusResponse>(){}, NO_EXTENSION);
   }
 
   /**

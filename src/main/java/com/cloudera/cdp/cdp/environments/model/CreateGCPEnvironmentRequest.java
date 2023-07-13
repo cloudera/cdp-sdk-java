@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * Request object for a create GCP environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-28T12:35:41.822-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-13T10:29:22.931-07:00")
 public class CreateGCPEnvironmentRequest  {
 
   /**
@@ -100,6 +100,11 @@ public class CreateGCPEnvironmentRequest  {
    * The FreeIPA creation request for the environment
    **/
   private GCPFreeIpaCreationRequest freeIpa = null;
+
+  /**
+   * The subnets to use for endpoint access gateway.
+   **/
+  private List<String> endpointAccessGatewaySubnetIds = new ArrayList<String>();
 
   /**
    * Tags that can be attached to GCP resources. Please refer to Google documentation for the rules https://cloud.google.com/compute/docs/labeling-resources#label_format.
@@ -343,6 +348,23 @@ public class CreateGCPEnvironmentRequest  {
   }
 
   /**
+   * Getter for endpointAccessGatewaySubnetIds.
+   * The subnets to use for endpoint access gateway.
+   **/
+  @JsonProperty("endpointAccessGatewaySubnetIds")
+  public List<String> getEndpointAccessGatewaySubnetIds() {
+    return endpointAccessGatewaySubnetIds;
+  }
+
+  /**
+   * Setter for endpointAccessGatewaySubnetIds.
+   * The subnets to use for endpoint access gateway.
+   **/
+  public void setEndpointAccessGatewaySubnetIds(List<String> endpointAccessGatewaySubnetIds) {
+    this.endpointAccessGatewaySubnetIds = endpointAccessGatewaySubnetIds;
+  }
+
+  /**
    * Getter for tags.
    * Tags that can be attached to GCP resources. Please refer to Google documentation for the rules https://cloud.google.com/compute/docs/labeling-resources#label_format.
    **/
@@ -458,6 +480,9 @@ public class CreateGCPEnvironmentRequest  {
     if (!Objects.equals(this.freeIpa, createGCPEnvironmentRequest.freeIpa)) {
       return false;
     }
+    if (!Objects.equals(this.endpointAccessGatewaySubnetIds, createGCPEnvironmentRequest.endpointAccessGatewaySubnetIds)) {
+      return false;
+    }
     if (!Objects.equals(this.tags, createGCPEnvironmentRequest.tags)) {
       return false;
     }
@@ -475,7 +500,7 @@ public class CreateGCPEnvironmentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, publicKey, usePublicIp, existingNetworkParams, securityAccess, logStorage, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, tags, proxyConfigName, encryptionKey, availabilityZones);
+    return Objects.hash(environmentName, credentialName, region, publicKey, usePublicIp, existingNetworkParams, securityAccess, logStorage, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, endpointAccessGatewaySubnetIds, tags, proxyConfigName, encryptionKey, availabilityZones);
   }
 
   @Override
@@ -495,6 +520,7 @@ public class CreateGCPEnvironmentRequest  {
     sb.append("    workloadAnalytics: ").append(toIndentedString(workloadAnalytics)).append("\n");
     sb.append("    reportDeploymentLogs: ").append(toIndentedString(reportDeploymentLogs)).append("\n");
     sb.append("    freeIpa: ").append(toIndentedString(freeIpa)).append("\n");
+    sb.append("    endpointAccessGatewaySubnetIds: ").append(toIndentedString(endpointAccessGatewaySubnetIds)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    proxyConfigName: ").append(toIndentedString(proxyConfigName)).append("\n");
     sb.append("    encryptionKey: ").append(toIndentedString(encryptionKey)).append("\n");

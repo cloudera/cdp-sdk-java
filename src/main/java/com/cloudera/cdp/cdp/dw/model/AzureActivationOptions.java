@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Options for activating an Azure environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-28T12:35:40.477-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-13T10:29:21.481-07:00")
 public class AzureActivationOptions  {
 
   /**
@@ -65,21 +65,6 @@ public class AzureActivationOptions  {
    * Network outbound type. This setting controls the egress traffic for cluster nodes in Azure Kubernetes Service. Please refer to the following AKS documentation on the Azure portal. https://learn.microsoft.com/en-us/azure/aks/egress-outboundtype, https://learn.microsoft.com/en-us/azure/aks/nat-gateway
    **/
   private String outboundType = null;
-
-  /**
-   * Enables private SQL for the cluster deployment.
-   **/
-  private Boolean enablePrivateSQL = false;
-
-  /**
-   * Private DNS zone AKS resource ID.
-   **/
-  private String privateDNSZoneAKS = null;
-
-  /**
-   * Enable Azure Private AKS mode.
-   **/
-  private Boolean enablePrivateAks = false;
 
   /**
    * Getter for userAssignedManagedIdentity.
@@ -200,57 +185,6 @@ public class AzureActivationOptions  {
     this.outboundType = outboundType;
   }
 
-  /**
-   * Getter for enablePrivateSQL.
-   * Enables private SQL for the cluster deployment.
-   **/
-  @JsonProperty("enablePrivateSQL")
-  public Boolean getEnablePrivateSQL() {
-    return enablePrivateSQL;
-  }
-
-  /**
-   * Setter for enablePrivateSQL.
-   * Enables private SQL for the cluster deployment.
-   **/
-  public void setEnablePrivateSQL(Boolean enablePrivateSQL) {
-    this.enablePrivateSQL = enablePrivateSQL;
-  }
-
-  /**
-   * Getter for privateDNSZoneAKS.
-   * Private DNS zone AKS resource ID.
-   **/
-  @JsonProperty("privateDNSZoneAKS")
-  public String getPrivateDNSZoneAKS() {
-    return privateDNSZoneAKS;
-  }
-
-  /**
-   * Setter for privateDNSZoneAKS.
-   * Private DNS zone AKS resource ID.
-   **/
-  public void setPrivateDNSZoneAKS(String privateDNSZoneAKS) {
-    this.privateDNSZoneAKS = privateDNSZoneAKS;
-  }
-
-  /**
-   * Getter for enablePrivateAks.
-   * Enable Azure Private AKS mode.
-   **/
-  @JsonProperty("enablePrivateAks")
-  public Boolean getEnablePrivateAks() {
-    return enablePrivateAks;
-  }
-
-  /**
-   * Setter for enablePrivateAks.
-   * Enable Azure Private AKS mode.
-   **/
-  public void setEnablePrivateAks(Boolean enablePrivateAks) {
-    this.enablePrivateAks = enablePrivateAks;
-  }
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -281,21 +215,12 @@ public class AzureActivationOptions  {
     if (!Objects.equals(this.outboundType, azureActivationOptions.outboundType)) {
       return false;
     }
-    if (!Objects.equals(this.enablePrivateSQL, azureActivationOptions.enablePrivateSQL)) {
-      return false;
-    }
-    if (!Objects.equals(this.privateDNSZoneAKS, azureActivationOptions.privateDNSZoneAKS)) {
-      return false;
-    }
-    if (!Objects.equals(this.enablePrivateAks, azureActivationOptions.enablePrivateAks)) {
-      return false;
-    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userAssignedManagedIdentity, subnetId, enableAZ, enableSpotInstances, computeInstanceTypes, logAnalyticsWorkspaceId, outboundType, enablePrivateSQL, privateDNSZoneAKS, enablePrivateAks);
+    return Objects.hash(userAssignedManagedIdentity, subnetId, enableAZ, enableSpotInstances, computeInstanceTypes, logAnalyticsWorkspaceId, outboundType);
   }
 
   @Override
@@ -309,9 +234,6 @@ public class AzureActivationOptions  {
     sb.append("    computeInstanceTypes: ").append(toIndentedString(computeInstanceTypes)).append("\n");
     sb.append("    logAnalyticsWorkspaceId: ").append(toIndentedString(logAnalyticsWorkspaceId)).append("\n");
     sb.append("    outboundType: ").append(toIndentedString(outboundType)).append("\n");
-    sb.append("    enablePrivateSQL: ").append(toIndentedString(enablePrivateSQL)).append("\n");
-    sb.append("    privateDNSZoneAKS: ").append(toIndentedString(privateDNSZoneAKS)).append("\n");
-    sb.append("    enablePrivateAks: ").append(toIndentedString(enablePrivateAks)).append("\n");
     sb.append("}");
     return sb.toString();
   }

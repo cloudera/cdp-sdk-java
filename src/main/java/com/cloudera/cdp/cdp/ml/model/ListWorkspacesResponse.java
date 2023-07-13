@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for the ListWorkspaces method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-28T12:35:41.194-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-13T10:29:22.224-07:00")
 public class ListWorkspacesResponse extends CdpResponse {
 
   /**

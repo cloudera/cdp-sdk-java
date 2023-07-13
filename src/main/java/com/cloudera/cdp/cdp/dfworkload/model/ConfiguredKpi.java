@@ -28,7 +28,7 @@ import com.cloudera.cdp.dfworkload.model.ConfiguredAlert;
 /**
  * An instantiated KPI specifying a metric on which to alert
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-28T12:35:43.624-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-13T10:29:24.225-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class ConfiguredKpi  {
 

@@ -25,9 +25,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * The image request for the datalake. This must not be set if the runtime parameter is provided. The image ID parameter is required if this is present, but the image catalog name is optional, defaulting to &#39;cdp-default&#39; if not present.
+ * The image request for the datalake. When the &#39;runtime&#39; parameter is set, only the &#39;os&#39; parameter can be provided. Otherwise, you can use &#39;catalog name&#39; and/or &#39;id&#39; for selecting an image.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-28T12:35:41.341-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-13T10:29:22.433-07:00")
 public class ImageRequest  {
 
   /**
@@ -36,7 +36,7 @@ public class ImageRequest  {
   private String id = null;
 
   /**
-   * The name of the custom image catalog to use.
+   * The name of the custom image catalog to use, defaulting to 'cdp-default' if not present.
    **/
   private String catalogName = "cdp-default";
 
@@ -59,7 +59,7 @@ public class ImageRequest  {
 
   /**
    * Getter for catalogName.
-   * The name of the custom image catalog to use.
+   * The name of the custom image catalog to use, defaulting to &#39;cdp-default&#39; if not present.
    **/
   @JsonProperty("catalogName")
   public String getCatalogName() {
@@ -68,7 +68,7 @@ public class ImageRequest  {
 
   /**
    * Setter for catalogName.
-   * The name of the custom image catalog to use.
+   * The name of the custom image catalog to use, defaulting to &#39;cdp-default&#39; if not present.
    **/
   public void setCatalogName(String catalogName) {
     this.catalogName = catalogName;

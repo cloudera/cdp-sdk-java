@@ -35,7 +35,7 @@ import java.util.*;
 /**
  * Request object for a create Azure environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-06-28T12:35:41.822-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-13T10:29:22.931-07:00")
 public class CreateAzureEnvironmentRequest  {
 
   /**
@@ -132,6 +132,11 @@ public class CreateAzureEnvironmentRequest  {
    * When this is enabled, then Azure Postgres will be configured with Private Endpoint and a Private DNS Zone. When this is disabled, then Azure Service Endpoints will be created. The default value is disabled.
    **/
   private Boolean createPrivateEndpoints = null;
+
+  /**
+   * The subnets to use for endpoint access gateway.
+   **/
+  private List<String> endpointAccessGatewaySubnetIds = new ArrayList<String>();
 
   /**
    * URL of the key which will be used to encrypt the Azure Managed Disks, if entitlement has been granted.
@@ -472,6 +477,23 @@ public class CreateAzureEnvironmentRequest  {
   }
 
   /**
+   * Getter for endpointAccessGatewaySubnetIds.
+   * The subnets to use for endpoint access gateway.
+   **/
+  @JsonProperty("endpointAccessGatewaySubnetIds")
+  public List<String> getEndpointAccessGatewaySubnetIds() {
+    return endpointAccessGatewaySubnetIds;
+  }
+
+  /**
+   * Setter for endpointAccessGatewaySubnetIds.
+   * The subnets to use for endpoint access gateway.
+   **/
+  public void setEndpointAccessGatewaySubnetIds(List<String> endpointAccessGatewaySubnetIds) {
+    this.endpointAccessGatewaySubnetIds = endpointAccessGatewaySubnetIds;
+  }
+
+  /**
    * Getter for encryptionKeyUrl.
    * URL of the key which will be used to encrypt the Azure Managed Disks, if entitlement has been granted.
    **/
@@ -588,6 +610,9 @@ public class CreateAzureEnvironmentRequest  {
     if (!Objects.equals(this.createPrivateEndpoints, createAzureEnvironmentRequest.createPrivateEndpoints)) {
       return false;
     }
+    if (!Objects.equals(this.endpointAccessGatewaySubnetIds, createAzureEnvironmentRequest.endpointAccessGatewaySubnetIds)) {
+      return false;
+    }
     if (!Objects.equals(this.encryptionKeyUrl, createAzureEnvironmentRequest.encryptionKeyUrl)) {
       return false;
     }
@@ -602,7 +627,7 @@ public class CreateAzureEnvironmentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints, encryptionKeyUrl, encryptionKeyResourceGroupName, enableOutboundLoadBalancer);
+    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints, endpointAccessGatewaySubnetIds, encryptionKeyUrl, encryptionKeyResourceGroupName, enableOutboundLoadBalancer);
   }
 
   @Override
@@ -628,6 +653,7 @@ public class CreateAzureEnvironmentRequest  {
     sb.append("    proxyConfigName: ").append(toIndentedString(proxyConfigName)).append("\n");
     sb.append("    resourceGroupName: ").append(toIndentedString(resourceGroupName)).append("\n");
     sb.append("    createPrivateEndpoints: ").append(toIndentedString(createPrivateEndpoints)).append("\n");
+    sb.append("    endpointAccessGatewaySubnetIds: ").append(toIndentedString(endpointAccessGatewaySubnetIds)).append("\n");
     sb.append("    encryptionKeyUrl: ").append(toIndentedString(encryptionKeyUrl)).append("\n");
     sb.append("    encryptionKeyResourceGroupName: ").append(toIndentedString(encryptionKeyResourceGroupName)).append("\n");
     sb.append("    enableOutboundLoadBalancer: ").append(toIndentedString(enableOutboundLoadBalancer)).append("\n");
