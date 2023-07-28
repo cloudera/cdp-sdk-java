@@ -28,7 +28,7 @@ import com.cloudera.cdp.df.model.MetricChartFrequencyTolerance;
 /**
  * Thresholds associated with a metric
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-13T10:29:23.980-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-28T07:53:31.974-07:00")
 public class MetricChartAlert  {
 
   /**

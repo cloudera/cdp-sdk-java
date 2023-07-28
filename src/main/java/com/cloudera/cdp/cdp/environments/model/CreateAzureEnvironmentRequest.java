@@ -35,7 +35,7 @@ import java.util.*;
 /**
  * Request object for a create Azure environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-13T10:29:22.931-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-28T07:53:30.815-07:00")
 public class CreateAzureEnvironmentRequest  {
 
   /**
@@ -91,7 +91,7 @@ public class CreateAzureEnvironmentRequest  {
   /**
    * Whether to enable SSH tunneling for the environment.
    **/
-  private Boolean enableTunnel = null;
+  private Boolean enableTunnel = true;
 
   /**
    * When this is enabled, diagnostic information about job and query execution is sent to Workload Manager for Data Hub clusters created within this environment.
@@ -132,6 +132,11 @@ public class CreateAzureEnvironmentRequest  {
    * When this is enabled, then Azure Postgres will be configured with Private Endpoint and a Private DNS Zone. When this is disabled, then Azure Service Endpoints will be created. The default value is disabled.
    **/
   private Boolean createPrivateEndpoints = null;
+
+  /**
+   * The scheme for the endpoint gateway. PUBLIC creates an external endpoint that can be accessed over the Internet. Defaults to PRIVATE which restricts the traffic to be internal to the VNet.
+   **/
+  private String endpointAccessGatewayScheme = null;
 
   /**
    * The subnets to use for endpoint access gateway.
@@ -477,6 +482,23 @@ public class CreateAzureEnvironmentRequest  {
   }
 
   /**
+   * Getter for endpointAccessGatewayScheme.
+   * The scheme for the endpoint gateway. PUBLIC creates an external endpoint that can be accessed over the Internet. Defaults to PRIVATE which restricts the traffic to be internal to the VNet.
+   **/
+  @JsonProperty("endpointAccessGatewayScheme")
+  public String getEndpointAccessGatewayScheme() {
+    return endpointAccessGatewayScheme;
+  }
+
+  /**
+   * Setter for endpointAccessGatewayScheme.
+   * The scheme for the endpoint gateway. PUBLIC creates an external endpoint that can be accessed over the Internet. Defaults to PRIVATE which restricts the traffic to be internal to the VNet.
+   **/
+  public void setEndpointAccessGatewayScheme(String endpointAccessGatewayScheme) {
+    this.endpointAccessGatewayScheme = endpointAccessGatewayScheme;
+  }
+
+  /**
    * Getter for endpointAccessGatewaySubnetIds.
    * The subnets to use for endpoint access gateway.
    **/
@@ -610,6 +632,9 @@ public class CreateAzureEnvironmentRequest  {
     if (!Objects.equals(this.createPrivateEndpoints, createAzureEnvironmentRequest.createPrivateEndpoints)) {
       return false;
     }
+    if (!Objects.equals(this.endpointAccessGatewayScheme, createAzureEnvironmentRequest.endpointAccessGatewayScheme)) {
+      return false;
+    }
     if (!Objects.equals(this.endpointAccessGatewaySubnetIds, createAzureEnvironmentRequest.endpointAccessGatewaySubnetIds)) {
       return false;
     }
@@ -627,7 +652,7 @@ public class CreateAzureEnvironmentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints, endpointAccessGatewaySubnetIds, encryptionKeyUrl, encryptionKeyResourceGroupName, enableOutboundLoadBalancer);
+    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, encryptionKeyUrl, encryptionKeyResourceGroupName, enableOutboundLoadBalancer);
   }
 
   @Override
@@ -653,6 +678,7 @@ public class CreateAzureEnvironmentRequest  {
     sb.append("    proxyConfigName: ").append(toIndentedString(proxyConfigName)).append("\n");
     sb.append("    resourceGroupName: ").append(toIndentedString(resourceGroupName)).append("\n");
     sb.append("    createPrivateEndpoints: ").append(toIndentedString(createPrivateEndpoints)).append("\n");
+    sb.append("    endpointAccessGatewayScheme: ").append(toIndentedString(endpointAccessGatewayScheme)).append("\n");
     sb.append("    endpointAccessGatewaySubnetIds: ").append(toIndentedString(endpointAccessGatewaySubnetIds)).append("\n");
     sb.append("    encryptionKeyUrl: ").append(toIndentedString(encryptionKeyUrl)).append("\n");
     sb.append("    encryptionKeyResourceGroupName: ").append(toIndentedString(encryptionKeyResourceGroupName)).append("\n");

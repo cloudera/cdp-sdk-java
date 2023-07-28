@@ -29,7 +29,7 @@ import com.cloudera.cdp.df.model.ServiceMeta;
 /**
  * A deployment
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-13T10:29:23.980-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-28T07:53:31.974-07:00")
 public class Deployment  {
 
   /**
@@ -156,6 +156,11 @@ public class Deployment  {
    * The version of NiFi being used by this deployment.
    **/
   private String cfmNifiVersion = null;
+
+  /**
+   * Whether or not to use Flow metrics to scale the deployment. May only be specified when autscalingEnabled is true.
+   **/
+  private Boolean flowMetricsScalingEnabled = null;
 
   /**
    * Getter for crn.
@@ -582,6 +587,23 @@ public class Deployment  {
     this.cfmNifiVersion = cfmNifiVersion;
   }
 
+  /**
+   * Getter for flowMetricsScalingEnabled.
+   * Whether or not to use Flow metrics to scale the deployment. May only be specified when autscalingEnabled is true.
+   **/
+  @JsonProperty("flowMetricsScalingEnabled")
+  public Boolean getFlowMetricsScalingEnabled() {
+    return flowMetricsScalingEnabled;
+  }
+
+  /**
+   * Setter for flowMetricsScalingEnabled.
+   * Whether or not to use Flow metrics to scale the deployment. May only be specified when autscalingEnabled is true.
+   **/
+  public void setFlowMetricsScalingEnabled(Boolean flowMetricsScalingEnabled) {
+    this.flowMetricsScalingEnabled = flowMetricsScalingEnabled;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -666,12 +688,15 @@ public class Deployment  {
     if (!Objects.equals(this.cfmNifiVersion, deployment.cfmNifiVersion)) {
       return false;
     }
+    if (!Objects.equals(this.flowMetricsScalingEnabled, deployment.flowMetricsScalingEnabled)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, name, status, service, updated, clusterSize, flowVersionCrn, flowCrn, nifiUrl, autoscaleMaxNodes, flowName, flowVersion, currentNodeCount, deployedByCrn, deployedByName, autoscalingEnabled, autoscaleMinNodes, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, staticNodeCount, dfxLocalUrl, lastUpdatedByName, configurationVersion, cfmNifiVersion);
+    return Objects.hash(crn, name, status, service, updated, clusterSize, flowVersionCrn, flowCrn, nifiUrl, autoscaleMaxNodes, flowName, flowVersion, currentNodeCount, deployedByCrn, deployedByName, autoscalingEnabled, autoscaleMinNodes, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, staticNodeCount, dfxLocalUrl, lastUpdatedByName, configurationVersion, cfmNifiVersion, flowMetricsScalingEnabled);
   }
 
   @Override
@@ -703,6 +728,7 @@ public class Deployment  {
     sb.append("    lastUpdatedByName: ").append(toIndentedString(lastUpdatedByName)).append("\n");
     sb.append("    configurationVersion: ").append(toIndentedString(configurationVersion)).append("\n");
     sb.append("    cfmNifiVersion: ").append(toIndentedString(cfmNifiVersion)).append("\n");
+    sb.append("    flowMetricsScalingEnabled: ").append(toIndentedString(flowMetricsScalingEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }

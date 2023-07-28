@@ -28,7 +28,7 @@ import com.cloudera.cdp.iam.model.PasswordPolicy;
 /**
  * Request object for a set workload password policy request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-13T10:29:23.701-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-28T07:53:31.657-07:00")
 public class SetWorkloadPasswordPolicyRequest  {
 
   /**

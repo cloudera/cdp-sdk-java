@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * Request object for a create GCP environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-13T10:29:22.931-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-28T07:53:30.815-07:00")
 public class CreateGCPEnvironmentRequest  {
 
   /**
@@ -84,7 +84,7 @@ public class CreateGCPEnvironmentRequest  {
   /**
    * Whether to enable SSH tunneling for the environment.
    **/
-  private Boolean enableTunnel = null;
+  private Boolean enableTunnel = true;
 
   /**
    * When this is enabled, diagnostic information about job and query execution is sent to Workload Manager for Data Hub clusters created within this environment.
@@ -100,6 +100,11 @@ public class CreateGCPEnvironmentRequest  {
    * The FreeIPA creation request for the environment
    **/
   private GCPFreeIpaCreationRequest freeIpa = null;
+
+  /**
+   * The scheme for the endpoint gateway. PUBLIC creates an external endpoint that can be accessed over the Internet. Defaults to PRIVATE which restricts the traffic to be internal to the VPC.
+   **/
+  private String endpointAccessGatewayScheme = null;
 
   /**
    * The subnets to use for endpoint access gateway.
@@ -348,6 +353,23 @@ public class CreateGCPEnvironmentRequest  {
   }
 
   /**
+   * Getter for endpointAccessGatewayScheme.
+   * The scheme for the endpoint gateway. PUBLIC creates an external endpoint that can be accessed over the Internet. Defaults to PRIVATE which restricts the traffic to be internal to the VPC.
+   **/
+  @JsonProperty("endpointAccessGatewayScheme")
+  public String getEndpointAccessGatewayScheme() {
+    return endpointAccessGatewayScheme;
+  }
+
+  /**
+   * Setter for endpointAccessGatewayScheme.
+   * The scheme for the endpoint gateway. PUBLIC creates an external endpoint that can be accessed over the Internet. Defaults to PRIVATE which restricts the traffic to be internal to the VPC.
+   **/
+  public void setEndpointAccessGatewayScheme(String endpointAccessGatewayScheme) {
+    this.endpointAccessGatewayScheme = endpointAccessGatewayScheme;
+  }
+
+  /**
    * Getter for endpointAccessGatewaySubnetIds.
    * The subnets to use for endpoint access gateway.
    **/
@@ -480,6 +502,9 @@ public class CreateGCPEnvironmentRequest  {
     if (!Objects.equals(this.freeIpa, createGCPEnvironmentRequest.freeIpa)) {
       return false;
     }
+    if (!Objects.equals(this.endpointAccessGatewayScheme, createGCPEnvironmentRequest.endpointAccessGatewayScheme)) {
+      return false;
+    }
     if (!Objects.equals(this.endpointAccessGatewaySubnetIds, createGCPEnvironmentRequest.endpointAccessGatewaySubnetIds)) {
       return false;
     }
@@ -500,7 +525,7 @@ public class CreateGCPEnvironmentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, publicKey, usePublicIp, existingNetworkParams, securityAccess, logStorage, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, endpointAccessGatewaySubnetIds, tags, proxyConfigName, encryptionKey, availabilityZones);
+    return Objects.hash(environmentName, credentialName, region, publicKey, usePublicIp, existingNetworkParams, securityAccess, logStorage, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, tags, proxyConfigName, encryptionKey, availabilityZones);
   }
 
   @Override
@@ -520,6 +545,7 @@ public class CreateGCPEnvironmentRequest  {
     sb.append("    workloadAnalytics: ").append(toIndentedString(workloadAnalytics)).append("\n");
     sb.append("    reportDeploymentLogs: ").append(toIndentedString(reportDeploymentLogs)).append("\n");
     sb.append("    freeIpa: ").append(toIndentedString(freeIpa)).append("\n");
+    sb.append("    endpointAccessGatewayScheme: ").append(toIndentedString(endpointAccessGatewayScheme)).append("\n");
     sb.append("    endpointAccessGatewaySubnetIds: ").append(toIndentedString(endpointAccessGatewaySubnetIds)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    proxyConfigName: ").append(toIndentedString(proxyConfigName)).append("\n");

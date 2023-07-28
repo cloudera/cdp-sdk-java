@@ -29,7 +29,7 @@ import java.util.Map;
 /**
  * Request object for EnableService
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-13T10:29:23.980-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-28T07:53:31.974-07:00")
 public class EnableServiceRequest  {
 
   /**
@@ -91,6 +91,21 @@ public class EnableServiceRequest  {
    * Indicates whether to skip Liftie's pre-flight checks.
    **/
   private Boolean skipPreflightChecks = null;
+
+  /**
+   * Indicates whether User Defined Routing (UDR) mode is enabled for AKS clusters.
+   **/
+  private Boolean userDefinedRouting = null;
+
+  /**
+   * CIDR range from which to assign IPs to pods in the kubernetes cluster.
+   **/
+  private String podCidr = null;
+
+  /**
+   * CIDR range from which to assign IPs to internal services in the kubernetes cluster.
+   **/
+  private String serviceCidr = null;
 
   /**
    * Getter for environmentCrn.
@@ -296,6 +311,57 @@ public class EnableServiceRequest  {
     this.skipPreflightChecks = skipPreflightChecks;
   }
 
+  /**
+   * Getter for userDefinedRouting.
+   * Indicates whether User Defined Routing (UDR) mode is enabled for AKS clusters.
+   **/
+  @JsonProperty("userDefinedRouting")
+  public Boolean getUserDefinedRouting() {
+    return userDefinedRouting;
+  }
+
+  /**
+   * Setter for userDefinedRouting.
+   * Indicates whether User Defined Routing (UDR) mode is enabled for AKS clusters.
+   **/
+  public void setUserDefinedRouting(Boolean userDefinedRouting) {
+    this.userDefinedRouting = userDefinedRouting;
+  }
+
+  /**
+   * Getter for podCidr.
+   * CIDR range from which to assign IPs to pods in the kubernetes cluster.
+   **/
+  @JsonProperty("podCidr")
+  public String getPodCidr() {
+    return podCidr;
+  }
+
+  /**
+   * Setter for podCidr.
+   * CIDR range from which to assign IPs to pods in the kubernetes cluster.
+   **/
+  public void setPodCidr(String podCidr) {
+    this.podCidr = podCidr;
+  }
+
+  /**
+   * Getter for serviceCidr.
+   * CIDR range from which to assign IPs to internal services in the kubernetes cluster.
+   **/
+  @JsonProperty("serviceCidr")
+  public String getServiceCidr() {
+    return serviceCidr;
+  }
+
+  /**
+   * Setter for serviceCidr.
+   * CIDR range from which to assign IPs to internal services in the kubernetes cluster.
+   **/
+  public void setServiceCidr(String serviceCidr) {
+    this.serviceCidr = serviceCidr;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -341,12 +407,21 @@ public class EnableServiceRequest  {
     if (!Objects.equals(this.skipPreflightChecks, enableServiceRequest.skipPreflightChecks)) {
       return false;
     }
+    if (!Objects.equals(this.userDefinedRouting, enableServiceRequest.userDefinedRouting)) {
+      return false;
+    }
+    if (!Objects.equals(this.podCidr, enableServiceRequest.podCidr)) {
+      return false;
+    }
+    if (!Objects.equals(this.serviceCidr, enableServiceRequest.serviceCidr)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, minK8sNodeCount, maxK8sNodeCount, usePublicLoadBalancer, kubeApiAuthorizedIpRanges, tags, loadBalancerAuthorizedIpRanges, clusterSubnets, loadBalancerSubnets, privateCluster, instanceType, skipPreflightChecks);
+    return Objects.hash(environmentCrn, minK8sNodeCount, maxK8sNodeCount, usePublicLoadBalancer, kubeApiAuthorizedIpRanges, tags, loadBalancerAuthorizedIpRanges, clusterSubnets, loadBalancerSubnets, privateCluster, instanceType, skipPreflightChecks, userDefinedRouting, podCidr, serviceCidr);
   }
 
   @Override
@@ -365,6 +440,9 @@ public class EnableServiceRequest  {
     sb.append("    privateCluster: ").append(toIndentedString(privateCluster)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    skipPreflightChecks: ").append(toIndentedString(skipPreflightChecks)).append("\n");
+    sb.append("    userDefinedRouting: ").append(toIndentedString(userDefinedRouting)).append("\n");
+    sb.append("    podCidr: ").append(toIndentedString(podCidr)).append("\n");
+    sb.append("    serviceCidr: ").append(toIndentedString(serviceCidr)).append("\n");
     sb.append("}");
     return sb.toString();
   }

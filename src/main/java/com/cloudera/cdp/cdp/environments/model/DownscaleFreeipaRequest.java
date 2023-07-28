@@ -23,11 +23,12 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import java.util.*;
 
 /**
  * The request object for FreeIPA downscale. Either targetAvailabilityType or instances
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-13T10:29:22.931-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-28T07:53:30.815-07:00")
 public class DownscaleFreeipaRequest  {
 
   /**
@@ -39,6 +40,11 @@ public class DownscaleFreeipaRequest  {
    * The target FreeIPA availability type.
    **/
   private String targetAvailabilityType = null;
+
+  /**
+   * The instance Ids to downscale.
+   **/
+  private List<String> instances = new ArrayList<String>();
 
   /**
    * Getter for environmentName.
@@ -74,6 +80,23 @@ public class DownscaleFreeipaRequest  {
     this.targetAvailabilityType = targetAvailabilityType;
   }
 
+  /**
+   * Getter for instances.
+   * The instance Ids to downscale.
+   **/
+  @JsonProperty("instances")
+  public List<String> getInstances() {
+    return instances;
+  }
+
+  /**
+   * Setter for instances.
+   * The instance Ids to downscale.
+   **/
+  public void setInstances(List<String> instances) {
+    this.instances = instances;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -89,12 +112,15 @@ public class DownscaleFreeipaRequest  {
     if (!Objects.equals(this.targetAvailabilityType, downscaleFreeipaRequest.targetAvailabilityType)) {
       return false;
     }
+    if (!Objects.equals(this.instances, downscaleFreeipaRequest.instances)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, targetAvailabilityType);
+    return Objects.hash(environmentName, targetAvailabilityType, instances);
   }
 
   @Override
@@ -103,6 +129,7 @@ public class DownscaleFreeipaRequest  {
     sb.append("class DownscaleFreeipaRequest {\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    targetAvailabilityType: ").append(toIndentedString(targetAvailabilityType)).append("\n");
+    sb.append("    instances: ").append(toIndentedString(instances)).append("\n");
     sb.append("}");
     return sb.toString();
   }

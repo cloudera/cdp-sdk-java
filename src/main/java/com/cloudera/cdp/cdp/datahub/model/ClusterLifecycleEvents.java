@@ -30,7 +30,7 @@ import java.time.ZonedDateTime;
 /**
  * Related events for the stack.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-13T10:29:20.712-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-28T07:53:29.043-07:00")
 public class ClusterLifecycleEvents  {
 
   /**

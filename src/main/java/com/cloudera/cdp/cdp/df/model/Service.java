@@ -30,7 +30,7 @@ import java.util.Map;
 /**
  * The DataFlow view of a CDP service.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-13T10:29:23.980-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-28T07:53:31.974-07:00")
 public class Service  {
 
   /**
@@ -187,6 +187,21 @@ public class Service  {
    * The available kubernetes version that cluster can be upgraded to.
    **/
   private String availableK8sVersionUpgrade = null;
+
+  /**
+   * Whether User Defined Routing (UDR) mode is enabled for AKS clusters or not.
+   **/
+  private Boolean userDefinedRouting = null;
+
+  /**
+   * CIDR range from which to assign IPs to pods in the kubernetes cluster.
+   **/
+  private String podCidr = null;
+
+  /**
+   * CIDR range from which to assign IPs to internal services in the kubernetes cluster.
+   **/
+  private String serviceCidr = null;
 
   /**
    * Getter for crn.
@@ -717,6 +732,57 @@ public class Service  {
     this.availableK8sVersionUpgrade = availableK8sVersionUpgrade;
   }
 
+  /**
+   * Getter for userDefinedRouting.
+   * Whether User Defined Routing (UDR) mode is enabled for AKS clusters or not.
+   **/
+  @JsonProperty("userDefinedRouting")
+  public Boolean getUserDefinedRouting() {
+    return userDefinedRouting;
+  }
+
+  /**
+   * Setter for userDefinedRouting.
+   * Whether User Defined Routing (UDR) mode is enabled for AKS clusters or not.
+   **/
+  public void setUserDefinedRouting(Boolean userDefinedRouting) {
+    this.userDefinedRouting = userDefinedRouting;
+  }
+
+  /**
+   * Getter for podCidr.
+   * CIDR range from which to assign IPs to pods in the kubernetes cluster.
+   **/
+  @JsonProperty("podCidr")
+  public String getPodCidr() {
+    return podCidr;
+  }
+
+  /**
+   * Setter for podCidr.
+   * CIDR range from which to assign IPs to pods in the kubernetes cluster.
+   **/
+  public void setPodCidr(String podCidr) {
+    this.podCidr = podCidr;
+  }
+
+  /**
+   * Getter for serviceCidr.
+   * CIDR range from which to assign IPs to internal services in the kubernetes cluster.
+   **/
+  @JsonProperty("serviceCidr")
+  public String getServiceCidr() {
+    return serviceCidr;
+  }
+
+  /**
+   * Setter for serviceCidr.
+   * CIDR range from which to assign IPs to internal services in the kubernetes cluster.
+   **/
+  public void setServiceCidr(String serviceCidr) {
+    this.serviceCidr = serviceCidr;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -819,12 +885,21 @@ public class Service  {
     if (!Objects.equals(this.availableK8sVersionUpgrade, service.availableK8sVersionUpgrade)) {
       return false;
     }
+    if (!Objects.equals(this.userDefinedRouting, service.userDefinedRouting)) {
+      return false;
+    }
+    if (!Objects.equals(this.podCidr, service.podCidr)) {
+      return false;
+    }
+    if (!Objects.equals(this.serviceCidr, service.serviceCidr)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, environmentCrn, name, cloudPlatform, region, deploymentCount, minK8sNodeCount, maxK8sNodeCount, status, workloadVersion, runningK8sNodeCount, instanceType, dfLocalUrl, kubeApiAuthorizedIpRanges, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, clusterId, clusterUsable, validActions, usePublicLoadBalancer, tags, loadBalancerAuthorizedIpRanges, clusterSubnets, creatingK8sNodeCount, terminatingK8sNodeCount, loadBalancerSubnets, privateCluster, proxyName, k8sServerVersion, availableK8sVersionUpgrade);
+    return Objects.hash(crn, environmentCrn, name, cloudPlatform, region, deploymentCount, minK8sNodeCount, maxK8sNodeCount, status, workloadVersion, runningK8sNodeCount, instanceType, dfLocalUrl, kubeApiAuthorizedIpRanges, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, clusterId, clusterUsable, validActions, usePublicLoadBalancer, tags, loadBalancerAuthorizedIpRanges, clusterSubnets, creatingK8sNodeCount, terminatingK8sNodeCount, loadBalancerSubnets, privateCluster, proxyName, k8sServerVersion, availableK8sVersionUpgrade, userDefinedRouting, podCidr, serviceCidr);
   }
 
   @Override
@@ -862,6 +937,9 @@ public class Service  {
     sb.append("    proxyName: ").append(toIndentedString(proxyName)).append("\n");
     sb.append("    k8sServerVersion: ").append(toIndentedString(k8sServerVersion)).append("\n");
     sb.append("    availableK8sVersionUpgrade: ").append(toIndentedString(availableK8sVersionUpgrade)).append("\n");
+    sb.append("    userDefinedRouting: ").append(toIndentedString(userDefinedRouting)).append("\n");
+    sb.append("    podCidr: ").append(toIndentedString(podCidr)).append("\n");
+    sb.append("    serviceCidr: ").append(toIndentedString(serviceCidr)).append("\n");
     sb.append("}");
     return sb.toString();
   }

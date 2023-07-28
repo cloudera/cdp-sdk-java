@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * Request object for a create AWS environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-13T10:29:22.931-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-28T07:53:30.815-07:00")
 public class CreateAWSEnvironmentRequest  {
 
   /**
@@ -115,7 +115,7 @@ public class CreateAWSEnvironmentRequest  {
   /**
    * Whether to enable SSH tunneling for the environment.
    **/
-  private Boolean enableTunnel = null;
+  private Boolean enableTunnel = true;
 
   /**
    * When this is enabled, diagnostic information about job and query execution is sent to Workload Manager for Data Hub clusters created within this environment.

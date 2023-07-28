@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * A Cloudera Machine Learning workspace which includes the deployed configuration details.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-13T10:29:22.224-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-28T07:53:30.243-07:00")
 public class WorkspaceSummary  {
 
   /**
@@ -144,6 +144,11 @@ public class WorkspaceSummary  {
    * The value to indicate if the cluster is private or not.
    **/
   private Boolean isPrivate = null;
+
+  /**
+   * The value to indicate if the workspace is restored one or not
+   **/
+  private Boolean isRestored = null;
 
   /**
    * Getter for instanceName.
@@ -519,6 +524,23 @@ public class WorkspaceSummary  {
     this.isPrivate = isPrivate;
   }
 
+  /**
+   * Getter for isRestored.
+   * The value to indicate if the workspace is restored one or not
+   **/
+  @JsonProperty("isRestored")
+  public Boolean getIsRestored() {
+    return isRestored;
+  }
+
+  /**
+   * Setter for isRestored.
+   * The value to indicate if the workspace is restored one or not
+   **/
+  public void setIsRestored(Boolean isRestored) {
+    this.isRestored = isRestored;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -594,12 +616,15 @@ public class WorkspaceSummary  {
     if (!Objects.equals(this.isPrivate, workspaceSummary.isPrivate)) {
       return false;
     }
+    if (!Objects.equals(this.isRestored, workspaceSummary.isRestored)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, filesystemID, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, failureMessage, healthInfoLists, upgradeState, nfsVersion, backupMetadata, clusterID, isPrivate);
+    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, filesystemID, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, failureMessage, healthInfoLists, upgradeState, nfsVersion, backupMetadata, clusterID, isPrivate, isRestored);
   }
 
   @Override
@@ -628,6 +653,7 @@ public class WorkspaceSummary  {
     sb.append("    backupMetadata: ").append(toIndentedString(backupMetadata)).append("\n");
     sb.append("    clusterID: ").append(toIndentedString(clusterID)).append("\n");
     sb.append("    isPrivate: ").append(toIndentedString(isPrivate)).append("\n");
+    sb.append("    isRestored: ").append(toIndentedString(isRestored)).append("\n");
     sb.append("}");
     return sb.toString();
   }
