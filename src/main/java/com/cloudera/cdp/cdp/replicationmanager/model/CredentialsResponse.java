@@ -28,7 +28,7 @@ import com.cloudera.cdp.replicationmanager.model.CredentialCollection;
 /**
  * Response object for cloud credentials.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-28T07:53:32.661-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-14T10:18:52.264-07:00")
 public class CredentialsResponse extends CdpResponse {
 
   /**

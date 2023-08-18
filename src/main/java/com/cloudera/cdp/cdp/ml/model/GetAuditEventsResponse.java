@@ -28,7 +28,7 @@ import com.cloudera.cdp.ml.model.AuditEvents;
 /**
  * GetAuditEventsResponse containes all the audit events for a given workspace crn.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-28T07:53:30.243-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-14T10:18:49.886-07:00")
 public class GetAuditEventsResponse extends CdpResponse {
 
   /**

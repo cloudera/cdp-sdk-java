@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for FreeIPA image.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-28T07:53:30.815-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-14T10:18:50.506-07:00")
 public class FreeIpaImageRequest  {
 
   /**
@@ -39,6 +39,11 @@ public class FreeIpaImageRequest  {
    * Image ID to use for creating FreeIPA instances.
    **/
   private String id = null;
+
+  /**
+   * The OS to use for creating FreeIPA instances.
+   **/
+  private String os = null;
 
   /**
    * Getter for catalog.
@@ -74,6 +79,23 @@ public class FreeIpaImageRequest  {
     this.id = id;
   }
 
+  /**
+   * Getter for os.
+   * The OS to use for creating FreeIPA instances.
+   **/
+  @JsonProperty("os")
+  public String getOs() {
+    return os;
+  }
+
+  /**
+   * Setter for os.
+   * The OS to use for creating FreeIPA instances.
+   **/
+  public void setOs(String os) {
+    this.os = os;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -89,12 +111,15 @@ public class FreeIpaImageRequest  {
     if (!Objects.equals(this.id, freeIpaImageRequest.id)) {
       return false;
     }
+    if (!Objects.equals(this.os, freeIpaImageRequest.os)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(catalog, id);
+    return Objects.hash(catalog, id, os);
   }
 
   @Override
@@ -103,6 +128,7 @@ public class FreeIpaImageRequest  {
     sb.append("class FreeIpaImageRequest {\n");
     sb.append("    catalog: ").append(toIndentedString(catalog)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    os: ").append(toIndentedString(os)).append("\n");
     sb.append("}");
     return sb.toString();
   }

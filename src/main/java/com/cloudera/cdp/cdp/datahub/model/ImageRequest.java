@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * The details of the image used for cluster instances.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-28T07:53:29.043-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-14T10:18:48.554-07:00")
 public class ImageRequest  {
 
   /**
@@ -39,6 +39,11 @@ public class ImageRequest  {
    * The image catalog name.
    **/
   private String catalogName = null;
+
+  /**
+   * The OS of the image used for cluster instances.
+   **/
+  private String os = null;
 
   /**
    * Getter for id.
@@ -74,6 +79,23 @@ public class ImageRequest  {
     this.catalogName = catalogName;
   }
 
+  /**
+   * Getter for os.
+   * The OS of the image used for cluster instances.
+   **/
+  @JsonProperty("os")
+  public String getOs() {
+    return os;
+  }
+
+  /**
+   * Setter for os.
+   * The OS of the image used for cluster instances.
+   **/
+  public void setOs(String os) {
+    this.os = os;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -89,12 +111,15 @@ public class ImageRequest  {
     if (!Objects.equals(this.catalogName, imageRequest.catalogName)) {
       return false;
     }
+    if (!Objects.equals(this.os, imageRequest.os)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, catalogName);
+    return Objects.hash(id, catalogName, os);
   }
 
   @Override
@@ -103,6 +128,7 @@ public class ImageRequest  {
     sb.append("class ImageRequest {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    catalogName: ").append(toIndentedString(catalogName)).append("\n");
+    sb.append("    os: ").append(toIndentedString(os)).append("\n");
     sb.append("}");
     return sb.toString();
   }

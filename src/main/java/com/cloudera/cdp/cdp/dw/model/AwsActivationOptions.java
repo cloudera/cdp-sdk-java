@@ -28,16 +28,16 @@ import java.util.*;
 /**
  * Options for activating an AWS environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-28T07:53:29.699-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-14T10:18:49.133-07:00")
 public class AwsActivationOptions  {
 
   /**
-   * IDs of private AWS subnets where the cluster should be deployed.
+   * DEPRECATED in favour of workerSubnetIds and lbSubnetIds field. IDs of private AWS subnets where the cluster should be deployed.
    **/
   private List<String> privateSubnetIds = new ArrayList<String>();
 
   /**
-   * IDs of public AWS subnets where the cluster should be deployed.
+   * DEPRECATED in favour of workerSubnetIds and lbSubnetIds field. IDs of public AWS subnets where the cluster should be deployed.
    **/
   private List<String> publicSubnetIds = new ArrayList<String>();
 
@@ -83,8 +83,9 @@ public class AwsActivationOptions  {
 
   /**
    * Getter for privateSubnetIds.
-   * IDs of private AWS subnets where the cluster should be deployed.
+   * DEPRECATED in favour of workerSubnetIds and lbSubnetIds field. IDs of private AWS subnets where the cluster should be deployed.
    **/
+  @Deprecated
   @JsonProperty("privateSubnetIds")
   public List<String> getPrivateSubnetIds() {
     return privateSubnetIds;
@@ -92,16 +93,18 @@ public class AwsActivationOptions  {
 
   /**
    * Setter for privateSubnetIds.
-   * IDs of private AWS subnets where the cluster should be deployed.
+   * DEPRECATED in favour of workerSubnetIds and lbSubnetIds field. IDs of private AWS subnets where the cluster should be deployed.
    **/
+  @Deprecated
   public void setPrivateSubnetIds(List<String> privateSubnetIds) {
     this.privateSubnetIds = privateSubnetIds;
   }
 
   /**
    * Getter for publicSubnetIds.
-   * IDs of public AWS subnets where the cluster should be deployed.
+   * DEPRECATED in favour of workerSubnetIds and lbSubnetIds field. IDs of public AWS subnets where the cluster should be deployed.
    **/
+  @Deprecated
   @JsonProperty("publicSubnetIds")
   public List<String> getPublicSubnetIds() {
     return publicSubnetIds;
@@ -109,8 +112,9 @@ public class AwsActivationOptions  {
 
   /**
    * Setter for publicSubnetIds.
-   * IDs of public AWS subnets where the cluster should be deployed.
+   * DEPRECATED in favour of workerSubnetIds and lbSubnetIds field. IDs of public AWS subnets where the cluster should be deployed.
    **/
+  @Deprecated
   public void setPublicSubnetIds(List<String> publicSubnetIds) {
     this.publicSubnetIds = publicSubnetIds;
   }

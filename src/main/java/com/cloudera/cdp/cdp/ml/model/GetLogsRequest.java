@@ -25,15 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * GetLogsRequestfor getting logs for a request ID.
+ * GetLogsRequest for getting logs for a request ID.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-28T07:53:30.243-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-14T10:18:49.886-07:00")
 public class GetLogsRequest  {
-
-  /**
-   * WorkspaceCrn the requestID belongs to.
-   **/
-  private String workspaceCrn = null;
 
   /**
    * Unique Key to identify a set of logs.
@@ -56,21 +51,9 @@ public class GetLogsRequest  {
   private Integer offset = null;
 
   /**
-   * Getter for workspaceCrn.
-   * WorkspaceCrn the requestID belongs to.
+   * Deprecated. Please begin to use resourceCrn, as this will soon be unsupported
    **/
-  @JsonProperty("workspaceCrn")
-  public String getWorkspaceCrn() {
-    return workspaceCrn;
-  }
-
-  /**
-   * Setter for workspaceCrn.
-   * WorkspaceCrn the requestID belongs to.
-   **/
-  public void setWorkspaceCrn(String workspaceCrn) {
-    this.workspaceCrn = workspaceCrn;
-  }
+  private String workspaceCrn = null;
 
   /**
    * Getter for requestID.
@@ -140,6 +123,25 @@ public class GetLogsRequest  {
     this.offset = offset;
   }
 
+  /**
+   * Getter for workspaceCrn.
+   * Deprecated. Please begin to use resourceCrn, as this will soon be unsupported
+   **/
+  @Deprecated
+  @JsonProperty("workspaceCrn")
+  public String getWorkspaceCrn() {
+    return workspaceCrn;
+  }
+
+  /**
+   * Setter for workspaceCrn.
+   * Deprecated. Please begin to use resourceCrn, as this will soon be unsupported
+   **/
+  @Deprecated
+  public void setWorkspaceCrn(String workspaceCrn) {
+    this.workspaceCrn = workspaceCrn;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -149,9 +151,6 @@ public class GetLogsRequest  {
       return false;
     }
     GetLogsRequest getLogsRequest = (GetLogsRequest) o;
-    if (!Objects.equals(this.workspaceCrn, getLogsRequest.workspaceCrn)) {
-      return false;
-    }
     if (!Objects.equals(this.requestID, getLogsRequest.requestID)) {
       return false;
     }
@@ -164,23 +163,26 @@ public class GetLogsRequest  {
     if (!Objects.equals(this.offset, getLogsRequest.offset)) {
       return false;
     }
+    if (!Objects.equals(this.workspaceCrn, getLogsRequest.workspaceCrn)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(workspaceCrn, requestID, fetchAll, pageSize, offset);
+    return Objects.hash(requestID, fetchAll, pageSize, offset, workspaceCrn);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetLogsRequest {\n");
-    sb.append("    workspaceCrn: ").append(toIndentedString(workspaceCrn)).append("\n");
     sb.append("    requestID: ").append(toIndentedString(requestID)).append("\n");
     sb.append("    fetchAll: ").append(toIndentedString(fetchAll)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
+    sb.append("    workspaceCrn: ").append(toIndentedString(workspaceCrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

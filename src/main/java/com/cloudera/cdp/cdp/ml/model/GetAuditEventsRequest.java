@@ -27,18 +27,24 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * GetAuditEventsRequest to get all audit events for a given workspace crn.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-07-28T07:53:30.243-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-14T10:18:49.886-07:00")
 public class GetAuditEventsRequest  {
 
   /**
-   * Workspace crn for which audit events to be fetched.
+   * Deprecated, please begin to use Resource crn, as this will soon be unsupported.
    **/
   private String workspaceCrn = null;
 
   /**
-   * Getter for workspaceCrn.
-   * Workspace crn for which audit events to be fetched.
+   * Resource crn for which audit events to be fetched. Resource can be workspace or model registry.
    **/
+  private String resourceCrn = null;
+
+  /**
+   * Getter for workspaceCrn.
+   * Deprecated, please begin to use Resource crn, as this will soon be unsupported.
+   **/
+  @Deprecated
   @JsonProperty("workspaceCrn")
   public String getWorkspaceCrn() {
     return workspaceCrn;
@@ -46,10 +52,28 @@ public class GetAuditEventsRequest  {
 
   /**
    * Setter for workspaceCrn.
-   * Workspace crn for which audit events to be fetched.
+   * Deprecated, please begin to use Resource crn, as this will soon be unsupported.
    **/
+  @Deprecated
   public void setWorkspaceCrn(String workspaceCrn) {
     this.workspaceCrn = workspaceCrn;
+  }
+
+  /**
+   * Getter for resourceCrn.
+   * Resource crn for which audit events to be fetched. Resource can be workspace or model registry.
+   **/
+  @JsonProperty("resourceCrn")
+  public String getResourceCrn() {
+    return resourceCrn;
+  }
+
+  /**
+   * Setter for resourceCrn.
+   * Resource crn for which audit events to be fetched. Resource can be workspace or model registry.
+   **/
+  public void setResourceCrn(String resourceCrn) {
+    this.resourceCrn = resourceCrn;
   }
 
   @Override
@@ -64,12 +88,15 @@ public class GetAuditEventsRequest  {
     if (!Objects.equals(this.workspaceCrn, getAuditEventsRequest.workspaceCrn)) {
       return false;
     }
+    if (!Objects.equals(this.resourceCrn, getAuditEventsRequest.resourceCrn)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(workspaceCrn);
+    return Objects.hash(workspaceCrn, resourceCrn);
   }
 
   @Override
@@ -77,6 +104,7 @@ public class GetAuditEventsRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetAuditEventsRequest {\n");
     sb.append("    workspaceCrn: ").append(toIndentedString(workspaceCrn)).append("\n");
+    sb.append("    resourceCrn: ").append(toIndentedString(resourceCrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }
