@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * Request object for Enable Service method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-14T10:18:51.160-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-24T14:47:23.953-07:00")
 public class EnableServiceRequest  {
 
   /**
@@ -130,7 +130,7 @@ public class EnableServiceRequest  {
   private Boolean skipValidation = false;
 
   /**
-   * Create CDE with fully private Azure services (AKS, MySQL, etc.) and enable vnet access via private endpoints and private link. This option is available only for Azure services.
+   * Create a fully private CDE instance on either Amazon or Azure. This includes services such as Kubernetes, MySQL, etc. For Azure, this will also enable virtual network (VNet) access via private endpoints and private link.
    **/
   private Boolean enablePrivateNetwork = null;
 
@@ -469,7 +469,7 @@ public class EnableServiceRequest  {
 
   /**
    * Getter for enablePrivateNetwork.
-   * Create CDE with fully private Azure services (AKS, MySQL, etc.) and enable vnet access via private endpoints and private link. This option is available only for Azure services.
+   * Create a fully private CDE instance on either Amazon or Azure. This includes services such as Kubernetes, MySQL, etc. For Azure, this will also enable virtual network (VNet) access via private endpoints and private link.
    **/
   @JsonProperty("enablePrivateNetwork")
   public Boolean getEnablePrivateNetwork() {
@@ -478,7 +478,7 @@ public class EnableServiceRequest  {
 
   /**
    * Setter for enablePrivateNetwork.
-   * Create CDE with fully private Azure services (AKS, MySQL, etc.) and enable vnet access via private endpoints and private link. This option is available only for Azure services.
+   * Create a fully private CDE instance on either Amazon or Azure. This includes services such as Kubernetes, MySQL, etc. For Azure, this will also enable virtual network (VNet) access via private endpoints and private link.
    **/
   public void setEnablePrivateNetwork(Boolean enablePrivateNetwork) {
     this.enablePrivateNetwork = enablePrivateNetwork;

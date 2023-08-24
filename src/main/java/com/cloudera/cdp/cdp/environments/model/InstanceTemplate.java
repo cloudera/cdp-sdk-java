@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Instance template that specifies the core information for the instances.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-14T10:18:50.506-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-24T14:47:23.298-07:00")
 public class InstanceTemplate  {
 
   /**

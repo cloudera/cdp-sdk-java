@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the createDbc method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-14T10:18:49.133-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-24T14:47:21.855-07:00")
 public class CreateDbcRequest  {
 
   /**
@@ -51,7 +51,7 @@ public class CreateDbcRequest  {
   private String imageVersion = "";
 
   /**
-   * Is this a Default Database Catalog?
+   * NOTE: creating Default Database Catalogs is deprecated and explicitly disabled. Denotes if Default Database Catalog creation needed.
    **/
   private Boolean isDefault = false;
 
@@ -145,8 +145,9 @@ public class CreateDbcRequest  {
 
   /**
    * Getter for isDefault.
-   * Is this a Default Database Catalog?
+   * NOTE: creating Default Database Catalogs is deprecated and explicitly disabled. Denotes if Default Database Catalog creation needed.
    **/
+  @Deprecated
   @JsonProperty("isDefault")
   public Boolean getIsDefault() {
     return isDefault;
@@ -154,8 +155,9 @@ public class CreateDbcRequest  {
 
   /**
    * Setter for isDefault.
-   * Is this a Default Database Catalog?
+   * NOTE: creating Default Database Catalogs is deprecated and explicitly disabled. Denotes if Default Database Catalog creation needed.
    **/
+  @Deprecated
   public void setIsDefault(Boolean isDefault) {
     this.isDefault = isDefault;
   }

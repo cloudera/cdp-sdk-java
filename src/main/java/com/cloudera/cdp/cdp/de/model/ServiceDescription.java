@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Detailed description of a CDE service.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-14T10:18:51.160-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-24T14:47:23.953-07:00")
 public class ServiceDescription  {
 
   /**
@@ -137,6 +137,11 @@ public class ServiceDescription  {
    * If true, the CDE endpoint was created in a publicly accessible subnet.
    **/
   private Boolean publicEndpointEnabled = null;
+
+  /**
+   * Network outbound type. Currently 'udr' is the only supported.
+   **/
+  private String networkOutboundType = null;
 
   /**
    * The \"true\" value indicates that the previous version of the CDE service was requested to be deployed.
@@ -511,6 +516,23 @@ public class ServiceDescription  {
   }
 
   /**
+   * Getter for networkOutboundType.
+   * Network outbound type. Currently &#39;udr&#39; is the only supported.
+   **/
+  @JsonProperty("networkOutboundType")
+  public String getNetworkOutboundType() {
+    return networkOutboundType;
+  }
+
+  /**
+   * Setter for networkOutboundType.
+   * Network outbound type. Currently &#39;udr&#39; is the only supported.
+   **/
+  public void setNetworkOutboundType(String networkOutboundType) {
+    this.networkOutboundType = networkOutboundType;
+  }
+
+  /**
    * Getter for previousVersionDeployed.
    * The \&quot;true\&quot; value indicates that the previous version of the CDE service was requested to be deployed.
    **/
@@ -633,6 +655,9 @@ public class ServiceDescription  {
     if (!Objects.equals(this.publicEndpointEnabled, serviceDescription.publicEndpointEnabled)) {
       return false;
     }
+    if (!Objects.equals(this.networkOutboundType, serviceDescription.networkOutboundType)) {
+      return false;
+    }
     if (!Objects.equals(this.previousVersionDeployed, serviceDescription.previousVersionDeployed)) {
       return false;
     }
@@ -647,7 +672,7 @@ public class ServiceDescription  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, clusterId, environmentName, environmentCrn, tenantId, resources, status, creatorEmail, creatorCrn, enablingTime, clusterFqdn, cloudPlatform, dataLakeFileSystems, logLocation, dataLakeAtlasUIEndpoint, chartValueOverrides, whitelistIps, loadbalancerAllowlist, subnets, privateClusterEnabled, publicEndpointEnabled, previousVersionDeployed, workloadAnalyticsEnabled, ssdUsed);
+    return Objects.hash(name, clusterId, environmentName, environmentCrn, tenantId, resources, status, creatorEmail, creatorCrn, enablingTime, clusterFqdn, cloudPlatform, dataLakeFileSystems, logLocation, dataLakeAtlasUIEndpoint, chartValueOverrides, whitelistIps, loadbalancerAllowlist, subnets, privateClusterEnabled, publicEndpointEnabled, networkOutboundType, previousVersionDeployed, workloadAnalyticsEnabled, ssdUsed);
   }
 
   @Override
@@ -675,6 +700,7 @@ public class ServiceDescription  {
     sb.append("    subnets: ").append(toIndentedString(subnets)).append("\n");
     sb.append("    privateClusterEnabled: ").append(toIndentedString(privateClusterEnabled)).append("\n");
     sb.append("    publicEndpointEnabled: ").append(toIndentedString(publicEndpointEnabled)).append("\n");
+    sb.append("    networkOutboundType: ").append(toIndentedString(networkOutboundType)).append("\n");
     sb.append("    previousVersionDeployed: ").append(toIndentedString(previousVersionDeployed)).append("\n");
     sb.append("    workloadAnalyticsEnabled: ").append(toIndentedString(workloadAnalyticsEnabled)).append("\n");
     sb.append("    ssdUsed: ").append(toIndentedString(ssdUsed)).append("\n");

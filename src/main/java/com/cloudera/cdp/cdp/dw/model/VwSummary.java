@@ -39,7 +39,7 @@ import java.util.*;
 /**
  * A Virtual Warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-14T10:18:49.133-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-24T14:47:21.855-07:00")
 public class VwSummary  {
 
   /**
@@ -161,6 +161,11 @@ public class VwSummary  {
    * Status information on the current state of replicas in the virtual warehouse.
    **/
   private ReplicaStatus replicaStatus = null;
+
+  /**
+   * Authentication mode used by Hive Server: * `LDAP` * `KERBEROS`
+   **/
+  private String hiveAuthenticationMode = null;
 
   /**
    * Getter for crn.
@@ -570,6 +575,23 @@ public class VwSummary  {
     this.replicaStatus = replicaStatus;
   }
 
+  /**
+   * Getter for hiveAuthenticationMode.
+   * Authentication mode used by Hive Server: * &#x60;LDAP&#x60; * &#x60;KERBEROS&#x60;
+   **/
+  @JsonProperty("hiveAuthenticationMode")
+  public String getHiveAuthenticationMode() {
+    return hiveAuthenticationMode;
+  }
+
+  /**
+   * Setter for hiveAuthenticationMode.
+   * Authentication mode used by Hive Server: * &#x60;LDAP&#x60; * &#x60;KERBEROS&#x60;
+   **/
+  public void setHiveAuthenticationMode(String hiveAuthenticationMode) {
+    this.hiveAuthenticationMode = hiveAuthenticationMode;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -651,12 +673,15 @@ public class VwSummary  {
     if (!Objects.equals(this.replicaStatus, vwSummary.replicaStatus)) {
       return false;
     }
+    if (!Objects.equals(this.hiveAuthenticationMode, vwSummary.hiveAuthenticationMode)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, name, vwType, dbcId, status, statusChangedAt, creator, creationDate, configId, cdhVersion, availabilityZone, endpoints, supportedAuthMethods, jwtAuth, tags, compactor, viz, enableUnifiedAnalytics, autoscalingOptions, impalaOptions, impalaHaSettingsOptions, queryIsolationOptions, replicaStatus);
+    return Objects.hash(crn, id, name, vwType, dbcId, status, statusChangedAt, creator, creationDate, configId, cdhVersion, availabilityZone, endpoints, supportedAuthMethods, jwtAuth, tags, compactor, viz, enableUnifiedAnalytics, autoscalingOptions, impalaOptions, impalaHaSettingsOptions, queryIsolationOptions, replicaStatus, hiveAuthenticationMode);
   }
 
   @Override
@@ -687,6 +712,7 @@ public class VwSummary  {
     sb.append("    impalaHaSettingsOptions: ").append(toIndentedString(impalaHaSettingsOptions)).append("\n");
     sb.append("    queryIsolationOptions: ").append(toIndentedString(queryIsolationOptions)).append("\n");
     sb.append("    replicaStatus: ").append(toIndentedString(replicaStatus)).append("\n");
+    sb.append("    hiveAuthenticationMode: ").append(toIndentedString(hiveAuthenticationMode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

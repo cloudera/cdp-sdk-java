@@ -191,7 +191,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-14T10:18:49.133-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-24T14:47:21.855-07:00")
 public class DwClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dw";
@@ -305,6 +305,7 @@ public class DwClient extends CdpClient {
    * @param input
    * @return CreateDbcResponse
    */
+  @Deprecated
   public CreateDbcResponse createDbc(CreateDbcRequest input) {
     if (input == null) {
       throw new CdpClientException("Missing the required parameter 'input' when calling createDbc");

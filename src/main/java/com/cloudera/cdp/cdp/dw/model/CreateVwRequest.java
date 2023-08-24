@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * Request object for the createVw method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-14T10:18:49.133-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-24T14:47:21.855-07:00")
 public class CreateVwRequest  {
 
   /**
@@ -111,6 +111,11 @@ public class CreateVwRequest  {
    * Tags associated with the resources.
    **/
   private List<TagRequest> tags = new ArrayList<TagRequest>();
+
+  /**
+   * Sets the authentication mode to use by Hive Server: * `LDAP` * `KERBEROS` Default: `LDAP` if not specified
+   **/
+  private String hiveAuthenticationMode = null;
 
   /**
    * Value of 'true' automatically configures the Virtual Warehouse to support JWTs issues by the CDP JWT token provider.  Value of 'false' does not enable JWT auth on the Virtual Warehouse.  If this field is not specified, it defaults to 'false'.
@@ -373,6 +378,23 @@ public class CreateVwRequest  {
   }
 
   /**
+   * Getter for hiveAuthenticationMode.
+   * Sets the authentication mode to use by Hive Server: * &#x60;LDAP&#x60; * &#x60;KERBEROS&#x60; Default: &#x60;LDAP&#x60; if not specified
+   **/
+  @JsonProperty("hiveAuthenticationMode")
+  public String getHiveAuthenticationMode() {
+    return hiveAuthenticationMode;
+  }
+
+  /**
+   * Setter for hiveAuthenticationMode.
+   * Sets the authentication mode to use by Hive Server: * &#x60;LDAP&#x60; * &#x60;KERBEROS&#x60; Default: &#x60;LDAP&#x60; if not specified
+   **/
+  public void setHiveAuthenticationMode(String hiveAuthenticationMode) {
+    this.hiveAuthenticationMode = hiveAuthenticationMode;
+  }
+
+  /**
    * Getter for platformJwtAuth.
    * Value of &#39;true&#39; automatically configures the Virtual Warehouse to support JWTs issues by the CDP JWT token provider.  Value of &#39;false&#39; does not enable JWT auth on the Virtual Warehouse.  If this field is not specified, it defaults to &#39;false&#39;.
    **/
@@ -443,6 +465,9 @@ public class CreateVwRequest  {
     if (!Objects.equals(this.tags, createVwRequest.tags)) {
       return false;
     }
+    if (!Objects.equals(this.hiveAuthenticationMode, createVwRequest.hiveAuthenticationMode)) {
+      return false;
+    }
     if (!Objects.equals(this.platformJwtAuth, createVwRequest.platformJwtAuth)) {
       return false;
     }
@@ -451,7 +476,7 @@ public class CreateVwRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, dbcId, vwType, name, imageVersion, template, nodeCount, availabilityZone, enableUnifiedAnalytics, impalaOptions, impalaHaSettings, autoscaling, config, queryIsolationOptions, tags, platformJwtAuth);
+    return Objects.hash(clusterId, dbcId, vwType, name, imageVersion, template, nodeCount, availabilityZone, enableUnifiedAnalytics, impalaOptions, impalaHaSettings, autoscaling, config, queryIsolationOptions, tags, hiveAuthenticationMode, platformJwtAuth);
   }
 
   @Override
@@ -473,6 +498,7 @@ public class CreateVwRequest  {
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    queryIsolationOptions: ").append(toIndentedString(queryIsolationOptions)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    hiveAuthenticationMode: ").append(toIndentedString(hiveAuthenticationMode)).append("\n");
     sb.append("    platformJwtAuth: ").append(toIndentedString(platformJwtAuth)).append("\n");
     sb.append("}");
     return sb.toString();

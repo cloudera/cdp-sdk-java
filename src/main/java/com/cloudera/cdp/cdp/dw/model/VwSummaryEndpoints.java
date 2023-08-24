@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Endpoints for accessing the Virtual Warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-14T10:18:49.133-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-24T14:47:21.855-07:00")
 public class VwSummaryEndpoints  {
 
   /**
@@ -41,6 +41,11 @@ public class VwSummaryEndpoints  {
   private String impalaJdbc = null;
 
   /**
+   * JDBC URL for Impala Virtual Warehouses with Kerberos authentication.
+   **/
+  private String impalaKerberosJdbc = null;
+
+  /**
    * FENG JDBC URL for Impala Virtual Warehouses.
    **/
   private String impalaFENGJdbc = null;
@@ -49,6 +54,16 @@ public class VwSummaryEndpoints  {
    * Command to use impala-shell for Impala Virtual Warehouses.
    **/
   private String impalaShell = null;
+
+  /**
+   * Command to use impala-shell for Unified Analytics
+   **/
+  private String fengImpalaShell = null;
+
+  /**
+   * Command to use impala-shell for Impala Virtual Warehouses with Kerberos authentication.
+   **/
+  private String kerberosImpalaShell = null;
 
   /**
    * URL of Hue for both Hive and Impala Virtual Warehouses.
@@ -115,6 +130,23 @@ public class VwSummaryEndpoints  {
   }
 
   /**
+   * Getter for impalaKerberosJdbc.
+   * JDBC URL for Impala Virtual Warehouses with Kerberos authentication.
+   **/
+  @JsonProperty("impalaKerberosJdbc")
+  public String getImpalaKerberosJdbc() {
+    return impalaKerberosJdbc;
+  }
+
+  /**
+   * Setter for impalaKerberosJdbc.
+   * JDBC URL for Impala Virtual Warehouses with Kerberos authentication.
+   **/
+  public void setImpalaKerberosJdbc(String impalaKerberosJdbc) {
+    this.impalaKerberosJdbc = impalaKerberosJdbc;
+  }
+
+  /**
    * Getter for impalaFENGJdbc.
    * FENG JDBC URL for Impala Virtual Warehouses.
    **/
@@ -146,6 +178,40 @@ public class VwSummaryEndpoints  {
    **/
   public void setImpalaShell(String impalaShell) {
     this.impalaShell = impalaShell;
+  }
+
+  /**
+   * Getter for fengImpalaShell.
+   * Command to use impala-shell for Unified Analytics
+   **/
+  @JsonProperty("fengImpalaShell")
+  public String getFengImpalaShell() {
+    return fengImpalaShell;
+  }
+
+  /**
+   * Setter for fengImpalaShell.
+   * Command to use impala-shell for Unified Analytics
+   **/
+  public void setFengImpalaShell(String fengImpalaShell) {
+    this.fengImpalaShell = fengImpalaShell;
+  }
+
+  /**
+   * Getter for kerberosImpalaShell.
+   * Command to use impala-shell for Impala Virtual Warehouses with Kerberos authentication.
+   **/
+  @JsonProperty("kerberosImpalaShell")
+  public String getKerberosImpalaShell() {
+    return kerberosImpalaShell;
+  }
+
+  /**
+   * Setter for kerberosImpalaShell.
+   * Command to use impala-shell for Impala Virtual Warehouses with Kerberos authentication.
+   **/
+  public void setKerberosImpalaShell(String kerberosImpalaShell) {
+    this.kerberosImpalaShell = kerberosImpalaShell;
   }
 
   /**
@@ -265,10 +331,19 @@ public class VwSummaryEndpoints  {
     if (!Objects.equals(this.impalaJdbc, vwSummaryEndpoints.impalaJdbc)) {
       return false;
     }
+    if (!Objects.equals(this.impalaKerberosJdbc, vwSummaryEndpoints.impalaKerberosJdbc)) {
+      return false;
+    }
     if (!Objects.equals(this.impalaFENGJdbc, vwSummaryEndpoints.impalaFENGJdbc)) {
       return false;
     }
     if (!Objects.equals(this.impalaShell, vwSummaryEndpoints.impalaShell)) {
+      return false;
+    }
+    if (!Objects.equals(this.fengImpalaShell, vwSummaryEndpoints.fengImpalaShell)) {
+      return false;
+    }
+    if (!Objects.equals(this.kerberosImpalaShell, vwSummaryEndpoints.kerberosImpalaShell)) {
       return false;
     }
     if (!Objects.equals(this.hue, vwSummaryEndpoints.hue)) {
@@ -294,7 +369,7 @@ public class VwSummaryEndpoints  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hiveJdbc, impalaJdbc, impalaFENGJdbc, impalaShell, hue, das, hostname, port, jwtConnectionString, jwtTokenGenUrl);
+    return Objects.hash(hiveJdbc, impalaJdbc, impalaKerberosJdbc, impalaFENGJdbc, impalaShell, fengImpalaShell, kerberosImpalaShell, hue, das, hostname, port, jwtConnectionString, jwtTokenGenUrl);
   }
 
   @Override
@@ -303,8 +378,11 @@ public class VwSummaryEndpoints  {
     sb.append("class VwSummaryEndpoints {\n");
     sb.append("    hiveJdbc: ").append(toIndentedString(hiveJdbc)).append("\n");
     sb.append("    impalaJdbc: ").append(toIndentedString(impalaJdbc)).append("\n");
+    sb.append("    impalaKerberosJdbc: ").append(toIndentedString(impalaKerberosJdbc)).append("\n");
     sb.append("    impalaFENGJdbc: ").append(toIndentedString(impalaFENGJdbc)).append("\n");
     sb.append("    impalaShell: ").append(toIndentedString(impalaShell)).append("\n");
+    sb.append("    fengImpalaShell: ").append(toIndentedString(fengImpalaShell)).append("\n");
+    sb.append("    kerberosImpalaShell: ").append(toIndentedString(kerberosImpalaShell)).append("\n");
     sb.append("    hue: ").append(toIndentedString(hue)).append("\n");
     sb.append("    das: ").append(toIndentedString(das)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");

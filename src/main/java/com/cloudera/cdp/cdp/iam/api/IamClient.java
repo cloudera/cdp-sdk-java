@@ -91,6 +91,8 @@ import com.cloudera.cdp.iam.model.GetAccountMessagesRequest;
 import com.cloudera.cdp.iam.model.GetAccountMessagesResponse;
 import com.cloudera.cdp.iam.model.GetAccountRequest;
 import com.cloudera.cdp.iam.model.GetAccountResponse;
+import com.cloudera.cdp.iam.model.GetDefaultIdentityProviderRequest;
+import com.cloudera.cdp.iam.model.GetDefaultIdentityProviderResponse;
 import com.cloudera.cdp.iam.model.GetUserRequest;
 import com.cloudera.cdp.iam.model.GetUserResponse;
 import com.cloudera.cdp.iam.model.ListAccessKeysRequest;
@@ -137,6 +139,8 @@ import com.cloudera.cdp.iam.model.RemoveUserFromGroupRequest;
 import com.cloudera.cdp.iam.model.RemoveUserFromGroupResponse;
 import com.cloudera.cdp.iam.model.SetAccountMessagesRequest;
 import com.cloudera.cdp.iam.model.SetAccountMessagesResponse;
+import com.cloudera.cdp.iam.model.SetDefaultIdentityProviderRequest;
+import com.cloudera.cdp.iam.model.SetDefaultIdentityProviderResponse;
 import com.cloudera.cdp.iam.model.SetWorkloadPasswordPolicyRequest;
 import com.cloudera.cdp.iam.model.SetWorkloadPasswordPolicyResponse;
 import com.cloudera.cdp.iam.model.SetWorkloadPasswordRequest;
@@ -175,7 +179,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-14T10:18:51.293-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-24T14:47:24.107-07:00")
 public class IamClient extends CdpClient {
 
   public static final String SERVICE_NAME = "iam";
@@ -610,6 +614,19 @@ public class IamClient extends CdpClient {
   }
 
   /**
+   * Retrieves the CRN of the default identity provider.
+   * @param input
+   * @return GetDefaultIdentityProviderResponse
+   */
+  public GetDefaultIdentityProviderResponse getDefaultIdentityProvider(GetDefaultIdentityProviderRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getDefaultIdentityProvider");
+    }
+
+    return this.invokeAPI("getDefaultIdentityProvider", "/iam/getDefaultIdentityProvider", input, new GenericType<GetDefaultIdentityProviderResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Gets information on a user.
    * @param input
    * @return GetUserResponse
@@ -906,6 +923,19 @@ public class IamClient extends CdpClient {
     }
 
     return this.invokeAPI("setAccountMessages", "/iam/setAccountMessages", input, new GenericType<SetAccountMessagesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Sets the default identity provider.
+   * @param input
+   * @return SetDefaultIdentityProviderResponse
+   */
+  public SetDefaultIdentityProviderResponse setDefaultIdentityProvider(SetDefaultIdentityProviderRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling setDefaultIdentityProvider");
+    }
+
+    return this.invokeAPI("setDefaultIdentityProvider", "/iam/setDefaultIdentityProvider", input, new GenericType<SetDefaultIdentityProviderResponse>(){}, NO_EXTENSION);
   }
 
   /**
