@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for creating FreeIPA in the environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-24T14:47:23.298-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-30T17:23:16.951-07:00")
 public class GCPFreeIpaCreationRequest  {
 
   /**
@@ -40,6 +40,11 @@ public class GCPFreeIpaCreationRequest  {
    * The recipes for the FreeIPA cluster.
    **/
   private List<String> recipes = new ArrayList<String>();
+
+  /**
+   * Custom instance type of FreeIPA instances.
+   **/
+  private String instanceType = null;
 
   /**
    * Getter for instanceCountByGroup.
@@ -75,6 +80,23 @@ public class GCPFreeIpaCreationRequest  {
     this.recipes = recipes;
   }
 
+  /**
+   * Getter for instanceType.
+   * Custom instance type of FreeIPA instances.
+   **/
+  @JsonProperty("instanceType")
+  public String getInstanceType() {
+    return instanceType;
+  }
+
+  /**
+   * Setter for instanceType.
+   * Custom instance type of FreeIPA instances.
+   **/
+  public void setInstanceType(String instanceType) {
+    this.instanceType = instanceType;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -90,12 +112,15 @@ public class GCPFreeIpaCreationRequest  {
     if (!Objects.equals(this.recipes, gCPFreeIpaCreationRequest.recipes)) {
       return false;
     }
+    if (!Objects.equals(this.instanceType, gCPFreeIpaCreationRequest.instanceType)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceCountByGroup, recipes);
+    return Objects.hash(instanceCountByGroup, recipes, instanceType);
   }
 
   @Override
@@ -104,6 +129,7 @@ public class GCPFreeIpaCreationRequest  {
     sb.append("class GCPFreeIpaCreationRequest {\n");
     sb.append("    instanceCountByGroup: ").append(toIndentedString(instanceCountByGroup)).append("\n");
     sb.append("    recipes: ").append(toIndentedString(recipes)).append("\n");
+    sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

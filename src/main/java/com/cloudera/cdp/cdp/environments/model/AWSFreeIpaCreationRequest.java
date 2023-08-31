@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for creating FreeIPA in the environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-24T14:47:23.298-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-30T17:23:16.951-07:00")
 public class AWSFreeIpaCreationRequest  {
 
   /**
@@ -40,6 +40,11 @@ public class AWSFreeIpaCreationRequest  {
    * The recipes for the FreeIPA cluster.
    **/
   private List<String> recipes = new ArrayList<String>();
+
+  /**
+   * Custom instance type of FreeIPA instances.
+   **/
+  private String instanceType = null;
 
   /**
    * Flag which marks that the FreeIPA will be deployed in a multi-availability zone way or not.
@@ -81,6 +86,23 @@ public class AWSFreeIpaCreationRequest  {
   }
 
   /**
+   * Getter for instanceType.
+   * Custom instance type of FreeIPA instances.
+   **/
+  @JsonProperty("instanceType")
+  public String getInstanceType() {
+    return instanceType;
+  }
+
+  /**
+   * Setter for instanceType.
+   * Custom instance type of FreeIPA instances.
+   **/
+  public void setInstanceType(String instanceType) {
+    this.instanceType = instanceType;
+  }
+
+  /**
    * Getter for multiAz.
    * Flag which marks that the FreeIPA will be deployed in a multi-availability zone way or not.
    **/
@@ -112,6 +134,9 @@ public class AWSFreeIpaCreationRequest  {
     if (!Objects.equals(this.recipes, aWSFreeIpaCreationRequest.recipes)) {
       return false;
     }
+    if (!Objects.equals(this.instanceType, aWSFreeIpaCreationRequest.instanceType)) {
+      return false;
+    }
     if (!Objects.equals(this.multiAz, aWSFreeIpaCreationRequest.multiAz)) {
       return false;
     }
@@ -120,7 +145,7 @@ public class AWSFreeIpaCreationRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceCountByGroup, recipes, multiAz);
+    return Objects.hash(instanceCountByGroup, recipes, instanceType, multiAz);
   }
 
   @Override
@@ -129,6 +154,7 @@ public class AWSFreeIpaCreationRequest  {
     sb.append("class AWSFreeIpaCreationRequest {\n");
     sb.append("    instanceCountByGroup: ").append(toIndentedString(instanceCountByGroup)).append("\n");
     sb.append("    recipes: ").append(toIndentedString(recipes)).append("\n");
+    sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    multiAz: ").append(toIndentedString(multiAz)).append("\n");
     sb.append("}");
     return sb.toString();

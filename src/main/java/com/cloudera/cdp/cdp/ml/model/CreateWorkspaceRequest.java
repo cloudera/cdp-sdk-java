@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for the CreateWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-24T14:47:22.640-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-30T17:23:16.187-07:00")
 public class CreateWorkspaceRequest  {
 
   /**
@@ -112,6 +112,11 @@ public class CreateWorkspaceRequest  {
    * Skip pre-flight validations if requested
    **/
   private Boolean skipValidation = null;
+
+  /**
+   * Whether to create a private cluster.
+   **/
+  private Boolean privateCluster = null;
 
   /**
    * The list of subnets used for the load balancer that CML creates.
@@ -406,6 +411,23 @@ public class CreateWorkspaceRequest  {
   }
 
   /**
+   * Getter for privateCluster.
+   * Whether to create a private cluster.
+   **/
+  @JsonProperty("privateCluster")
+  public Boolean getPrivateCluster() {
+    return privateCluster;
+  }
+
+  /**
+   * Setter for privateCluster.
+   * Whether to create a private cluster.
+   **/
+  public void setPrivateCluster(Boolean privateCluster) {
+    this.privateCluster = privateCluster;
+  }
+
+  /**
    * Getter for subnetsForLoadBalancers.
    * The list of subnets used for the load balancer that CML creates.
    **/
@@ -530,6 +552,9 @@ public class CreateWorkspaceRequest  {
     if (!Objects.equals(this.skipValidation, createWorkspaceRequest.skipValidation)) {
       return false;
     }
+    if (!Objects.equals(this.privateCluster, createWorkspaceRequest.privateCluster)) {
+      return false;
+    }
     if (!Objects.equals(this.subnetsForLoadBalancers, createWorkspaceRequest.subnetsForLoadBalancers)) {
       return false;
     }
@@ -547,7 +572,7 @@ public class CreateWorkspaceRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, workspaceName, usePublicLoadBalancer, disableTLS, provisionK8sRequest, enableMonitoring, enableGovernance, existingNFS, loadBalancerIPWhitelists, nfsVersion, mlVersion, enableModelMetrics, existingDatabaseConfig, whitelistAuthorizedIPRanges, authorizedIPRanges, skipValidation, subnetsForLoadBalancers, staticSubdomain, cdswMigrationMode, outboundTypes);
+    return Objects.hash(environmentName, workspaceName, usePublicLoadBalancer, disableTLS, provisionK8sRequest, enableMonitoring, enableGovernance, existingNFS, loadBalancerIPWhitelists, nfsVersion, mlVersion, enableModelMetrics, existingDatabaseConfig, whitelistAuthorizedIPRanges, authorizedIPRanges, skipValidation, privateCluster, subnetsForLoadBalancers, staticSubdomain, cdswMigrationMode, outboundTypes);
   }
 
   @Override
@@ -570,6 +595,7 @@ public class CreateWorkspaceRequest  {
     sb.append("    whitelistAuthorizedIPRanges: ").append(toIndentedString(whitelistAuthorizedIPRanges)).append("\n");
     sb.append("    authorizedIPRanges: ").append(toIndentedString(authorizedIPRanges)).append("\n");
     sb.append("    skipValidation: ").append(toIndentedString(skipValidation)).append("\n");
+    sb.append("    privateCluster: ").append(toIndentedString(privateCluster)).append("\n");
     sb.append("    subnetsForLoadBalancers: ").append(toIndentedString(subnetsForLoadBalancers)).append("\n");
     sb.append("    staticSubdomain: ").append(toIndentedString(staticSubdomain)).append("\n");
     sb.append("    cdswMigrationMode: ").append(toIndentedString(cdswMigrationMode)).append("\n");

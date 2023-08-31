@@ -48,6 +48,8 @@ import com.cloudera.cdp.datalake.model.CreateGCPDatalakeRequest;
 import com.cloudera.cdp.datalake.model.CreateGCPDatalakeResponse;
 import com.cloudera.cdp.datalake.model.DeleteDatalakeRequest;
 import com.cloudera.cdp.datalake.model.DeleteDatalakeResponse;
+import com.cloudera.cdp.datalake.model.DescribeDatabaseServerRequest;
+import com.cloudera.cdp.datalake.model.DescribeDatabaseServerResponse;
 import com.cloudera.cdp.datalake.model.DescribeDatalakeRequest;
 import com.cloudera.cdp.datalake.model.DescribeDatalakeResponse;
 import com.cloudera.cdp.datalake.model.Error;
@@ -109,13 +111,17 @@ import com.cloudera.cdp.datalake.model.UpdateOrchestratorStateRequest;
 import com.cloudera.cdp.datalake.model.UpdateOrchestratorStateResponse;
 import com.cloudera.cdp.datalake.model.UpgradeDatalakeRequest;
 import com.cloudera.cdp.datalake.model.UpgradeDatalakeResponse;
+import com.cloudera.cdp.datalake.model.ValidateAwsCloudStorageRequest;
+import com.cloudera.cdp.datalake.model.ValidateAwsCloudStorageResponse;
+import com.cloudera.cdp.datalake.model.ValidateAzureCloudStorageRequest;
+import com.cloudera.cdp.datalake.model.ValidateAzureCloudStorageResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-24T14:47:22.858-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-30T17:23:16.444-07:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datalake";
@@ -274,6 +280,19 @@ public class DatalakeClient extends CdpClient {
     }
 
     return this.invokeAPI("deleteDatalake", "/api/v1/datalake/deleteDatalake", input, new GenericType<DeleteDatalakeResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Gets external database server details.
+   * @param input
+   * @return DescribeDatabaseServerResponse
+   */
+  public DescribeDatabaseServerResponse describeDatabaseServer(DescribeDatabaseServerRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeDatabaseServer");
+    }
+
+    return this.invokeAPI("describeDatabaseServer", "/api/v1/datalake/describeDatabaseServer", input, new GenericType<DescribeDatabaseServerResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -668,5 +687,31 @@ public class DatalakeClient extends CdpClient {
     }
 
     return this.invokeAPI("upgradeDatalake", "/api/v1/datalake/upgradeDatalake", input, new GenericType<UpgradeDatalakeResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Validates AWS cloud storage.
+   * @param input
+   * @return ValidateAwsCloudStorageResponse
+   */
+  public ValidateAwsCloudStorageResponse validateAwsCloudStorage(ValidateAwsCloudStorageRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling validateAwsCloudStorage");
+    }
+
+    return this.invokeAPI("validateAwsCloudStorage", "/api/v1/datalake/validateAwsCloudStorage", input, new GenericType<ValidateAwsCloudStorageResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Validates Azure cloud storage.
+   * @param input
+   * @return ValidateAzureCloudStorageResponse
+   */
+  public ValidateAzureCloudStorageResponse validateAzureCloudStorage(ValidateAzureCloudStorageRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling validateAzureCloudStorage");
+    }
+
+    return this.invokeAPI("validateAzureCloudStorage", "/api/v1/datalake/validateAzureCloudStorage", input, new GenericType<ValidateAzureCloudStorageResponse>(){}, NO_EXTENSION);
   }
 }

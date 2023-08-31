@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for list cluster definition response.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-24T14:47:21.133-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-30T17:23:14.797-07:00")
 public class ListClusterDefinitionsResponse extends CdpResponse {
 
   /**

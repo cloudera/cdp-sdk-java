@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Details of the databases.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-24T14:47:23.683-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-30T17:23:17.429-07:00")
 public class DatabaseDetails  {
 
   /**

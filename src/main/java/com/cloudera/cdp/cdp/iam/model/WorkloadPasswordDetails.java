@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Information about the workload password for a user or machine user.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-24T14:47:24.107-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-30T17:23:17.886-07:00")
 public class WorkloadPasswordDetails  {
 
   /**

@@ -153,17 +153,23 @@ import com.cloudera.cdp.environments.model.UpdateAzureEncryptionResourcesRequest
 import com.cloudera.cdp.environments.model.UpdateAzureEncryptionResourcesResponse;
 import com.cloudera.cdp.environments.model.UpdateOrchestratorStateRequest;
 import com.cloudera.cdp.environments.model.UpdateOrchestratorStateResponse;
+import com.cloudera.cdp.environments.model.UpdateProxyConfigRequest;
+import com.cloudera.cdp.environments.model.UpdateProxyConfigResponse;
 import com.cloudera.cdp.environments.model.UpgradeCcmRequest;
 import com.cloudera.cdp.environments.model.UpgradeCcmResponse;
 import com.cloudera.cdp.environments.model.UpscaleFreeipaRequest;
 import com.cloudera.cdp.environments.model.UpscaleFreeipaResponse;
+import com.cloudera.cdp.environments.model.ValidateAwsCloudStorageRequest;
+import com.cloudera.cdp.environments.model.ValidateAwsCloudStorageResponse;
+import com.cloudera.cdp.environments.model.ValidateAzureCloudStorageRequest;
+import com.cloudera.cdp.environments.model.ValidateAzureCloudStorageResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-24T14:47:23.298-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-30T17:23:16.951-07:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -1002,6 +1008,19 @@ public class EnvironmentsClient extends CdpClient {
   }
 
   /**
+   * Updates the proxy config of the given environment.
+   * @param input
+   * @return UpdateProxyConfigResponse
+   */
+  public UpdateProxyConfigResponse updateProxyConfig(UpdateProxyConfigRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateProxyConfig");
+    }
+
+    return this.invokeAPI("updateProxyConfig", "/api/v1/environments2/updateProxyConfig", input, new GenericType<UpdateProxyConfigResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Upgrades Cluster Connectivity Manager on the environment to the latest available version.
    * @param input
    * @return UpgradeCcmResponse
@@ -1025,5 +1044,31 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("upscaleFreeipa", "/api/v1/environments2/upscaleFreeipa", input, new GenericType<UpscaleFreeipaResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Validates AWS cloud storage settings of the given environment.
+   * @param input
+   * @return ValidateAwsCloudStorageResponse
+   */
+  public ValidateAwsCloudStorageResponse validateAwsCloudStorage(ValidateAwsCloudStorageRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling validateAwsCloudStorage");
+    }
+
+    return this.invokeAPI("validateAwsCloudStorage", "/api/v1/environments2/validateAwsCloudStorage", input, new GenericType<ValidateAwsCloudStorageResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Validates Azure cloud storage settings of the given environment.
+   * @param input
+   * @return ValidateAzureCloudStorageResponse
+   */
+  public ValidateAzureCloudStorageResponse validateAzureCloudStorage(ValidateAzureCloudStorageRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling validateAzureCloudStorage");
+    }
+
+    return this.invokeAPI("validateAzureCloudStorage", "/api/v1/environments2/validateAzureCloudStorage", input, new GenericType<ValidateAzureCloudStorageResponse>(){}, NO_EXTENSION);
   }
 }
