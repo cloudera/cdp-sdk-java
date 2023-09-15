@@ -23,6 +23,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.datahub.model.ClusterExtension;
 import com.cloudera.cdp.datahub.model.GCPDatahubResourceTagRequest;
 import com.cloudera.cdp.datahub.model.GCPInstanceGroupRequest;
 import com.cloudera.cdp.datahub.model.ImageRequest;
@@ -31,7 +32,7 @@ import java.util.*;
 /**
  * Request object for create GCP cluster request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-30T17:23:14.797-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-14T10:47:16.679-07:00")
 public class CreateGCPClusterRequest  {
 
   /**
@@ -88,6 +89,11 @@ public class CreateGCPClusterRequest  {
    * Database type for datahub. Currently supported values: NONE, NON_HA, HA
    **/
   private String datahubDatabase = null;
+
+  /**
+   * Cluster extensions for the given Data Hub cluster.
+   **/
+  private ClusterExtension clusterExtension = null;
 
   /**
    * Configure the major version of Java on the cluster.
@@ -282,6 +288,23 @@ public class CreateGCPClusterRequest  {
   }
 
   /**
+   * Getter for clusterExtension.
+   * Cluster extensions for the given Data Hub cluster.
+   **/
+  @JsonProperty("clusterExtension")
+  public ClusterExtension getClusterExtension() {
+    return clusterExtension;
+  }
+
+  /**
+   * Setter for clusterExtension.
+   * Cluster extensions for the given Data Hub cluster.
+   **/
+  public void setClusterExtension(ClusterExtension clusterExtension) {
+    this.clusterExtension = clusterExtension;
+  }
+
+  /**
    * Getter for javaVersion.
    * Configure the major version of Java on the cluster.
    **/
@@ -340,6 +363,9 @@ public class CreateGCPClusterRequest  {
     if (!Objects.equals(this.datahubDatabase, createGCPClusterRequest.datahubDatabase)) {
       return false;
     }
+    if (!Objects.equals(this.clusterExtension, createGCPClusterRequest.clusterExtension)) {
+      return false;
+    }
     if (!Objects.equals(this.javaVersion, createGCPClusterRequest.javaVersion)) {
       return false;
     }
@@ -348,7 +374,7 @@ public class CreateGCPClusterRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, clusterDefinitionName, environmentName, clusterTemplateName, customConfigurationsName, instanceGroups, subnetName, image, tags, requestTemplate, datahubDatabase, javaVersion);
+    return Objects.hash(clusterName, clusterDefinitionName, environmentName, clusterTemplateName, customConfigurationsName, instanceGroups, subnetName, image, tags, requestTemplate, datahubDatabase, clusterExtension, javaVersion);
   }
 
   @Override
@@ -366,6 +392,7 @@ public class CreateGCPClusterRequest  {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    requestTemplate: ").append(toIndentedString(requestTemplate)).append("\n");
     sb.append("    datahubDatabase: ").append(toIndentedString(datahubDatabase)).append("\n");
+    sb.append("    clusterExtension: ").append(toIndentedString(clusterExtension)).append("\n");
     sb.append("    javaVersion: ").append(toIndentedString(javaVersion)).append("\n");
     sb.append("}");
     return sb.toString();

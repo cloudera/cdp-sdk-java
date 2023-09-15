@@ -36,6 +36,8 @@ import com.cloudera.cdp.datahub.model.CollectDatahubDiagnosticsRequest;
 import com.cloudera.cdp.datahub.model.CollectDatahubDiagnosticsResponse;
 import com.cloudera.cdp.datahub.model.CreateAWSClusterRequest;
 import com.cloudera.cdp.datahub.model.CreateAWSClusterResponse;
+import com.cloudera.cdp.datahub.model.CreateAWSGovCloudClusterRequest;
+import com.cloudera.cdp.datahub.model.CreateAWSGovCloudClusterResponse;
 import com.cloudera.cdp.datahub.model.CreateAutoScaleRulesRequest;
 import com.cloudera.cdp.datahub.model.CreateAutoScaleRulesResponse;
 import com.cloudera.cdp.datahub.model.CreateAzureClusterRequest;
@@ -133,8 +135,12 @@ import com.cloudera.cdp.datahub.model.StartClusterVerticalScalingRequest;
 import com.cloudera.cdp.datahub.model.StartClusterVerticalScalingResponse;
 import com.cloudera.cdp.datahub.model.StartDatabaseUpgradeRequest;
 import com.cloudera.cdp.datahub.model.StartDatabaseUpgradeResponse;
+import com.cloudera.cdp.datahub.model.StartInstancesRequest;
+import com.cloudera.cdp.datahub.model.StartInstancesResponse;
 import com.cloudera.cdp.datahub.model.StopClusterRequest;
 import com.cloudera.cdp.datahub.model.StopClusterResponse;
+import com.cloudera.cdp.datahub.model.StopInstancesRequest;
+import com.cloudera.cdp.datahub.model.StopInstancesResponse;
 import com.cloudera.cdp.datahub.model.SyncClusterRequest;
 import com.cloudera.cdp.datahub.model.SyncClusterResponse;
 import com.cloudera.cdp.datahub.model.SyncComponentVersionsFromCmRequest;
@@ -151,7 +157,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-30T17:23:14.797-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-14T10:47:16.679-07:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datahub";
@@ -232,6 +238,19 @@ public class DatahubClient extends CdpClient {
     }
 
     return this.invokeAPI("createAWSCluster", "/api/v1/datahub/createAWSCluster", input, new GenericType<CreateAWSClusterResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Creates an AWS Data Hub cluster for GovCloud.
+   * @param input
+   * @return CreateAWSGovCloudClusterResponse
+   */
+  public CreateAWSGovCloudClusterResponse createAWSGovCloudCluster(CreateAWSGovCloudClusterRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createAWSGovCloudCluster");
+    }
+
+    return this.invokeAPI("createAWSGovCloudCluster", "/api/v1/datahub/createAWSGovCloudCluster", input, new GenericType<CreateAWSGovCloudClusterResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -861,6 +880,19 @@ public class DatahubClient extends CdpClient {
   }
 
   /**
+   * Starts instances of a particular host group in the Data Hub cluster.
+   * @param input
+   * @return StartInstancesResponse
+   */
+  public StartInstancesResponse startInstances(StartInstancesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling startInstances");
+    }
+
+    return this.invokeAPI("startInstances", "/api/v1/datahub/startInstances", input, new GenericType<StartInstancesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Stops a workload cluster.
    * @param input
    * @return StopClusterResponse
@@ -871,6 +903,19 @@ public class DatahubClient extends CdpClient {
     }
 
     return this.invokeAPI("stopCluster", "/api/v1/datahub/stopCluster", input, new GenericType<StopClusterResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Stops instances of particular host group in the Data Hub cluster.
+   * @param input
+   * @return StopInstancesResponse
+   */
+  public StopInstancesResponse stopInstances(StopInstancesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling stopInstances");
+    }
+
+    return this.invokeAPI("stopInstances", "/api/v1/datahub/stopInstances", input, new GenericType<StopInstancesResponse>(){}, NO_EXTENSION);
   }
 
   /**

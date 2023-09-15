@@ -28,18 +28,8 @@ import java.util.*;
 /**
  * Options for activating an AWS environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-30T17:23:15.372-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-14T10:47:17.249-07:00")
 public class AwsActivationOptions  {
-
-  /**
-   * DEPRECATED in favour of workerSubnetIds and lbSubnetIds field. IDs of private AWS subnets where the cluster should be deployed.
-   **/
-  private List<String> privateSubnetIds = new ArrayList<String>();
-
-  /**
-   * DEPRECATED in favour of workerSubnetIds and lbSubnetIds field. IDs of public AWS subnets where the cluster should be deployed.
-   **/
-  private List<String> publicSubnetIds = new ArrayList<String>();
 
   /**
    * IDs of AWS subnets where the cluster worker nodes should be deployed.
@@ -80,44 +70,6 @@ public class AwsActivationOptions  {
    * Additional (fallback) instance types listed in their priority order. They will be used instead of the primary compute instance type in case it is unavailable. You cannot include any instance type that was already indicated in computeInstanceTypes. Use describe-allowed-instance-types to see currently supported values and also the default value when nothing is provided for the computeInstanceTypes.
    **/
   private List<String> additionalInstanceTypes = new ArrayList<String>();
-
-  /**
-   * Getter for privateSubnetIds.
-   * DEPRECATED in favour of workerSubnetIds and lbSubnetIds field. IDs of private AWS subnets where the cluster should be deployed.
-   **/
-  @Deprecated
-  @JsonProperty("privateSubnetIds")
-  public List<String> getPrivateSubnetIds() {
-    return privateSubnetIds;
-  }
-
-  /**
-   * Setter for privateSubnetIds.
-   * DEPRECATED in favour of workerSubnetIds and lbSubnetIds field. IDs of private AWS subnets where the cluster should be deployed.
-   **/
-  @Deprecated
-  public void setPrivateSubnetIds(List<String> privateSubnetIds) {
-    this.privateSubnetIds = privateSubnetIds;
-  }
-
-  /**
-   * Getter for publicSubnetIds.
-   * DEPRECATED in favour of workerSubnetIds and lbSubnetIds field. IDs of public AWS subnets where the cluster should be deployed.
-   **/
-  @Deprecated
-  @JsonProperty("publicSubnetIds")
-  public List<String> getPublicSubnetIds() {
-    return publicSubnetIds;
-  }
-
-  /**
-   * Setter for publicSubnetIds.
-   * DEPRECATED in favour of workerSubnetIds and lbSubnetIds field. IDs of public AWS subnets where the cluster should be deployed.
-   **/
-  @Deprecated
-  public void setPublicSubnetIds(List<String> publicSubnetIds) {
-    this.publicSubnetIds = publicSubnetIds;
-  }
 
   /**
    * Getter for workerSubnetIds.
@@ -264,12 +216,6 @@ public class AwsActivationOptions  {
       return false;
     }
     AwsActivationOptions awsActivationOptions = (AwsActivationOptions) o;
-    if (!Objects.equals(this.privateSubnetIds, awsActivationOptions.privateSubnetIds)) {
-      return false;
-    }
-    if (!Objects.equals(this.publicSubnetIds, awsActivationOptions.publicSubnetIds)) {
-      return false;
-    }
     if (!Objects.equals(this.workerSubnetIds, awsActivationOptions.workerSubnetIds)) {
       return false;
     }
@@ -299,15 +245,13 @@ public class AwsActivationOptions  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(privateSubnetIds, publicSubnetIds, workerSubnetIds, lbSubnetIds, customAmiId, nodeRoleCDWManagedPolicyArn, enableSpotInstances, reducedPermissionMode, computeInstanceTypes, additionalInstanceTypes);
+    return Objects.hash(workerSubnetIds, lbSubnetIds, customAmiId, nodeRoleCDWManagedPolicyArn, enableSpotInstances, reducedPermissionMode, computeInstanceTypes, additionalInstanceTypes);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AwsActivationOptions {\n");
-    sb.append("    privateSubnetIds: ").append(toIndentedString(privateSubnetIds)).append("\n");
-    sb.append("    publicSubnetIds: ").append(toIndentedString(publicSubnetIds)).append("\n");
     sb.append("    workerSubnetIds: ").append(toIndentedString(workerSubnetIds)).append("\n");
     sb.append("    lbSubnetIds: ").append(toIndentedString(lbSubnetIds)).append("\n");
     sb.append("    customAmiId: ").append(toIndentedString(customAmiId)).append("\n");

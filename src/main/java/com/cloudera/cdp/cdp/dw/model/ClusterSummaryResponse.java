@@ -26,13 +26,14 @@ import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.dw.model.ActorResponse;
 import com.cloudera.cdp.dw.model.AwsOptionsResponse;
 import com.cloudera.cdp.dw.model.AzureOptionsResponse;
+import com.cloudera.cdp.dw.model.ExternalBucket;
 import java.time.ZonedDateTime;
 import java.util.*;
 
 /**
  * A Cloudera Data Warehouse cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-30T17:23:15.372-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-14T10:47:17.249-07:00")
 public class ClusterSummaryResponse extends CdpResponse {
 
   /**
@@ -86,6 +87,16 @@ public class ClusterSummaryResponse extends CdpResponse {
   private Boolean enableSpotInstances = null;
 
   /**
+   * Number of additional reserved nodes for executors and coordinators to use during autoscaling.
+   **/
+  private Integer reservedComputeNodes = null;
+
+  /**
+   * Number of additional reserved nodes for other services in the cluster.
+   **/
+  private Integer reservedSharedServicesNodes = null;
+
+  /**
    * Compute instance types that the environment is restricted to use. This affects the creation of the virtual warehouses where this restriction will apply.
    **/
   private List<String> computeInstanceTypes = new ArrayList<String>();
@@ -104,6 +115,26 @@ public class ClusterSummaryResponse extends CdpResponse {
    * Response object of Azure related cluster options.
    **/
   private AzureOptionsResponse azureOptions = null;
+
+  /**
+   * Cluster description.
+   **/
+  private String description = null;
+
+  /**
+   * List of IP address CIDRs to whitelist for kubernetes cluster access.
+   **/
+  private String whitelistK8sClusterAccessIpCIDRs = null;
+
+  /**
+   * List of IP address CIDRs to whitelist for workload access.
+   **/
+  private String whitelistWorkloadAccessIpCIDRs = null;
+
+  /**
+   * External buckets attached to the environment.
+   **/
+  private List<ExternalBucket> externalBuckets = new ArrayList<ExternalBucket>();
 
   /**
    * Getter for crn.
@@ -276,6 +307,40 @@ public class ClusterSummaryResponse extends CdpResponse {
   }
 
   /**
+   * Getter for reservedComputeNodes.
+   * Number of additional reserved nodes for executors and coordinators to use during autoscaling.
+   **/
+  @JsonProperty("reservedComputeNodes")
+  public Integer getReservedComputeNodes() {
+    return reservedComputeNodes;
+  }
+
+  /**
+   * Setter for reservedComputeNodes.
+   * Number of additional reserved nodes for executors and coordinators to use during autoscaling.
+   **/
+  public void setReservedComputeNodes(Integer reservedComputeNodes) {
+    this.reservedComputeNodes = reservedComputeNodes;
+  }
+
+  /**
+   * Getter for reservedSharedServicesNodes.
+   * Number of additional reserved nodes for other services in the cluster.
+   **/
+  @JsonProperty("reservedSharedServicesNodes")
+  public Integer getReservedSharedServicesNodes() {
+    return reservedSharedServicesNodes;
+  }
+
+  /**
+   * Setter for reservedSharedServicesNodes.
+   * Number of additional reserved nodes for other services in the cluster.
+   **/
+  public void setReservedSharedServicesNodes(Integer reservedSharedServicesNodes) {
+    this.reservedSharedServicesNodes = reservedSharedServicesNodes;
+  }
+
+  /**
    * Getter for computeInstanceTypes.
    * Compute instance types that the environment is restricted to use. This affects the creation of the virtual warehouses where this restriction will apply.
    **/
@@ -343,6 +408,74 @@ public class ClusterSummaryResponse extends CdpResponse {
     this.azureOptions = azureOptions;
   }
 
+  /**
+   * Getter for description.
+   * Cluster description.
+   **/
+  @JsonProperty("description")
+  public String getDescription() {
+    return description;
+  }
+
+  /**
+   * Setter for description.
+   * Cluster description.
+   **/
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  /**
+   * Getter for whitelistK8sClusterAccessIpCIDRs.
+   * List of IP address CIDRs to whitelist for kubernetes cluster access.
+   **/
+  @JsonProperty("whitelistK8sClusterAccessIpCIDRs")
+  public String getWhitelistK8sClusterAccessIpCIDRs() {
+    return whitelistK8sClusterAccessIpCIDRs;
+  }
+
+  /**
+   * Setter for whitelistK8sClusterAccessIpCIDRs.
+   * List of IP address CIDRs to whitelist for kubernetes cluster access.
+   **/
+  public void setWhitelistK8sClusterAccessIpCIDRs(String whitelistK8sClusterAccessIpCIDRs) {
+    this.whitelistK8sClusterAccessIpCIDRs = whitelistK8sClusterAccessIpCIDRs;
+  }
+
+  /**
+   * Getter for whitelistWorkloadAccessIpCIDRs.
+   * List of IP address CIDRs to whitelist for workload access.
+   **/
+  @JsonProperty("whitelistWorkloadAccessIpCIDRs")
+  public String getWhitelistWorkloadAccessIpCIDRs() {
+    return whitelistWorkloadAccessIpCIDRs;
+  }
+
+  /**
+   * Setter for whitelistWorkloadAccessIpCIDRs.
+   * List of IP address CIDRs to whitelist for workload access.
+   **/
+  public void setWhitelistWorkloadAccessIpCIDRs(String whitelistWorkloadAccessIpCIDRs) {
+    this.whitelistWorkloadAccessIpCIDRs = whitelistWorkloadAccessIpCIDRs;
+  }
+
+  /**
+   * Getter for externalBuckets.
+   * External buckets attached to the environment.
+   **/
+  @JsonProperty("externalBuckets")
+  public List<ExternalBucket> getExternalBuckets() {
+    return externalBuckets;
+  }
+
+  /**
+   * Setter for externalBuckets.
+   * External buckets attached to the environment.
+   **/
+  public void setExternalBuckets(List<ExternalBucket> externalBuckets) {
+    this.externalBuckets = externalBuckets;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -382,6 +515,12 @@ public class ClusterSummaryResponse extends CdpResponse {
     if (!Objects.equals(this.enableSpotInstances, clusterSummaryResponse.enableSpotInstances)) {
       return false;
     }
+    if (!Objects.equals(this.reservedComputeNodes, clusterSummaryResponse.reservedComputeNodes)) {
+      return false;
+    }
+    if (!Objects.equals(this.reservedSharedServicesNodes, clusterSummaryResponse.reservedSharedServicesNodes)) {
+      return false;
+    }
     if (!Objects.equals(this.computeInstanceTypes, clusterSummaryResponse.computeInstanceTypes)) {
       return false;
     }
@@ -394,6 +533,18 @@ public class ClusterSummaryResponse extends CdpResponse {
     if (!Objects.equals(this.azureOptions, clusterSummaryResponse.azureOptions)) {
       return false;
     }
+    if (!Objects.equals(this.description, clusterSummaryResponse.description)) {
+      return false;
+    }
+    if (!Objects.equals(this.whitelistK8sClusterAccessIpCIDRs, clusterSummaryResponse.whitelistK8sClusterAccessIpCIDRs)) {
+      return false;
+    }
+    if (!Objects.equals(this.whitelistWorkloadAccessIpCIDRs, clusterSummaryResponse.whitelistWorkloadAccessIpCIDRs)) {
+      return false;
+    }
+    if (!Objects.equals(this.externalBuckets, clusterSummaryResponse.externalBuckets)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -402,7 +553,7 @@ public class ClusterSummaryResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, environmentCrn, name, status, creator, creationDate, cloudPlatform, enableStorageRoles, enableSpotInstances, computeInstanceTypes, additionalInstanceTypes, awsOptions, azureOptions, super.hashCode());
+    return Objects.hash(crn, id, environmentCrn, name, status, creator, creationDate, cloudPlatform, enableStorageRoles, enableSpotInstances, reservedComputeNodes, reservedSharedServicesNodes, computeInstanceTypes, additionalInstanceTypes, awsOptions, azureOptions, description, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, externalBuckets, super.hashCode());
   }
 
   @Override
@@ -420,10 +571,16 @@ public class ClusterSummaryResponse extends CdpResponse {
     sb.append("    cloudPlatform: ").append(toIndentedString(cloudPlatform)).append("\n");
     sb.append("    enableStorageRoles: ").append(toIndentedString(enableStorageRoles)).append("\n");
     sb.append("    enableSpotInstances: ").append(toIndentedString(enableSpotInstances)).append("\n");
+    sb.append("    reservedComputeNodes: ").append(toIndentedString(reservedComputeNodes)).append("\n");
+    sb.append("    reservedSharedServicesNodes: ").append(toIndentedString(reservedSharedServicesNodes)).append("\n");
     sb.append("    computeInstanceTypes: ").append(toIndentedString(computeInstanceTypes)).append("\n");
     sb.append("    additionalInstanceTypes: ").append(toIndentedString(additionalInstanceTypes)).append("\n");
     sb.append("    awsOptions: ").append(toIndentedString(awsOptions)).append("\n");
     sb.append("    azureOptions: ").append(toIndentedString(azureOptions)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    whitelistK8sClusterAccessIpCIDRs: ").append(toIndentedString(whitelistK8sClusterAccessIpCIDRs)).append("\n");
+    sb.append("    whitelistWorkloadAccessIpCIDRs: ").append(toIndentedString(whitelistWorkloadAccessIpCIDRs)).append("\n");
+    sb.append("    externalBuckets: ").append(toIndentedString(externalBuckets)).append("\n");
     sb.append("}");
     return sb.toString();
   }

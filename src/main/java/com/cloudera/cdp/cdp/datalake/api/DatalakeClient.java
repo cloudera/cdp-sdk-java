@@ -42,6 +42,8 @@ import com.cloudera.cdp.datalake.model.CollectDatalakeDiagnosticsRequest;
 import com.cloudera.cdp.datalake.model.CollectDatalakeDiagnosticsResponse;
 import com.cloudera.cdp.datalake.model.CreateAWSDatalakeRequest;
 import com.cloudera.cdp.datalake.model.CreateAWSDatalakeResponse;
+import com.cloudera.cdp.datalake.model.CreateAWSGovCloudDatalakeRequest;
+import com.cloudera.cdp.datalake.model.CreateAWSGovCloudDatalakeResponse;
 import com.cloudera.cdp.datalake.model.CreateAzureDatalakeRequest;
 import com.cloudera.cdp.datalake.model.CreateAzureDatalakeResponse;
 import com.cloudera.cdp.datalake.model.CreateGCPDatalakeRequest;
@@ -121,7 +123,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-30T17:23:16.444-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-14T10:47:18.056-07:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datalake";
@@ -241,6 +243,19 @@ public class DatalakeClient extends CdpClient {
     }
 
     return this.invokeAPI("createAWSDatalake", "/api/v1/datalake/createAWSDatalake", input, new GenericType<CreateAWSDatalakeResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Creates a Data Lake on AWS GovCloud.
+   * @param input
+   * @return CreateAWSGovCloudDatalakeResponse
+   */
+  public CreateAWSGovCloudDatalakeResponse createAWSGovCloudDatalake(CreateAWSGovCloudDatalakeRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createAWSGovCloudDatalake");
+    }
+
+    return this.invokeAPI("createAWSGovCloudDatalake", "/api/v1/datalake/createAWSGovCloudDatalake", input, new GenericType<CreateAWSGovCloudDatalakeResponse>(){}, NO_EXTENSION);
   }
 
   /**

@@ -28,7 +28,7 @@ import com.cloudera.cdp.replicationmanager.model.PolicyDefinition;
 /**
  * Create a replication policy.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-30T17:23:19.035-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-14T10:47:20.396-07:00")
 public class CreatePolicyRequest  {
 
   /**

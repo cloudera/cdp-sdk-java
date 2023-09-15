@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Status information on the current state of replicas in the virtual warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-30T17:23:15.372-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-14T10:47:17.249-07:00")
 public class ReplicaStatus  {
 
   /**
@@ -44,6 +44,11 @@ public class ReplicaStatus  {
    * Total number of coordinator replicas scheduled for the virtual warehouse. This number contains the number of coordinator replicas in pending state, as well as the replicas that are already running. If this number is zero, then the coordinator functionality is stopped.
    **/
   private Integer totalCoordinatorReplicas = null;
+
+  /**
+   * Total number of ready coordinator replicas in the virtual warehouse. This number only contains the healthy executor replicas that have already started up and are ready to accept requests. If this number is less than the totalCoordinatorReplicas, then the virtual warehouse might still be starting up or there might be a problem scheduling these replicas.
+   **/
+  private Integer readyCoordinatorReplicas = null;
 
   /**
    * Getter for totalExecutorReplicas.
@@ -96,6 +101,23 @@ public class ReplicaStatus  {
     this.totalCoordinatorReplicas = totalCoordinatorReplicas;
   }
 
+  /**
+   * Getter for readyCoordinatorReplicas.
+   * Total number of ready coordinator replicas in the virtual warehouse. This number only contains the healthy executor replicas that have already started up and are ready to accept requests. If this number is less than the totalCoordinatorReplicas, then the virtual warehouse might still be starting up or there might be a problem scheduling these replicas.
+   **/
+  @JsonProperty("readyCoordinatorReplicas")
+  public Integer getReadyCoordinatorReplicas() {
+    return readyCoordinatorReplicas;
+  }
+
+  /**
+   * Setter for readyCoordinatorReplicas.
+   * Total number of ready coordinator replicas in the virtual warehouse. This number only contains the healthy executor replicas that have already started up and are ready to accept requests. If this number is less than the totalCoordinatorReplicas, then the virtual warehouse might still be starting up or there might be a problem scheduling these replicas.
+   **/
+  public void setReadyCoordinatorReplicas(Integer readyCoordinatorReplicas) {
+    this.readyCoordinatorReplicas = readyCoordinatorReplicas;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -114,12 +136,15 @@ public class ReplicaStatus  {
     if (!Objects.equals(this.totalCoordinatorReplicas, replicaStatus.totalCoordinatorReplicas)) {
       return false;
     }
+    if (!Objects.equals(this.readyCoordinatorReplicas, replicaStatus.readyCoordinatorReplicas)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(totalExecutorReplicas, readyExecutorReplicas, totalCoordinatorReplicas);
+    return Objects.hash(totalExecutorReplicas, readyExecutorReplicas, totalCoordinatorReplicas, readyCoordinatorReplicas);
   }
 
   @Override
@@ -129,6 +154,7 @@ public class ReplicaStatus  {
     sb.append("    totalExecutorReplicas: ").append(toIndentedString(totalExecutorReplicas)).append("\n");
     sb.append("    readyExecutorReplicas: ").append(toIndentedString(readyExecutorReplicas)).append("\n");
     sb.append("    totalCoordinatorReplicas: ").append(toIndentedString(totalCoordinatorReplicas)).append("\n");
+    sb.append("    readyCoordinatorReplicas: ").append(toIndentedString(readyCoordinatorReplicas)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for a list SAML providers request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-30T17:23:17.886-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-14T10:47:19.421-07:00")
 public class ListSamlProvidersRequest  {
 
   /**

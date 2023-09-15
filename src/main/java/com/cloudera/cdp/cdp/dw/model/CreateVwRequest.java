@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * Request object for the createVw method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-30T17:23:15.372-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-14T10:47:17.249-07:00")
 public class CreateVwRequest  {
 
   /**
@@ -68,7 +68,7 @@ public class CreateVwRequest  {
   private String template = null;
 
   /**
-   * Node Count per compute cluster. Implies 'custom' template, even if you pass template explicitly.
+   * Nodes per compute cluster. If specified, forces 'template' to be 'custom'
    **/
   private Integer nodeCount = 0;
 
@@ -226,7 +226,7 @@ public class CreateVwRequest  {
 
   /**
    * Getter for nodeCount.
-   * Node Count per compute cluster. Implies &#39;custom&#39; template, even if you pass template explicitly.
+   * Nodes per compute cluster. If specified, forces &#39;template&#39; to be &#39;custom&#39;
    **/
   @JsonProperty("nodeCount")
   public Integer getNodeCount() {
@@ -235,7 +235,7 @@ public class CreateVwRequest  {
 
   /**
    * Setter for nodeCount.
-   * Node Count per compute cluster. Implies &#39;custom&#39; template, even if you pass template explicitly.
+   * Nodes per compute cluster. If specified, forces &#39;template&#39; to be &#39;custom&#39;
    **/
   public void setNodeCount(Integer nodeCount) {
     this.nodeCount = nodeCount;

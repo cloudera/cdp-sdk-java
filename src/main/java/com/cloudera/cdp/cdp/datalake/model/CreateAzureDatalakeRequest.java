@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * Request object for create Azure datalake request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-30T17:23:16.444-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-14T10:47:18.056-07:00")
 public class CreateAzureDatalakeRequest  {
 
   /**
@@ -69,6 +69,11 @@ public class CreateAzureDatalakeRequest  {
    * The image to use for the datalake. This must not be set if the runtime parameter is provided.
    **/
   private ImageRequest image = null;
+
+  /**
+   * The SKU for the datalake load balancer. Allowed values are \"BASIC\", \"STANDARD\", or \"NONE\".
+   **/
+  private String loadBalancerSku = null;
 
   /**
    * Whether to enable Ranger RAZ for the datalake. Defaults to not being enabled.
@@ -205,6 +210,23 @@ public class CreateAzureDatalakeRequest  {
   }
 
   /**
+   * Getter for loadBalancerSku.
+   * The SKU for the datalake load balancer. Allowed values are \&quot;BASIC\&quot;, \&quot;STANDARD\&quot;, or \&quot;NONE\&quot;.
+   **/
+  @JsonProperty("loadBalancerSku")
+  public String getLoadBalancerSku() {
+    return loadBalancerSku;
+  }
+
+  /**
+   * Setter for loadBalancerSku.
+   * The SKU for the datalake load balancer. Allowed values are \&quot;BASIC\&quot;, \&quot;STANDARD\&quot;, or \&quot;NONE\&quot;.
+   **/
+  public void setLoadBalancerSku(String loadBalancerSku) {
+    this.loadBalancerSku = loadBalancerSku;
+  }
+
+  /**
    * Getter for enableRangerRaz.
    * Whether to enable Ranger RAZ for the datalake. Defaults to not being enabled.
    **/
@@ -285,6 +307,9 @@ public class CreateAzureDatalakeRequest  {
     if (!Objects.equals(this.image, createAzureDatalakeRequest.image)) {
       return false;
     }
+    if (!Objects.equals(this.loadBalancerSku, createAzureDatalakeRequest.loadBalancerSku)) {
+      return false;
+    }
     if (!Objects.equals(this.enableRangerRaz, createAzureDatalakeRequest.enableRangerRaz)) {
       return false;
     }
@@ -299,7 +324,7 @@ public class CreateAzureDatalakeRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, scale, tags, runtime, image, enableRangerRaz, recipes, javaVersion);
+    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, scale, tags, runtime, image, loadBalancerSku, enableRangerRaz, recipes, javaVersion);
   }
 
   @Override
@@ -313,6 +338,7 @@ public class CreateAzureDatalakeRequest  {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
+    sb.append("    loadBalancerSku: ").append(toIndentedString(loadBalancerSku)).append("\n");
     sb.append("    enableRangerRaz: ").append(toIndentedString(enableRangerRaz)).append("\n");
     sb.append("    recipes: ").append(toIndentedString(recipes)).append("\n");
     sb.append("    javaVersion: ").append(toIndentedString(javaVersion)).append("\n");

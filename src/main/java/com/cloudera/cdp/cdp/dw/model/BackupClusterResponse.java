@@ -28,13 +28,18 @@ import java.time.ZonedDateTime;
 /**
  * Response object for the backupCluster method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-30T17:23:15.372-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-14T10:47:17.249-07:00")
 public class BackupClusterResponse extends CdpResponse {
 
   /**
    * The ID of the cluster.
    **/
   private String clusterId = null;
+
+  /**
+   * The the ID of the backup operation.
+   **/
+  private String operationId = null;
 
   /**
    * The date of the creation.
@@ -66,6 +71,23 @@ public class BackupClusterResponse extends CdpResponse {
    **/
   public void setClusterId(String clusterId) {
     this.clusterId = clusterId;
+  }
+
+  /**
+   * Getter for operationId.
+   * The the ID of the backup operation.
+   **/
+  @JsonProperty("operationId")
+  public String getOperationId() {
+    return operationId;
+  }
+
+  /**
+   * Setter for operationId.
+   * The the ID of the backup operation.
+   **/
+  public void setOperationId(String operationId) {
+    this.operationId = operationId;
   }
 
   /**
@@ -131,6 +153,9 @@ public class BackupClusterResponse extends CdpResponse {
     if (!Objects.equals(this.clusterId, backupClusterResponse.clusterId)) {
       return false;
     }
+    if (!Objects.equals(this.operationId, backupClusterResponse.operationId)) {
+      return false;
+    }
     if (!Objects.equals(this.timestamp, backupClusterResponse.timestamp)) {
       return false;
     }
@@ -148,7 +173,7 @@ public class BackupClusterResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, timestamp, data, md5, super.hashCode());
+    return Objects.hash(clusterId, operationId, timestamp, data, md5, super.hashCode());
   }
 
   @Override
@@ -157,6 +182,7 @@ public class BackupClusterResponse extends CdpResponse {
     sb.append("class BackupClusterResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("    operationId: ").append(toIndentedString(operationId)).append("\n");
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    md5: ").append(toIndentedString(md5)).append("\n");

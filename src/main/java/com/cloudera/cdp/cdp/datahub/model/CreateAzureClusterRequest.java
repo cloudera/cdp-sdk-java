@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.datahub.model.AzureInstanceGroupRequest;
+import com.cloudera.cdp.datahub.model.ClusterExtension;
 import com.cloudera.cdp.datahub.model.DatahubResourceTagRequest;
 import com.cloudera.cdp.datahub.model.ImageRequest;
 import java.util.*;
@@ -31,7 +32,7 @@ import java.util.*;
 /**
  * Request object for create Azure cluster request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-30T17:23:14.797-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-14T10:47:16.679-07:00")
 public class CreateAzureClusterRequest  {
 
   /**
@@ -88,6 +89,16 @@ public class CreateAzureClusterRequest  {
    * Database type for datahub. Currently supported values: NONE, NON_HA, HA
    **/
   private String datahubDatabase = null;
+
+  /**
+   * The SKU for the datahub load balancer. Allowed values are \"BASIC\", \"STANDARD\", or \"NONE\".
+   **/
+  private String loadBalancerSku = null;
+
+  /**
+   * Cluster extensions for the given Data Hub cluster.
+   **/
+  private ClusterExtension clusterExtension = null;
 
   /**
    * Flag that decides whether to provision a load-balancer to front various service endpoints for the given datahub. This will typically be used for HA cluster shapes.
@@ -287,6 +298,40 @@ public class CreateAzureClusterRequest  {
   }
 
   /**
+   * Getter for loadBalancerSku.
+   * The SKU for the datahub load balancer. Allowed values are \&quot;BASIC\&quot;, \&quot;STANDARD\&quot;, or \&quot;NONE\&quot;.
+   **/
+  @JsonProperty("loadBalancerSku")
+  public String getLoadBalancerSku() {
+    return loadBalancerSku;
+  }
+
+  /**
+   * Setter for loadBalancerSku.
+   * The SKU for the datahub load balancer. Allowed values are \&quot;BASIC\&quot;, \&quot;STANDARD\&quot;, or \&quot;NONE\&quot;.
+   **/
+  public void setLoadBalancerSku(String loadBalancerSku) {
+    this.loadBalancerSku = loadBalancerSku;
+  }
+
+  /**
+   * Getter for clusterExtension.
+   * Cluster extensions for the given Data Hub cluster.
+   **/
+  @JsonProperty("clusterExtension")
+  public ClusterExtension getClusterExtension() {
+    return clusterExtension;
+  }
+
+  /**
+   * Setter for clusterExtension.
+   * Cluster extensions for the given Data Hub cluster.
+   **/
+  public void setClusterExtension(ClusterExtension clusterExtension) {
+    this.clusterExtension = clusterExtension;
+  }
+
+  /**
    * Getter for enableLoadBalancer.
    * Flag that decides whether to provision a load-balancer to front various service endpoints for the given datahub. This will typically be used for HA cluster shapes.
    **/
@@ -362,6 +407,12 @@ public class CreateAzureClusterRequest  {
     if (!Objects.equals(this.datahubDatabase, createAzureClusterRequest.datahubDatabase)) {
       return false;
     }
+    if (!Objects.equals(this.loadBalancerSku, createAzureClusterRequest.loadBalancerSku)) {
+      return false;
+    }
+    if (!Objects.equals(this.clusterExtension, createAzureClusterRequest.clusterExtension)) {
+      return false;
+    }
     if (!Objects.equals(this.enableLoadBalancer, createAzureClusterRequest.enableLoadBalancer)) {
       return false;
     }
@@ -373,7 +424,7 @@ public class CreateAzureClusterRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, clusterDefinitionName, environmentName, clusterTemplateName, customConfigurationsName, instanceGroups, subnetId, image, tags, requestTemplate, datahubDatabase, enableLoadBalancer, javaVersion);
+    return Objects.hash(clusterName, clusterDefinitionName, environmentName, clusterTemplateName, customConfigurationsName, instanceGroups, subnetId, image, tags, requestTemplate, datahubDatabase, loadBalancerSku, clusterExtension, enableLoadBalancer, javaVersion);
   }
 
   @Override
@@ -391,6 +442,8 @@ public class CreateAzureClusterRequest  {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    requestTemplate: ").append(toIndentedString(requestTemplate)).append("\n");
     sb.append("    datahubDatabase: ").append(toIndentedString(datahubDatabase)).append("\n");
+    sb.append("    loadBalancerSku: ").append(toIndentedString(loadBalancerSku)).append("\n");
+    sb.append("    clusterExtension: ").append(toIndentedString(clusterExtension)).append("\n");
     sb.append("    enableLoadBalancer: ").append(toIndentedString(enableLoadBalancer)).append("\n");
     sb.append("    javaVersion: ").append(toIndentedString(javaVersion)).append("\n");
     sb.append("}");

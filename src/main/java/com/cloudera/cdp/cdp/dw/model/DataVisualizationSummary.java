@@ -23,11 +23,12 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import java.util.*;
 
 /**
  * A Cloudera Data Visualization.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-30T17:23:15.372-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-14T10:47:17.249-07:00")
 public class DataVisualizationSummary  {
 
   /**
@@ -59,6 +60,16 @@ public class DataVisualizationSummary  {
    * The template size for the Cloudera Data Visualization
    **/
   private String size = null;
+
+  /**
+   * User groups that are allowed to access the Data Visualization.
+   **/
+  private List<String> userGroups = new ArrayList<String>();
+
+  /**
+   * Admin groups that are allowed to access the Data Visualization.
+   **/
+  private List<String> adminGroups = new ArrayList<String>();
 
   /**
    * Getter for id.
@@ -162,6 +173,40 @@ public class DataVisualizationSummary  {
     this.size = size;
   }
 
+  /**
+   * Getter for userGroups.
+   * User groups that are allowed to access the Data Visualization.
+   **/
+  @JsonProperty("userGroups")
+  public List<String> getUserGroups() {
+    return userGroups;
+  }
+
+  /**
+   * Setter for userGroups.
+   * User groups that are allowed to access the Data Visualization.
+   **/
+  public void setUserGroups(List<String> userGroups) {
+    this.userGroups = userGroups;
+  }
+
+  /**
+   * Getter for adminGroups.
+   * Admin groups that are allowed to access the Data Visualization.
+   **/
+  @JsonProperty("adminGroups")
+  public List<String> getAdminGroups() {
+    return adminGroups;
+  }
+
+  /**
+   * Setter for adminGroups.
+   * Admin groups that are allowed to access the Data Visualization.
+   **/
+  public void setAdminGroups(List<String> adminGroups) {
+    this.adminGroups = adminGroups;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -189,12 +234,18 @@ public class DataVisualizationSummary  {
     if (!Objects.equals(this.size, dataVisualizationSummary.size)) {
       return false;
     }
+    if (!Objects.equals(this.userGroups, dataVisualizationSummary.userGroups)) {
+      return false;
+    }
+    if (!Objects.equals(this.adminGroups, dataVisualizationSummary.adminGroups)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, status, imageVersion, creatorCrn, size);
+    return Objects.hash(id, name, status, imageVersion, creatorCrn, size, userGroups, adminGroups);
   }
 
   @Override
@@ -207,6 +258,8 @@ public class DataVisualizationSummary  {
     sb.append("    imageVersion: ").append(toIndentedString(imageVersion)).append("\n");
     sb.append("    creatorCrn: ").append(toIndentedString(creatorCrn)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    userGroups: ").append(toIndentedString(userGroups)).append("\n");
+    sb.append("    adminGroups: ").append(toIndentedString(adminGroups)).append("\n");
     sb.append("}");
     return sb.toString();
   }

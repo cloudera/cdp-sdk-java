@@ -27,13 +27,18 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * The credential properties that closely related to those that have been created on AWS.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-30T17:23:16.951-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-14T10:47:18.529-07:00")
 public class AwsCredentialProperties  {
 
   /**
    * The AWS role arn for the given credential.
    **/
   private String roleArn = null;
+
+  /**
+   * Flag that indicates that the given AWS credential is GovCloud specfic.
+   **/
+  private Boolean govCloud = null;
 
   /**
    * Getter for roleArn.
@@ -52,6 +57,23 @@ public class AwsCredentialProperties  {
     this.roleArn = roleArn;
   }
 
+  /**
+   * Getter for govCloud.
+   * Flag that indicates that the given AWS credential is GovCloud specfic.
+   **/
+  @JsonProperty("govCloud")
+  public Boolean getGovCloud() {
+    return govCloud;
+  }
+
+  /**
+   * Setter for govCloud.
+   * Flag that indicates that the given AWS credential is GovCloud specfic.
+   **/
+  public void setGovCloud(Boolean govCloud) {
+    this.govCloud = govCloud;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -64,12 +86,15 @@ public class AwsCredentialProperties  {
     if (!Objects.equals(this.roleArn, awsCredentialProperties.roleArn)) {
       return false;
     }
+    if (!Objects.equals(this.govCloud, awsCredentialProperties.govCloud)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(roleArn);
+    return Objects.hash(roleArn, govCloud);
   }
 
   @Override
@@ -77,6 +102,7 @@ public class AwsCredentialProperties  {
     StringBuilder sb = new StringBuilder();
     sb.append("class AwsCredentialProperties {\n");
     sb.append("    roleArn: ").append(toIndentedString(roleArn)).append("\n");
+    sb.append("    govCloud: ").append(toIndentedString(govCloud)).append("\n");
     sb.append("}");
     return sb.toString();
   }

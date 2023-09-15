@@ -39,7 +39,7 @@ import java.util.*;
 /**
  * A Virtual Warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-30T17:23:15.372-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-14T10:47:17.249-07:00")
 public class VwSummary  {
 
   /**
@@ -96,6 +96,21 @@ public class VwSummary  {
    * CDH image version.
    **/
   private String cdhVersion = null;
+
+  /**
+   * Number of cores of the Virtual Warehouse.
+   **/
+  private Integer numOfCores = null;
+
+  /**
+   * Memory size of the Virtual Warehouse in MB.
+   **/
+  private Integer memoryCapacity = null;
+
+  /**
+   * Size of the Virtual Warehouse (node count per compute cluster).
+   **/
+  private Integer nodeCount = null;
 
   /**
    * Availability zone in which the Virtual Warehouse is running.
@@ -352,6 +367,57 @@ public class VwSummary  {
    **/
   public void setCdhVersion(String cdhVersion) {
     this.cdhVersion = cdhVersion;
+  }
+
+  /**
+   * Getter for numOfCores.
+   * Number of cores of the Virtual Warehouse.
+   **/
+  @JsonProperty("numOfCores")
+  public Integer getNumOfCores() {
+    return numOfCores;
+  }
+
+  /**
+   * Setter for numOfCores.
+   * Number of cores of the Virtual Warehouse.
+   **/
+  public void setNumOfCores(Integer numOfCores) {
+    this.numOfCores = numOfCores;
+  }
+
+  /**
+   * Getter for memoryCapacity.
+   * Memory size of the Virtual Warehouse in MB.
+   **/
+  @JsonProperty("memoryCapacity")
+  public Integer getMemoryCapacity() {
+    return memoryCapacity;
+  }
+
+  /**
+   * Setter for memoryCapacity.
+   * Memory size of the Virtual Warehouse in MB.
+   **/
+  public void setMemoryCapacity(Integer memoryCapacity) {
+    this.memoryCapacity = memoryCapacity;
+  }
+
+  /**
+   * Getter for nodeCount.
+   * Size of the Virtual Warehouse (node count per compute cluster).
+   **/
+  @JsonProperty("nodeCount")
+  public Integer getNodeCount() {
+    return nodeCount;
+  }
+
+  /**
+   * Setter for nodeCount.
+   * Size of the Virtual Warehouse (node count per compute cluster).
+   **/
+  public void setNodeCount(Integer nodeCount) {
+    this.nodeCount = nodeCount;
   }
 
   /**
@@ -634,6 +700,15 @@ public class VwSummary  {
     if (!Objects.equals(this.cdhVersion, vwSummary.cdhVersion)) {
       return false;
     }
+    if (!Objects.equals(this.numOfCores, vwSummary.numOfCores)) {
+      return false;
+    }
+    if (!Objects.equals(this.memoryCapacity, vwSummary.memoryCapacity)) {
+      return false;
+    }
+    if (!Objects.equals(this.nodeCount, vwSummary.nodeCount)) {
+      return false;
+    }
     if (!Objects.equals(this.availabilityZone, vwSummary.availabilityZone)) {
       return false;
     }
@@ -681,7 +756,7 @@ public class VwSummary  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, name, vwType, dbcId, status, statusChangedAt, creator, creationDate, configId, cdhVersion, availabilityZone, endpoints, supportedAuthMethods, jwtAuth, tags, compactor, viz, enableUnifiedAnalytics, autoscalingOptions, impalaOptions, impalaHaSettingsOptions, queryIsolationOptions, replicaStatus, hiveAuthenticationMode);
+    return Objects.hash(crn, id, name, vwType, dbcId, status, statusChangedAt, creator, creationDate, configId, cdhVersion, numOfCores, memoryCapacity, nodeCount, availabilityZone, endpoints, supportedAuthMethods, jwtAuth, tags, compactor, viz, enableUnifiedAnalytics, autoscalingOptions, impalaOptions, impalaHaSettingsOptions, queryIsolationOptions, replicaStatus, hiveAuthenticationMode);
   }
 
   @Override
@@ -699,6 +774,9 @@ public class VwSummary  {
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    configId: ").append(toIndentedString(configId)).append("\n");
     sb.append("    cdhVersion: ").append(toIndentedString(cdhVersion)).append("\n");
+    sb.append("    numOfCores: ").append(toIndentedString(numOfCores)).append("\n");
+    sb.append("    memoryCapacity: ").append(toIndentedString(memoryCapacity)).append("\n");
+    sb.append("    nodeCount: ").append(toIndentedString(nodeCount)).append("\n");
     sb.append("    availabilityZone: ").append(toIndentedString(availabilityZone)).append("\n");
     sb.append("    endpoints: ").append(toIndentedString(endpoints)).append("\n");
     sb.append("    supportedAuthMethods: ").append(toIndentedString(supportedAuthMethods)).append("\n");

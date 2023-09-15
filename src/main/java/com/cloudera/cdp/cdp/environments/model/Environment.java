@@ -27,6 +27,7 @@ import com.cloudera.cdp.environments.model.Authentication;
 import com.cloudera.cdp.environments.model.BackupStorage;
 import com.cloudera.cdp.environments.model.EnvironmentAwsDetails;
 import com.cloudera.cdp.environments.model.EnvironmentGcpDetails;
+import com.cloudera.cdp.environments.model.EnvironmentTags;
 import com.cloudera.cdp.environments.model.FreeipaDetails;
 import com.cloudera.cdp.environments.model.LogStorage;
 import com.cloudera.cdp.environments.model.Network;
@@ -37,7 +38,7 @@ import java.time.ZonedDateTime;
 /**
  * The environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-30T17:23:16.951-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-14T10:47:18.529-07:00")
 public class Environment  {
 
   /**
@@ -144,6 +145,11 @@ public class Environment  {
    * The proxy config.
    **/
   private ProxyConfig proxyConfig = null;
+
+  /**
+   * Environment tags object containing the tag values defined for the environment.
+   **/
+  private EnvironmentTags tags = null;
 
   /**
    * Getter for environmentName.
@@ -502,6 +508,23 @@ public class Environment  {
     this.proxyConfig = proxyConfig;
   }
 
+  /**
+   * Getter for tags.
+   * Environment tags object containing the tag values defined for the environment.
+   **/
+  @JsonProperty("tags")
+  public EnvironmentTags getTags() {
+    return tags;
+  }
+
+  /**
+   * Setter for tags.
+   * Environment tags object containing the tag values defined for the environment.
+   **/
+  public void setTags(EnvironmentTags tags) {
+    this.tags = tags;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -574,12 +597,15 @@ public class Environment  {
     if (!Objects.equals(this.proxyConfig, environment.proxyConfig)) {
       return false;
     }
+    if (!Objects.equals(this.tags, environment.tags)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, network, logStorage, backupStorage, authentication, securityAccess, description, statusReason, created, creator, awsDetails, gcpDetails, workloadAnalytics, reportDeploymentLogs, freeipa, proxyConfig);
+    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, network, logStorage, backupStorage, authentication, securityAccess, description, statusReason, created, creator, awsDetails, gcpDetails, workloadAnalytics, reportDeploymentLogs, freeipa, proxyConfig, tags);
   }
 
   @Override
@@ -607,6 +633,7 @@ public class Environment  {
     sb.append("    reportDeploymentLogs: ").append(toIndentedString(reportDeploymentLogs)).append("\n");
     sb.append("    freeipa: ").append(toIndentedString(freeipa)).append("\n");
     sb.append("    proxyConfig: ").append(toIndentedString(proxyConfig)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

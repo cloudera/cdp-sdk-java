@@ -46,6 +46,10 @@ import com.cloudera.cdp.environments.model.CreateAWSCredentialRequest;
 import com.cloudera.cdp.environments.model.CreateAWSCredentialResponse;
 import com.cloudera.cdp.environments.model.CreateAWSEnvironmentRequest;
 import com.cloudera.cdp.environments.model.CreateAWSEnvironmentResponse;
+import com.cloudera.cdp.environments.model.CreateAWSGovCloudCredentialRequest;
+import com.cloudera.cdp.environments.model.CreateAWSGovCloudCredentialResponse;
+import com.cloudera.cdp.environments.model.CreateAWSGovCloudEnvironmentRequest;
+import com.cloudera.cdp.environments.model.CreateAWSGovCloudEnvironmentResponse;
 import com.cloudera.cdp.environments.model.CreateAzureCredentialRequest;
 import com.cloudera.cdp.environments.model.CreateAzureCredentialResponse;
 import com.cloudera.cdp.environments.model.CreateAzureEnvironmentRequest;
@@ -89,18 +93,26 @@ import com.cloudera.cdp.environments.model.GetFreeipaLogDescriptorsRequest;
 import com.cloudera.cdp.environments.model.GetFreeipaLogDescriptorsResponse;
 import com.cloudera.cdp.environments.model.GetFreeipaStatusRequest;
 import com.cloudera.cdp.environments.model.GetFreeipaStatusResponse;
+import com.cloudera.cdp.environments.model.GetGovCloudAuditCredentialPrerequisitesRequest;
+import com.cloudera.cdp.environments.model.GetGovCloudAuditCredentialPrerequisitesResponse;
+import com.cloudera.cdp.environments.model.GetGovCloudCredentialPrerequisitesRequest;
+import com.cloudera.cdp.environments.model.GetGovCloudCredentialPrerequisitesResponse;
 import com.cloudera.cdp.environments.model.GetIdBrokerMappingsRequest;
 import com.cloudera.cdp.environments.model.GetIdBrokerMappingsResponse;
 import com.cloudera.cdp.environments.model.GetIdBrokerMappingsSyncStatusRequest;
 import com.cloudera.cdp.environments.model.GetIdBrokerMappingsSyncStatusResponse;
 import com.cloudera.cdp.environments.model.GetKeytabRequest;
 import com.cloudera.cdp.environments.model.GetKeytabResponse;
+import com.cloudera.cdp.environments.model.GetOperationRequest;
+import com.cloudera.cdp.environments.model.GetOperationResponse;
 import com.cloudera.cdp.environments.model.GetRepairFreeipaStatusRequest;
 import com.cloudera.cdp.environments.model.GetRepairFreeipaStatusResponse;
 import com.cloudera.cdp.environments.model.GetRootCertificateRequest;
 import com.cloudera.cdp.environments.model.GetRootCertificateResponse;
 import com.cloudera.cdp.environments.model.ListAuditCredentialsRequest;
 import com.cloudera.cdp.environments.model.ListAuditCredentialsResponse;
+import com.cloudera.cdp.environments.model.ListConnectedDataServicesRequest;
+import com.cloudera.cdp.environments.model.ListConnectedDataServicesResponse;
 import com.cloudera.cdp.environments.model.ListCredentialsRequest;
 import com.cloudera.cdp.environments.model.ListCredentialsResponse;
 import com.cloudera.cdp.environments.model.ListEnvironmentsRequest;
@@ -111,18 +123,26 @@ import com.cloudera.cdp.environments.model.ListProxyConfigsRequest;
 import com.cloudera.cdp.environments.model.ListProxyConfigsResponse;
 import com.cloudera.cdp.environments.model.RepairFreeipaRequest;
 import com.cloudera.cdp.environments.model.RepairFreeipaResponse;
+import com.cloudera.cdp.environments.model.RetryFreeipaRequest;
+import com.cloudera.cdp.environments.model.RetryFreeipaResponse;
 import com.cloudera.cdp.environments.model.RotateSaltPasswordRequest;
 import com.cloudera.cdp.environments.model.RotateSaltPasswordResponse;
 import com.cloudera.cdp.environments.model.SetAWSAuditCredentialRequest;
 import com.cloudera.cdp.environments.model.SetAWSAuditCredentialResponse;
+import com.cloudera.cdp.environments.model.SetAWSGovCloudAuditCredentialRequest;
+import com.cloudera.cdp.environments.model.SetAWSGovCloudAuditCredentialResponse;
 import com.cloudera.cdp.environments.model.SetAccountTelemetryRequest;
 import com.cloudera.cdp.environments.model.SetAccountTelemetryResponse;
 import com.cloudera.cdp.environments.model.SetAzureAuditCredentialRequest;
 import com.cloudera.cdp.environments.model.SetAzureAuditCredentialResponse;
 import com.cloudera.cdp.environments.model.SetCatalogRequest;
 import com.cloudera.cdp.environments.model.SetCatalogResponse;
+import com.cloudera.cdp.environments.model.SetEndpointAccessGatewayRequest;
+import com.cloudera.cdp.environments.model.SetEndpointAccessGatewayResponse;
 import com.cloudera.cdp.environments.model.SetEnvironmentSettingRequest;
 import com.cloudera.cdp.environments.model.SetEnvironmentSettingResponse;
+import com.cloudera.cdp.environments.model.SetGCPAuditCredentialRequest;
+import com.cloudera.cdp.environments.model.SetGCPAuditCredentialResponse;
 import com.cloudera.cdp.environments.model.SetIdBrokerMappingsRequest;
 import com.cloudera.cdp.environments.model.SetIdBrokerMappingsResponse;
 import com.cloudera.cdp.environments.model.SetPasswordRequest;
@@ -155,8 +175,16 @@ import com.cloudera.cdp.environments.model.UpdateOrchestratorStateRequest;
 import com.cloudera.cdp.environments.model.UpdateOrchestratorStateResponse;
 import com.cloudera.cdp.environments.model.UpdateProxyConfigRequest;
 import com.cloudera.cdp.environments.model.UpdateProxyConfigResponse;
+import com.cloudera.cdp.environments.model.UpdateSecurityAccessRequest;
+import com.cloudera.cdp.environments.model.UpdateSecurityAccessResponse;
+import com.cloudera.cdp.environments.model.UpdateSshKeyRequest;
+import com.cloudera.cdp.environments.model.UpdateSshKeyResponse;
+import com.cloudera.cdp.environments.model.UpdateSubnetRequest;
+import com.cloudera.cdp.environments.model.UpdateSubnetResponse;
 import com.cloudera.cdp.environments.model.UpgradeCcmRequest;
 import com.cloudera.cdp.environments.model.UpgradeCcmResponse;
+import com.cloudera.cdp.environments.model.UpgradeFreeipaRequest;
+import com.cloudera.cdp.environments.model.UpgradeFreeipaResponse;
 import com.cloudera.cdp.environments.model.UpscaleFreeipaRequest;
 import com.cloudera.cdp.environments.model.UpscaleFreeipaResponse;
 import com.cloudera.cdp.environments.model.ValidateAwsCloudStorageRequest;
@@ -169,7 +197,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-30T17:23:16.951-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-14T10:47:18.529-07:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -315,6 +343,32 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("createAWSEnvironment", "/api/v1/environments2/createAWSEnvironment", input, new GenericType<CreateAWSEnvironmentResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Creates a new AWS credential for GovCloud that can be attatched to an environment. The credential is used for authorization to provision resources such as compute instances within your cloud provider account.
+   * @param input
+   * @return CreateAWSGovCloudCredentialResponse
+   */
+  public CreateAWSGovCloudCredentialResponse createAWSGovCloudCredential(CreateAWSGovCloudCredentialRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createAWSGovCloudCredential");
+    }
+
+    return this.invokeAPI("createAWSGovCloudCredential", "/api/v1/environments2/createAWSGovCloudCredential", input, new GenericType<CreateAWSGovCloudCredentialResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Creates a new AWS GovCloud environment by providing the cloud provider access and network information. A FreeIPA server will be automatically provisioned when an environment is created.
+   * @param input
+   * @return CreateAWSGovCloudEnvironmentResponse
+   */
+  public CreateAWSGovCloudEnvironmentResponse createAWSGovCloudEnvironment(CreateAWSGovCloudEnvironmentRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createAWSGovCloudEnvironment");
+    }
+
+    return this.invokeAPI("createAWSGovCloudEnvironment", "/api/v1/environments2/createAWSGovCloudEnvironment", input, new GenericType<CreateAWSGovCloudEnvironmentResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -591,6 +645,32 @@ public class EnvironmentsClient extends CdpClient {
   }
 
   /**
+   * This API provides the audit credential prerequisites for GovCloud for the enabled providers.
+   * @param input
+   * @return GetGovCloudAuditCredentialPrerequisitesResponse
+   */
+  public GetGovCloudAuditCredentialPrerequisitesResponse getGovCloudAuditCredentialPrerequisites(GetGovCloudAuditCredentialPrerequisitesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getGovCloudAuditCredentialPrerequisites");
+    }
+
+    return this.invokeAPI("getGovCloudAuditCredentialPrerequisites", "/api/v1/environments2/getGovCloudAuditCredentialPrerequisites", input, new GenericType<GetGovCloudAuditCredentialPrerequisitesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * This API provides the credential prerequisites for GovCloud for the enabled providers.
+   * @param input
+   * @return GetGovCloudCredentialPrerequisitesResponse
+   */
+  public GetGovCloudCredentialPrerequisitesResponse getGovCloudCredentialPrerequisites(GetGovCloudCredentialPrerequisitesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getGovCloudCredentialPrerequisites");
+    }
+
+    return this.invokeAPI("getGovCloudCredentialPrerequisites", "/api/v1/environments2/getGovCloudCredentialPrerequisites", input, new GenericType<GetGovCloudCredentialPrerequisitesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Gets all ID Broker mappings for an environment.
    * @param input
    * @return GetIdBrokerMappingsResponse
@@ -630,6 +710,19 @@ public class EnvironmentsClient extends CdpClient {
   }
 
   /**
+   * Get the latest (in progress or finished) operation for the environment resource.
+   * @param input
+   * @return GetOperationResponse
+   */
+  public GetOperationResponse getOperation(GetOperationRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getOperation");
+    }
+
+    return this.invokeAPI("getOperation", "/api/v1/environments2/getOperation", input, new GenericType<GetOperationResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Returns status of the repair operation for the operation id.
    * @param input
    * @return GetRepairFreeipaStatusResponse
@@ -666,6 +759,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("listAuditCredentials", "/api/v1/environments2/listAuditCredentials", input, new GenericType<ListAuditCredentialsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Returns the list of Data Services and their cluster names that are attached the given environment.
+   * @param input
+   * @return ListConnectedDataServicesResponse
+   */
+  public ListConnectedDataServicesResponse listConnectedDataServices(ListConnectedDataServicesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listConnectedDataServices");
+    }
+
+    return this.invokeAPI("listConnectedDataServices", "/api/v1/environments2/listConnectedDataServices", input, new GenericType<ListConnectedDataServicesResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -734,6 +840,19 @@ public class EnvironmentsClient extends CdpClient {
   }
 
   /**
+   * Retries the last failed operation on a FreeIPA.
+   * @param input
+   * @return RetryFreeipaResponse
+   */
+  public RetryFreeipaResponse retryFreeipa(RetryFreeipaRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling retryFreeipa");
+    }
+
+    return this.invokeAPI("retryFreeipa", "/api/v1/environments2/retryFreeipa", input, new GenericType<RetryFreeipaResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Rotate SaltStack user password on FreeIPA instances.
    * @param input
    * @return RotateSaltPasswordResponse
@@ -757,6 +876,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("setAWSAuditCredential", "/api/v1/environments2/setAWSAuditCredential", input, new GenericType<SetAWSAuditCredentialResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Creates or updates the AWS GovCloud audit credential for the account. The credential is used for authorization to archive audit events to your cloud storage.
+   * @param input
+   * @return SetAWSGovCloudAuditCredentialResponse
+   */
+  public SetAWSGovCloudAuditCredentialResponse setAWSGovCloudAuditCredential(SetAWSGovCloudAuditCredentialRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling setAWSGovCloudAuditCredential");
+    }
+
+    return this.invokeAPI("setAWSGovCloudAuditCredential", "/api/v1/environments2/setAWSGovCloudAuditCredential", input, new GenericType<SetAWSGovCloudAuditCredentialResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -799,6 +931,19 @@ public class EnvironmentsClient extends CdpClient {
   }
 
   /**
+   * Sets endpoint access gateway settings for the environment.
+   * @param input
+   * @return SetEndpointAccessGatewayResponse
+   */
+  public SetEndpointAccessGatewayResponse setEndpointAccessGateway(SetEndpointAccessGatewayRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling setEndpointAccessGateway");
+    }
+
+    return this.invokeAPI("setEndpointAccessGateway", "/api/v1/environments2/setEndpointAccessGateway", input, new GenericType<SetEndpointAccessGatewayResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Read a configuration setting from the environment service.
    * @param input
    * @return SetEnvironmentSettingResponse
@@ -809,6 +954,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("setEnvironmentSetting", "/api/v1/environments2/setEnvironmentSetting", input, new GenericType<SetEnvironmentSettingResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Creates or updates the GCP audit credential for the account. The credential is used for authorization to archive audit events to your cloud storage.
+   * @param input
+   * @return SetGCPAuditCredentialResponse
+   */
+  public SetGCPAuditCredentialResponse setGCPAuditCredential(SetGCPAuditCredentialRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling setGCPAuditCredential");
+    }
+
+    return this.invokeAPI("setGCPAuditCredential", "/api/v1/environments2/setGCPAuditCredential", input, new GenericType<SetGCPAuditCredentialResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -1021,6 +1179,45 @@ public class EnvironmentsClient extends CdpClient {
   }
 
   /**
+   * Updates the security access settings of the given environment.
+   * @param input
+   * @return UpdateSecurityAccessResponse
+   */
+  public UpdateSecurityAccessResponse updateSecurityAccess(UpdateSecurityAccessRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateSecurityAccess");
+    }
+
+    return this.invokeAPI("updateSecurityAccess", "/api/v1/environments2/updateSecurityAccess", input, new GenericType<UpdateSecurityAccessResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Updates the designated SSH key for the given environment.
+   * @param input
+   * @return UpdateSshKeyResponse
+   */
+  public UpdateSshKeyResponse updateSshKey(UpdateSshKeyRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateSshKey");
+    }
+
+    return this.invokeAPI("updateSshKey", "/api/v1/environments2/updateSshKey", input, new GenericType<UpdateSshKeyResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Updates the subnet(s) of the given environment.
+   * @param input
+   * @return UpdateSubnetResponse
+   */
+  public UpdateSubnetResponse updateSubnet(UpdateSubnetRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateSubnet");
+    }
+
+    return this.invokeAPI("updateSubnet", "/api/v1/environments2/updateSubnet", input, new GenericType<UpdateSubnetResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Upgrades Cluster Connectivity Manager on the environment to the latest available version.
    * @param input
    * @return UpgradeCcmResponse
@@ -1031,6 +1228,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("upgradeCcm", "/api/v1/environments2/upgradeCcm", input, new GenericType<UpgradeCcmResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Upgrades FreeIPA to the latest or defined image.
+   * @param input
+   * @return UpgradeFreeipaResponse
+   */
+  public UpgradeFreeipaResponse upgradeFreeipa(UpgradeFreeipaRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling upgradeFreeipa");
+    }
+
+    return this.invokeAPI("upgradeFreeipa", "/api/v1/environments2/upgradeFreeipa", input, new GenericType<UpgradeFreeipaResponse>(){}, NO_EXTENSION);
   }
 
   /**

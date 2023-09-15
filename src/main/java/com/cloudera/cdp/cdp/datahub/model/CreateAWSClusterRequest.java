@@ -23,6 +23,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.datahub.model.ClusterExtension;
 import com.cloudera.cdp.datahub.model.DatahubResourceTagRequest;
 import com.cloudera.cdp.datahub.model.ImageRequest;
 import com.cloudera.cdp.datahub.model.InstanceGroupRequest;
@@ -31,7 +32,7 @@ import java.util.*;
 /**
  * Request object for create AWS cluster request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-08-30T17:23:14.797-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-14T10:47:16.679-07:00")
 public class CreateAWSClusterRequest  {
 
   /**
@@ -113,6 +114,11 @@ public class CreateAWSClusterRequest  {
    * Flag that toggles the multi availability zone for the given datahub cluster when you are not sure what subnet IDs can be used. This way the subnet IDs will be used what the environment suggests.
    **/
   private Boolean multiAz = null;
+
+  /**
+   * Cluster extensions for the given Data Hub cluster.
+   **/
+  private ClusterExtension clusterExtension = null;
 
   /**
    * Flag that decides whether to provision a load-balancer to front various service endpoints for the given datahub. This will typically be used for HA cluster shapes.
@@ -403,6 +409,23 @@ public class CreateAWSClusterRequest  {
   }
 
   /**
+   * Getter for clusterExtension.
+   * Cluster extensions for the given Data Hub cluster.
+   **/
+  @JsonProperty("clusterExtension")
+  public ClusterExtension getClusterExtension() {
+    return clusterExtension;
+  }
+
+  /**
+   * Setter for clusterExtension.
+   * Cluster extensions for the given Data Hub cluster.
+   **/
+  public void setClusterExtension(ClusterExtension clusterExtension) {
+    this.clusterExtension = clusterExtension;
+  }
+
+  /**
    * Getter for enableLoadBalancer.
    * Flag that decides whether to provision a load-balancer to front various service endpoints for the given datahub. This will typically be used for HA cluster shapes.
    **/
@@ -493,6 +516,9 @@ public class CreateAWSClusterRequest  {
     if (!Objects.equals(this.multiAz, createAWSClusterRequest.multiAz)) {
       return false;
     }
+    if (!Objects.equals(this.clusterExtension, createAWSClusterRequest.clusterExtension)) {
+      return false;
+    }
     if (!Objects.equals(this.enableLoadBalancer, createAWSClusterRequest.enableLoadBalancer)) {
       return false;
     }
@@ -504,7 +530,7 @@ public class CreateAWSClusterRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, clusterDefinitionName, clusterDefinition, environmentName, environment, clusterTemplateName, clusterTemplate, customConfigurationsName, instanceGroups, subnetId, image, tags, requestTemplate, datahubDatabase, subnetIds, multiAz, enableLoadBalancer, javaVersion);
+    return Objects.hash(clusterName, clusterDefinitionName, clusterDefinition, environmentName, environment, clusterTemplateName, clusterTemplate, customConfigurationsName, instanceGroups, subnetId, image, tags, requestTemplate, datahubDatabase, subnetIds, multiAz, clusterExtension, enableLoadBalancer, javaVersion);
   }
 
   @Override
@@ -527,6 +553,7 @@ public class CreateAWSClusterRequest  {
     sb.append("    datahubDatabase: ").append(toIndentedString(datahubDatabase)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
     sb.append("    multiAz: ").append(toIndentedString(multiAz)).append("\n");
+    sb.append("    clusterExtension: ").append(toIndentedString(clusterExtension)).append("\n");
     sb.append("    enableLoadBalancer: ").append(toIndentedString(enableLoadBalancer)).append("\n");
     sb.append("    javaVersion: ").append(toIndentedString(javaVersion)).append("\n");
     sb.append("}");
