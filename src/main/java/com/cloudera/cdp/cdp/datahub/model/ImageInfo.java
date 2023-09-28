@@ -28,7 +28,7 @@ import com.cloudera.cdp.datahub.model.ImageComponentVersions;
 /**
  * Basic information about an image.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-14T10:47:16.679-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-27T13:27:50.892-07:00")
 public class ImageInfo  {
 
   /**

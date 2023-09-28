@@ -28,7 +28,7 @@ import com.cloudera.cdp.dfworkload.model.AlertFrequencyUnit;
 /**
  * An alert configuration frequency tolerance for measuring an amount of time and unit for alert triggering
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-14T10:47:19.979-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-27T13:27:54.557-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class ConfiguredAlertFrequencyTolerance  {
 

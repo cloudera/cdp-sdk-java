@@ -29,7 +29,7 @@ import java.time.ZonedDateTime;
 /**
  * Information about a Cloudera CDP user.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-14T10:47:19.421-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-27T13:27:54.066-07:00")
 public class User  {
 
   /**
@@ -81,6 +81,11 @@ public class User  {
    * The username used in all the workload clusters of the user.
    **/
   private String workloadUsername = null;
+
+  /**
+   * The current status of the user. The possible status values are ACTIVE, CONTROL_PLANE_LOCKED_OUT, and DEACTIVATED. ACTIVE indicates that the user is active in CDP. An active user can authenticate to the CDP control plane and workload clusters. CONTROL_PLANE_LOCKED_OUT indicates that the user is locked out of the CDP control plane. The locked-out user can no longer authenticate to the control plane but can authenticate to the workload clusters. DEACTIVATED indicates that the user is deactivated in CDP. A deactivated user can neither authenticate to the control plane nor to the workload clusters. Note that more statuses could be added in the future. The statuses other than ACTIVE are only returned on Cloudera for Government.
+   **/
+  private String status = null;
 
   /**
    * Information about the workload password for the user.
@@ -258,6 +263,23 @@ public class User  {
   }
 
   /**
+   * Getter for status.
+   * The current status of the user. The possible status values are ACTIVE, CONTROL_PLANE_LOCKED_OUT, and DEACTIVATED. ACTIVE indicates that the user is active in CDP. An active user can authenticate to the CDP control plane and workload clusters. CONTROL_PLANE_LOCKED_OUT indicates that the user is locked out of the CDP control plane. The locked-out user can no longer authenticate to the control plane but can authenticate to the workload clusters. DEACTIVATED indicates that the user is deactivated in CDP. A deactivated user can neither authenticate to the control plane nor to the workload clusters. Note that more statuses could be added in the future. The statuses other than ACTIVE are only returned on Cloudera for Government.
+   **/
+  @JsonProperty("status")
+  public String getStatus() {
+    return status;
+  }
+
+  /**
+   * Setter for status.
+   * The current status of the user. The possible status values are ACTIVE, CONTROL_PLANE_LOCKED_OUT, and DEACTIVATED. ACTIVE indicates that the user is active in CDP. An active user can authenticate to the CDP control plane and workload clusters. CONTROL_PLANE_LOCKED_OUT indicates that the user is locked out of the CDP control plane. The locked-out user can no longer authenticate to the control plane but can authenticate to the workload clusters. DEACTIVATED indicates that the user is deactivated in CDP. A deactivated user can neither authenticate to the control plane nor to the workload clusters. Note that more statuses could be added in the future. The statuses other than ACTIVE are only returned on Cloudera for Government.
+   **/
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  /**
    * Getter for workloadPasswordDetails.
    * Information about the workload password for the user.
    **/
@@ -313,6 +335,9 @@ public class User  {
     if (!Objects.equals(this.workloadUsername, user.workloadUsername)) {
       return false;
     }
+    if (!Objects.equals(this.status, user.status)) {
+      return false;
+    }
     if (!Objects.equals(this.workloadPasswordDetails, user.workloadPasswordDetails)) {
       return false;
     }
@@ -321,7 +346,7 @@ public class User  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(userId, crn, email, firstName, lastName, creationDate, accountAdmin, identityProviderCrn, lastInteractiveLogin, workloadUsername, workloadPasswordDetails);
+    return Objects.hash(userId, crn, email, firstName, lastName, creationDate, accountAdmin, identityProviderCrn, lastInteractiveLogin, workloadUsername, status, workloadPasswordDetails);
   }
 
   @Override
@@ -338,6 +363,7 @@ public class User  {
     sb.append("    identityProviderCrn: ").append(toIndentedString(identityProviderCrn)).append("\n");
     sb.append("    lastInteractiveLogin: ").append(toIndentedString(lastInteractiveLogin)).append("\n");
     sb.append("    workloadUsername: ").append(toIndentedString(workloadUsername)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    workloadPasswordDetails: ").append(toIndentedString(workloadPasswordDetails)).append("\n");
     sb.append("}");
     return sb.toString();

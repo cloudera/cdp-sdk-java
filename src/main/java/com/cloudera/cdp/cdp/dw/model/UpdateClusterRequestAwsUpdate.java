@@ -23,27 +23,27 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
-import com.cloudera.cdp.dw.model.ExternalBucketAccessInfo;
+import com.cloudera.cdp.dw.model.UpdateClusterExternalBucketAccessInfo;
 import java.util.*;
 import java.util.Map;
 
 /**
  * Additional properties for AWS clusters.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-14T10:47:17.249-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-27T13:27:51.717-07:00")
 public class UpdateClusterRequestAwsUpdate  {
 
   /**
    * External bucket definition.
    **/
-  private Map<String, ExternalBucketAccessInfo> externalBuckets = new HashMap<String, ExternalBucketAccessInfo>();
+  private Map<String, UpdateClusterExternalBucketAccessInfo> externalBuckets = new HashMap<String, UpdateClusterExternalBucketAccessInfo>();
 
   /**
    * Getter for externalBuckets.
    * External bucket definition.
    **/
   @JsonProperty("externalBuckets")
-  public Map<String, ExternalBucketAccessInfo> getExternalBuckets() {
+  public Map<String, UpdateClusterExternalBucketAccessInfo> getExternalBuckets() {
     return externalBuckets;
   }
 
@@ -51,7 +51,7 @@ public class UpdateClusterRequestAwsUpdate  {
    * Setter for externalBuckets.
    * External bucket definition.
    **/
-  public void setExternalBuckets(Map<String, ExternalBucketAccessInfo> externalBuckets) {
+  public void setExternalBuckets(Map<String, UpdateClusterExternalBucketAccessInfo> externalBuckets) {
     this.externalBuckets = externalBuckets;
   }
 

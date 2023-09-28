@@ -29,7 +29,7 @@ import java.time.ZonedDateTime;
 /**
  * Information about a Cloudera CDP machine user.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-14T10:47:19.421-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-27T13:27:54.066-07:00")
 public class MachineUser  {
 
   /**
@@ -51,6 +51,11 @@ public class MachineUser  {
    * The username used in all the workload clusters of the machine user.
    **/
   private String workloadUsername = null;
+
+  /**
+   * The current status of the machine user. The possible status values are ACTIVE and CONTROL_PLANE_LOCKED_OUT. ACTIVE indicates that the machine user is active in CDP. An active machine user can authenticate to the CDP control plane and workload clusters. CONTROL_PLANE_LOCKED_OUT indicates that the machine user is locked out of the CDP control plane. The locked-out machine user can no longer authenticate to the control plane but can authenticate to the workload clusters. Note that more statuses could be added in the future. The statuses other than ACTIVE are only returned on Cloudera for Government.
+   **/
+  private String status = null;
 
   /**
    * Information about the workload password for the machine user.
@@ -126,6 +131,23 @@ public class MachineUser  {
   }
 
   /**
+   * Getter for status.
+   * The current status of the machine user. The possible status values are ACTIVE and CONTROL_PLANE_LOCKED_OUT. ACTIVE indicates that the machine user is active in CDP. An active machine user can authenticate to the CDP control plane and workload clusters. CONTROL_PLANE_LOCKED_OUT indicates that the machine user is locked out of the CDP control plane. The locked-out machine user can no longer authenticate to the control plane but can authenticate to the workload clusters. Note that more statuses could be added in the future. The statuses other than ACTIVE are only returned on Cloudera for Government.
+   **/
+  @JsonProperty("status")
+  public String getStatus() {
+    return status;
+  }
+
+  /**
+   * Setter for status.
+   * The current status of the machine user. The possible status values are ACTIVE and CONTROL_PLANE_LOCKED_OUT. ACTIVE indicates that the machine user is active in CDP. An active machine user can authenticate to the CDP control plane and workload clusters. CONTROL_PLANE_LOCKED_OUT indicates that the machine user is locked out of the CDP control plane. The locked-out machine user can no longer authenticate to the control plane but can authenticate to the workload clusters. Note that more statuses could be added in the future. The statuses other than ACTIVE are only returned on Cloudera for Government.
+   **/
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  /**
    * Getter for workloadPasswordDetails.
    * Information about the workload password for the machine user.
    **/
@@ -163,6 +185,9 @@ public class MachineUser  {
     if (!Objects.equals(this.workloadUsername, machineUser.workloadUsername)) {
       return false;
     }
+    if (!Objects.equals(this.status, machineUser.status)) {
+      return false;
+    }
     if (!Objects.equals(this.workloadPasswordDetails, machineUser.workloadPasswordDetails)) {
       return false;
     }
@@ -171,7 +196,7 @@ public class MachineUser  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(machineUserName, crn, creationDate, workloadUsername, workloadPasswordDetails);
+    return Objects.hash(machineUserName, crn, creationDate, workloadUsername, status, workloadPasswordDetails);
   }
 
   @Override
@@ -182,6 +207,7 @@ public class MachineUser  {
     sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    workloadUsername: ").append(toIndentedString(workloadUsername)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    workloadPasswordDetails: ").append(toIndentedString(workloadPasswordDetails)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -25,10 +25,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * Update the cluster observability configurations. You can forward logs from environments activated in Cloudera Data Warehouse (CDW) to observability and monitoring systems such as Datadog, New Relic, or Splun. Please refer to the following Cloudera documentation for more info. https://docs.cloudera.com/data-warehouse/cloud/monitoring/topics/dw-observability-log-forwarding.html
+ * Cluster observability settings to update.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-14T10:47:17.249-07:00")
-public class UpdateClusterRequestObservabilityConfig  {
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-27T13:27:51.717-07:00")
+public class UpdateClusterObservabilityConfig  {
 
   /**
    * Create the log forwarding configuration in a valid fluentd format. Then that configuration is later inserted into a larger fluentd configuration.
@@ -82,11 +82,11 @@ public class UpdateClusterRequestObservabilityConfig  {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateClusterRequestObservabilityConfig updateClusterRequestObservabilityConfig = (UpdateClusterRequestObservabilityConfig) o;
-    if (!Objects.equals(this.logsForwardingConfig, updateClusterRequestObservabilityConfig.logsForwardingConfig)) {
+    UpdateClusterObservabilityConfig updateClusterObservabilityConfig = (UpdateClusterObservabilityConfig) o;
+    if (!Objects.equals(this.logsForwardingConfig, updateClusterObservabilityConfig.logsForwardingConfig)) {
       return false;
     }
-    if (!Objects.equals(this.proxyCABundle, updateClusterRequestObservabilityConfig.proxyCABundle)) {
+    if (!Objects.equals(this.proxyCABundle, updateClusterObservabilityConfig.proxyCABundle)) {
       return false;
     }
     return true;
@@ -100,7 +100,7 @@ public class UpdateClusterRequestObservabilityConfig  {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateClusterRequestObservabilityConfig {\n");
+    sb.append("class UpdateClusterObservabilityConfig {\n");
     sb.append("    logsForwardingConfig: ").append(toIndentedString(logsForwardingConfig)).append("\n");
     sb.append("    proxyCABundle: ").append(toIndentedString(proxyCABundle)).append("\n");
     sb.append("}");

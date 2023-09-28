@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * Request object for Enable Service method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-14T10:47:19.284-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-27T13:27:53.929-07:00")
 public class EnableServiceRequest  {
 
   /**
@@ -143,6 +143,11 @@ public class EnableServiceRequest  {
    * CDE uses a default public File Shares storage provisioned by AKS. Enable this option to use your own public/private File Shares.
    **/
   private CustomAzureFilesConfigs customAzureFilesConfigs = null;
+
+  /**
+   * Network outbound type. Currently 'udr' is the only supported.
+   **/
+  private String networkOutboundType = null;
 
   /**
    * Getter for name.
@@ -518,6 +523,23 @@ public class EnableServiceRequest  {
     this.customAzureFilesConfigs = customAzureFilesConfigs;
   }
 
+  /**
+   * Getter for networkOutboundType.
+   * Network outbound type. Currently &#39;udr&#39; is the only supported.
+   **/
+  @JsonProperty("networkOutboundType")
+  public String getNetworkOutboundType() {
+    return networkOutboundType;
+  }
+
+  /**
+   * Setter for networkOutboundType.
+   * Network outbound type. Currently &#39;udr&#39; is the only supported.
+   **/
+  public void setNetworkOutboundType(String networkOutboundType) {
+    this.networkOutboundType = networkOutboundType;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -593,12 +615,15 @@ public class EnableServiceRequest  {
     if (!Objects.equals(this.customAzureFilesConfigs, enableServiceRequest.customAzureFilesConfigs)) {
       return false;
     }
+    if (!Objects.equals(this.networkOutboundType, enableServiceRequest.networkOutboundType)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, env, instanceType, minimumInstances, maximumInstances, minimumSpotInstances, maximumSpotInstances, initialInstances, initialSpotInstances, rootVolumeSize, enablePublicEndpoint, deployPreviousVersion, enableWorkloadAnalytics, useSsd, chartValueOverrides, whitelistIps, loadbalancerAllowlist, tags, skipValidation, enablePrivateNetwork, subnets, customAzureFilesConfigs);
+    return Objects.hash(name, env, instanceType, minimumInstances, maximumInstances, minimumSpotInstances, maximumSpotInstances, initialInstances, initialSpotInstances, rootVolumeSize, enablePublicEndpoint, deployPreviousVersion, enableWorkloadAnalytics, useSsd, chartValueOverrides, whitelistIps, loadbalancerAllowlist, tags, skipValidation, enablePrivateNetwork, subnets, customAzureFilesConfigs, networkOutboundType);
   }
 
   @Override
@@ -627,6 +652,7 @@ public class EnableServiceRequest  {
     sb.append("    enablePrivateNetwork: ").append(toIndentedString(enablePrivateNetwork)).append("\n");
     sb.append("    subnets: ").append(toIndentedString(subnets)).append("\n");
     sb.append("    customAzureFilesConfigs: ").append(toIndentedString(customAzureFilesConfigs)).append("\n");
+    sb.append("    networkOutboundType: ").append(toIndentedString(networkOutboundType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
