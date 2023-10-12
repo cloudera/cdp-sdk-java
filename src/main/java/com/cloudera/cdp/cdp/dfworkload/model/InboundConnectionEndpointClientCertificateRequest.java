@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object to retrieve Inbound Connection Endpoint client&#39;s certificate.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-27T13:27:54.557-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-12T14:16:22.418-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class InboundConnectionEndpointClientCertificateRequest  {
 
@@ -35,11 +35,6 @@ public class InboundConnectionEndpointClientCertificateRequest  {
    * The CRN of an environment to execute the command.
    **/
   private String environmentCrn = null;
-
-  /**
-   * The Inbound Connection Endpoint identifier. Deprecated. Use 'crn' instead
-   **/
-  private String id = null;
 
   /**
    * The CRN of the Inbound Connection Endpoint
@@ -61,25 +56,6 @@ public class InboundConnectionEndpointClientCertificateRequest  {
    **/
   public void setEnvironmentCrn(String environmentCrn) {
     this.environmentCrn = environmentCrn;
-  }
-
-  /**
-   * Getter for id.
-   * The Inbound Connection Endpoint identifier. Deprecated. Use &#39;crn&#39; instead
-   **/
-  @Deprecated
-  @JsonProperty("id")
-  public String getId() {
-    return id;
-  }
-
-  /**
-   * Setter for id.
-   * The Inbound Connection Endpoint identifier. Deprecated. Use &#39;crn&#39; instead
-   **/
-  @Deprecated
-  public void setId(String id) {
-    this.id = id;
   }
 
   /**
@@ -111,9 +87,6 @@ public class InboundConnectionEndpointClientCertificateRequest  {
     if (!Objects.equals(this.environmentCrn, inboundConnectionEndpointClientCertificateRequest.environmentCrn)) {
       return false;
     }
-    if (!Objects.equals(this.id, inboundConnectionEndpointClientCertificateRequest.id)) {
-      return false;
-    }
     if (!Objects.equals(this.crn, inboundConnectionEndpointClientCertificateRequest.crn)) {
       return false;
     }
@@ -122,7 +95,7 @@ public class InboundConnectionEndpointClientCertificateRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, id, crn);
+    return Objects.hash(environmentCrn, crn);
   }
 
   @Override
@@ -130,7 +103,6 @@ public class InboundConnectionEndpointClientCertificateRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class InboundConnectionEndpointClientCertificateRequest {\n");
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
     sb.append("}");
     return sb.toString();

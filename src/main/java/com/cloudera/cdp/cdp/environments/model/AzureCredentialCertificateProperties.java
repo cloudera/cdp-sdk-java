@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * The certificate used for the credential
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-27T13:27:53.061-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-12T14:16:20.723-07:00")
 public class AzureCredentialCertificateProperties  {
 
   /**

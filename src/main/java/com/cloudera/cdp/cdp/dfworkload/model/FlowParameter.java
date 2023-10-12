@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * A flow parameter
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-27T13:27:54.557-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-12T14:16:22.418-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class FlowParameter  {
 
@@ -62,6 +62,11 @@ public class FlowParameter  {
    * The list of referenced assets.
    **/
   private List<AssetReference> assetReferences = new ArrayList<AssetReference>();
+
+  /**
+   * Indicates if the value of this parameter is set (i.e. not null)
+   **/
+  private Boolean valueSet = null;
 
   /**
    * Getter for name.
@@ -165,6 +170,23 @@ public class FlowParameter  {
     this.assetReferences = assetReferences;
   }
 
+  /**
+   * Getter for valueSet.
+   * Indicates if the value of this parameter is set (i.e. not null)
+   **/
+  @JsonProperty("valueSet")
+  public Boolean getValueSet() {
+    return valueSet;
+  }
+
+  /**
+   * Setter for valueSet.
+   * Indicates if the value of this parameter is set (i.e. not null)
+   **/
+  public void setValueSet(Boolean valueSet) {
+    this.valueSet = valueSet;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -192,12 +214,15 @@ public class FlowParameter  {
     if (!Objects.equals(this.assetReferences, flowParameter.assetReferences)) {
       return false;
     }
+    if (!Objects.equals(this.valueSet, flowParameter.valueSet)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, value, sensitive, type, assetReferences);
+    return Objects.hash(name, description, value, sensitive, type, assetReferences, valueSet);
   }
 
   @Override
@@ -210,6 +235,7 @@ public class FlowParameter  {
     sb.append("    sensitive: ").append(toIndentedString(sensitive)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    assetReferences: ").append(toIndentedString(assetReferences)).append("\n");
+    sb.append("    valueSet: ").append(toIndentedString(valueSet)).append("\n");
     sb.append("}");
     return sb.toString();
   }

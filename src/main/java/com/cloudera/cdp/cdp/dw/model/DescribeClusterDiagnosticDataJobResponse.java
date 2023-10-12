@@ -28,7 +28,7 @@ import com.cloudera.cdp.dw.model.ClusterDiagnosticDataJob;
 /**
  * Response object for the describeClusterDiagnosticDataJob method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-27T13:27:51.717-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-12T14:16:19.093-07:00")
 public class DescribeClusterDiagnosticDataJobResponse extends CdpResponse {
 
   /**

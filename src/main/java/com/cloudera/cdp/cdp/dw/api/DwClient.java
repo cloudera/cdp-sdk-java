@@ -127,6 +127,8 @@ import com.cloudera.cdp.dw.model.ListDbcEventsRequest;
 import com.cloudera.cdp.dw.model.ListDbcEventsResponse;
 import com.cloudera.cdp.dw.model.ListDbcsRequest;
 import com.cloudera.cdp.dw.model.ListDbcsResponse;
+import com.cloudera.cdp.dw.model.ListEventsRequest;
+import com.cloudera.cdp.dw.model.ListEventsResponse;
 import com.cloudera.cdp.dw.model.ListLatestVersionsRequest;
 import com.cloudera.cdp.dw.model.ListLatestVersionsResponse;
 import com.cloudera.cdp.dw.model.ListRestoresRequest;
@@ -191,7 +193,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-27T13:27:51.717-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-12T14:16:19.093-07:00")
 public class DwClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dw";
@@ -858,6 +860,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("listDbcs", "/api/v1/dw/listDbcs", input, new GenericType<ListDbcsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Get the list of events.
+   * @param input
+   * @return ListEventsResponse
+   */
+  public ListEventsResponse listEvents(ListEventsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listEvents");
+    }
+
+    return this.invokeAPI("listEvents", "/api/v1/dw/listEvents", input, new GenericType<ListEventsResponse>(){}, NO_EXTENSION);
   }
 
   /**

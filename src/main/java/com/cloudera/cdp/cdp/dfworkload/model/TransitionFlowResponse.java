@@ -28,7 +28,7 @@ import com.cloudera.cdp.dfworkload.model.RpcDeployment;
 /**
  * Response object for transitioning the state of the NiFi flow.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-27T13:27:54.557-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-12T14:16:22.418-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class TransitionFlowResponse extends CdpResponse {
 

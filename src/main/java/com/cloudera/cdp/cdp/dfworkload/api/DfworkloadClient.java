@@ -70,6 +70,16 @@ import com.cloudera.cdp.dfworkload.model.ListNifiVersionsRequest;
 import com.cloudera.cdp.dfworkload.model.ListNifiVersionsResponse;
 import com.cloudera.cdp.dfworkload.model.RenewInboundConnectionEndpointCertificateRequest;
 import com.cloudera.cdp.dfworkload.model.RenewInboundConnectionEndpointCertificateResponse;
+import com.cloudera.cdp.dfworkload.model.RestartDeploymentRequest;
+import com.cloudera.cdp.dfworkload.model.RestartDeploymentResponse;
+import com.cloudera.cdp.dfworkload.model.ResumeDeploymentRequest;
+import com.cloudera.cdp.dfworkload.model.ResumeDeploymentResponse;
+import com.cloudera.cdp.dfworkload.model.StartFlowRequest;
+import com.cloudera.cdp.dfworkload.model.StartFlowResponse;
+import com.cloudera.cdp.dfworkload.model.StopFlowRequest;
+import com.cloudera.cdp.dfworkload.model.StopFlowResponse;
+import com.cloudera.cdp.dfworkload.model.SuspendDeploymentRequest;
+import com.cloudera.cdp.dfworkload.model.SuspendDeploymentResponse;
 import com.cloudera.cdp.dfworkload.model.TerminateDeploymentRequest;
 import com.cloudera.cdp.dfworkload.model.TerminateDeploymentResponse;
 import com.cloudera.cdp.dfworkload.model.TransitionFlowRequest;
@@ -90,7 +100,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-27T13:27:54.557-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-12T14:16:22.418-07:00")
 public class DfworkloadClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dfworkload";
@@ -402,6 +412,76 @@ public class DfworkloadClient extends CdpClient {
   }
 
   /**
+   * Restart a deployment.
+   * @param input Restart Deployment Request
+   * @return RestartDeploymentResponse
+   */
+  @WorkloadApi
+  public RestartDeploymentResponse restartDeployment(RestartDeploymentRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling restartDeployment");
+    }
+
+    return this.invokeAPI("restartDeployment", "/dfx/api/rpc-v1/deployments/restart-deployment", input, new GenericType<RestartDeploymentResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Resumes a deployment.
+   * @param input Resume Deployment Request
+   * @return ResumeDeploymentResponse
+   */
+  @WorkloadApi
+  public ResumeDeploymentResponse resumeDeployment(ResumeDeploymentRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling resumeDeployment");
+    }
+
+    return this.invokeAPI("resumeDeployment", "/dfx/api/rpc-v1/deployments/resume-deployment", input, new GenericType<ResumeDeploymentResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Starts a flow.
+   * @param input Start Flow
+   * @return StartFlowResponse
+   */
+  @WorkloadApi
+  public StartFlowResponse startFlow(StartFlowRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling startFlow");
+    }
+
+    return this.invokeAPI("startFlow", "/dfx/api/rpc-v1/deployments/start-flow", input, new GenericType<StartFlowResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Stops a flow.
+   * @param input Stop Flow
+   * @return StopFlowResponse
+   */
+  @WorkloadApi
+  public StopFlowResponse stopFlow(StopFlowRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling stopFlow");
+    }
+
+    return this.invokeAPI("stopFlow", "/dfx/api/rpc-v1/deployments/stop-flow", input, new GenericType<StopFlowResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Suspends a deployment.
+   * @param input Suspend Deployment Request
+   * @return SuspendDeploymentResponse
+   */
+  @WorkloadApi
+  public SuspendDeploymentResponse suspendDeployment(SuspendDeploymentRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling suspendDeployment");
+    }
+
+    return this.invokeAPI("suspendDeployment", "/dfx/api/rpc-v1/deployments/suspend-deployment", input, new GenericType<SuspendDeploymentResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
    * Terminates a deployment.
    * @param input Terminate Deployment Request
    * @return TerminateDeploymentResponse
@@ -421,6 +501,7 @@ public class DfworkloadClient extends CdpClient {
    * @return TransitionFlowResponse
    */
   @WorkloadApi
+  @Deprecated
   public TransitionFlowResponse transitionFlow(TransitionFlowRequest input) {
     if (input == null) {
       throw new CdpClientException("Missing the required parameter 'input' when calling transitionFlow");

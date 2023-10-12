@@ -28,22 +28,22 @@ import java.util.*;
 /**
  * Allowed compute instance type values and default compute instance type value.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-27T13:27:51.717-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-12T14:16:19.093-07:00")
 public class AllowedInstanceTypes  {
 
   /**
-   * Default value for the compute instance type usage.
+   * Default value for the compute instance type usage. This setting is Cluster-wide.
    **/
   private List<String> _default = new ArrayList<String>();
 
   /**
-   * Allowed values for the instance type.
+   * Allowed values for the instance type. This setting is Cluster-wide.
    **/
   private List<String> allowed = new ArrayList<String>();
 
   /**
    * Getter for _default.
-   * Default value for the compute instance type usage.
+   * Default value for the compute instance type usage. This setting is Cluster-wide.
    **/
   @JsonProperty("default")
   public List<String> getDefault() {
@@ -52,7 +52,7 @@ public class AllowedInstanceTypes  {
 
   /**
    * Setter for _default.
-   * Default value for the compute instance type usage.
+   * Default value for the compute instance type usage. This setting is Cluster-wide.
    **/
   public void setDefault(List<String> _default) {
     this._default = _default;
@@ -60,7 +60,7 @@ public class AllowedInstanceTypes  {
 
   /**
    * Getter for allowed.
-   * Allowed values for the instance type.
+   * Allowed values for the instance type. This setting is Cluster-wide.
    **/
   @JsonProperty("allowed")
   public List<String> getAllowed() {
@@ -69,7 +69,7 @@ public class AllowedInstanceTypes  {
 
   /**
    * Setter for allowed.
-   * Allowed values for the instance type.
+   * Allowed values for the instance type. This setting is Cluster-wide.
    **/
   public void setAllowed(List<String> allowed) {
     this.allowed = allowed;

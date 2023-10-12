@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Provides details about a deployment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-27T13:27:54.557-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-12T14:16:22.418-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcDeployment  {
 
@@ -150,6 +150,11 @@ public class RpcDeployment  {
   private String flowCrn = null;
 
   /**
+   * The CRN of the user who deployed the flow
+   **/
+  private String creatorCrn = null;
+
+  /**
    * The type of artifact of the flow
    **/
   private String artifactTypeName = null;
@@ -213,6 +218,11 @@ public class RpcDeployment  {
    * The identifier of the custom NAR configuration, if used.
    **/
   private String customNarConfigurationId = null;
+
+  /**
+   * The node storage profile
+   **/
+  private String nodeStorageProfile = null;
 
   /**
    * Getter for name.
@@ -606,6 +616,23 @@ public class RpcDeployment  {
   }
 
   /**
+   * Getter for creatorCrn.
+   * The CRN of the user who deployed the flow
+   **/
+  @JsonProperty("creatorCrn")
+  public String getCreatorCrn() {
+    return creatorCrn;
+  }
+
+  /**
+   * Setter for creatorCrn.
+   * The CRN of the user who deployed the flow
+   **/
+  public void setCreatorCrn(String creatorCrn) {
+    this.creatorCrn = creatorCrn;
+  }
+
+  /**
    * Getter for artifactTypeName.
    * The type of artifact of the flow
    **/
@@ -826,6 +853,23 @@ public class RpcDeployment  {
     this.customNarConfigurationId = customNarConfigurationId;
   }
 
+  /**
+   * Getter for nodeStorageProfile.
+   * The node storage profile
+   **/
+  @JsonProperty("nodeStorageProfile")
+  public String getNodeStorageProfile() {
+    return nodeStorageProfile;
+  }
+
+  /**
+   * Setter for nodeStorageProfile.
+   * The node storage profile
+   **/
+  public void setNodeStorageProfile(String nodeStorageProfile) {
+    this.nodeStorageProfile = nodeStorageProfile;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -904,6 +948,9 @@ public class RpcDeployment  {
     if (!Objects.equals(this.flowCrn, rpcDeployment.flowCrn)) {
       return false;
     }
+    if (!Objects.equals(this.creatorCrn, rpcDeployment.creatorCrn)) {
+      return false;
+    }
     if (!Objects.equals(this.artifactTypeName, rpcDeployment.artifactTypeName)) {
       return false;
     }
@@ -943,12 +990,15 @@ public class RpcDeployment  {
     if (!Objects.equals(this.customNarConfigurationId, rpcDeployment.customNarConfigurationId)) {
       return false;
     }
+    if (!Objects.equals(this.nodeStorageProfile, rpcDeployment.nodeStorageProfile)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, status, service, crn, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, created, updated, validActions, nifiUrl, clusterSize, coresPerNode, heapSize, autoscalingEnabled, flowMetricsScalingEnabled, autoscaleMinNodes, autoscaleMaxNodes, staticNodeCount, flowName, flowVersion, flowVersionCrn, flowCrn, artifactTypeName, currentNodeCount, deployedByUsername, deployedByName, dfxLocalUrl, configurationVersion, lastUpdatedByUsername, cfmNifiVersion, memoryLimit, inboundConnectionEndpointId, testSession, flowDesignerId, customNarConfigurationId);
+    return Objects.hash(name, status, service, crn, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, created, updated, validActions, nifiUrl, clusterSize, coresPerNode, heapSize, autoscalingEnabled, flowMetricsScalingEnabled, autoscaleMinNodes, autoscaleMaxNodes, staticNodeCount, flowName, flowVersion, flowVersionCrn, flowCrn, creatorCrn, artifactTypeName, currentNodeCount, deployedByUsername, deployedByName, dfxLocalUrl, configurationVersion, lastUpdatedByUsername, cfmNifiVersion, memoryLimit, inboundConnectionEndpointId, testSession, flowDesignerId, customNarConfigurationId, nodeStorageProfile);
   }
 
   @Override
@@ -978,6 +1028,7 @@ public class RpcDeployment  {
     sb.append("    flowVersion: ").append(toIndentedString(flowVersion)).append("\n");
     sb.append("    flowVersionCrn: ").append(toIndentedString(flowVersionCrn)).append("\n");
     sb.append("    flowCrn: ").append(toIndentedString(flowCrn)).append("\n");
+    sb.append("    creatorCrn: ").append(toIndentedString(creatorCrn)).append("\n");
     sb.append("    artifactTypeName: ").append(toIndentedString(artifactTypeName)).append("\n");
     sb.append("    currentNodeCount: ").append(toIndentedString(currentNodeCount)).append("\n");
     sb.append("    deployedByUsername: ").append(toIndentedString(deployedByUsername)).append("\n");
@@ -991,6 +1042,7 @@ public class RpcDeployment  {
     sb.append("    testSession: ").append(toIndentedString(testSession)).append("\n");
     sb.append("    flowDesignerId: ").append(toIndentedString(flowDesignerId)).append("\n");
     sb.append("    customNarConfigurationId: ").append(toIndentedString(customNarConfigurationId)).append("\n");
+    sb.append("    nodeStorageProfile: ").append(toIndentedString(nodeStorageProfile)).append("\n");
     sb.append("}");
     return sb.toString();
   }

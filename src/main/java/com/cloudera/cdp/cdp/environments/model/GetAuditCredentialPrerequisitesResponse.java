@@ -25,11 +25,12 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.environments.model.AwsCredentialPrerequisitesResponse;
 import com.cloudera.cdp.environments.model.AzureCredentialPrerequisitesResponse;
+import com.cloudera.cdp.environments.model.GcpCredentialPrerequisitesResponse;
 
 /**
  * The audit credential prerequisites.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-27T13:27:53.061-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-12T14:16:20.723-07:00")
 public class GetAuditCredentialPrerequisitesResponse extends CdpResponse {
 
   /**
@@ -51,6 +52,11 @@ public class GetAuditCredentialPrerequisitesResponse extends CdpResponse {
    * Provides the app creation command and role definition Json for Azure credential creation.
    **/
   private AzureCredentialPrerequisitesResponse azure = null;
+
+  /**
+   * Provides the service account creation command for GCP credential creation.
+   **/
+  private GcpCredentialPrerequisitesResponse gcp = null;
 
   /**
    * Getter for cloudPlatform.
@@ -120,6 +126,23 @@ public class GetAuditCredentialPrerequisitesResponse extends CdpResponse {
     this.azure = azure;
   }
 
+  /**
+   * Getter for gcp.
+   * Provides the service account creation command for GCP credential creation.
+   **/
+  @JsonProperty("gcp")
+  public GcpCredentialPrerequisitesResponse getGcp() {
+    return gcp;
+  }
+
+  /**
+   * Setter for gcp.
+   * Provides the service account creation command for GCP credential creation.
+   **/
+  public void setGcp(GcpCredentialPrerequisitesResponse gcp) {
+    this.gcp = gcp;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -141,6 +164,9 @@ public class GetAuditCredentialPrerequisitesResponse extends CdpResponse {
     if (!Objects.equals(this.azure, getAuditCredentialPrerequisitesResponse.azure)) {
       return false;
     }
+    if (!Objects.equals(this.gcp, getAuditCredentialPrerequisitesResponse.gcp)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -149,7 +175,7 @@ public class GetAuditCredentialPrerequisitesResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cloudPlatform, accountId, aws, azure, super.hashCode());
+    return Objects.hash(cloudPlatform, accountId, aws, azure, gcp, super.hashCode());
   }
 
   @Override
@@ -161,6 +187,7 @@ public class GetAuditCredentialPrerequisitesResponse extends CdpResponse {
     sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
     sb.append("    aws: ").append(toIndentedString(aws)).append("\n");
     sb.append("    azure: ").append(toIndentedString(azure)).append("\n");
+    sb.append("    gcp: ").append(toIndentedString(gcp)).append("\n");
     sb.append("}");
     return sb.toString();
   }

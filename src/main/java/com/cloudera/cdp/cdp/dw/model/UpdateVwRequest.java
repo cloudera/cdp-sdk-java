@@ -31,7 +31,7 @@ import com.cloudera.cdp.dw.model.ServiceConfigReq;
 /**
  * Request object for the updateVw method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-27T13:27:51.717-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-12T14:16:19.093-07:00")
 public class UpdateVwRequest  {
 
   /**
@@ -43,6 +43,16 @@ public class UpdateVwRequest  {
    * ID of the Virtual Warehouse.
    **/
   private String vwId = null;
+
+  /**
+   * Name of configuration template to use.
+   **/
+  private String template = null;
+
+  /**
+   * Nodes per compute cluster. If specified, forces 'template' to be 'custom'
+   **/
+  private Integer nodeCount = 0;
 
   /**
    * The service configuration to update the VW with. This will be applied on top of the existing configuration so there's no need to list configurations that stay the same.
@@ -106,6 +116,40 @@ public class UpdateVwRequest  {
    **/
   public void setVwId(String vwId) {
     this.vwId = vwId;
+  }
+
+  /**
+   * Getter for template.
+   * Name of configuration template to use.
+   **/
+  @JsonProperty("template")
+  public String getTemplate() {
+    return template;
+  }
+
+  /**
+   * Setter for template.
+   * Name of configuration template to use.
+   **/
+  public void setTemplate(String template) {
+    this.template = template;
+  }
+
+  /**
+   * Getter for nodeCount.
+   * Nodes per compute cluster. If specified, forces &#39;template&#39; to be &#39;custom&#39;
+   **/
+  @JsonProperty("nodeCount")
+  public Integer getNodeCount() {
+    return nodeCount;
+  }
+
+  /**
+   * Setter for nodeCount.
+   * Nodes per compute cluster. If specified, forces &#39;template&#39; to be &#39;custom&#39;
+   **/
+  public void setNodeCount(Integer nodeCount) {
+    this.nodeCount = nodeCount;
   }
 
   /**
@@ -225,6 +269,12 @@ public class UpdateVwRequest  {
     if (!Objects.equals(this.vwId, updateVwRequest.vwId)) {
       return false;
     }
+    if (!Objects.equals(this.template, updateVwRequest.template)) {
+      return false;
+    }
+    if (!Objects.equals(this.nodeCount, updateVwRequest.nodeCount)) {
+      return false;
+    }
     if (!Objects.equals(this.config, updateVwRequest.config)) {
       return false;
     }
@@ -248,7 +298,7 @@ public class UpdateVwRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, vwId, config, autoscaling, impalaHaSettings, queryIsolationOptions, hiveAuthenticationMode, platformJwtAuth);
+    return Objects.hash(clusterId, vwId, template, nodeCount, config, autoscaling, impalaHaSettings, queryIsolationOptions, hiveAuthenticationMode, platformJwtAuth);
   }
 
   @Override
@@ -257,6 +307,8 @@ public class UpdateVwRequest  {
     sb.append("class UpdateVwRequest {\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    vwId: ").append(toIndentedString(vwId)).append("\n");
+    sb.append("    template: ").append(toIndentedString(template)).append("\n");
+    sb.append("    nodeCount: ").append(toIndentedString(nodeCount)).append("\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    autoscaling: ").append(toIndentedString(autoscaling)).append("\n");
     sb.append("    impalaHaSettings: ").append(toIndentedString(impalaHaSettings)).append("\n");

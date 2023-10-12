@@ -26,13 +26,14 @@ import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.dfworkload.model.ClusterSize;
 import com.cloudera.cdp.dfworkload.model.FlowParameterGroup;
 import com.cloudera.cdp.dfworkload.model.KpiMetaData;
+import com.cloudera.cdp.dfworkload.model.NodeStorageProfileMetadata;
 import com.cloudera.cdp.dfworkload.model.ServiceMeta;
 import java.util.*;
 
 /**
  * Provides details about the deployment and all of the different configuration items that are available.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-27T13:27:54.557-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-12T14:16:22.418-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcDeploymentConfigurationMetadata  {
 
@@ -85,6 +86,11 @@ public class RpcDeploymentConfigurationMetadata  {
    * The options that are available for determining the size of the deployed cluster
    **/
   private List<ClusterSize> clusterSizingOptions = new ArrayList<ClusterSize>();
+
+  /**
+   * The list of node storage profiles
+   **/
+  private List<NodeStorageProfileMetadata> nodeStorageProfileMetadata = new ArrayList<NodeStorageProfileMetadata>();
 
   /**
    * Getter for flowCrn.
@@ -256,6 +262,23 @@ public class RpcDeploymentConfigurationMetadata  {
     this.clusterSizingOptions = clusterSizingOptions;
   }
 
+  /**
+   * Getter for nodeStorageProfileMetadata.
+   * The list of node storage profiles
+   **/
+  @JsonProperty("nodeStorageProfileMetadata")
+  public List<NodeStorageProfileMetadata> getNodeStorageProfileMetadata() {
+    return nodeStorageProfileMetadata;
+  }
+
+  /**
+   * Setter for nodeStorageProfileMetadata.
+   * The list of node storage profiles
+   **/
+  public void setNodeStorageProfileMetadata(List<NodeStorageProfileMetadata> nodeStorageProfileMetadata) {
+    this.nodeStorageProfileMetadata = nodeStorageProfileMetadata;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -295,12 +318,15 @@ public class RpcDeploymentConfigurationMetadata  {
     if (!Objects.equals(this.clusterSizingOptions, rpcDeploymentConfigurationMetadata.clusterSizingOptions)) {
       return false;
     }
+    if (!Objects.equals(this.nodeStorageProfileMetadata, rpcDeploymentConfigurationMetadata.nodeStorageProfileMetadata)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(flowCrn, flowName, flowVersion, flowVersionCrn, service, requiresEnvironmentSslContextService, artifactTypeName, parameterGroups, kpiMetaData, clusterSizingOptions);
+    return Objects.hash(flowCrn, flowName, flowVersion, flowVersionCrn, service, requiresEnvironmentSslContextService, artifactTypeName, parameterGroups, kpiMetaData, clusterSizingOptions, nodeStorageProfileMetadata);
   }
 
   @Override
@@ -317,6 +343,7 @@ public class RpcDeploymentConfigurationMetadata  {
     sb.append("    parameterGroups: ").append(toIndentedString(parameterGroups)).append("\n");
     sb.append("    kpiMetaData: ").append(toIndentedString(kpiMetaData)).append("\n");
     sb.append("    clusterSizingOptions: ").append(toIndentedString(clusterSizingOptions)).append("\n");
+    sb.append("    nodeStorageProfileMetadata: ").append(toIndentedString(nodeStorageProfileMetadata)).append("\n");
     sb.append("}");
     return sb.toString();
   }

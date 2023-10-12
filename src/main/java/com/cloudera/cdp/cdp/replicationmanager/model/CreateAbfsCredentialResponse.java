@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for creating ABFS credentials.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-27T13:27:54.997-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-12T14:16:23.012-07:00")
 public class CreateAbfsCredentialResponse extends CdpResponse {
 
   /**

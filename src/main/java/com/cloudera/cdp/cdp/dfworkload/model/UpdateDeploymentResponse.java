@@ -23,26 +23,26 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
-import com.cloudera.cdp.dfworkload.model.DeploymentConfiguration;
+import com.cloudera.cdp.dfworkload.model.RpcDeploymentConfiguration;
 
 /**
  * Response object from updating a deployment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-27T13:27:54.557-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-12T14:16:22.418-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class UpdateDeploymentResponse extends CdpResponse {
 
   /**
    * The deployment configuration.
    **/
-  private DeploymentConfiguration deploymentConfiguration = null;
+  private RpcDeploymentConfiguration deploymentConfiguration = null;
 
   /**
    * Getter for deploymentConfiguration.
    * The deployment configuration.
    **/
   @JsonProperty("deploymentConfiguration")
-  public DeploymentConfiguration getDeploymentConfiguration() {
+  public RpcDeploymentConfiguration getDeploymentConfiguration() {
     return deploymentConfiguration;
   }
 
@@ -50,7 +50,7 @@ public class UpdateDeploymentResponse extends CdpResponse {
    * Setter for deploymentConfiguration.
    * The deployment configuration.
    **/
-  public void setDeploymentConfiguration(DeploymentConfiguration deploymentConfiguration) {
+  public void setDeploymentConfiguration(RpcDeploymentConfiguration deploymentConfiguration) {
     this.deploymentConfiguration = deploymentConfiguration;
   }
 

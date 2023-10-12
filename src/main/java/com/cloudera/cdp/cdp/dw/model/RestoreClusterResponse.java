@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for the restoreCluster method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-27T13:27:51.717-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-12T14:16:19.093-07:00")
 public class RestoreClusterResponse extends CdpResponse {
 
   /**
@@ -41,6 +41,16 @@ public class RestoreClusterResponse extends CdpResponse {
    * The the ID of the restore operation.
    **/
   private String operationId = null;
+
+  /**
+   * The cluster action. Possible actions: Create, Skip
+   **/
+  private String action = null;
+
+  /**
+   * The description of the cluster action.
+   **/
+  private String message = null;
 
   /**
    * Information about the restore-plan of the DbCatalogs.
@@ -99,6 +109,40 @@ public class RestoreClusterResponse extends CdpResponse {
    **/
   public void setOperationId(String operationId) {
     this.operationId = operationId;
+  }
+
+  /**
+   * Getter for action.
+   * The cluster action. Possible actions: Create, Skip
+   **/
+  @JsonProperty("action")
+  public String getAction() {
+    return action;
+  }
+
+  /**
+   * Setter for action.
+   * The cluster action. Possible actions: Create, Skip
+   **/
+  public void setAction(String action) {
+    this.action = action;
+  }
+
+  /**
+   * Getter for message.
+   * The description of the cluster action.
+   **/
+  @JsonProperty("message")
+  public String getMessage() {
+    return message;
+  }
+
+  /**
+   * Setter for message.
+   * The description of the cluster action.
+   **/
+  public void setMessage(String message) {
+    this.message = message;
   }
 
   /**
@@ -201,6 +245,12 @@ public class RestoreClusterResponse extends CdpResponse {
     if (!Objects.equals(this.operationId, restoreClusterResponse.operationId)) {
       return false;
     }
+    if (!Objects.equals(this.action, restoreClusterResponse.action)) {
+      return false;
+    }
+    if (!Objects.equals(this.message, restoreClusterResponse.message)) {
+      return false;
+    }
     if (!Objects.equals(this.dbcRestorePlans, restoreClusterResponse.dbcRestorePlans)) {
       return false;
     }
@@ -224,7 +274,7 @@ public class RestoreClusterResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, operationId, dbcRestorePlans, hueRestorePlans, hiveRestorePlans, impalaRestorePlans, vizRestorePlans, super.hashCode());
+    return Objects.hash(clusterId, operationId, action, message, dbcRestorePlans, hueRestorePlans, hiveRestorePlans, impalaRestorePlans, vizRestorePlans, super.hashCode());
   }
 
   @Override
@@ -234,6 +284,8 @@ public class RestoreClusterResponse extends CdpResponse {
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    operationId: ").append(toIndentedString(operationId)).append("\n");
+    sb.append("    action: ").append(toIndentedString(action)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    dbcRestorePlans: ").append(toIndentedString(dbcRestorePlans)).append("\n");
     sb.append("    hueRestorePlans: ").append(toIndentedString(hueRestorePlans)).append("\n");
     sb.append("    hiveRestorePlans: ").append(toIndentedString(hiveRestorePlans)).append("\n");

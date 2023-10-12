@@ -31,9 +31,9 @@ import java.util.*;
 /**
  * Provides all of the configuration that dictates how a flow should be deployed
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-09-27T13:27:54.557-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-12T14:16:22.418-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
-public class DeploymentConfiguration  {
+public class RpcDeploymentConfiguration  {
 
   /**
    * The version of this configuration
@@ -104,6 +104,11 @@ public class DeploymentConfiguration  {
    * The size of the cluster to deploy
    **/
   private String clusterSizeName = null;
+
+  /**
+   * Node storage profile name
+   **/
+  private String nodeStorageProfileName = null;
 
   /**
    * Indicates whether or not all current parameter values have successfully been applied to NiFi
@@ -374,6 +379,23 @@ public class DeploymentConfiguration  {
   }
 
   /**
+   * Getter for nodeStorageProfileName.
+   * Node storage profile name
+   **/
+  @JsonProperty("nodeStorageProfileName")
+  public String getNodeStorageProfileName() {
+    return nodeStorageProfileName;
+  }
+
+  /**
+   * Setter for nodeStorageProfileName.
+   * Node storage profile name
+   **/
+  public void setNodeStorageProfileName(String nodeStorageProfileName) {
+    this.nodeStorageProfileName = nodeStorageProfileName;
+  }
+
+  /**
    * Getter for parametersDirty.
    * Indicates whether or not all current parameter values have successfully been applied to NiFi
    **/
@@ -483,65 +505,68 @@ public class DeploymentConfiguration  {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DeploymentConfiguration deploymentConfiguration = (DeploymentConfiguration) o;
-    if (!Objects.equals(this.configurationVersion, deploymentConfiguration.configurationVersion)) {
+    RpcDeploymentConfiguration rpcDeploymentConfiguration = (RpcDeploymentConfiguration) o;
+    if (!Objects.equals(this.configurationVersion, rpcDeploymentConfiguration.configurationVersion)) {
       return false;
     }
-    if (!Objects.equals(this.parameterGroups, deploymentConfiguration.parameterGroups)) {
+    if (!Objects.equals(this.parameterGroups, rpcDeploymentConfiguration.parameterGroups)) {
       return false;
     }
-    if (!Objects.equals(this.autoScalingEnabled, deploymentConfiguration.autoScalingEnabled)) {
+    if (!Objects.equals(this.autoScalingEnabled, rpcDeploymentConfiguration.autoScalingEnabled)) {
       return false;
     }
-    if (!Objects.equals(this.flowMetricsScalingEnabled, deploymentConfiguration.flowMetricsScalingEnabled)) {
+    if (!Objects.equals(this.flowMetricsScalingEnabled, rpcDeploymentConfiguration.flowMetricsScalingEnabled)) {
       return false;
     }
-    if (!Objects.equals(this.autoScaleMinNodes, deploymentConfiguration.autoScaleMinNodes)) {
+    if (!Objects.equals(this.autoScaleMinNodes, rpcDeploymentConfiguration.autoScaleMinNodes)) {
       return false;
     }
-    if (!Objects.equals(this.autoScaleMaxNodes, deploymentConfiguration.autoScaleMaxNodes)) {
+    if (!Objects.equals(this.autoScaleMaxNodes, rpcDeploymentConfiguration.autoScaleMaxNodes)) {
       return false;
     }
-    if (!Objects.equals(this.staticNodeCount, deploymentConfiguration.staticNodeCount)) {
+    if (!Objects.equals(this.staticNodeCount, rpcDeploymentConfiguration.staticNodeCount)) {
       return false;
     }
-    if (!Objects.equals(this.kpis, deploymentConfiguration.kpis)) {
+    if (!Objects.equals(this.kpis, rpcDeploymentConfiguration.kpis)) {
       return false;
     }
-    if (!Objects.equals(this.deploymentId, deploymentConfiguration.deploymentId)) {
+    if (!Objects.equals(this.deploymentId, rpcDeploymentConfiguration.deploymentId)) {
       return false;
     }
-    if (!Objects.equals(this.deploymentCrn, deploymentConfiguration.deploymentCrn)) {
+    if (!Objects.equals(this.deploymentCrn, rpcDeploymentConfiguration.deploymentCrn)) {
       return false;
     }
-    if (!Objects.equals(this.name, deploymentConfiguration.name)) {
+    if (!Objects.equals(this.name, rpcDeploymentConfiguration.name)) {
       return false;
     }
-    if (!Objects.equals(this.cfmNifiVersion, deploymentConfiguration.cfmNifiVersion)) {
+    if (!Objects.equals(this.cfmNifiVersion, rpcDeploymentConfiguration.cfmNifiVersion)) {
       return false;
     }
-    if (!Objects.equals(this.autoStartFlow, deploymentConfiguration.autoStartFlow)) {
+    if (!Objects.equals(this.autoStartFlow, rpcDeploymentConfiguration.autoStartFlow)) {
       return false;
     }
-    if (!Objects.equals(this.clusterSizeName, deploymentConfiguration.clusterSizeName)) {
+    if (!Objects.equals(this.clusterSizeName, rpcDeploymentConfiguration.clusterSizeName)) {
       return false;
     }
-    if (!Objects.equals(this.parametersDirty, deploymentConfiguration.parametersDirty)) {
+    if (!Objects.equals(this.nodeStorageProfileName, rpcDeploymentConfiguration.nodeStorageProfileName)) {
       return false;
     }
-    if (!Objects.equals(this.kpisDirty, deploymentConfiguration.kpisDirty)) {
+    if (!Objects.equals(this.parametersDirty, rpcDeploymentConfiguration.parametersDirty)) {
       return false;
     }
-    if (!Objects.equals(this.sizingAndScalingDirty, deploymentConfiguration.sizingAndScalingDirty)) {
+    if (!Objects.equals(this.kpisDirty, rpcDeploymentConfiguration.kpisDirty)) {
       return false;
     }
-    if (!Objects.equals(this.lastUpdatedByUsername, deploymentConfiguration.lastUpdatedByUsername)) {
+    if (!Objects.equals(this.sizingAndScalingDirty, rpcDeploymentConfiguration.sizingAndScalingDirty)) {
       return false;
     }
-    if (!Objects.equals(this.inboundHostname, deploymentConfiguration.inboundHostname)) {
+    if (!Objects.equals(this.lastUpdatedByUsername, rpcDeploymentConfiguration.lastUpdatedByUsername)) {
       return false;
     }
-    if (!Objects.equals(this.listenComponents, deploymentConfiguration.listenComponents)) {
+    if (!Objects.equals(this.inboundHostname, rpcDeploymentConfiguration.inboundHostname)) {
+      return false;
+    }
+    if (!Objects.equals(this.listenComponents, rpcDeploymentConfiguration.listenComponents)) {
       return false;
     }
     return true;
@@ -549,13 +574,13 @@ public class DeploymentConfiguration  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(configurationVersion, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, deploymentId, deploymentCrn, name, cfmNifiVersion, autoStartFlow, clusterSizeName, parametersDirty, kpisDirty, sizingAndScalingDirty, lastUpdatedByUsername, inboundHostname, listenComponents);
+    return Objects.hash(configurationVersion, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, deploymentId, deploymentCrn, name, cfmNifiVersion, autoStartFlow, clusterSizeName, nodeStorageProfileName, parametersDirty, kpisDirty, sizingAndScalingDirty, lastUpdatedByUsername, inboundHostname, listenComponents);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DeploymentConfiguration {\n");
+    sb.append("class RpcDeploymentConfiguration {\n");
     sb.append("    configurationVersion: ").append(toIndentedString(configurationVersion)).append("\n");
     sb.append("    parameterGroups: ").append(toIndentedString(parameterGroups)).append("\n");
     sb.append("    autoScalingEnabled: ").append(toIndentedString(autoScalingEnabled)).append("\n");
@@ -570,6 +595,7 @@ public class DeploymentConfiguration  {
     sb.append("    cfmNifiVersion: ").append(toIndentedString(cfmNifiVersion)).append("\n");
     sb.append("    autoStartFlow: ").append(toIndentedString(autoStartFlow)).append("\n");
     sb.append("    clusterSizeName: ").append(toIndentedString(clusterSizeName)).append("\n");
+    sb.append("    nodeStorageProfileName: ").append(toIndentedString(nodeStorageProfileName)).append("\n");
     sb.append("    parametersDirty: ").append(toIndentedString(parametersDirty)).append("\n");
     sb.append("    kpisDirty: ").append(toIndentedString(kpisDirty)).append("\n");
     sb.append("    sizingAndScalingDirty: ").append(toIndentedString(sizingAndScalingDirty)).append("\n");
