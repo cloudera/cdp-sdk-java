@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Datalake resize request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-12T14:16:20.158-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:12.811-07:00")
 public class ResizeDatalakeRequest  {
 
   /**
@@ -39,6 +39,11 @@ public class ResizeDatalakeRequest  {
    * The target size for the datalake.
    **/
   private String targetSize = null;
+
+  /**
+   * Whether to deploy a new datalake in a multi-availability zone way.
+   **/
+  private Boolean multiAz = false;
 
   /**
    * Getter for datalakeName.
@@ -74,6 +79,23 @@ public class ResizeDatalakeRequest  {
     this.targetSize = targetSize;
   }
 
+  /**
+   * Getter for multiAz.
+   * Whether to deploy a new datalake in a multi-availability zone way.
+   **/
+  @JsonProperty("multiAz")
+  public Boolean getMultiAz() {
+    return multiAz;
+  }
+
+  /**
+   * Setter for multiAz.
+   * Whether to deploy a new datalake in a multi-availability zone way.
+   **/
+  public void setMultiAz(Boolean multiAz) {
+    this.multiAz = multiAz;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -89,12 +111,15 @@ public class ResizeDatalakeRequest  {
     if (!Objects.equals(this.targetSize, resizeDatalakeRequest.targetSize)) {
       return false;
     }
+    if (!Objects.equals(this.multiAz, resizeDatalakeRequest.multiAz)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, targetSize);
+    return Objects.hash(datalakeName, targetSize, multiAz);
   }
 
   @Override
@@ -103,6 +128,7 @@ public class ResizeDatalakeRequest  {
     sb.append("class ResizeDatalakeRequest {\n");
     sb.append("    datalakeName: ").append(toIndentedString(datalakeName)).append("\n");
     sb.append("    targetSize: ").append(toIndentedString(targetSize)).append("\n");
+    sb.append("    multiAz: ").append(toIndentedString(multiAz)).append("\n");
     sb.append("}");
     return sb.toString();
   }

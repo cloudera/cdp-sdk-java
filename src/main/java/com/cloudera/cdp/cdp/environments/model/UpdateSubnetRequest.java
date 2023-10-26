@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * The request for updating subnets of the given environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-12T14:16:20.723-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:13.279-07:00")
 public class UpdateSubnetRequest  {
 
   /**
@@ -40,6 +40,11 @@ public class UpdateSubnetRequest  {
    * The selected subnets to update the given environment to.
    **/
   private List<String> subnetIds = new ArrayList<String>();
+
+  /**
+   * The selected subnets to update for the given environment's endpoint access gateway.
+   **/
+  private List<String> endpointAccessGatewaySubnetIds = new ArrayList<String>();
 
   /**
    * Getter for environment.
@@ -75,6 +80,23 @@ public class UpdateSubnetRequest  {
     this.subnetIds = subnetIds;
   }
 
+  /**
+   * Getter for endpointAccessGatewaySubnetIds.
+   * The selected subnets to update for the given environment&#39;s endpoint access gateway.
+   **/
+  @JsonProperty("endpointAccessGatewaySubnetIds")
+  public List<String> getEndpointAccessGatewaySubnetIds() {
+    return endpointAccessGatewaySubnetIds;
+  }
+
+  /**
+   * Setter for endpointAccessGatewaySubnetIds.
+   * The selected subnets to update for the given environment&#39;s endpoint access gateway.
+   **/
+  public void setEndpointAccessGatewaySubnetIds(List<String> endpointAccessGatewaySubnetIds) {
+    this.endpointAccessGatewaySubnetIds = endpointAccessGatewaySubnetIds;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -90,12 +112,15 @@ public class UpdateSubnetRequest  {
     if (!Objects.equals(this.subnetIds, updateSubnetRequest.subnetIds)) {
       return false;
     }
+    if (!Objects.equals(this.endpointAccessGatewaySubnetIds, updateSubnetRequest.endpointAccessGatewaySubnetIds)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environment, subnetIds);
+    return Objects.hash(environment, subnetIds, endpointAccessGatewaySubnetIds);
   }
 
   @Override
@@ -104,6 +129,7 @@ public class UpdateSubnetRequest  {
     sb.append("class UpdateSubnetRequest {\n");
     sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
+    sb.append("    endpointAccessGatewaySubnetIds: ").append(toIndentedString(endpointAccessGatewaySubnetIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

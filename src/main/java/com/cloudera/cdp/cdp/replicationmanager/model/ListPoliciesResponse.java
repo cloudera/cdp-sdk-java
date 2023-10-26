@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Response object for a list policies request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-12T14:16:23.012-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:15.113-07:00")
 public class ListPoliciesResponse extends CdpResponse {
 
   /**

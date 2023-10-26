@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * A request to create the database
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-12T14:16:21.167-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:13.707-07:00")
 public class CreateDatabaseRequest  {
 
   /**
@@ -39,6 +39,16 @@ public class CreateDatabaseRequest  {
    * database name
    **/
   private String databaseName = null;
+
+  /**
+   * Optional tags to choose one of the predefined cluster sizes.
+   **/
+  private String scaleType = null;
+
+  /**
+   * Optional tag to choose the storage types.
+   **/
+  private String storageType = null;
 
   /**
    * Getter for environmentName.
@@ -74,6 +84,40 @@ public class CreateDatabaseRequest  {
     this.databaseName = databaseName;
   }
 
+  /**
+   * Getter for scaleType.
+   * Optional tags to choose one of the predefined cluster sizes.
+   **/
+  @JsonProperty("scaleType")
+  public String getScaleType() {
+    return scaleType;
+  }
+
+  /**
+   * Setter for scaleType.
+   * Optional tags to choose one of the predefined cluster sizes.
+   **/
+  public void setScaleType(String scaleType) {
+    this.scaleType = scaleType;
+  }
+
+  /**
+   * Getter for storageType.
+   * Optional tag to choose the storage types.
+   **/
+  @JsonProperty("storageType")
+  public String getStorageType() {
+    return storageType;
+  }
+
+  /**
+   * Setter for storageType.
+   * Optional tag to choose the storage types.
+   **/
+  public void setStorageType(String storageType) {
+    this.storageType = storageType;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -89,12 +133,18 @@ public class CreateDatabaseRequest  {
     if (!Objects.equals(this.databaseName, createDatabaseRequest.databaseName)) {
       return false;
     }
+    if (!Objects.equals(this.scaleType, createDatabaseRequest.scaleType)) {
+      return false;
+    }
+    if (!Objects.equals(this.storageType, createDatabaseRequest.storageType)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, databaseName);
+    return Objects.hash(environmentName, databaseName, scaleType, storageType);
   }
 
   @Override
@@ -103,6 +153,8 @@ public class CreateDatabaseRequest  {
     sb.append("class CreateDatabaseRequest {\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    databaseName: ").append(toIndentedString(databaseName)).append("\n");
+    sb.append("    scaleType: ").append(toIndentedString(scaleType)).append("\n");
+    sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

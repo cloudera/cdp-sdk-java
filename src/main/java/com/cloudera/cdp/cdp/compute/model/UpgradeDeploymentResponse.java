@@ -28,7 +28,7 @@ import com.cloudera.cdp.compute.model.Chart;
 /**
  * Response structure for upgrading a deployment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-12T14:16:22.849-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:14.973-07:00")
 public class UpgradeDeploymentResponse extends CdpResponse {
 
   /**
