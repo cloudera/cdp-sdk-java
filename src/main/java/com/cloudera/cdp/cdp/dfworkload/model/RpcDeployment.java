@@ -24,13 +24,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.dfworkload.model.DeploymentStatus;
+import com.cloudera.cdp.dfworkload.model.ProjectMeta;
 import com.cloudera.cdp.dfworkload.model.ServiceMeta;
 import java.util.*;
 
 /**
  * Provides details about a deployment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:14.632-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:30.880-08:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcDeployment  {
 
@@ -83,6 +84,11 @@ public class RpcDeployment  {
    * Valid actions that can be applied to the deployment in its current state
    **/
   private List<String> validActions = new ArrayList<String>();
+
+  /**
+   * Simple information about the project this deployment belongs to, or null if does not belong to a project
+   **/
+  private ProjectMeta project = null;
 
   /**
    * The url to open the deployed flow in NiFi
@@ -223,6 +229,11 @@ public class RpcDeployment  {
    * The node storage profile
    **/
   private String nodeStorageProfile = null;
+
+  /**
+   * The crn of the project this deployment belongs to, or null if does not belong to a project
+   **/
+  private String projectCrn = null;
 
   /**
    * Getter for name.
@@ -392,6 +403,23 @@ public class RpcDeployment  {
    **/
   public void setValidActions(List<String> validActions) {
     this.validActions = validActions;
+  }
+
+  /**
+   * Getter for project.
+   * Simple information about the project this deployment belongs to, or null if does not belong to a project
+   **/
+  @JsonProperty("project")
+  public ProjectMeta getProject() {
+    return project;
+  }
+
+  /**
+   * Setter for project.
+   * Simple information about the project this deployment belongs to, or null if does not belong to a project
+   **/
+  public void setProject(ProjectMeta project) {
+    this.project = project;
   }
 
   /**
@@ -870,6 +898,23 @@ public class RpcDeployment  {
     this.nodeStorageProfile = nodeStorageProfile;
   }
 
+  /**
+   * Getter for projectCrn.
+   * The crn of the project this deployment belongs to, or null if does not belong to a project
+   **/
+  @JsonProperty("projectCrn")
+  public String getProjectCrn() {
+    return projectCrn;
+  }
+
+  /**
+   * Setter for projectCrn.
+   * The crn of the project this deployment belongs to, or null if does not belong to a project
+   **/
+  public void setProjectCrn(String projectCrn) {
+    this.projectCrn = projectCrn;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -907,6 +952,9 @@ public class RpcDeployment  {
       return false;
     }
     if (!Objects.equals(this.validActions, rpcDeployment.validActions)) {
+      return false;
+    }
+    if (!Objects.equals(this.project, rpcDeployment.project)) {
       return false;
     }
     if (!Objects.equals(this.nifiUrl, rpcDeployment.nifiUrl)) {
@@ -993,12 +1041,15 @@ public class RpcDeployment  {
     if (!Objects.equals(this.nodeStorageProfile, rpcDeployment.nodeStorageProfile)) {
       return false;
     }
+    if (!Objects.equals(this.projectCrn, rpcDeployment.projectCrn)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, status, service, crn, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, created, updated, validActions, nifiUrl, clusterSize, coresPerNode, heapSize, autoscalingEnabled, flowMetricsScalingEnabled, autoscaleMinNodes, autoscaleMaxNodes, staticNodeCount, flowName, flowVersion, flowVersionCrn, flowCrn, creatorCrn, artifactTypeName, currentNodeCount, deployedByUsername, deployedByName, dfxLocalUrl, configurationVersion, lastUpdatedByUsername, cfmNifiVersion, memoryLimit, inboundConnectionEndpointId, testSession, flowDesignerId, customNarConfigurationId, nodeStorageProfile);
+    return Objects.hash(name, status, service, crn, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, created, updated, validActions, project, nifiUrl, clusterSize, coresPerNode, heapSize, autoscalingEnabled, flowMetricsScalingEnabled, autoscaleMinNodes, autoscaleMaxNodes, staticNodeCount, flowName, flowVersion, flowVersionCrn, flowCrn, creatorCrn, artifactTypeName, currentNodeCount, deployedByUsername, deployedByName, dfxLocalUrl, configurationVersion, lastUpdatedByUsername, cfmNifiVersion, memoryLimit, inboundConnectionEndpointId, testSession, flowDesignerId, customNarConfigurationId, nodeStorageProfile, projectCrn);
   }
 
   @Override
@@ -1015,6 +1066,7 @@ public class RpcDeployment  {
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    updated: ").append(toIndentedString(updated)).append("\n");
     sb.append("    validActions: ").append(toIndentedString(validActions)).append("\n");
+    sb.append("    project: ").append(toIndentedString(project)).append("\n");
     sb.append("    nifiUrl: ").append(toIndentedString(nifiUrl)).append("\n");
     sb.append("    clusterSize: ").append(toIndentedString(clusterSize)).append("\n");
     sb.append("    coresPerNode: ").append(toIndentedString(coresPerNode)).append("\n");
@@ -1043,6 +1095,7 @@ public class RpcDeployment  {
     sb.append("    flowDesignerId: ").append(toIndentedString(flowDesignerId)).append("\n");
     sb.append("    customNarConfigurationId: ").append(toIndentedString(customNarConfigurationId)).append("\n");
     sb.append("    nodeStorageProfile: ").append(toIndentedString(nodeStorageProfile)).append("\n");
+    sb.append("    projectCrn: ").append(toIndentedString(projectCrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

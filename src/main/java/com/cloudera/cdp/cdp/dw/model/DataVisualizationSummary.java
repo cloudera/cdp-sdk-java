@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * A Cloudera Data Visualization.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:11.904-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:28.100-08:00")
 public class DataVisualizationSummary  {
 
   /**
@@ -60,6 +60,11 @@ public class DataVisualizationSummary  {
    * The template size for the Cloudera Data Visualization
    **/
   private String size = null;
+
+  /**
+   * The name of the Resource Pool the Cloudera Data Visualization is in.
+   **/
+  private String resourcePool = null;
 
   /**
    * User groups that are allowed to access the Data Visualization.
@@ -174,6 +179,23 @@ public class DataVisualizationSummary  {
   }
 
   /**
+   * Getter for resourcePool.
+   * The name of the Resource Pool the Cloudera Data Visualization is in.
+   **/
+  @JsonProperty("resourcePool")
+  public String getResourcePool() {
+    return resourcePool;
+  }
+
+  /**
+   * Setter for resourcePool.
+   * The name of the Resource Pool the Cloudera Data Visualization is in.
+   **/
+  public void setResourcePool(String resourcePool) {
+    this.resourcePool = resourcePool;
+  }
+
+  /**
    * Getter for userGroups.
    * User groups that are allowed to access the Data Visualization.
    **/
@@ -234,6 +256,9 @@ public class DataVisualizationSummary  {
     if (!Objects.equals(this.size, dataVisualizationSummary.size)) {
       return false;
     }
+    if (!Objects.equals(this.resourcePool, dataVisualizationSummary.resourcePool)) {
+      return false;
+    }
     if (!Objects.equals(this.userGroups, dataVisualizationSummary.userGroups)) {
       return false;
     }
@@ -245,7 +270,7 @@ public class DataVisualizationSummary  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, status, imageVersion, creatorCrn, size, userGroups, adminGroups);
+    return Objects.hash(id, name, status, imageVersion, creatorCrn, size, resourcePool, userGroups, adminGroups);
   }
 
   @Override
@@ -258,6 +283,7 @@ public class DataVisualizationSummary  {
     sb.append("    imageVersion: ").append(toIndentedString(imageVersion)).append("\n");
     sb.append("    creatorCrn: ").append(toIndentedString(creatorCrn)).append("\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    resourcePool: ").append(toIndentedString(resourcePool)).append("\n");
     sb.append("    userGroups: ").append(toIndentedString(userGroups)).append("\n");
     sb.append("    adminGroups: ").append(toIndentedString(adminGroups)).append("\n");
     sb.append("}");

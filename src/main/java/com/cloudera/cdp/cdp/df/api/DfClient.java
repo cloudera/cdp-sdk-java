@@ -30,10 +30,16 @@ import com.cloudera.cdp.client.ResourceResponse;
 import com.cloudera.cdp.client.RestResponse;
 import com.cloudera.cdp.df.model.AddReadyflowRequest;
 import com.cloudera.cdp.df.model.AddReadyflowResponse;
+import com.cloudera.cdp.df.model.CancelDeleteProjectRequest;
+import com.cloudera.cdp.df.model.CancelDeleteProjectResponse;
+import com.cloudera.cdp.df.model.CreateProjectRequest;
+import com.cloudera.cdp.df.model.CreateProjectResponse;
 import com.cloudera.cdp.df.model.DeleteAddedReadyflowRequest;
 import com.cloudera.cdp.df.model.DeleteAddedReadyflowResponse;
 import com.cloudera.cdp.df.model.DeleteFlowRequest;
 import com.cloudera.cdp.df.model.DeleteFlowResponse;
+import com.cloudera.cdp.df.model.DeleteProjectRequest;
+import com.cloudera.cdp.df.model.DeleteProjectResponse;
 import com.cloudera.cdp.df.model.DescribeAddedReadyflowRequest;
 import com.cloudera.cdp.df.model.DescribeAddedReadyflowResponse;
 import com.cloudera.cdp.df.model.DescribeDeploymentEventDetailRequest;
@@ -42,6 +48,8 @@ import com.cloudera.cdp.df.model.DescribeDeploymentRequest;
 import com.cloudera.cdp.df.model.DescribeDeploymentResponse;
 import com.cloudera.cdp.df.model.DescribeFlowRequest;
 import com.cloudera.cdp.df.model.DescribeFlowResponse;
+import com.cloudera.cdp.df.model.DescribeProjectRequest;
+import com.cloudera.cdp.df.model.DescribeProjectResponse;
 import com.cloudera.cdp.df.model.DescribeReadyflowRequest;
 import com.cloudera.cdp.df.model.DescribeReadyflowResponse;
 import com.cloudera.cdp.df.model.DescribeServiceEventDetailRequest;
@@ -86,6 +94,10 @@ import com.cloudera.cdp.df.model.ListFlowDefinitionsRequest;
 import com.cloudera.cdp.df.model.ListFlowDefinitionsResponse;
 import com.cloudera.cdp.df.model.ListNotificationsRequest;
 import com.cloudera.cdp.df.model.ListNotificationsResponse;
+import com.cloudera.cdp.df.model.ListProjectFilterOptionsRequest;
+import com.cloudera.cdp.df.model.ListProjectFilterOptionsResponse;
+import com.cloudera.cdp.df.model.ListProjectsRequest;
+import com.cloudera.cdp.df.model.ListProjectsResponse;
 import com.cloudera.cdp.df.model.ListReadyflowsRequest;
 import com.cloudera.cdp.df.model.ListReadyflowsResponse;
 import com.cloudera.cdp.df.model.ListServiceActiveAlertsRequest;
@@ -106,6 +118,8 @@ import com.cloudera.cdp.df.model.RevokeUserKubernetesAccessRequest;
 import com.cloudera.cdp.df.model.RevokeUserKubernetesAccessResponse;
 import com.cloudera.cdp.df.model.StartGetDiagnosticsCollectionRequest;
 import com.cloudera.cdp.df.model.StartGetDiagnosticsCollectionResponse;
+import com.cloudera.cdp.df.model.UpdateProjectRequest;
+import com.cloudera.cdp.df.model.UpdateProjectResponse;
 import com.cloudera.cdp.df.model.UpdateServiceRequest;
 import com.cloudera.cdp.df.model.UpdateServiceResponse;
 import com.cloudera.cdp.df.model.UpgradeServiceRequest;
@@ -116,7 +130,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:14.379-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:30.599-08:00")
 public class DfClient extends CdpClient {
 
   public static final String SERVICE_NAME = "df";
@@ -161,6 +175,32 @@ public class DfClient extends CdpClient {
   }
 
   /**
+   * Cancels deletion of a Project.
+   * @param input
+   * @return CancelDeleteProjectResponse
+   */
+  public CancelDeleteProjectResponse cancelDeleteProject(CancelDeleteProjectRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling cancelDeleteProject");
+    }
+
+    return this.invokeAPI("cancelDeleteProject", "/api/v1/df/cancelDeleteProject", input, new GenericType<CancelDeleteProjectResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Creates a Project.
+   * @param input
+   * @return CreateProjectResponse
+   */
+  public CreateProjectResponse createProject(CreateProjectRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createProject");
+    }
+
+    return this.invokeAPI("createProject", "/api/v1/df/createProject", input, new GenericType<CreateProjectResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Delete added ready flow.
    * @param input
    * @return DeleteAddedReadyflowResponse
@@ -184,6 +224,19 @@ public class DfClient extends CdpClient {
     }
 
     return this.invokeAPI("deleteFlow", "/api/v1/df/deleteFlow", input, new GenericType<DeleteFlowResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Deletes a Project.
+   * @param input
+   * @return DeleteProjectResponse
+   */
+  public DeleteProjectResponse deleteProject(DeleteProjectRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteProject");
+    }
+
+    return this.invokeAPI("deleteProject", "/api/v1/df/deleteProject", input, new GenericType<DeleteProjectResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -236,6 +289,19 @@ public class DfClient extends CdpClient {
     }
 
     return this.invokeAPI("describeFlow", "/api/v1/df/describeFlow", input, new GenericType<DescribeFlowResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Describes a Project.
+   * @param input
+   * @return DescribeProjectResponse
+   */
+  public DescribeProjectResponse describeProject(DescribeProjectRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeProject");
+    }
+
+    return this.invokeAPI("describeProject", "/api/v1/df/describeProject", input, new GenericType<DescribeProjectResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -512,6 +578,32 @@ public class DfClient extends CdpClient {
   }
 
   /**
+   * List filter options.
+   * @param input
+   * @return ListProjectFilterOptionsResponse
+   */
+  public ListProjectFilterOptionsResponse listProjectFilterOptions(ListProjectFilterOptionsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listProjectFilterOptions");
+    }
+
+    return this.invokeAPI("listProjectFilterOptions", "/api/v1/df/listProjectFilterOptions", input, new GenericType<ListProjectFilterOptionsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * List Projects.
+   * @param input
+   * @return ListProjectsResponse
+   */
+  public ListProjectsResponse listProjects(ListProjectsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listProjects");
+    }
+
+    return this.invokeAPI("listProjects", "/api/v1/df/listProjects", input, new GenericType<ListProjectsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * List ready flows.
    * @param input
    * @return ListReadyflowsResponse
@@ -639,6 +731,19 @@ public class DfClient extends CdpClient {
     }
 
     return this.invokeAPI("startGetDiagnosticsCollection", "/api/v1/df/startGetDiagnosticsCollection", input, new GenericType<StartGetDiagnosticsCollectionResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Updates a Project.
+   * @param input
+   * @return UpdateProjectResponse
+   */
+  public UpdateProjectResponse updateProject(UpdateProjectRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateProject");
+    }
+
+    return this.invokeAPI("updateProject", "/api/v1/df/updateProject", input, new GenericType<UpdateProjectResponse>(){}, NO_EXTENSION);
   }
 
   /**

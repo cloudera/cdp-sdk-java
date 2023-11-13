@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object for deleting a custom NAR configuration.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:14.632-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:30.880-08:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class DeleteCustomNarConfigurationResponse extends CdpResponse {
 
@@ -50,6 +50,11 @@ public class DeleteCustomNarConfigurationResponse extends CdpResponse {
    * The version of the configuration
    **/
   private Integer configurationVersion = null;
+
+  /**
+   * The CRN of the project.
+   **/
+  private String projectCrn = null;
 
   /**
    * The CRN of the custom NAR configuration to update.
@@ -125,6 +130,23 @@ public class DeleteCustomNarConfigurationResponse extends CdpResponse {
   }
 
   /**
+   * Getter for projectCrn.
+   * The CRN of the project.
+   **/
+  @JsonProperty("projectCrn")
+  public String getProjectCrn() {
+    return projectCrn;
+  }
+
+  /**
+   * Setter for projectCrn.
+   * The CRN of the project.
+   **/
+  public void setProjectCrn(String projectCrn) {
+    this.projectCrn = projectCrn;
+  }
+
+  /**
    * Getter for crn.
    * The CRN of the custom NAR configuration to update.
    **/
@@ -162,6 +184,9 @@ public class DeleteCustomNarConfigurationResponse extends CdpResponse {
     if (!Objects.equals(this.configurationVersion, deleteCustomNarConfigurationResponse.configurationVersion)) {
       return false;
     }
+    if (!Objects.equals(this.projectCrn, deleteCustomNarConfigurationResponse.projectCrn)) {
+      return false;
+    }
     if (!Objects.equals(this.crn, deleteCustomNarConfigurationResponse.crn)) {
       return false;
     }
@@ -173,7 +198,7 @@ public class DeleteCustomNarConfigurationResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(username, password, storageLocation, configurationVersion, crn, super.hashCode());
+    return Objects.hash(username, password, storageLocation, configurationVersion, projectCrn, crn, super.hashCode());
   }
 
   @Override
@@ -185,6 +210,7 @@ public class DeleteCustomNarConfigurationResponse extends CdpResponse {
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    storageLocation: ").append(toIndentedString(storageLocation)).append("\n");
     sb.append("    configurationVersion: ").append(toIndentedString(configurationVersion)).append("\n");
+    sb.append("    projectCrn: ").append(toIndentedString(projectCrn)).append("\n");
     sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * A Cloudera Data Warehouse cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:11.904-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:28.100-08:00")
 public class ClusterSummaryResponse extends CdpResponse {
 
   /**
@@ -130,6 +130,11 @@ public class ClusterSummaryResponse extends CdpResponse {
    * List of IP address CIDRs to whitelist for workload access.
    **/
   private String whitelistWorkloadAccessIpCIDRs = null;
+
+  /**
+   * The name of the Resource Pool the cluster is in.
+   **/
+  private String resourcePool = null;
 
   /**
    * External buckets attached to the environment.
@@ -460,6 +465,23 @@ public class ClusterSummaryResponse extends CdpResponse {
   }
 
   /**
+   * Getter for resourcePool.
+   * The name of the Resource Pool the cluster is in.
+   **/
+  @JsonProperty("resourcePool")
+  public String getResourcePool() {
+    return resourcePool;
+  }
+
+  /**
+   * Setter for resourcePool.
+   * The name of the Resource Pool the cluster is in.
+   **/
+  public void setResourcePool(String resourcePool) {
+    this.resourcePool = resourcePool;
+  }
+
+  /**
    * Getter for externalBuckets.
    * External buckets attached to the environment.
    **/
@@ -542,6 +564,9 @@ public class ClusterSummaryResponse extends CdpResponse {
     if (!Objects.equals(this.whitelistWorkloadAccessIpCIDRs, clusterSummaryResponse.whitelistWorkloadAccessIpCIDRs)) {
       return false;
     }
+    if (!Objects.equals(this.resourcePool, clusterSummaryResponse.resourcePool)) {
+      return false;
+    }
     if (!Objects.equals(this.externalBuckets, clusterSummaryResponse.externalBuckets)) {
       return false;
     }
@@ -553,7 +578,7 @@ public class ClusterSummaryResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, environmentCrn, name, status, creator, creationDate, cloudPlatform, enableStorageRoles, enableSpotInstances, reservedComputeNodes, reservedSharedServicesNodes, computeInstanceTypes, additionalInstanceTypes, awsOptions, azureOptions, description, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, externalBuckets, super.hashCode());
+    return Objects.hash(crn, id, environmentCrn, name, status, creator, creationDate, cloudPlatform, enableStorageRoles, enableSpotInstances, reservedComputeNodes, reservedSharedServicesNodes, computeInstanceTypes, additionalInstanceTypes, awsOptions, azureOptions, description, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, resourcePool, externalBuckets, super.hashCode());
   }
 
   @Override
@@ -580,6 +605,7 @@ public class ClusterSummaryResponse extends CdpResponse {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    whitelistK8sClusterAccessIpCIDRs: ").append(toIndentedString(whitelistK8sClusterAccessIpCIDRs)).append("\n");
     sb.append("    whitelistWorkloadAccessIpCIDRs: ").append(toIndentedString(whitelistWorkloadAccessIpCIDRs)).append("\n");
+    sb.append("    resourcePool: ").append(toIndentedString(resourcePool)).append("\n");
     sb.append("    externalBuckets: ").append(toIndentedString(externalBuckets)).append("\n");
     sb.append("}");
     return sb.toString();

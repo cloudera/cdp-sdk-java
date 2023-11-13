@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * Request object for the createVw method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:11.904-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:28.100-08:00")
 public class CreateVwRequest  {
 
   /**
@@ -113,7 +113,12 @@ public class CreateVwRequest  {
   private List<TagRequest> tags = new ArrayList<TagRequest>();
 
   /**
-   * Sets the authentication mode to use by Hive Server: * `LDAP` * `KERBEROS` Default: `LDAP` if not specified
+   * The Resource Pool of the Virtual Warehouse.
+   **/
+  private String resourcePool = null;
+
+  /**
+   * DEPRECATED - Sets the authentication mode to use by Hive Server: * `LDAP` * `KERBEROS` Default: `LDAP` if not specified
    **/
   private String hiveAuthenticationMode = null;
 
@@ -378,9 +383,27 @@ public class CreateVwRequest  {
   }
 
   /**
-   * Getter for hiveAuthenticationMode.
-   * Sets the authentication mode to use by Hive Server: * &#x60;LDAP&#x60; * &#x60;KERBEROS&#x60; Default: &#x60;LDAP&#x60; if not specified
+   * Getter for resourcePool.
+   * The Resource Pool of the Virtual Warehouse.
    **/
+  @JsonProperty("resourcePool")
+  public String getResourcePool() {
+    return resourcePool;
+  }
+
+  /**
+   * Setter for resourcePool.
+   * The Resource Pool of the Virtual Warehouse.
+   **/
+  public void setResourcePool(String resourcePool) {
+    this.resourcePool = resourcePool;
+  }
+
+  /**
+   * Getter for hiveAuthenticationMode.
+   * DEPRECATED - Sets the authentication mode to use by Hive Server: * &#x60;LDAP&#x60; * &#x60;KERBEROS&#x60; Default: &#x60;LDAP&#x60; if not specified
+   **/
+  @Deprecated
   @JsonProperty("hiveAuthenticationMode")
   public String getHiveAuthenticationMode() {
     return hiveAuthenticationMode;
@@ -388,8 +411,9 @@ public class CreateVwRequest  {
 
   /**
    * Setter for hiveAuthenticationMode.
-   * Sets the authentication mode to use by Hive Server: * &#x60;LDAP&#x60; * &#x60;KERBEROS&#x60; Default: &#x60;LDAP&#x60; if not specified
+   * DEPRECATED - Sets the authentication mode to use by Hive Server: * &#x60;LDAP&#x60; * &#x60;KERBEROS&#x60; Default: &#x60;LDAP&#x60; if not specified
    **/
+  @Deprecated
   public void setHiveAuthenticationMode(String hiveAuthenticationMode) {
     this.hiveAuthenticationMode = hiveAuthenticationMode;
   }
@@ -465,6 +489,9 @@ public class CreateVwRequest  {
     if (!Objects.equals(this.tags, createVwRequest.tags)) {
       return false;
     }
+    if (!Objects.equals(this.resourcePool, createVwRequest.resourcePool)) {
+      return false;
+    }
     if (!Objects.equals(this.hiveAuthenticationMode, createVwRequest.hiveAuthenticationMode)) {
       return false;
     }
@@ -476,7 +503,7 @@ public class CreateVwRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, dbcId, vwType, name, imageVersion, template, nodeCount, availabilityZone, enableUnifiedAnalytics, impalaOptions, impalaHaSettings, autoscaling, config, queryIsolationOptions, tags, hiveAuthenticationMode, platformJwtAuth);
+    return Objects.hash(clusterId, dbcId, vwType, name, imageVersion, template, nodeCount, availabilityZone, enableUnifiedAnalytics, impalaOptions, impalaHaSettings, autoscaling, config, queryIsolationOptions, tags, resourcePool, hiveAuthenticationMode, platformJwtAuth);
   }
 
   @Override
@@ -498,6 +525,7 @@ public class CreateVwRequest  {
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    queryIsolationOptions: ").append(toIndentedString(queryIsolationOptions)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    resourcePool: ").append(toIndentedString(resourcePool)).append("\n");
     sb.append("    hiveAuthenticationMode: ").append(toIndentedString(hiveAuthenticationMode)).append("\n");
     sb.append("    platformJwtAuth: ").append(toIndentedString(platformJwtAuth)).append("\n");
     sb.append("}");

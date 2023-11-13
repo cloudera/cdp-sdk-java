@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.environments.model.Authentication;
 import com.cloudera.cdp.environments.model.BackupStorage;
+import com.cloudera.cdp.environments.model.DataServices;
 import com.cloudera.cdp.environments.model.EnvironmentAwsDetails;
 import com.cloudera.cdp.environments.model.EnvironmentGcpDetails;
 import com.cloudera.cdp.environments.model.EnvironmentTags;
@@ -38,7 +39,7 @@ import java.time.ZonedDateTime;
 /**
  * The environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:13.279-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:29.415-08:00")
 public class Environment  {
 
   /**
@@ -150,6 +151,11 @@ public class Environment  {
    * Environment tags object containing the tag values defined for the environment.
    **/
   private EnvironmentTags tags = null;
+
+  /**
+   * Data Services parameters of the environment.
+   **/
+  private DataServices dataServices = null;
 
   /**
    * Getter for environmentName.
@@ -525,6 +531,23 @@ public class Environment  {
     this.tags = tags;
   }
 
+  /**
+   * Getter for dataServices.
+   * Data Services parameters of the environment.
+   **/
+  @JsonProperty("dataServices")
+  public DataServices getDataServices() {
+    return dataServices;
+  }
+
+  /**
+   * Setter for dataServices.
+   * Data Services parameters of the environment.
+   **/
+  public void setDataServices(DataServices dataServices) {
+    this.dataServices = dataServices;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -600,12 +623,15 @@ public class Environment  {
     if (!Objects.equals(this.tags, environment.tags)) {
       return false;
     }
+    if (!Objects.equals(this.dataServices, environment.dataServices)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, network, logStorage, backupStorage, authentication, securityAccess, description, statusReason, created, creator, awsDetails, gcpDetails, workloadAnalytics, reportDeploymentLogs, freeipa, proxyConfig, tags);
+    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, network, logStorage, backupStorage, authentication, securityAccess, description, statusReason, created, creator, awsDetails, gcpDetails, workloadAnalytics, reportDeploymentLogs, freeipa, proxyConfig, tags, dataServices);
   }
 
   @Override
@@ -634,6 +660,7 @@ public class Environment  {
     sb.append("    freeipa: ").append(toIndentedString(freeipa)).append("\n");
     sb.append("    proxyConfig: ").append(toIndentedString(proxyConfig)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    dataServices: ").append(toIndentedString(dataServices)).append("\n");
     sb.append("}");
     return sb.toString();
   }

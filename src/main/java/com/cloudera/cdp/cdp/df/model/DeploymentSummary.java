@@ -24,12 +24,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.df.model.DeploymentStatus;
+import com.cloudera.cdp.df.model.ProjectMeta;
 import com.cloudera.cdp.df.model.ServiceMeta;
 
 /**
  * A deployment summary
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:14.379-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:30.599-08:00")
 public class DeploymentSummary  {
 
   /**
@@ -71,6 +72,11 @@ public class DeploymentSummary  {
    * Current count of active alerts classified as an error
    **/
   private Long activeErrorAlertCount = null;
+
+  /**
+   * The project information of the deployment.
+   **/
+  private ProjectMeta project = null;
 
   /**
    * Getter for crn.
@@ -208,6 +214,23 @@ public class DeploymentSummary  {
     this.activeErrorAlertCount = activeErrorAlertCount;
   }
 
+  /**
+   * Getter for project.
+   * The project information of the deployment.
+   **/
+  @JsonProperty("project")
+  public ProjectMeta getProject() {
+    return project;
+  }
+
+  /**
+   * Setter for project.
+   * The project information of the deployment.
+   **/
+  public void setProject(ProjectMeta project) {
+    this.project = project;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -241,12 +264,15 @@ public class DeploymentSummary  {
     if (!Objects.equals(this.activeErrorAlertCount, deploymentSummary.activeErrorAlertCount)) {
       return false;
     }
+    if (!Objects.equals(this.project, deploymentSummary.project)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, name, status, service, updated, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount);
+    return Objects.hash(crn, name, status, service, updated, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, project);
   }
 
   @Override
@@ -261,6 +287,7 @@ public class DeploymentSummary  {
     sb.append("    activeInfoAlertCount: ").append(toIndentedString(activeInfoAlertCount)).append("\n");
     sb.append("    activeWarningAlertCount: ").append(toIndentedString(activeWarningAlertCount)).append("\n");
     sb.append("    activeErrorAlertCount: ").append(toIndentedString(activeErrorAlertCount)).append("\n");
+    sb.append("    project: ").append(toIndentedString(project)).append("\n");
     sb.append("}");
     return sb.toString();
   }

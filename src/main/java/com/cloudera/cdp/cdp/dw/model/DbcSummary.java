@@ -29,7 +29,7 @@ import java.time.ZonedDateTime;
 /**
  * A Database Catalog.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:11.904-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:28.100-08:00")
 public class DbcSummary  {
 
   /**
@@ -66,6 +66,11 @@ public class DbcSummary  {
    * Creation date of Database Catalog.
    **/
   private ZonedDateTime creationDate = null;
+
+  /**
+   * The name of the Resource Pool the Database Catalog is in.
+   **/
+  private String resourcePool = null;
 
   /**
    * Getter for crn.
@@ -186,6 +191,23 @@ public class DbcSummary  {
     this.creationDate = creationDate;
   }
 
+  /**
+   * Getter for resourcePool.
+   * The name of the Resource Pool the Database Catalog is in.
+   **/
+  @JsonProperty("resourcePool")
+  public String getResourcePool() {
+    return resourcePool;
+  }
+
+  /**
+   * Setter for resourcePool.
+   * The name of the Resource Pool the Database Catalog is in.
+   **/
+  public void setResourcePool(String resourcePool) {
+    this.resourcePool = resourcePool;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -216,12 +238,15 @@ public class DbcSummary  {
     if (!Objects.equals(this.creationDate, dbcSummary.creationDate)) {
       return false;
     }
+    if (!Objects.equals(this.resourcePool, dbcSummary.resourcePool)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, name, status, statusChangedAt, creator, creationDate);
+    return Objects.hash(crn, id, name, status, statusChangedAt, creator, creationDate, resourcePool);
   }
 
   @Override
@@ -235,6 +260,7 @@ public class DbcSummary  {
     sb.append("    statusChangedAt: ").append(toIndentedString(statusChangedAt)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
+    sb.append("    resourcePool: ").append(toIndentedString(resourcePool)).append("\n");
     sb.append("}");
     return sb.toString();
   }

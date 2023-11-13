@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object to create a deployment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:14.632-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:30.880-08:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class CreateDeploymentRequest  {
 
@@ -124,6 +124,11 @@ public class CreateDeploymentRequest  {
    * The CRN of the custom NAR configuration.
    **/
   private String customNarConfigurationCrn = null;
+
+  /**
+   * The CRN of the project.
+   **/
+  private String projectCrn = null;
 
   /**
    * Getter for environmentCrn.
@@ -431,6 +436,23 @@ public class CreateDeploymentRequest  {
     this.customNarConfigurationCrn = customNarConfigurationCrn;
   }
 
+  /**
+   * Getter for projectCrn.
+   * The CRN of the project.
+   **/
+  @JsonProperty("projectCrn")
+  public String getProjectCrn() {
+    return projectCrn;
+  }
+
+  /**
+   * Setter for projectCrn.
+   * The CRN of the project.
+   **/
+  public void setProjectCrn(String projectCrn) {
+    this.projectCrn = projectCrn;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -494,12 +516,15 @@ public class CreateDeploymentRequest  {
     if (!Objects.equals(this.customNarConfigurationCrn, createDeploymentRequest.customNarConfigurationCrn)) {
       return false;
     }
+    if (!Objects.equals(this.projectCrn, createDeploymentRequest.projectCrn)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, configurationVersion, name, clusterSizeName, deploymentRequestCrn, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, cfmNifiVersion, autoStartFlow, inboundHostname, listenComponents, nodeStorageProfileName, customNarConfigurationCrn);
+    return Objects.hash(environmentCrn, configurationVersion, name, clusterSizeName, deploymentRequestCrn, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, cfmNifiVersion, autoStartFlow, inboundHostname, listenComponents, nodeStorageProfileName, customNarConfigurationCrn, projectCrn);
   }
 
   @Override
@@ -524,6 +549,7 @@ public class CreateDeploymentRequest  {
     sb.append("    listenComponents: ").append(toIndentedString(listenComponents)).append("\n");
     sb.append("    nodeStorageProfileName: ").append(toIndentedString(nodeStorageProfileName)).append("\n");
     sb.append("    customNarConfigurationCrn: ").append(toIndentedString(customNarConfigurationCrn)).append("\n");
+    sb.append("    projectCrn: ").append(toIndentedString(projectCrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

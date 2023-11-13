@@ -26,6 +26,7 @@ import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.environments.model.AzureFreeIpaCreationRequest;
 import com.cloudera.cdp.environments.model.AzureLogStorageRequest;
 import com.cloudera.cdp.environments.model.CreateAzureEnvironmentRequestNewNetworkParams;
+import com.cloudera.cdp.environments.model.DataServicesRequest;
 import com.cloudera.cdp.environments.model.ExistingAzureNetworkRequest;
 import com.cloudera.cdp.environments.model.FreeIpaImageRequest;
 import com.cloudera.cdp.environments.model.SecurityAccessRequest;
@@ -35,7 +36,7 @@ import java.util.*;
 /**
  * Request object for a create Azure environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:13.279-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:29.415-08:00")
 public class CreateAzureEnvironmentRequest  {
 
   /**
@@ -157,6 +158,11 @@ public class CreateAzureEnvironmentRequest  {
    * Whether or not outbound load balancers should be created for Azure environments. The default behavior is to not create the outbound load balancer.
    **/
   private Boolean enableOutboundLoadBalancer = null;
+
+  /**
+   * Data Services parameters of the environment.
+   **/
+  private DataServicesRequest dataServices = null;
 
   /**
    * Getter for environmentName.
@@ -566,6 +572,23 @@ public class CreateAzureEnvironmentRequest  {
     this.enableOutboundLoadBalancer = enableOutboundLoadBalancer;
   }
 
+  /**
+   * Getter for dataServices.
+   * Data Services parameters of the environment.
+   **/
+  @JsonProperty("dataServices")
+  public DataServicesRequest getDataServices() {
+    return dataServices;
+  }
+
+  /**
+   * Setter for dataServices.
+   * Data Services parameters of the environment.
+   **/
+  public void setDataServices(DataServicesRequest dataServices) {
+    this.dataServices = dataServices;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -647,12 +670,15 @@ public class CreateAzureEnvironmentRequest  {
     if (!Objects.equals(this.enableOutboundLoadBalancer, createAzureEnvironmentRequest.enableOutboundLoadBalancer)) {
       return false;
     }
+    if (!Objects.equals(this.dataServices, createAzureEnvironmentRequest.dataServices)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, encryptionKeyUrl, encryptionKeyResourceGroupName, enableOutboundLoadBalancer);
+    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, encryptionKeyUrl, encryptionKeyResourceGroupName, enableOutboundLoadBalancer, dataServices);
   }
 
   @Override
@@ -683,6 +709,7 @@ public class CreateAzureEnvironmentRequest  {
     sb.append("    encryptionKeyUrl: ").append(toIndentedString(encryptionKeyUrl)).append("\n");
     sb.append("    encryptionKeyResourceGroupName: ").append(toIndentedString(encryptionKeyResourceGroupName)).append("\n");
     sb.append("    enableOutboundLoadBalancer: ").append(toIndentedString(enableOutboundLoadBalancer)).append("\n");
+    sb.append("    dataServices: ").append(toIndentedString(dataServices)).append("\n");
     sb.append("}");
     return sb.toString();
   }

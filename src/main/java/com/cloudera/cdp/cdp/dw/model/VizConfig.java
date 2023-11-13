@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Configurations for a Cloudera Data Visualization
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:11.904-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:28.100-08:00")
 public class VizConfig  {
 
   /**
@@ -40,6 +40,11 @@ public class VizConfig  {
    * Admin groups to allow configuration access to Data Visualization for selected users
    **/
   private List<String> adminGroups = new ArrayList<String>();
+
+  /**
+   * The Resource Pool of the Cloudera Data Visualization.
+   **/
+  private String resourcePool = null;
 
   /**
    * Getter for userGroups.
@@ -75,6 +80,23 @@ public class VizConfig  {
     this.adminGroups = adminGroups;
   }
 
+  /**
+   * Getter for resourcePool.
+   * The Resource Pool of the Cloudera Data Visualization.
+   **/
+  @JsonProperty("resourcePool")
+  public String getResourcePool() {
+    return resourcePool;
+  }
+
+  /**
+   * Setter for resourcePool.
+   * The Resource Pool of the Cloudera Data Visualization.
+   **/
+  public void setResourcePool(String resourcePool) {
+    this.resourcePool = resourcePool;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -90,12 +112,15 @@ public class VizConfig  {
     if (!Objects.equals(this.adminGroups, vizConfig.adminGroups)) {
       return false;
     }
+    if (!Objects.equals(this.resourcePool, vizConfig.resourcePool)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userGroups, adminGroups);
+    return Objects.hash(userGroups, adminGroups, resourcePool);
   }
 
   @Override
@@ -104,6 +129,7 @@ public class VizConfig  {
     sb.append("class VizConfig {\n");
     sb.append("    userGroups: ").append(toIndentedString(userGroups)).append("\n");
     sb.append("    adminGroups: ").append(toIndentedString(adminGroups)).append("\n");
+    sb.append("    resourcePool: ").append(toIndentedString(resourcePool)).append("\n");
     sb.append("}");
     return sb.toString();
   }

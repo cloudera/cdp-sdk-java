@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object that contains FQDN for the Inbound Connection Endpoint to create
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:14.632-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:30.880-08:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class CreateInboundConnectionEndpointRequest  {
 
@@ -40,6 +40,11 @@ public class CreateInboundConnectionEndpointRequest  {
    * Fully qualified domain name
    **/
   private String hostname = null;
+
+  /**
+   * The project CRN to associate this endpoint with, or null to not associate with a project
+   **/
+  private String projectCrn = null;
 
   /**
    * Getter for environmentCrn.
@@ -75,6 +80,23 @@ public class CreateInboundConnectionEndpointRequest  {
     this.hostname = hostname;
   }
 
+  /**
+   * Getter for projectCrn.
+   * The project CRN to associate this endpoint with, or null to not associate with a project
+   **/
+  @JsonProperty("projectCrn")
+  public String getProjectCrn() {
+    return projectCrn;
+  }
+
+  /**
+   * Setter for projectCrn.
+   * The project CRN to associate this endpoint with, or null to not associate with a project
+   **/
+  public void setProjectCrn(String projectCrn) {
+    this.projectCrn = projectCrn;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -90,12 +112,15 @@ public class CreateInboundConnectionEndpointRequest  {
     if (!Objects.equals(this.hostname, createInboundConnectionEndpointRequest.hostname)) {
       return false;
     }
+    if (!Objects.equals(this.projectCrn, createInboundConnectionEndpointRequest.projectCrn)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, hostname);
+    return Objects.hash(environmentCrn, hostname, projectCrn);
   }
 
   @Override
@@ -104,6 +129,7 @@ public class CreateInboundConnectionEndpointRequest  {
     sb.append("class CreateInboundConnectionEndpointRequest {\n");
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
+    sb.append("    projectCrn: ").append(toIndentedString(projectCrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

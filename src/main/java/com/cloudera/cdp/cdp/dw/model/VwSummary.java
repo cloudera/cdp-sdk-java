@@ -39,7 +39,7 @@ import java.util.*;
 /**
  * A Virtual Warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:11.904-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:28.100-08:00")
 public class VwSummary  {
 
   /**
@@ -178,7 +178,12 @@ public class VwSummary  {
   private ReplicaStatus replicaStatus = null;
 
   /**
-   * Authentication mode used by Hive Server: * `LDAP` * `KERBEROS`
+   * The name of the Resource Pool the Virtual Warehouse is in.
+   **/
+  private String resourcePool = null;
+
+  /**
+   * DEPRECATED - Authentication mode used by Hive Server: * `LDAP` * `KERBEROS`
    **/
   private String hiveAuthenticationMode = null;
 
@@ -642,9 +647,27 @@ public class VwSummary  {
   }
 
   /**
-   * Getter for hiveAuthenticationMode.
-   * Authentication mode used by Hive Server: * &#x60;LDAP&#x60; * &#x60;KERBEROS&#x60;
+   * Getter for resourcePool.
+   * The name of the Resource Pool the Virtual Warehouse is in.
    **/
+  @JsonProperty("resourcePool")
+  public String getResourcePool() {
+    return resourcePool;
+  }
+
+  /**
+   * Setter for resourcePool.
+   * The name of the Resource Pool the Virtual Warehouse is in.
+   **/
+  public void setResourcePool(String resourcePool) {
+    this.resourcePool = resourcePool;
+  }
+
+  /**
+   * Getter for hiveAuthenticationMode.
+   * DEPRECATED - Authentication mode used by Hive Server: * &#x60;LDAP&#x60; * &#x60;KERBEROS&#x60;
+   **/
+  @Deprecated
   @JsonProperty("hiveAuthenticationMode")
   public String getHiveAuthenticationMode() {
     return hiveAuthenticationMode;
@@ -652,8 +675,9 @@ public class VwSummary  {
 
   /**
    * Setter for hiveAuthenticationMode.
-   * Authentication mode used by Hive Server: * &#x60;LDAP&#x60; * &#x60;KERBEROS&#x60;
+   * DEPRECATED - Authentication mode used by Hive Server: * &#x60;LDAP&#x60; * &#x60;KERBEROS&#x60;
    **/
+  @Deprecated
   public void setHiveAuthenticationMode(String hiveAuthenticationMode) {
     this.hiveAuthenticationMode = hiveAuthenticationMode;
   }
@@ -748,6 +772,9 @@ public class VwSummary  {
     if (!Objects.equals(this.replicaStatus, vwSummary.replicaStatus)) {
       return false;
     }
+    if (!Objects.equals(this.resourcePool, vwSummary.resourcePool)) {
+      return false;
+    }
     if (!Objects.equals(this.hiveAuthenticationMode, vwSummary.hiveAuthenticationMode)) {
       return false;
     }
@@ -756,7 +783,7 @@ public class VwSummary  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, name, vwType, dbcId, status, statusChangedAt, creator, creationDate, configId, cdhVersion, numOfCores, memoryCapacity, nodeCount, availabilityZone, endpoints, supportedAuthMethods, jwtAuth, tags, compactor, viz, enableUnifiedAnalytics, autoscalingOptions, impalaOptions, impalaHaSettingsOptions, queryIsolationOptions, replicaStatus, hiveAuthenticationMode);
+    return Objects.hash(crn, id, name, vwType, dbcId, status, statusChangedAt, creator, creationDate, configId, cdhVersion, numOfCores, memoryCapacity, nodeCount, availabilityZone, endpoints, supportedAuthMethods, jwtAuth, tags, compactor, viz, enableUnifiedAnalytics, autoscalingOptions, impalaOptions, impalaHaSettingsOptions, queryIsolationOptions, replicaStatus, resourcePool, hiveAuthenticationMode);
   }
 
   @Override
@@ -790,6 +817,7 @@ public class VwSummary  {
     sb.append("    impalaHaSettingsOptions: ").append(toIndentedString(impalaHaSettingsOptions)).append("\n");
     sb.append("    queryIsolationOptions: ").append(toIndentedString(queryIsolationOptions)).append("\n");
     sb.append("    replicaStatus: ").append(toIndentedString(replicaStatus)).append("\n");
+    sb.append("    resourcePool: ").append(toIndentedString(resourcePool)).append("\n");
     sb.append("    hiveAuthenticationMode: ").append(toIndentedString(hiveAuthenticationMode)).append("\n");
     sb.append("}");
     return sb.toString();

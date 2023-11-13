@@ -23,11 +23,12 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.opdb.model.AutoScalingParameters;
 
 /**
  * A request to create the database
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:13.707-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:29.844-08:00")
 public class CreateDatabaseRequest  {
 
   /**
@@ -39,6 +40,11 @@ public class CreateDatabaseRequest  {
    * database name
    **/
   private String databaseName = null;
+
+  /**
+   * Parameters to configure the AutoScaling
+   **/
+  private AutoScalingParameters autoScalingParameters = null;
 
   /**
    * Optional tags to choose one of the predefined cluster sizes.
@@ -82,6 +88,23 @@ public class CreateDatabaseRequest  {
    **/
   public void setDatabaseName(String databaseName) {
     this.databaseName = databaseName;
+  }
+
+  /**
+   * Getter for autoScalingParameters.
+   * Parameters to configure the AutoScaling
+   **/
+  @JsonProperty("autoScalingParameters")
+  public AutoScalingParameters getAutoScalingParameters() {
+    return autoScalingParameters;
+  }
+
+  /**
+   * Setter for autoScalingParameters.
+   * Parameters to configure the AutoScaling
+   **/
+  public void setAutoScalingParameters(AutoScalingParameters autoScalingParameters) {
+    this.autoScalingParameters = autoScalingParameters;
   }
 
   /**
@@ -133,6 +156,9 @@ public class CreateDatabaseRequest  {
     if (!Objects.equals(this.databaseName, createDatabaseRequest.databaseName)) {
       return false;
     }
+    if (!Objects.equals(this.autoScalingParameters, createDatabaseRequest.autoScalingParameters)) {
+      return false;
+    }
     if (!Objects.equals(this.scaleType, createDatabaseRequest.scaleType)) {
       return false;
     }
@@ -144,7 +170,7 @@ public class CreateDatabaseRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, databaseName, scaleType, storageType);
+    return Objects.hash(environmentName, databaseName, autoScalingParameters, scaleType, storageType);
   }
 
   @Override
@@ -153,6 +179,7 @@ public class CreateDatabaseRequest  {
     sb.append("class CreateDatabaseRequest {\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    databaseName: ").append(toIndentedString(databaseName)).append("\n");
+    sb.append("    autoScalingParameters: ").append(toIndentedString(autoScalingParameters)).append("\n");
     sb.append("    scaleType: ").append(toIndentedString(scaleType)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("}");

@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Options for activating a Private Cloud environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:11.904-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:28.100-08:00")
 public class PrivateCloudActivationOptions  {
 
   /**
@@ -59,6 +59,11 @@ public class PrivateCloudActivationOptions  {
    * The name of the HUE database. Not required for embedded databases.
    **/
   private String dbHue = null;
+
+  /**
+   * Enable to use dedicated nodes exclusively for executors and coordinators, and improve performance. You can enable this only if you reserved nodes while adding a CDP Private Cloud containerized ECS cluster. When disabled, non-compute pods such as MetaStore and Data Visualization can also use the reserved nodes.
+   **/
+  private Boolean dedicatedExecutorNodes = false;
 
   /**
    * Getter for delegationUsername.
@@ -162,6 +167,23 @@ public class PrivateCloudActivationOptions  {
     this.dbHue = dbHue;
   }
 
+  /**
+   * Getter for dedicatedExecutorNodes.
+   * Enable to use dedicated nodes exclusively for executors and coordinators, and improve performance. You can enable this only if you reserved nodes while adding a CDP Private Cloud containerized ECS cluster. When disabled, non-compute pods such as MetaStore and Data Visualization can also use the reserved nodes.
+   **/
+  @JsonProperty("dedicatedExecutorNodes")
+  public Boolean getDedicatedExecutorNodes() {
+    return dedicatedExecutorNodes;
+  }
+
+  /**
+   * Setter for dedicatedExecutorNodes.
+   * Enable to use dedicated nodes exclusively for executors and coordinators, and improve performance. You can enable this only if you reserved nodes while adding a CDP Private Cloud containerized ECS cluster. When disabled, non-compute pods such as MetaStore and Data Visualization can also use the reserved nodes.
+   **/
+  public void setDedicatedExecutorNodes(Boolean dedicatedExecutorNodes) {
+    this.dedicatedExecutorNodes = dedicatedExecutorNodes;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -189,12 +211,15 @@ public class PrivateCloudActivationOptions  {
     if (!Objects.equals(this.dbHue, privateCloudActivationOptions.dbHue)) {
       return false;
     }
+    if (!Objects.equals(this.dedicatedExecutorNodes, privateCloudActivationOptions.dedicatedExecutorNodes)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(delegationUsername, delegationPassword, securityContextConstraintName, storageClass, dbDas, dbHue);
+    return Objects.hash(delegationUsername, delegationPassword, securityContextConstraintName, storageClass, dbDas, dbHue, dedicatedExecutorNodes);
   }
 
   @Override
@@ -207,6 +232,7 @@ public class PrivateCloudActivationOptions  {
     sb.append("    storageClass: ").append(toIndentedString(storageClass)).append("\n");
     sb.append("    dbDas: ").append(toIndentedString(dbDas)).append("\n");
     sb.append("    dbHue: ").append(toIndentedString(dbHue)).append("\n");
+    sb.append("    dedicatedExecutorNodes: ").append(toIndentedString(dedicatedExecutorNodes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

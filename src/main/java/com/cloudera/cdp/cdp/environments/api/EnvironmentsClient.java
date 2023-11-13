@@ -175,6 +175,8 @@ import com.cloudera.cdp.environments.model.UpdateAzureEncryptionResourcesRequest
 import com.cloudera.cdp.environments.model.UpdateAzureEncryptionResourcesResponse;
 import com.cloudera.cdp.environments.model.UpdateAzureImageTermsPolicyRequest;
 import com.cloudera.cdp.environments.model.UpdateAzureImageTermsPolicyResponse;
+import com.cloudera.cdp.environments.model.UpdateDataServiceResourcesRequest;
+import com.cloudera.cdp.environments.model.UpdateDataServiceResourcesResponse;
 import com.cloudera.cdp.environments.model.UpdateOrchestratorStateRequest;
 import com.cloudera.cdp.environments.model.UpdateOrchestratorStateResponse;
 import com.cloudera.cdp.environments.model.UpdateProxyConfigRequest;
@@ -201,7 +203,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:13.279-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:29.415-08:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -1180,6 +1182,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("updateAzureImageTermsPolicy", "/api/v1/environments2/updateAzureImageTermsPolicy", input, new GenericType<UpdateAzureImageTermsPolicyResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Updates Data Service resources of an environment.
+   * @param input
+   * @return UpdateDataServiceResourcesResponse
+   */
+  public UpdateDataServiceResourcesResponse updateDataServiceResources(UpdateDataServiceResourcesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateDataServiceResources");
+    }
+
+    return this.invokeAPI("updateDataServiceResources", "/api/v1/environments2/updateDataServiceResources", input, new GenericType<UpdateDataServiceResourcesResponse>(){}, NO_EXTENSION);
   }
 
   /**

@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Provides all of the configuration that dictates how a flow should be deployed
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:14.632-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:30.880-08:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcDeploymentConfiguration  {
 
@@ -139,6 +139,11 @@ public class RpcDeploymentConfiguration  {
    * Listen components port and protocol data
    **/
   private List<ListenComponent> listenComponents = new ArrayList<ListenComponent>();
+
+  /**
+   * The crn of the project this deployment belongs to, or null if does not belong to a project
+   **/
+  private String projectCrn = null;
 
   /**
    * Getter for configurationVersion.
@@ -497,6 +502,23 @@ public class RpcDeploymentConfiguration  {
     this.listenComponents = listenComponents;
   }
 
+  /**
+   * Getter for projectCrn.
+   * The crn of the project this deployment belongs to, or null if does not belong to a project
+   **/
+  @JsonProperty("projectCrn")
+  public String getProjectCrn() {
+    return projectCrn;
+  }
+
+  /**
+   * Setter for projectCrn.
+   * The crn of the project this deployment belongs to, or null if does not belong to a project
+   **/
+  public void setProjectCrn(String projectCrn) {
+    this.projectCrn = projectCrn;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -569,12 +591,15 @@ public class RpcDeploymentConfiguration  {
     if (!Objects.equals(this.listenComponents, rpcDeploymentConfiguration.listenComponents)) {
       return false;
     }
+    if (!Objects.equals(this.projectCrn, rpcDeploymentConfiguration.projectCrn)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(configurationVersion, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, deploymentId, deploymentCrn, name, cfmNifiVersion, autoStartFlow, clusterSizeName, nodeStorageProfileName, parametersDirty, kpisDirty, sizingAndScalingDirty, lastUpdatedByUsername, inboundHostname, listenComponents);
+    return Objects.hash(configurationVersion, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, deploymentId, deploymentCrn, name, cfmNifiVersion, autoStartFlow, clusterSizeName, nodeStorageProfileName, parametersDirty, kpisDirty, sizingAndScalingDirty, lastUpdatedByUsername, inboundHostname, listenComponents, projectCrn);
   }
 
   @Override
@@ -602,6 +627,7 @@ public class RpcDeploymentConfiguration  {
     sb.append("    lastUpdatedByUsername: ").append(toIndentedString(lastUpdatedByUsername)).append("\n");
     sb.append("    inboundHostname: ").append(toIndentedString(inboundHostname)).append("\n");
     sb.append("    listenComponents: ").append(toIndentedString(listenComponents)).append("\n");
+    sb.append("    projectCrn: ").append(toIndentedString(projectCrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

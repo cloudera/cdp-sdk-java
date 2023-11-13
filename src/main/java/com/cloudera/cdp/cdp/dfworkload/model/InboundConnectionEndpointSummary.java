@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Inbound Connection Endpoint Summary
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:14.632-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:30.880-08:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class InboundConnectionEndpointSummary  {
 
@@ -57,6 +57,11 @@ public class InboundConnectionEndpointSummary  {
    * The summaries of certificates associated with the Inbound Connection Endpoint
    **/
   private List<InboundConnectionEndpointCertificateSummary> certificateSummaries = new ArrayList<InboundConnectionEndpointCertificateSummary>();
+
+  /**
+   * The CRN of the project.
+   **/
+  private String projectCrn = null;
 
   /**
    * Getter for fullyQualifiedDomainName.
@@ -143,6 +148,23 @@ public class InboundConnectionEndpointSummary  {
     this.certificateSummaries = certificateSummaries;
   }
 
+  /**
+   * Getter for projectCrn.
+   * The CRN of the project.
+   **/
+  @JsonProperty("projectCrn")
+  public String getProjectCrn() {
+    return projectCrn;
+  }
+
+  /**
+   * Setter for projectCrn.
+   * The CRN of the project.
+   **/
+  public void setProjectCrn(String projectCrn) {
+    this.projectCrn = projectCrn;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -167,12 +189,15 @@ public class InboundConnectionEndpointSummary  {
     if (!Objects.equals(this.certificateSummaries, inboundConnectionEndpointSummary.certificateSummaries)) {
       return false;
     }
+    if (!Objects.equals(this.projectCrn, inboundConnectionEndpointSummary.projectCrn)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fullyQualifiedDomainName, state, deploymentCrn, crn, certificateSummaries);
+    return Objects.hash(fullyQualifiedDomainName, state, deploymentCrn, crn, certificateSummaries, projectCrn);
   }
 
   @Override
@@ -184,6 +209,7 @@ public class InboundConnectionEndpointSummary  {
     sb.append("    deploymentCrn: ").append(toIndentedString(deploymentCrn)).append("\n");
     sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
     sb.append("    certificateSummaries: ").append(toIndentedString(certificateSummaries)).append("\n");
+    sb.append("    projectCrn: ").append(toIndentedString(projectCrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -70,6 +70,10 @@ public class CdpParseResponseMiddleware implements CdpClientMiddleware {
     boolean shouldCloseResponse = true;
     try {
       next.invokeAPI(context);
+      if (context.getRawResponse() == null && context.getResponse() != null) {
+        // skip the following
+        return;
+      }
       response = context.getRawResponse();
       checkNotNullAndThrow(response);
       T result = parse(context, response);

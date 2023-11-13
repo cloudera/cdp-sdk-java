@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for Data Hub database upgrade.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:11.303-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:27.392-08:00")
 public class StartDatabaseUpgradeRequest  {
 
   /**
@@ -39,6 +39,11 @@ public class StartDatabaseUpgradeRequest  {
    * The database engine major version to upgrade to.
    **/
   private String targetVersion = null;
+
+  /**
+   * Start the database upgrade flow even if the source and target versions are the same. Can be used to reinitiate an upgrade after a failure.
+   **/
+  private Boolean force = null;
 
   /**
    * Getter for cluster.
@@ -74,6 +79,23 @@ public class StartDatabaseUpgradeRequest  {
     this.targetVersion = targetVersion;
   }
 
+  /**
+   * Getter for force.
+   * Start the database upgrade flow even if the source and target versions are the same. Can be used to reinitiate an upgrade after a failure.
+   **/
+  @JsonProperty("force")
+  public Boolean getForce() {
+    return force;
+  }
+
+  /**
+   * Setter for force.
+   * Start the database upgrade flow even if the source and target versions are the same. Can be used to reinitiate an upgrade after a failure.
+   **/
+  public void setForce(Boolean force) {
+    this.force = force;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -89,12 +111,15 @@ public class StartDatabaseUpgradeRequest  {
     if (!Objects.equals(this.targetVersion, startDatabaseUpgradeRequest.targetVersion)) {
       return false;
     }
+    if (!Objects.equals(this.force, startDatabaseUpgradeRequest.force)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cluster, targetVersion);
+    return Objects.hash(cluster, targetVersion, force);
   }
 
   @Override
@@ -103,6 +128,7 @@ public class StartDatabaseUpgradeRequest  {
     sb.append("class StartDatabaseUpgradeRequest {\n");
     sb.append("    cluster: ").append(toIndentedString(cluster)).append("\n");
     sb.append("    targetVersion: ").append(toIndentedString(targetVersion)).append("\n");
+    sb.append("    force: ").append(toIndentedString(force)).append("\n");
     sb.append("}");
     return sb.toString();
   }

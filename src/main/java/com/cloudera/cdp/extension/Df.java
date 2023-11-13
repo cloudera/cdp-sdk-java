@@ -34,6 +34,8 @@ import com.cloudera.cdp.df.model.ImportFlowDefinitionVersionRequest;
 import com.cloudera.cdp.df.model.ImportFlowDefinitionVersionResponse;
 import com.cloudera.cdp.dfworkload.model.UploadAssetRequest;
 import com.cloudera.cdp.dfworkload.model.UploadAssetResponse;
+import com.cloudera.cdp.dfworkload.model.CreateReportingTaskRequest;
+import com.cloudera.cdp.dfworkload.model.CreateReportingTaskResponse;
 import com.google.common.base.Strings;
 
 import java.io.FileInputStream;
@@ -63,6 +65,8 @@ public class Df implements CdpClientMiddleware {
       dfGetFlowVersion((CdpRequestContext<GetFlowVersionResponse>) context);
     } else if (context.getServiceName().equals("dfworkload") && context.getOperationName().equals("uploadAsset")) {
       dfWorkloadUploadAsset((CdpRequestContext<UploadAssetResponse>) context);
+    } else if (context.getServiceName().equals("dfworkload") && context.getOperationName().equals("createReportingTask")) {
+      dfWorkloadCreateReportingTask((CdpRequestContext<CreateReportingTaskResponse>) context);
     } else {
       throw new CdpClientException(String.format(
           "The operation is not supported. service name: %s, operation name: %s",
@@ -164,6 +168,35 @@ public class Df implements CdpClientMiddleware {
       context.setHeaders(headers);
       context.setBody(body);
       next.invokeAPI(context);
+    } catch (IOException ioe) {
+      throw new CdpClientException("Unable to load file at " + filePath, ioe);
+    }
+  }
+
+  private void dfWorkloadCreateReportingTask(CdpRequestContext<CreateReportingTaskResponse> context) {
+    CreateReportingTaskRequest createReportingTaskRequest = (CreateReportingTaskRequest) context.getBody();
+    String deploymentCrn = createReportingTaskRequest.getDeploymentCrn();
+    String filePath = createReportingTaskRequest.getFilePath();
+
+    if (Strings.isNullOrEmpty(deploymentCrn)) {
+      throw new CdpClientException("DeploymentCrn argument is null");
+    }
+
+    Map<String, String> headers = new HashMap<>();
+    headers.put("Deployment-Crn", deploymentCrn);
+    if (filePath != null) {
+      headers.put("File-Path", filePath);
+    }
+    try (FileInputStream body = new FileInputStream(filePath)) {
+      context.setPath("/dfx/api/rpc-v1/deployments/create-reporting-task-content");
+      context.setRequestContentType(MediaType.APPLICATION_OCTET_STREAM);
+      context.setHeaders(headers);
+      context.setBody(body);
+      next.invokeAPI(context);
+      final CreateReportingTaskResponse response = context.getRawResponse() == null
+          ? null : context.getRawResponse().readEntity(CreateReportingTaskResponse.class);
+      context.setResponse(response);
+      context.setRawResponse(null);
     } catch (IOException ioe) {
       throw new CdpClientException("Unable to load file at " + filePath, ioe);
     }

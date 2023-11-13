@@ -24,12 +24,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.df.model.DeploymentStatus;
+import com.cloudera.cdp.df.model.ProjectMeta;
 import com.cloudera.cdp.df.model.ServiceMeta;
 
 /**
  * A deployment
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:14.379-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:30.599-08:00")
 public class Deployment  {
 
   /**
@@ -161,6 +162,11 @@ public class Deployment  {
    * Whether or not to use Flow metrics to scale the deployment. May only be specified when autscalingEnabled is true.
    **/
   private Boolean flowMetricsScalingEnabled = null;
+
+  /**
+   * The project information of the deployment
+   **/
+  private ProjectMeta project = null;
 
   /**
    * Getter for crn.
@@ -604,6 +610,23 @@ public class Deployment  {
     this.flowMetricsScalingEnabled = flowMetricsScalingEnabled;
   }
 
+  /**
+   * Getter for project.
+   * The project information of the deployment
+   **/
+  @JsonProperty("project")
+  public ProjectMeta getProject() {
+    return project;
+  }
+
+  /**
+   * Setter for project.
+   * The project information of the deployment
+   **/
+  public void setProject(ProjectMeta project) {
+    this.project = project;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -691,12 +714,15 @@ public class Deployment  {
     if (!Objects.equals(this.flowMetricsScalingEnabled, deployment.flowMetricsScalingEnabled)) {
       return false;
     }
+    if (!Objects.equals(this.project, deployment.project)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, name, status, service, updated, clusterSize, flowVersionCrn, flowCrn, nifiUrl, autoscaleMaxNodes, flowName, flowVersion, currentNodeCount, deployedByCrn, deployedByName, autoscalingEnabled, autoscaleMinNodes, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, staticNodeCount, dfxLocalUrl, lastUpdatedByName, configurationVersion, cfmNifiVersion, flowMetricsScalingEnabled);
+    return Objects.hash(crn, name, status, service, updated, clusterSize, flowVersionCrn, flowCrn, nifiUrl, autoscaleMaxNodes, flowName, flowVersion, currentNodeCount, deployedByCrn, deployedByName, autoscalingEnabled, autoscaleMinNodes, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, staticNodeCount, dfxLocalUrl, lastUpdatedByName, configurationVersion, cfmNifiVersion, flowMetricsScalingEnabled, project);
   }
 
   @Override
@@ -729,6 +755,7 @@ public class Deployment  {
     sb.append("    configurationVersion: ").append(toIndentedString(configurationVersion)).append("\n");
     sb.append("    cfmNifiVersion: ").append(toIndentedString(cfmNifiVersion)).append("\n");
     sb.append("    flowMetricsScalingEnabled: ").append(toIndentedString(flowMetricsScalingEnabled)).append("\n");
+    sb.append("    project: ").append(toIndentedString(project)).append("\n");
     sb.append("}");
     return sb.toString();
   }

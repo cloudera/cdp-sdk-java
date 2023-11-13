@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for validating a custom NAR configuration.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:14.632-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:30.880-08:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class ValidateCustomNarConfigurationRequest  {
 
@@ -55,6 +55,11 @@ public class ValidateCustomNarConfigurationRequest  {
    * The version of the configuration
    **/
   private Integer configurationVersion = null;
+
+  /**
+   * The CRN of the project.
+   **/
+  private String projectCrn = null;
 
   /**
    * Getter for environmentCrn.
@@ -141,6 +146,23 @@ public class ValidateCustomNarConfigurationRequest  {
     this.configurationVersion = configurationVersion;
   }
 
+  /**
+   * Getter for projectCrn.
+   * The CRN of the project.
+   **/
+  @JsonProperty("projectCrn")
+  public String getProjectCrn() {
+    return projectCrn;
+  }
+
+  /**
+   * Setter for projectCrn.
+   * The CRN of the project.
+   **/
+  public void setProjectCrn(String projectCrn) {
+    this.projectCrn = projectCrn;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -165,12 +187,15 @@ public class ValidateCustomNarConfigurationRequest  {
     if (!Objects.equals(this.configurationVersion, validateCustomNarConfigurationRequest.configurationVersion)) {
       return false;
     }
+    if (!Objects.equals(this.projectCrn, validateCustomNarConfigurationRequest.projectCrn)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, username, password, storageLocation, configurationVersion);
+    return Objects.hash(environmentCrn, username, password, storageLocation, configurationVersion, projectCrn);
   }
 
   @Override
@@ -182,6 +207,7 @@ public class ValidateCustomNarConfigurationRequest  {
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    storageLocation: ").append(toIndentedString(storageLocation)).append("\n");
     sb.append("    configurationVersion: ").append(toIndentedString(configurationVersion)).append("\n");
+    sb.append("    projectCrn: ").append(toIndentedString(projectCrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

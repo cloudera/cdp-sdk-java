@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Response object for the backupCluster method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:11.904-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:28.100-08:00")
 public class BackupClusterResponse extends CdpResponse {
 
   /**
@@ -37,7 +37,7 @@ public class BackupClusterResponse extends CdpResponse {
   private String clusterId = null;
 
   /**
-   * The the ID of the backup operation.
+   * The ID of the backup operation.
    **/
   private String operationId = null;
 
@@ -75,7 +75,7 @@ public class BackupClusterResponse extends CdpResponse {
 
   /**
    * Getter for operationId.
-   * The the ID of the backup operation.
+   * The ID of the backup operation.
    **/
   @JsonProperty("operationId")
   public String getOperationId() {
@@ -84,7 +84,7 @@ public class BackupClusterResponse extends CdpResponse {
 
   /**
    * Setter for operationId.
-   * The the ID of the backup operation.
+   * The ID of the backup operation.
    **/
   public void setOperationId(String operationId) {
     this.operationId = operationId;

@@ -42,10 +42,14 @@ import com.cloudera.cdp.dfworkload.model.CreateDeploymentRequest;
 import com.cloudera.cdp.dfworkload.model.CreateDeploymentResponse;
 import com.cloudera.cdp.dfworkload.model.CreateInboundConnectionEndpointRequest;
 import com.cloudera.cdp.dfworkload.model.CreateInboundConnectionEndpointResponse;
+import com.cloudera.cdp.dfworkload.model.CreateReportingTaskRequest;
+import com.cloudera.cdp.dfworkload.model.CreateReportingTaskResponse;
 import com.cloudera.cdp.dfworkload.model.DeleteCustomNarConfigurationRequest;
 import com.cloudera.cdp.dfworkload.model.DeleteCustomNarConfigurationResponse;
 import com.cloudera.cdp.dfworkload.model.DeleteInboundConnectionEndpointRequest;
 import com.cloudera.cdp.dfworkload.model.DeleteInboundConnectionEndpointResponse;
+import com.cloudera.cdp.dfworkload.model.DeleteReportingTaskRequest;
+import com.cloudera.cdp.dfworkload.model.DeleteReportingTaskResponse;
 import com.cloudera.cdp.dfworkload.model.DescribeInboundConnectionEndpointRequest;
 import com.cloudera.cdp.dfworkload.model.DescribeInboundConnectionEndpointResponse;
 import com.cloudera.cdp.dfworkload.model.Error;
@@ -68,6 +72,10 @@ import com.cloudera.cdp.dfworkload.model.ListInboundConnectionEndpointsRequest;
 import com.cloudera.cdp.dfworkload.model.ListInboundConnectionEndpointsResponse;
 import com.cloudera.cdp.dfworkload.model.ListNifiVersionsRequest;
 import com.cloudera.cdp.dfworkload.model.ListNifiVersionsResponse;
+import com.cloudera.cdp.dfworkload.model.ListReportingTasksRequest;
+import com.cloudera.cdp.dfworkload.model.ListReportingTasksResponse;
+import com.cloudera.cdp.dfworkload.model.ReassignResourcesRequest;
+import com.cloudera.cdp.dfworkload.model.ReassignResourcesResponse;
 import com.cloudera.cdp.dfworkload.model.RenewInboundConnectionEndpointCertificateRequest;
 import com.cloudera.cdp.dfworkload.model.RenewInboundConnectionEndpointCertificateResponse;
 import com.cloudera.cdp.dfworkload.model.RestartDeploymentRequest;
@@ -100,7 +108,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:14.632-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:30.880-08:00")
 public class DfworkloadClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dfworkload";
@@ -230,6 +238,20 @@ public class DfworkloadClient extends CdpClient {
   }
 
   /**
+   * Creates a reporting task.
+   * @param input Create Reporting Task
+   * @return CreateReportingTaskResponse
+   */
+  @WorkloadApi
+  public CreateReportingTaskResponse createReportingTask(CreateReportingTaskRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createReportingTask");
+    }
+
+    return this.invokeAPI("createReportingTask", "/dfx/api/rpc-v1/deployments/create-reporting-task", input, new GenericType<CreateReportingTaskResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class, com.cloudera.cdp.extension.Df.class));
+  }
+
+  /**
    * Deletes an orphaned custom NAR configuration.
    * @param input Delete Custom NAR Configuration Request
    * @return DeleteCustomNarConfigurationResponse
@@ -255,6 +277,20 @@ public class DfworkloadClient extends CdpClient {
     }
 
     return this.invokeAPI("deleteInboundConnectionEndpoint", "/dfx/api/rpc-v1/inbound-connection-endpoints/delete-inbound-connection-endpoint", input, new GenericType<DeleteInboundConnectionEndpointResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Deletes a reporting task.
+   * @param input Delete Reporting Task
+   * @return DeleteReportingTaskResponse
+   */
+  @WorkloadApi
+  public DeleteReportingTaskResponse deleteReportingTask(DeleteReportingTaskRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteReportingTask");
+    }
+
+    return this.invokeAPI("deleteReportingTask", "/dfx/api/rpc-v1/deployments/delete-reporting-task", input, new GenericType<DeleteReportingTaskResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
   }
 
   /**
@@ -395,6 +431,34 @@ public class DfworkloadClient extends CdpClient {
     }
 
     return this.invokeAPI("listNifiVersions", "/dfx/api/rpc-v1/environments/list-nifi-versions", input, new GenericType<ListNifiVersionsResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Lists all reporting tasks for a deployment.
+   * @param input List Reporting Tasks Request
+   * @return ListReportingTasksResponse
+   */
+  @WorkloadApi
+  public ListReportingTasksResponse listReportingTasks(ListReportingTasksRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listReportingTasks");
+    }
+
+    return this.invokeAPI("listReportingTasks", "/dfx/api/rpc-v1/deployments/list-reporting-tasks", input, new GenericType<ListReportingTasksResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Modifies the project assignment of the given workload resources.
+   * @param input Reassign Resources Request
+   * @return ReassignResourcesResponse
+   */
+  @WorkloadApi
+  public ReassignResourcesResponse reassignResources(ReassignResourcesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling reassignResources");
+    }
+
+    return this.invokeAPI("reassignResources", "/dfx/api/rpc-v1/workload-resources/reassign-resources", input, new GenericType<ReassignResourcesResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
   }
 
   /**

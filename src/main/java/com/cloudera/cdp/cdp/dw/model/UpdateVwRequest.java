@@ -31,7 +31,7 @@ import com.cloudera.cdp.dw.model.ServiceConfigReq;
 /**
  * Request object for the updateVw method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:11.904-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:28.100-08:00")
 public class UpdateVwRequest  {
 
   /**
@@ -75,7 +75,7 @@ public class UpdateVwRequest  {
   private QueryIsolationOptionsRequest queryIsolationOptions = null;
 
   /**
-   * Sets the authentication mode to use by Hive Server: * `LDAP` * `KERBEROS` If not set then the authentication mode will not be changed during update.
+   * DEPRECATED - Sets the authentication mode to use by Hive Server: * `LDAP` * `KERBEROS` If not set then the authentication mode will not be changed during update.
    **/
   private String hiveAuthenticationMode = null;
 
@@ -222,8 +222,9 @@ public class UpdateVwRequest  {
 
   /**
    * Getter for hiveAuthenticationMode.
-   * Sets the authentication mode to use by Hive Server: * &#x60;LDAP&#x60; * &#x60;KERBEROS&#x60; If not set then the authentication mode will not be changed during update.
+   * DEPRECATED - Sets the authentication mode to use by Hive Server: * &#x60;LDAP&#x60; * &#x60;KERBEROS&#x60; If not set then the authentication mode will not be changed during update.
    **/
+  @Deprecated
   @JsonProperty("hiveAuthenticationMode")
   public String getHiveAuthenticationMode() {
     return hiveAuthenticationMode;
@@ -231,8 +232,9 @@ public class UpdateVwRequest  {
 
   /**
    * Setter for hiveAuthenticationMode.
-   * Sets the authentication mode to use by Hive Server: * &#x60;LDAP&#x60; * &#x60;KERBEROS&#x60; If not set then the authentication mode will not be changed during update.
+   * DEPRECATED - Sets the authentication mode to use by Hive Server: * &#x60;LDAP&#x60; * &#x60;KERBEROS&#x60; If not set then the authentication mode will not be changed during update.
    **/
+  @Deprecated
   public void setHiveAuthenticationMode(String hiveAuthenticationMode) {
     this.hiveAuthenticationMode = hiveAuthenticationMode;
   }

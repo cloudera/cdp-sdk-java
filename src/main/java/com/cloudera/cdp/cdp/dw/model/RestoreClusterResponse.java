@@ -29,16 +29,16 @@ import java.util.*;
 /**
  * Response object for the restoreCluster method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:11.904-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:28.100-08:00")
 public class RestoreClusterResponse extends CdpResponse {
 
   /**
-   * The the ID of the cluster.
+   * The ID of the cluster.
    **/
   private String clusterId = null;
 
   /**
-   * The the ID of the restore operation.
+   * The ID of the restore operation.
    **/
   private String operationId = null;
 
@@ -79,7 +79,7 @@ public class RestoreClusterResponse extends CdpResponse {
 
   /**
    * Getter for clusterId.
-   * The the ID of the cluster.
+   * The ID of the cluster.
    **/
   @JsonProperty("clusterId")
   public String getClusterId() {
@@ -88,7 +88,7 @@ public class RestoreClusterResponse extends CdpResponse {
 
   /**
    * Setter for clusterId.
-   * The the ID of the cluster.
+   * The ID of the cluster.
    **/
   public void setClusterId(String clusterId) {
     this.clusterId = clusterId;
@@ -96,7 +96,7 @@ public class RestoreClusterResponse extends CdpResponse {
 
   /**
    * Getter for operationId.
-   * The the ID of the restore operation.
+   * The ID of the restore operation.
    **/
   @JsonProperty("operationId")
   public String getOperationId() {
@@ -105,7 +105,7 @@ public class RestoreClusterResponse extends CdpResponse {
 
   /**
    * Setter for operationId.
-   * The the ID of the restore operation.
+   * The ID of the restore operation.
    **/
   public void setOperationId(String operationId) {
     this.operationId = operationId;

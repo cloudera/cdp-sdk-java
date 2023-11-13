@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for creating an Azure environment using existing VNet and subnets.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-10-25T14:07:13.279-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:29.415-08:00")
 public class ExistingAzureNetworkRequest  {
 
   /**
@@ -47,12 +47,12 @@ public class ExistingAzureNetworkRequest  {
   private List<String> subnetIds = new ArrayList<String>();
 
   /**
-   * The ID of an existing private DNS zone used for the database.
+   * The full Azure resource ID of the existing Private DNS Zone used for Flexible Server and Single Server Databases.
    **/
   private String databasePrivateDnsZoneId = null;
 
   /**
-   * The ID of an existing private DNS zone used for the AKS.
+   * The full Azure resource ID of an existing Private DNS zone used for the AKS.
    **/
   private String aksPrivateDnsZoneId = null;
 
@@ -109,7 +109,7 @@ public class ExistingAzureNetworkRequest  {
 
   /**
    * Getter for databasePrivateDnsZoneId.
-   * The ID of an existing private DNS zone used for the database.
+   * The full Azure resource ID of the existing Private DNS Zone used for Flexible Server and Single Server Databases.
    **/
   @JsonProperty("databasePrivateDnsZoneId")
   public String getDatabasePrivateDnsZoneId() {
@@ -118,7 +118,7 @@ public class ExistingAzureNetworkRequest  {
 
   /**
    * Setter for databasePrivateDnsZoneId.
-   * The ID of an existing private DNS zone used for the database.
+   * The full Azure resource ID of the existing Private DNS Zone used for Flexible Server and Single Server Databases.
    **/
   public void setDatabasePrivateDnsZoneId(String databasePrivateDnsZoneId) {
     this.databasePrivateDnsZoneId = databasePrivateDnsZoneId;
@@ -126,7 +126,7 @@ public class ExistingAzureNetworkRequest  {
 
   /**
    * Getter for aksPrivateDnsZoneId.
-   * The ID of an existing private DNS zone used for the AKS.
+   * The full Azure resource ID of an existing Private DNS zone used for the AKS.
    **/
   @JsonProperty("aksPrivateDnsZoneId")
   public String getAksPrivateDnsZoneId() {
@@ -135,7 +135,7 @@ public class ExistingAzureNetworkRequest  {
 
   /**
    * Setter for aksPrivateDnsZoneId.
-   * The ID of an existing private DNS zone used for the AKS.
+   * The full Azure resource ID of an existing Private DNS zone used for the AKS.
    **/
   public void setAksPrivateDnsZoneId(String aksPrivateDnsZoneId) {
     this.aksPrivateDnsZoneId = aksPrivateDnsZoneId;
