@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for creating FreeIPA in the environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:29.415-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-12-01T13:59:41.311-08:00")
 public class AzureFreeIpaCreationRequest  {
 
   /**
@@ -45,6 +45,11 @@ public class AzureFreeIpaCreationRequest  {
    * Custom instance type of FreeIPA instances.
    **/
   private String instanceType = null;
+
+  /**
+   * Flag that enables deployment of the FreeIPA in a multi-availability zone.
+   **/
+  private Boolean multiAz = false;
 
   /**
    * Getter for instanceCountByGroup.
@@ -97,6 +102,23 @@ public class AzureFreeIpaCreationRequest  {
     this.instanceType = instanceType;
   }
 
+  /**
+   * Getter for multiAz.
+   * Flag that enables deployment of the FreeIPA in a multi-availability zone.
+   **/
+  @JsonProperty("multiAz")
+  public Boolean getMultiAz() {
+    return multiAz;
+  }
+
+  /**
+   * Setter for multiAz.
+   * Flag that enables deployment of the FreeIPA in a multi-availability zone.
+   **/
+  public void setMultiAz(Boolean multiAz) {
+    this.multiAz = multiAz;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -115,12 +137,15 @@ public class AzureFreeIpaCreationRequest  {
     if (!Objects.equals(this.instanceType, azureFreeIpaCreationRequest.instanceType)) {
       return false;
     }
+    if (!Objects.equals(this.multiAz, azureFreeIpaCreationRequest.multiAz)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceCountByGroup, recipes, instanceType);
+    return Objects.hash(instanceCountByGroup, recipes, instanceType, multiAz);
   }
 
   @Override
@@ -130,6 +155,7 @@ public class AzureFreeIpaCreationRequest  {
     sb.append("    instanceCountByGroup: ").append(toIndentedString(instanceCountByGroup)).append("\n");
     sb.append("    recipes: ").append(toIndentedString(recipes)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
+    sb.append("    multiAz: ").append(toIndentedString(multiAz)).append("\n");
     sb.append("}");
     return sb.toString();
   }

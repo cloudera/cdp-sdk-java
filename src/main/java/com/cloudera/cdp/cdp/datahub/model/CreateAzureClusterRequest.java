@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * Request object for create Azure cluster request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:27.392-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-12-01T13:59:38.963-08:00")
 public class CreateAzureClusterRequest  {
 
   /**
@@ -89,6 +89,11 @@ public class CreateAzureClusterRequest  {
    * Database type for datahub. Currently supported values: NONE, NON_HA, HA
    **/
   private String datahubDatabase = null;
+
+  /**
+   * Flag that toggles the multi availability zone feature for the given datahub cluster when unsure what subnet IDs can be used. When true, the subnet IDs suggested by the environment will be used.
+   **/
+  private Boolean multiAz = false;
 
   /**
    * The SKU for the datahub load balancer. Allowed values are \"BASIC\", \"STANDARD\", or \"NONE\".
@@ -298,6 +303,23 @@ public class CreateAzureClusterRequest  {
   }
 
   /**
+   * Getter for multiAz.
+   * Flag that toggles the multi availability zone feature for the given datahub cluster when unsure what subnet IDs can be used. When true, the subnet IDs suggested by the environment will be used.
+   **/
+  @JsonProperty("multiAz")
+  public Boolean getMultiAz() {
+    return multiAz;
+  }
+
+  /**
+   * Setter for multiAz.
+   * Flag that toggles the multi availability zone feature for the given datahub cluster when unsure what subnet IDs can be used. When true, the subnet IDs suggested by the environment will be used.
+   **/
+  public void setMultiAz(Boolean multiAz) {
+    this.multiAz = multiAz;
+  }
+
+  /**
    * Getter for loadBalancerSku.
    * The SKU for the datahub load balancer. Allowed values are \&quot;BASIC\&quot;, \&quot;STANDARD\&quot;, or \&quot;NONE\&quot;.
    **/
@@ -407,6 +429,9 @@ public class CreateAzureClusterRequest  {
     if (!Objects.equals(this.datahubDatabase, createAzureClusterRequest.datahubDatabase)) {
       return false;
     }
+    if (!Objects.equals(this.multiAz, createAzureClusterRequest.multiAz)) {
+      return false;
+    }
     if (!Objects.equals(this.loadBalancerSku, createAzureClusterRequest.loadBalancerSku)) {
       return false;
     }
@@ -424,7 +449,7 @@ public class CreateAzureClusterRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, clusterDefinitionName, environmentName, clusterTemplateName, customConfigurationsName, instanceGroups, subnetId, image, tags, requestTemplate, datahubDatabase, loadBalancerSku, clusterExtension, enableLoadBalancer, javaVersion);
+    return Objects.hash(clusterName, clusterDefinitionName, environmentName, clusterTemplateName, customConfigurationsName, instanceGroups, subnetId, image, tags, requestTemplate, datahubDatabase, multiAz, loadBalancerSku, clusterExtension, enableLoadBalancer, javaVersion);
   }
 
   @Override
@@ -442,6 +467,7 @@ public class CreateAzureClusterRequest  {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    requestTemplate: ").append(toIndentedString(requestTemplate)).append("\n");
     sb.append("    datahubDatabase: ").append(toIndentedString(datahubDatabase)).append("\n");
+    sb.append("    multiAz: ").append(toIndentedString(multiAz)).append("\n");
     sb.append("    loadBalancerSku: ").append(toIndentedString(loadBalancerSku)).append("\n");
     sb.append("    clusterExtension: ").append(toIndentedString(clusterExtension)).append("\n");
     sb.append("    enableLoadBalancer: ").append(toIndentedString(enableLoadBalancer)).append("\n");

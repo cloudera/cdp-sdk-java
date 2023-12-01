@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Response object for listing the supported NiFi versions.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:30.880-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-12-01T13:59:42.795-08:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class ListNifiVersionsResponse extends CdpResponse {
 

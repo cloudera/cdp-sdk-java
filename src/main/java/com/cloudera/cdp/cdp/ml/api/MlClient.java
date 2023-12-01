@@ -30,14 +30,20 @@ import com.cloudera.cdp.client.ResourceResponse;
 import com.cloudera.cdp.client.RestResponse;
 import com.cloudera.cdp.ml.model.BackupWorkspaceRequest;
 import com.cloudera.cdp.ml.model.BackupWorkspaceResponse;
+import com.cloudera.cdp.ml.model.CreateModelRegistryRequest;
+import com.cloudera.cdp.ml.model.CreateModelRegistryResponse;
 import com.cloudera.cdp.ml.model.CreateWorkspaceRequest;
 import com.cloudera.cdp.ml.model.CreateWorkspaceResponse;
 import com.cloudera.cdp.ml.model.DeleteBackupRequest;
 import com.cloudera.cdp.ml.model.DeleteBackupResponse;
 import com.cloudera.cdp.ml.model.DeleteInstanceGroupRequest;
 import com.cloudera.cdp.ml.model.DeleteInstanceGroupResponse;
+import com.cloudera.cdp.ml.model.DeleteModelRegistryRequest;
+import com.cloudera.cdp.ml.model.DeleteModelRegistryResponse;
 import com.cloudera.cdp.ml.model.DeleteWorkspaceRequest;
 import com.cloudera.cdp.ml.model.DeleteWorkspaceResponse;
+import com.cloudera.cdp.ml.model.DescribeModelRegistryRequest;
+import com.cloudera.cdp.ml.model.DescribeModelRegistryResponse;
 import com.cloudera.cdp.ml.model.DescribeWorkspaceRequest;
 import com.cloudera.cdp.ml.model.DescribeWorkspaceResponse;
 import com.cloudera.cdp.ml.model.Error;
@@ -49,8 +55,16 @@ import com.cloudera.cdp.ml.model.GetLatestWorkspaceVersionRequest;
 import com.cloudera.cdp.ml.model.GetLatestWorkspaceVersionResponse;
 import com.cloudera.cdp.ml.model.GetLogsRequest;
 import com.cloudera.cdp.ml.model.GetLogsResponse;
+import com.cloudera.cdp.ml.model.GetModelRegistryKubeconfigRequest;
+import com.cloudera.cdp.ml.model.GetModelRegistryKubeconfigResponse;
+import com.cloudera.cdp.ml.model.GrantModelRegistryAccessRequest;
+import com.cloudera.cdp.ml.model.GrantModelRegistryAccessResponse;
 import com.cloudera.cdp.ml.model.GrantWorkspaceAccessRequest;
 import com.cloudera.cdp.ml.model.GrantWorkspaceAccessResponse;
+import com.cloudera.cdp.ml.model.ListModelRegistriesRequest;
+import com.cloudera.cdp.ml.model.ListModelRegistriesResponse;
+import com.cloudera.cdp.ml.model.ListModelRegistryAccessRequest;
+import com.cloudera.cdp.ml.model.ListModelRegistryAccessResponse;
 import com.cloudera.cdp.ml.model.ListWorkspaceAccessRequest;
 import com.cloudera.cdp.ml.model.ListWorkspaceAccessResponse;
 import com.cloudera.cdp.ml.model.ListWorkspaceBackupsRequest;
@@ -63,12 +77,16 @@ import com.cloudera.cdp.ml.model.ModifyClusterSecurityRequest;
 import com.cloudera.cdp.ml.model.ModifyClusterSecurityResponse;
 import com.cloudera.cdp.ml.model.ModifyWorkspaceLoadBalancerRequest;
 import com.cloudera.cdp.ml.model.ModifyWorkspaceLoadBalancerResponse;
+import com.cloudera.cdp.ml.model.RefreshModelRegistryConfigmapRequest;
+import com.cloudera.cdp.ml.model.RefreshModelRegistryConfigmapResponse;
 import com.cloudera.cdp.ml.model.RequestWorkflowCancellationRequest;
 import com.cloudera.cdp.ml.model.RequestWorkflowCancellationResponse;
 import com.cloudera.cdp.ml.model.RestoreWorkspaceRequest;
 import com.cloudera.cdp.ml.model.RestoreWorkspaceResponse;
 import com.cloudera.cdp.ml.model.ResumeWorkspaceRequest;
 import com.cloudera.cdp.ml.model.ResumeWorkspaceResponse;
+import com.cloudera.cdp.ml.model.RevokeModelRegistryAccessRequest;
+import com.cloudera.cdp.ml.model.RevokeModelRegistryAccessResponse;
 import com.cloudera.cdp.ml.model.RevokeWorkspaceAccessRequest;
 import com.cloudera.cdp.ml.model.RevokeWorkspaceAccessResponse;
 import com.cloudera.cdp.ml.model.SuspendWorkspaceRequest;
@@ -81,7 +99,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:28.788-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-12-01T13:59:40.609-08:00")
 public class MlClient extends CdpClient {
 
   public static final String SERVICE_NAME = "ml";
@@ -126,6 +144,19 @@ public class MlClient extends CdpClient {
   }
 
   /**
+   * Creates a new model registry.
+   * @param input
+   * @return CreateModelRegistryResponse
+   */
+  public CreateModelRegistryResponse createModelRegistry(CreateModelRegistryRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createModelRegistry");
+    }
+
+    return this.invokeAPI("createModelRegistry", "/api/v1/ml/createModelRegistry", input, new GenericType<CreateModelRegistryResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Create a Cloudera Machine Learning workspace.
    * @param input
    * @return CreateWorkspaceResponse
@@ -165,6 +196,19 @@ public class MlClient extends CdpClient {
   }
 
   /**
+   * Deletes a model registry.
+   * @param input
+   * @return DeleteModelRegistryResponse
+   */
+  public DeleteModelRegistryResponse deleteModelRegistry(DeleteModelRegistryRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteModelRegistry");
+    }
+
+    return this.invokeAPI("deleteModelRegistry", "/api/v1/ml/deleteModelRegistry", input, new GenericType<DeleteModelRegistryResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Delete Cloudera Machine Learning Workspace.
    * @param input
    * @return DeleteWorkspaceResponse
@@ -175,6 +219,19 @@ public class MlClient extends CdpClient {
     }
 
     return this.invokeAPI("deleteWorkspace", "/api/v1/ml/deleteWorkspace", input, new GenericType<DeleteWorkspaceResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Describe Cloudera Machine Learning Model Registry.
+   * @param input
+   * @return DescribeModelRegistryResponse
+   */
+  public DescribeModelRegistryResponse describeModelRegistry(DescribeModelRegistryRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeModelRegistry");
+    }
+
+    return this.invokeAPI("describeModelRegistry", "/api/v1/ml/describeModelRegistry", input, new GenericType<DescribeModelRegistryResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -243,6 +300,32 @@ public class MlClient extends CdpClient {
   }
 
   /**
+   * GetModelRegistryKubeconfig returns kube config for model registry.
+   * @param input
+   * @return GetModelRegistryKubeconfigResponse
+   */
+  public GetModelRegistryKubeconfigResponse getModelRegistryKubeconfig(GetModelRegistryKubeconfigRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getModelRegistryKubeconfig");
+    }
+
+    return this.invokeAPI("getModelRegistryKubeconfig", "/api/v1/ml/getModelRegistryKubeconfig", input, new GenericType<GetModelRegistryKubeconfigResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * GrantModelRegistryAccess Cloudera Machine Learning Model Registry.
+   * @param input
+   * @return GrantModelRegistryAccessResponse
+   */
+  public GrantModelRegistryAccessResponse grantModelRegistryAccess(GrantModelRegistryAccessRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling grantModelRegistryAccess");
+    }
+
+    return this.invokeAPI("grantModelRegistryAccess", "/api/v1/ml/grantModelRegistryAccess", input, new GenericType<GrantModelRegistryAccessResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * GrantWorkspaceAccess Cloudera Machine Learning Workspace.
    * @param input
    * @return GrantWorkspaceAccessResponse
@@ -253,6 +336,32 @@ public class MlClient extends CdpClient {
     }
 
     return this.invokeAPI("grantWorkspaceAccess", "/api/v1/ml/grantWorkspaceAccess", input, new GenericType<GrantWorkspaceAccessResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Lists all model registries.
+   * @param input
+   * @return ListModelRegistriesResponse
+   */
+  public ListModelRegistriesResponse listModelRegistries(ListModelRegistriesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listModelRegistries");
+    }
+
+    return this.invokeAPI("listModelRegistries", "/api/v1/ml/listModelRegistries", input, new GenericType<ListModelRegistriesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * ListWorkspaceAccess Cloudera Machine Learning Model Registry.
+   * @param input
+   * @return ListModelRegistryAccessResponse
+   */
+  public ListModelRegistryAccessResponse listModelRegistryAccess(ListModelRegistryAccessRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listModelRegistryAccess");
+    }
+
+    return this.invokeAPI("listModelRegistryAccess", "/api/v1/ml/listModelRegistryAccess", input, new GenericType<ListModelRegistryAccessResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -334,6 +443,19 @@ public class MlClient extends CdpClient {
   }
 
   /**
+   * Refreshes the model registry configmap of the workspace.
+   * @param input
+   * @return RefreshModelRegistryConfigmapResponse
+   */
+  public RefreshModelRegistryConfigmapResponse refreshModelRegistryConfigmap(RefreshModelRegistryConfigmapRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling refreshModelRegistryConfigmap");
+    }
+
+    return this.invokeAPI("refreshModelRegistryConfigmap", "/api/v1/ml/refreshModelRegistryConfigmap", input, new GenericType<RefreshModelRegistryConfigmapResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Request a workflow cancellation.
    * @param input
    * @return RequestWorkflowCancellationResponse
@@ -370,6 +492,19 @@ public class MlClient extends CdpClient {
     }
 
     return this.invokeAPI("resumeWorkspace", "/api/v1/ml/resumeWorkspace", input, new GenericType<ResumeWorkspaceResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * RevokeModelRegistryAccess Cloudera Machine Learning Model Registry.
+   * @param input
+   * @return RevokeModelRegistryAccessResponse
+   */
+  public RevokeModelRegistryAccessResponse revokeModelRegistryAccess(RevokeModelRegistryAccessRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling revokeModelRegistryAccess");
+    }
+
+    return this.invokeAPI("revokeModelRegistryAccess", "/api/v1/ml/revokeModelRegistryAccess", input, new GenericType<RevokeModelRegistryAccessResponse>(){}, NO_EXTENSION);
   }
 
   /**

@@ -28,7 +28,7 @@ import com.cloudera.cdp.environments.model.SetAzureAuditCredentialRequestAppBase
 /**
  * Request object for a set Azure audit credential request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:29.415-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-12-01T13:59:41.311-08:00")
 public class SetAzureAuditCredentialRequest  {
 
   /**

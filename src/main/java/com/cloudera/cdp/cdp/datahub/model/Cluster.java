@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * Information about a cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:27.392-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-12-01T13:59:38.963-08:00")
 public class Cluster  {
 
   /**
@@ -120,6 +120,11 @@ public class Cluster  {
    * The exposed service api endpoints.
    **/
   private Endpoints endpoints = null;
+
+  /**
+   * Flag that toggles the multi availability zone for the given datahub cluster when you are not sure what subnet IDs can be used. This way the subnet IDs will be used what the environment suggests.
+   **/
+  private Boolean multiAz = false;
 
   /**
    * Getter for clusterName.
@@ -410,6 +415,23 @@ public class Cluster  {
     this.endpoints = endpoints;
   }
 
+  /**
+   * Getter for multiAz.
+   * Flag that toggles the multi availability zone for the given datahub cluster when you are not sure what subnet IDs can be used. This way the subnet IDs will be used what the environment suggests.
+   **/
+  @JsonProperty("multiAz")
+  public Boolean getMultiAz() {
+    return multiAz;
+  }
+
+  /**
+   * Setter for multiAz.
+   * Flag that toggles the multi availability zone for the given datahub cluster when you are not sure what subnet IDs can be used. This way the subnet IDs will be used what the environment suggests.
+   **/
+  public void setMultiAz(Boolean multiAz) {
+    this.multiAz = multiAz;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -470,12 +492,15 @@ public class Cluster  {
     if (!Objects.equals(this.endpoints, cluster.endpoints)) {
       return false;
     }
+    if (!Objects.equals(this.multiAz, cluster.multiAz)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, crn, creationDate, status, clusterStatus, nodeCount, instanceGroups, workloadType, cloudPlatform, imageDetails, environmentCrn, credentialCrn, datalakeCrn, clusterTemplateCrn, statusReason, clouderaManager, endpoints);
+    return Objects.hash(clusterName, crn, creationDate, status, clusterStatus, nodeCount, instanceGroups, workloadType, cloudPlatform, imageDetails, environmentCrn, credentialCrn, datalakeCrn, clusterTemplateCrn, statusReason, clouderaManager, endpoints, multiAz);
   }
 
   @Override
@@ -499,6 +524,7 @@ public class Cluster  {
     sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
     sb.append("    clouderaManager: ").append(toIndentedString(clouderaManager)).append("\n");
     sb.append("    endpoints: ").append(toIndentedString(endpoints)).append("\n");
+    sb.append("    multiAz: ").append(toIndentedString(multiAz)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Information about a cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:27.392-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-12-01T13:59:38.963-08:00")
 public class ClusterSummary  {
 
   /**
@@ -55,6 +55,11 @@ public class ClusterSummary  {
    * The CRN of the environment.
    **/
   private String environmentCrn = null;
+
+  /**
+   * The name of the environment.
+   **/
+  private String environmentName = null;
 
   /**
    * The name of the cloud platform.
@@ -169,6 +174,23 @@ public class ClusterSummary  {
    **/
   public void setEnvironmentCrn(String environmentCrn) {
     this.environmentCrn = environmentCrn;
+  }
+
+  /**
+   * Getter for environmentName.
+   * The name of the environment.
+   **/
+  @JsonProperty("environmentName")
+  public String getEnvironmentName() {
+    return environmentName;
+  }
+
+  /**
+   * Setter for environmentName.
+   * The name of the environment.
+   **/
+  public void setEnvironmentName(String environmentName) {
+    this.environmentName = environmentName;
   }
 
   /**
@@ -297,6 +319,9 @@ public class ClusterSummary  {
     if (!Objects.equals(this.environmentCrn, clusterSummary.environmentCrn)) {
       return false;
     }
+    if (!Objects.equals(this.environmentName, clusterSummary.environmentName)) {
+      return false;
+    }
     if (!Objects.equals(this.cloudPlatform, clusterSummary.cloudPlatform)) {
       return false;
     }
@@ -320,7 +345,7 @@ public class ClusterSummary  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, crn, status, workloadType, environmentCrn, cloudPlatform, nodeCount, creationDate, datalakeCrn, clusterTemplateCrn, certificateExpirationState);
+    return Objects.hash(clusterName, crn, status, workloadType, environmentCrn, environmentName, cloudPlatform, nodeCount, creationDate, datalakeCrn, clusterTemplateCrn, certificateExpirationState);
   }
 
   @Override
@@ -332,6 +357,7 @@ public class ClusterSummary  {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    workloadType: ").append(toIndentedString(workloadType)).append("\n");
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
+    sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    cloudPlatform: ").append(toIndentedString(cloudPlatform)).append("\n");
     sb.append("    nodeCount: ").append(toIndentedString(nodeCount)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");

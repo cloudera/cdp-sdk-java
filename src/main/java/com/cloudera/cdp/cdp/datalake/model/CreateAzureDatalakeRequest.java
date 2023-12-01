@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * Request object for create Azure datalake request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-11-09T15:08:28.945-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-12-01T13:59:40.843-08:00")
 public class CreateAzureDatalakeRequest  {
 
   /**
@@ -89,6 +89,11 @@ public class CreateAzureDatalakeRequest  {
    * Configure the major version of Java on the cluster.
    **/
   private Integer javaVersion = null;
+
+  /**
+   * Creates CDP datalake distributed across multiple availability zones in an Azure region.
+   **/
+  private Boolean multiAz = false;
 
   /**
    * Getter for datalakeName.
@@ -277,6 +282,23 @@ public class CreateAzureDatalakeRequest  {
     this.javaVersion = javaVersion;
   }
 
+  /**
+   * Getter for multiAz.
+   * Creates CDP datalake distributed across multiple availability zones in an Azure region.
+   **/
+  @JsonProperty("multiAz")
+  public Boolean getMultiAz() {
+    return multiAz;
+  }
+
+  /**
+   * Setter for multiAz.
+   * Creates CDP datalake distributed across multiple availability zones in an Azure region.
+   **/
+  public void setMultiAz(Boolean multiAz) {
+    this.multiAz = multiAz;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -319,12 +341,15 @@ public class CreateAzureDatalakeRequest  {
     if (!Objects.equals(this.javaVersion, createAzureDatalakeRequest.javaVersion)) {
       return false;
     }
+    if (!Objects.equals(this.multiAz, createAzureDatalakeRequest.multiAz)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, scale, tags, runtime, image, loadBalancerSku, enableRangerRaz, recipes, javaVersion);
+    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, scale, tags, runtime, image, loadBalancerSku, enableRangerRaz, recipes, javaVersion, multiAz);
   }
 
   @Override
@@ -342,6 +367,7 @@ public class CreateAzureDatalakeRequest  {
     sb.append("    enableRangerRaz: ").append(toIndentedString(enableRangerRaz)).append("\n");
     sb.append("    recipes: ").append(toIndentedString(recipes)).append("\n");
     sb.append("    javaVersion: ").append(toIndentedString(javaVersion)).append("\n");
+    sb.append("    multiAz: ").append(toIndentedString(multiAz)).append("\n");
     sb.append("}");
     return sb.toString();
   }
