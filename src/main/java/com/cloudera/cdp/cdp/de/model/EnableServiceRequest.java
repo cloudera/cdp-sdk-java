@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * Request object for Enable Service method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-12-01T13:59:42.040-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-12-13T15:06:59.762-08:00")
 public class EnableServiceRequest  {
 
   /**

@@ -36,7 +36,7 @@ import java.util.*;
 /**
  * Request object for a create Azure environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-12-01T13:59:41.311-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-12-13T15:06:59.023-08:00")
 public class CreateAzureEnvironmentRequest  {
 
   /**
@@ -158,6 +158,11 @@ public class CreateAzureEnvironmentRequest  {
    * Whether or not outbound load balancers should be created for Azure environments. The default behavior is to not create the outbound load balancer.
    **/
   private Boolean enableOutboundLoadBalancer = null;
+
+  /**
+   * The subnets delegated for Flexible Server database. Accepts either the name or the full resource id.
+   **/
+  private List<String> flexibleServerSubnetIds = new ArrayList<String>();
 
   /**
    * Data Services parameters of the environment.
@@ -573,6 +578,23 @@ public class CreateAzureEnvironmentRequest  {
   }
 
   /**
+   * Getter for flexibleServerSubnetIds.
+   * The subnets delegated for Flexible Server database. Accepts either the name or the full resource id.
+   **/
+  @JsonProperty("flexibleServerSubnetIds")
+  public List<String> getFlexibleServerSubnetIds() {
+    return flexibleServerSubnetIds;
+  }
+
+  /**
+   * Setter for flexibleServerSubnetIds.
+   * The subnets delegated for Flexible Server database. Accepts either the name or the full resource id.
+   **/
+  public void setFlexibleServerSubnetIds(List<String> flexibleServerSubnetIds) {
+    this.flexibleServerSubnetIds = flexibleServerSubnetIds;
+  }
+
+  /**
    * Getter for dataServices.
    * Data Services parameters of the environment.
    **/
@@ -670,6 +692,9 @@ public class CreateAzureEnvironmentRequest  {
     if (!Objects.equals(this.enableOutboundLoadBalancer, createAzureEnvironmentRequest.enableOutboundLoadBalancer)) {
       return false;
     }
+    if (!Objects.equals(this.flexibleServerSubnetIds, createAzureEnvironmentRequest.flexibleServerSubnetIds)) {
+      return false;
+    }
     if (!Objects.equals(this.dataServices, createAzureEnvironmentRequest.dataServices)) {
       return false;
     }
@@ -678,7 +703,7 @@ public class CreateAzureEnvironmentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, encryptionKeyUrl, encryptionKeyResourceGroupName, enableOutboundLoadBalancer, dataServices);
+    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, encryptionKeyUrl, encryptionKeyResourceGroupName, enableOutboundLoadBalancer, flexibleServerSubnetIds, dataServices);
   }
 
   @Override
@@ -709,6 +734,7 @@ public class CreateAzureEnvironmentRequest  {
     sb.append("    encryptionKeyUrl: ").append(toIndentedString(encryptionKeyUrl)).append("\n");
     sb.append("    encryptionKeyResourceGroupName: ").append(toIndentedString(encryptionKeyResourceGroupName)).append("\n");
     sb.append("    enableOutboundLoadBalancer: ").append(toIndentedString(enableOutboundLoadBalancer)).append("\n");
+    sb.append("    flexibleServerSubnetIds: ").append(toIndentedString(flexibleServerSubnetIds)).append("\n");
     sb.append("    dataServices: ").append(toIndentedString(dataServices)).append("\n");
     sb.append("}");
     return sb.toString();

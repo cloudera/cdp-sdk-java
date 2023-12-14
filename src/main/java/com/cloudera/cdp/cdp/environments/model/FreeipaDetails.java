@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Details of a FreeIPA cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-12-01T13:59:41.311-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-12-13T15:06:59.023-08:00")
 public class FreeipaDetails  {
 
   /**
@@ -61,6 +61,11 @@ public class FreeipaDetails  {
    * The instances of the FreeIPA cluster.
    **/
   private List<FreeIpaInstance> instances = new ArrayList<FreeIpaInstance>();
+
+  /**
+   * The number of FreeIPA instances to create per group when creating FreeIPA in environment.
+   **/
+  private Integer instanceCountByGroup = null;
 
   /**
    * Getter for crn.
@@ -164,6 +169,23 @@ public class FreeipaDetails  {
     this.instances = instances;
   }
 
+  /**
+   * Getter for instanceCountByGroup.
+   * The number of FreeIPA instances to create per group when creating FreeIPA in environment.
+   **/
+  @JsonProperty("instanceCountByGroup")
+  public Integer getInstanceCountByGroup() {
+    return instanceCountByGroup;
+  }
+
+  /**
+   * Setter for instanceCountByGroup.
+   * The number of FreeIPA instances to create per group when creating FreeIPA in environment.
+   **/
+  public void setInstanceCountByGroup(Integer instanceCountByGroup) {
+    this.instanceCountByGroup = instanceCountByGroup;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -191,12 +213,15 @@ public class FreeipaDetails  {
     if (!Objects.equals(this.instances, freeipaDetails.instances)) {
       return false;
     }
+    if (!Objects.equals(this.instanceCountByGroup, freeipaDetails.instanceCountByGroup)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, domain, hostname, serverIP, recipes, instances);
+    return Objects.hash(crn, domain, hostname, serverIP, recipes, instances, instanceCountByGroup);
   }
 
   @Override
@@ -209,6 +234,7 @@ public class FreeipaDetails  {
     sb.append("    serverIP: ").append(toIndentedString(serverIP)).append("\n");
     sb.append("    recipes: ").append(toIndentedString(recipes)).append("\n");
     sb.append("    instances: ").append(toIndentedString(instances)).append("\n");
+    sb.append("    instanceCountByGroup: ").append(toIndentedString(instanceCountByGroup)).append("\n");
     sb.append("}");
     return sb.toString();
   }

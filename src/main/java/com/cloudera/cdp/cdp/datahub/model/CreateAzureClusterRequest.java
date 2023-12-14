@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * Request object for create Azure cluster request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-12-01T13:59:38.963-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-12-13T15:06:56.917-08:00")
 public class CreateAzureClusterRequest  {
 
   /**
@@ -109,6 +109,11 @@ public class CreateAzureClusterRequest  {
    * Flag that decides whether to provision a load-balancer to front various service endpoints for the given datahub. This will typically be used for HA cluster shapes.
    **/
   private Boolean enableLoadBalancer = null;
+
+  /**
+   * The type of the azure database. FLEXIBLE_SERVER is the next generation managed PostgreSQL service in Azure that provides maximum flexibility over your database, built-in cost-optimizations. SINGLE_SERVER is a fully managed database service with minimal requirements for customizations of the database.
+   **/
+  private String databaseType = null;
 
   /**
    * Configure the major version of Java on the cluster.
@@ -371,6 +376,23 @@ public class CreateAzureClusterRequest  {
   }
 
   /**
+   * Getter for databaseType.
+   * The type of the azure database. FLEXIBLE_SERVER is the next generation managed PostgreSQL service in Azure that provides maximum flexibility over your database, built-in cost-optimizations. SINGLE_SERVER is a fully managed database service with minimal requirements for customizations of the database.
+   **/
+  @JsonProperty("databaseType")
+  public String getDatabaseType() {
+    return databaseType;
+  }
+
+  /**
+   * Setter for databaseType.
+   * The type of the azure database. FLEXIBLE_SERVER is the next generation managed PostgreSQL service in Azure that provides maximum flexibility over your database, built-in cost-optimizations. SINGLE_SERVER is a fully managed database service with minimal requirements for customizations of the database.
+   **/
+  public void setDatabaseType(String databaseType) {
+    this.databaseType = databaseType;
+  }
+
+  /**
    * Getter for javaVersion.
    * Configure the major version of Java on the cluster.
    **/
@@ -441,6 +463,9 @@ public class CreateAzureClusterRequest  {
     if (!Objects.equals(this.enableLoadBalancer, createAzureClusterRequest.enableLoadBalancer)) {
       return false;
     }
+    if (!Objects.equals(this.databaseType, createAzureClusterRequest.databaseType)) {
+      return false;
+    }
     if (!Objects.equals(this.javaVersion, createAzureClusterRequest.javaVersion)) {
       return false;
     }
@@ -449,7 +474,7 @@ public class CreateAzureClusterRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, clusterDefinitionName, environmentName, clusterTemplateName, customConfigurationsName, instanceGroups, subnetId, image, tags, requestTemplate, datahubDatabase, multiAz, loadBalancerSku, clusterExtension, enableLoadBalancer, javaVersion);
+    return Objects.hash(clusterName, clusterDefinitionName, environmentName, clusterTemplateName, customConfigurationsName, instanceGroups, subnetId, image, tags, requestTemplate, datahubDatabase, multiAz, loadBalancerSku, clusterExtension, enableLoadBalancer, databaseType, javaVersion);
   }
 
   @Override
@@ -471,6 +496,7 @@ public class CreateAzureClusterRequest  {
     sb.append("    loadBalancerSku: ").append(toIndentedString(loadBalancerSku)).append("\n");
     sb.append("    clusterExtension: ").append(toIndentedString(clusterExtension)).append("\n");
     sb.append("    enableLoadBalancer: ").append(toIndentedString(enableLoadBalancer)).append("\n");
+    sb.append("    databaseType: ").append(toIndentedString(databaseType)).append("\n");
     sb.append("    javaVersion: ").append(toIndentedString(javaVersion)).append("\n");
     sb.append("}");
     return sb.toString();

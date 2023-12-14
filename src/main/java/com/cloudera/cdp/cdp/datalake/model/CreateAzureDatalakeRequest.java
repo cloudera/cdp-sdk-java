@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * Request object for create Azure datalake request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-12-01T13:59:40.843-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-12-13T15:06:58.502-08:00")
 public class CreateAzureDatalakeRequest  {
 
   /**
@@ -79,6 +79,11 @@ public class CreateAzureDatalakeRequest  {
    * Whether to enable Ranger RAZ for the datalake. Defaults to not being enabled.
    **/
   private Boolean enableRangerRaz = null;
+
+  /**
+   * The type of the azure database. FLEXIBLE_SERVER is the next generation managed PostgreSQL service in Azure that provides maximum flexibility over your database, built-in cost-optimizations. SINGLE_SERVER is a fully managed database service with minimal requirements for customizations of the database.
+   **/
+  private String databaseType = null;
 
   /**
    * Additional recipes that will be attached on the datalake instances (by instance groups, most common ones are like 'master' or 'idbroker').
@@ -249,6 +254,23 @@ public class CreateAzureDatalakeRequest  {
   }
 
   /**
+   * Getter for databaseType.
+   * The type of the azure database. FLEXIBLE_SERVER is the next generation managed PostgreSQL service in Azure that provides maximum flexibility over your database, built-in cost-optimizations. SINGLE_SERVER is a fully managed database service with minimal requirements for customizations of the database.
+   **/
+  @JsonProperty("databaseType")
+  public String getDatabaseType() {
+    return databaseType;
+  }
+
+  /**
+   * Setter for databaseType.
+   * The type of the azure database. FLEXIBLE_SERVER is the next generation managed PostgreSQL service in Azure that provides maximum flexibility over your database, built-in cost-optimizations. SINGLE_SERVER is a fully managed database service with minimal requirements for customizations of the database.
+   **/
+  public void setDatabaseType(String databaseType) {
+    this.databaseType = databaseType;
+  }
+
+  /**
    * Getter for recipes.
    * Additional recipes that will be attached on the datalake instances (by instance groups, most common ones are like &#39;master&#39; or &#39;idbroker&#39;).
    **/
@@ -335,6 +357,9 @@ public class CreateAzureDatalakeRequest  {
     if (!Objects.equals(this.enableRangerRaz, createAzureDatalakeRequest.enableRangerRaz)) {
       return false;
     }
+    if (!Objects.equals(this.databaseType, createAzureDatalakeRequest.databaseType)) {
+      return false;
+    }
     if (!Objects.equals(this.recipes, createAzureDatalakeRequest.recipes)) {
       return false;
     }
@@ -349,7 +374,7 @@ public class CreateAzureDatalakeRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, scale, tags, runtime, image, loadBalancerSku, enableRangerRaz, recipes, javaVersion, multiAz);
+    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, scale, tags, runtime, image, loadBalancerSku, enableRangerRaz, databaseType, recipes, javaVersion, multiAz);
   }
 
   @Override
@@ -365,6 +390,7 @@ public class CreateAzureDatalakeRequest  {
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    loadBalancerSku: ").append(toIndentedString(loadBalancerSku)).append("\n");
     sb.append("    enableRangerRaz: ").append(toIndentedString(enableRangerRaz)).append("\n");
+    sb.append("    databaseType: ").append(toIndentedString(databaseType)).append("\n");
     sb.append("    recipes: ").append(toIndentedString(recipes)).append("\n");
     sb.append("    javaVersion: ").append(toIndentedString(javaVersion)).append("\n");
     sb.append("    multiAz: ").append(toIndentedString(multiAz)).append("\n");

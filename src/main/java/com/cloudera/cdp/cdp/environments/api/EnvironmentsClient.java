@@ -171,6 +171,8 @@ import com.cloudera.cdp.environments.model.UpdateAwsDiskEncryptionParametersRequ
 import com.cloudera.cdp.environments.model.UpdateAwsDiskEncryptionParametersResponse;
 import com.cloudera.cdp.environments.model.UpdateAzureCredentialRequest;
 import com.cloudera.cdp.environments.model.UpdateAzureCredentialResponse;
+import com.cloudera.cdp.environments.model.UpdateAzureDatabaseResourcesRequest;
+import com.cloudera.cdp.environments.model.UpdateAzureDatabaseResourcesResponse;
 import com.cloudera.cdp.environments.model.UpdateAzureEncryptionResourcesRequest;
 import com.cloudera.cdp.environments.model.UpdateAzureEncryptionResourcesResponse;
 import com.cloudera.cdp.environments.model.UpdateAzureImageTermsPolicyRequest;
@@ -203,7 +205,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-12-01T13:59:41.311-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-12-13T15:06:59.023-08:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -1156,6 +1158,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("updateAzureCredential", "/api/v1/environments2/updateAzureCredential", input, new GenericType<UpdateAzureCredentialResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Update the Azure database resources for the environment.
+   * @param input
+   * @return UpdateAzureDatabaseResourcesResponse
+   */
+  public UpdateAzureDatabaseResourcesResponse updateAzureDatabaseResources(UpdateAzureDatabaseResourcesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateAzureDatabaseResources");
+    }
+
+    return this.invokeAPI("updateAzureDatabaseResources", "/api/v1/environments2/updateAzureDatabaseResources", input, new GenericType<UpdateAzureDatabaseResourcesResponse>(){}, NO_EXTENSION);
   }
 
   /**

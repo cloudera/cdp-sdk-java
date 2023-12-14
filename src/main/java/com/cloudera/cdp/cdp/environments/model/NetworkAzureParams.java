@@ -23,11 +23,12 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import java.util.*;
 
 /**
  * Azure network parameters.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-12-01T13:59:41.311-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-12-13T15:06:59.023-08:00")
 public class NetworkAzureParams  {
 
   /**
@@ -59,6 +60,11 @@ public class NetworkAzureParams  {
    * Whether the outbound load balancer was created for this environment.
    **/
   private Boolean enableOutboundLoadBalancer = null;
+
+  /**
+   * The subnets delegated for Flexible Server database. Accepts either the name or the full resource id.
+   **/
+  private List<String> flexibleServerSubnetIds = new ArrayList<String>();
 
   /**
    * Getter for networkId.
@@ -162,6 +168,23 @@ public class NetworkAzureParams  {
     this.enableOutboundLoadBalancer = enableOutboundLoadBalancer;
   }
 
+  /**
+   * Getter for flexibleServerSubnetIds.
+   * The subnets delegated for Flexible Server database. Accepts either the name or the full resource id.
+   **/
+  @JsonProperty("flexibleServerSubnetIds")
+  public List<String> getFlexibleServerSubnetIds() {
+    return flexibleServerSubnetIds;
+  }
+
+  /**
+   * Setter for flexibleServerSubnetIds.
+   * The subnets delegated for Flexible Server database. Accepts either the name or the full resource id.
+   **/
+  public void setFlexibleServerSubnetIds(List<String> flexibleServerSubnetIds) {
+    this.flexibleServerSubnetIds = flexibleServerSubnetIds;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -189,12 +212,15 @@ public class NetworkAzureParams  {
     if (!Objects.equals(this.enableOutboundLoadBalancer, networkAzureParams.enableOutboundLoadBalancer)) {
       return false;
     }
+    if (!Objects.equals(this.flexibleServerSubnetIds, networkAzureParams.flexibleServerSubnetIds)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(networkId, resourceGroupName, usePublicIp, databasePrivateDnsZoneId, aksPrivateDnsZoneId, enableOutboundLoadBalancer);
+    return Objects.hash(networkId, resourceGroupName, usePublicIp, databasePrivateDnsZoneId, aksPrivateDnsZoneId, enableOutboundLoadBalancer, flexibleServerSubnetIds);
   }
 
   @Override
@@ -207,6 +233,7 @@ public class NetworkAzureParams  {
     sb.append("    databasePrivateDnsZoneId: ").append(toIndentedString(databasePrivateDnsZoneId)).append("\n");
     sb.append("    aksPrivateDnsZoneId: ").append(toIndentedString(aksPrivateDnsZoneId)).append("\n");
     sb.append("    enableOutboundLoadBalancer: ").append(toIndentedString(enableOutboundLoadBalancer)).append("\n");
+    sb.append("    flexibleServerSubnetIds: ").append(toIndentedString(flexibleServerSubnetIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }
