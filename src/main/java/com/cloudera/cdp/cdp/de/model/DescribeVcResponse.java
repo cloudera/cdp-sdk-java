@@ -28,7 +28,7 @@ import com.cloudera.cdp.de.model.VcDescription;
 /**
  * DescribeVc response object.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2023-12-13T15:06:59.762-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-05T09:16:32.026-08:00")
 public class DescribeVcResponse extends CdpResponse {
 
   /**

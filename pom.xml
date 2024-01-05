@@ -3,15 +3,14 @@
 
   <groupId>com.cloudera.cdp</groupId>
   <artifactId>cdp-sdk-java</artifactId>
-  <version>0.9.103</version>
+  <version>0.9.104</version>
   <name>Cloudera CDP Java SDK</name>
   <packaging>jar</packaging>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <javaVersion>11</javaVersion>
-    <minSupportedJvmJavaVersion>${javaVersion}</minSupportedJvmJavaVersion>
+    <mainJavaVersion>11</mainJavaVersion>
 
     <skipUTs>${skipTests}</skipUTs>
 
@@ -24,7 +23,7 @@
     <jackson.version>2.14.1</jackson.version>
     <javax-ws-rs.version>2.1.1</javax-ws-rs.version>
     <jersey.version>2.34</jersey.version>
-    <jetty.version>9.4.51.v20230217</jetty.version>
+    <jetty.version>9.4.53.v20231009</jetty.version>
     <jsr305.version>3.0.2</jsr305.version>
     <junit-jupiter.version>5.5.2</junit-jupiter.version>
     <junit-platform.version>1.5.2</junit-platform.version>
@@ -182,6 +181,14 @@
   <build>
     <resources>
       <resource>
+        <directory>.</directory>
+        <includes>
+          <include>LICENSE*.txt</include>
+          <include>NOTICES</include>
+        </includes>
+        <targetPath>META-INF</targetPath>
+      </resource>
+      <resource>
         <directory>src/main/resources</directory>
         <filtering>true</filtering>
       </resource>
@@ -252,7 +259,7 @@
               <rules>
                 <dependencyConvergence />
                 <requireJavaVersion>
-                  <version>${minSupportedJvmJavaVersion}</version>
+                  <version>${mainJavaVersion}</version>
                 </requireJavaVersion>
                 <requireMavenVersion>
                   <version>3.5.0</version>
@@ -315,17 +322,57 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>${maven-compiler-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>default-compile</id>
+            <phase>none</phase>
+          </execution>
+          <execution>
+            <id>compile-java-8</id>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+            <configuration>
+              <source>1.8</source>
+              <target>1.8</target>
+            </configuration>
+          </execution>
+          <execution>
+            <id>compile-java-11</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+            <configuration>
+              <source>11</source>
+              <target>11</target>
+              <outputDirectory>${project.build.outputDirectory}/META-INF/versions/11</outputDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>default-testCompile</id>
+            <phase>test-compile</phase>
+            <goals>
+              <goal>testCompile</goal>
+            </goals>
+            <configuration>
+              <source>${mainJavaVersion}</source>
+              <target>${mainJavaVersion}</target>
+              <skip>${skipTests}</skip>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>${maven-jar-plugin.version}</version>
         <configuration>
-          <source>${minSupportedJvmJavaVersion}</source>
-          <target>${minSupportedJvmJavaVersion}</target>
-          <excludes>
-            <exclude>**/extension/Df.java</exclude>
-            <exclude>**/extension/Workload.java</exclude>
-          </excludes>
-          <testExcludes>
-            <testExclude>**/extension/DfExtensionTest.java</testExclude>
-            <testExclude>**/extension/WorkloadExtensionTest.java</testExclude>
-          </testExcludes>
+          <archive>
+            <manifestEntries>
+              <Multi-Release>true</Multi-Release>
+            </manifestEntries>
+          </archive>
         </configuration>
       </plugin>
       <plugin>
@@ -353,7 +400,7 @@
               <goal>jar</goal>
             </goals>
             <configuration>
-              <source>${javaVersion}</source>
+              <source>${mainJavaVersion}</source>
               <doclint>none</doclint>
               <quiet>true</quiet>
             </configuration>
