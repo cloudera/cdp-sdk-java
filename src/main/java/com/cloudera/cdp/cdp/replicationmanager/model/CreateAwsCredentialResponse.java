@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for creating AWS credentials.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-05T09:16:33.295-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-19T13:24:36.844-08:00")
 public class CreateAwsCredentialResponse extends CdpResponse {
 
   /**

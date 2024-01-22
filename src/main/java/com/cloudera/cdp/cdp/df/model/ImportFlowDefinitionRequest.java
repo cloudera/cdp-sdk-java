@@ -23,11 +23,13 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.df.model.FlowDefinitionTagData;
+import java.util.*;
 
 /**
  * Request object for ImportFlowDefinition
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-05T09:16:32.503-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-19T13:24:35.841-08:00")
 public class ImportFlowDefinitionRequest  {
 
   /**
@@ -49,6 +51,11 @@ public class ImportFlowDefinitionRequest  {
    * The comments of the flow.
    **/
   private String comments = null;
+
+  /**
+   * The list of tags for the initial flow definition version
+   **/
+  private List<FlowDefinitionTagData> tags = new ArrayList<FlowDefinitionTagData>();
 
   /**
    * Getter for file.
@@ -118,6 +125,23 @@ public class ImportFlowDefinitionRequest  {
     this.comments = comments;
   }
 
+  /**
+   * Getter for tags.
+   * The list of tags for the initial flow definition version
+   **/
+  @JsonProperty("tags")
+  public List<FlowDefinitionTagData> getTags() {
+    return tags;
+  }
+
+  /**
+   * Setter for tags.
+   * The list of tags for the initial flow definition version
+   **/
+  public void setTags(List<FlowDefinitionTagData> tags) {
+    this.tags = tags;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -139,12 +163,15 @@ public class ImportFlowDefinitionRequest  {
     if (!Objects.equals(this.comments, importFlowDefinitionRequest.comments)) {
       return false;
     }
+    if (!Objects.equals(this.tags, importFlowDefinitionRequest.tags)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(file, name, description, comments);
+    return Objects.hash(file, name, description, comments, tags);
   }
 
   @Override
@@ -155,6 +182,7 @@ public class ImportFlowDefinitionRequest  {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

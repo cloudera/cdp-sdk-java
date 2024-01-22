@@ -53,6 +53,8 @@ import com.cloudera.cdp.dfworkload.model.DeleteReportingTaskResponse;
 import com.cloudera.cdp.dfworkload.model.DescribeInboundConnectionEndpointRequest;
 import com.cloudera.cdp.dfworkload.model.DescribeInboundConnectionEndpointResponse;
 import com.cloudera.cdp.dfworkload.model.Error;
+import com.cloudera.cdp.dfworkload.model.ExportDeploymentRequest;
+import com.cloudera.cdp.dfworkload.model.ExportDeploymentResponse;
 import com.cloudera.cdp.dfworkload.model.GetCustomNarConfigurationRequest;
 import com.cloudera.cdp.dfworkload.model.GetCustomNarConfigurationResponse;
 import com.cloudera.cdp.dfworkload.model.GetDefaultCustomNarConfigurationRequest;
@@ -64,10 +66,15 @@ import com.cloudera.cdp.dfworkload.model.GetDeploymentConfigurationResponse;
 import com.cloudera.cdp.dfworkload.model.GetDeploymentRequestDetailsRequest;
 import com.cloudera.cdp.dfworkload.model.GetDeploymentRequestDetailsResponse;
 import com.google.common.collect.ImmutableList;
+import com.cloudera.cdp.dfworkload.model.ImportDeploymentRequest;
+import com.cloudera.cdp.dfworkload.model.ImportDeploymentResponse;
 import com.cloudera.cdp.dfworkload.model.InboundConnectionEndpointClientCertificateRequest;
 import com.cloudera.cdp.dfworkload.model.InboundConnectionEndpointClientCertificateResponse;
+import com.cloudera.cdp.dfworkload.model.InboundConnectionEndpointClientCertificatesRequest;
 import com.cloudera.cdp.dfworkload.model.InboundConnectionEndpointClientPrivateKeyRequest;
 import com.cloudera.cdp.dfworkload.model.InboundConnectionEndpointClientPrivateKeyResponse;
+import com.cloudera.cdp.dfworkload.model.ListDeploymentArchivesRequest;
+import com.cloudera.cdp.dfworkload.model.ListDeploymentArchivesResponse;
 import com.cloudera.cdp.dfworkload.model.ListInboundConnectionEndpointsRequest;
 import com.cloudera.cdp.dfworkload.model.ListInboundConnectionEndpointsResponse;
 import com.cloudera.cdp.dfworkload.model.ListNifiVersionsRequest;
@@ -108,7 +115,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-05T09:16:32.783-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-19T13:24:36.272-08:00")
 public class DfworkloadClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dfworkload";
@@ -308,6 +315,20 @@ public class DfworkloadClient extends CdpClient {
   }
 
   /**
+   * Export deployment configuration.
+   * @param input Export Deployment Request
+   * @return ExportDeploymentResponse
+   */
+  @WorkloadApi
+  public ExportDeploymentResponse exportDeployment(ExportDeploymentRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling exportDeployment");
+    }
+
+    return this.invokeAPI("exportDeployment", "/dfx/api/rpc-v1/deployments/export-deployment", input, new GenericType<ExportDeploymentResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
    * Get Inbound Connection Endpoint Client Certificate (in PEM encoding)
    * @param input Get Inbound Connection Endpoint client&#39;s certificate request
    * @return InboundConnectionEndpointClientCertificateResponse
@@ -319,6 +340,20 @@ public class DfworkloadClient extends CdpClient {
     }
 
     return this.invokeAPI("getClientCertificateEncoded", "/dfx/api/rpc-v1/inbound-connection-endpoint-certificates/download-client-certificate-encoded", input, new GenericType<InboundConnectionEndpointClientCertificateResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Get Inbound Connection Endpoint Client Certificates (in PEM encoding)
+   * @param input Get Inbound Connection Endpoint client&#39;s certificates
+   * @return InboundConnectionEndpointClientPrivateKeyResponse
+   */
+  @WorkloadApi
+  public InboundConnectionEndpointClientPrivateKeyResponse getClientCertificatesEncoded(InboundConnectionEndpointClientCertificatesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getClientCertificatesEncoded");
+    }
+
+    return this.invokeAPI("getClientCertificatesEncoded", "/dfx/api/rpc-v1/inbound-connection-endpoint-certificates/download-client-certificates-encoded", input, new GenericType<InboundConnectionEndpointClientPrivateKeyResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
   }
 
   /**
@@ -403,6 +438,34 @@ public class DfworkloadClient extends CdpClient {
     }
 
     return this.invokeAPI("getDeploymentRequestDetails", "/dfx/api/rpc-v1/deployments/get-deployment-request-details", input, new GenericType<GetDeploymentRequestDetailsResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Import deployment configuration.
+   * @param input Import Deployment Configuration Request
+   * @return ImportDeploymentResponse
+   */
+  @WorkloadApi
+  public ImportDeploymentResponse importDeployment(ImportDeploymentRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling importDeployment");
+    }
+
+    return this.invokeAPI("importDeployment", "/dfx/api/rpc-v1/deployments/import-deployment", input, new GenericType<ImportDeploymentResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Lists the exported archive metadata of all deployments.
+   * @param input List Deployment Archives Request
+   * @return ListDeploymentArchivesResponse
+   */
+  @WorkloadApi
+  public ListDeploymentArchivesResponse listDeploymentArchives(ListDeploymentArchivesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listDeploymentArchives");
+    }
+
+    return this.invokeAPI("listDeploymentArchives", "/dfx/api/rpc-v1/deployments/list-deployment-archives", input, new GenericType<ListDeploymentArchivesResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
   }
 
   /**

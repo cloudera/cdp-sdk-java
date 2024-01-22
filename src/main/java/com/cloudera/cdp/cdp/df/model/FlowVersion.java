@@ -23,11 +23,13 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.df.model.FlowVersionTag;
+import java.util.*;
 
 /**
  * A representation of a flow detail version
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-05T09:16:32.503-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-19T13:24:35.841-08:00")
 public class FlowVersion  {
 
   /**
@@ -69,6 +71,11 @@ public class FlowVersion  {
    * The number of draft flows associated with the version.
    **/
   private Integer draftCount = null;
+
+  /**
+   * The list of tags associated with the flow version.
+   **/
+  private List<FlowVersionTag> tags = new ArrayList<FlowVersionTag>();
 
   /**
    * Getter for crn.
@@ -206,6 +213,23 @@ public class FlowVersion  {
     this.draftCount = draftCount;
   }
 
+  /**
+   * Getter for tags.
+   * The list of tags associated with the flow version.
+   **/
+  @JsonProperty("tags")
+  public List<FlowVersionTag> getTags() {
+    return tags;
+  }
+
+  /**
+   * Setter for tags.
+   * The list of tags associated with the flow version.
+   **/
+  public void setTags(List<FlowVersionTag> tags) {
+    this.tags = tags;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -239,12 +263,15 @@ public class FlowVersion  {
     if (!Objects.equals(this.draftCount, flowVersion.draftCount)) {
       return false;
     }
+    if (!Objects.equals(this.tags, flowVersion.tags)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, bucketIdentifier, author, version, timestamp, deploymentCount, comments, draftCount);
+    return Objects.hash(crn, bucketIdentifier, author, version, timestamp, deploymentCount, comments, draftCount, tags);
   }
 
   @Override
@@ -259,6 +286,7 @@ public class FlowVersion  {
     sb.append("    deploymentCount: ").append(toIndentedString(deploymentCount)).append("\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
     sb.append("    draftCount: ").append(toIndentedString(draftCount)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

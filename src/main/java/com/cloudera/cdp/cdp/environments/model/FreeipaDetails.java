@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Details of a FreeIPA cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-05T09:16:31.175-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-19T13:24:34.433-08:00")
 public class FreeipaDetails  {
 
   /**
@@ -66,6 +66,11 @@ public class FreeipaDetails  {
    * The number of FreeIPA instances to create per group when creating FreeIPA in environment.
    **/
   private Integer instanceCountByGroup = null;
+
+  /**
+   * Whether the given FreeIPA is deployed in a multi-availability zone way or not.
+   **/
+  private Boolean multiAz = null;
 
   /**
    * Getter for crn.
@@ -186,6 +191,23 @@ public class FreeipaDetails  {
     this.instanceCountByGroup = instanceCountByGroup;
   }
 
+  /**
+   * Getter for multiAz.
+   * Whether the given FreeIPA is deployed in a multi-availability zone way or not.
+   **/
+  @JsonProperty("multiAz")
+  public Boolean getMultiAz() {
+    return multiAz;
+  }
+
+  /**
+   * Setter for multiAz.
+   * Whether the given FreeIPA is deployed in a multi-availability zone way or not.
+   **/
+  public void setMultiAz(Boolean multiAz) {
+    this.multiAz = multiAz;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -216,12 +238,15 @@ public class FreeipaDetails  {
     if (!Objects.equals(this.instanceCountByGroup, freeipaDetails.instanceCountByGroup)) {
       return false;
     }
+    if (!Objects.equals(this.multiAz, freeipaDetails.multiAz)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, domain, hostname, serverIP, recipes, instances, instanceCountByGroup);
+    return Objects.hash(crn, domain, hostname, serverIP, recipes, instances, instanceCountByGroup, multiAz);
   }
 
   @Override
@@ -235,6 +260,7 @@ public class FreeipaDetails  {
     sb.append("    recipes: ").append(toIndentedString(recipes)).append("\n");
     sb.append("    instances: ").append(toIndentedString(instances)).append("\n");
     sb.append("    instanceCountByGroup: ").append(toIndentedString(instanceCountByGroup)).append("\n");
+    sb.append("    multiAz: ").append(toIndentedString(multiAz)).append("\n");
     sb.append("}");
     return sb.toString();
   }

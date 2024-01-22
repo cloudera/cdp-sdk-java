@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for collecting FreeIPA diagnostics.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-05T09:16:31.175-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-19T13:24:34.433-08:00")
 public class CollectFreeipaDiagnosticsRequest  {
 
   /**

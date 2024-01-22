@@ -24,11 +24,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.opdb.model.AutoScalingParameters;
+import com.cloudera.cdp.opdb.model.CustomRecipe;
+import com.cloudera.cdp.opdb.model.Image;
+import java.util.*;
 
 /**
  * A request to create the database
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-05T09:16:31.711-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-19T13:24:34.896-08:00")
 public class CreateDatabaseRequest  {
 
   /**
@@ -47,6 +50,11 @@ public class CreateDatabaseRequest  {
   private AutoScalingParameters autoScalingParameters = null;
 
   /**
+   * Image details for the database.
+   **/
+  private Image image = null;
+
+  /**
    * Optional tags to choose one of the predefined cluster sizes.
    **/
   private String scaleType = null;
@@ -55,6 +63,11 @@ public class CreateDatabaseRequest  {
    * Optional tag to choose the storage types.
    **/
   private String storageType = null;
+
+  /**
+   * Custom recipes for the database.
+   **/
+  private List<CustomRecipe> recipes = new ArrayList<CustomRecipe>();
 
   /**
    * Getter for environmentName.
@@ -108,6 +121,23 @@ public class CreateDatabaseRequest  {
   }
 
   /**
+   * Getter for image.
+   * Image details for the database.
+   **/
+  @JsonProperty("image")
+  public Image getImage() {
+    return image;
+  }
+
+  /**
+   * Setter for image.
+   * Image details for the database.
+   **/
+  public void setImage(Image image) {
+    this.image = image;
+  }
+
+  /**
    * Getter for scaleType.
    * Optional tags to choose one of the predefined cluster sizes.
    **/
@@ -141,6 +171,23 @@ public class CreateDatabaseRequest  {
     this.storageType = storageType;
   }
 
+  /**
+   * Getter for recipes.
+   * Custom recipes for the database.
+   **/
+  @JsonProperty("recipes")
+  public List<CustomRecipe> getRecipes() {
+    return recipes;
+  }
+
+  /**
+   * Setter for recipes.
+   * Custom recipes for the database.
+   **/
+  public void setRecipes(List<CustomRecipe> recipes) {
+    this.recipes = recipes;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -159,10 +206,16 @@ public class CreateDatabaseRequest  {
     if (!Objects.equals(this.autoScalingParameters, createDatabaseRequest.autoScalingParameters)) {
       return false;
     }
+    if (!Objects.equals(this.image, createDatabaseRequest.image)) {
+      return false;
+    }
     if (!Objects.equals(this.scaleType, createDatabaseRequest.scaleType)) {
       return false;
     }
     if (!Objects.equals(this.storageType, createDatabaseRequest.storageType)) {
+      return false;
+    }
+    if (!Objects.equals(this.recipes, createDatabaseRequest.recipes)) {
       return false;
     }
     return true;
@@ -170,7 +223,7 @@ public class CreateDatabaseRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, databaseName, autoScalingParameters, scaleType, storageType);
+    return Objects.hash(environmentName, databaseName, autoScalingParameters, image, scaleType, storageType, recipes);
   }
 
   @Override
@@ -180,8 +233,10 @@ public class CreateDatabaseRequest  {
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    databaseName: ").append(toIndentedString(databaseName)).append("\n");
     sb.append("    autoScalingParameters: ").append(toIndentedString(autoScalingParameters)).append("\n");
+    sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    scaleType: ").append(toIndentedString(scaleType)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
+    sb.append("    recipes: ").append(toIndentedString(recipes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -23,11 +23,13 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.df.model.FlowVersionTag;
+import java.util.*;
 
 /**
  * Response object for ImportFlowDefinitionVersion
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-05T09:16:32.503-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-19T13:24:35.841-08:00")
 public class ImportFlowDefinitionVersionResponse extends CdpResponse {
 
   /**
@@ -64,6 +66,11 @@ public class ImportFlowDefinitionVersionResponse extends CdpResponse {
    * Comments about the flow
    **/
   private String comments = null;
+
+  /**
+   * The tags for the flow version.
+   **/
+  private List<FlowVersionTag> tags = new ArrayList<FlowVersionTag>();
 
   /**
    * Getter for crn.
@@ -184,6 +191,23 @@ public class ImportFlowDefinitionVersionResponse extends CdpResponse {
     this.comments = comments;
   }
 
+  /**
+   * Getter for tags.
+   * The tags for the flow version.
+   **/
+  @JsonProperty("tags")
+  public List<FlowVersionTag> getTags() {
+    return tags;
+  }
+
+  /**
+   * Setter for tags.
+   * The tags for the flow version.
+   **/
+  public void setTags(List<FlowVersionTag> tags) {
+    this.tags = tags;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -214,6 +238,9 @@ public class ImportFlowDefinitionVersionResponse extends CdpResponse {
     if (!Objects.equals(this.comments, importFlowDefinitionVersionResponse.comments)) {
       return false;
     }
+    if (!Objects.equals(this.tags, importFlowDefinitionVersionResponse.tags)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -222,7 +249,7 @@ public class ImportFlowDefinitionVersionResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, bucketIdentifier, author, version, timestamp, deploymentCount, comments, super.hashCode());
+    return Objects.hash(crn, bucketIdentifier, author, version, timestamp, deploymentCount, comments, tags, super.hashCode());
   }
 
   @Override
@@ -237,6 +264,7 @@ public class ImportFlowDefinitionVersionResponse extends CdpResponse {
     sb.append("    timestamp: ").append(toIndentedString(timestamp)).append("\n");
     sb.append("    deploymentCount: ").append(toIndentedString(deploymentCount)).append("\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

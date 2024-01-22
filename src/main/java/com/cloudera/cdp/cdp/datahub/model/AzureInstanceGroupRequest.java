@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Configurations for instance group
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-05T09:16:28.593-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-19T13:24:32.212-08:00")
 public class AzureInstanceGroupRequest  {
 
   /**
@@ -71,6 +71,11 @@ public class AzureInstanceGroupRequest  {
    * Recovery mode for the instance group.
    **/
   private String recoveryMode = null;
+
+  /**
+   * List of availability zones that this instance group is associated with.
+   **/
+  private List<String> availabilityZones = new ArrayList<String>();
 
   /**
    * Getter for nodeCount.
@@ -208,6 +213,23 @@ public class AzureInstanceGroupRequest  {
     this.recoveryMode = recoveryMode;
   }
 
+  /**
+   * Getter for availabilityZones.
+   * List of availability zones that this instance group is associated with.
+   **/
+  @JsonProperty("availabilityZones")
+  public List<String> getAvailabilityZones() {
+    return availabilityZones;
+  }
+
+  /**
+   * Setter for availabilityZones.
+   * List of availability zones that this instance group is associated with.
+   **/
+  public void setAvailabilityZones(List<String> availabilityZones) {
+    this.availabilityZones = availabilityZones;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -241,12 +263,15 @@ public class AzureInstanceGroupRequest  {
     if (!Objects.equals(this.recoveryMode, azureInstanceGroupRequest.recoveryMode)) {
       return false;
     }
+    if (!Objects.equals(this.availabilityZones, azureInstanceGroupRequest.availabilityZones)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(nodeCount, instanceGroupName, instanceGroupType, instanceType, rootVolumeSize, attachedVolumeConfiguration, recipeNames, recoveryMode);
+    return Objects.hash(nodeCount, instanceGroupName, instanceGroupType, instanceType, rootVolumeSize, attachedVolumeConfiguration, recipeNames, recoveryMode, availabilityZones);
   }
 
   @Override
@@ -261,6 +286,7 @@ public class AzureInstanceGroupRequest  {
     sb.append("    attachedVolumeConfiguration: ").append(toIndentedString(attachedVolumeConfiguration)).append("\n");
     sb.append("    recipeNames: ").append(toIndentedString(recipeNames)).append("\n");
     sb.append("    recoveryMode: ").append(toIndentedString(recoveryMode)).append("\n");
+    sb.append("    availabilityZones: ").append(toIndentedString(availabilityZones)).append("\n");
     sb.append("}");
     return sb.toString();
   }

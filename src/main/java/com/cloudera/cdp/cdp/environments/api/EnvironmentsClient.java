@@ -169,6 +169,8 @@ import com.cloudera.cdp.environments.model.TestAccountTelemetryRulesRequest;
 import com.cloudera.cdp.environments.model.TestAccountTelemetryRulesResponse;
 import com.cloudera.cdp.environments.model.UpdateAwsDiskEncryptionParametersRequest;
 import com.cloudera.cdp.environments.model.UpdateAwsDiskEncryptionParametersResponse;
+import com.cloudera.cdp.environments.model.UpdateAzureAvailabilityZonesRequest;
+import com.cloudera.cdp.environments.model.UpdateAzureAvailabilityZonesResponse;
 import com.cloudera.cdp.environments.model.UpdateAzureCredentialRequest;
 import com.cloudera.cdp.environments.model.UpdateAzureCredentialResponse;
 import com.cloudera.cdp.environments.model.UpdateAzureDatabaseResourcesRequest;
@@ -205,7 +207,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-05T09:16:31.175-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-19T13:24:34.433-08:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -1145,6 +1147,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("updateAwsDiskEncryptionParameters", "/api/v1/environments2/updateAwsDiskEncryptionParameters", input, new GenericType<UpdateAwsDiskEncryptionParametersResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Update the Availability Zones for the Azure environment.
+   * @param input
+   * @return UpdateAzureAvailabilityZonesResponse
+   */
+  public UpdateAzureAvailabilityZonesResponse updateAzureAvailabilityZones(UpdateAzureAvailabilityZonesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateAzureAvailabilityZones");
+    }
+
+    return this.invokeAPI("updateAzureAvailabilityZones", "/api/v1/environments2/updateAzureAvailabilityZones", input, new GenericType<UpdateAzureAvailabilityZonesResponse>(){}, NO_EXTENSION);
   }
 
   /**

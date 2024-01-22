@@ -36,7 +36,7 @@ import java.util.*;
 /**
  * Request object for a create Azure environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-05T09:16:31.175-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-19T13:24:34.433-08:00")
 public class CreateAzureEnvironmentRequest  {
 
   /**
@@ -158,6 +158,11 @@ public class CreateAzureEnvironmentRequest  {
    * Whether or not outbound load balancers should be created for Azure environments. The default behavior is to not create the outbound load balancer.
    **/
   private Boolean enableOutboundLoadBalancer = null;
+
+  /**
+   * The zones of the environment in the given region.
+   **/
+  private List<String> availabilityZones = new ArrayList<String>();
 
   /**
    * The subnets delegated for Flexible Server database. Accepts either the name or the full resource id.
@@ -578,6 +583,23 @@ public class CreateAzureEnvironmentRequest  {
   }
 
   /**
+   * Getter for availabilityZones.
+   * The zones of the environment in the given region.
+   **/
+  @JsonProperty("availabilityZones")
+  public List<String> getAvailabilityZones() {
+    return availabilityZones;
+  }
+
+  /**
+   * Setter for availabilityZones.
+   * The zones of the environment in the given region.
+   **/
+  public void setAvailabilityZones(List<String> availabilityZones) {
+    this.availabilityZones = availabilityZones;
+  }
+
+  /**
    * Getter for flexibleServerSubnetIds.
    * The subnets delegated for Flexible Server database. Accepts either the name or the full resource id.
    **/
@@ -692,6 +714,9 @@ public class CreateAzureEnvironmentRequest  {
     if (!Objects.equals(this.enableOutboundLoadBalancer, createAzureEnvironmentRequest.enableOutboundLoadBalancer)) {
       return false;
     }
+    if (!Objects.equals(this.availabilityZones, createAzureEnvironmentRequest.availabilityZones)) {
+      return false;
+    }
     if (!Objects.equals(this.flexibleServerSubnetIds, createAzureEnvironmentRequest.flexibleServerSubnetIds)) {
       return false;
     }
@@ -703,7 +728,7 @@ public class CreateAzureEnvironmentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, encryptionKeyUrl, encryptionKeyResourceGroupName, enableOutboundLoadBalancer, flexibleServerSubnetIds, dataServices);
+    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, encryptionKeyUrl, encryptionKeyResourceGroupName, enableOutboundLoadBalancer, availabilityZones, flexibleServerSubnetIds, dataServices);
   }
 
   @Override
@@ -734,6 +759,7 @@ public class CreateAzureEnvironmentRequest  {
     sb.append("    encryptionKeyUrl: ").append(toIndentedString(encryptionKeyUrl)).append("\n");
     sb.append("    encryptionKeyResourceGroupName: ").append(toIndentedString(encryptionKeyResourceGroupName)).append("\n");
     sb.append("    enableOutboundLoadBalancer: ").append(toIndentedString(enableOutboundLoadBalancer)).append("\n");
+    sb.append("    availabilityZones: ").append(toIndentedString(availabilityZones)).append("\n");
     sb.append("    flexibleServerSubnetIds: ").append(toIndentedString(flexibleServerSubnetIds)).append("\n");
     sb.append("    dataServices: ").append(toIndentedString(dataServices)).append("\n");
     sb.append("}");

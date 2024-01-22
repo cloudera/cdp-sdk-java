@@ -32,12 +32,16 @@ import com.cloudera.cdp.df.model.AddReadyflowRequest;
 import com.cloudera.cdp.df.model.AddReadyflowResponse;
 import com.cloudera.cdp.df.model.CancelDeleteProjectRequest;
 import com.cloudera.cdp.df.model.CancelDeleteProjectResponse;
+import com.cloudera.cdp.df.model.CreateFlowVersionTagRequest;
+import com.cloudera.cdp.df.model.CreateFlowVersionTagResponse;
 import com.cloudera.cdp.df.model.CreateProjectRequest;
 import com.cloudera.cdp.df.model.CreateProjectResponse;
 import com.cloudera.cdp.df.model.DeleteAddedReadyflowRequest;
 import com.cloudera.cdp.df.model.DeleteAddedReadyflowResponse;
 import com.cloudera.cdp.df.model.DeleteFlowRequest;
 import com.cloudera.cdp.df.model.DeleteFlowResponse;
+import com.cloudera.cdp.df.model.DeleteFlowVersionTagRequest;
+import com.cloudera.cdp.df.model.DeleteFlowVersionTagResponse;
 import com.cloudera.cdp.df.model.DeleteProjectRequest;
 import com.cloudera.cdp.df.model.DeleteProjectResponse;
 import com.cloudera.cdp.df.model.DescribeAddedReadyflowRequest;
@@ -90,8 +94,12 @@ import com.cloudera.cdp.df.model.ListDiagnosticsRequest;
 import com.cloudera.cdp.df.model.ListDiagnosticsResponse;
 import com.cloudera.cdp.df.model.ListFilterOptionsRequest;
 import com.cloudera.cdp.df.model.ListFilterOptionsResponse;
+import com.cloudera.cdp.df.model.ListFlowDefinitionVersionsRequest;
+import com.cloudera.cdp.df.model.ListFlowDefinitionVersionsResponse;
 import com.cloudera.cdp.df.model.ListFlowDefinitionsRequest;
 import com.cloudera.cdp.df.model.ListFlowDefinitionsResponse;
+import com.cloudera.cdp.df.model.ListFlowVersionTagsRequest;
+import com.cloudera.cdp.df.model.ListFlowVersionTagsResponse;
 import com.cloudera.cdp.df.model.ListNotificationsRequest;
 import com.cloudera.cdp.df.model.ListNotificationsResponse;
 import com.cloudera.cdp.df.model.ListProjectFilterOptionsRequest;
@@ -130,7 +138,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-05T09:16:32.503-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-19T13:24:35.841-08:00")
 public class DfClient extends CdpClient {
 
   public static final String SERVICE_NAME = "df";
@@ -188,6 +196,19 @@ public class DfClient extends CdpClient {
   }
 
   /**
+   * Create flow version tag.
+   * @param input
+   * @return CreateFlowVersionTagResponse
+   */
+  public CreateFlowVersionTagResponse createFlowVersionTag(CreateFlowVersionTagRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createFlowVersionTag");
+    }
+
+    return this.invokeAPI("createFlowVersionTag", "/api/v1/df/createFlowVersionTag", input, new GenericType<CreateFlowVersionTagResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Creates a Project.
    * @param input
    * @return CreateProjectResponse
@@ -224,6 +245,19 @@ public class DfClient extends CdpClient {
     }
 
     return this.invokeAPI("deleteFlow", "/api/v1/df/deleteFlow", input, new GenericType<DeleteFlowResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Delete flow version tag.
+   * @param input
+   * @return DeleteFlowVersionTagResponse
+   */
+  public DeleteFlowVersionTagResponse deleteFlowVersionTag(DeleteFlowVersionTagRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteFlowVersionTag");
+    }
+
+    return this.invokeAPI("deleteFlowVersionTag", "/api/v1/df/deleteFlowVersionTag", input, new GenericType<DeleteFlowVersionTagResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -552,6 +586,19 @@ public class DfClient extends CdpClient {
   }
 
   /**
+   * List flow definition versions.
+   * @param input
+   * @return ListFlowDefinitionVersionsResponse
+   */
+  public ListFlowDefinitionVersionsResponse listFlowDefinitionVersions(ListFlowDefinitionVersionsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listFlowDefinitionVersions");
+    }
+
+    return this.invokeAPI("listFlowDefinitionVersions", "/api/v1/df/listFlowDefinitionVersions", input, new GenericType<ListFlowDefinitionVersionsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * List flow definitions.
    * @param input
    * @return ListFlowDefinitionsResponse
@@ -562,6 +609,19 @@ public class DfClient extends CdpClient {
     }
 
     return this.invokeAPI("listFlowDefinitions", "/api/v1/df/listFlowDefinitions", input, new GenericType<ListFlowDefinitionsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * List flow version tags.
+   * @param input
+   * @return ListFlowVersionTagsResponse
+   */
+  public ListFlowVersionTagsResponse listFlowVersionTags(ListFlowVersionTagsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listFlowVersionTags");
+    }
+
+    return this.invokeAPI("listFlowVersionTags", "/api/v1/df/listFlowVersionTags", input, new GenericType<ListFlowVersionTagsResponse>(){}, NO_EXTENSION);
   }
 
   /**

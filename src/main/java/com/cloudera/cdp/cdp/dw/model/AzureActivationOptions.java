@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Options for activating an Azure environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-05T09:16:29.548-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-19T13:24:32.851-08:00")
 public class AzureActivationOptions  {
 
   /**
@@ -77,7 +77,7 @@ public class AzureActivationOptions  {
   private String privateDNSZoneAKS = null;
 
   /**
-   * Enable Azure Private AKS mode. Note that this feature is currently unstable due to critical networking issues within the Azure Software Definition Layer (SDN). This problem prevents the deployment of necessary components and results in unpredictable behavior and instability, impacting operations such as environment activation, VW creation, modification, and start/stop operations. While we work towards a resolution with Microsoft, estimated within the next 6-9 months, we recommend utilizing alternative methods like enabling public endpoints or virtual network peering for accessing your Azure Cluster.
+   * Enable Azure Private AKS mode.
    **/
   private Boolean enablePrivateAks = false;
 
@@ -236,7 +236,7 @@ public class AzureActivationOptions  {
 
   /**
    * Getter for enablePrivateAks.
-   * Enable Azure Private AKS mode. Note that this feature is currently unstable due to critical networking issues within the Azure Software Definition Layer (SDN). This problem prevents the deployment of necessary components and results in unpredictable behavior and instability, impacting operations such as environment activation, VW creation, modification, and start/stop operations. While we work towards a resolution with Microsoft, estimated within the next 6-9 months, we recommend utilizing alternative methods like enabling public endpoints or virtual network peering for accessing your Azure Cluster.
+   * Enable Azure Private AKS mode.
    **/
   @JsonProperty("enablePrivateAks")
   public Boolean getEnablePrivateAks() {
@@ -245,7 +245,7 @@ public class AzureActivationOptions  {
 
   /**
    * Setter for enablePrivateAks.
-   * Enable Azure Private AKS mode. Note that this feature is currently unstable due to critical networking issues within the Azure Software Definition Layer (SDN). This problem prevents the deployment of necessary components and results in unpredictable behavior and instability, impacting operations such as environment activation, VW creation, modification, and start/stop operations. While we work towards a resolution with Microsoft, estimated within the next 6-9 months, we recommend utilizing alternative methods like enabling public endpoints or virtual network peering for accessing your Azure Cluster.
+   * Enable Azure Private AKS mode.
    **/
   public void setEnablePrivateAks(Boolean enablePrivateAks) {
     this.enablePrivateAks = enablePrivateAks;
