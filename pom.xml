@@ -3,7 +3,7 @@
 
   <groupId>com.cloudera.cdp</groupId>
   <artifactId>cdp-sdk-java</artifactId>
-  <version>0.9.105</version>
+  <version>0.9.106</version>
   <name>Cloudera CDP Java SDK</name>
   <packaging>jar</packaging>
 
@@ -14,7 +14,7 @@
 
     <skipUTs>${skipTests}</skipUTs>
 
-    <bouncycastle.version>1.69</bouncycastle.version>
+    <bouncycastle.version>1.70</bouncycastle.version>
     <commons-codec.version>1.11</commons-codec.version>
     <commons-lang3.version>3.11</commons-lang3.version>
     <guava.version>32.0.1-jre</guava.version>

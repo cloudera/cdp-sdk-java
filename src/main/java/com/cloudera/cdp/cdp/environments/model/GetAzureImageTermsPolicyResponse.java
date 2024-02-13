@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object to retrieve current value of setting that controls automatic acceptance of Azure Marketplace image terms.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-19T13:24:34.433-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-12T15:29:03.092-08:00")
 public class GetAzureImageTermsPolicyResponse extends CdpResponse {
 
   /**

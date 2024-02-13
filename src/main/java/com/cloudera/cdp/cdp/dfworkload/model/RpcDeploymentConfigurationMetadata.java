@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * Provides details about the deployment and all of the different configuration items that are available.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-19T13:24:36.272-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-12T15:29:04.817-08:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcDeploymentConfigurationMetadata  {
 

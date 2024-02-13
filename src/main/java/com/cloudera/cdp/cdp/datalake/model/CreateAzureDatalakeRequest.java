@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * Request object for create Azure datalake request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-19T13:24:33.829-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-12T15:29:02.578-08:00")
 public class CreateAzureDatalakeRequest  {
 
   /**
@@ -84,6 +84,11 @@ public class CreateAzureDatalakeRequest  {
    * The type of the azure database. FLEXIBLE_SERVER is the next generation managed PostgreSQL service in Azure that provides maximum flexibility over your database, built-in cost-optimizations. SINGLE_SERVER is a fully managed database service with minimal requirements for customizations of the database.
    **/
   private String databaseType = null;
+
+  /**
+   * This argument allows you to specify the subnet ID for the subnet within which you want to configure your Azure Flexible Server.
+   **/
+  private String flexibleServerDelegatedSubnetId = null;
 
   /**
    * Additional recipes that will be attached on the datalake instances (by instance groups, most common ones are like 'master' or 'idbroker').
@@ -271,6 +276,23 @@ public class CreateAzureDatalakeRequest  {
   }
 
   /**
+   * Getter for flexibleServerDelegatedSubnetId.
+   * This argument allows you to specify the subnet ID for the subnet within which you want to configure your Azure Flexible Server.
+   **/
+  @JsonProperty("flexibleServerDelegatedSubnetId")
+  public String getFlexibleServerDelegatedSubnetId() {
+    return flexibleServerDelegatedSubnetId;
+  }
+
+  /**
+   * Setter for flexibleServerDelegatedSubnetId.
+   * This argument allows you to specify the subnet ID for the subnet within which you want to configure your Azure Flexible Server.
+   **/
+  public void setFlexibleServerDelegatedSubnetId(String flexibleServerDelegatedSubnetId) {
+    this.flexibleServerDelegatedSubnetId = flexibleServerDelegatedSubnetId;
+  }
+
+  /**
    * Getter for recipes.
    * Additional recipes that will be attached on the datalake instances (by instance groups, most common ones are like &#39;master&#39; or &#39;idbroker&#39;).
    **/
@@ -360,6 +382,9 @@ public class CreateAzureDatalakeRequest  {
     if (!Objects.equals(this.databaseType, createAzureDatalakeRequest.databaseType)) {
       return false;
     }
+    if (!Objects.equals(this.flexibleServerDelegatedSubnetId, createAzureDatalakeRequest.flexibleServerDelegatedSubnetId)) {
+      return false;
+    }
     if (!Objects.equals(this.recipes, createAzureDatalakeRequest.recipes)) {
       return false;
     }
@@ -374,7 +399,7 @@ public class CreateAzureDatalakeRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, scale, tags, runtime, image, loadBalancerSku, enableRangerRaz, databaseType, recipes, javaVersion, multiAz);
+    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, scale, tags, runtime, image, loadBalancerSku, enableRangerRaz, databaseType, flexibleServerDelegatedSubnetId, recipes, javaVersion, multiAz);
   }
 
   @Override
@@ -391,6 +416,7 @@ public class CreateAzureDatalakeRequest  {
     sb.append("    loadBalancerSku: ").append(toIndentedString(loadBalancerSku)).append("\n");
     sb.append("    enableRangerRaz: ").append(toIndentedString(enableRangerRaz)).append("\n");
     sb.append("    databaseType: ").append(toIndentedString(databaseType)).append("\n");
+    sb.append("    flexibleServerDelegatedSubnetId: ").append(toIndentedString(flexibleServerDelegatedSubnetId)).append("\n");
     sb.append("    recipes: ").append(toIndentedString(recipes)).append("\n");
     sb.append("    javaVersion: ").append(toIndentedString(javaVersion)).append("\n");
     sb.append("    multiAz: ").append(toIndentedString(multiAz)).append("\n");

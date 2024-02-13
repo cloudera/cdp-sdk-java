@@ -6,6 +6,8 @@ com.cloudera.cdp.authentication
 com.cloudera.cdp.authentication.credentials
 com.cloudera.cdp.authentication.credentials.profile
 com.cloudera.cdp.client
+com.cloudera.cdp.cloudprivatelinks.api
+com.cloudera.cdp.cloudprivatelinks.model
 com.cloudera.cdp.compute.api
 com.cloudera.cdp.compute.model
 com.cloudera.cdp.consumption.api

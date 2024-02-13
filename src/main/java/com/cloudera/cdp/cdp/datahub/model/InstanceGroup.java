@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * The type of the instance group which also contains the actual instance(s)
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-19T13:24:32.212-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-12T15:29:00.760-08:00")
 public class InstanceGroup  {
 
   /**
@@ -51,6 +51,11 @@ public class InstanceGroup  {
    * List of availability zones that this instance group is associated with.
    **/
   private List<String> availabilityZones = new ArrayList<String>();
+
+  /**
+   * The recipe names for the Data Hub cluster.
+   **/
+  private List<String> recipes = new ArrayList<String>();
 
   /**
    * Getter for name.
@@ -120,6 +125,23 @@ public class InstanceGroup  {
     this.availabilityZones = availabilityZones;
   }
 
+  /**
+   * Getter for recipes.
+   * The recipe names for the Data Hub cluster.
+   **/
+  @JsonProperty("recipes")
+  public List<String> getRecipes() {
+    return recipes;
+  }
+
+  /**
+   * Setter for recipes.
+   * The recipe names for the Data Hub cluster.
+   **/
+  public void setRecipes(List<String> recipes) {
+    this.recipes = recipes;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -141,12 +163,15 @@ public class InstanceGroup  {
     if (!Objects.equals(this.availabilityZones, instanceGroup.availabilityZones)) {
       return false;
     }
+    if (!Objects.equals(this.recipes, instanceGroup.recipes)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, instances, subnetIds, availabilityZones);
+    return Objects.hash(name, instances, subnetIds, availabilityZones, recipes);
   }
 
   @Override
@@ -157,6 +182,7 @@ public class InstanceGroup  {
     sb.append("    instances: ").append(toIndentedString(instances)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
     sb.append("    availabilityZones: ").append(toIndentedString(availabilityZones)).append("\n");
+    sb.append("    recipes: ").append(toIndentedString(recipes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

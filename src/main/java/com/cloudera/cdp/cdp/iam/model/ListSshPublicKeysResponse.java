@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for list SSH public key.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-19T13:24:35.291-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-12T15:29:04.184-08:00")
 public class ListSshPublicKeysResponse extends CdpResponse {
 
   /**

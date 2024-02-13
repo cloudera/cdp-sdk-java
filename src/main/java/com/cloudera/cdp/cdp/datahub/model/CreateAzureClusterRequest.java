@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * Request object for create Azure cluster request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-19T13:24:32.212-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-12T15:29:00.760-08:00")
 public class CreateAzureClusterRequest  {
 
   /**
@@ -114,6 +114,11 @@ public class CreateAzureClusterRequest  {
    * The type of the azure database. FLEXIBLE_SERVER is the next generation managed PostgreSQL service in Azure that provides maximum flexibility over your database, built-in cost-optimizations. SINGLE_SERVER is a fully managed database service with minimal requirements for customizations of the database.
    **/
   private String databaseType = null;
+
+  /**
+   * Allows you to specify the subnet ID for the subnet within which you want to configure your Azure Flexible Server.
+   **/
+  private String flexibleServerDelegatedSubnetId = null;
 
   /**
    * Configure the major version of Java on the cluster.
@@ -393,6 +398,23 @@ public class CreateAzureClusterRequest  {
   }
 
   /**
+   * Getter for flexibleServerDelegatedSubnetId.
+   * Allows you to specify the subnet ID for the subnet within which you want to configure your Azure Flexible Server.
+   **/
+  @JsonProperty("flexibleServerDelegatedSubnetId")
+  public String getFlexibleServerDelegatedSubnetId() {
+    return flexibleServerDelegatedSubnetId;
+  }
+
+  /**
+   * Setter for flexibleServerDelegatedSubnetId.
+   * Allows you to specify the subnet ID for the subnet within which you want to configure your Azure Flexible Server.
+   **/
+  public void setFlexibleServerDelegatedSubnetId(String flexibleServerDelegatedSubnetId) {
+    this.flexibleServerDelegatedSubnetId = flexibleServerDelegatedSubnetId;
+  }
+
+  /**
    * Getter for javaVersion.
    * Configure the major version of Java on the cluster.
    **/
@@ -466,6 +488,9 @@ public class CreateAzureClusterRequest  {
     if (!Objects.equals(this.databaseType, createAzureClusterRequest.databaseType)) {
       return false;
     }
+    if (!Objects.equals(this.flexibleServerDelegatedSubnetId, createAzureClusterRequest.flexibleServerDelegatedSubnetId)) {
+      return false;
+    }
     if (!Objects.equals(this.javaVersion, createAzureClusterRequest.javaVersion)) {
       return false;
     }
@@ -474,7 +499,7 @@ public class CreateAzureClusterRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, clusterDefinitionName, environmentName, clusterTemplateName, customConfigurationsName, instanceGroups, subnetId, image, tags, requestTemplate, datahubDatabase, multiAz, loadBalancerSku, clusterExtension, enableLoadBalancer, databaseType, javaVersion);
+    return Objects.hash(clusterName, clusterDefinitionName, environmentName, clusterTemplateName, customConfigurationsName, instanceGroups, subnetId, image, tags, requestTemplate, datahubDatabase, multiAz, loadBalancerSku, clusterExtension, enableLoadBalancer, databaseType, flexibleServerDelegatedSubnetId, javaVersion);
   }
 
   @Override
@@ -497,6 +522,7 @@ public class CreateAzureClusterRequest  {
     sb.append("    clusterExtension: ").append(toIndentedString(clusterExtension)).append("\n");
     sb.append("    enableLoadBalancer: ").append(toIndentedString(enableLoadBalancer)).append("\n");
     sb.append("    databaseType: ").append(toIndentedString(databaseType)).append("\n");
+    sb.append("    flexibleServerDelegatedSubnetId: ").append(toIndentedString(flexibleServerDelegatedSubnetId)).append("\n");
     sb.append("    javaVersion: ").append(toIndentedString(javaVersion)).append("\n");
     sb.append("}");
     return sb.toString();

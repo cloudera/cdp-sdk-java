@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Model holding information about a custom VM image and the cloud region it belongs to. The format of the image reference is specific to the cloud provider, e.g. URL in case of Azure, AMI ID in case of AWS.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-19T13:24:36.560-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-12T15:29:05.107-08:00")
 public class VmImageResponse extends CdpResponse {
 
   /**

@@ -24,7 +24,7 @@ import com.cloudera.cdp.client.CdpClientBuilder;
 /**
 * This class can be used to build a EnvironmentsClient object.
 **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-01-19T13:24:34.433-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-12T15:29:03.092-08:00")
 public class EnvironmentsClientBuilder extends CdpClientBuilder<EnvironmentsClientBuilder> {
 
   private EnvironmentsClientBuilder() {
