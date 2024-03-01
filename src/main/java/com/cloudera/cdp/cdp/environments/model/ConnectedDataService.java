@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * A single entry that contains the name of the given Data Service and its related resource(s).
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-12T15:29:03.092-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-29T13:23:34.230-08:00")
 public class ConnectedDataService  {
 
   /**

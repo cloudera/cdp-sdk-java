@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Autoscale configuration
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-12T15:29:00.760-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-29T13:23:31.919-08:00")
 public class AutoScaleRulesResponse extends CdpResponse {
 
   /**

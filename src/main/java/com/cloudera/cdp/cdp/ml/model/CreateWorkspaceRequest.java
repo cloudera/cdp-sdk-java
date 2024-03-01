@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for the CreateWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-12T15:29:02.388-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-29T13:23:33.387-08:00")
 public class CreateWorkspaceRequest  {
 
   /**
@@ -44,6 +44,11 @@ public class CreateWorkspaceRequest  {
   private String workspaceName = null;
 
   /**
+   * The request for Kubernetes workspace provision. Required in public cloud.
+   **/
+  private ProvisionK8sRequest provisionK8sRequest = null;
+
+  /**
    * The boolean flag to request public load balancer. By default, private load balancer is used.
    **/
   private Boolean usePublicLoadBalancer = null;
@@ -52,11 +57,6 @@ public class CreateWorkspaceRequest  {
    * The boolean flag to disable TLS setup for workspace. By default, the TLS is enabled.
    **/
   private Boolean disableTLS = null;
-
-  /**
-   * The request for Kubernetes workspace provision. Required in public cloud.
-   **/
-  private ProvisionK8sRequest provisionK8sRequest = null;
 
   /**
    * The boolean flag is used to enable monitoring. By default, monitoring is disabled.
@@ -173,6 +173,23 @@ public class CreateWorkspaceRequest  {
   }
 
   /**
+   * Getter for provisionK8sRequest.
+   * The request for Kubernetes workspace provision. Required in public cloud.
+   **/
+  @JsonProperty("provisionK8sRequest")
+  public ProvisionK8sRequest getProvisionK8sRequest() {
+    return provisionK8sRequest;
+  }
+
+  /**
+   * Setter for provisionK8sRequest.
+   * The request for Kubernetes workspace provision. Required in public cloud.
+   **/
+  public void setProvisionK8sRequest(ProvisionK8sRequest provisionK8sRequest) {
+    this.provisionK8sRequest = provisionK8sRequest;
+  }
+
+  /**
    * Getter for usePublicLoadBalancer.
    * The boolean flag to request public load balancer. By default, private load balancer is used.
    **/
@@ -204,23 +221,6 @@ public class CreateWorkspaceRequest  {
    **/
   public void setDisableTLS(Boolean disableTLS) {
     this.disableTLS = disableTLS;
-  }
-
-  /**
-   * Getter for provisionK8sRequest.
-   * The request for Kubernetes workspace provision. Required in public cloud.
-   **/
-  @JsonProperty("provisionK8sRequest")
-  public ProvisionK8sRequest getProvisionK8sRequest() {
-    return provisionK8sRequest;
-  }
-
-  /**
-   * Setter for provisionK8sRequest.
-   * The request for Kubernetes workspace provision. Required in public cloud.
-   **/
-  public void setProvisionK8sRequest(ProvisionK8sRequest provisionK8sRequest) {
-    this.provisionK8sRequest = provisionK8sRequest;
   }
 
   /**
@@ -510,13 +510,13 @@ public class CreateWorkspaceRequest  {
     if (!Objects.equals(this.workspaceName, createWorkspaceRequest.workspaceName)) {
       return false;
     }
+    if (!Objects.equals(this.provisionK8sRequest, createWorkspaceRequest.provisionK8sRequest)) {
+      return false;
+    }
     if (!Objects.equals(this.usePublicLoadBalancer, createWorkspaceRequest.usePublicLoadBalancer)) {
       return false;
     }
     if (!Objects.equals(this.disableTLS, createWorkspaceRequest.disableTLS)) {
-      return false;
-    }
-    if (!Objects.equals(this.provisionK8sRequest, createWorkspaceRequest.provisionK8sRequest)) {
       return false;
     }
     if (!Objects.equals(this.enableMonitoring, createWorkspaceRequest.enableMonitoring)) {
@@ -572,7 +572,7 @@ public class CreateWorkspaceRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, workspaceName, usePublicLoadBalancer, disableTLS, provisionK8sRequest, enableMonitoring, enableGovernance, existingNFS, loadBalancerIPWhitelists, nfsVersion, mlVersion, enableModelMetrics, existingDatabaseConfig, whitelistAuthorizedIPRanges, authorizedIPRanges, skipValidation, privateCluster, subnetsForLoadBalancers, staticSubdomain, cdswMigrationMode, outboundTypes);
+    return Objects.hash(environmentName, workspaceName, provisionK8sRequest, usePublicLoadBalancer, disableTLS, enableMonitoring, enableGovernance, existingNFS, loadBalancerIPWhitelists, nfsVersion, mlVersion, enableModelMetrics, existingDatabaseConfig, whitelistAuthorizedIPRanges, authorizedIPRanges, skipValidation, privateCluster, subnetsForLoadBalancers, staticSubdomain, cdswMigrationMode, outboundTypes);
   }
 
   @Override
@@ -581,9 +581,9 @@ public class CreateWorkspaceRequest  {
     sb.append("class CreateWorkspaceRequest {\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    workspaceName: ").append(toIndentedString(workspaceName)).append("\n");
+    sb.append("    provisionK8sRequest: ").append(toIndentedString(provisionK8sRequest)).append("\n");
     sb.append("    usePublicLoadBalancer: ").append(toIndentedString(usePublicLoadBalancer)).append("\n");
     sb.append("    disableTLS: ").append(toIndentedString(disableTLS)).append("\n");
-    sb.append("    provisionK8sRequest: ").append(toIndentedString(provisionK8sRequest)).append("\n");
     sb.append("    enableMonitoring: ").append(toIndentedString(enableMonitoring)).append("\n");
     sb.append("    enableGovernance: ").append(toIndentedString(enableGovernance)).append("\n");
     sb.append("    existingNFS: ").append(toIndentedString(existingNFS)).append("\n");

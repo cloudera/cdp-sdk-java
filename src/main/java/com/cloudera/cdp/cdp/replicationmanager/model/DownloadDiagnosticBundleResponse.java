@@ -28,7 +28,7 @@ import java.util.Arrays;
 /**
  * Response object for download-diagnostic-bundle. On certain clusters this response will show if the download is only available directly from CM.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-12T15:29:05.430-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-29T13:23:36.246-08:00")
 public class DownloadDiagnosticBundleResponse extends CdpResponse {
 
   /**

@@ -23,15 +23,17 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.opdb.model.AttachedStorageForWorkers;
 import com.cloudera.cdp.opdb.model.AutoScalingParameters;
 import com.cloudera.cdp.opdb.model.CustomRecipe;
 import com.cloudera.cdp.opdb.model.Image;
+import com.cloudera.cdp.opdb.model.KeyValuePair;
 import java.util.*;
 
 /**
  * A request to create the database
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-12T15:29:03.785-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-29T13:23:34.678-08:00")
 public class CreateDatabaseRequest  {
 
   /**
@@ -50,9 +52,49 @@ public class CreateDatabaseRequest  {
   private AutoScalingParameters autoScalingParameters = null;
 
   /**
+   * Override subnet where the database will be deployed. Disables Multi-AZ if set.
+   **/
+  private String subnetId = null;
+
+  /**
+   * Optional tags to apply to launched infrastructure resources
+   **/
+  private List<KeyValuePair> customUserTags = new ArrayList<KeyValuePair>();
+
+  /**
+   * Disable deployment into multiple availability-zones (the database will be deployed into one subnet).
+   **/
+  private Boolean disableMultiAz = null;
+
+  /**
+   * Attached storage for the worker nodes for AWS, Azure, and GCP cloud providers.
+   **/
+  private AttachedStorageForWorkers attachedStorageForWorkers = null;
+
+  /**
+   * Disable Kerberos authentication.
+   **/
+  private Boolean disableKerberos = null;
+
+  /**
+   * Number of edge nodes to be created for the database. A positive, non-zero number is required. The default value is 0.
+   **/
+  private Integer numEdgeNodes = null;
+
+  /**
    * Image details for the database.
    **/
   private Image image = null;
+
+  /**
+   * Disable OAuth Bearer (JWT) authentication scheme.
+   **/
+  private Boolean disableJwtAuth = null;
+
+  /**
+   * To enable the region canary for the database.
+   **/
+  private Boolean enableRegionCanary = null;
 
   /**
    * Optional tags to choose one of the predefined cluster sizes.
@@ -68,6 +110,11 @@ public class CreateDatabaseRequest  {
    * Custom recipes for the database.
    **/
   private List<CustomRecipe> recipes = new ArrayList<CustomRecipe>();
+
+  /**
+   * To enable grafana server for the database.
+   **/
+  private Boolean enableGrafana = null;
 
   /**
    * Getter for environmentName.
@@ -121,6 +168,108 @@ public class CreateDatabaseRequest  {
   }
 
   /**
+   * Getter for subnetId.
+   * Override subnet where the database will be deployed. Disables Multi-AZ if set.
+   **/
+  @JsonProperty("subnetId")
+  public String getSubnetId() {
+    return subnetId;
+  }
+
+  /**
+   * Setter for subnetId.
+   * Override subnet where the database will be deployed. Disables Multi-AZ if set.
+   **/
+  public void setSubnetId(String subnetId) {
+    this.subnetId = subnetId;
+  }
+
+  /**
+   * Getter for customUserTags.
+   * Optional tags to apply to launched infrastructure resources
+   **/
+  @JsonProperty("customUserTags")
+  public List<KeyValuePair> getCustomUserTags() {
+    return customUserTags;
+  }
+
+  /**
+   * Setter for customUserTags.
+   * Optional tags to apply to launched infrastructure resources
+   **/
+  public void setCustomUserTags(List<KeyValuePair> customUserTags) {
+    this.customUserTags = customUserTags;
+  }
+
+  /**
+   * Getter for disableMultiAz.
+   * Disable deployment into multiple availability-zones (the database will be deployed into one subnet).
+   **/
+  @JsonProperty("disableMultiAz")
+  public Boolean getDisableMultiAz() {
+    return disableMultiAz;
+  }
+
+  /**
+   * Setter for disableMultiAz.
+   * Disable deployment into multiple availability-zones (the database will be deployed into one subnet).
+   **/
+  public void setDisableMultiAz(Boolean disableMultiAz) {
+    this.disableMultiAz = disableMultiAz;
+  }
+
+  /**
+   * Getter for attachedStorageForWorkers.
+   * Attached storage for the worker nodes for AWS, Azure, and GCP cloud providers.
+   **/
+  @JsonProperty("attachedStorageForWorkers")
+  public AttachedStorageForWorkers getAttachedStorageForWorkers() {
+    return attachedStorageForWorkers;
+  }
+
+  /**
+   * Setter for attachedStorageForWorkers.
+   * Attached storage for the worker nodes for AWS, Azure, and GCP cloud providers.
+   **/
+  public void setAttachedStorageForWorkers(AttachedStorageForWorkers attachedStorageForWorkers) {
+    this.attachedStorageForWorkers = attachedStorageForWorkers;
+  }
+
+  /**
+   * Getter for disableKerberos.
+   * Disable Kerberos authentication.
+   **/
+  @JsonProperty("disableKerberos")
+  public Boolean getDisableKerberos() {
+    return disableKerberos;
+  }
+
+  /**
+   * Setter for disableKerberos.
+   * Disable Kerberos authentication.
+   **/
+  public void setDisableKerberos(Boolean disableKerberos) {
+    this.disableKerberos = disableKerberos;
+  }
+
+  /**
+   * Getter for numEdgeNodes.
+   * Number of edge nodes to be created for the database. A positive, non-zero number is required. The default value is 0.
+   **/
+  @JsonProperty("numEdgeNodes")
+  public Integer getNumEdgeNodes() {
+    return numEdgeNodes;
+  }
+
+  /**
+   * Setter for numEdgeNodes.
+   * Number of edge nodes to be created for the database. A positive, non-zero number is required. The default value is 0.
+   **/
+  public void setNumEdgeNodes(Integer numEdgeNodes) {
+    this.numEdgeNodes = numEdgeNodes;
+  }
+
+  /**
    * Getter for image.
    * Image details for the database.
    **/
@@ -135,6 +284,40 @@ public class CreateDatabaseRequest  {
    **/
   public void setImage(Image image) {
     this.image = image;
+  }
+
+  /**
+   * Getter for disableJwtAuth.
+   * Disable OAuth Bearer (JWT) authentication scheme.
+   **/
+  @JsonProperty("disableJwtAuth")
+  public Boolean getDisableJwtAuth() {
+    return disableJwtAuth;
+  }
+
+  /**
+   * Setter for disableJwtAuth.
+   * Disable OAuth Bearer (JWT) authentication scheme.
+   **/
+  public void setDisableJwtAuth(Boolean disableJwtAuth) {
+    this.disableJwtAuth = disableJwtAuth;
+  }
+
+  /**
+   * Getter for enableRegionCanary.
+   * To enable the region canary for the database.
+   **/
+  @JsonProperty("enableRegionCanary")
+  public Boolean getEnableRegionCanary() {
+    return enableRegionCanary;
+  }
+
+  /**
+   * Setter for enableRegionCanary.
+   * To enable the region canary for the database.
+   **/
+  public void setEnableRegionCanary(Boolean enableRegionCanary) {
+    this.enableRegionCanary = enableRegionCanary;
   }
 
   /**
@@ -188,6 +371,23 @@ public class CreateDatabaseRequest  {
     this.recipes = recipes;
   }
 
+  /**
+   * Getter for enableGrafana.
+   * To enable grafana server for the database.
+   **/
+  @JsonProperty("enableGrafana")
+  public Boolean getEnableGrafana() {
+    return enableGrafana;
+  }
+
+  /**
+   * Setter for enableGrafana.
+   * To enable grafana server for the database.
+   **/
+  public void setEnableGrafana(Boolean enableGrafana) {
+    this.enableGrafana = enableGrafana;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -206,7 +406,31 @@ public class CreateDatabaseRequest  {
     if (!Objects.equals(this.autoScalingParameters, createDatabaseRequest.autoScalingParameters)) {
       return false;
     }
+    if (!Objects.equals(this.subnetId, createDatabaseRequest.subnetId)) {
+      return false;
+    }
+    if (!Objects.equals(this.customUserTags, createDatabaseRequest.customUserTags)) {
+      return false;
+    }
+    if (!Objects.equals(this.disableMultiAz, createDatabaseRequest.disableMultiAz)) {
+      return false;
+    }
+    if (!Objects.equals(this.attachedStorageForWorkers, createDatabaseRequest.attachedStorageForWorkers)) {
+      return false;
+    }
+    if (!Objects.equals(this.disableKerberos, createDatabaseRequest.disableKerberos)) {
+      return false;
+    }
+    if (!Objects.equals(this.numEdgeNodes, createDatabaseRequest.numEdgeNodes)) {
+      return false;
+    }
     if (!Objects.equals(this.image, createDatabaseRequest.image)) {
+      return false;
+    }
+    if (!Objects.equals(this.disableJwtAuth, createDatabaseRequest.disableJwtAuth)) {
+      return false;
+    }
+    if (!Objects.equals(this.enableRegionCanary, createDatabaseRequest.enableRegionCanary)) {
       return false;
     }
     if (!Objects.equals(this.scaleType, createDatabaseRequest.scaleType)) {
@@ -218,12 +442,15 @@ public class CreateDatabaseRequest  {
     if (!Objects.equals(this.recipes, createDatabaseRequest.recipes)) {
       return false;
     }
+    if (!Objects.equals(this.enableGrafana, createDatabaseRequest.enableGrafana)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, databaseName, autoScalingParameters, image, scaleType, storageType, recipes);
+    return Objects.hash(environmentName, databaseName, autoScalingParameters, subnetId, customUserTags, disableMultiAz, attachedStorageForWorkers, disableKerberos, numEdgeNodes, image, disableJwtAuth, enableRegionCanary, scaleType, storageType, recipes, enableGrafana);
   }
 
   @Override
@@ -233,10 +460,19 @@ public class CreateDatabaseRequest  {
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    databaseName: ").append(toIndentedString(databaseName)).append("\n");
     sb.append("    autoScalingParameters: ").append(toIndentedString(autoScalingParameters)).append("\n");
+    sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
+    sb.append("    customUserTags: ").append(toIndentedString(customUserTags)).append("\n");
+    sb.append("    disableMultiAz: ").append(toIndentedString(disableMultiAz)).append("\n");
+    sb.append("    attachedStorageForWorkers: ").append(toIndentedString(attachedStorageForWorkers)).append("\n");
+    sb.append("    disableKerberos: ").append(toIndentedString(disableKerberos)).append("\n");
+    sb.append("    numEdgeNodes: ").append(toIndentedString(numEdgeNodes)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
+    sb.append("    disableJwtAuth: ").append(toIndentedString(disableJwtAuth)).append("\n");
+    sb.append("    enableRegionCanary: ").append(toIndentedString(enableRegionCanary)).append("\n");
     sb.append("    scaleType: ").append(toIndentedString(scaleType)).append("\n");
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    recipes: ").append(toIndentedString(recipes)).append("\n");
+    sb.append("    enableGrafana: ").append(toIndentedString(enableGrafana)).append("\n");
     sb.append("}");
     return sb.toString();
   }

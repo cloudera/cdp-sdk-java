@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for creating model registry.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-12T15:29:02.388-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-29T13:23:33.387-08:00")
 public class CreateModelRegistryRequest  {
 
   /**
@@ -107,6 +107,11 @@ public class CreateModelRegistryRequest  {
    * The request for Kubernetes cluster provision. Required in public cloud.
    **/
   private ModelRegistryProvisionK8sRequest provisionK8sRequest = null;
+
+  /**
+   * The CRN of the backup that this model registry is created from.
+   **/
+  private String backupCrn = null;
 
   /**
    * Getter for namespace.
@@ -363,6 +368,23 @@ public class CreateModelRegistryRequest  {
     this.provisionK8sRequest = provisionK8sRequest;
   }
 
+  /**
+   * Getter for backupCrn.
+   * The CRN of the backup that this model registry is created from.
+   **/
+  @JsonProperty("backupCrn")
+  public String getBackupCrn() {
+    return backupCrn;
+  }
+
+  /**
+   * Setter for backupCrn.
+   * The CRN of the backup that this model registry is created from.
+   **/
+  public void setBackupCrn(String backupCrn) {
+    this.backupCrn = backupCrn;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -417,12 +439,15 @@ public class CreateModelRegistryRequest  {
     if (!Objects.equals(this.provisionK8sRequest, createModelRegistryRequest.provisionK8sRequest)) {
       return false;
     }
+    if (!Objects.equals(this.backupCrn, createModelRegistryRequest.backupCrn)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(namespace, s3AccessKey, s3SecretKey, s3Bucket, s3Endpoint, creatorCrn, environmentCrn, environmentName, createWorkspacePayload, usePublicLoadBalancer, subnetsForLoadBalancers, outboundTypes, skipValidation, privateCluster, provisionK8sRequest);
+    return Objects.hash(namespace, s3AccessKey, s3SecretKey, s3Bucket, s3Endpoint, creatorCrn, environmentCrn, environmentName, createWorkspacePayload, usePublicLoadBalancer, subnetsForLoadBalancers, outboundTypes, skipValidation, privateCluster, provisionK8sRequest, backupCrn);
   }
 
   @Override
@@ -444,6 +469,7 @@ public class CreateModelRegistryRequest  {
     sb.append("    skipValidation: ").append(toIndentedString(skipValidation)).append("\n");
     sb.append("    privateCluster: ").append(toIndentedString(privateCluster)).append("\n");
     sb.append("    provisionK8sRequest: ").append(toIndentedString(provisionK8sRequest)).append("\n");
+    sb.append("    backupCrn: ").append(toIndentedString(backupCrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

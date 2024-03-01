@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object for updating a custom NAR configuration.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-12T15:29:04.817-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-29T13:23:35.724-08:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class UpdateCustomNarConfigurationResponse extends CdpResponse {
 
@@ -57,7 +57,7 @@ public class UpdateCustomNarConfigurationResponse extends CdpResponse {
   private String projectCrn = null;
 
   /**
-   * The CRN of the custom NAR configuration to update.
+   * The CRN of the custom resource configuration to update.
    **/
   private String crn = null;
 
@@ -148,7 +148,7 @@ public class UpdateCustomNarConfigurationResponse extends CdpResponse {
 
   /**
    * Getter for crn.
-   * The CRN of the custom NAR configuration to update.
+   * The CRN of the custom resource configuration to update.
    **/
   @JsonProperty("crn")
   public String getCrn() {
@@ -157,7 +157,7 @@ public class UpdateCustomNarConfigurationResponse extends CdpResponse {
 
   /**
    * Setter for crn.
-   * The CRN of the custom NAR configuration to update.
+   * The CRN of the custom resource configuration to update.
    **/
   public void setCrn(String crn) {
     this.crn = crn;
