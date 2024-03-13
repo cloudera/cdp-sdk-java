@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object to upgrade datahub.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-29T13:23:31.919-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:44.965-07:00")
 public class UpgradeClusterRequest  {
 
   /**
@@ -64,6 +64,11 @@ public class UpgradeClusterRequest  {
    * Returns the latest image that is eligible for the upgrade for each runtime version with at least one available upgrade candidate.
    **/
   private Boolean showLatestAvailableImagePerRuntime = null;
+
+  /**
+   * Enables the ability to perform rolling runtime upgrade.
+   **/
+  private Boolean rollingUpgradeEnabled = null;
 
   /**
    * Getter for clusterName.
@@ -184,6 +189,23 @@ public class UpgradeClusterRequest  {
     this.showLatestAvailableImagePerRuntime = showLatestAvailableImagePerRuntime;
   }
 
+  /**
+   * Getter for rollingUpgradeEnabled.
+   * Enables the ability to perform rolling runtime upgrade.
+   **/
+  @JsonProperty("rollingUpgradeEnabled")
+  public Boolean getRollingUpgradeEnabled() {
+    return rollingUpgradeEnabled;
+  }
+
+  /**
+   * Setter for rollingUpgradeEnabled.
+   * Enables the ability to perform rolling runtime upgrade.
+   **/
+  public void setRollingUpgradeEnabled(Boolean rollingUpgradeEnabled) {
+    this.rollingUpgradeEnabled = rollingUpgradeEnabled;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -214,12 +236,15 @@ public class UpgradeClusterRequest  {
     if (!Objects.equals(this.showLatestAvailableImagePerRuntime, upgradeClusterRequest.showLatestAvailableImagePerRuntime)) {
       return false;
     }
+    if (!Objects.equals(this.rollingUpgradeEnabled, upgradeClusterRequest.rollingUpgradeEnabled)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, imageId, runtime, lockComponents, dryRun, showAvailableImages, showLatestAvailableImagePerRuntime);
+    return Objects.hash(clusterName, imageId, runtime, lockComponents, dryRun, showAvailableImages, showLatestAvailableImagePerRuntime, rollingUpgradeEnabled);
   }
 
   @Override
@@ -233,6 +258,7 @@ public class UpgradeClusterRequest  {
     sb.append("    dryRun: ").append(toIndentedString(dryRun)).append("\n");
     sb.append("    showAvailableImages: ").append(toIndentedString(showAvailableImages)).append("\n");
     sb.append("    showLatestAvailableImagePerRuntime: ").append(toIndentedString(showLatestAvailableImagePerRuntime)).append("\n");
+    sb.append("    rollingUpgradeEnabled: ").append(toIndentedString(rollingUpgradeEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }

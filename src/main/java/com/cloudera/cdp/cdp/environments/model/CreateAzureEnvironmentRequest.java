@@ -36,7 +36,7 @@ import java.util.*;
 /**
  * Request object for a create Azure environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-29T13:23:34.230-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:47.341-07:00")
 public class CreateAzureEnvironmentRequest  {
 
   /**
@@ -143,6 +143,11 @@ public class CreateAzureEnvironmentRequest  {
    * The subnets to use for endpoint access gateway.
    **/
   private List<String> endpointAccessGatewaySubnetIds = new ArrayList<String>();
+
+  /**
+   * When this is enabled, we will provision resources with host encrypted true flag.
+   **/
+  private Boolean encryptionAtHost = null;
 
   /**
    * URL of the key which will be used to encrypt the Azure Managed Disks, if entitlement has been granted.
@@ -532,6 +537,23 @@ public class CreateAzureEnvironmentRequest  {
   }
 
   /**
+   * Getter for encryptionAtHost.
+   * When this is enabled, we will provision resources with host encrypted true flag.
+   **/
+  @JsonProperty("encryptionAtHost")
+  public Boolean getEncryptionAtHost() {
+    return encryptionAtHost;
+  }
+
+  /**
+   * Setter for encryptionAtHost.
+   * When this is enabled, we will provision resources with host encrypted true flag.
+   **/
+  public void setEncryptionAtHost(Boolean encryptionAtHost) {
+    this.encryptionAtHost = encryptionAtHost;
+  }
+
+  /**
    * Getter for encryptionKeyUrl.
    * URL of the key which will be used to encrypt the Azure Managed Disks, if entitlement has been granted.
    **/
@@ -705,6 +727,9 @@ public class CreateAzureEnvironmentRequest  {
     if (!Objects.equals(this.endpointAccessGatewaySubnetIds, createAzureEnvironmentRequest.endpointAccessGatewaySubnetIds)) {
       return false;
     }
+    if (!Objects.equals(this.encryptionAtHost, createAzureEnvironmentRequest.encryptionAtHost)) {
+      return false;
+    }
     if (!Objects.equals(this.encryptionKeyUrl, createAzureEnvironmentRequest.encryptionKeyUrl)) {
       return false;
     }
@@ -728,7 +753,7 @@ public class CreateAzureEnvironmentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, encryptionKeyUrl, encryptionKeyResourceGroupName, enableOutboundLoadBalancer, availabilityZones, flexibleServerSubnetIds, dataServices);
+    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, encryptionAtHost, encryptionKeyUrl, encryptionKeyResourceGroupName, enableOutboundLoadBalancer, availabilityZones, flexibleServerSubnetIds, dataServices);
   }
 
   @Override
@@ -756,6 +781,7 @@ public class CreateAzureEnvironmentRequest  {
     sb.append("    createPrivateEndpoints: ").append(toIndentedString(createPrivateEndpoints)).append("\n");
     sb.append("    endpointAccessGatewayScheme: ").append(toIndentedString(endpointAccessGatewayScheme)).append("\n");
     sb.append("    endpointAccessGatewaySubnetIds: ").append(toIndentedString(endpointAccessGatewaySubnetIds)).append("\n");
+    sb.append("    encryptionAtHost: ").append(toIndentedString(encryptionAtHost)).append("\n");
     sb.append("    encryptionKeyUrl: ").append(toIndentedString(encryptionKeyUrl)).append("\n");
     sb.append("    encryptionKeyResourceGroupName: ").append(toIndentedString(encryptionKeyResourceGroupName)).append("\n");
     sb.append("    enableOutboundLoadBalancer: ").append(toIndentedString(enableOutboundLoadBalancer)).append("\n");

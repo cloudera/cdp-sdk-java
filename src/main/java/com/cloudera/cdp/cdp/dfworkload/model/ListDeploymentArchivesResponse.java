@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response for listing the deployment configuration backup archives.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-29T13:23:35.724-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:48.887-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class ListDeploymentArchivesResponse extends CdpResponse {
 

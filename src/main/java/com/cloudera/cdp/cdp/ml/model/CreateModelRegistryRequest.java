@@ -23,14 +23,13 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
-import com.cloudera.cdp.ml.model.CreateWorkspaceRequest;
 import com.cloudera.cdp.ml.model.ModelRegistryProvisionK8sRequest;
 import java.util.*;
 
 /**
  * Request object for creating model registry.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-29T13:23:33.387-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:46.678-07:00")
 public class CreateModelRegistryRequest  {
 
   /**
@@ -72,11 +71,6 @@ public class CreateModelRegistryRequest  {
    * The environment for the model registry to create.
    **/
   private String environmentName = null;
-
-  /**
-   * Deprecated. The create workspace request on which model registry helm chart is deployed.
-   **/
-  private CreateWorkspaceRequest createWorkspacePayload = null;
 
   /**
    * The boolean flag to request a public load balancer. By default, a private load balancer is used.
@@ -250,23 +244,6 @@ public class CreateModelRegistryRequest  {
   }
 
   /**
-   * Getter for createWorkspacePayload.
-   * Deprecated. The create workspace request on which model registry helm chart is deployed.
-   **/
-  @JsonProperty("createWorkspacePayload")
-  public CreateWorkspaceRequest getCreateWorkspacePayload() {
-    return createWorkspacePayload;
-  }
-
-  /**
-   * Setter for createWorkspacePayload.
-   * Deprecated. The create workspace request on which model registry helm chart is deployed.
-   **/
-  public void setCreateWorkspacePayload(CreateWorkspaceRequest createWorkspacePayload) {
-    this.createWorkspacePayload = createWorkspacePayload;
-  }
-
-  /**
    * Getter for usePublicLoadBalancer.
    * The boolean flag to request a public load balancer. By default, a private load balancer is used.
    **/
@@ -418,9 +395,6 @@ public class CreateModelRegistryRequest  {
     if (!Objects.equals(this.environmentName, createModelRegistryRequest.environmentName)) {
       return false;
     }
-    if (!Objects.equals(this.createWorkspacePayload, createModelRegistryRequest.createWorkspacePayload)) {
-      return false;
-    }
     if (!Objects.equals(this.usePublicLoadBalancer, createModelRegistryRequest.usePublicLoadBalancer)) {
       return false;
     }
@@ -447,7 +421,7 @@ public class CreateModelRegistryRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(namespace, s3AccessKey, s3SecretKey, s3Bucket, s3Endpoint, creatorCrn, environmentCrn, environmentName, createWorkspacePayload, usePublicLoadBalancer, subnetsForLoadBalancers, outboundTypes, skipValidation, privateCluster, provisionK8sRequest, backupCrn);
+    return Objects.hash(namespace, s3AccessKey, s3SecretKey, s3Bucket, s3Endpoint, creatorCrn, environmentCrn, environmentName, usePublicLoadBalancer, subnetsForLoadBalancers, outboundTypes, skipValidation, privateCluster, provisionK8sRequest, backupCrn);
   }
 
   @Override
@@ -462,7 +436,6 @@ public class CreateModelRegistryRequest  {
     sb.append("    creatorCrn: ").append(toIndentedString(creatorCrn)).append("\n");
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
-    sb.append("    createWorkspacePayload: ").append(toIndentedString(createWorkspacePayload)).append("\n");
     sb.append("    usePublicLoadBalancer: ").append(toIndentedString(usePublicLoadBalancer)).append("\n");
     sb.append("    subnetsForLoadBalancers: ").append(toIndentedString(subnetsForLoadBalancers)).append("\n");
     sb.append("    outboundTypes: ").append(toIndentedString(outboundTypes)).append("\n");

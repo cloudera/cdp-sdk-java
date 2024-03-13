@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * Request object for the createCluster method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-29T13:23:32.620-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:45.683-07:00")
 public class CreateClusterRequest  {
 
   /**
@@ -76,7 +76,7 @@ public class CreateClusterRequest  {
   private Boolean usePublicWorkerNode = null;
 
   /**
-   * Enable Storage Roles
+   * DEPRECATED - Enable Storage Roles
    **/
   private Boolean enableStorageRoles = false;
 
@@ -258,8 +258,9 @@ public class CreateClusterRequest  {
 
   /**
    * Getter for enableStorageRoles.
-   * Enable Storage Roles
+   * DEPRECATED - Enable Storage Roles
    **/
+  @Deprecated
   @JsonProperty("enableStorageRoles")
   public Boolean getEnableStorageRoles() {
     return enableStorageRoles;
@@ -267,8 +268,9 @@ public class CreateClusterRequest  {
 
   /**
    * Setter for enableStorageRoles.
-   * Enable Storage Roles
+   * DEPRECATED - Enable Storage Roles
    **/
+  @Deprecated
   public void setEnableStorageRoles(Boolean enableStorageRoles) {
     this.enableStorageRoles = enableStorageRoles;
   }

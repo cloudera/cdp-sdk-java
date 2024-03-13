@@ -28,7 +28,7 @@ import com.cloudera.cdp.dw.model.ServiceConfigReq;
 /**
  * Request object for the updateDbc method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-29T13:23:32.620-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:45.683-07:00")
 public class UpdateDbcRequest  {
 
   /**
@@ -40,6 +40,11 @@ public class UpdateDbcRequest  {
    * ID of the Database Catalog.
    **/
   private String dbcId = null;
+
+  /**
+   * Set Metastore container memory size. If not provided, small will apply.
+   **/
+  private String memorySize = null;
 
   /**
    * The service configuration to update the DBC with. This will be applied on top of the existing configuration so there's no need to list configurations that stay the same.
@@ -81,6 +86,23 @@ public class UpdateDbcRequest  {
   }
 
   /**
+   * Getter for memorySize.
+   * Set Metastore container memory size. If not provided, small will apply.
+   **/
+  @JsonProperty("memorySize")
+  public String getMemorySize() {
+    return memorySize;
+  }
+
+  /**
+   * Setter for memorySize.
+   * Set Metastore container memory size. If not provided, small will apply.
+   **/
+  public void setMemorySize(String memorySize) {
+    this.memorySize = memorySize;
+  }
+
+  /**
    * Getter for config.
    * The service configuration to update the DBC with. This will be applied on top of the existing configuration so there&#39;s no need to list configurations that stay the same.
    **/
@@ -112,6 +134,9 @@ public class UpdateDbcRequest  {
     if (!Objects.equals(this.dbcId, updateDbcRequest.dbcId)) {
       return false;
     }
+    if (!Objects.equals(this.memorySize, updateDbcRequest.memorySize)) {
+      return false;
+    }
     if (!Objects.equals(this.config, updateDbcRequest.config)) {
       return false;
     }
@@ -120,7 +145,7 @@ public class UpdateDbcRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, dbcId, config);
+    return Objects.hash(clusterId, dbcId, memorySize, config);
   }
 
   @Override
@@ -129,6 +154,7 @@ public class UpdateDbcRequest  {
     sb.append("class UpdateDbcRequest {\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    dbcId: ").append(toIndentedString(dbcId)).append("\n");
+    sb.append("    memorySize: ").append(toIndentedString(memorySize)).append("\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("}");
     return sb.toString();

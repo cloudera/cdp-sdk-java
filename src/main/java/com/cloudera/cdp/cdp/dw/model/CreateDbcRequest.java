@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the createDbc method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-29T13:23:32.620-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:45.683-07:00")
 public class CreateDbcRequest  {
 
   /**
@@ -51,14 +51,14 @@ public class CreateDbcRequest  {
   private String imageVersion = "";
 
   /**
+   * Set Metastore container memory size. If not provided, small will apply.
+   **/
+  private String memorySize = null;
+
+  /**
    * NOTE: creating Default Database Catalogs is deprecated and explicitly disabled. Denotes if Default Database Catalog creation needed.
    **/
   private Boolean isDefault = false;
-
-  /**
-   * Tenant Storage Role if the feature is enabled for the account.
-   **/
-  private String tenantStorageRole = "";
 
   /**
    * The name of the Metastore database.
@@ -144,6 +144,23 @@ public class CreateDbcRequest  {
   }
 
   /**
+   * Getter for memorySize.
+   * Set Metastore container memory size. If not provided, small will apply.
+   **/
+  @JsonProperty("memorySize")
+  public String getMemorySize() {
+    return memorySize;
+  }
+
+  /**
+   * Setter for memorySize.
+   * Set Metastore container memory size. If not provided, small will apply.
+   **/
+  public void setMemorySize(String memorySize) {
+    this.memorySize = memorySize;
+  }
+
+  /**
    * Getter for isDefault.
    * NOTE: creating Default Database Catalogs is deprecated and explicitly disabled. Denotes if Default Database Catalog creation needed.
    **/
@@ -160,23 +177,6 @@ public class CreateDbcRequest  {
   @Deprecated
   public void setIsDefault(Boolean isDefault) {
     this.isDefault = isDefault;
-  }
-
-  /**
-   * Getter for tenantStorageRole.
-   * Tenant Storage Role if the feature is enabled for the account.
-   **/
-  @JsonProperty("tenantStorageRole")
-  public String getTenantStorageRole() {
-    return tenantStorageRole;
-  }
-
-  /**
-   * Setter for tenantStorageRole.
-   * Tenant Storage Role if the feature is enabled for the account.
-   **/
-  public void setTenantStorageRole(String tenantStorageRole) {
-    this.tenantStorageRole = tenantStorageRole;
   }
 
   /**
@@ -251,10 +251,10 @@ public class CreateDbcRequest  {
     if (!Objects.equals(this.imageVersion, createDbcRequest.imageVersion)) {
       return false;
     }
-    if (!Objects.equals(this.isDefault, createDbcRequest.isDefault)) {
+    if (!Objects.equals(this.memorySize, createDbcRequest.memorySize)) {
       return false;
     }
-    if (!Objects.equals(this.tenantStorageRole, createDbcRequest.tenantStorageRole)) {
+    if (!Objects.equals(this.isDefault, createDbcRequest.isDefault)) {
       return false;
     }
     if (!Objects.equals(this.dbMetastore, createDbcRequest.dbMetastore)) {
@@ -271,7 +271,7 @@ public class CreateDbcRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, name, loadDemoData, imageVersion, isDefault, tenantStorageRole, dbMetastore, dbDas, dbHue);
+    return Objects.hash(clusterId, name, loadDemoData, imageVersion, memorySize, isDefault, dbMetastore, dbDas, dbHue);
   }
 
   @Override
@@ -282,8 +282,8 @@ public class CreateDbcRequest  {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    loadDemoData: ").append(toIndentedString(loadDemoData)).append("\n");
     sb.append("    imageVersion: ").append(toIndentedString(imageVersion)).append("\n");
+    sb.append("    memorySize: ").append(toIndentedString(memorySize)).append("\n");
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
-    sb.append("    tenantStorageRole: ").append(toIndentedString(tenantStorageRole)).append("\n");
     sb.append("    dbMetastore: ").append(toIndentedString(dbMetastore)).append("\n");
     sb.append("    dbDas: ").append(toIndentedString(dbDas)).append("\n");
     sb.append("    dbHue: ").append(toIndentedString(dbHue)).append("\n");

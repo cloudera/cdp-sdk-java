@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the rebuildDbc method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-29T13:23:32.620-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:45.683-07:00")
 public class RebuildDbcRequest  {
 
   /**
@@ -39,11 +39,6 @@ public class RebuildDbcRequest  {
    * ID of the Database Catalog to rebuild.
    **/
   private String dbcId = null;
-
-  /**
-   * true - keep the current image version. false - set to latest image version when rebuilding the Database Catalog. If not provided, the latest image version will be set.
-   **/
-  private Boolean keepImageVersion = null;
 
   /**
    * Getter for clusterId.
@@ -79,23 +74,6 @@ public class RebuildDbcRequest  {
     this.dbcId = dbcId;
   }
 
-  /**
-   * Getter for keepImageVersion.
-   * true - keep the current image version. false - set to latest image version when rebuilding the Database Catalog. If not provided, the latest image version will be set.
-   **/
-  @JsonProperty("keepImageVersion")
-  public Boolean getKeepImageVersion() {
-    return keepImageVersion;
-  }
-
-  /**
-   * Setter for keepImageVersion.
-   * true - keep the current image version. false - set to latest image version when rebuilding the Database Catalog. If not provided, the latest image version will be set.
-   **/
-  public void setKeepImageVersion(Boolean keepImageVersion) {
-    this.keepImageVersion = keepImageVersion;
-  }
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -111,15 +89,12 @@ public class RebuildDbcRequest  {
     if (!Objects.equals(this.dbcId, rebuildDbcRequest.dbcId)) {
       return false;
     }
-    if (!Objects.equals(this.keepImageVersion, rebuildDbcRequest.keepImageVersion)) {
-      return false;
-    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, dbcId, keepImageVersion);
+    return Objects.hash(clusterId, dbcId);
   }
 
   @Override
@@ -128,7 +103,6 @@ public class RebuildDbcRequest  {
     sb.append("class RebuildDbcRequest {\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    dbcId: ").append(toIndentedString(dbcId)).append("\n");
-    sb.append("    keepImageVersion: ").append(toIndentedString(keepImageVersion)).append("\n");
     sb.append("}");
     return sb.toString();
   }

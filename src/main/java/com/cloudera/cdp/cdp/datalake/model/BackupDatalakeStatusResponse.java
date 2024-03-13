@@ -28,7 +28,7 @@ import com.cloudera.cdp.datalake.model.InternalBackupRestoreState;
 /**
  * Response object to get the status of datalake backup status request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-29T13:23:33.729-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:46.862-07:00")
 public class BackupDatalakeStatusResponse extends CdpResponse {
 
   /**
@@ -90,6 +90,11 @@ public class BackupDatalakeStatusResponse extends CdpResponse {
    * Reason for the failure.
    **/
   private String failureReason = null;
+
+  /**
+   * Predicted total duration for the backup process, in minutes.
+   **/
+  private String totalPredictedDurationInMinutes = null;
 
   /**
    * Getter for accountId.
@@ -295,6 +300,23 @@ public class BackupDatalakeStatusResponse extends CdpResponse {
     this.failureReason = failureReason;
   }
 
+  /**
+   * Getter for totalPredictedDurationInMinutes.
+   * Predicted total duration for the backup process, in minutes.
+   **/
+  @JsonProperty("totalPredictedDurationInMinutes")
+  public String getTotalPredictedDurationInMinutes() {
+    return totalPredictedDurationInMinutes;
+  }
+
+  /**
+   * Setter for totalPredictedDurationInMinutes.
+   * Predicted total duration for the backup process, in minutes.
+   **/
+  public void setTotalPredictedDurationInMinutes(String totalPredictedDurationInMinutes) {
+    this.totalPredictedDurationInMinutes = totalPredictedDurationInMinutes;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -340,6 +362,9 @@ public class BackupDatalakeStatusResponse extends CdpResponse {
     if (!Objects.equals(this.failureReason, backupDatalakeStatusResponse.failureReason)) {
       return false;
     }
+    if (!Objects.equals(this.totalPredictedDurationInMinutes, backupDatalakeStatusResponse.totalPredictedDurationInMinutes)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -348,7 +373,7 @@ public class BackupDatalakeStatusResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(accountId, backupId, userCrn, internalState, status, startTime, endTime, backupLocation, operationStates, runtimeVersion, backupName, failureReason, super.hashCode());
+    return Objects.hash(accountId, backupId, userCrn, internalState, status, startTime, endTime, backupLocation, operationStates, runtimeVersion, backupName, failureReason, totalPredictedDurationInMinutes, super.hashCode());
   }
 
   @Override
@@ -368,6 +393,7 @@ public class BackupDatalakeStatusResponse extends CdpResponse {
     sb.append("    runtimeVersion: ").append(toIndentedString(runtimeVersion)).append("\n");
     sb.append("    backupName: ").append(toIndentedString(backupName)).append("\n");
     sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
+    sb.append("    totalPredictedDurationInMinutes: ").append(toIndentedString(totalPredictedDurationInMinutes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

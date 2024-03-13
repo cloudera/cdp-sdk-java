@@ -29,7 +29,7 @@ import java.time.ZonedDateTime;
 /**
  * A Database Catalog.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-29T13:23:32.620-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:45.683-07:00")
 public class DbcSummary  {
 
   /**
@@ -46,6 +46,11 @@ public class DbcSummary  {
    * The name of the Database Catalog.
    **/
   private String name = null;
+
+  /**
+   * Metastore container memory size.
+   **/
+  private String memorySize = null;
 
   /**
    * Status of the Database Catalog. Possible values are: Creating, Created, Accepted, Starting, Running, Stopping, Stopped, Updating, PreUpdate, Upgrading, PreUpgrade, Restarting, Deleting, Waiting, Failed, Error.
@@ -121,6 +126,23 @@ public class DbcSummary  {
    **/
   public void setName(String name) {
     this.name = name;
+  }
+
+  /**
+   * Getter for memorySize.
+   * Metastore container memory size.
+   **/
+  @JsonProperty("memorySize")
+  public String getMemorySize() {
+    return memorySize;
+  }
+
+  /**
+   * Setter for memorySize.
+   * Metastore container memory size.
+   **/
+  public void setMemorySize(String memorySize) {
+    this.memorySize = memorySize;
   }
 
   /**
@@ -226,6 +248,9 @@ public class DbcSummary  {
     if (!Objects.equals(this.name, dbcSummary.name)) {
       return false;
     }
+    if (!Objects.equals(this.memorySize, dbcSummary.memorySize)) {
+      return false;
+    }
     if (!Objects.equals(this.status, dbcSummary.status)) {
       return false;
     }
@@ -246,7 +271,7 @@ public class DbcSummary  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, name, status, statusChangedAt, creator, creationDate, resourcePool);
+    return Objects.hash(crn, id, name, memorySize, status, statusChangedAt, creator, creationDate, resourcePool);
   }
 
   @Override
@@ -256,6 +281,7 @@ public class DbcSummary  {
     sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    memorySize: ").append(toIndentedString(memorySize)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusChangedAt: ").append(toIndentedString(statusChangedAt)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");

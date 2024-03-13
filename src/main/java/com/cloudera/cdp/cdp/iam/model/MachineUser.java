@@ -29,7 +29,7 @@ import java.time.ZonedDateTime;
 /**
  * Information about a Cloudera CDP machine user.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-29T13:23:35.090-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:48.192-07:00")
 public class MachineUser  {
 
   /**

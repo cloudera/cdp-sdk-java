@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Provides all of the configuration that dictates how a flow should be deployed
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-29T13:23:35.724-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:48.887-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class UpdateDeploymentRequest  {
 

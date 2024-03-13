@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * A Cloudera Data Warehouse cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-29T13:23:32.620-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:45.683-07:00")
 public class ClusterSummaryResponse extends CdpResponse {
 
   /**
@@ -75,11 +75,6 @@ public class ClusterSummaryResponse extends CdpResponse {
    * The cloud platform of the environment that was used to create this cluster.
    **/
   private String cloudPlatform = null;
-
-  /**
-   * Enable Storage Roles checkbox was checked when creating/activating this cluster.
-   **/
-  private Boolean enableStorageRoles = null;
 
   /**
    * Denotes whether the spot instances have been enabled for the cluster. This value is only available for AWS and Azure clusters.
@@ -275,23 +270,6 @@ public class ClusterSummaryResponse extends CdpResponse {
    **/
   public void setCloudPlatform(String cloudPlatform) {
     this.cloudPlatform = cloudPlatform;
-  }
-
-  /**
-   * Getter for enableStorageRoles.
-   * Enable Storage Roles checkbox was checked when creating/activating this cluster.
-   **/
-  @JsonProperty("enableStorageRoles")
-  public Boolean getEnableStorageRoles() {
-    return enableStorageRoles;
-  }
-
-  /**
-   * Setter for enableStorageRoles.
-   * Enable Storage Roles checkbox was checked when creating/activating this cluster.
-   **/
-  public void setEnableStorageRoles(Boolean enableStorageRoles) {
-    this.enableStorageRoles = enableStorageRoles;
   }
 
   /**
@@ -531,9 +509,6 @@ public class ClusterSummaryResponse extends CdpResponse {
     if (!Objects.equals(this.cloudPlatform, clusterSummaryResponse.cloudPlatform)) {
       return false;
     }
-    if (!Objects.equals(this.enableStorageRoles, clusterSummaryResponse.enableStorageRoles)) {
-      return false;
-    }
     if (!Objects.equals(this.enableSpotInstances, clusterSummaryResponse.enableSpotInstances)) {
       return false;
     }
@@ -578,7 +553,7 @@ public class ClusterSummaryResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, environmentCrn, name, status, creator, creationDate, cloudPlatform, enableStorageRoles, enableSpotInstances, reservedComputeNodes, reservedSharedServicesNodes, computeInstanceTypes, additionalInstanceTypes, awsOptions, azureOptions, description, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, resourcePool, externalBuckets, super.hashCode());
+    return Objects.hash(crn, id, environmentCrn, name, status, creator, creationDate, cloudPlatform, enableSpotInstances, reservedComputeNodes, reservedSharedServicesNodes, computeInstanceTypes, additionalInstanceTypes, awsOptions, azureOptions, description, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, resourcePool, externalBuckets, super.hashCode());
   }
 
   @Override
@@ -594,7 +569,6 @@ public class ClusterSummaryResponse extends CdpResponse {
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    cloudPlatform: ").append(toIndentedString(cloudPlatform)).append("\n");
-    sb.append("    enableStorageRoles: ").append(toIndentedString(enableStorageRoles)).append("\n");
     sb.append("    enableSpotInstances: ").append(toIndentedString(enableSpotInstances)).append("\n");
     sb.append("    reservedComputeNodes: ").append(toIndentedString(reservedComputeNodes)).append("\n");
     sb.append("    reservedSharedServicesNodes: ").append(toIndentedString(reservedSharedServicesNodes)).append("\n");

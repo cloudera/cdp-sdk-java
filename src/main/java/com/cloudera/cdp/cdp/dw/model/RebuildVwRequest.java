@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the rebuildVw method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-29T13:23:32.620-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:45.683-07:00")
 public class RebuildVwRequest  {
 
   /**
@@ -39,11 +39,6 @@ public class RebuildVwRequest  {
    * ID of the Virtual Warehouse to rebuild.
    **/
   private String vwId = null;
-
-  /**
-   * Set it to true to keep the current image version. Set it to false to use the latest image version when rebuilding the Virtual Warehouse. If not provided, the latest image version will be set.
-   **/
-  private Boolean keepImageVersion = null;
 
   /**
    * Getter for clusterId.
@@ -79,23 +74,6 @@ public class RebuildVwRequest  {
     this.vwId = vwId;
   }
 
-  /**
-   * Getter for keepImageVersion.
-   * Set it to true to keep the current image version. Set it to false to use the latest image version when rebuilding the Virtual Warehouse. If not provided, the latest image version will be set.
-   **/
-  @JsonProperty("keepImageVersion")
-  public Boolean getKeepImageVersion() {
-    return keepImageVersion;
-  }
-
-  /**
-   * Setter for keepImageVersion.
-   * Set it to true to keep the current image version. Set it to false to use the latest image version when rebuilding the Virtual Warehouse. If not provided, the latest image version will be set.
-   **/
-  public void setKeepImageVersion(Boolean keepImageVersion) {
-    this.keepImageVersion = keepImageVersion;
-  }
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -111,15 +89,12 @@ public class RebuildVwRequest  {
     if (!Objects.equals(this.vwId, rebuildVwRequest.vwId)) {
       return false;
     }
-    if (!Objects.equals(this.keepImageVersion, rebuildVwRequest.keepImageVersion)) {
-      return false;
-    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, vwId, keepImageVersion);
+    return Objects.hash(clusterId, vwId);
   }
 
   @Override
@@ -128,7 +103,6 @@ public class RebuildVwRequest  {
     sb.append("class RebuildVwRequest {\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    vwId: ").append(toIndentedString(vwId)).append("\n");
-    sb.append("    keepImageVersion: ").append(toIndentedString(keepImageVersion)).append("\n");
     sb.append("}");
     return sb.toString();
   }

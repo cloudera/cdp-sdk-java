@@ -28,10 +28,18 @@ import com.cloudera.cdp.client.CdpRequestContext;
 import com.cloudera.cdp.client.Pair;
 import com.cloudera.cdp.client.ResourceResponse;
 import com.cloudera.cdp.client.RestResponse;
+import com.cloudera.cdp.de.model.CancelBackupRequest;
+import com.cloudera.cdp.de.model.CancelBackupResponse;
+import com.cloudera.cdp.de.model.CreateBackupRequest;
+import com.cloudera.cdp.de.model.CreateBackupResponse;
 import com.cloudera.cdp.de.model.CreateVcRequest;
 import com.cloudera.cdp.de.model.CreateVcResponse;
+import com.cloudera.cdp.de.model.DeleteBackupRequest;
+import com.cloudera.cdp.de.model.DeleteBackupResponse;
 import com.cloudera.cdp.de.model.DeleteVcRequest;
 import com.cloudera.cdp.de.model.DeleteVcResponse;
+import com.cloudera.cdp.de.model.DescribeBackupRequest;
+import com.cloudera.cdp.de.model.DescribeBackupResponse;
 import com.cloudera.cdp.de.model.DescribeServiceRequest;
 import com.cloudera.cdp.de.model.DescribeServiceResponse;
 import com.cloudera.cdp.de.model.DescribeVcRequest;
@@ -41,12 +49,20 @@ import com.cloudera.cdp.de.model.DisableServiceResponse;
 import com.cloudera.cdp.de.model.EnableServiceRequest;
 import com.cloudera.cdp.de.model.EnableServiceResponse;
 import com.cloudera.cdp.de.model.Error;
+import com.cloudera.cdp.de.model.GetBackupLogsRequest;
+import com.cloudera.cdp.de.model.GetBackupLogsResponse;
 import com.cloudera.cdp.de.model.GetKubeconfigRequest;
 import com.cloudera.cdp.de.model.GetKubeconfigResponse;
+import com.cloudera.cdp.de.model.GetServiceInitLogsRequest;
+import com.cloudera.cdp.de.model.GetServiceInitLogsResponse;
+import com.cloudera.cdp.de.model.ListBackupsRequest;
+import com.cloudera.cdp.de.model.ListBackupsResponse;
 import com.cloudera.cdp.de.model.ListServicesRequest;
 import com.cloudera.cdp.de.model.ListServicesResponse;
 import com.cloudera.cdp.de.model.ListVcsRequest;
 import com.cloudera.cdp.de.model.ListVcsResponse;
+import com.cloudera.cdp.de.model.RestoreServiceRequest;
+import com.cloudera.cdp.de.model.RestoreServiceResponse;
 import com.cloudera.cdp.de.model.UpdateServiceRequest;
 import com.cloudera.cdp.de.model.UpdateServiceResponse;
 import com.cloudera.cdp.de.model.UpdateVcRequest;
@@ -57,7 +73,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-29T13:23:34.929-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:48.068-07:00")
 public class DeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "de";
@@ -89,6 +105,32 @@ public class DeClient extends CdpClient {
   }
 
   /**
+   * Cancel Cloudera Data Engineering(CDE) Service Backup
+   * @param input
+   * @return CancelBackupResponse
+   */
+  public CancelBackupResponse cancelBackup(CancelBackupRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling cancelBackup");
+    }
+
+    return this.invokeAPI("cancelBackup", "/api/v1/de/cancelBackup", input, new GenericType<CancelBackupResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Backup Cloudera Data Engineering(CDE) Service
+   * @param input
+   * @return CreateBackupResponse
+   */
+  public CreateBackupResponse createBackup(CreateBackupRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createBackup");
+    }
+
+    return this.invokeAPI("createBackup", "/api/v1/de/createBackup", input, new GenericType<CreateBackupResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Create Virtual Cluster
    * @param input
    * @return CreateVcResponse
@@ -102,6 +144,19 @@ public class DeClient extends CdpClient {
   }
 
   /**
+   * Delete Cloudera Data Engineering(CDE) Service Backup
+   * @param input
+   * @return DeleteBackupResponse
+   */
+  public DeleteBackupResponse deleteBackup(DeleteBackupRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteBackup");
+    }
+
+    return this.invokeAPI("deleteBackup", "/api/v1/de/deleteBackup", input, new GenericType<DeleteBackupResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Delete Virtual Cluster
    * @param input
    * @return DeleteVcResponse
@@ -112,6 +167,19 @@ public class DeClient extends CdpClient {
     }
 
     return this.invokeAPI("deleteVc", "/api/v1/de/deleteVc", input, new GenericType<DeleteVcResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Describe Cloudera Data Engineering(CDE) Service Backup
+   * @param input
+   * @return DescribeBackupResponse
+   */
+  public DescribeBackupResponse describeBackup(DescribeBackupRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeBackup");
+    }
+
+    return this.invokeAPI("describeBackup", "/api/v1/de/describeBackup", input, new GenericType<DescribeBackupResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -167,6 +235,19 @@ public class DeClient extends CdpClient {
   }
 
   /**
+   * Retrieve Cloudera Data Engineering(CDE) Service Backup Logs
+   * @param input
+   * @return GetBackupLogsResponse
+   */
+  public GetBackupLogsResponse getBackupLogs(GetBackupLogsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getBackupLogs");
+    }
+
+    return this.invokeAPI("getBackupLogs", "/api/v1/de/getBackupLogs", input, new GenericType<GetBackupLogsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Get Kubeconfig for the CDE service
    * @param input
    * @return GetKubeconfigResponse
@@ -177,6 +258,32 @@ public class DeClient extends CdpClient {
     }
 
     return this.invokeAPI("getKubeconfig", "/api/v1/de/getKubeconfig", input, new GenericType<GetKubeconfigResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Retrieve Cloudera Data Engineering(CDE) Service Initialization Logs
+   * @param input
+   * @return GetServiceInitLogsResponse
+   */
+  public GetServiceInitLogsResponse getServiceInitLogs(GetServiceInitLogsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getServiceInitLogs");
+    }
+
+    return this.invokeAPI("getServiceInitLogs", "/api/v1/de/getServiceInitLogs", input, new GenericType<GetServiceInitLogsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * List Cloudera Data Engineering(CDE) Service Backups
+   * @param input
+   * @return ListBackupsResponse
+   */
+  public ListBackupsResponse listBackups(ListBackupsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listBackups");
+    }
+
+    return this.invokeAPI("listBackups", "/api/v1/de/listBackups", input, new GenericType<ListBackupsResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -203,6 +310,19 @@ public class DeClient extends CdpClient {
     }
 
     return this.invokeAPI("listVcs", "/api/v1/de/listVcs", input, new GenericType<ListVcsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Restore Cloudera Data Engineering(CDE) Service
+   * @param input
+   * @return RestoreServiceResponse
+   */
+  public RestoreServiceResponse restoreService(RestoreServiceRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling restoreService");
+    }
+
+    return this.invokeAPI("restoreService", "/api/v1/de/restoreService", input, new GenericType<RestoreServiceResponse>(){}, NO_EXTENSION);
   }
 
   /**

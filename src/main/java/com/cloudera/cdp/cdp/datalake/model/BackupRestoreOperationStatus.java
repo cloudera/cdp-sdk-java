@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Contains the status and failure reason of an operation.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-29T13:23:33.729-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:46.862-07:00")
 public class BackupRestoreOperationStatus  {
 
   /**
@@ -44,6 +44,11 @@ public class BackupRestoreOperationStatus  {
    * The duration of each operation, in minutes.
    **/
   private String durationInMinutes = null;
+
+  /**
+   * Predicted duration of the operation, in minutes.
+   **/
+  private String predictedDurationInMinutes = null;
 
   /**
    * Getter for status.
@@ -96,6 +101,23 @@ public class BackupRestoreOperationStatus  {
     this.durationInMinutes = durationInMinutes;
   }
 
+  /**
+   * Getter for predictedDurationInMinutes.
+   * Predicted duration of the operation, in minutes.
+   **/
+  @JsonProperty("predictedDurationInMinutes")
+  public String getPredictedDurationInMinutes() {
+    return predictedDurationInMinutes;
+  }
+
+  /**
+   * Setter for predictedDurationInMinutes.
+   * Predicted duration of the operation, in minutes.
+   **/
+  public void setPredictedDurationInMinutes(String predictedDurationInMinutes) {
+    this.predictedDurationInMinutes = predictedDurationInMinutes;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -114,12 +136,15 @@ public class BackupRestoreOperationStatus  {
     if (!Objects.equals(this.durationInMinutes, backupRestoreOperationStatus.durationInMinutes)) {
       return false;
     }
+    if (!Objects.equals(this.predictedDurationInMinutes, backupRestoreOperationStatus.predictedDurationInMinutes)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, failureReason, durationInMinutes);
+    return Objects.hash(status, failureReason, durationInMinutes, predictedDurationInMinutes);
   }
 
   @Override
@@ -129,6 +154,7 @@ public class BackupRestoreOperationStatus  {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    failureReason: ").append(toIndentedString(failureReason)).append("\n");
     sb.append("    durationInMinutes: ").append(toIndentedString(durationInMinutes)).append("\n");
+    sb.append("    predictedDurationInMinutes: ").append(toIndentedString(predictedDurationInMinutes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

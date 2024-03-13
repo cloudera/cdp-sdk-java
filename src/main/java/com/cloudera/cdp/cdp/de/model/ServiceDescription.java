@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Detailed description of a CDE service.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-29T13:23:34.929-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:48.068-07:00")
 public class ServiceDescription  {
 
   /**
@@ -102,6 +102,11 @@ public class ServiceDescription  {
    * Location for the log files of jobs.
    **/
   private String logLocation = null;
+
+  /**
+   * Base location for the service backup archives.
+   **/
+  private String backupLocation = null;
 
   /**
    * Endpoint of Data Lake Atlas.
@@ -397,6 +402,23 @@ public class ServiceDescription  {
   }
 
   /**
+   * Getter for backupLocation.
+   * Base location for the service backup archives.
+   **/
+  @JsonProperty("backupLocation")
+  public String getBackupLocation() {
+    return backupLocation;
+  }
+
+  /**
+   * Setter for backupLocation.
+   * Base location for the service backup archives.
+   **/
+  public void setBackupLocation(String backupLocation) {
+    this.backupLocation = backupLocation;
+  }
+
+  /**
    * Getter for dataLakeAtlasUIEndpoint.
    * Endpoint of Data Lake Atlas.
    **/
@@ -634,6 +656,9 @@ public class ServiceDescription  {
     if (!Objects.equals(this.logLocation, serviceDescription.logLocation)) {
       return false;
     }
+    if (!Objects.equals(this.backupLocation, serviceDescription.backupLocation)) {
+      return false;
+    }
     if (!Objects.equals(this.dataLakeAtlasUIEndpoint, serviceDescription.dataLakeAtlasUIEndpoint)) {
       return false;
     }
@@ -672,7 +697,7 @@ public class ServiceDescription  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, clusterId, environmentName, environmentCrn, tenantId, resources, status, creatorEmail, creatorCrn, enablingTime, clusterFqdn, cloudPlatform, dataLakeFileSystems, logLocation, dataLakeAtlasUIEndpoint, chartValueOverrides, whitelistIps, loadbalancerAllowlist, subnets, privateClusterEnabled, publicEndpointEnabled, networkOutboundType, previousVersionDeployed, workloadAnalyticsEnabled, ssdUsed);
+    return Objects.hash(name, clusterId, environmentName, environmentCrn, tenantId, resources, status, creatorEmail, creatorCrn, enablingTime, clusterFqdn, cloudPlatform, dataLakeFileSystems, logLocation, backupLocation, dataLakeAtlasUIEndpoint, chartValueOverrides, whitelistIps, loadbalancerAllowlist, subnets, privateClusterEnabled, publicEndpointEnabled, networkOutboundType, previousVersionDeployed, workloadAnalyticsEnabled, ssdUsed);
   }
 
   @Override
@@ -693,6 +718,7 @@ public class ServiceDescription  {
     sb.append("    cloudPlatform: ").append(toIndentedString(cloudPlatform)).append("\n");
     sb.append("    dataLakeFileSystems: ").append(toIndentedString(dataLakeFileSystems)).append("\n");
     sb.append("    logLocation: ").append(toIndentedString(logLocation)).append("\n");
+    sb.append("    backupLocation: ").append(toIndentedString(backupLocation)).append("\n");
     sb.append("    dataLakeAtlasUIEndpoint: ").append(toIndentedString(dataLakeAtlasUIEndpoint)).append("\n");
     sb.append("    chartValueOverrides: ").append(toIndentedString(chartValueOverrides)).append("\n");
     sb.append("    whitelistIps: ").append(toIndentedString(whitelistIps)).append("\n");

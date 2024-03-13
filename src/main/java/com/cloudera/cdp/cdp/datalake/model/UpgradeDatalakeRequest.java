@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object to upgrade datalake.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-29T13:23:33.729-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:46.862-07:00")
 public class UpgradeDatalakeRequest  {
 
   /**
@@ -89,6 +89,11 @@ public class UpgradeDatalakeRequest  {
    * Skips the validation steps that run prior to the backup. Redundant if --skip-backup is included. If this option is not provided, the validations are performed by default.
    **/
   private Boolean skipBackupValidation = null;
+
+  /**
+   * Enables the ability to perform rolling runtime upgrade.
+   **/
+  private Boolean rollingUpgradeEnabled = null;
 
   /**
    * Getter for datalakeName.
@@ -294,6 +299,23 @@ public class UpgradeDatalakeRequest  {
     this.skipBackupValidation = skipBackupValidation;
   }
 
+  /**
+   * Getter for rollingUpgradeEnabled.
+   * Enables the ability to perform rolling runtime upgrade.
+   **/
+  @JsonProperty("rollingUpgradeEnabled")
+  public Boolean getRollingUpgradeEnabled() {
+    return rollingUpgradeEnabled;
+  }
+
+  /**
+   * Setter for rollingUpgradeEnabled.
+   * Enables the ability to perform rolling runtime upgrade.
+   **/
+  public void setRollingUpgradeEnabled(Boolean rollingUpgradeEnabled) {
+    this.rollingUpgradeEnabled = rollingUpgradeEnabled;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -339,12 +361,15 @@ public class UpgradeDatalakeRequest  {
     if (!Objects.equals(this.skipBackupValidation, upgradeDatalakeRequest.skipBackupValidation)) {
       return false;
     }
+    if (!Objects.equals(this.rollingUpgradeEnabled, upgradeDatalakeRequest.rollingUpgradeEnabled)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, imageId, runtime, lockComponents, dryRun, showAvailableImages, showLatestAvailableImagePerRuntime, skipBackup, skipRangerHmsMetadata, skipAtlasMetadata, skipRangerAudits, skipBackupValidation);
+    return Objects.hash(datalakeName, imageId, runtime, lockComponents, dryRun, showAvailableImages, showLatestAvailableImagePerRuntime, skipBackup, skipRangerHmsMetadata, skipAtlasMetadata, skipRangerAudits, skipBackupValidation, rollingUpgradeEnabled);
   }
 
   @Override
@@ -363,6 +388,7 @@ public class UpgradeDatalakeRequest  {
     sb.append("    skipAtlasMetadata: ").append(toIndentedString(skipAtlasMetadata)).append("\n");
     sb.append("    skipRangerAudits: ").append(toIndentedString(skipRangerAudits)).append("\n");
     sb.append("    skipBackupValidation: ").append(toIndentedString(skipBackupValidation)).append("\n");
+    sb.append("    rollingUpgradeEnabled: ").append(toIndentedString(rollingUpgradeEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }

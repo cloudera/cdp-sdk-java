@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for the ListFlowVersionTags method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-29T13:23:35.419-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:48.582-07:00")
 public class ListFlowVersionTagsResponse extends CdpResponse {
 
   /**

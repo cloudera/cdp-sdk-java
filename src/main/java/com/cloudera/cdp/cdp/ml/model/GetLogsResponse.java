@@ -28,7 +28,7 @@ import com.cloudera.cdp.ml.model.AuditLogs;
 /**
  * GetLogsResponse contains all the logs for a given request id.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-02-29T13:23:33.387-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:46.678-07:00")
 public class GetLogsResponse extends CdpResponse {
 
   /**
