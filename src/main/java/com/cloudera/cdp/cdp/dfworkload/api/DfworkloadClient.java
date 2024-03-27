@@ -115,7 +115,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:48.887-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:21.533-07:00")
 public class DfworkloadClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dfworkload";
@@ -329,11 +329,12 @@ public class DfworkloadClient extends CdpClient {
   }
 
   /**
-   * Get Inbound Connection Endpoint Client Certificate (in PEM encoding)
+   * Get Inbound Connection Endpoint Client Certificate (in PEM encoding). Deprecated. Use &#x60;download-client-certificates-encoded&#x60; instead.
    * @param input Get Inbound Connection Endpoint client&#39;s certificate request
    * @return InboundConnectionEndpointClientCertificateResponse
    */
   @WorkloadApi
+  @Deprecated
   public InboundConnectionEndpointClientCertificateResponse getClientCertificateEncoded(InboundConnectionEndpointClientCertificateRequest input) {
     if (input == null) {
       throw new CdpClientException("Missing the required parameter 'input' when calling getClientCertificateEncoded");
@@ -357,11 +358,12 @@ public class DfworkloadClient extends CdpClient {
   }
 
   /**
-   * Get Inbound Connection Endpoint Client&#39;s Private Key (in PEM encoding)
+   * Get Inbound Connection Endpoint Client&#39;s Private Key (in PEM encoding). Deprecated. Use &#x60;download-client-certificates-encoded&#x60; instead.
    * @param input Get Inbound Connection Endpoint client&#39;s private key request
    * @return InboundConnectionEndpointClientPrivateKeyResponse
    */
   @WorkloadApi
+  @Deprecated
   public InboundConnectionEndpointClientPrivateKeyResponse getClientPrivateKeyEncoded(InboundConnectionEndpointClientPrivateKeyRequest input) {
     if (input == null) {
       throw new CdpClientException("Missing the required parameter 'input' when calling getClientPrivateKeyEncoded");

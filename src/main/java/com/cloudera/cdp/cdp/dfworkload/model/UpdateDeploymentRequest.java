@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Provides all of the configuration that dictates how a flow should be deployed
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:48.887-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:21.533-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class UpdateDeploymentRequest  {
 
@@ -85,7 +85,7 @@ public class UpdateDeploymentRequest  {
   private List<ConfiguredKpi> kpis = new ArrayList<ConfiguredKpi>();
 
   /**
-   * The deployment t-shirt size
+   * The deployment t-shirt size. Deprecated. Use 'clusterSize.name' instead
    **/
   private String clusterSizeName = null;
 
@@ -266,8 +266,9 @@ public class UpdateDeploymentRequest  {
 
   /**
    * Getter for clusterSizeName.
-   * The deployment t-shirt size
+   * The deployment t-shirt size. Deprecated. Use &#39;clusterSize.name&#39; instead
    **/
+  @Deprecated
   @JsonProperty("clusterSizeName")
   public String getClusterSizeName() {
     return clusterSizeName;
@@ -275,8 +276,9 @@ public class UpdateDeploymentRequest  {
 
   /**
    * Setter for clusterSizeName.
-   * The deployment t-shirt size
+   * The deployment t-shirt size. Deprecated. Use &#39;clusterSize.name&#39; instead
    **/
+  @Deprecated
   public void setClusterSizeName(String clusterSizeName) {
     this.clusterSizeName = clusterSizeName;
   }

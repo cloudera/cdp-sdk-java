@@ -29,7 +29,7 @@ import com.cloudera.cdp.environments.model.Environment;
 /**
  * Response object for a update Azure Database resources request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:47.341-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:19.900-07:00")
 public class UpdateAzureDatabaseResourcesResponse extends CdpResponse {
 
   /**

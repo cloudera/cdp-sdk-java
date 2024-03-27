@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object to create a deployment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:48.887-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:21.533-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class CreateDeploymentRequest  {
 
@@ -49,11 +49,6 @@ public class CreateDeploymentRequest  {
    * The name of the deployment
    **/
   private String name = null;
-
-  /**
-   * The size of the cluster to deploy
-   **/
-  private String clusterSizeName = null;
 
   /**
    * The CRN of the deployment request.
@@ -104,6 +99,11 @@ public class CreateDeploymentRequest  {
    * Indicates whether or not the flow should be started during deployment creation
    **/
   private Boolean autoStartFlow = null;
+
+  /**
+   * The size of the cluster to deploy. Deprecated. Use 'clusterSize.name' instead
+   **/
+  private String clusterSizeName = null;
 
   /**
    * The FQDN of inbound hostname or just the prefix part
@@ -179,23 +179,6 @@ public class CreateDeploymentRequest  {
    **/
   public void setName(String name) {
     this.name = name;
-  }
-
-  /**
-   * Getter for clusterSizeName.
-   * The size of the cluster to deploy
-   **/
-  @JsonProperty("clusterSizeName")
-  public String getClusterSizeName() {
-    return clusterSizeName;
-  }
-
-  /**
-   * Setter for clusterSizeName.
-   * The size of the cluster to deploy
-   **/
-  public void setClusterSizeName(String clusterSizeName) {
-    this.clusterSizeName = clusterSizeName;
   }
 
   /**
@@ -369,6 +352,25 @@ public class CreateDeploymentRequest  {
   }
 
   /**
+   * Getter for clusterSizeName.
+   * The size of the cluster to deploy. Deprecated. Use &#39;clusterSize.name&#39; instead
+   **/
+  @Deprecated
+  @JsonProperty("clusterSizeName")
+  public String getClusterSizeName() {
+    return clusterSizeName;
+  }
+
+  /**
+   * Setter for clusterSizeName.
+   * The size of the cluster to deploy. Deprecated. Use &#39;clusterSize.name&#39; instead
+   **/
+  @Deprecated
+  public void setClusterSizeName(String clusterSizeName) {
+    this.clusterSizeName = clusterSizeName;
+  }
+
+  /**
    * Getter for inboundHostname.
    * The FQDN of inbound hostname or just the prefix part
    **/
@@ -471,9 +473,6 @@ public class CreateDeploymentRequest  {
     if (!Objects.equals(this.name, createDeploymentRequest.name)) {
       return false;
     }
-    if (!Objects.equals(this.clusterSizeName, createDeploymentRequest.clusterSizeName)) {
-      return false;
-    }
     if (!Objects.equals(this.deploymentRequestCrn, createDeploymentRequest.deploymentRequestCrn)) {
       return false;
     }
@@ -504,6 +503,9 @@ public class CreateDeploymentRequest  {
     if (!Objects.equals(this.autoStartFlow, createDeploymentRequest.autoStartFlow)) {
       return false;
     }
+    if (!Objects.equals(this.clusterSizeName, createDeploymentRequest.clusterSizeName)) {
+      return false;
+    }
     if (!Objects.equals(this.inboundHostname, createDeploymentRequest.inboundHostname)) {
       return false;
     }
@@ -524,7 +526,7 @@ public class CreateDeploymentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, configurationVersion, name, clusterSizeName, deploymentRequestCrn, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, cfmNifiVersion, autoStartFlow, inboundHostname, listenComponents, nodeStorageProfileName, customNarConfigurationCrn, projectCrn);
+    return Objects.hash(environmentCrn, configurationVersion, name, deploymentRequestCrn, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, cfmNifiVersion, autoStartFlow, clusterSizeName, inboundHostname, listenComponents, nodeStorageProfileName, customNarConfigurationCrn, projectCrn);
   }
 
   @Override
@@ -534,7 +536,6 @@ public class CreateDeploymentRequest  {
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
     sb.append("    configurationVersion: ").append(toIndentedString(configurationVersion)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    clusterSizeName: ").append(toIndentedString(clusterSizeName)).append("\n");
     sb.append("    deploymentRequestCrn: ").append(toIndentedString(deploymentRequestCrn)).append("\n");
     sb.append("    parameterGroups: ").append(toIndentedString(parameterGroups)).append("\n");
     sb.append("    autoScalingEnabled: ").append(toIndentedString(autoScalingEnabled)).append("\n");
@@ -545,6 +546,7 @@ public class CreateDeploymentRequest  {
     sb.append("    kpis: ").append(toIndentedString(kpis)).append("\n");
     sb.append("    cfmNifiVersion: ").append(toIndentedString(cfmNifiVersion)).append("\n");
     sb.append("    autoStartFlow: ").append(toIndentedString(autoStartFlow)).append("\n");
+    sb.append("    clusterSizeName: ").append(toIndentedString(clusterSizeName)).append("\n");
     sb.append("    inboundHostname: ").append(toIndentedString(inboundHostname)).append("\n");
     sb.append("    listenComponents: ").append(toIndentedString(listenComponents)).append("\n");
     sb.append("    nodeStorageProfileName: ").append(toIndentedString(nodeStorageProfileName)).append("\n");

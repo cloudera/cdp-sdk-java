@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Cluster scaling parameters
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:48.887-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:21.533-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class ClusterSize  {
 
@@ -37,14 +37,19 @@ public class ClusterSize  {
   private String name = null;
 
   /**
+   * The number of CPU Cores per node
+   **/
+  private Double coresPerNode = null;
+
+  /**
+   * The memory limit
+   **/
+  private Double memoryLimit = null;
+
+  /**
    * The text (i.e., the human readable name) for this Cluster Size
    **/
   private String text = null;
-
-  /**
-   * The number of CPU Cores per node
-   **/
-  private Integer coresPerNode = null;
 
   /**
    * The heap size
@@ -55,11 +60,6 @@ public class ClusterSize  {
    * Flag to signal whether this ClusterSize is enabled
    **/
   private Boolean enabled = null;
-
-  /**
-   * The memory limit
-   **/
-  private Double memoryLimit = null;
 
   /**
    * Getter for name.
@@ -79,6 +79,40 @@ public class ClusterSize  {
   }
 
   /**
+   * Getter for coresPerNode.
+   * The number of CPU Cores per node
+   **/
+  @JsonProperty("coresPerNode")
+  public Double getCoresPerNode() {
+    return coresPerNode;
+  }
+
+  /**
+   * Setter for coresPerNode.
+   * The number of CPU Cores per node
+   **/
+  public void setCoresPerNode(Double coresPerNode) {
+    this.coresPerNode = coresPerNode;
+  }
+
+  /**
+   * Getter for memoryLimit.
+   * The memory limit
+   **/
+  @JsonProperty("memoryLimit")
+  public Double getMemoryLimit() {
+    return memoryLimit;
+  }
+
+  /**
+   * Setter for memoryLimit.
+   * The memory limit
+   **/
+  public void setMemoryLimit(Double memoryLimit) {
+    this.memoryLimit = memoryLimit;
+  }
+
+  /**
    * Getter for text.
    * The text (i.e., the human readable name) for this Cluster Size
    **/
@@ -93,23 +127,6 @@ public class ClusterSize  {
    **/
   public void setText(String text) {
     this.text = text;
-  }
-
-  /**
-   * Getter for coresPerNode.
-   * The number of CPU Cores per node
-   **/
-  @JsonProperty("coresPerNode")
-  public Integer getCoresPerNode() {
-    return coresPerNode;
-  }
-
-  /**
-   * Setter for coresPerNode.
-   * The number of CPU Cores per node
-   **/
-  public void setCoresPerNode(Integer coresPerNode) {
-    this.coresPerNode = coresPerNode;
   }
 
   /**
@@ -146,23 +163,6 @@ public class ClusterSize  {
     this.enabled = enabled;
   }
 
-  /**
-   * Getter for memoryLimit.
-   * The memory limit
-   **/
-  @JsonProperty("memoryLimit")
-  public Double getMemoryLimit() {
-    return memoryLimit;
-  }
-
-  /**
-   * Setter for memoryLimit.
-   * The memory limit
-   **/
-  public void setMemoryLimit(Double memoryLimit) {
-    this.memoryLimit = memoryLimit;
-  }
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -175,10 +175,13 @@ public class ClusterSize  {
     if (!Objects.equals(this.name, clusterSize.name)) {
       return false;
     }
-    if (!Objects.equals(this.text, clusterSize.text)) {
+    if (!Objects.equals(this.coresPerNode, clusterSize.coresPerNode)) {
       return false;
     }
-    if (!Objects.equals(this.coresPerNode, clusterSize.coresPerNode)) {
+    if (!Objects.equals(this.memoryLimit, clusterSize.memoryLimit)) {
+      return false;
+    }
+    if (!Objects.equals(this.text, clusterSize.text)) {
       return false;
     }
     if (!Objects.equals(this.heapSize, clusterSize.heapSize)) {
@@ -187,15 +190,12 @@ public class ClusterSize  {
     if (!Objects.equals(this.enabled, clusterSize.enabled)) {
       return false;
     }
-    if (!Objects.equals(this.memoryLimit, clusterSize.memoryLimit)) {
-      return false;
-    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, text, coresPerNode, heapSize, enabled, memoryLimit);
+    return Objects.hash(name, coresPerNode, memoryLimit, text, heapSize, enabled);
   }
 
   @Override
@@ -203,11 +203,11 @@ public class ClusterSize  {
     StringBuilder sb = new StringBuilder();
     sb.append("class ClusterSize {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("    coresPerNode: ").append(toIndentedString(coresPerNode)).append("\n");
+    sb.append("    memoryLimit: ").append(toIndentedString(memoryLimit)).append("\n");
+    sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("    heapSize: ").append(toIndentedString(heapSize)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
-    sb.append("    memoryLimit: ").append(toIndentedString(memoryLimit)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Describes the status of services running on a cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:49.412-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:22.095-07:00")
 public class ClusterServiceStatuses  {
 
   /**

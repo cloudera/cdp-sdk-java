@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Backup Detail response object for listing backups.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:46.678-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:19.078-07:00")
 public class BackupDetail  {
 
   /**

@@ -28,7 +28,7 @@ import java.util.Arrays;
 /**
  * Response object for the GetFlowVersion method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:48.582-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:21.236-07:00")
 public class GetFlowVersionResponse extends CdpResponse {
 
   /**

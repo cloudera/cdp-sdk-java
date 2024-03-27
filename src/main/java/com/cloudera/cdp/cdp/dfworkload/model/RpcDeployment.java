@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Provides details about a deployment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:48.887-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:21.533-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcDeployment  {
 
@@ -96,19 +96,24 @@ public class RpcDeployment  {
   private String nifiUrl = null;
 
   /**
-   * The initial size of the deployment
+   * The initial size of the deployment. Deprecated. Use 'clusterSizeParams.name' instead
    **/
   private String clusterSize = null;
 
   /**
-   * The number of cores per node for the deployment
+   * The number of cores per node for the deployment. Deprecated. Use 'clusterSizeParams.coresPerNode' instead
    **/
   private Integer coresPerNode = null;
 
   /**
-   * The heap size for the deployment
+   * The heap size for the deployment. Deprecated. Use 'clusterSizeParams.heapSize' instead
    **/
   private Double heapSize = null;
+
+  /**
+   * The memory limit of the deployment. Deprecated. Use 'clusterSizeParams.memoryLimit' instead
+   **/
+  private Double memoryLimit = null;
 
   /**
    * Whether or not autoscaling is enabled for this deployment
@@ -199,11 +204,6 @@ public class RpcDeployment  {
    * The CFM NiFi version associated with the deployment
    **/
   private String cfmNifiVersion = null;
-
-  /**
-   * The memory limit of the deployment
-   **/
-  private Double memoryLimit = null;
 
   /**
    * The ID of Inbound Connection Endpoint assigned to the deployment
@@ -441,8 +441,9 @@ public class RpcDeployment  {
 
   /**
    * Getter for clusterSize.
-   * The initial size of the deployment
+   * The initial size of the deployment. Deprecated. Use &#39;clusterSizeParams.name&#39; instead
    **/
+  @Deprecated
   @JsonProperty("clusterSize")
   public String getClusterSize() {
     return clusterSize;
@@ -450,16 +451,18 @@ public class RpcDeployment  {
 
   /**
    * Setter for clusterSize.
-   * The initial size of the deployment
+   * The initial size of the deployment. Deprecated. Use &#39;clusterSizeParams.name&#39; instead
    **/
+  @Deprecated
   public void setClusterSize(String clusterSize) {
     this.clusterSize = clusterSize;
   }
 
   /**
    * Getter for coresPerNode.
-   * The number of cores per node for the deployment
+   * The number of cores per node for the deployment. Deprecated. Use &#39;clusterSizeParams.coresPerNode&#39; instead
    **/
+  @Deprecated
   @JsonProperty("coresPerNode")
   public Integer getCoresPerNode() {
     return coresPerNode;
@@ -467,16 +470,18 @@ public class RpcDeployment  {
 
   /**
    * Setter for coresPerNode.
-   * The number of cores per node for the deployment
+   * The number of cores per node for the deployment. Deprecated. Use &#39;clusterSizeParams.coresPerNode&#39; instead
    **/
+  @Deprecated
   public void setCoresPerNode(Integer coresPerNode) {
     this.coresPerNode = coresPerNode;
   }
 
   /**
    * Getter for heapSize.
-   * The heap size for the deployment
+   * The heap size for the deployment. Deprecated. Use &#39;clusterSizeParams.heapSize&#39; instead
    **/
+  @Deprecated
   @JsonProperty("heapSize")
   public Double getHeapSize() {
     return heapSize;
@@ -484,10 +489,30 @@ public class RpcDeployment  {
 
   /**
    * Setter for heapSize.
-   * The heap size for the deployment
+   * The heap size for the deployment. Deprecated. Use &#39;clusterSizeParams.heapSize&#39; instead
    **/
+  @Deprecated
   public void setHeapSize(Double heapSize) {
     this.heapSize = heapSize;
+  }
+
+  /**
+   * Getter for memoryLimit.
+   * The memory limit of the deployment. Deprecated. Use &#39;clusterSizeParams.memoryLimit&#39; instead
+   **/
+  @Deprecated
+  @JsonProperty("memoryLimit")
+  public Double getMemoryLimit() {
+    return memoryLimit;
+  }
+
+  /**
+   * Setter for memoryLimit.
+   * The memory limit of the deployment. Deprecated. Use &#39;clusterSizeParams.memoryLimit&#39; instead
+   **/
+  @Deprecated
+  public void setMemoryLimit(Double memoryLimit) {
+    this.memoryLimit = memoryLimit;
   }
 
   /**
@@ -797,23 +822,6 @@ public class RpcDeployment  {
   }
 
   /**
-   * Getter for memoryLimit.
-   * The memory limit of the deployment
-   **/
-  @JsonProperty("memoryLimit")
-  public Double getMemoryLimit() {
-    return memoryLimit;
-  }
-
-  /**
-   * Setter for memoryLimit.
-   * The memory limit of the deployment
-   **/
-  public void setMemoryLimit(Double memoryLimit) {
-    this.memoryLimit = memoryLimit;
-  }
-
-  /**
    * Getter for inboundConnectionEndpointId.
    * The ID of Inbound Connection Endpoint assigned to the deployment
    **/
@@ -969,6 +977,9 @@ public class RpcDeployment  {
     if (!Objects.equals(this.heapSize, rpcDeployment.heapSize)) {
       return false;
     }
+    if (!Objects.equals(this.memoryLimit, rpcDeployment.memoryLimit)) {
+      return false;
+    }
     if (!Objects.equals(this.autoscalingEnabled, rpcDeployment.autoscalingEnabled)) {
       return false;
     }
@@ -1023,9 +1034,6 @@ public class RpcDeployment  {
     if (!Objects.equals(this.cfmNifiVersion, rpcDeployment.cfmNifiVersion)) {
       return false;
     }
-    if (!Objects.equals(this.memoryLimit, rpcDeployment.memoryLimit)) {
-      return false;
-    }
     if (!Objects.equals(this.inboundConnectionEndpointId, rpcDeployment.inboundConnectionEndpointId)) {
       return false;
     }
@@ -1049,7 +1057,7 @@ public class RpcDeployment  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, status, service, crn, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, created, updated, validActions, project, nifiUrl, clusterSize, coresPerNode, heapSize, autoscalingEnabled, flowMetricsScalingEnabled, autoscaleMinNodes, autoscaleMaxNodes, staticNodeCount, flowName, flowVersion, flowVersionCrn, flowCrn, creatorCrn, artifactTypeName, currentNodeCount, deployedByUsername, deployedByName, dfxLocalUrl, configurationVersion, lastUpdatedByUsername, cfmNifiVersion, memoryLimit, inboundConnectionEndpointId, testSession, flowDesignerId, customNarConfigurationId, nodeStorageProfile, projectCrn);
+    return Objects.hash(name, status, service, crn, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, created, updated, validActions, project, nifiUrl, clusterSize, coresPerNode, heapSize, memoryLimit, autoscalingEnabled, flowMetricsScalingEnabled, autoscaleMinNodes, autoscaleMaxNodes, staticNodeCount, flowName, flowVersion, flowVersionCrn, flowCrn, creatorCrn, artifactTypeName, currentNodeCount, deployedByUsername, deployedByName, dfxLocalUrl, configurationVersion, lastUpdatedByUsername, cfmNifiVersion, inboundConnectionEndpointId, testSession, flowDesignerId, customNarConfigurationId, nodeStorageProfile, projectCrn);
   }
 
   @Override
@@ -1071,6 +1079,7 @@ public class RpcDeployment  {
     sb.append("    clusterSize: ").append(toIndentedString(clusterSize)).append("\n");
     sb.append("    coresPerNode: ").append(toIndentedString(coresPerNode)).append("\n");
     sb.append("    heapSize: ").append(toIndentedString(heapSize)).append("\n");
+    sb.append("    memoryLimit: ").append(toIndentedString(memoryLimit)).append("\n");
     sb.append("    autoscalingEnabled: ").append(toIndentedString(autoscalingEnabled)).append("\n");
     sb.append("    flowMetricsScalingEnabled: ").append(toIndentedString(flowMetricsScalingEnabled)).append("\n");
     sb.append("    autoscaleMinNodes: ").append(toIndentedString(autoscaleMinNodes)).append("\n");
@@ -1089,7 +1098,6 @@ public class RpcDeployment  {
     sb.append("    configurationVersion: ").append(toIndentedString(configurationVersion)).append("\n");
     sb.append("    lastUpdatedByUsername: ").append(toIndentedString(lastUpdatedByUsername)).append("\n");
     sb.append("    cfmNifiVersion: ").append(toIndentedString(cfmNifiVersion)).append("\n");
-    sb.append("    memoryLimit: ").append(toIndentedString(memoryLimit)).append("\n");
     sb.append("    inboundConnectionEndpointId: ").append(toIndentedString(inboundConnectionEndpointId)).append("\n");
     sb.append("    testSession: ").append(toIndentedString(testSession)).append("\n");
     sb.append("    flowDesignerId: ").append(toIndentedString(flowDesignerId)).append("\n");

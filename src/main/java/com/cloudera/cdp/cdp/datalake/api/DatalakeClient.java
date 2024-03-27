@@ -97,6 +97,8 @@ import com.cloudera.cdp.datalake.model.RotatePrivateCertificatesRequest;
 import com.cloudera.cdp.datalake.model.RotatePrivateCertificatesResponse;
 import com.cloudera.cdp.datalake.model.RotateSaltPasswordRequest;
 import com.cloudera.cdp.datalake.model.RotateSaltPasswordResponse;
+import com.cloudera.cdp.datalake.model.ScaleHorizontallyRequest;
+import com.cloudera.cdp.datalake.model.ScaleHorizontallyResponse;
 import com.cloudera.cdp.datalake.model.SetCatalogRequest;
 import com.cloudera.cdp.datalake.model.SetCatalogResponse;
 import com.cloudera.cdp.datalake.model.StartDatabaseUpgradeRequest;
@@ -123,7 +125,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:46.862-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:19.363-07:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datalake";
@@ -507,7 +509,7 @@ public class DatalakeClient extends CdpClient {
   }
 
   /**
-   * Resizes the given datalake to the given target size. Currently, the only valid use of this is for resizing a light duty datalake to a medium duty datalake.
+   * Resizes the given datalake to the given target size.
    * @param input
    * @return ResizeDatalakeResponse
    */
@@ -596,6 +598,19 @@ public class DatalakeClient extends CdpClient {
     }
 
     return this.invokeAPI("rotateSaltPassword", "/api/v1/datalake/rotateSaltPassword", input, new GenericType<RotateSaltPasswordResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Horizontally scale the Data Lake nodes, to add additional compute nodes to the cluster.
+   * @param input
+   * @return ScaleHorizontallyResponse
+   */
+  public ScaleHorizontallyResponse scaleHorizontally(ScaleHorizontallyRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling scaleHorizontally");
+    }
+
+    return this.invokeAPI("scaleHorizontally", "/api/v1/datalake/scaleHorizontally", input, new GenericType<ScaleHorizontallyResponse>(){}, NO_EXTENSION);
   }
 
   /**

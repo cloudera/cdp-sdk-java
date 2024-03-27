@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Datalake resize request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-13T13:08:46.862-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:19.363-07:00")
 public class ResizeDatalakeRequest  {
 
   /**
@@ -36,7 +36,7 @@ public class ResizeDatalakeRequest  {
   private String datalakeName = null;
 
   /**
-   * The target size for the datalake.
+   * The target size for the datalake. The resize target size can be MEDIUM_DUTY or ENTERPRISE. If the runtime version >= 7.2.17 target size is ENTERPRISE. If not, the target size is MEDIUM_DUTY.
    **/
   private String targetSize = null;
 
@@ -64,7 +64,7 @@ public class ResizeDatalakeRequest  {
 
   /**
    * Getter for targetSize.
-   * The target size for the datalake.
+   * The target size for the datalake. The resize target size can be MEDIUM_DUTY or ENTERPRISE. If the runtime version &gt;&#x3D; 7.2.17 target size is ENTERPRISE. If not, the target size is MEDIUM_DUTY.
    **/
   @JsonProperty("targetSize")
   public String getTargetSize() {
@@ -73,7 +73,7 @@ public class ResizeDatalakeRequest  {
 
   /**
    * Setter for targetSize.
-   * The target size for the datalake.
+   * The target size for the datalake. The resize target size can be MEDIUM_DUTY or ENTERPRISE. If the runtime version &gt;&#x3D; 7.2.17 target size is ENTERPRISE. If not, the target size is MEDIUM_DUTY.
    **/
   public void setTargetSize(String targetSize) {
     this.targetSize = targetSize;
