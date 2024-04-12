@@ -89,6 +89,8 @@ import com.cloudera.cdp.datahub.model.GetCmRolesRequest;
 import com.cloudera.cdp.datahub.model.GetCmRolesResponse;
 import com.cloudera.cdp.datahub.model.GetDatahubLogDescriptorsRequest;
 import com.cloudera.cdp.datahub.model.GetDatahubLogDescriptorsResponse;
+import com.cloudera.cdp.datahub.model.GetVmTypesRequest;
+import com.cloudera.cdp.datahub.model.GetVmTypesResponse;
 import com.cloudera.cdp.datahub.model.ListAutoScaleHistoryRequest;
 import com.cloudera.cdp.datahub.model.ListAutoScaleHistoryResponse;
 import com.cloudera.cdp.datahub.model.ListClusterDefinitionsRequest;
@@ -157,7 +159,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:17.699-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:50.678-07:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datahub";
@@ -576,6 +578,19 @@ public class DatahubClient extends CdpClient {
     }
 
     return this.invokeAPI("getDatahubLogDescriptors", "/api/v1/datahub/getDatahubLogDescriptors", input, new GenericType<GetDatahubLogDescriptorsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Creates a recommendation that advises virtual machine types for the given cluster template based on the given properties.
+   * @param input
+   * @return GetVmTypesResponse
+   */
+  public GetVmTypesResponse getVmTypes(GetVmTypesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getVmTypes");
+    }
+
+    return this.invokeAPI("getVmTypes", "/api/v1/datahub/getVmTypes", input, new GenericType<GetVmTypesResponse>(){}, NO_EXTENSION);
   }
 
   /**

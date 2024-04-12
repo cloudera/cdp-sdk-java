@@ -26,6 +26,7 @@ import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.environments.model.AzureFreeIpaCreationRequest;
 import com.cloudera.cdp.environments.model.AzureLogStorageRequest;
 import com.cloudera.cdp.environments.model.CreateAzureEnvironmentRequestNewNetworkParams;
+import com.cloudera.cdp.environments.model.CustomDockerRegistryRequest;
 import com.cloudera.cdp.environments.model.DataServicesRequest;
 import com.cloudera.cdp.environments.model.ExistingAzureNetworkRequest;
 import com.cloudera.cdp.environments.model.FreeIpaImageRequest;
@@ -36,7 +37,7 @@ import java.util.*;
 /**
  * Request object for a create Azure environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:19.900-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:52.990-07:00")
 public class CreateAzureEnvironmentRequest  {
 
   /**
@@ -150,6 +151,11 @@ public class CreateAzureEnvironmentRequest  {
   private Boolean encryptionAtHost = null;
 
   /**
+   * User managed identity for encryption.
+   **/
+  private String userManagedIdentity = null;
+
+  /**
    * URL of the key which will be used to encrypt the Azure Managed Disks, if entitlement has been granted.
    **/
   private String encryptionKeyUrl = null;
@@ -178,6 +184,11 @@ public class CreateAzureEnvironmentRequest  {
    * Data Services parameters of the environment.
    **/
   private DataServicesRequest dataServices = null;
+
+  /**
+   * Configures the desired custom docker registry for data services.
+   **/
+  private CustomDockerRegistryRequest customDockerRegistry = null;
 
   /**
    * Getter for environmentName.
@@ -554,6 +565,23 @@ public class CreateAzureEnvironmentRequest  {
   }
 
   /**
+   * Getter for userManagedIdentity.
+   * User managed identity for encryption.
+   **/
+  @JsonProperty("userManagedIdentity")
+  public String getUserManagedIdentity() {
+    return userManagedIdentity;
+  }
+
+  /**
+   * Setter for userManagedIdentity.
+   * User managed identity for encryption.
+   **/
+  public void setUserManagedIdentity(String userManagedIdentity) {
+    this.userManagedIdentity = userManagedIdentity;
+  }
+
+  /**
    * Getter for encryptionKeyUrl.
    * URL of the key which will be used to encrypt the Azure Managed Disks, if entitlement has been granted.
    **/
@@ -655,6 +683,23 @@ public class CreateAzureEnvironmentRequest  {
     this.dataServices = dataServices;
   }
 
+  /**
+   * Getter for customDockerRegistry.
+   * Configures the desired custom docker registry for data services.
+   **/
+  @JsonProperty("customDockerRegistry")
+  public CustomDockerRegistryRequest getCustomDockerRegistry() {
+    return customDockerRegistry;
+  }
+
+  /**
+   * Setter for customDockerRegistry.
+   * Configures the desired custom docker registry for data services.
+   **/
+  public void setCustomDockerRegistry(CustomDockerRegistryRequest customDockerRegistry) {
+    this.customDockerRegistry = customDockerRegistry;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -730,6 +775,9 @@ public class CreateAzureEnvironmentRequest  {
     if (!Objects.equals(this.encryptionAtHost, createAzureEnvironmentRequest.encryptionAtHost)) {
       return false;
     }
+    if (!Objects.equals(this.userManagedIdentity, createAzureEnvironmentRequest.userManagedIdentity)) {
+      return false;
+    }
     if (!Objects.equals(this.encryptionKeyUrl, createAzureEnvironmentRequest.encryptionKeyUrl)) {
       return false;
     }
@@ -748,12 +796,15 @@ public class CreateAzureEnvironmentRequest  {
     if (!Objects.equals(this.dataServices, createAzureEnvironmentRequest.dataServices)) {
       return false;
     }
+    if (!Objects.equals(this.customDockerRegistry, createAzureEnvironmentRequest.customDockerRegistry)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, encryptionAtHost, encryptionKeyUrl, encryptionKeyResourceGroupName, enableOutboundLoadBalancer, availabilityZones, flexibleServerSubnetIds, dataServices);
+    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, encryptionAtHost, userManagedIdentity, encryptionKeyUrl, encryptionKeyResourceGroupName, enableOutboundLoadBalancer, availabilityZones, flexibleServerSubnetIds, dataServices, customDockerRegistry);
   }
 
   @Override
@@ -782,12 +833,14 @@ public class CreateAzureEnvironmentRequest  {
     sb.append("    endpointAccessGatewayScheme: ").append(toIndentedString(endpointAccessGatewayScheme)).append("\n");
     sb.append("    endpointAccessGatewaySubnetIds: ").append(toIndentedString(endpointAccessGatewaySubnetIds)).append("\n");
     sb.append("    encryptionAtHost: ").append(toIndentedString(encryptionAtHost)).append("\n");
+    sb.append("    userManagedIdentity: ").append(toIndentedString(userManagedIdentity)).append("\n");
     sb.append("    encryptionKeyUrl: ").append(toIndentedString(encryptionKeyUrl)).append("\n");
     sb.append("    encryptionKeyResourceGroupName: ").append(toIndentedString(encryptionKeyResourceGroupName)).append("\n");
     sb.append("    enableOutboundLoadBalancer: ").append(toIndentedString(enableOutboundLoadBalancer)).append("\n");
     sb.append("    availabilityZones: ").append(toIndentedString(availabilityZones)).append("\n");
     sb.append("    flexibleServerSubnetIds: ").append(toIndentedString(flexibleServerSubnetIds)).append("\n");
     sb.append("    dataServices: ").append(toIndentedString(dataServices)).append("\n");
+    sb.append("    customDockerRegistry: ").append(toIndentedString(customDockerRegistry)).append("\n");
     sb.append("}");
     return sb.toString();
   }

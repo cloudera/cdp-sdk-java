@@ -174,7 +174,7 @@ public class CdpRequestContext<T extends BaseResponse> {
     this.path = checkNotNullAndThrow(path);
   }
 
-  public List<Pair> getQueries() {
+  public final List<Pair> getQueries() {
     if (queries == null) {
       queries = new ArrayList<>();
     }
@@ -185,7 +185,7 @@ public class CdpRequestContext<T extends BaseResponse> {
     this.queries = checkNotNullAndThrow(queries);
   }
 
-  public Map<String, String> getHeaders() {
+  public final Map<String, String> getHeaders() {
     if (headers == null) {
       headers = new HashMap<>();
     }
@@ -223,7 +223,7 @@ public class CdpRequestContext<T extends BaseResponse> {
     this.response = response;
   }
 
-  public Map<String, Object> getProperties() {
+  public final Map<String, Object> getProperties() {
     if (properties == null) {
       properties = new HashMap<>();
     }

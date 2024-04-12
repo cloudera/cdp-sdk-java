@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * The status and issues of an individual FreeIPA node.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:19.900-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:52.990-07:00")
 public class FreeIPANodeStatus  {
 
   /**
@@ -45,6 +45,11 @@ public class FreeIPANodeStatus  {
    * A list of issues the node is having
    **/
   private List<String> issues = new ArrayList<String>();
+
+  /**
+   * The instance ID for the instance.
+   **/
+  private String instanceId = null;
 
   /**
    * Getter for hostname.
@@ -97,6 +102,23 @@ public class FreeIPANodeStatus  {
     this.issues = issues;
   }
 
+  /**
+   * Getter for instanceId.
+   * The instance ID for the instance.
+   **/
+  @JsonProperty("instanceId")
+  public String getInstanceId() {
+    return instanceId;
+  }
+
+  /**
+   * Setter for instanceId.
+   * The instance ID for the instance.
+   **/
+  public void setInstanceId(String instanceId) {
+    this.instanceId = instanceId;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -115,12 +137,15 @@ public class FreeIPANodeStatus  {
     if (!Objects.equals(this.issues, freeIPANodeStatus.issues)) {
       return false;
     }
+    if (!Objects.equals(this.instanceId, freeIPANodeStatus.instanceId)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(hostname, status, issues);
+    return Objects.hash(hostname, status, issues, instanceId);
   }
 
   @Override
@@ -130,6 +155,7 @@ public class FreeIPANodeStatus  {
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    issues: ").append(toIndentedString(issues)).append("\n");
+    sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

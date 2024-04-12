@@ -179,6 +179,8 @@ import com.cloudera.cdp.environments.model.UpdateAzureEncryptionResourcesRequest
 import com.cloudera.cdp.environments.model.UpdateAzureEncryptionResourcesResponse;
 import com.cloudera.cdp.environments.model.UpdateAzureImageTermsPolicyRequest;
 import com.cloudera.cdp.environments.model.UpdateAzureImageTermsPolicyResponse;
+import com.cloudera.cdp.environments.model.UpdateCustomDockerRegistryRequest;
+import com.cloudera.cdp.environments.model.UpdateCustomDockerRegistryResponse;
 import com.cloudera.cdp.environments.model.UpdateDataServiceResourcesRequest;
 import com.cloudera.cdp.environments.model.UpdateDataServiceResourcesResponse;
 import com.cloudera.cdp.environments.model.UpdateOrchestratorStateRequest;
@@ -207,7 +209,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:19.900-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:52.990-07:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -1212,6 +1214,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("updateAzureImageTermsPolicy", "/api/v1/environments2/updateAzureImageTermsPolicy", input, new GenericType<UpdateAzureImageTermsPolicyResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Updates custom docker registry CRN of an environment.
+   * @param input
+   * @return UpdateCustomDockerRegistryResponse
+   */
+  public UpdateCustomDockerRegistryResponse updateCustomDockerRegistry(UpdateCustomDockerRegistryRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateCustomDockerRegistry");
+    }
+
+    return this.invokeAPI("updateCustomDockerRegistry", "/api/v1/environments2/updateCustomDockerRegistry", input, new GenericType<UpdateCustomDockerRegistryResponse>(){}, NO_EXTENSION);
   }
 
   /**

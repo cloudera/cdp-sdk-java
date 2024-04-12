@@ -28,7 +28,7 @@ import com.cloudera.cdp.compute.model.Chart;
 /**
  * History structure.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:21.922-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:55.013-07:00")
 public class History  {
 
   /**

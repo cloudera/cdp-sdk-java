@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.environments.model.Authentication;
 import com.cloudera.cdp.environments.model.BackupStorage;
+import com.cloudera.cdp.environments.model.CustomDockerRegistryResponse;
 import com.cloudera.cdp.environments.model.DataServices;
 import com.cloudera.cdp.environments.model.EnvironmentAwsDetails;
 import com.cloudera.cdp.environments.model.EnvironmentGcpDetails;
@@ -39,7 +40,7 @@ import java.time.ZonedDateTime;
 /**
  * The environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:19.900-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:52.990-07:00")
 public class Environment  {
 
   /**
@@ -156,6 +157,11 @@ public class Environment  {
    * Data Services parameters of the environment.
    **/
   private DataServices dataServices = null;
+
+  /**
+   * The configured custom docker registry for data services on the environment.
+   **/
+  private CustomDockerRegistryResponse customDockerRegistry = null;
 
   /**
    * Getter for environmentName.
@@ -548,6 +554,23 @@ public class Environment  {
     this.dataServices = dataServices;
   }
 
+  /**
+   * Getter for customDockerRegistry.
+   * The configured custom docker registry for data services on the environment.
+   **/
+  @JsonProperty("customDockerRegistry")
+  public CustomDockerRegistryResponse getCustomDockerRegistry() {
+    return customDockerRegistry;
+  }
+
+  /**
+   * Setter for customDockerRegistry.
+   * The configured custom docker registry for data services on the environment.
+   **/
+  public void setCustomDockerRegistry(CustomDockerRegistryResponse customDockerRegistry) {
+    this.customDockerRegistry = customDockerRegistry;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -626,12 +649,15 @@ public class Environment  {
     if (!Objects.equals(this.dataServices, environment.dataServices)) {
       return false;
     }
+    if (!Objects.equals(this.customDockerRegistry, environment.customDockerRegistry)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, network, logStorage, backupStorage, authentication, securityAccess, description, statusReason, created, creator, awsDetails, gcpDetails, workloadAnalytics, reportDeploymentLogs, freeipa, proxyConfig, tags, dataServices);
+    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, network, logStorage, backupStorage, authentication, securityAccess, description, statusReason, created, creator, awsDetails, gcpDetails, workloadAnalytics, reportDeploymentLogs, freeipa, proxyConfig, tags, dataServices, customDockerRegistry);
   }
 
   @Override
@@ -661,6 +687,7 @@ public class Environment  {
     sb.append("    proxyConfig: ").append(toIndentedString(proxyConfig)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    dataServices: ").append(toIndentedString(dataServices)).append("\n");
+    sb.append("    customDockerRegistry: ").append(toIndentedString(customDockerRegistry)).append("\n");
     sb.append("}");
     return sb.toString();
   }

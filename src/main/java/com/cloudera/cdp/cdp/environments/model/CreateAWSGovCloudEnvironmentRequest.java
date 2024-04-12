@@ -26,6 +26,7 @@ import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.environments.model.AWSFreeIpaCreationRequest;
 import com.cloudera.cdp.environments.model.AuthenticationRequest;
 import com.cloudera.cdp.environments.model.AwsLogStorageRequest;
+import com.cloudera.cdp.environments.model.CustomDockerRegistryRequest;
 import com.cloudera.cdp.environments.model.FreeIpaImageRequest;
 import com.cloudera.cdp.environments.model.SecurityAccessRequest;
 import com.cloudera.cdp.environments.model.TagRequest;
@@ -34,7 +35,7 @@ import java.util.*;
 /**
  * Request object for a create AWS GovCloud environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:19.900-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:52.990-07:00")
 public class CreateAWSGovCloudEnvironmentRequest  {
 
   /**
@@ -151,6 +152,11 @@ public class CreateAWSGovCloudEnvironmentRequest  {
    * ARN of the AWS KMS CMK to use for the server-side encryption of AWS storage resources.
    **/
   private String encryptionKeyArn = null;
+
+  /**
+   * Configures the desired custom docker registry for data services.
+   **/
+  private CustomDockerRegistryRequest customDockerRegistry = null;
 
   /**
    * Getter for environmentName.
@@ -543,6 +549,23 @@ public class CreateAWSGovCloudEnvironmentRequest  {
     this.encryptionKeyArn = encryptionKeyArn;
   }
 
+  /**
+   * Getter for customDockerRegistry.
+   * Configures the desired custom docker registry for data services.
+   **/
+  @JsonProperty("customDockerRegistry")
+  public CustomDockerRegistryRequest getCustomDockerRegistry() {
+    return customDockerRegistry;
+  }
+
+  /**
+   * Setter for customDockerRegistry.
+   * Configures the desired custom docker registry for data services.
+   **/
+  public void setCustomDockerRegistry(CustomDockerRegistryRequest customDockerRegistry) {
+    this.customDockerRegistry = customDockerRegistry;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -621,12 +644,15 @@ public class CreateAWSGovCloudEnvironmentRequest  {
     if (!Objects.equals(this.encryptionKeyArn, createAWSGovCloudEnvironmentRequest.encryptionKeyArn)) {
       return false;
     }
+    if (!Objects.equals(this.customDockerRegistry, createAWSGovCloudEnvironmentRequest.customDockerRegistry)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, securityAccess, authentication, logStorage, networkCidr, vpcId, subnetIds, createPrivateSubnets, createServiceEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, s3GuardTableName, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, image, tags, proxyConfigName, encryptionKeyArn);
+    return Objects.hash(environmentName, credentialName, region, securityAccess, authentication, logStorage, networkCidr, vpcId, subnetIds, createPrivateSubnets, createServiceEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, s3GuardTableName, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, image, tags, proxyConfigName, encryptionKeyArn, customDockerRegistry);
   }
 
   @Override
@@ -656,6 +682,7 @@ public class CreateAWSGovCloudEnvironmentRequest  {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    proxyConfigName: ").append(toIndentedString(proxyConfigName)).append("\n");
     sb.append("    encryptionKeyArn: ").append(toIndentedString(encryptionKeyArn)).append("\n");
+    sb.append("    customDockerRegistry: ").append(toIndentedString(customDockerRegistry)).append("\n");
     sb.append("}");
     return sb.toString();
   }

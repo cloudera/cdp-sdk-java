@@ -39,4 +39,9 @@
     <Class name="com.cloudera.cdp.client.CdpClient" />
     <Method name="invokeAPI" />
   </Match>
+
+  <!-- Ignore EI_EXPOSE_REP, EI_EXPOSE_REP2 for upgrading to Java 21 -->
+  <Match>
+    <Bug pattern="EI_EXPOSE_REP, EI_EXPOSE_REP2" />
+  </Match>
 </FindBugsFilter>

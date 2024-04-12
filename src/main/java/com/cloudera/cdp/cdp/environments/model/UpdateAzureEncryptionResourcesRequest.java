@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for updating Azure encryption resources.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:19.900-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:52.990-07:00")
 public class UpdateAzureEncryptionResourcesRequest  {
 
   /**
@@ -44,6 +44,11 @@ public class UpdateAzureEncryptionResourcesRequest  {
    * Name of the existing Azure resource group hosting the Azure Key Vault containing customer managed key which will be used to encrypt the Azure Managed Disks. It is required only when the entitlement is granted and the resource group of the key vault is different from the resource group in which the environment is to be created. Omitting it implies that, the key vault containing the encryption key is present in the same resource group where the environment would be created.
    **/
   private String encryptionKeyResourceGroupName = null;
+
+  /**
+   * User managed identity for encryption.
+   **/
+  private String userManagedIdentity = null;
 
   /**
    * Getter for environment.
@@ -96,6 +101,23 @@ public class UpdateAzureEncryptionResourcesRequest  {
     this.encryptionKeyResourceGroupName = encryptionKeyResourceGroupName;
   }
 
+  /**
+   * Getter for userManagedIdentity.
+   * User managed identity for encryption.
+   **/
+  @JsonProperty("userManagedIdentity")
+  public String getUserManagedIdentity() {
+    return userManagedIdentity;
+  }
+
+  /**
+   * Setter for userManagedIdentity.
+   * User managed identity for encryption.
+   **/
+  public void setUserManagedIdentity(String userManagedIdentity) {
+    this.userManagedIdentity = userManagedIdentity;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -114,12 +136,15 @@ public class UpdateAzureEncryptionResourcesRequest  {
     if (!Objects.equals(this.encryptionKeyResourceGroupName, updateAzureEncryptionResourcesRequest.encryptionKeyResourceGroupName)) {
       return false;
     }
+    if (!Objects.equals(this.userManagedIdentity, updateAzureEncryptionResourcesRequest.userManagedIdentity)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environment, encryptionKeyUrl, encryptionKeyResourceGroupName);
+    return Objects.hash(environment, encryptionKeyUrl, encryptionKeyResourceGroupName, userManagedIdentity);
   }
 
   @Override
@@ -129,6 +154,7 @@ public class UpdateAzureEncryptionResourcesRequest  {
     sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
     sb.append("    encryptionKeyUrl: ").append(toIndentedString(encryptionKeyUrl)).append("\n");
     sb.append("    encryptionKeyResourceGroupName: ").append(toIndentedString(encryptionKeyResourceGroupName)).append("\n");
+    sb.append("    userManagedIdentity: ").append(toIndentedString(userManagedIdentity)).append("\n");
     sb.append("}");
     return sb.toString();
   }

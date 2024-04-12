@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for delete recipe request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:17.699-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:50.678-07:00")
 public class DeleteRecipesRequest  {
 
   /**

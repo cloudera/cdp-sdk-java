@@ -137,7 +137,6 @@ public abstract class CdpClientBuilder<T extends CdpClientBuilder<T>> {
     }
   }
 
-
   /**
    * Sets the CdpClientConfiguration.
    *

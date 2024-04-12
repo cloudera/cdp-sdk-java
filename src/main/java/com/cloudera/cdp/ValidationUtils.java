@@ -20,7 +20,6 @@
 package com.cloudera.cdp;
 
 import static com.google.common.base.Preconditions.checkArgument;
-import static com.google.common.base.Preconditions.checkNotNull;
 import static com.google.common.base.Preconditions.checkState;
 
 import com.cloudera.cdp.annotation.SdkInternalApi;
@@ -64,10 +63,10 @@ public class ValidationUtils {
    * @return the non-null reference that was validated
    */
   public static <T> T checkNotNullAndThrow(T ref) {
-    try {
-      return checkNotNull(ref);
-    } catch (NullPointerException e) {
-      throw new CdpClientException("Argument is null");
-    }
+      if (ref == null) {
+        throw new CdpClientException("Argument is null");
+      } else {
+        return ref;
+      }
   }
 }

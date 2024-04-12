@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Model registry object
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:19.078-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:52.161-07:00")
 public class ModelRegistry  {
 
   /**
@@ -100,6 +100,11 @@ public class ModelRegistry  {
    * The service name of model registry.
    **/
   private String serviceName = null;
+
+  /**
+   * The domain of the model registry
+   **/
+  private String domain = null;
 
   /**
    * Getter for id.
@@ -343,6 +348,23 @@ public class ModelRegistry  {
     this.serviceName = serviceName;
   }
 
+  /**
+   * Getter for domain.
+   * The domain of the model registry
+   **/
+  @JsonProperty("domain")
+  public String getDomain() {
+    return domain;
+  }
+
+  /**
+   * Setter for domain.
+   * The domain of the model registry
+   **/
+  public void setDomain(String domain) {
+    this.domain = domain;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -394,12 +416,15 @@ public class ModelRegistry  {
     if (!Objects.equals(this.serviceName, modelRegistry.serviceName)) {
       return false;
     }
+    if (!Objects.equals(this.domain, modelRegistry.domain)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, namespace, s3Bucket, s3Endpoint, creator, status, environmentCrn, createdAt, crn, workspaceCrn, environmentName, workspaceName, machineUserCrn, serviceName);
+    return Objects.hash(id, namespace, s3Bucket, s3Endpoint, creator, status, environmentCrn, createdAt, crn, workspaceCrn, environmentName, workspaceName, machineUserCrn, serviceName, domain);
   }
 
   @Override
@@ -420,6 +445,7 @@ public class ModelRegistry  {
     sb.append("    workspaceName: ").append(toIndentedString(workspaceName)).append("\n");
     sb.append("    machineUserCrn: ").append(toIndentedString(machineUserCrn)).append("\n");
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
+    sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
     sb.append("}");
     return sb.toString();
   }

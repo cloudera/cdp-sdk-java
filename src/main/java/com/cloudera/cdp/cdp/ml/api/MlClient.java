@@ -89,8 +89,12 @@ import com.cloudera.cdp.ml.model.RevokeModelRegistryAccessRequest;
 import com.cloudera.cdp.ml.model.RevokeModelRegistryAccessResponse;
 import com.cloudera.cdp.ml.model.RevokeWorkspaceAccessRequest;
 import com.cloudera.cdp.ml.model.RevokeWorkspaceAccessResponse;
+import com.cloudera.cdp.ml.model.RollbackModelRegistryUpgradeRequest;
+import com.cloudera.cdp.ml.model.RollbackModelRegistryUpgradeResponse;
 import com.cloudera.cdp.ml.model.SuspendWorkspaceRequest;
 import com.cloudera.cdp.ml.model.SuspendWorkspaceResponse;
+import com.cloudera.cdp.ml.model.UpgradeModelRegistryRequest;
+import com.cloudera.cdp.ml.model.UpgradeModelRegistryResponse;
 import com.cloudera.cdp.ml.model.UpgradeWorkspaceRequest;
 import com.cloudera.cdp.ml.model.UpgradeWorkspaceResponse;
 import java.util.ArrayList;
@@ -99,7 +103,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:19.078-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:52.161-07:00")
 public class MlClient extends CdpClient {
 
   public static final String SERVICE_NAME = "ml";
@@ -521,6 +525,19 @@ public class MlClient extends CdpClient {
   }
 
   /**
+   * Rollback a model registry upgrade. Restore prior model registry.
+   * @param input
+   * @return RollbackModelRegistryUpgradeResponse
+   */
+  public RollbackModelRegistryUpgradeResponse rollbackModelRegistryUpgrade(RollbackModelRegistryUpgradeRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling rollbackModelRegistryUpgrade");
+    }
+
+    return this.invokeAPI("rollbackModelRegistryUpgrade", "/api/v1/ml/rollbackModelRegistryUpgrade", input, new GenericType<RollbackModelRegistryUpgradeResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Suspend Cloudera Machine Learning workspace.
    * @param input
    * @return SuspendWorkspaceResponse
@@ -531,6 +548,19 @@ public class MlClient extends CdpClient {
     }
 
     return this.invokeAPI("suspendWorkspace", "/api/v1/ml/suspendWorkspace", input, new GenericType<SuspendWorkspaceResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Upgrade a model registry.
+   * @param input
+   * @return UpgradeModelRegistryResponse
+   */
+  public UpgradeModelRegistryResponse upgradeModelRegistry(UpgradeModelRegistryRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling upgradeModelRegistry");
+    }
+
+    return this.invokeAPI("upgradeModelRegistry", "/api/v1/ml/upgradeModelRegistry", input, new GenericType<UpgradeModelRegistryResponse>(){}, NO_EXTENSION);
   }
 
   /**

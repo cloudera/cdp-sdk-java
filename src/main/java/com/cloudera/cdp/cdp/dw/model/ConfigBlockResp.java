@@ -28,7 +28,7 @@ import com.cloudera.cdp.dw.model.ConfigContentResp;
 /**
  * A piece of configuration stored in the same place (e.g. same file or environment variables).
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:18.356-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:51.356-07:00")
 public class ConfigBlockResp  {
 
   /**

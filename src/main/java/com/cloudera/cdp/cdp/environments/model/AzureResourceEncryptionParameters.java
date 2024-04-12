@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Object containing details of encryption parameters for Azure cloud.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:19.900-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:52.990-07:00")
 public class AzureResourceEncryptionParameters  {
 
   /**
@@ -44,6 +44,11 @@ public class AzureResourceEncryptionParameters  {
    * ID of the Disk Encryption Set created in Azure which is used to encrypt Managed Disks of FreeIPA, Data Lake, Data Hub and PostgreSQL.
    **/
   private String diskEncryptionSetId = null;
+
+  /**
+   * User managed identity for encryption.
+   **/
+  private String userManagedIdentity = null;
 
   /**
    * Getter for encryptionKeyUrl.
@@ -96,6 +101,23 @@ public class AzureResourceEncryptionParameters  {
     this.diskEncryptionSetId = diskEncryptionSetId;
   }
 
+  /**
+   * Getter for userManagedIdentity.
+   * User managed identity for encryption.
+   **/
+  @JsonProperty("userManagedIdentity")
+  public String getUserManagedIdentity() {
+    return userManagedIdentity;
+  }
+
+  /**
+   * Setter for userManagedIdentity.
+   * User managed identity for encryption.
+   **/
+  public void setUserManagedIdentity(String userManagedIdentity) {
+    this.userManagedIdentity = userManagedIdentity;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -114,12 +136,15 @@ public class AzureResourceEncryptionParameters  {
     if (!Objects.equals(this.diskEncryptionSetId, azureResourceEncryptionParameters.diskEncryptionSetId)) {
       return false;
     }
+    if (!Objects.equals(this.userManagedIdentity, azureResourceEncryptionParameters.userManagedIdentity)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(encryptionKeyUrl, encryptionKeyResourceGroupName, diskEncryptionSetId);
+    return Objects.hash(encryptionKeyUrl, encryptionKeyResourceGroupName, diskEncryptionSetId, userManagedIdentity);
   }
 
   @Override
@@ -129,6 +154,7 @@ public class AzureResourceEncryptionParameters  {
     sb.append("    encryptionKeyUrl: ").append(toIndentedString(encryptionKeyUrl)).append("\n");
     sb.append("    encryptionKeyResourceGroupName: ").append(toIndentedString(encryptionKeyResourceGroupName)).append("\n");
     sb.append("    diskEncryptionSetId: ").append(toIndentedString(diskEncryptionSetId)).append("\n");
+    sb.append("    userManagedIdentity: ").append(toIndentedString(userManagedIdentity)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -28,13 +28,33 @@ import java.util.*;
 /**
  * Response object containing access control information for a Virtual Cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:20.704-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:53.783-07:00")
 public class AccessControlResponse extends CdpResponse {
 
   /**
    * Workload usernames of CDP users granted access to the Virtual Cluster.
    **/
   private List<String> users = new ArrayList<String>();
+
+  /**
+   * Users with full access.
+   **/
+  private List<String> fullAccessUsers = new ArrayList<String>();
+
+  /**
+   * Groups with full access.
+   **/
+  private List<String> fullAccessGroups = new ArrayList<String>();
+
+  /**
+   * Users with view only access.
+   **/
+  private List<String> viewOnlyUsers = new ArrayList<String>();
+
+  /**
+   * Groups with view only access.
+   **/
+  private List<String> viewOnlyGroups = new ArrayList<String>();
 
   /**
    * Getter for users.
@@ -53,6 +73,74 @@ public class AccessControlResponse extends CdpResponse {
     this.users = users;
   }
 
+  /**
+   * Getter for fullAccessUsers.
+   * Users with full access.
+   **/
+  @JsonProperty("fullAccessUsers")
+  public List<String> getFullAccessUsers() {
+    return fullAccessUsers;
+  }
+
+  /**
+   * Setter for fullAccessUsers.
+   * Users with full access.
+   **/
+  public void setFullAccessUsers(List<String> fullAccessUsers) {
+    this.fullAccessUsers = fullAccessUsers;
+  }
+
+  /**
+   * Getter for fullAccessGroups.
+   * Groups with full access.
+   **/
+  @JsonProperty("fullAccessGroups")
+  public List<String> getFullAccessGroups() {
+    return fullAccessGroups;
+  }
+
+  /**
+   * Setter for fullAccessGroups.
+   * Groups with full access.
+   **/
+  public void setFullAccessGroups(List<String> fullAccessGroups) {
+    this.fullAccessGroups = fullAccessGroups;
+  }
+
+  /**
+   * Getter for viewOnlyUsers.
+   * Users with view only access.
+   **/
+  @JsonProperty("viewOnlyUsers")
+  public List<String> getViewOnlyUsers() {
+    return viewOnlyUsers;
+  }
+
+  /**
+   * Setter for viewOnlyUsers.
+   * Users with view only access.
+   **/
+  public void setViewOnlyUsers(List<String> viewOnlyUsers) {
+    this.viewOnlyUsers = viewOnlyUsers;
+  }
+
+  /**
+   * Getter for viewOnlyGroups.
+   * Groups with view only access.
+   **/
+  @JsonProperty("viewOnlyGroups")
+  public List<String> getViewOnlyGroups() {
+    return viewOnlyGroups;
+  }
+
+  /**
+   * Setter for viewOnlyGroups.
+   * Groups with view only access.
+   **/
+  public void setViewOnlyGroups(List<String> viewOnlyGroups) {
+    this.viewOnlyGroups = viewOnlyGroups;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -65,6 +153,18 @@ public class AccessControlResponse extends CdpResponse {
     if (!Objects.equals(this.users, accessControlResponse.users)) {
       return false;
     }
+    if (!Objects.equals(this.fullAccessUsers, accessControlResponse.fullAccessUsers)) {
+      return false;
+    }
+    if (!Objects.equals(this.fullAccessGroups, accessControlResponse.fullAccessGroups)) {
+      return false;
+    }
+    if (!Objects.equals(this.viewOnlyUsers, accessControlResponse.viewOnlyUsers)) {
+      return false;
+    }
+    if (!Objects.equals(this.viewOnlyGroups, accessControlResponse.viewOnlyGroups)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -73,7 +173,7 @@ public class AccessControlResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(users, super.hashCode());
+    return Objects.hash(users, fullAccessUsers, fullAccessGroups, viewOnlyUsers, viewOnlyGroups, super.hashCode());
   }
 
   @Override
@@ -82,6 +182,10 @@ public class AccessControlResponse extends CdpResponse {
     sb.append("class AccessControlResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    users: ").append(toIndentedString(users)).append("\n");
+    sb.append("    fullAccessUsers: ").append(toIndentedString(fullAccessUsers)).append("\n");
+    sb.append("    fullAccessGroups: ").append(toIndentedString(fullAccessGroups)).append("\n");
+    sb.append("    viewOnlyUsers: ").append(toIndentedString(viewOnlyUsers)).append("\n");
+    sb.append("    viewOnlyGroups: ").append(toIndentedString(viewOnlyGroups)).append("\n");
     sb.append("}");
     return sb.toString();
   }

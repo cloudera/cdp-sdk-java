@@ -28,7 +28,7 @@ import com.cloudera.cdp.iam.model.ScimAccessToken;
 /**
  * Response object to create the SCIM access token.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:20.889-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:53.898-07:00")
 public class CreateScimAccessTokenResponse extends CdpResponse {
 
   /**

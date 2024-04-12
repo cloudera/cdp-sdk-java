@@ -77,4 +77,6 @@ public class CdpCredentialsProviderChain implements CdpCredentialsProvider {
     throw new CdpClientException(
         "Unable to load credentials from provider files");
   }
+
+  protected final void finalize() { }
 }

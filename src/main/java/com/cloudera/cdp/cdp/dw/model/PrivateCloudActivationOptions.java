@@ -27,16 +27,16 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Options for activating a Private Cloud environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:18.356-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:51.356-07:00")
 public class PrivateCloudActivationOptions  {
 
   /**
-   * Name of delegation user. This user is used between Hue - Impala to create a session, as Hue should not pass the user credentials, instead Hue authenticates with the delegation user, then this user will impersonate the logged in user. This means that the Delegation User and Password should be able to authenticate through LDAP.
+   * DEPRECATED: As of PVC 1.5.4 we no longer use delegation user. Name of delegation user. This user is used between Hue - Impala to create a session, as Hue should not pass the user credentials, instead Hue authenticates with the delegation user, then this user will impersonate the logged in user. This means that the Delegation User and Password should be able to authenticate through LDAP.
    **/
   private String delegationUsername = null;
 
   /**
-   * Password of delegation user.
+   * DEPRECATED: As of PVC 1.5.4 we no longer use delegation user. Password of delegation user.
    **/
   private String delegationPassword = null;
 
@@ -67,8 +67,9 @@ public class PrivateCloudActivationOptions  {
 
   /**
    * Getter for delegationUsername.
-   * Name of delegation user. This user is used between Hue - Impala to create a session, as Hue should not pass the user credentials, instead Hue authenticates with the delegation user, then this user will impersonate the logged in user. This means that the Delegation User and Password should be able to authenticate through LDAP.
+   * DEPRECATED: As of PVC 1.5.4 we no longer use delegation user. Name of delegation user. This user is used between Hue - Impala to create a session, as Hue should not pass the user credentials, instead Hue authenticates with the delegation user, then this user will impersonate the logged in user. This means that the Delegation User and Password should be able to authenticate through LDAP.
    **/
+  @Deprecated
   @JsonProperty("delegationUsername")
   public String getDelegationUsername() {
     return delegationUsername;
@@ -76,16 +77,18 @@ public class PrivateCloudActivationOptions  {
 
   /**
    * Setter for delegationUsername.
-   * Name of delegation user. This user is used between Hue - Impala to create a session, as Hue should not pass the user credentials, instead Hue authenticates with the delegation user, then this user will impersonate the logged in user. This means that the Delegation User and Password should be able to authenticate through LDAP.
+   * DEPRECATED: As of PVC 1.5.4 we no longer use delegation user. Name of delegation user. This user is used between Hue - Impala to create a session, as Hue should not pass the user credentials, instead Hue authenticates with the delegation user, then this user will impersonate the logged in user. This means that the Delegation User and Password should be able to authenticate through LDAP.
    **/
+  @Deprecated
   public void setDelegationUsername(String delegationUsername) {
     this.delegationUsername = delegationUsername;
   }
 
   /**
    * Getter for delegationPassword.
-   * Password of delegation user.
+   * DEPRECATED: As of PVC 1.5.4 we no longer use delegation user. Password of delegation user.
    **/
+  @Deprecated
   @JsonProperty("delegationPassword")
   public String getDelegationPassword() {
     return delegationPassword;
@@ -93,8 +96,9 @@ public class PrivateCloudActivationOptions  {
 
   /**
    * Setter for delegationPassword.
-   * Password of delegation user.
+   * DEPRECATED: As of PVC 1.5.4 we no longer use delegation user. Password of delegation user.
    **/
+  @Deprecated
   public void setDelegationPassword(String delegationPassword) {
     this.delegationPassword = delegationPassword;
   }

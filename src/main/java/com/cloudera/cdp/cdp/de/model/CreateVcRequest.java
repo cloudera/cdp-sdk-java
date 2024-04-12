@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for CreateVc method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:20.704-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:53.783-07:00")
 public class CreateVcRequest  {
 
   /**
@@ -94,12 +94,12 @@ public class CreateVcRequest  {
   private List<String> fullAccessGroups = new ArrayList<String>();
 
   /**
-   * Users with View only access
+   * Users with view only access.
    **/
   private List<String> viewOnlyUsers = new ArrayList<String>();
 
   /**
-   * Groups with view only access
+   * Groups with view only access.
    **/
   private List<String> viewOnlyGroups = new ArrayList<String>();
 
@@ -309,7 +309,7 @@ public class CreateVcRequest  {
 
   /**
    * Getter for viewOnlyUsers.
-   * Users with View only access
+   * Users with view only access.
    **/
   @JsonProperty("viewOnlyUsers")
   public List<String> getViewOnlyUsers() {
@@ -318,7 +318,7 @@ public class CreateVcRequest  {
 
   /**
    * Setter for viewOnlyUsers.
-   * Users with View only access
+   * Users with view only access.
    **/
   public void setViewOnlyUsers(List<String> viewOnlyUsers) {
     this.viewOnlyUsers = viewOnlyUsers;
@@ -326,7 +326,7 @@ public class CreateVcRequest  {
 
   /**
    * Getter for viewOnlyGroups.
-   * Groups with view only access
+   * Groups with view only access.
    **/
   @JsonProperty("viewOnlyGroups")
   public List<String> getViewOnlyGroups() {
@@ -335,7 +335,7 @@ public class CreateVcRequest  {
 
   /**
    * Setter for viewOnlyGroups.
-   * Groups with view only access
+   * Groups with view only access.
    **/
   public void setViewOnlyGroups(List<String> viewOnlyGroups) {
     this.viewOnlyGroups = viewOnlyGroups;

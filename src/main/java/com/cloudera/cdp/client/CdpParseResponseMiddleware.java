@@ -26,16 +26,15 @@ import com.cloudera.cdp.CdpHTTPException;
 import com.cloudera.cdp.CdpServiceException;
 import com.cloudera.cdp.annotation.SdkInternalApi;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.ProcessingException;
 import javax.ws.rs.core.Response;
 
 /**
@@ -138,7 +137,7 @@ public class CdpParseResponseMiddleware implements CdpClientMiddleware {
     String body;
     try {
       body = response.readEntity(String.class);
-    } catch (ProcessingException | NullPointerException e) {
+    } catch (RuntimeException e) {
       throw new CdpHTTPException(
           httpCode, "Error reading message from server", e);
     }
@@ -148,7 +147,7 @@ public class CdpParseResponseMiddleware implements CdpClientMiddleware {
     try {
       error = MAPPER.readValue(body, new ErrorReference());
       requestId = CdpResponse.getRequestId(responseHeaders);
-    } catch (IOException | NullPointerException | IllegalArgumentException e) {
+    } catch (RuntimeException | JsonProcessingException e) {
       throw new CdpHTTPException(httpCode, body);
     }
 

@@ -23,6 +23,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.environments.model.CustomDockerRegistryRequest;
 import com.cloudera.cdp.environments.model.ExistingGCPNetworkRequest;
 import com.cloudera.cdp.environments.model.GCPFreeIpaCreationRequest;
 import com.cloudera.cdp.environments.model.GcpLogStorageRequest;
@@ -33,7 +34,7 @@ import java.util.*;
 /**
  * Request object for a create GCP environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:19.900-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:52.990-07:00")
 public class CreateGCPEnvironmentRequest  {
 
   /**
@@ -130,6 +131,11 @@ public class CreateGCPEnvironmentRequest  {
    * The zones of the environment in the given region. Multi-zone selection is not supported in GCP yet. It accepts only one zone until support is added.
    **/
   private List<String> availabilityZones = new ArrayList<String>();
+
+  /**
+   * Configures the desired custom docker registry for data services.
+   **/
+  private CustomDockerRegistryRequest customDockerRegistry = null;
 
   /**
    * Getter for environmentName.
@@ -454,6 +460,23 @@ public class CreateGCPEnvironmentRequest  {
     this.availabilityZones = availabilityZones;
   }
 
+  /**
+   * Getter for customDockerRegistry.
+   * Configures the desired custom docker registry for data services.
+   **/
+  @JsonProperty("customDockerRegistry")
+  public CustomDockerRegistryRequest getCustomDockerRegistry() {
+    return customDockerRegistry;
+  }
+
+  /**
+   * Setter for customDockerRegistry.
+   * Configures the desired custom docker registry for data services.
+   **/
+  public void setCustomDockerRegistry(CustomDockerRegistryRequest customDockerRegistry) {
+    this.customDockerRegistry = customDockerRegistry;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -520,12 +543,15 @@ public class CreateGCPEnvironmentRequest  {
     if (!Objects.equals(this.availabilityZones, createGCPEnvironmentRequest.availabilityZones)) {
       return false;
     }
+    if (!Objects.equals(this.customDockerRegistry, createGCPEnvironmentRequest.customDockerRegistry)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, publicKey, usePublicIp, existingNetworkParams, securityAccess, logStorage, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, tags, proxyConfigName, encryptionKey, availabilityZones);
+    return Objects.hash(environmentName, credentialName, region, publicKey, usePublicIp, existingNetworkParams, securityAccess, logStorage, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, tags, proxyConfigName, encryptionKey, availabilityZones, customDockerRegistry);
   }
 
   @Override
@@ -551,6 +577,7 @@ public class CreateGCPEnvironmentRequest  {
     sb.append("    proxyConfigName: ").append(toIndentedString(proxyConfigName)).append("\n");
     sb.append("    encryptionKey: ").append(toIndentedString(encryptionKey)).append("\n");
     sb.append("    availabilityZones: ").append(toIndentedString(availabilityZones)).append("\n");
+    sb.append("    customDockerRegistry: ").append(toIndentedString(customDockerRegistry)).append("\n");
     sb.append("}");
     return sb.toString();
   }

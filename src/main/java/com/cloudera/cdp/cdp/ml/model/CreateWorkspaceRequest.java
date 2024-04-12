@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for the CreateWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-03-27T12:18:19.078-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:52.161-07:00")
 public class CreateWorkspaceRequest  {
 
   /**
@@ -109,7 +109,7 @@ public class CreateWorkspaceRequest  {
   private List<String> authorizedIPRanges = new ArrayList<String>();
 
   /**
-   * Skip pre-flight validations if requested
+   * Skip pre-flight validations if requested.
    **/
   private Boolean skipValidation = null;
 
@@ -395,7 +395,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Getter for skipValidation.
-   * Skip pre-flight validations if requested
+   * Skip pre-flight validations if requested.
    **/
   @JsonProperty("skipValidation")
   public Boolean getSkipValidation() {
@@ -404,7 +404,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Setter for skipValidation.
-   * Skip pre-flight validations if requested
+   * Skip pre-flight validations if requested.
    **/
   public void setSkipValidation(Boolean skipValidation) {
     this.skipValidation = skipValidation;
