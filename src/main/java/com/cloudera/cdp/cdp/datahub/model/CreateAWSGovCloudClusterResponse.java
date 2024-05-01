@@ -28,7 +28,7 @@ import com.cloudera.cdp.datahub.model.Cluster;
 /**
  * Response object for create AWS cluster request on GovCloud.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:50.678-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:32.334-07:00")
 public class CreateAWSGovCloudClusterResponse extends CdpResponse {
 
   /**

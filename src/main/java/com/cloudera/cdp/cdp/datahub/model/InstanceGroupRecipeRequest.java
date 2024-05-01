@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Represents an instance group - recipe pair (by names) request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:50.678-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:32.334-07:00")
 public class InstanceGroupRecipeRequest  {
 
   /**

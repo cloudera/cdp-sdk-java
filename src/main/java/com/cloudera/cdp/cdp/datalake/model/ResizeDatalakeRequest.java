@@ -23,11 +23,15 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.datalake.model.CustomDatabaseComputeStorage;
+import com.cloudera.cdp.datalake.model.CustomInstanceDisk;
+import com.cloudera.cdp.datalake.model.CustomInstanceType;
+import java.util.*;
 
 /**
  * Datalake resize request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:52.489-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:33.904-07:00")
 public class ResizeDatalakeRequest  {
 
   /**
@@ -44,6 +48,21 @@ public class ResizeDatalakeRequest  {
    * Whether to deploy a new datalake in a multi-availability zone way.
    **/
   private Boolean multiAz = false;
+
+  /**
+   * Any custom instance type to override defaults.
+   **/
+  private List<CustomInstanceType> customInstanceTypes = new ArrayList<CustomInstanceType>();
+
+  /**
+   * Any custom instance disk size to override defaults.
+   **/
+  private List<CustomInstanceDisk> customInstanceDisks = new ArrayList<CustomInstanceDisk>();
+
+  /**
+   * Any custom database properties to override defaults.
+   **/
+  private CustomDatabaseComputeStorage customDatabaseComputeStorage = null;
 
   /**
    * Getter for datalakeName.
@@ -96,6 +115,57 @@ public class ResizeDatalakeRequest  {
     this.multiAz = multiAz;
   }
 
+  /**
+   * Getter for customInstanceTypes.
+   * Any custom instance type to override defaults.
+   **/
+  @JsonProperty("customInstanceTypes")
+  public List<CustomInstanceType> getCustomInstanceTypes() {
+    return customInstanceTypes;
+  }
+
+  /**
+   * Setter for customInstanceTypes.
+   * Any custom instance type to override defaults.
+   **/
+  public void setCustomInstanceTypes(List<CustomInstanceType> customInstanceTypes) {
+    this.customInstanceTypes = customInstanceTypes;
+  }
+
+  /**
+   * Getter for customInstanceDisks.
+   * Any custom instance disk size to override defaults.
+   **/
+  @JsonProperty("customInstanceDisks")
+  public List<CustomInstanceDisk> getCustomInstanceDisks() {
+    return customInstanceDisks;
+  }
+
+  /**
+   * Setter for customInstanceDisks.
+   * Any custom instance disk size to override defaults.
+   **/
+  public void setCustomInstanceDisks(List<CustomInstanceDisk> customInstanceDisks) {
+    this.customInstanceDisks = customInstanceDisks;
+  }
+
+  /**
+   * Getter for customDatabaseComputeStorage.
+   * Any custom database properties to override defaults.
+   **/
+  @JsonProperty("customDatabaseComputeStorage")
+  public CustomDatabaseComputeStorage getCustomDatabaseComputeStorage() {
+    return customDatabaseComputeStorage;
+  }
+
+  /**
+   * Setter for customDatabaseComputeStorage.
+   * Any custom database properties to override defaults.
+   **/
+  public void setCustomDatabaseComputeStorage(CustomDatabaseComputeStorage customDatabaseComputeStorage) {
+    this.customDatabaseComputeStorage = customDatabaseComputeStorage;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -114,12 +184,21 @@ public class ResizeDatalakeRequest  {
     if (!Objects.equals(this.multiAz, resizeDatalakeRequest.multiAz)) {
       return false;
     }
+    if (!Objects.equals(this.customInstanceTypes, resizeDatalakeRequest.customInstanceTypes)) {
+      return false;
+    }
+    if (!Objects.equals(this.customInstanceDisks, resizeDatalakeRequest.customInstanceDisks)) {
+      return false;
+    }
+    if (!Objects.equals(this.customDatabaseComputeStorage, resizeDatalakeRequest.customDatabaseComputeStorage)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, targetSize, multiAz);
+    return Objects.hash(datalakeName, targetSize, multiAz, customInstanceTypes, customInstanceDisks, customDatabaseComputeStorage);
   }
 
   @Override
@@ -129,6 +208,9 @@ public class ResizeDatalakeRequest  {
     sb.append("    datalakeName: ").append(toIndentedString(datalakeName)).append("\n");
     sb.append("    targetSize: ").append(toIndentedString(targetSize)).append("\n");
     sb.append("    multiAz: ").append(toIndentedString(multiAz)).append("\n");
+    sb.append("    customInstanceTypes: ").append(toIndentedString(customInstanceTypes)).append("\n");
+    sb.append("    customInstanceDisks: ").append(toIndentedString(customInstanceDisks)).append("\n");
+    sb.append("    customDatabaseComputeStorage: ").append(toIndentedString(customDatabaseComputeStorage)).append("\n");
     sb.append("}");
     return sb.toString();
   }

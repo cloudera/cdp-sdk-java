@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object to create a deployment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:54.561-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:36.242-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class CreateDeploymentRequest  {
 
@@ -41,7 +41,7 @@ public class CreateDeploymentRequest  {
   private String environmentCrn = null;
 
   /**
-   * The version of this configuration
+   * The version of this configuration.
    **/
   private Integer configurationVersion = null;
 
@@ -56,7 +56,7 @@ public class CreateDeploymentRequest  {
   private String deploymentRequestCrn = null;
 
   /**
-   * The list of flow parameter groups
+   * The list of flow parameter groups.
    **/
   private List<FlowParameterGroup> parameterGroups = new ArrayList<FlowParameterGroup>();
 
@@ -86,7 +86,7 @@ public class CreateDeploymentRequest  {
   private Integer staticNodeCount = null;
 
   /**
-   * The list of configured KPIs
+   * The list of configured KPIs.
    **/
   private List<ConfiguredKpi> kpis = new ArrayList<ConfiguredKpi>();
 
@@ -149,7 +149,7 @@ public class CreateDeploymentRequest  {
 
   /**
    * Getter for configurationVersion.
-   * The version of this configuration
+   * The version of this configuration.
    **/
   @JsonProperty("configurationVersion")
   public Integer getConfigurationVersion() {
@@ -158,7 +158,7 @@ public class CreateDeploymentRequest  {
 
   /**
    * Setter for configurationVersion.
-   * The version of this configuration
+   * The version of this configuration.
    **/
   public void setConfigurationVersion(Integer configurationVersion) {
     this.configurationVersion = configurationVersion;
@@ -200,7 +200,7 @@ public class CreateDeploymentRequest  {
 
   /**
    * Getter for parameterGroups.
-   * The list of flow parameter groups
+   * The list of flow parameter groups.
    **/
   @JsonProperty("parameterGroups")
   public List<FlowParameterGroup> getParameterGroups() {
@@ -209,7 +209,7 @@ public class CreateDeploymentRequest  {
 
   /**
    * Setter for parameterGroups.
-   * The list of flow parameter groups
+   * The list of flow parameter groups.
    **/
   public void setParameterGroups(List<FlowParameterGroup> parameterGroups) {
     this.parameterGroups = parameterGroups;
@@ -302,7 +302,7 @@ public class CreateDeploymentRequest  {
 
   /**
    * Getter for kpis.
-   * The list of configured KPIs
+   * The list of configured KPIs.
    **/
   @JsonProperty("kpis")
   public List<ConfiguredKpi> getKpis() {
@@ -311,7 +311,7 @@ public class CreateDeploymentRequest  {
 
   /**
    * Setter for kpis.
-   * The list of configured KPIs
+   * The list of configured KPIs.
    **/
   public void setKpis(List<ConfiguredKpi> kpis) {
     this.kpis = kpis;

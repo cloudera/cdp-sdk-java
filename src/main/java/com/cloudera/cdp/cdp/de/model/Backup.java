@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Service backup object.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:53.783-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:35.336-07:00")
 public class Backup  {
 
   /**
@@ -94,6 +94,16 @@ public class Backup  {
    * Error message, only set when there is an error.
    **/
   private String errorMessage = null;
+
+  /**
+   * The path to the base location where the backups are stored.
+   **/
+  private String archiveBasePath = null;
+
+  /**
+   * Archive location under the base path.
+   **/
+  private String archiveLocation = null;
 
   /**
    * Getter for id.
@@ -316,6 +326,40 @@ public class Backup  {
     this.errorMessage = errorMessage;
   }
 
+  /**
+   * Getter for archiveBasePath.
+   * The path to the base location where the backups are stored.
+   **/
+  @JsonProperty("archiveBasePath")
+  public String getArchiveBasePath() {
+    return archiveBasePath;
+  }
+
+  /**
+   * Setter for archiveBasePath.
+   * The path to the base location where the backups are stored.
+   **/
+  public void setArchiveBasePath(String archiveBasePath) {
+    this.archiveBasePath = archiveBasePath;
+  }
+
+  /**
+   * Getter for archiveLocation.
+   * Archive location under the base path.
+   **/
+  @JsonProperty("archiveLocation")
+  public String getArchiveLocation() {
+    return archiveLocation;
+  }
+
+  /**
+   * Setter for archiveLocation.
+   * Archive location under the base path.
+   **/
+  public void setArchiveLocation(String archiveLocation) {
+    this.archiveLocation = archiveLocation;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -364,12 +408,18 @@ public class Backup  {
     if (!Objects.equals(this.errorMessage, backup.errorMessage)) {
       return false;
     }
+    if (!Objects.equals(this.archiveBasePath, backup.archiveBasePath)) {
+      return false;
+    }
+    if (!Objects.equals(this.archiveLocation, backup.archiveLocation)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, serviceID, serviceName, serviceVersion, environmentName, environmentCrn, creator, creatorCrn, cloudPlatform, status, created, description, errorMessage);
+    return Objects.hash(id, serviceID, serviceName, serviceVersion, environmentName, environmentCrn, creator, creatorCrn, cloudPlatform, status, created, description, errorMessage, archiveBasePath, archiveLocation);
   }
 
   @Override
@@ -389,6 +439,8 @@ public class Backup  {
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
+    sb.append("    archiveBasePath: ").append(toIndentedString(archiveBasePath)).append("\n");
+    sb.append("    archiveLocation: ").append(toIndentedString(archiveLocation)).append("\n");
     sb.append("}");
     return sb.toString();
   }

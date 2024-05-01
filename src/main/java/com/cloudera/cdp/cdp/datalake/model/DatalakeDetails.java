@@ -26,6 +26,7 @@ import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.datalake.model.AWSConfiguration;
 import com.cloudera.cdp.datalake.model.AzureConfiguration;
 import com.cloudera.cdp.datalake.model.ClouderaManagerDetails;
+import com.cloudera.cdp.datalake.model.DatalakeResourceTag;
 import com.cloudera.cdp.datalake.model.Endpoints;
 import com.cloudera.cdp.datalake.model.GCPConfiguration;
 import com.cloudera.cdp.datalake.model.InstanceGroup;
@@ -36,7 +37,7 @@ import java.util.*;
 /**
  * Details about a datalake
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:52.489-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:33.904-07:00")
 public class DatalakeDetails  {
 
   /**
@@ -133,6 +134,11 @@ public class DatalakeDetails  {
    * Whether Ranger RAZ is enabled for the datalake.
    **/
   private Boolean enableRangerRaz = null;
+
+  /**
+   * Datalake tags object containing the tag values defined for the datalake.
+   **/
+  private List<DatalakeResourceTag> tags = new ArrayList<DatalakeResourceTag>();
 
   /**
    * Getter for crn.
@@ -457,6 +463,23 @@ public class DatalakeDetails  {
     this.enableRangerRaz = enableRangerRaz;
   }
 
+  /**
+   * Getter for tags.
+   * Datalake tags object containing the tag values defined for the datalake.
+   **/
+  @JsonProperty("tags")
+  public List<DatalakeResourceTag> getTags() {
+    return tags;
+  }
+
+  /**
+   * Setter for tags.
+   * Datalake tags object containing the tag values defined for the datalake.
+   **/
+  public void setTags(List<DatalakeResourceTag> tags) {
+    this.tags = tags;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -523,12 +546,15 @@ public class DatalakeDetails  {
     if (!Objects.equals(this.enableRangerRaz, datalakeDetails.enableRangerRaz)) {
       return false;
     }
+    if (!Objects.equals(this.tags, datalakeDetails.tags)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, datalakeName, status, shape, environmentCrn, credentialCrn, cloudPlatform, instanceGroups, creationDate, clouderaManager, productVersions, region, statusReason, awsConfiguration, azureConfiguration, gcpConfiguration, endpoints, cloudStorageBaseLocation, enableRangerRaz);
+    return Objects.hash(crn, datalakeName, status, shape, environmentCrn, credentialCrn, cloudPlatform, instanceGroups, creationDate, clouderaManager, productVersions, region, statusReason, awsConfiguration, azureConfiguration, gcpConfiguration, endpoints, cloudStorageBaseLocation, enableRangerRaz, tags);
   }
 
   @Override
@@ -554,6 +580,7 @@ public class DatalakeDetails  {
     sb.append("    endpoints: ").append(toIndentedString(endpoints)).append("\n");
     sb.append("    cloudStorageBaseLocation: ").append(toIndentedString(cloudStorageBaseLocation)).append("\n");
     sb.append("    enableRangerRaz: ").append(toIndentedString(enableRangerRaz)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

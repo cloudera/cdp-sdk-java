@@ -23,12 +23,14 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.datalake.model.DatalakeResourceTag;
 import java.time.ZonedDateTime;
+import java.util.*;
 
 /**
  * Information about a datalake.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:52.489-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:33.904-07:00")
 public class Datalake  {
 
   /**
@@ -75,6 +77,11 @@ public class Datalake  {
    * Flag which marks that the datalake is deployed in a multi-availability zone way or not.
    **/
   private Boolean multiAz = null;
+
+  /**
+   * Datalake tags object containing the tag values defined for the datalake.
+   **/
+  private List<DatalakeResourceTag> tags = new ArrayList<DatalakeResourceTag>();
 
   /**
    * Getter for datalakeName.
@@ -229,6 +236,23 @@ public class Datalake  {
     this.multiAz = multiAz;
   }
 
+  /**
+   * Getter for tags.
+   * Datalake tags object containing the tag values defined for the datalake.
+   **/
+  @JsonProperty("tags")
+  public List<DatalakeResourceTag> getTags() {
+    return tags;
+  }
+
+  /**
+   * Setter for tags.
+   * Datalake tags object containing the tag values defined for the datalake.
+   **/
+  public void setTags(List<DatalakeResourceTag> tags) {
+    this.tags = tags;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -265,12 +289,15 @@ public class Datalake  {
     if (!Objects.equals(this.multiAz, datalake.multiAz)) {
       return false;
     }
+    if (!Objects.equals(this.tags, datalake.tags)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, crn, status, environmentCrn, creationDate, statusReason, enableRangerRaz, certificateExpirationState, multiAz);
+    return Objects.hash(datalakeName, crn, status, environmentCrn, creationDate, statusReason, enableRangerRaz, certificateExpirationState, multiAz, tags);
   }
 
   @Override
@@ -286,6 +313,7 @@ public class Datalake  {
     sb.append("    enableRangerRaz: ").append(toIndentedString(enableRangerRaz)).append("\n");
     sb.append("    certificateExpirationState: ").append(toIndentedString(certificateExpirationState)).append("\n");
     sb.append("    multiAz: ").append(toIndentedString(multiAz)).append("\n");
+    sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

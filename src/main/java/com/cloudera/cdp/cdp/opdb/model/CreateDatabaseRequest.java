@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * A request to create the database
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:53.478-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:35.031-07:00")
 public class CreateDatabaseRequest  {
 
   /**
@@ -52,7 +52,7 @@ public class CreateDatabaseRequest  {
   private AutoScalingParameters autoScalingParameters = null;
 
   /**
-   * Override subnet where the database will be deployed. Disables Multi-AZ if set.
+   * Override subnet where the database will be deployed. Disables Multi-AZ if set [only for AWS].
    **/
   private String subnetId = null;
 
@@ -117,6 +117,11 @@ public class CreateDatabaseRequest  {
   private Boolean enableGrafana = null;
 
   /**
+   * Root volume size in GiB.
+   **/
+  private Integer rootVolumeSize = null;
+
+  /**
    * Getter for environmentName.
    * environment name
    **/
@@ -169,7 +174,7 @@ public class CreateDatabaseRequest  {
 
   /**
    * Getter for subnetId.
-   * Override subnet where the database will be deployed. Disables Multi-AZ if set.
+   * Override subnet where the database will be deployed. Disables Multi-AZ if set [only for AWS].
    **/
   @JsonProperty("subnetId")
   public String getSubnetId() {
@@ -178,7 +183,7 @@ public class CreateDatabaseRequest  {
 
   /**
    * Setter for subnetId.
-   * Override subnet where the database will be deployed. Disables Multi-AZ if set.
+   * Override subnet where the database will be deployed. Disables Multi-AZ if set [only for AWS].
    **/
   public void setSubnetId(String subnetId) {
     this.subnetId = subnetId;
@@ -388,6 +393,23 @@ public class CreateDatabaseRequest  {
     this.enableGrafana = enableGrafana;
   }
 
+  /**
+   * Getter for rootVolumeSize.
+   * Root volume size in GiB.
+   **/
+  @JsonProperty("rootVolumeSize")
+  public Integer getRootVolumeSize() {
+    return rootVolumeSize;
+  }
+
+  /**
+   * Setter for rootVolumeSize.
+   * Root volume size in GiB.
+   **/
+  public void setRootVolumeSize(Integer rootVolumeSize) {
+    this.rootVolumeSize = rootVolumeSize;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -445,12 +467,15 @@ public class CreateDatabaseRequest  {
     if (!Objects.equals(this.enableGrafana, createDatabaseRequest.enableGrafana)) {
       return false;
     }
+    if (!Objects.equals(this.rootVolumeSize, createDatabaseRequest.rootVolumeSize)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, databaseName, autoScalingParameters, subnetId, customUserTags, disableMultiAz, attachedStorageForWorkers, disableKerberos, numEdgeNodes, image, disableJwtAuth, enableRegionCanary, scaleType, storageType, recipes, enableGrafana);
+    return Objects.hash(environmentName, databaseName, autoScalingParameters, subnetId, customUserTags, disableMultiAz, attachedStorageForWorkers, disableKerberos, numEdgeNodes, image, disableJwtAuth, enableRegionCanary, scaleType, storageType, recipes, enableGrafana, rootVolumeSize);
   }
 
   @Override
@@ -473,6 +498,7 @@ public class CreateDatabaseRequest  {
     sb.append("    storageType: ").append(toIndentedString(storageType)).append("\n");
     sb.append("    recipes: ").append(toIndentedString(recipes)).append("\n");
     sb.append("    enableGrafana: ").append(toIndentedString(enableGrafana)).append("\n");
+    sb.append("    rootVolumeSize: ").append(toIndentedString(rootVolumeSize)).append("\n");
     sb.append("}");
     return sb.toString();
   }

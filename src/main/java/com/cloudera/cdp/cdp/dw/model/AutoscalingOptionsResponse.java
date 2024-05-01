@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Auto-scaling configuration for a Virtual Warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:51.356-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:32.945-07:00")
 public class AutoscalingOptionsResponse extends CdpResponse {
 
   /**
@@ -101,7 +101,7 @@ public class AutoscalingOptionsResponse extends CdpResponse {
   private Boolean impalaEnableCatalogHighAvailability = null;
 
   /**
-   * Name of the pod configuration.
+   * DEPRECATED - Name of the pod configuration.
    **/
   private String podConfigName = null;
 
@@ -357,8 +357,9 @@ public class AutoscalingOptionsResponse extends CdpResponse {
 
   /**
    * Getter for podConfigName.
-   * Name of the pod configuration.
+   * DEPRECATED - Name of the pod configuration.
    **/
+  @Deprecated
   @JsonProperty("podConfigName")
   public String getPodConfigName() {
     return podConfigName;
@@ -366,8 +367,9 @@ public class AutoscalingOptionsResponse extends CdpResponse {
 
   /**
    * Setter for podConfigName.
-   * Name of the pod configuration.
+   * DEPRECATED - Name of the pod configuration.
    **/
+  @Deprecated
   public void setPodConfigName(String podConfigName) {
     this.podConfigName = podConfigName;
   }

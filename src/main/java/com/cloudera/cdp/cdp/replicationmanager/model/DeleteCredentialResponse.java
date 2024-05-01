@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for delete credential operation.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:55.151-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:36.742-07:00")
 public class DeleteCredentialResponse extends CdpResponse {
 
   /**

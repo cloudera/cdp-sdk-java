@@ -29,19 +29,19 @@ import com.cloudera.cdp.dfworkload.model.ListenComponent;
 import java.util.*;
 
 /**
- * Provides all of the configuration that dictates how a flow should be deployed
+ * Provides all of the configuration that dictates how a flow should be deployed.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:54.561-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:36.242-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcDeploymentConfiguration  {
 
   /**
-   * The version of this configuration
+   * The version of this configuration.
    **/
   private Integer configurationVersion = null;
 
   /**
-   * The list of flow parameter groups
+   * The list of flow parameter groups.
    **/
   private List<FlowParameterGroup> parameterGroups = new ArrayList<FlowParameterGroup>();
 
@@ -71,7 +71,7 @@ public class RpcDeploymentConfiguration  {
   private Integer staticNodeCount = null;
 
   /**
-   * The list of configured KPIs
+   * The list of configured KPIs.
    **/
   private List<ConfiguredKpi> kpis = new ArrayList<ConfiguredKpi>();
 
@@ -91,63 +91,63 @@ public class RpcDeploymentConfiguration  {
   private String name = null;
 
   /**
-   * The CFM NiFi version associated with the deployment
+   * The CFM NiFi version associated with the deployment.
    **/
   private String cfmNifiVersion = null;
 
   /**
-   * Indicates whether or not the flow should be started during deployment creation
+   * Indicates whether or not the flow should be started during deployment creation.
    **/
   private Boolean autoStartFlow = null;
 
   /**
-   * The size of the cluster to deploy. Deprecated. Use 'clusterSize.name' instead
+   * The size of the cluster to deploy.
    **/
   private String clusterSizeName = null;
 
   /**
-   * Node storage profile name
+   * Node storage profile name.
    **/
   private String nodeStorageProfileName = null;
 
   /**
-   * Indicates whether or not all current parameter values have successfully been applied to NiFi
+   * Indicates whether or not all current parameter values have successfully been applied to NiFi.
    **/
   private Boolean parametersDirty = null;
 
   /**
-   * Indicates whether or not the current KPIs have successfully been deployed as alert rules
+   * Indicates whether or not the current KPIs have successfully been deployed as alert rules.
    **/
   private Boolean kpisDirty = null;
 
   /**
-   * Indicates whether or not the current sizing and scaling configuration has been successfully applied in Kubernetes
+   * Indicates whether or not the current sizing and scaling configuration has been successfully applied in Kubernetes.
    **/
   private Boolean sizingAndScalingDirty = null;
 
   /**
-   * The username of the last person to update the deployment configuration
+   * The username of the last person to update the deployment configuration.
    **/
   private String lastUpdatedByUsername = null;
 
   /**
-   * The inbound hostname
+   * The inbound hostname.
    **/
   private String inboundHostname = null;
 
   /**
-   * Listen components port and protocol data
+   * Listen components port and protocol data.
    **/
   private List<ListenComponent> listenComponents = new ArrayList<ListenComponent>();
 
   /**
-   * The crn of the project this deployment belongs to, or null if does not belong to a project
+   * The crn of the project this deployment belongs to, or null if does not belong to a project.
    **/
   private String projectCrn = null;
 
   /**
    * Getter for configurationVersion.
-   * The version of this configuration
+   * The version of this configuration.
    **/
   @JsonProperty("configurationVersion")
   public Integer getConfigurationVersion() {
@@ -156,7 +156,7 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Setter for configurationVersion.
-   * The version of this configuration
+   * The version of this configuration.
    **/
   public void setConfigurationVersion(Integer configurationVersion) {
     this.configurationVersion = configurationVersion;
@@ -164,7 +164,7 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Getter for parameterGroups.
-   * The list of flow parameter groups
+   * The list of flow parameter groups.
    **/
   @JsonProperty("parameterGroups")
   public List<FlowParameterGroup> getParameterGroups() {
@@ -173,7 +173,7 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Setter for parameterGroups.
-   * The list of flow parameter groups
+   * The list of flow parameter groups.
    **/
   public void setParameterGroups(List<FlowParameterGroup> parameterGroups) {
     this.parameterGroups = parameterGroups;
@@ -266,7 +266,7 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Getter for kpis.
-   * The list of configured KPIs
+   * The list of configured KPIs.
    **/
   @JsonProperty("kpis")
   public List<ConfiguredKpi> getKpis() {
@@ -275,7 +275,7 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Setter for kpis.
-   * The list of configured KPIs
+   * The list of configured KPIs.
    **/
   public void setKpis(List<ConfiguredKpi> kpis) {
     this.kpis = kpis;
@@ -334,7 +334,7 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Getter for cfmNifiVersion.
-   * The CFM NiFi version associated with the deployment
+   * The CFM NiFi version associated with the deployment.
    **/
   @JsonProperty("cfmNifiVersion")
   public String getCfmNifiVersion() {
@@ -343,7 +343,7 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Setter for cfmNifiVersion.
-   * The CFM NiFi version associated with the deployment
+   * The CFM NiFi version associated with the deployment.
    **/
   public void setCfmNifiVersion(String cfmNifiVersion) {
     this.cfmNifiVersion = cfmNifiVersion;
@@ -351,7 +351,7 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Getter for autoStartFlow.
-   * Indicates whether or not the flow should be started during deployment creation
+   * Indicates whether or not the flow should be started during deployment creation.
    **/
   @JsonProperty("autoStartFlow")
   public Boolean getAutoStartFlow() {
@@ -360,7 +360,7 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Setter for autoStartFlow.
-   * Indicates whether or not the flow should be started during deployment creation
+   * Indicates whether or not the flow should be started during deployment creation.
    **/
   public void setAutoStartFlow(Boolean autoStartFlow) {
     this.autoStartFlow = autoStartFlow;
@@ -368,9 +368,8 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Getter for clusterSizeName.
-   * The size of the cluster to deploy. Deprecated. Use &#39;clusterSize.name&#39; instead
+   * The size of the cluster to deploy.
    **/
-  @Deprecated
   @JsonProperty("clusterSizeName")
   public String getClusterSizeName() {
     return clusterSizeName;
@@ -378,16 +377,15 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Setter for clusterSizeName.
-   * The size of the cluster to deploy. Deprecated. Use &#39;clusterSize.name&#39; instead
+   * The size of the cluster to deploy.
    **/
-  @Deprecated
   public void setClusterSizeName(String clusterSizeName) {
     this.clusterSizeName = clusterSizeName;
   }
 
   /**
    * Getter for nodeStorageProfileName.
-   * Node storage profile name
+   * Node storage profile name.
    **/
   @JsonProperty("nodeStorageProfileName")
   public String getNodeStorageProfileName() {
@@ -396,7 +394,7 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Setter for nodeStorageProfileName.
-   * Node storage profile name
+   * Node storage profile name.
    **/
   public void setNodeStorageProfileName(String nodeStorageProfileName) {
     this.nodeStorageProfileName = nodeStorageProfileName;
@@ -404,7 +402,7 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Getter for parametersDirty.
-   * Indicates whether or not all current parameter values have successfully been applied to NiFi
+   * Indicates whether or not all current parameter values have successfully been applied to NiFi.
    **/
   @JsonProperty("parametersDirty")
   public Boolean getParametersDirty() {
@@ -413,7 +411,7 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Setter for parametersDirty.
-   * Indicates whether or not all current parameter values have successfully been applied to NiFi
+   * Indicates whether or not all current parameter values have successfully been applied to NiFi.
    **/
   public void setParametersDirty(Boolean parametersDirty) {
     this.parametersDirty = parametersDirty;
@@ -421,7 +419,7 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Getter for kpisDirty.
-   * Indicates whether or not the current KPIs have successfully been deployed as alert rules
+   * Indicates whether or not the current KPIs have successfully been deployed as alert rules.
    **/
   @JsonProperty("kpisDirty")
   public Boolean getKpisDirty() {
@@ -430,7 +428,7 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Setter for kpisDirty.
-   * Indicates whether or not the current KPIs have successfully been deployed as alert rules
+   * Indicates whether or not the current KPIs have successfully been deployed as alert rules.
    **/
   public void setKpisDirty(Boolean kpisDirty) {
     this.kpisDirty = kpisDirty;
@@ -438,7 +436,7 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Getter for sizingAndScalingDirty.
-   * Indicates whether or not the current sizing and scaling configuration has been successfully applied in Kubernetes
+   * Indicates whether or not the current sizing and scaling configuration has been successfully applied in Kubernetes.
    **/
   @JsonProperty("sizingAndScalingDirty")
   public Boolean getSizingAndScalingDirty() {
@@ -447,7 +445,7 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Setter for sizingAndScalingDirty.
-   * Indicates whether or not the current sizing and scaling configuration has been successfully applied in Kubernetes
+   * Indicates whether or not the current sizing and scaling configuration has been successfully applied in Kubernetes.
    **/
   public void setSizingAndScalingDirty(Boolean sizingAndScalingDirty) {
     this.sizingAndScalingDirty = sizingAndScalingDirty;
@@ -455,7 +453,7 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Getter for lastUpdatedByUsername.
-   * The username of the last person to update the deployment configuration
+   * The username of the last person to update the deployment configuration.
    **/
   @JsonProperty("lastUpdatedByUsername")
   public String getLastUpdatedByUsername() {
@@ -464,7 +462,7 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Setter for lastUpdatedByUsername.
-   * The username of the last person to update the deployment configuration
+   * The username of the last person to update the deployment configuration.
    **/
   public void setLastUpdatedByUsername(String lastUpdatedByUsername) {
     this.lastUpdatedByUsername = lastUpdatedByUsername;
@@ -472,7 +470,7 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Getter for inboundHostname.
-   * The inbound hostname
+   * The inbound hostname.
    **/
   @JsonProperty("inboundHostname")
   public String getInboundHostname() {
@@ -481,7 +479,7 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Setter for inboundHostname.
-   * The inbound hostname
+   * The inbound hostname.
    **/
   public void setInboundHostname(String inboundHostname) {
     this.inboundHostname = inboundHostname;
@@ -489,7 +487,7 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Getter for listenComponents.
-   * Listen components port and protocol data
+   * Listen components port and protocol data.
    **/
   @JsonProperty("listenComponents")
   public List<ListenComponent> getListenComponents() {
@@ -498,7 +496,7 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Setter for listenComponents.
-   * Listen components port and protocol data
+   * Listen components port and protocol data.
    **/
   public void setListenComponents(List<ListenComponent> listenComponents) {
     this.listenComponents = listenComponents;
@@ -506,7 +504,7 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Getter for projectCrn.
-   * The crn of the project this deployment belongs to, or null if does not belong to a project
+   * The crn of the project this deployment belongs to, or null if does not belong to a project.
    **/
   @JsonProperty("projectCrn")
   public String getProjectCrn() {
@@ -515,7 +513,7 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Setter for projectCrn.
-   * The crn of the project this deployment belongs to, or null if does not belong to a project
+   * The crn of the project this deployment belongs to, or null if does not belong to a project.
    **/
   public void setProjectCrn(String projectCrn) {
     this.projectCrn = projectCrn;

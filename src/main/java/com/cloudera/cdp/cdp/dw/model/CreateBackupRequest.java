@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for the create backup request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:51.356-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:32.945-07:00")
 public class CreateBackupRequest  {
 
   /**
@@ -37,12 +37,7 @@ public class CreateBackupRequest  {
   private String backupName = null;
 
   /**
-   * DEPRECATED in favor of the namespaceNames. Namespace of the potential candidate for backup. If not set, all of the Data Warehouse namespaces will be backed up.
-   **/
-  private String namespaceName = null;
-
-  /**
-   * If both namespaceName and namespaceNames are set, the namespaceName will be ignored! A list of namespace of the potential candidates for backup. If not set, all of the Data Warehouse namespaces will be backed up.
+   * A list of namespace of the potential candidates for backup. If not set, all of the Data Warehouse namespaces will be backed up.
    **/
   private List<String> namespaceNames = new ArrayList<String>();
 
@@ -64,27 +59,8 @@ public class CreateBackupRequest  {
   }
 
   /**
-   * Getter for namespaceName.
-   * DEPRECATED in favor of the namespaceNames. Namespace of the potential candidate for backup. If not set, all of the Data Warehouse namespaces will be backed up.
-   **/
-  @Deprecated
-  @JsonProperty("namespaceName")
-  public String getNamespaceName() {
-    return namespaceName;
-  }
-
-  /**
-   * Setter for namespaceName.
-   * DEPRECATED in favor of the namespaceNames. Namespace of the potential candidate for backup. If not set, all of the Data Warehouse namespaces will be backed up.
-   **/
-  @Deprecated
-  public void setNamespaceName(String namespaceName) {
-    this.namespaceName = namespaceName;
-  }
-
-  /**
    * Getter for namespaceNames.
-   * If both namespaceName and namespaceNames are set, the namespaceName will be ignored! A list of namespace of the potential candidates for backup. If not set, all of the Data Warehouse namespaces will be backed up.
+   * A list of namespace of the potential candidates for backup. If not set, all of the Data Warehouse namespaces will be backed up.
    **/
   @JsonProperty("namespaceNames")
   public List<String> getNamespaceNames() {
@@ -93,7 +69,7 @@ public class CreateBackupRequest  {
 
   /**
    * Setter for namespaceNames.
-   * If both namespaceName and namespaceNames are set, the namespaceName will be ignored! A list of namespace of the potential candidates for backup. If not set, all of the Data Warehouse namespaces will be backed up.
+   * A list of namespace of the potential candidates for backup. If not set, all of the Data Warehouse namespaces will be backed up.
    **/
   public void setNamespaceNames(List<String> namespaceNames) {
     this.namespaceNames = namespaceNames;
@@ -111,9 +87,6 @@ public class CreateBackupRequest  {
     if (!Objects.equals(this.backupName, createBackupRequest.backupName)) {
       return false;
     }
-    if (!Objects.equals(this.namespaceName, createBackupRequest.namespaceName)) {
-      return false;
-    }
     if (!Objects.equals(this.namespaceNames, createBackupRequest.namespaceNames)) {
       return false;
     }
@@ -122,7 +95,7 @@ public class CreateBackupRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupName, namespaceName, namespaceNames);
+    return Objects.hash(backupName, namespaceNames);
   }
 
   @Override
@@ -130,7 +103,6 @@ public class CreateBackupRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreateBackupRequest {\n");
     sb.append("    backupName: ").append(toIndentedString(backupName)).append("\n");
-    sb.append("    namespaceName: ").append(toIndentedString(namespaceName)).append("\n");
     sb.append("    namespaceNames: ").append(toIndentedString(namespaceNames)).append("\n");
     sb.append("}");
     return sb.toString();

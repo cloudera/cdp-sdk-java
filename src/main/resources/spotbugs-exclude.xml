@@ -44,4 +44,9 @@
   <Match>
     <Bug pattern="EI_EXPOSE_REP, EI_EXPOSE_REP2" />
   </Match>
+
+  <!-- Ignore CT_CONSTRUCTOR_THROW for upgrading to Java 21, becuase we use a lot of NonNull which throws exceptions. -->
+  <Match>
+    <Bug pattern="CT_CONSTRUCTOR_THROW" />
+  </Match>
 </FindBugsFilter>

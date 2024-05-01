@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Cluster scaling parameters
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:54.561-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:36.242-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class ClusterSize  {
 
@@ -37,12 +37,12 @@ public class ClusterSize  {
   private String name = null;
 
   /**
-   * The number of CPU Cores per node
+   * The number of CPU Cores per node (will be truncated to the nearest integer).
    **/
   private Double coresPerNode = null;
 
   /**
-   * The memory limit
+   * The memory limit (will be truncated to the nearest integer).
    **/
   private Double memoryLimit = null;
 
@@ -80,7 +80,7 @@ public class ClusterSize  {
 
   /**
    * Getter for coresPerNode.
-   * The number of CPU Cores per node
+   * The number of CPU Cores per node (will be truncated to the nearest integer).
    **/
   @JsonProperty("coresPerNode")
   public Double getCoresPerNode() {
@@ -89,7 +89,7 @@ public class ClusterSize  {
 
   /**
    * Setter for coresPerNode.
-   * The number of CPU Cores per node
+   * The number of CPU Cores per node (will be truncated to the nearest integer).
    **/
   public void setCoresPerNode(Double coresPerNode) {
     this.coresPerNode = coresPerNode;
@@ -97,7 +97,7 @@ public class ClusterSize  {
 
   /**
    * Getter for memoryLimit.
-   * The memory limit
+   * The memory limit (will be truncated to the nearest integer).
    **/
   @JsonProperty("memoryLimit")
   public Double getMemoryLimit() {
@@ -106,7 +106,7 @@ public class ClusterSize  {
 
   /**
    * Setter for memoryLimit.
-   * The memory limit
+   * The memory limit (will be truncated to the nearest integer).
    **/
   public void setMemoryLimit(Double memoryLimit) {
     this.memoryLimit = memoryLimit;

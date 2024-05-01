@@ -24,7 +24,7 @@ import com.cloudera.cdp.client.CdpClientBuilder;
 /**
 * This class can be used to build a CloudprivatelinksClient object.
 **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:55.251-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:36.923-07:00")
 public class CloudprivatelinksClientBuilder extends CdpClientBuilder<CloudprivatelinksClientBuilder> {
 
   private CloudprivatelinksClientBuilder() {

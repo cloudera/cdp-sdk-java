@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Response object containing access control information for a Virtual Cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:53.783-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:35.336-07:00")
 public class AccessControlResponse extends CdpResponse {
 
   /**

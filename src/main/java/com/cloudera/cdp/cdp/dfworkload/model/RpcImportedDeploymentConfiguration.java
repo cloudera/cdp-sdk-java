@@ -31,72 +31,72 @@ import java.util.*;
 /**
  * Contains the configuration data imported from exported archive.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-11T13:44:54.561-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:36.242-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcImportedDeploymentConfiguration  {
 
   /**
-   * The auto-scaling flag value retrieved from archive
+   * The auto-scaling flag value retrieved from archive.
    **/
   private Boolean autoScalingEnabled = null;
 
   /**
-   * The flow-metrics flag value retrieved from archive
+   * The flow-metrics flag value retrieved from archive.
    **/
   private Boolean flowMetricsScalingEnabled = null;
 
   /**
-   * The cluster's minimum number of nodes value retrieved from archive
+   * The cluster's minimum number of nodes value retrieved from archive.
    **/
   private Integer autoScaleMinNodes = null;
 
   /**
-   * The cluster's maximum number of nodes value retrieved from archive
+   * The cluster's maximum number of nodes value retrieved from archive.
    **/
   private Integer autoScaleMaxNodes = null;
 
   /**
-   * The cluster's static node count retrieved from archive
+   * The cluster's static node count retrieved from archive.
    **/
   private Integer staticNodeCount = null;
 
   /**
-   * The cluster size name retrieved from archive
+   * The cluster size name retrieved from archive.
    **/
   private String clusterSizeName = null;
 
   /**
-   * The list of configured KPIs imported from archive
+   * The list of configured KPIs imported from archive.
    **/
   private List<ConfiguredKpi> kpis = new ArrayList<ConfiguredKpi>();
 
   /**
-   * The flow parameter groups with values imported from archive
+   * The flow parameter groups with values imported from archive.
    **/
   private List<FlowParameterGroup> flowParameterGroups = new ArrayList<FlowParameterGroup>();
 
   /**
-   * The CFM NiFi version retrieved from archive
+   * The CFM NiFi version retrieved from archive.
    **/
   private String cfmNifiVersion = null;
 
   /**
-   * The FQDN of inbound hostname constructed with prefix imported from archive
+   * The FQDN of inbound hostname constructed with prefix imported from archive.
    **/
   private String inboundHostName = null;
 
   /**
-   * The concatenated list of Nifi listen components imported from archive and flow
+   * The concatenated list of Nifi listen components imported from archive and flow.
    **/
   private List<ListenComponent> listenComponents = new ArrayList<ListenComponent>();
 
   /**
-   * The node storage profile imported from archive
+   * The node storage profile imported from archive.
    **/
   private String nodeStorageProfile = null;
 
   /**
-   * The project CRN retrieved from backup
+   * The project CRN retrieved from backup.
    **/
   private String projectCrn = null;
 
@@ -107,7 +107,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   /**
    * Getter for autoScalingEnabled.
-   * The auto-scaling flag value retrieved from archive
+   * The auto-scaling flag value retrieved from archive.
    **/
   @JsonProperty("autoScalingEnabled")
   public Boolean getAutoScalingEnabled() {
@@ -116,7 +116,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   /**
    * Setter for autoScalingEnabled.
-   * The auto-scaling flag value retrieved from archive
+   * The auto-scaling flag value retrieved from archive.
    **/
   public void setAutoScalingEnabled(Boolean autoScalingEnabled) {
     this.autoScalingEnabled = autoScalingEnabled;
@@ -124,7 +124,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   /**
    * Getter for flowMetricsScalingEnabled.
-   * The flow-metrics flag value retrieved from archive
+   * The flow-metrics flag value retrieved from archive.
    **/
   @JsonProperty("flowMetricsScalingEnabled")
   public Boolean getFlowMetricsScalingEnabled() {
@@ -133,7 +133,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   /**
    * Setter for flowMetricsScalingEnabled.
-   * The flow-metrics flag value retrieved from archive
+   * The flow-metrics flag value retrieved from archive.
    **/
   public void setFlowMetricsScalingEnabled(Boolean flowMetricsScalingEnabled) {
     this.flowMetricsScalingEnabled = flowMetricsScalingEnabled;
@@ -141,7 +141,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   /**
    * Getter for autoScaleMinNodes.
-   * The cluster&#39;s minimum number of nodes value retrieved from archive
+   * The cluster&#39;s minimum number of nodes value retrieved from archive.
    **/
   @JsonProperty("autoScaleMinNodes")
   public Integer getAutoScaleMinNodes() {
@@ -150,7 +150,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   /**
    * Setter for autoScaleMinNodes.
-   * The cluster&#39;s minimum number of nodes value retrieved from archive
+   * The cluster&#39;s minimum number of nodes value retrieved from archive.
    **/
   public void setAutoScaleMinNodes(Integer autoScaleMinNodes) {
     this.autoScaleMinNodes = autoScaleMinNodes;
@@ -158,7 +158,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   /**
    * Getter for autoScaleMaxNodes.
-   * The cluster&#39;s maximum number of nodes value retrieved from archive
+   * The cluster&#39;s maximum number of nodes value retrieved from archive.
    **/
   @JsonProperty("autoScaleMaxNodes")
   public Integer getAutoScaleMaxNodes() {
@@ -167,7 +167,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   /**
    * Setter for autoScaleMaxNodes.
-   * The cluster&#39;s maximum number of nodes value retrieved from archive
+   * The cluster&#39;s maximum number of nodes value retrieved from archive.
    **/
   public void setAutoScaleMaxNodes(Integer autoScaleMaxNodes) {
     this.autoScaleMaxNodes = autoScaleMaxNodes;
@@ -175,7 +175,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   /**
    * Getter for staticNodeCount.
-   * The cluster&#39;s static node count retrieved from archive
+   * The cluster&#39;s static node count retrieved from archive.
    **/
   @JsonProperty("staticNodeCount")
   public Integer getStaticNodeCount() {
@@ -184,7 +184,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   /**
    * Setter for staticNodeCount.
-   * The cluster&#39;s static node count retrieved from archive
+   * The cluster&#39;s static node count retrieved from archive.
    **/
   public void setStaticNodeCount(Integer staticNodeCount) {
     this.staticNodeCount = staticNodeCount;
@@ -192,7 +192,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   /**
    * Getter for clusterSizeName.
-   * The cluster size name retrieved from archive
+   * The cluster size name retrieved from archive.
    **/
   @JsonProperty("clusterSizeName")
   public String getClusterSizeName() {
@@ -201,7 +201,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   /**
    * Setter for clusterSizeName.
-   * The cluster size name retrieved from archive
+   * The cluster size name retrieved from archive.
    **/
   public void setClusterSizeName(String clusterSizeName) {
     this.clusterSizeName = clusterSizeName;
@@ -209,7 +209,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   /**
    * Getter for kpis.
-   * The list of configured KPIs imported from archive
+   * The list of configured KPIs imported from archive.
    **/
   @JsonProperty("kpis")
   public List<ConfiguredKpi> getKpis() {
@@ -218,7 +218,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   /**
    * Setter for kpis.
-   * The list of configured KPIs imported from archive
+   * The list of configured KPIs imported from archive.
    **/
   public void setKpis(List<ConfiguredKpi> kpis) {
     this.kpis = kpis;
@@ -226,7 +226,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   /**
    * Getter for flowParameterGroups.
-   * The flow parameter groups with values imported from archive
+   * The flow parameter groups with values imported from archive.
    **/
   @JsonProperty("flowParameterGroups")
   public List<FlowParameterGroup> getFlowParameterGroups() {
@@ -235,7 +235,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   /**
    * Setter for flowParameterGroups.
-   * The flow parameter groups with values imported from archive
+   * The flow parameter groups with values imported from archive.
    **/
   public void setFlowParameterGroups(List<FlowParameterGroup> flowParameterGroups) {
     this.flowParameterGroups = flowParameterGroups;
@@ -243,7 +243,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   /**
    * Getter for cfmNifiVersion.
-   * The CFM NiFi version retrieved from archive
+   * The CFM NiFi version retrieved from archive.
    **/
   @JsonProperty("cfmNifiVersion")
   public String getCfmNifiVersion() {
@@ -252,7 +252,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   /**
    * Setter for cfmNifiVersion.
-   * The CFM NiFi version retrieved from archive
+   * The CFM NiFi version retrieved from archive.
    **/
   public void setCfmNifiVersion(String cfmNifiVersion) {
     this.cfmNifiVersion = cfmNifiVersion;
@@ -260,7 +260,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   /**
    * Getter for inboundHostName.
-   * The FQDN of inbound hostname constructed with prefix imported from archive
+   * The FQDN of inbound hostname constructed with prefix imported from archive.
    **/
   @JsonProperty("inboundHostName")
   public String getInboundHostName() {
@@ -269,7 +269,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   /**
    * Setter for inboundHostName.
-   * The FQDN of inbound hostname constructed with prefix imported from archive
+   * The FQDN of inbound hostname constructed with prefix imported from archive.
    **/
   public void setInboundHostName(String inboundHostName) {
     this.inboundHostName = inboundHostName;
@@ -277,7 +277,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   /**
    * Getter for listenComponents.
-   * The concatenated list of Nifi listen components imported from archive and flow
+   * The concatenated list of Nifi listen components imported from archive and flow.
    **/
   @JsonProperty("listenComponents")
   public List<ListenComponent> getListenComponents() {
@@ -286,7 +286,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   /**
    * Setter for listenComponents.
-   * The concatenated list of Nifi listen components imported from archive and flow
+   * The concatenated list of Nifi listen components imported from archive and flow.
    **/
   public void setListenComponents(List<ListenComponent> listenComponents) {
     this.listenComponents = listenComponents;
@@ -294,7 +294,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   /**
    * Getter for nodeStorageProfile.
-   * The node storage profile imported from archive
+   * The node storage profile imported from archive.
    **/
   @JsonProperty("nodeStorageProfile")
   public String getNodeStorageProfile() {
@@ -303,7 +303,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   /**
    * Setter for nodeStorageProfile.
-   * The node storage profile imported from archive
+   * The node storage profile imported from archive.
    **/
   public void setNodeStorageProfile(String nodeStorageProfile) {
     this.nodeStorageProfile = nodeStorageProfile;
@@ -311,7 +311,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   /**
    * Getter for projectCrn.
-   * The project CRN retrieved from backup
+   * The project CRN retrieved from backup.
    **/
   @JsonProperty("projectCrn")
   public String getProjectCrn() {
@@ -320,7 +320,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   /**
    * Setter for projectCrn.
-   * The project CRN retrieved from backup
+   * The project CRN retrieved from backup.
    **/
   public void setProjectCrn(String projectCrn) {
     this.projectCrn = projectCrn;
