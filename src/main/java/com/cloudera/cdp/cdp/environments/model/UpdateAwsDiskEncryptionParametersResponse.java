@@ -29,7 +29,7 @@ import com.cloudera.cdp.environments.model.Environment;
 /**
  * Response object for an update AWS encryption parameters request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:34.387-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:56.746-07:00")
 public class UpdateAwsDiskEncryptionParametersResponse extends CdpResponse {
 
   /**

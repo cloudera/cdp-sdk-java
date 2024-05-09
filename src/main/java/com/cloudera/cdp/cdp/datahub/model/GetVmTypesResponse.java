@@ -23,18 +23,24 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.datahub.model.VmTypeResponseWithMetadata;
 import java.util.*;
 
 /**
  * Response object from the VM type fetch operation.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:32.334-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:54.517-07:00")
 public class GetVmTypesResponse extends CdpResponse {
 
   /**
    * The supported VM types based on the given parameters.
    **/
   private List<String> vmTypes = new ArrayList<String>();
+
+  /**
+   * The supported VM types based on the given parameters with metadata.
+   **/
+  private List<VmTypeResponseWithMetadata> vmTypesWithMetadata = new ArrayList<VmTypeResponseWithMetadata>();
 
   /**
    * Getter for vmTypes.
@@ -53,6 +59,23 @@ public class GetVmTypesResponse extends CdpResponse {
     this.vmTypes = vmTypes;
   }
 
+  /**
+   * Getter for vmTypesWithMetadata.
+   * The supported VM types based on the given parameters with metadata.
+   **/
+  @JsonProperty("vmTypesWithMetadata")
+  public List<VmTypeResponseWithMetadata> getVmTypesWithMetadata() {
+    return vmTypesWithMetadata;
+  }
+
+  /**
+   * Setter for vmTypesWithMetadata.
+   * The supported VM types based on the given parameters with metadata.
+   **/
+  public void setVmTypesWithMetadata(List<VmTypeResponseWithMetadata> vmTypesWithMetadata) {
+    this.vmTypesWithMetadata = vmTypesWithMetadata;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -65,6 +88,9 @@ public class GetVmTypesResponse extends CdpResponse {
     if (!Objects.equals(this.vmTypes, getVmTypesResponse.vmTypes)) {
       return false;
     }
+    if (!Objects.equals(this.vmTypesWithMetadata, getVmTypesResponse.vmTypesWithMetadata)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -73,7 +99,7 @@ public class GetVmTypesResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(vmTypes, super.hashCode());
+    return Objects.hash(vmTypes, vmTypesWithMetadata, super.hashCode());
   }
 
   @Override
@@ -82,6 +108,7 @@ public class GetVmTypesResponse extends CdpResponse {
     sb.append("class GetVmTypesResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    vmTypes: ").append(toIndentedString(vmTypes)).append("\n");
+    sb.append("    vmTypesWithMetadata: ").append(toIndentedString(vmTypesWithMetadata)).append("\n");
     sb.append("}");
     return sb.toString();
   }

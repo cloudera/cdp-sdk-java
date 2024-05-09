@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * A request to list Projects
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:35.862-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:58.271-07:00")
 public class ListProjectsRequest  {
 
   /**

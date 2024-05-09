@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for the listDataVisualizations method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:32.945-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:55.172-07:00")
 public class ListDataVisualizationsResponse extends CdpResponse {
 
   /**

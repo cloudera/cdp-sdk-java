@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Response object for the ListModelRegistryAccess method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:33.535-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:55.811-07:00")
 public class ListModelRegistryAccessResponse extends CdpResponse {
 
   /**

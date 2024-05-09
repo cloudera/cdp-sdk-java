@@ -151,6 +151,10 @@ import com.cloudera.cdp.datahub.model.UpdateAutoScaleRulesRequest;
 import com.cloudera.cdp.datahub.model.UpdateAutoScaleRulesResponse;
 import com.cloudera.cdp.datahub.model.UpdateOrchestratorStateRequest;
 import com.cloudera.cdp.datahub.model.UpdateOrchestratorStateResponse;
+import com.cloudera.cdp.datahub.model.UpdateToAwsImdsV1Request;
+import com.cloudera.cdp.datahub.model.UpdateToAwsImdsV1Response;
+import com.cloudera.cdp.datahub.model.UpdateToAwsImdsV2Request;
+import com.cloudera.cdp.datahub.model.UpdateToAwsImdsV2Response;
 import com.cloudera.cdp.datahub.model.UpgradeClusterRequest;
 import com.cloudera.cdp.datahub.model.UpgradeClusterResponse;
 import java.util.ArrayList;
@@ -159,7 +163,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:32.334-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:54.517-07:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datahub";
@@ -983,6 +987,32 @@ public class DatahubClient extends CdpClient {
     }
 
     return this.invokeAPI("updateOrchestratorState", "/api/v1/datahub/updateOrchestratorState", input, new GenericType<UpdateOrchestratorStateResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Updates Data Hub AWS cluster to use IMDSv1.
+   * @param input
+   * @return UpdateToAwsImdsV1Response
+   */
+  public UpdateToAwsImdsV1Response updateToAwsImdsV1(UpdateToAwsImdsV1Request input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateToAwsImdsV1");
+    }
+
+    return this.invokeAPI("updateToAwsImdsV1", "/api/v1/datahub/updateToAwsImdsV1", input, new GenericType<UpdateToAwsImdsV1Response>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Updates Data Hub AWS cluster to use IMDSv2.
+   * @param input
+   * @return UpdateToAwsImdsV2Response
+   */
+  public UpdateToAwsImdsV2Response updateToAwsImdsV2(UpdateToAwsImdsV2Request input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateToAwsImdsV2");
+    }
+
+    return this.invokeAPI("updateToAwsImdsV2", "/api/v1/datahub/updateToAwsImdsV2", input, new GenericType<UpdateToAwsImdsV2Response>(){}, NO_EXTENSION);
   }
 
   /**

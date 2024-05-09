@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for updating Azure encryption resources.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:34.387-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:56.746-07:00")
 public class UpdateAzureEncryptionResourcesRequest  {
 
   /**
@@ -46,9 +46,14 @@ public class UpdateAzureEncryptionResourcesRequest  {
   private String encryptionKeyResourceGroupName = null;
 
   /**
-   * User managed identity for encryption.
+   * User managed identity for encryption. (deprecated)
    **/
   private String userManagedIdentity = null;
+
+  /**
+   * User managed identity for encryption.
+   **/
+  private String encryptionUserManagedIdentity = null;
 
   /**
    * Getter for environment.
@@ -103,8 +108,9 @@ public class UpdateAzureEncryptionResourcesRequest  {
 
   /**
    * Getter for userManagedIdentity.
-   * User managed identity for encryption.
+   * User managed identity for encryption. (deprecated)
    **/
+  @Deprecated
   @JsonProperty("userManagedIdentity")
   public String getUserManagedIdentity() {
     return userManagedIdentity;
@@ -112,10 +118,28 @@ public class UpdateAzureEncryptionResourcesRequest  {
 
   /**
    * Setter for userManagedIdentity.
-   * User managed identity for encryption.
+   * User managed identity for encryption. (deprecated)
    **/
+  @Deprecated
   public void setUserManagedIdentity(String userManagedIdentity) {
     this.userManagedIdentity = userManagedIdentity;
+  }
+
+  /**
+   * Getter for encryptionUserManagedIdentity.
+   * User managed identity for encryption.
+   **/
+  @JsonProperty("encryptionUserManagedIdentity")
+  public String getEncryptionUserManagedIdentity() {
+    return encryptionUserManagedIdentity;
+  }
+
+  /**
+   * Setter for encryptionUserManagedIdentity.
+   * User managed identity for encryption.
+   **/
+  public void setEncryptionUserManagedIdentity(String encryptionUserManagedIdentity) {
+    this.encryptionUserManagedIdentity = encryptionUserManagedIdentity;
   }
 
   @Override
@@ -139,12 +163,15 @@ public class UpdateAzureEncryptionResourcesRequest  {
     if (!Objects.equals(this.userManagedIdentity, updateAzureEncryptionResourcesRequest.userManagedIdentity)) {
       return false;
     }
+    if (!Objects.equals(this.encryptionUserManagedIdentity, updateAzureEncryptionResourcesRequest.encryptionUserManagedIdentity)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environment, encryptionKeyUrl, encryptionKeyResourceGroupName, userManagedIdentity);
+    return Objects.hash(environment, encryptionKeyUrl, encryptionKeyResourceGroupName, userManagedIdentity, encryptionUserManagedIdentity);
   }
 
   @Override
@@ -155,6 +182,7 @@ public class UpdateAzureEncryptionResourcesRequest  {
     sb.append("    encryptionKeyUrl: ").append(toIndentedString(encryptionKeyUrl)).append("\n");
     sb.append("    encryptionKeyResourceGroupName: ").append(toIndentedString(encryptionKeyResourceGroupName)).append("\n");
     sb.append("    userManagedIdentity: ").append(toIndentedString(userManagedIdentity)).append("\n");
+    sb.append("    encryptionUserManagedIdentity: ").append(toIndentedString(encryptionUserManagedIdentity)).append("\n");
     sb.append("}");
     return sb.toString();
   }

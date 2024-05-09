@@ -37,7 +37,7 @@ import java.util.*;
 /**
  * Request object for a create Azure environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:34.387-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:56.746-07:00")
 public class CreateAzureEnvironmentRequest  {
 
   /**
@@ -151,9 +151,14 @@ public class CreateAzureEnvironmentRequest  {
   private Boolean encryptionAtHost = null;
 
   /**
-   * User managed identity for encryption.
+   * User managed identity for encryption. (deprecated)
    **/
   private String userManagedIdentity = null;
+
+  /**
+   * User managed identity for encryption.
+   **/
+  private String encryptionUserManagedIdentity = null;
 
   /**
    * URL of the key which will be used to encrypt the Azure Managed Disks, if entitlement has been granted.
@@ -566,8 +571,9 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Getter for userManagedIdentity.
-   * User managed identity for encryption.
+   * User managed identity for encryption. (deprecated)
    **/
+  @Deprecated
   @JsonProperty("userManagedIdentity")
   public String getUserManagedIdentity() {
     return userManagedIdentity;
@@ -575,10 +581,28 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Setter for userManagedIdentity.
-   * User managed identity for encryption.
+   * User managed identity for encryption. (deprecated)
    **/
+  @Deprecated
   public void setUserManagedIdentity(String userManagedIdentity) {
     this.userManagedIdentity = userManagedIdentity;
+  }
+
+  /**
+   * Getter for encryptionUserManagedIdentity.
+   * User managed identity for encryption.
+   **/
+  @JsonProperty("encryptionUserManagedIdentity")
+  public String getEncryptionUserManagedIdentity() {
+    return encryptionUserManagedIdentity;
+  }
+
+  /**
+   * Setter for encryptionUserManagedIdentity.
+   * User managed identity for encryption.
+   **/
+  public void setEncryptionUserManagedIdentity(String encryptionUserManagedIdentity) {
+    this.encryptionUserManagedIdentity = encryptionUserManagedIdentity;
   }
 
   /**
@@ -778,6 +802,9 @@ public class CreateAzureEnvironmentRequest  {
     if (!Objects.equals(this.userManagedIdentity, createAzureEnvironmentRequest.userManagedIdentity)) {
       return false;
     }
+    if (!Objects.equals(this.encryptionUserManagedIdentity, createAzureEnvironmentRequest.encryptionUserManagedIdentity)) {
+      return false;
+    }
     if (!Objects.equals(this.encryptionKeyUrl, createAzureEnvironmentRequest.encryptionKeyUrl)) {
       return false;
     }
@@ -804,7 +831,7 @@ public class CreateAzureEnvironmentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, encryptionAtHost, userManagedIdentity, encryptionKeyUrl, encryptionKeyResourceGroupName, enableOutboundLoadBalancer, availabilityZones, flexibleServerSubnetIds, dataServices, customDockerRegistry);
+    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, encryptionAtHost, userManagedIdentity, encryptionUserManagedIdentity, encryptionKeyUrl, encryptionKeyResourceGroupName, enableOutboundLoadBalancer, availabilityZones, flexibleServerSubnetIds, dataServices, customDockerRegistry);
   }
 
   @Override
@@ -834,6 +861,7 @@ public class CreateAzureEnvironmentRequest  {
     sb.append("    endpointAccessGatewaySubnetIds: ").append(toIndentedString(endpointAccessGatewaySubnetIds)).append("\n");
     sb.append("    encryptionAtHost: ").append(toIndentedString(encryptionAtHost)).append("\n");
     sb.append("    userManagedIdentity: ").append(toIndentedString(userManagedIdentity)).append("\n");
+    sb.append("    encryptionUserManagedIdentity: ").append(toIndentedString(encryptionUserManagedIdentity)).append("\n");
     sb.append("    encryptionKeyUrl: ").append(toIndentedString(encryptionKeyUrl)).append("\n");
     sb.append("    encryptionKeyResourceGroupName: ").append(toIndentedString(encryptionKeyResourceGroupName)).append("\n");
     sb.append("    enableOutboundLoadBalancer: ").append(toIndentedString(enableOutboundLoadBalancer)).append("\n");

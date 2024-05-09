@@ -28,7 +28,7 @@ import com.cloudera.cdp.audit.model.ArchivingConfigInfo;
 /**
  * Response object for the GetArchivingConfig method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:35.192-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:57.507-07:00")
 public class GetArchivingConfigResponse extends CdpResponse {
 
   /**

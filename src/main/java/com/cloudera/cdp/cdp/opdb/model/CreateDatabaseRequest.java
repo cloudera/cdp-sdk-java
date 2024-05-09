@@ -28,12 +28,13 @@ import com.cloudera.cdp.opdb.model.AutoScalingParameters;
 import com.cloudera.cdp.opdb.model.CustomRecipe;
 import com.cloudera.cdp.opdb.model.Image;
 import com.cloudera.cdp.opdb.model.KeyValuePair;
+import com.cloudera.cdp.opdb.model.VolumeEncryption;
 import java.util.*;
 
 /**
  * A request to create the database
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:35.031-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:57.341-07:00")
 public class CreateDatabaseRequest  {
 
   /**
@@ -120,6 +121,11 @@ public class CreateDatabaseRequest  {
    * Root volume size in GiB.
    **/
   private Integer rootVolumeSize = null;
+
+  /**
+   * Specifies encryption key to encrypt volume for instance group. It is currently supported for AWS cloud provider only.
+   **/
+  private List<VolumeEncryption> volumeEncryptions = new ArrayList<VolumeEncryption>();
 
   /**
    * Getter for environmentName.
@@ -410,6 +416,23 @@ public class CreateDatabaseRequest  {
     this.rootVolumeSize = rootVolumeSize;
   }
 
+  /**
+   * Getter for volumeEncryptions.
+   * Specifies encryption key to encrypt volume for instance group. It is currently supported for AWS cloud provider only.
+   **/
+  @JsonProperty("volumeEncryptions")
+  public List<VolumeEncryption> getVolumeEncryptions() {
+    return volumeEncryptions;
+  }
+
+  /**
+   * Setter for volumeEncryptions.
+   * Specifies encryption key to encrypt volume for instance group. It is currently supported for AWS cloud provider only.
+   **/
+  public void setVolumeEncryptions(List<VolumeEncryption> volumeEncryptions) {
+    this.volumeEncryptions = volumeEncryptions;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -470,12 +493,15 @@ public class CreateDatabaseRequest  {
     if (!Objects.equals(this.rootVolumeSize, createDatabaseRequest.rootVolumeSize)) {
       return false;
     }
+    if (!Objects.equals(this.volumeEncryptions, createDatabaseRequest.volumeEncryptions)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, databaseName, autoScalingParameters, subnetId, customUserTags, disableMultiAz, attachedStorageForWorkers, disableKerberos, numEdgeNodes, image, disableJwtAuth, enableRegionCanary, scaleType, storageType, recipes, enableGrafana, rootVolumeSize);
+    return Objects.hash(environmentName, databaseName, autoScalingParameters, subnetId, customUserTags, disableMultiAz, attachedStorageForWorkers, disableKerberos, numEdgeNodes, image, disableJwtAuth, enableRegionCanary, scaleType, storageType, recipes, enableGrafana, rootVolumeSize, volumeEncryptions);
   }
 
   @Override
@@ -499,6 +525,7 @@ public class CreateDatabaseRequest  {
     sb.append("    recipes: ").append(toIndentedString(recipes)).append("\n");
     sb.append("    enableGrafana: ").append(toIndentedString(enableGrafana)).append("\n");
     sb.append("    rootVolumeSize: ").append(toIndentedString(rootVolumeSize)).append("\n");
+    sb.append("    volumeEncryptions: ").append(toIndentedString(volumeEncryptions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

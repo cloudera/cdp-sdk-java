@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for detaching recipes from FreeIPA.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:34.387-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:56.746-07:00")
 public class DetachFreeIpaRecipesRequest  {
 
   /**

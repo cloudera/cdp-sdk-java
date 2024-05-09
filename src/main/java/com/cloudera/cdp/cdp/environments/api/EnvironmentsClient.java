@@ -167,6 +167,8 @@ import com.cloudera.cdp.environments.model.SyncUserRequest;
 import com.cloudera.cdp.environments.model.SyncUserResponse;
 import com.cloudera.cdp.environments.model.TestAccountTelemetryRulesRequest;
 import com.cloudera.cdp.environments.model.TestAccountTelemetryRulesResponse;
+import com.cloudera.cdp.environments.model.UpdateAwsCredentialRequest;
+import com.cloudera.cdp.environments.model.UpdateAwsCredentialResponse;
 import com.cloudera.cdp.environments.model.UpdateAwsDiskEncryptionParametersRequest;
 import com.cloudera.cdp.environments.model.UpdateAwsDiskEncryptionParametersResponse;
 import com.cloudera.cdp.environments.model.UpdateAzureAvailabilityZonesRequest;
@@ -183,6 +185,10 @@ import com.cloudera.cdp.environments.model.UpdateCustomDockerRegistryRequest;
 import com.cloudera.cdp.environments.model.UpdateCustomDockerRegistryResponse;
 import com.cloudera.cdp.environments.model.UpdateDataServiceResourcesRequest;
 import com.cloudera.cdp.environments.model.UpdateDataServiceResourcesResponse;
+import com.cloudera.cdp.environments.model.UpdateFreeipaToAwsImdsV1Request;
+import com.cloudera.cdp.environments.model.UpdateFreeipaToAwsImdsV1Response;
+import com.cloudera.cdp.environments.model.UpdateFreeipaToAwsImdsV2Request;
+import com.cloudera.cdp.environments.model.UpdateFreeipaToAwsImdsV2Response;
 import com.cloudera.cdp.environments.model.UpdateOrchestratorStateRequest;
 import com.cloudera.cdp.environments.model.UpdateOrchestratorStateResponse;
 import com.cloudera.cdp.environments.model.UpdateProxyConfigRequest;
@@ -209,7 +215,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:34.387-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:56.746-07:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -1139,6 +1145,19 @@ public class EnvironmentsClient extends CdpClient {
   }
 
   /**
+   * Updates an AWS credential that can be attached to an environment. The credential is used for authorization to provision resources such as compute instances within your cloud provider account.
+   * @param input
+   * @return UpdateAwsCredentialResponse
+   */
+  public UpdateAwsCredentialResponse updateAwsCredential(UpdateAwsCredentialRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateAwsCredential");
+    }
+
+    return this.invokeAPI("updateAwsCredential", "/api/v1/environments2/updateAwsCredential", input, new GenericType<UpdateAwsCredentialResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Update the AWS encryption key ARN for the environment.
    * @param input
    * @return UpdateAwsDiskEncryptionParametersResponse
@@ -1240,6 +1259,32 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("updateDataServiceResources", "/api/v1/environments2/updateDataServiceResources", input, new GenericType<UpdateDataServiceResourcesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Updates FreeIPA AWS cluster to use IMDSv1.
+   * @param input
+   * @return UpdateFreeipaToAwsImdsV1Response
+   */
+  public UpdateFreeipaToAwsImdsV1Response updateFreeipaToAwsImdsV1(UpdateFreeipaToAwsImdsV1Request input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateFreeipaToAwsImdsV1");
+    }
+
+    return this.invokeAPI("updateFreeipaToAwsImdsV1", "/api/v1/environments2/updateFreeipaToAwsImdsV1", input, new GenericType<UpdateFreeipaToAwsImdsV1Response>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Updates FreeIPA AWS cluster to use IMDSv2.
+   * @param input
+   * @return UpdateFreeipaToAwsImdsV2Response
+   */
+  public UpdateFreeipaToAwsImdsV2Response updateFreeipaToAwsImdsV2(UpdateFreeipaToAwsImdsV2Request input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateFreeipaToAwsImdsV2");
+    }
+
+    return this.invokeAPI("updateFreeipaToAwsImdsV2", "/api/v1/environments2/updateFreeipaToAwsImdsV2", input, new GenericType<UpdateFreeipaToAwsImdsV2Response>(){}, NO_EXTENSION);
   }
 
   /**

@@ -113,6 +113,10 @@ import com.cloudera.cdp.datalake.model.SyncComponentVersionsFromCmRequest;
 import com.cloudera.cdp.datalake.model.SyncComponentVersionsFromCmResponse;
 import com.cloudera.cdp.datalake.model.UpdateOrchestratorStateRequest;
 import com.cloudera.cdp.datalake.model.UpdateOrchestratorStateResponse;
+import com.cloudera.cdp.datalake.model.UpdateToAwsImdsV1Request;
+import com.cloudera.cdp.datalake.model.UpdateToAwsImdsV1Response;
+import com.cloudera.cdp.datalake.model.UpdateToAwsImdsV2Request;
+import com.cloudera.cdp.datalake.model.UpdateToAwsImdsV2Response;
 import com.cloudera.cdp.datalake.model.UpgradeDatalakeRequest;
 import com.cloudera.cdp.datalake.model.UpgradeDatalakeResponse;
 import com.cloudera.cdp.datalake.model.ValidateAwsCloudStorageRequest;
@@ -125,7 +129,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:33.904-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:56.157-07:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datalake";
@@ -704,6 +708,32 @@ public class DatalakeClient extends CdpClient {
     }
 
     return this.invokeAPI("updateOrchestratorState", "/api/v1/datalake/updateOrchestratorState", input, new GenericType<UpdateOrchestratorStateResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Updates Data Lake AWS cluster to use IMDSv1.
+   * @param input
+   * @return UpdateToAwsImdsV1Response
+   */
+  public UpdateToAwsImdsV1Response updateToAwsImdsV1(UpdateToAwsImdsV1Request input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateToAwsImdsV1");
+    }
+
+    return this.invokeAPI("updateToAwsImdsV1", "/api/v1/datalake/updateToAwsImdsV1", input, new GenericType<UpdateToAwsImdsV1Response>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Updates Data Lake AWS cluster to use IMDSv2.
+   * @param input
+   * @return UpdateToAwsImdsV2Response
+   */
+  public UpdateToAwsImdsV2Response updateToAwsImdsV2(UpdateToAwsImdsV2Request input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateToAwsImdsV2");
+    }
+
+    return this.invokeAPI("updateToAwsImdsV2", "/api/v1/datalake/updateToAwsImdsV2", input, new GenericType<UpdateToAwsImdsV2Response>(){}, NO_EXTENSION);
   }
 
   /**

@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Auto-scaling configuration for a Virtual Warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-04-30T10:56:32.945-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:55.172-07:00")
 public class AutoscalingOptionsCreateRequest  {
 
   /**
@@ -99,11 +99,6 @@ public class AutoscalingOptionsCreateRequest  {
    * DEPRECATED in favor of the top level impalaHASettings object. Enables a backup instance for Impala catalog to ensure high availability.
    **/
   private Boolean impalaEnableCatalogHighAvailability = null;
-
-  /**
-   * DEPRECATED - Name of the pod configuration.
-   **/
-  private String podConfigName = null;
 
   /**
    * Getter for minClusters.
@@ -355,25 +350,6 @@ public class AutoscalingOptionsCreateRequest  {
     this.impalaEnableCatalogHighAvailability = impalaEnableCatalogHighAvailability;
   }
 
-  /**
-   * Getter for podConfigName.
-   * DEPRECATED - Name of the pod configuration.
-   **/
-  @Deprecated
-  @JsonProperty("podConfigName")
-  public String getPodConfigName() {
-    return podConfigName;
-  }
-
-  /**
-   * Setter for podConfigName.
-   * DEPRECATED - Name of the pod configuration.
-   **/
-  @Deprecated
-  public void setPodConfigName(String podConfigName) {
-    this.podConfigName = podConfigName;
-  }
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -425,15 +401,12 @@ public class AutoscalingOptionsCreateRequest  {
     if (!Objects.equals(this.impalaEnableCatalogHighAvailability, autoscalingOptionsCreateRequest.impalaEnableCatalogHighAvailability)) {
       return false;
     }
-    if (!Objects.equals(this.podConfigName, autoscalingOptionsCreateRequest.podConfigName)) {
-      return false;
-    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(minClusters, maxClusters, disableAutoSuspend, autoSuspendTimeoutSeconds, enableUnifiedAnalytics, hiveScaleWaitTimeSeconds, hiveDesiredFreeCapacity, impalaHighAvailabilityMode, impalaScaleUpDelaySeconds, impalaScaleDownDelaySeconds, impalaEnableShutdownOfCoordinator, impalaShutdownOfCoordinatorDelaySeconds, impalaNumOfActiveCoordinators, impalaEnableCatalogHighAvailability, podConfigName);
+    return Objects.hash(minClusters, maxClusters, disableAutoSuspend, autoSuspendTimeoutSeconds, enableUnifiedAnalytics, hiveScaleWaitTimeSeconds, hiveDesiredFreeCapacity, impalaHighAvailabilityMode, impalaScaleUpDelaySeconds, impalaScaleDownDelaySeconds, impalaEnableShutdownOfCoordinator, impalaShutdownOfCoordinatorDelaySeconds, impalaNumOfActiveCoordinators, impalaEnableCatalogHighAvailability);
   }
 
   @Override
@@ -454,7 +427,6 @@ public class AutoscalingOptionsCreateRequest  {
     sb.append("    impalaShutdownOfCoordinatorDelaySeconds: ").append(toIndentedString(impalaShutdownOfCoordinatorDelaySeconds)).append("\n");
     sb.append("    impalaNumOfActiveCoordinators: ").append(toIndentedString(impalaNumOfActiveCoordinators)).append("\n");
     sb.append("    impalaEnableCatalogHighAvailability: ").append(toIndentedString(impalaEnableCatalogHighAvailability)).append("\n");
-    sb.append("    podConfigName: ").append(toIndentedString(podConfigName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
