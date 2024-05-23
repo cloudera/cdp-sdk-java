@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for stopping the NiFi flow.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:58.634-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:56.886-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class StopFlowRequest  {
 
@@ -40,6 +40,11 @@ public class StopFlowRequest  {
    * The deployment crn.
    **/
   private String deploymentCrn = null;
+
+  /**
+   * The max time in minutes to wait for flow to stop.
+   **/
+  private Integer waitForFlowToStopInMinutes = null;
 
   /**
    * Getter for environmentCrn.
@@ -75,6 +80,23 @@ public class StopFlowRequest  {
     this.deploymentCrn = deploymentCrn;
   }
 
+  /**
+   * Getter for waitForFlowToStopInMinutes.
+   * The max time in minutes to wait for flow to stop.
+   **/
+  @JsonProperty("waitForFlowToStopInMinutes")
+  public Integer getWaitForFlowToStopInMinutes() {
+    return waitForFlowToStopInMinutes;
+  }
+
+  /**
+   * Setter for waitForFlowToStopInMinutes.
+   * The max time in minutes to wait for flow to stop.
+   **/
+  public void setWaitForFlowToStopInMinutes(Integer waitForFlowToStopInMinutes) {
+    this.waitForFlowToStopInMinutes = waitForFlowToStopInMinutes;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -90,12 +112,15 @@ public class StopFlowRequest  {
     if (!Objects.equals(this.deploymentCrn, stopFlowRequest.deploymentCrn)) {
       return false;
     }
+    if (!Objects.equals(this.waitForFlowToStopInMinutes, stopFlowRequest.waitForFlowToStopInMinutes)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, deploymentCrn);
+    return Objects.hash(environmentCrn, deploymentCrn, waitForFlowToStopInMinutes);
   }
 
   @Override
@@ -104,6 +129,7 @@ public class StopFlowRequest  {
     sb.append("class StopFlowRequest {\n");
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
     sb.append("    deploymentCrn: ").append(toIndentedString(deploymentCrn)).append("\n");
+    sb.append("    waitForFlowToStopInMinutes: ").append(toIndentedString(waitForFlowToStopInMinutes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

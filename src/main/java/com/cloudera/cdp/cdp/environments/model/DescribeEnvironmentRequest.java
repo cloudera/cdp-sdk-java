@@ -27,17 +27,17 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for a describe environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:56.746-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:55.093-07:00")
 public class DescribeEnvironmentRequest  {
 
   /**
-   * The names or CRN of the environment.
+   * The names or CRN of the environment. In case of hybrid environments this can be only CRN.
    **/
   private String environmentName = null;
 
   /**
    * Getter for environmentName.
-   * The names or CRN of the environment.
+   * The names or CRN of the environment. In case of hybrid environments this can be only CRN.
    **/
   @JsonProperty("environmentName")
   public String getEnvironmentName() {
@@ -46,7 +46,7 @@ public class DescribeEnvironmentRequest  {
 
   /**
    * Setter for environmentName.
-   * The names or CRN of the environment.
+   * The names or CRN of the environment. In case of hybrid environments this can be only CRN.
    **/
   public void setEnvironmentName(String environmentName) {
     this.environmentName = environmentName;

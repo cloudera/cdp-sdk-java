@@ -23,6 +23,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.dfworkload.model.BasicClusterSize;
 import com.cloudera.cdp.dfworkload.model.ConfiguredKpi;
 import com.cloudera.cdp.dfworkload.model.FlowParameterGroup;
 import com.cloudera.cdp.dfworkload.model.ListenComponent;
@@ -31,7 +32,7 @@ import java.util.*;
 /**
  * Provides all of the configuration that dictates how a flow should be deployed.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:58.634-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:56.886-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcDeploymentConfiguration  {
 
@@ -101,9 +102,14 @@ public class RpcDeploymentConfiguration  {
   private Boolean autoStartFlow = null;
 
   /**
-   * The size of the cluster to deploy.
+   * The size of the cluster to deploy. Deprecated, use clusterSize.name instead.
    **/
   private String clusterSizeName = null;
+
+  /**
+   * The size of the cluster to deploy.
+   **/
+  private BasicClusterSize clusterSize = null;
 
   /**
    * Node storage profile name.
@@ -144,6 +150,11 @@ public class RpcDeploymentConfiguration  {
    * The crn of the project this deployment belongs to, or null if does not belong to a project.
    **/
   private String projectCrn = null;
+
+  /**
+   * Indicates whether the cluster is configured to accept FILE/FILES type parameters.
+   **/
+  private Boolean assetConfigurationAvailable = null;
 
   /**
    * Getter for configurationVersion.
@@ -368,8 +379,9 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Getter for clusterSizeName.
-   * The size of the cluster to deploy.
+   * The size of the cluster to deploy. Deprecated, use clusterSize.name instead.
    **/
+  @Deprecated
   @JsonProperty("clusterSizeName")
   public String getClusterSizeName() {
     return clusterSizeName;
@@ -377,10 +389,28 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Setter for clusterSizeName.
-   * The size of the cluster to deploy.
+   * The size of the cluster to deploy. Deprecated, use clusterSize.name instead.
    **/
+  @Deprecated
   public void setClusterSizeName(String clusterSizeName) {
     this.clusterSizeName = clusterSizeName;
+  }
+
+  /**
+   * Getter for clusterSize.
+   * The size of the cluster to deploy.
+   **/
+  @JsonProperty("clusterSize")
+  public BasicClusterSize getClusterSize() {
+    return clusterSize;
+  }
+
+  /**
+   * Setter for clusterSize.
+   * The size of the cluster to deploy.
+   **/
+  public void setClusterSize(BasicClusterSize clusterSize) {
+    this.clusterSize = clusterSize;
   }
 
   /**
@@ -519,6 +549,23 @@ public class RpcDeploymentConfiguration  {
     this.projectCrn = projectCrn;
   }
 
+  /**
+   * Getter for assetConfigurationAvailable.
+   * Indicates whether the cluster is configured to accept FILE/FILES type parameters.
+   **/
+  @JsonProperty("assetConfigurationAvailable")
+  public Boolean getAssetConfigurationAvailable() {
+    return assetConfigurationAvailable;
+  }
+
+  /**
+   * Setter for assetConfigurationAvailable.
+   * Indicates whether the cluster is configured to accept FILE/FILES type parameters.
+   **/
+  public void setAssetConfigurationAvailable(Boolean assetConfigurationAvailable) {
+    this.assetConfigurationAvailable = assetConfigurationAvailable;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -570,6 +617,9 @@ public class RpcDeploymentConfiguration  {
     if (!Objects.equals(this.clusterSizeName, rpcDeploymentConfiguration.clusterSizeName)) {
       return false;
     }
+    if (!Objects.equals(this.clusterSize, rpcDeploymentConfiguration.clusterSize)) {
+      return false;
+    }
     if (!Objects.equals(this.nodeStorageProfileName, rpcDeploymentConfiguration.nodeStorageProfileName)) {
       return false;
     }
@@ -594,12 +644,15 @@ public class RpcDeploymentConfiguration  {
     if (!Objects.equals(this.projectCrn, rpcDeploymentConfiguration.projectCrn)) {
       return false;
     }
+    if (!Objects.equals(this.assetConfigurationAvailable, rpcDeploymentConfiguration.assetConfigurationAvailable)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(configurationVersion, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, deploymentId, deploymentCrn, name, cfmNifiVersion, autoStartFlow, clusterSizeName, nodeStorageProfileName, parametersDirty, kpisDirty, sizingAndScalingDirty, lastUpdatedByUsername, inboundHostname, listenComponents, projectCrn);
+    return Objects.hash(configurationVersion, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, deploymentId, deploymentCrn, name, cfmNifiVersion, autoStartFlow, clusterSizeName, clusterSize, nodeStorageProfileName, parametersDirty, kpisDirty, sizingAndScalingDirty, lastUpdatedByUsername, inboundHostname, listenComponents, projectCrn, assetConfigurationAvailable);
   }
 
   @Override
@@ -620,6 +673,7 @@ public class RpcDeploymentConfiguration  {
     sb.append("    cfmNifiVersion: ").append(toIndentedString(cfmNifiVersion)).append("\n");
     sb.append("    autoStartFlow: ").append(toIndentedString(autoStartFlow)).append("\n");
     sb.append("    clusterSizeName: ").append(toIndentedString(clusterSizeName)).append("\n");
+    sb.append("    clusterSize: ").append(toIndentedString(clusterSize)).append("\n");
     sb.append("    nodeStorageProfileName: ").append(toIndentedString(nodeStorageProfileName)).append("\n");
     sb.append("    parametersDirty: ").append(toIndentedString(parametersDirty)).append("\n");
     sb.append("    kpisDirty: ").append(toIndentedString(kpisDirty)).append("\n");
@@ -628,6 +682,7 @@ public class RpcDeploymentConfiguration  {
     sb.append("    inboundHostname: ").append(toIndentedString(inboundHostname)).append("\n");
     sb.append("    listenComponents: ").append(toIndentedString(listenComponents)).append("\n");
     sb.append("    projectCrn: ").append(toIndentedString(projectCrn)).append("\n");
+    sb.append("    assetConfigurationAvailable: ").append(toIndentedString(assetConfigurationAvailable)).append("\n");
     sb.append("}");
     return sb.toString();
   }

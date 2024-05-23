@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request to start DataFlow diagnostics bundle creation.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:58.271-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:56.513-07:00")
 public class StartGetDiagnosticsCollectionRequest  {
 
   /**
@@ -75,6 +75,11 @@ public class StartGetDiagnosticsCollectionRequest  {
    * Collection scope.
    **/
   private String collectionScope = null;
+
+  /**
+   * Indicates if the heap and thread dumps are needed for a flow.
+   **/
+  private Boolean includeNifiDiagnostics = null;
 
   /**
    * Getter for dfServiceCrn.
@@ -229,6 +234,23 @@ public class StartGetDiagnosticsCollectionRequest  {
     this.collectionScope = collectionScope;
   }
 
+  /**
+   * Getter for includeNifiDiagnostics.
+   * Indicates if the heap and thread dumps are needed for a flow.
+   **/
+  @JsonProperty("includeNifiDiagnostics")
+  public Boolean getIncludeNifiDiagnostics() {
+    return includeNifiDiagnostics;
+  }
+
+  /**
+   * Setter for includeNifiDiagnostics.
+   * Indicates if the heap and thread dumps are needed for a flow.
+   **/
+  public void setIncludeNifiDiagnostics(Boolean includeNifiDiagnostics) {
+    this.includeNifiDiagnostics = includeNifiDiagnostics;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -265,12 +287,15 @@ public class StartGetDiagnosticsCollectionRequest  {
     if (!Objects.equals(this.collectionScope, startGetDiagnosticsCollectionRequest.collectionScope)) {
       return false;
     }
+    if (!Objects.equals(this.includeNifiDiagnostics, startGetDiagnosticsCollectionRequest.includeNifiDiagnostics)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dfServiceCrn, destination, description, environmentComponents, caseNumber, deployments, startTime, endTime, collectionScope);
+    return Objects.hash(dfServiceCrn, destination, description, environmentComponents, caseNumber, deployments, startTime, endTime, collectionScope, includeNifiDiagnostics);
   }
 
   @Override
@@ -286,6 +311,7 @@ public class StartGetDiagnosticsCollectionRequest  {
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    collectionScope: ").append(toIndentedString(collectionScope)).append("\n");
+    sb.append("    includeNifiDiagnostics: ").append(toIndentedString(includeNifiDiagnostics)).append("\n");
     sb.append("}");
     return sb.toString();
   }

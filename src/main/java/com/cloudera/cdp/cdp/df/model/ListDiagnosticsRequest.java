@@ -23,11 +23,12 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import java.util.*;
 
 /**
  * A request to list past and present diagnostics for a given DataFlow Service.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:58.271-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:56.513-07:00")
 public class ListDiagnosticsRequest  {
 
   /**
@@ -44,6 +45,11 @@ public class ListDiagnosticsRequest  {
    * The token pointing to the next element to be retrieved.
    **/
   private String startingToken = null;
+
+  /**
+   * List of UUIDs to list in the response.
+   **/
+  private List<String> uuids = new ArrayList<String>();
 
   /**
    * Getter for dfServiceCrn.
@@ -96,6 +102,23 @@ public class ListDiagnosticsRequest  {
     this.startingToken = startingToken;
   }
 
+  /**
+   * Getter for uuids.
+   * List of UUIDs to list in the response.
+   **/
+  @JsonProperty("uuids")
+  public List<String> getUuids() {
+    return uuids;
+  }
+
+  /**
+   * Setter for uuids.
+   * List of UUIDs to list in the response.
+   **/
+  public void setUuids(List<String> uuids) {
+    this.uuids = uuids;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -114,12 +137,15 @@ public class ListDiagnosticsRequest  {
     if (!Objects.equals(this.startingToken, listDiagnosticsRequest.startingToken)) {
       return false;
     }
+    if (!Objects.equals(this.uuids, listDiagnosticsRequest.uuids)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dfServiceCrn, pageSize, startingToken);
+    return Objects.hash(dfServiceCrn, pageSize, startingToken, uuids);
   }
 
   @Override
@@ -129,6 +155,7 @@ public class ListDiagnosticsRequest  {
     sb.append("    dfServiceCrn: ").append(toIndentedString(dfServiceCrn)).append("\n");
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    startingToken: ").append(toIndentedString(startingToken)).append("\n");
+    sb.append("    uuids: ").append(toIndentedString(uuids)).append("\n");
     sb.append("}");
     return sb.toString();
   }

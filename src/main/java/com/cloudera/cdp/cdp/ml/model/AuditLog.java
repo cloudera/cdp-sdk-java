@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Audit log represents an individual log.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:55.811-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:54.264-07:00")
 public class AuditLog  {
 
   /**

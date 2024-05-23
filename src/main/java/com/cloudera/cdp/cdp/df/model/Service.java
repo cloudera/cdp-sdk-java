@@ -23,6 +23,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.df.model.EncryptionParameters;
 import com.cloudera.cdp.df.model.ServiceStatus;
 import java.util.*;
 import java.util.Map;
@@ -30,7 +31,7 @@ import java.util.Map;
 /**
  * The DataFlow view of a CDP service.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:58.271-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:56.513-07:00")
 public class Service  {
 
   /**
@@ -202,6 +203,11 @@ public class Service  {
    * CIDR range from which to assign IPs to internal services in the kubernetes cluster.
    **/
   private String serviceCidr = null;
+
+  /**
+   * The encryption parameters used by DataFlow service for encrypting K8s secrets and EBS volumes.
+   **/
+  private EncryptionParameters encryptionParameters = null;
 
   /**
    * Getter for crn.
@@ -783,6 +789,23 @@ public class Service  {
     this.serviceCidr = serviceCidr;
   }
 
+  /**
+   * Getter for encryptionParameters.
+   * The encryption parameters used by DataFlow service for encrypting K8s secrets and EBS volumes.
+   **/
+  @JsonProperty("encryptionParameters")
+  public EncryptionParameters getEncryptionParameters() {
+    return encryptionParameters;
+  }
+
+  /**
+   * Setter for encryptionParameters.
+   * The encryption parameters used by DataFlow service for encrypting K8s secrets and EBS volumes.
+   **/
+  public void setEncryptionParameters(EncryptionParameters encryptionParameters) {
+    this.encryptionParameters = encryptionParameters;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -894,12 +917,15 @@ public class Service  {
     if (!Objects.equals(this.serviceCidr, service.serviceCidr)) {
       return false;
     }
+    if (!Objects.equals(this.encryptionParameters, service.encryptionParameters)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, environmentCrn, name, cloudPlatform, region, deploymentCount, minK8sNodeCount, maxK8sNodeCount, status, workloadVersion, runningK8sNodeCount, instanceType, dfLocalUrl, kubeApiAuthorizedIpRanges, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, clusterId, clusterUsable, validActions, usePublicLoadBalancer, tags, loadBalancerAuthorizedIpRanges, clusterSubnets, creatingK8sNodeCount, terminatingK8sNodeCount, loadBalancerSubnets, privateCluster, proxyName, k8sServerVersion, availableK8sVersionUpgrade, userDefinedRouting, podCidr, serviceCidr);
+    return Objects.hash(crn, environmentCrn, name, cloudPlatform, region, deploymentCount, minK8sNodeCount, maxK8sNodeCount, status, workloadVersion, runningK8sNodeCount, instanceType, dfLocalUrl, kubeApiAuthorizedIpRanges, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, clusterId, clusterUsable, validActions, usePublicLoadBalancer, tags, loadBalancerAuthorizedIpRanges, clusterSubnets, creatingK8sNodeCount, terminatingK8sNodeCount, loadBalancerSubnets, privateCluster, proxyName, k8sServerVersion, availableK8sVersionUpgrade, userDefinedRouting, podCidr, serviceCidr, encryptionParameters);
   }
 
   @Override
@@ -940,6 +966,7 @@ public class Service  {
     sb.append("    userDefinedRouting: ").append(toIndentedString(userDefinedRouting)).append("\n");
     sb.append("    podCidr: ").append(toIndentedString(podCidr)).append("\n");
     sb.append("    serviceCidr: ").append(toIndentedString(serviceCidr)).append("\n");
+    sb.append("    encryptionParameters: ").append(toIndentedString(encryptionParameters)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -3,7 +3,7 @@
 
   <groupId>com.cloudera.cdp</groupId>
   <artifactId>cdp-sdk-java</artifactId>
-  <version>0.9.113</version>
+  <version>0.9.114</version>
   <name>Cloudera CDP Java SDK</name>
   <packaging>jar</packaging>
 
@@ -18,7 +18,7 @@
     <commons-codec.version>1.11</commons-codec.version>
     <commons-lang3.version>3.11</commons-lang3.version>
     <guava.version>32.0.1-jre</guava.version>
-    <httpclient.version>4.5.13</httpclient.version>
+    <httpclient.version>5.3.1</httpclient.version>
     <ini4j.version>0.5.4</ini4j.version>
     <jackson.version>2.14.1</jackson.version>
     <javax-ws-rs.version>2.1.1</javax-ws-rs.version>
@@ -106,13 +106,17 @@
       <version>${commons-lang3.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.apache.httpcomponents</groupId>
-      <artifactId>httpclient</artifactId>
+      <groupId>org.apache.httpcomponents.client5</groupId>
+      <artifactId>httpclient5</artifactId>
       <version>${httpclient.version}</version>
       <exclusions>
         <exclusion>
           <groupId>commons-logging</groupId>
           <artifactId>commons-logging</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
         </exclusion>
       </exclusions>
     </dependency>
@@ -125,6 +129,12 @@
       <groupId>org.glassfish.jersey.connectors</groupId>
       <artifactId>jersey-apache-connector</artifactId>
       <version>${jersey.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.glassfish.jersey.core</groupId>

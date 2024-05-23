@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * A request to initiate a deployment
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:58.271-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:56.513-07:00")
 public class InitiateDeploymentRequest  {
 
   /**
@@ -39,6 +39,11 @@ public class InitiateDeploymentRequest  {
    * The flow version CRN.
    **/
   private String flowVersionCrn = null;
+
+  /**
+   * The deployment CRN for a deployment where change flow version is being performed.
+   **/
+  private String deploymentCrn = null;
 
   /**
    * Getter for serviceCrn.
@@ -74,6 +79,23 @@ public class InitiateDeploymentRequest  {
     this.flowVersionCrn = flowVersionCrn;
   }
 
+  /**
+   * Getter for deploymentCrn.
+   * The deployment CRN for a deployment where change flow version is being performed.
+   **/
+  @JsonProperty("deploymentCrn")
+  public String getDeploymentCrn() {
+    return deploymentCrn;
+  }
+
+  /**
+   * Setter for deploymentCrn.
+   * The deployment CRN for a deployment where change flow version is being performed.
+   **/
+  public void setDeploymentCrn(String deploymentCrn) {
+    this.deploymentCrn = deploymentCrn;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -89,12 +111,15 @@ public class InitiateDeploymentRequest  {
     if (!Objects.equals(this.flowVersionCrn, initiateDeploymentRequest.flowVersionCrn)) {
       return false;
     }
+    if (!Objects.equals(this.deploymentCrn, initiateDeploymentRequest.deploymentCrn)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(serviceCrn, flowVersionCrn);
+    return Objects.hash(serviceCrn, flowVersionCrn, deploymentCrn);
   }
 
   @Override
@@ -103,6 +128,7 @@ public class InitiateDeploymentRequest  {
     sb.append("class InitiateDeploymentRequest {\n");
     sb.append("    serviceCrn: ").append(toIndentedString(serviceCrn)).append("\n");
     sb.append("    flowVersionCrn: ").append(toIndentedString(flowVersionCrn)).append("\n");
+    sb.append("    deploymentCrn: ").append(toIndentedString(deploymentCrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -23,16 +23,17 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.dfworkload.model.CustomClusterSizeLimits;
 
 /**
- * Cluster scaling parameters
+ * Cluster scaling parameters.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:58.634-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:56.886-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class ClusterSize  {
 
   /**
-   * The name of this Cluster Size
+   * The name of this Cluster Size.
    **/
   private String name = null;
 
@@ -47,23 +48,28 @@ public class ClusterSize  {
   private Double memoryLimit = null;
 
   /**
-   * The text (i.e., the human readable name) for this Cluster Size
+   * The text (i.e., the human readable name) for this Cluster Size.
    **/
   private String text = null;
 
   /**
-   * The heap size
+   * The heap size.
    **/
   private Double heapSize = null;
 
   /**
-   * Flag to signal whether this ClusterSize is enabled
+   * Flag to signal whether this ClusterSize is enabled.
    **/
   private Boolean enabled = null;
 
   /**
+   * Custom cluster size limits.
+   **/
+  private CustomClusterSizeLimits customClusterSizeLimits = null;
+
+  /**
    * Getter for name.
-   * The name of this Cluster Size
+   * The name of this Cluster Size.
    **/
   @JsonProperty("name")
   public String getName() {
@@ -72,7 +78,7 @@ public class ClusterSize  {
 
   /**
    * Setter for name.
-   * The name of this Cluster Size
+   * The name of this Cluster Size.
    **/
   public void setName(String name) {
     this.name = name;
@@ -114,7 +120,7 @@ public class ClusterSize  {
 
   /**
    * Getter for text.
-   * The text (i.e., the human readable name) for this Cluster Size
+   * The text (i.e., the human readable name) for this Cluster Size.
    **/
   @JsonProperty("text")
   public String getText() {
@@ -123,7 +129,7 @@ public class ClusterSize  {
 
   /**
    * Setter for text.
-   * The text (i.e., the human readable name) for this Cluster Size
+   * The text (i.e., the human readable name) for this Cluster Size.
    **/
   public void setText(String text) {
     this.text = text;
@@ -131,7 +137,7 @@ public class ClusterSize  {
 
   /**
    * Getter for heapSize.
-   * The heap size
+   * The heap size.
    **/
   @JsonProperty("heapSize")
   public Double getHeapSize() {
@@ -140,7 +146,7 @@ public class ClusterSize  {
 
   /**
    * Setter for heapSize.
-   * The heap size
+   * The heap size.
    **/
   public void setHeapSize(Double heapSize) {
     this.heapSize = heapSize;
@@ -148,7 +154,7 @@ public class ClusterSize  {
 
   /**
    * Getter for enabled.
-   * Flag to signal whether this ClusterSize is enabled
+   * Flag to signal whether this ClusterSize is enabled.
    **/
   @JsonProperty("enabled")
   public Boolean getEnabled() {
@@ -157,10 +163,27 @@ public class ClusterSize  {
 
   /**
    * Setter for enabled.
-   * Flag to signal whether this ClusterSize is enabled
+   * Flag to signal whether this ClusterSize is enabled.
    **/
   public void setEnabled(Boolean enabled) {
     this.enabled = enabled;
+  }
+
+  /**
+   * Getter for customClusterSizeLimits.
+   * Custom cluster size limits.
+   **/
+  @JsonProperty("customClusterSizeLimits")
+  public CustomClusterSizeLimits getCustomClusterSizeLimits() {
+    return customClusterSizeLimits;
+  }
+
+  /**
+   * Setter for customClusterSizeLimits.
+   * Custom cluster size limits.
+   **/
+  public void setCustomClusterSizeLimits(CustomClusterSizeLimits customClusterSizeLimits) {
+    this.customClusterSizeLimits = customClusterSizeLimits;
   }
 
   @Override
@@ -190,12 +213,15 @@ public class ClusterSize  {
     if (!Objects.equals(this.enabled, clusterSize.enabled)) {
       return false;
     }
+    if (!Objects.equals(this.customClusterSizeLimits, clusterSize.customClusterSizeLimits)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, coresPerNode, memoryLimit, text, heapSize, enabled);
+    return Objects.hash(name, coresPerNode, memoryLimit, text, heapSize, enabled, customClusterSizeLimits);
   }
 
   @Override
@@ -208,6 +234,7 @@ public class ClusterSize  {
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
     sb.append("    heapSize: ").append(toIndentedString(heapSize)).append("\n");
     sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+    sb.append("    customClusterSizeLimits: ").append(toIndentedString(customClusterSizeLimits)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -23,6 +23,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.dfworkload.model.BasicClusterSize;
 import com.cloudera.cdp.dfworkload.model.ConfiguredKpi;
 import com.cloudera.cdp.dfworkload.model.FlowParameterGroup;
 import com.cloudera.cdp.dfworkload.model.ListenComponent;
@@ -31,7 +32,7 @@ import java.util.*;
 /**
  * Request object to create a deployment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:58.634-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:56.886-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class CreateDeploymentRequest  {
 
@@ -46,7 +47,7 @@ public class CreateDeploymentRequest  {
   private Integer configurationVersion = null;
 
   /**
-   * The name of the deployment
+   * The name of the deployment.
    **/
   private String name = null;
 
@@ -91,32 +92,37 @@ public class CreateDeploymentRequest  {
   private List<ConfiguredKpi> kpis = new ArrayList<ConfiguredKpi>();
 
   /**
-   * The CFM NiFi version associated with the deployment
+   * The CFM NiFi version associated with the deployment.
    **/
   private String cfmNifiVersion = null;
 
   /**
-   * Indicates whether or not the flow should be started during deployment creation
+   * Indicates whether or not the flow should be started during deployment creation.
    **/
   private Boolean autoStartFlow = null;
 
   /**
-   * The size of the cluster to deploy. Deprecated. Use 'clusterSize.name' instead
+   * The size of the cluster to deploy. Deprecated. Use 'clusterSize.name' instead.
    **/
   private String clusterSizeName = null;
 
   /**
-   * The FQDN of inbound hostname or just the prefix part
+   * The size of the cluster to deploy.
+   **/
+  private BasicClusterSize clusterSize = null;
+
+  /**
+   * The FQDN of inbound hostname or just the prefix part.
    **/
   private String inboundHostname = null;
 
   /**
-   * Listen components port and protocol data
+   * Listen components port and protocol data.
    **/
   private List<ListenComponent> listenComponents = new ArrayList<ListenComponent>();
 
   /**
-   * Node storage profile name
+   * Node storage profile name.
    **/
   private String nodeStorageProfileName = null;
 
@@ -124,6 +130,11 @@ public class CreateDeploymentRequest  {
    * The CRN of the custom NAR configuration.
    **/
   private String customNarConfigurationCrn = null;
+
+  /**
+   * The CRN of the custom Python configuration.
+   **/
+  private String customPythonConfigurationCrn = null;
 
   /**
    * The CRN of the project.
@@ -166,7 +177,7 @@ public class CreateDeploymentRequest  {
 
   /**
    * Getter for name.
-   * The name of the deployment
+   * The name of the deployment.
    **/
   @JsonProperty("name")
   public String getName() {
@@ -175,7 +186,7 @@ public class CreateDeploymentRequest  {
 
   /**
    * Setter for name.
-   * The name of the deployment
+   * The name of the deployment.
    **/
   public void setName(String name) {
     this.name = name;
@@ -319,7 +330,7 @@ public class CreateDeploymentRequest  {
 
   /**
    * Getter for cfmNifiVersion.
-   * The CFM NiFi version associated with the deployment
+   * The CFM NiFi version associated with the deployment.
    **/
   @JsonProperty("cfmNifiVersion")
   public String getCfmNifiVersion() {
@@ -328,7 +339,7 @@ public class CreateDeploymentRequest  {
 
   /**
    * Setter for cfmNifiVersion.
-   * The CFM NiFi version associated with the deployment
+   * The CFM NiFi version associated with the deployment.
    **/
   public void setCfmNifiVersion(String cfmNifiVersion) {
     this.cfmNifiVersion = cfmNifiVersion;
@@ -336,7 +347,7 @@ public class CreateDeploymentRequest  {
 
   /**
    * Getter for autoStartFlow.
-   * Indicates whether or not the flow should be started during deployment creation
+   * Indicates whether or not the flow should be started during deployment creation.
    **/
   @JsonProperty("autoStartFlow")
   public Boolean getAutoStartFlow() {
@@ -345,7 +356,7 @@ public class CreateDeploymentRequest  {
 
   /**
    * Setter for autoStartFlow.
-   * Indicates whether or not the flow should be started during deployment creation
+   * Indicates whether or not the flow should be started during deployment creation.
    **/
   public void setAutoStartFlow(Boolean autoStartFlow) {
     this.autoStartFlow = autoStartFlow;
@@ -353,7 +364,7 @@ public class CreateDeploymentRequest  {
 
   /**
    * Getter for clusterSizeName.
-   * The size of the cluster to deploy. Deprecated. Use &#39;clusterSize.name&#39; instead
+   * The size of the cluster to deploy. Deprecated. Use &#39;clusterSize.name&#39; instead.
    **/
   @Deprecated
   @JsonProperty("clusterSizeName")
@@ -363,7 +374,7 @@ public class CreateDeploymentRequest  {
 
   /**
    * Setter for clusterSizeName.
-   * The size of the cluster to deploy. Deprecated. Use &#39;clusterSize.name&#39; instead
+   * The size of the cluster to deploy. Deprecated. Use &#39;clusterSize.name&#39; instead.
    **/
   @Deprecated
   public void setClusterSizeName(String clusterSizeName) {
@@ -371,8 +382,25 @@ public class CreateDeploymentRequest  {
   }
 
   /**
+   * Getter for clusterSize.
+   * The size of the cluster to deploy.
+   **/
+  @JsonProperty("clusterSize")
+  public BasicClusterSize getClusterSize() {
+    return clusterSize;
+  }
+
+  /**
+   * Setter for clusterSize.
+   * The size of the cluster to deploy.
+   **/
+  public void setClusterSize(BasicClusterSize clusterSize) {
+    this.clusterSize = clusterSize;
+  }
+
+  /**
    * Getter for inboundHostname.
-   * The FQDN of inbound hostname or just the prefix part
+   * The FQDN of inbound hostname or just the prefix part.
    **/
   @JsonProperty("inboundHostname")
   public String getInboundHostname() {
@@ -381,7 +409,7 @@ public class CreateDeploymentRequest  {
 
   /**
    * Setter for inboundHostname.
-   * The FQDN of inbound hostname or just the prefix part
+   * The FQDN of inbound hostname or just the prefix part.
    **/
   public void setInboundHostname(String inboundHostname) {
     this.inboundHostname = inboundHostname;
@@ -389,7 +417,7 @@ public class CreateDeploymentRequest  {
 
   /**
    * Getter for listenComponents.
-   * Listen components port and protocol data
+   * Listen components port and protocol data.
    **/
   @JsonProperty("listenComponents")
   public List<ListenComponent> getListenComponents() {
@@ -398,7 +426,7 @@ public class CreateDeploymentRequest  {
 
   /**
    * Setter for listenComponents.
-   * Listen components port and protocol data
+   * Listen components port and protocol data.
    **/
   public void setListenComponents(List<ListenComponent> listenComponents) {
     this.listenComponents = listenComponents;
@@ -406,7 +434,7 @@ public class CreateDeploymentRequest  {
 
   /**
    * Getter for nodeStorageProfileName.
-   * Node storage profile name
+   * Node storage profile name.
    **/
   @JsonProperty("nodeStorageProfileName")
   public String getNodeStorageProfileName() {
@@ -415,7 +443,7 @@ public class CreateDeploymentRequest  {
 
   /**
    * Setter for nodeStorageProfileName.
-   * Node storage profile name
+   * Node storage profile name.
    **/
   public void setNodeStorageProfileName(String nodeStorageProfileName) {
     this.nodeStorageProfileName = nodeStorageProfileName;
@@ -436,6 +464,23 @@ public class CreateDeploymentRequest  {
    **/
   public void setCustomNarConfigurationCrn(String customNarConfigurationCrn) {
     this.customNarConfigurationCrn = customNarConfigurationCrn;
+  }
+
+  /**
+   * Getter for customPythonConfigurationCrn.
+   * The CRN of the custom Python configuration.
+   **/
+  @JsonProperty("customPythonConfigurationCrn")
+  public String getCustomPythonConfigurationCrn() {
+    return customPythonConfigurationCrn;
+  }
+
+  /**
+   * Setter for customPythonConfigurationCrn.
+   * The CRN of the custom Python configuration.
+   **/
+  public void setCustomPythonConfigurationCrn(String customPythonConfigurationCrn) {
+    this.customPythonConfigurationCrn = customPythonConfigurationCrn;
   }
 
   /**
@@ -506,6 +551,9 @@ public class CreateDeploymentRequest  {
     if (!Objects.equals(this.clusterSizeName, createDeploymentRequest.clusterSizeName)) {
       return false;
     }
+    if (!Objects.equals(this.clusterSize, createDeploymentRequest.clusterSize)) {
+      return false;
+    }
     if (!Objects.equals(this.inboundHostname, createDeploymentRequest.inboundHostname)) {
       return false;
     }
@@ -518,6 +566,9 @@ public class CreateDeploymentRequest  {
     if (!Objects.equals(this.customNarConfigurationCrn, createDeploymentRequest.customNarConfigurationCrn)) {
       return false;
     }
+    if (!Objects.equals(this.customPythonConfigurationCrn, createDeploymentRequest.customPythonConfigurationCrn)) {
+      return false;
+    }
     if (!Objects.equals(this.projectCrn, createDeploymentRequest.projectCrn)) {
       return false;
     }
@@ -526,7 +577,7 @@ public class CreateDeploymentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, configurationVersion, name, deploymentRequestCrn, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, cfmNifiVersion, autoStartFlow, clusterSizeName, inboundHostname, listenComponents, nodeStorageProfileName, customNarConfigurationCrn, projectCrn);
+    return Objects.hash(environmentCrn, configurationVersion, name, deploymentRequestCrn, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, cfmNifiVersion, autoStartFlow, clusterSizeName, clusterSize, inboundHostname, listenComponents, nodeStorageProfileName, customNarConfigurationCrn, customPythonConfigurationCrn, projectCrn);
   }
 
   @Override
@@ -547,10 +598,12 @@ public class CreateDeploymentRequest  {
     sb.append("    cfmNifiVersion: ").append(toIndentedString(cfmNifiVersion)).append("\n");
     sb.append("    autoStartFlow: ").append(toIndentedString(autoStartFlow)).append("\n");
     sb.append("    clusterSizeName: ").append(toIndentedString(clusterSizeName)).append("\n");
+    sb.append("    clusterSize: ").append(toIndentedString(clusterSize)).append("\n");
     sb.append("    inboundHostname: ").append(toIndentedString(inboundHostname)).append("\n");
     sb.append("    listenComponents: ").append(toIndentedString(listenComponents)).append("\n");
     sb.append("    nodeStorageProfileName: ").append(toIndentedString(nodeStorageProfileName)).append("\n");
     sb.append("    customNarConfigurationCrn: ").append(toIndentedString(customNarConfigurationCrn)).append("\n");
+    sb.append("    customPythonConfigurationCrn: ").append(toIndentedString(customPythonConfigurationCrn)).append("\n");
     sb.append("    projectCrn: ").append(toIndentedString(projectCrn)).append("\n");
     sb.append("}");
     return sb.toString();

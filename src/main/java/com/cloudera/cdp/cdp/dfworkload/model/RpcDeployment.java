@@ -23,6 +23,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.dfworkload.model.ClusterSize;
 import com.cloudera.cdp.dfworkload.model.DeploymentStatus;
 import com.cloudera.cdp.dfworkload.model.ProjectMeta;
 import com.cloudera.cdp.dfworkload.model.ServiceMeta;
@@ -31,187 +32,192 @@ import java.util.*;
 /**
  * Provides details about a deployment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:58.634-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:56.886-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcDeployment  {
 
   /**
-   * The name of the deployment
+   * The name of the deployment.
    **/
   private String name = null;
 
   /**
-   * The status of the deployment
+   * The status of the deployment.
    **/
   private DeploymentStatus status = null;
 
   /**
-   * Simple information about the DataFlow service of the deployment
+   * Simple information about the DataFlow service of the deployment.
    **/
   private ServiceMeta service = null;
 
   /**
-   * The CRN of the deployment
+   * The CRN of the deployment.
    **/
   private String crn = null;
 
   /**
-   * Current count of active alerts classified as an info
+   * Current count of active alerts classified as an info.
    **/
   private Long activeInfoAlertCount = null;
 
   /**
-   * Current count of active alerts classified as a warning
+   * Current count of active alerts classified as a warning.
    **/
   private Long activeWarningAlertCount = null;
 
   /**
-   * Current count of active alerts classified as an error
+   * Current count of active alerts classified as an error.
    **/
   private Long activeErrorAlertCount = null;
 
   /**
-   * Timestamp of the creation of the deployment
+   * Timestamp of the creation of the deployment.
    **/
   private Long created = null;
 
   /**
-   * Timestamp of the last time the deployment was modified
+   * Timestamp of the last time the deployment was modified.
    **/
   private Long updated = null;
 
   /**
-   * Valid actions that can be applied to the deployment in its current state
+   * Valid actions that can be applied to the deployment in its current state.
    **/
   private List<String> validActions = new ArrayList<String>();
 
   /**
-   * Simple information about the project this deployment belongs to, or null if does not belong to a project
+   * Simple information about the project this deployment belongs to, or null if does not belong to a project.
    **/
   private ProjectMeta project = null;
 
   /**
-   * The url to open the deployed flow in NiFi
+   * The url to open the deployed flow in NiFi.
    **/
   private String nifiUrl = null;
 
   /**
-   * The initial size of the deployment. Deprecated. Use 'clusterSizeParams.name' instead
+   * The initial size of the deployment. Deprecated. Use 'clusterSizeParams.name' instead.
    **/
   private String clusterSize = null;
 
   /**
-   * The number of cores per node for the deployment. Deprecated. Use 'clusterSizeParams.coresPerNode' instead
+   * The number of cores per node for the deployment. Deprecated. Use 'clusterSizeParams.coresPerNode' instead.
    **/
   private Integer coresPerNode = null;
 
   /**
-   * The heap size for the deployment. Deprecated. Use 'clusterSizeParams.heapSize' instead
+   * The heap size for the deployment. Deprecated. Use 'clusterSizeParams.heapSize' instead.
    **/
   private Double heapSize = null;
 
   /**
-   * The memory limit of the deployment. Deprecated. Use 'clusterSizeParams.memoryLimit' instead
+   * The memory limit of the deployment. Deprecated. Use 'clusterSizeParams.memoryLimit' instead.
    **/
   private Double memoryLimit = null;
 
   /**
-   * Whether or not autoscaling is enabled for this deployment
+   * The initial size of the deployment.
+   **/
+  private ClusterSize clusterSizeParams = null;
+
+  /**
+   * Whether or not autoscaling is enabled for this deployment.
    **/
   private Boolean autoscalingEnabled = null;
 
   /**
-   * Whether or not flow metrics scaling is enabled for this deployment
+   * Whether or not flow metrics scaling is enabled for this deployment.
    **/
   private Boolean flowMetricsScalingEnabled = null;
 
   /**
-   * The minimum number of nodes that the deployment will allocate; can only be used when autoscalingEnabled is true
+   * The minimum number of nodes that the deployment will allocate; can only be used when autoscalingEnabled is true.
    **/
   private Integer autoscaleMinNodes = null;
 
   /**
-   * The maximum number of nodes that the deployment can scale up to; can only be used when autoscalingEnabled is true
+   * The maximum number of nodes that the deployment can scale up to; can only be used when autoscalingEnabled is true.
    **/
   private Integer autoscaleMaxNodes = null;
 
   /**
-   * The static number of nodes of the deployment; can only be used when autoscalingEnabled is false
+   * The static number of nodes of the deployment; can only be used when autoscalingEnabled is false.
    **/
   private Integer staticNodeCount = null;
 
   /**
-   * The name of the flow
+   * The name of the flow.
    **/
   private String flowName = null;
 
   /**
-   * The version of the flow
+   * The version of the flow.
    **/
   private Integer flowVersion = null;
 
   /**
-   * The deployment's current flow version CRN
+   * The deployment's current flow version CRN.
    **/
   private String flowVersionCrn = null;
 
   /**
-   * The deployment's current flow CRN
+   * The deployment's current flow CRN.
    **/
   private String flowCrn = null;
 
   /**
-   * The CRN of the user who deployed the flow
+   * The CRN of the user who deployed the flow.
    **/
   private String creatorCrn = null;
 
   /**
-   * The type of artifact of the flow
+   * The type of artifact of the flow.
    **/
   private String artifactTypeName = null;
 
   /**
-   * The current node count
+   * The current node count.
    **/
   private Integer currentNodeCount = null;
 
   /**
-   * The username of the person who deployed the flow
+   * The username of the person who deployed the flow.
    **/
   private String deployedByUsername = null;
 
   /**
-   * The name of the person who deployed the flow
+   * The name of the person who deployed the flow.
    **/
   private String deployedByName = null;
 
   /**
-   * Base URL to the CDF Local instance running this deployment
+   * Base URL to the CDF Local instance running this deployment.
    **/
   private String dfxLocalUrl = null;
 
   /**
-   * The current version of the deployment's configuration
+   * The current version of the deployment's configuration.
    **/
   private Integer configurationVersion = null;
 
   /**
-   * The username of the last person to update the deployment
+   * The username of the last person to update the deployment.
    **/
   private String lastUpdatedByUsername = null;
 
   /**
-   * The CFM NiFi version associated with the deployment
+   * The CFM NiFi version associated with the deployment.
    **/
   private String cfmNifiVersion = null;
 
   /**
-   * The ID of Inbound Connection Endpoint assigned to the deployment
+   * The ID of Inbound Connection Endpoint assigned to the deployment.
    **/
   private String inboundConnectionEndpointId = null;
 
   /**
-   * Indicates this deployment was created as a test session for designing a flow
+   * Indicates this deployment was created as a test session for designing a flow.
    **/
   private Boolean testSession = null;
 
@@ -226,18 +232,23 @@ public class RpcDeployment  {
   private String customNarConfigurationId = null;
 
   /**
-   * The node storage profile
+   * The identifier of the custom python configuration, if used.
+   **/
+  private String customPythonConfigurationId = null;
+
+  /**
+   * The node storage profile.
    **/
   private String nodeStorageProfile = null;
 
   /**
-   * The crn of the project this deployment belongs to, or null if does not belong to a project
+   * The crn of the project this deployment belongs to, or null if does not belong to a project.
    **/
   private String projectCrn = null;
 
   /**
    * Getter for name.
-   * The name of the deployment
+   * The name of the deployment.
    **/
   @JsonProperty("name")
   public String getName() {
@@ -246,7 +257,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for name.
-   * The name of the deployment
+   * The name of the deployment.
    **/
   public void setName(String name) {
     this.name = name;
@@ -254,7 +265,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for status.
-   * The status of the deployment
+   * The status of the deployment.
    **/
   @JsonProperty("status")
   public DeploymentStatus getStatus() {
@@ -263,7 +274,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for status.
-   * The status of the deployment
+   * The status of the deployment.
    **/
   public void setStatus(DeploymentStatus status) {
     this.status = status;
@@ -271,7 +282,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for service.
-   * Simple information about the DataFlow service of the deployment
+   * Simple information about the DataFlow service of the deployment.
    **/
   @JsonProperty("service")
   public ServiceMeta getService() {
@@ -280,7 +291,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for service.
-   * Simple information about the DataFlow service of the deployment
+   * Simple information about the DataFlow service of the deployment.
    **/
   public void setService(ServiceMeta service) {
     this.service = service;
@@ -288,7 +299,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for crn.
-   * The CRN of the deployment
+   * The CRN of the deployment.
    **/
   @JsonProperty("crn")
   public String getCrn() {
@@ -297,7 +308,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for crn.
-   * The CRN of the deployment
+   * The CRN of the deployment.
    **/
   public void setCrn(String crn) {
     this.crn = crn;
@@ -305,7 +316,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for activeInfoAlertCount.
-   * Current count of active alerts classified as an info
+   * Current count of active alerts classified as an info.
    **/
   @JsonProperty("activeInfoAlertCount")
   public Long getActiveInfoAlertCount() {
@@ -314,7 +325,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for activeInfoAlertCount.
-   * Current count of active alerts classified as an info
+   * Current count of active alerts classified as an info.
    **/
   public void setActiveInfoAlertCount(Long activeInfoAlertCount) {
     this.activeInfoAlertCount = activeInfoAlertCount;
@@ -322,7 +333,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for activeWarningAlertCount.
-   * Current count of active alerts classified as a warning
+   * Current count of active alerts classified as a warning.
    **/
   @JsonProperty("activeWarningAlertCount")
   public Long getActiveWarningAlertCount() {
@@ -331,7 +342,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for activeWarningAlertCount.
-   * Current count of active alerts classified as a warning
+   * Current count of active alerts classified as a warning.
    **/
   public void setActiveWarningAlertCount(Long activeWarningAlertCount) {
     this.activeWarningAlertCount = activeWarningAlertCount;
@@ -339,7 +350,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for activeErrorAlertCount.
-   * Current count of active alerts classified as an error
+   * Current count of active alerts classified as an error.
    **/
   @JsonProperty("activeErrorAlertCount")
   public Long getActiveErrorAlertCount() {
@@ -348,7 +359,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for activeErrorAlertCount.
-   * Current count of active alerts classified as an error
+   * Current count of active alerts classified as an error.
    **/
   public void setActiveErrorAlertCount(Long activeErrorAlertCount) {
     this.activeErrorAlertCount = activeErrorAlertCount;
@@ -356,7 +367,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for created.
-   * Timestamp of the creation of the deployment
+   * Timestamp of the creation of the deployment.
    **/
   @JsonProperty("created")
   public Long getCreated() {
@@ -365,7 +376,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for created.
-   * Timestamp of the creation of the deployment
+   * Timestamp of the creation of the deployment.
    **/
   public void setCreated(Long created) {
     this.created = created;
@@ -373,7 +384,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for updated.
-   * Timestamp of the last time the deployment was modified
+   * Timestamp of the last time the deployment was modified.
    **/
   @JsonProperty("updated")
   public Long getUpdated() {
@@ -382,7 +393,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for updated.
-   * Timestamp of the last time the deployment was modified
+   * Timestamp of the last time the deployment was modified.
    **/
   public void setUpdated(Long updated) {
     this.updated = updated;
@@ -390,7 +401,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for validActions.
-   * Valid actions that can be applied to the deployment in its current state
+   * Valid actions that can be applied to the deployment in its current state.
    **/
   @JsonProperty("validActions")
   public List<String> getValidActions() {
@@ -399,7 +410,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for validActions.
-   * Valid actions that can be applied to the deployment in its current state
+   * Valid actions that can be applied to the deployment in its current state.
    **/
   public void setValidActions(List<String> validActions) {
     this.validActions = validActions;
@@ -407,7 +418,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for project.
-   * Simple information about the project this deployment belongs to, or null if does not belong to a project
+   * Simple information about the project this deployment belongs to, or null if does not belong to a project.
    **/
   @JsonProperty("project")
   public ProjectMeta getProject() {
@@ -416,7 +427,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for project.
-   * Simple information about the project this deployment belongs to, or null if does not belong to a project
+   * Simple information about the project this deployment belongs to, or null if does not belong to a project.
    **/
   public void setProject(ProjectMeta project) {
     this.project = project;
@@ -424,7 +435,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for nifiUrl.
-   * The url to open the deployed flow in NiFi
+   * The url to open the deployed flow in NiFi.
    **/
   @JsonProperty("nifiUrl")
   public String getNifiUrl() {
@@ -433,7 +444,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for nifiUrl.
-   * The url to open the deployed flow in NiFi
+   * The url to open the deployed flow in NiFi.
    **/
   public void setNifiUrl(String nifiUrl) {
     this.nifiUrl = nifiUrl;
@@ -441,7 +452,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for clusterSize.
-   * The initial size of the deployment. Deprecated. Use &#39;clusterSizeParams.name&#39; instead
+   * The initial size of the deployment. Deprecated. Use &#39;clusterSizeParams.name&#39; instead.
    **/
   @Deprecated
   @JsonProperty("clusterSize")
@@ -451,7 +462,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for clusterSize.
-   * The initial size of the deployment. Deprecated. Use &#39;clusterSizeParams.name&#39; instead
+   * The initial size of the deployment. Deprecated. Use &#39;clusterSizeParams.name&#39; instead.
    **/
   @Deprecated
   public void setClusterSize(String clusterSize) {
@@ -460,7 +471,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for coresPerNode.
-   * The number of cores per node for the deployment. Deprecated. Use &#39;clusterSizeParams.coresPerNode&#39; instead
+   * The number of cores per node for the deployment. Deprecated. Use &#39;clusterSizeParams.coresPerNode&#39; instead.
    **/
   @Deprecated
   @JsonProperty("coresPerNode")
@@ -470,7 +481,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for coresPerNode.
-   * The number of cores per node for the deployment. Deprecated. Use &#39;clusterSizeParams.coresPerNode&#39; instead
+   * The number of cores per node for the deployment. Deprecated. Use &#39;clusterSizeParams.coresPerNode&#39; instead.
    **/
   @Deprecated
   public void setCoresPerNode(Integer coresPerNode) {
@@ -479,7 +490,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for heapSize.
-   * The heap size for the deployment. Deprecated. Use &#39;clusterSizeParams.heapSize&#39; instead
+   * The heap size for the deployment. Deprecated. Use &#39;clusterSizeParams.heapSize&#39; instead.
    **/
   @Deprecated
   @JsonProperty("heapSize")
@@ -489,7 +500,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for heapSize.
-   * The heap size for the deployment. Deprecated. Use &#39;clusterSizeParams.heapSize&#39; instead
+   * The heap size for the deployment. Deprecated. Use &#39;clusterSizeParams.heapSize&#39; instead.
    **/
   @Deprecated
   public void setHeapSize(Double heapSize) {
@@ -498,7 +509,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for memoryLimit.
-   * The memory limit of the deployment. Deprecated. Use &#39;clusterSizeParams.memoryLimit&#39; instead
+   * The memory limit of the deployment. Deprecated. Use &#39;clusterSizeParams.memoryLimit&#39; instead.
    **/
   @Deprecated
   @JsonProperty("memoryLimit")
@@ -508,7 +519,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for memoryLimit.
-   * The memory limit of the deployment. Deprecated. Use &#39;clusterSizeParams.memoryLimit&#39; instead
+   * The memory limit of the deployment. Deprecated. Use &#39;clusterSizeParams.memoryLimit&#39; instead.
    **/
   @Deprecated
   public void setMemoryLimit(Double memoryLimit) {
@@ -516,8 +527,25 @@ public class RpcDeployment  {
   }
 
   /**
+   * Getter for clusterSizeParams.
+   * The initial size of the deployment.
+   **/
+  @JsonProperty("clusterSizeParams")
+  public ClusterSize getClusterSizeParams() {
+    return clusterSizeParams;
+  }
+
+  /**
+   * Setter for clusterSizeParams.
+   * The initial size of the deployment.
+   **/
+  public void setClusterSizeParams(ClusterSize clusterSizeParams) {
+    this.clusterSizeParams = clusterSizeParams;
+  }
+
+  /**
    * Getter for autoscalingEnabled.
-   * Whether or not autoscaling is enabled for this deployment
+   * Whether or not autoscaling is enabled for this deployment.
    **/
   @JsonProperty("autoscalingEnabled")
   public Boolean getAutoscalingEnabled() {
@@ -526,7 +554,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for autoscalingEnabled.
-   * Whether or not autoscaling is enabled for this deployment
+   * Whether or not autoscaling is enabled for this deployment.
    **/
   public void setAutoscalingEnabled(Boolean autoscalingEnabled) {
     this.autoscalingEnabled = autoscalingEnabled;
@@ -534,7 +562,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for flowMetricsScalingEnabled.
-   * Whether or not flow metrics scaling is enabled for this deployment
+   * Whether or not flow metrics scaling is enabled for this deployment.
    **/
   @JsonProperty("flowMetricsScalingEnabled")
   public Boolean getFlowMetricsScalingEnabled() {
@@ -543,7 +571,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for flowMetricsScalingEnabled.
-   * Whether or not flow metrics scaling is enabled for this deployment
+   * Whether or not flow metrics scaling is enabled for this deployment.
    **/
   public void setFlowMetricsScalingEnabled(Boolean flowMetricsScalingEnabled) {
     this.flowMetricsScalingEnabled = flowMetricsScalingEnabled;
@@ -551,7 +579,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for autoscaleMinNodes.
-   * The minimum number of nodes that the deployment will allocate; can only be used when autoscalingEnabled is true
+   * The minimum number of nodes that the deployment will allocate; can only be used when autoscalingEnabled is true.
    **/
   @JsonProperty("autoscaleMinNodes")
   public Integer getAutoscaleMinNodes() {
@@ -560,7 +588,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for autoscaleMinNodes.
-   * The minimum number of nodes that the deployment will allocate; can only be used when autoscalingEnabled is true
+   * The minimum number of nodes that the deployment will allocate; can only be used when autoscalingEnabled is true.
    **/
   public void setAutoscaleMinNodes(Integer autoscaleMinNodes) {
     this.autoscaleMinNodes = autoscaleMinNodes;
@@ -568,7 +596,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for autoscaleMaxNodes.
-   * The maximum number of nodes that the deployment can scale up to; can only be used when autoscalingEnabled is true
+   * The maximum number of nodes that the deployment can scale up to; can only be used when autoscalingEnabled is true.
    **/
   @JsonProperty("autoscaleMaxNodes")
   public Integer getAutoscaleMaxNodes() {
@@ -577,7 +605,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for autoscaleMaxNodes.
-   * The maximum number of nodes that the deployment can scale up to; can only be used when autoscalingEnabled is true
+   * The maximum number of nodes that the deployment can scale up to; can only be used when autoscalingEnabled is true.
    **/
   public void setAutoscaleMaxNodes(Integer autoscaleMaxNodes) {
     this.autoscaleMaxNodes = autoscaleMaxNodes;
@@ -585,7 +613,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for staticNodeCount.
-   * The static number of nodes of the deployment; can only be used when autoscalingEnabled is false
+   * The static number of nodes of the deployment; can only be used when autoscalingEnabled is false.
    **/
   @JsonProperty("staticNodeCount")
   public Integer getStaticNodeCount() {
@@ -594,7 +622,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for staticNodeCount.
-   * The static number of nodes of the deployment; can only be used when autoscalingEnabled is false
+   * The static number of nodes of the deployment; can only be used when autoscalingEnabled is false.
    **/
   public void setStaticNodeCount(Integer staticNodeCount) {
     this.staticNodeCount = staticNodeCount;
@@ -602,7 +630,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for flowName.
-   * The name of the flow
+   * The name of the flow.
    **/
   @JsonProperty("flowName")
   public String getFlowName() {
@@ -611,7 +639,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for flowName.
-   * The name of the flow
+   * The name of the flow.
    **/
   public void setFlowName(String flowName) {
     this.flowName = flowName;
@@ -619,7 +647,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for flowVersion.
-   * The version of the flow
+   * The version of the flow.
    **/
   @JsonProperty("flowVersion")
   public Integer getFlowVersion() {
@@ -628,7 +656,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for flowVersion.
-   * The version of the flow
+   * The version of the flow.
    **/
   public void setFlowVersion(Integer flowVersion) {
     this.flowVersion = flowVersion;
@@ -636,7 +664,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for flowVersionCrn.
-   * The deployment&#39;s current flow version CRN
+   * The deployment&#39;s current flow version CRN.
    **/
   @JsonProperty("flowVersionCrn")
   public String getFlowVersionCrn() {
@@ -645,7 +673,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for flowVersionCrn.
-   * The deployment&#39;s current flow version CRN
+   * The deployment&#39;s current flow version CRN.
    **/
   public void setFlowVersionCrn(String flowVersionCrn) {
     this.flowVersionCrn = flowVersionCrn;
@@ -653,7 +681,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for flowCrn.
-   * The deployment&#39;s current flow CRN
+   * The deployment&#39;s current flow CRN.
    **/
   @JsonProperty("flowCrn")
   public String getFlowCrn() {
@@ -662,7 +690,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for flowCrn.
-   * The deployment&#39;s current flow CRN
+   * The deployment&#39;s current flow CRN.
    **/
   public void setFlowCrn(String flowCrn) {
     this.flowCrn = flowCrn;
@@ -670,7 +698,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for creatorCrn.
-   * The CRN of the user who deployed the flow
+   * The CRN of the user who deployed the flow.
    **/
   @JsonProperty("creatorCrn")
   public String getCreatorCrn() {
@@ -679,7 +707,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for creatorCrn.
-   * The CRN of the user who deployed the flow
+   * The CRN of the user who deployed the flow.
    **/
   public void setCreatorCrn(String creatorCrn) {
     this.creatorCrn = creatorCrn;
@@ -687,7 +715,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for artifactTypeName.
-   * The type of artifact of the flow
+   * The type of artifact of the flow.
    **/
   @JsonProperty("artifactTypeName")
   public String getArtifactTypeName() {
@@ -696,7 +724,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for artifactTypeName.
-   * The type of artifact of the flow
+   * The type of artifact of the flow.
    **/
   public void setArtifactTypeName(String artifactTypeName) {
     this.artifactTypeName = artifactTypeName;
@@ -704,7 +732,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for currentNodeCount.
-   * The current node count
+   * The current node count.
    **/
   @JsonProperty("currentNodeCount")
   public Integer getCurrentNodeCount() {
@@ -713,7 +741,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for currentNodeCount.
-   * The current node count
+   * The current node count.
    **/
   public void setCurrentNodeCount(Integer currentNodeCount) {
     this.currentNodeCount = currentNodeCount;
@@ -721,7 +749,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for deployedByUsername.
-   * The username of the person who deployed the flow
+   * The username of the person who deployed the flow.
    **/
   @JsonProperty("deployedByUsername")
   public String getDeployedByUsername() {
@@ -730,7 +758,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for deployedByUsername.
-   * The username of the person who deployed the flow
+   * The username of the person who deployed the flow.
    **/
   public void setDeployedByUsername(String deployedByUsername) {
     this.deployedByUsername = deployedByUsername;
@@ -738,7 +766,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for deployedByName.
-   * The name of the person who deployed the flow
+   * The name of the person who deployed the flow.
    **/
   @JsonProperty("deployedByName")
   public String getDeployedByName() {
@@ -747,7 +775,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for deployedByName.
-   * The name of the person who deployed the flow
+   * The name of the person who deployed the flow.
    **/
   public void setDeployedByName(String deployedByName) {
     this.deployedByName = deployedByName;
@@ -755,7 +783,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for dfxLocalUrl.
-   * Base URL to the CDF Local instance running this deployment
+   * Base URL to the CDF Local instance running this deployment.
    **/
   @JsonProperty("dfxLocalUrl")
   public String getDfxLocalUrl() {
@@ -764,7 +792,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for dfxLocalUrl.
-   * Base URL to the CDF Local instance running this deployment
+   * Base URL to the CDF Local instance running this deployment.
    **/
   public void setDfxLocalUrl(String dfxLocalUrl) {
     this.dfxLocalUrl = dfxLocalUrl;
@@ -772,7 +800,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for configurationVersion.
-   * The current version of the deployment&#39;s configuration
+   * The current version of the deployment&#39;s configuration.
    **/
   @JsonProperty("configurationVersion")
   public Integer getConfigurationVersion() {
@@ -781,7 +809,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for configurationVersion.
-   * The current version of the deployment&#39;s configuration
+   * The current version of the deployment&#39;s configuration.
    **/
   public void setConfigurationVersion(Integer configurationVersion) {
     this.configurationVersion = configurationVersion;
@@ -789,7 +817,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for lastUpdatedByUsername.
-   * The username of the last person to update the deployment
+   * The username of the last person to update the deployment.
    **/
   @JsonProperty("lastUpdatedByUsername")
   public String getLastUpdatedByUsername() {
@@ -798,7 +826,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for lastUpdatedByUsername.
-   * The username of the last person to update the deployment
+   * The username of the last person to update the deployment.
    **/
   public void setLastUpdatedByUsername(String lastUpdatedByUsername) {
     this.lastUpdatedByUsername = lastUpdatedByUsername;
@@ -806,7 +834,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for cfmNifiVersion.
-   * The CFM NiFi version associated with the deployment
+   * The CFM NiFi version associated with the deployment.
    **/
   @JsonProperty("cfmNifiVersion")
   public String getCfmNifiVersion() {
@@ -815,7 +843,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for cfmNifiVersion.
-   * The CFM NiFi version associated with the deployment
+   * The CFM NiFi version associated with the deployment.
    **/
   public void setCfmNifiVersion(String cfmNifiVersion) {
     this.cfmNifiVersion = cfmNifiVersion;
@@ -823,7 +851,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for inboundConnectionEndpointId.
-   * The ID of Inbound Connection Endpoint assigned to the deployment
+   * The ID of Inbound Connection Endpoint assigned to the deployment.
    **/
   @JsonProperty("inboundConnectionEndpointId")
   public String getInboundConnectionEndpointId() {
@@ -832,7 +860,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for inboundConnectionEndpointId.
-   * The ID of Inbound Connection Endpoint assigned to the deployment
+   * The ID of Inbound Connection Endpoint assigned to the deployment.
    **/
   public void setInboundConnectionEndpointId(String inboundConnectionEndpointId) {
     this.inboundConnectionEndpointId = inboundConnectionEndpointId;
@@ -840,7 +868,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for testSession.
-   * Indicates this deployment was created as a test session for designing a flow
+   * Indicates this deployment was created as a test session for designing a flow.
    **/
   @JsonProperty("testSession")
   public Boolean getTestSession() {
@@ -849,7 +877,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for testSession.
-   * Indicates this deployment was created as a test session for designing a flow
+   * Indicates this deployment was created as a test session for designing a flow.
    **/
   public void setTestSession(Boolean testSession) {
     this.testSession = testSession;
@@ -890,8 +918,25 @@ public class RpcDeployment  {
   }
 
   /**
+   * Getter for customPythonConfigurationId.
+   * The identifier of the custom python configuration, if used.
+   **/
+  @JsonProperty("customPythonConfigurationId")
+  public String getCustomPythonConfigurationId() {
+    return customPythonConfigurationId;
+  }
+
+  /**
+   * Setter for customPythonConfigurationId.
+   * The identifier of the custom python configuration, if used.
+   **/
+  public void setCustomPythonConfigurationId(String customPythonConfigurationId) {
+    this.customPythonConfigurationId = customPythonConfigurationId;
+  }
+
+  /**
    * Getter for nodeStorageProfile.
-   * The node storage profile
+   * The node storage profile.
    **/
   @JsonProperty("nodeStorageProfile")
   public String getNodeStorageProfile() {
@@ -900,7 +945,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for nodeStorageProfile.
-   * The node storage profile
+   * The node storage profile.
    **/
   public void setNodeStorageProfile(String nodeStorageProfile) {
     this.nodeStorageProfile = nodeStorageProfile;
@@ -908,7 +953,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for projectCrn.
-   * The crn of the project this deployment belongs to, or null if does not belong to a project
+   * The crn of the project this deployment belongs to, or null if does not belong to a project.
    **/
   @JsonProperty("projectCrn")
   public String getProjectCrn() {
@@ -917,7 +962,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for projectCrn.
-   * The crn of the project this deployment belongs to, or null if does not belong to a project
+   * The crn of the project this deployment belongs to, or null if does not belong to a project.
    **/
   public void setProjectCrn(String projectCrn) {
     this.projectCrn = projectCrn;
@@ -978,6 +1023,9 @@ public class RpcDeployment  {
       return false;
     }
     if (!Objects.equals(this.memoryLimit, rpcDeployment.memoryLimit)) {
+      return false;
+    }
+    if (!Objects.equals(this.clusterSizeParams, rpcDeployment.clusterSizeParams)) {
       return false;
     }
     if (!Objects.equals(this.autoscalingEnabled, rpcDeployment.autoscalingEnabled)) {
@@ -1046,6 +1094,9 @@ public class RpcDeployment  {
     if (!Objects.equals(this.customNarConfigurationId, rpcDeployment.customNarConfigurationId)) {
       return false;
     }
+    if (!Objects.equals(this.customPythonConfigurationId, rpcDeployment.customPythonConfigurationId)) {
+      return false;
+    }
     if (!Objects.equals(this.nodeStorageProfile, rpcDeployment.nodeStorageProfile)) {
       return false;
     }
@@ -1057,7 +1108,7 @@ public class RpcDeployment  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, status, service, crn, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, created, updated, validActions, project, nifiUrl, clusterSize, coresPerNode, heapSize, memoryLimit, autoscalingEnabled, flowMetricsScalingEnabled, autoscaleMinNodes, autoscaleMaxNodes, staticNodeCount, flowName, flowVersion, flowVersionCrn, flowCrn, creatorCrn, artifactTypeName, currentNodeCount, deployedByUsername, deployedByName, dfxLocalUrl, configurationVersion, lastUpdatedByUsername, cfmNifiVersion, inboundConnectionEndpointId, testSession, flowDesignerId, customNarConfigurationId, nodeStorageProfile, projectCrn);
+    return Objects.hash(name, status, service, crn, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, created, updated, validActions, project, nifiUrl, clusterSize, coresPerNode, heapSize, memoryLimit, clusterSizeParams, autoscalingEnabled, flowMetricsScalingEnabled, autoscaleMinNodes, autoscaleMaxNodes, staticNodeCount, flowName, flowVersion, flowVersionCrn, flowCrn, creatorCrn, artifactTypeName, currentNodeCount, deployedByUsername, deployedByName, dfxLocalUrl, configurationVersion, lastUpdatedByUsername, cfmNifiVersion, inboundConnectionEndpointId, testSession, flowDesignerId, customNarConfigurationId, customPythonConfigurationId, nodeStorageProfile, projectCrn);
   }
 
   @Override
@@ -1080,6 +1131,7 @@ public class RpcDeployment  {
     sb.append("    coresPerNode: ").append(toIndentedString(coresPerNode)).append("\n");
     sb.append("    heapSize: ").append(toIndentedString(heapSize)).append("\n");
     sb.append("    memoryLimit: ").append(toIndentedString(memoryLimit)).append("\n");
+    sb.append("    clusterSizeParams: ").append(toIndentedString(clusterSizeParams)).append("\n");
     sb.append("    autoscalingEnabled: ").append(toIndentedString(autoscalingEnabled)).append("\n");
     sb.append("    flowMetricsScalingEnabled: ").append(toIndentedString(flowMetricsScalingEnabled)).append("\n");
     sb.append("    autoscaleMinNodes: ").append(toIndentedString(autoscaleMinNodes)).append("\n");
@@ -1102,6 +1154,7 @@ public class RpcDeployment  {
     sb.append("    testSession: ").append(toIndentedString(testSession)).append("\n");
     sb.append("    flowDesignerId: ").append(toIndentedString(flowDesignerId)).append("\n");
     sb.append("    customNarConfigurationId: ").append(toIndentedString(customNarConfigurationId)).append("\n");
+    sb.append("    customPythonConfigurationId: ").append(toIndentedString(customPythonConfigurationId)).append("\n");
     sb.append("    nodeStorageProfile: ").append(toIndentedString(nodeStorageProfile)).append("\n");
     sb.append("    projectCrn: ").append(toIndentedString(projectCrn)).append("\n");
     sb.append("}");

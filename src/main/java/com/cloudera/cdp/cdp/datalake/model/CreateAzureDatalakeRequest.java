@@ -32,11 +32,11 @@ import java.util.*;
 /**
  * Request object for create Azure datalake request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:56.157-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:54.547-07:00")
 public class CreateAzureDatalakeRequest  {
 
   /**
-   * The datalake name. This name must be unique, must have between 5 and 100 characters, and must contain only lowercase letters, numbers and hyphens. Names are case-sensitive.
+   * The datalake name. This name must be unique, must have between 5 and 40 characters, and must contain only lowercase letters, numbers and hyphens. Names are case-sensitive.
    **/
   private String datalakeName = null;
 
@@ -107,7 +107,7 @@ public class CreateAzureDatalakeRequest  {
 
   /**
    * Getter for datalakeName.
-   * The datalake name. This name must be unique, must have between 5 and 100 characters, and must contain only lowercase letters, numbers and hyphens. Names are case-sensitive.
+   * The datalake name. This name must be unique, must have between 5 and 40 characters, and must contain only lowercase letters, numbers and hyphens. Names are case-sensitive.
    **/
   @JsonProperty("datalakeName")
   public String getDatalakeName() {
@@ -116,7 +116,7 @@ public class CreateAzureDatalakeRequest  {
 
   /**
    * Setter for datalakeName.
-   * The datalake name. This name must be unique, must have between 5 and 100 characters, and must contain only lowercase letters, numbers and hyphens. Names are case-sensitive.
+   * The datalake name. This name must be unique, must have between 5 and 40 characters, and must contain only lowercase letters, numbers and hyphens. Names are case-sensitive.
    **/
   public void setDatalakeName(String datalakeName) {
     this.datalakeName = datalakeName;

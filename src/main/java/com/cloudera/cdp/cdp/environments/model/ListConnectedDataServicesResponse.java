@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for listing connected Data Service(s) for a given environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:56.746-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:55.093-07:00")
 public class ListConnectedDataServicesResponse extends CdpResponse {
 
   /**

@@ -32,12 +32,18 @@ import com.cloudera.cdp.dfworkload.model.AbortAssetUpdateRequestRequest;
 import com.cloudera.cdp.dfworkload.model.AbortAssetUpdateRequestResponse;
 import com.cloudera.cdp.dfworkload.model.AbortDeploymentRequestRequest;
 import com.cloudera.cdp.dfworkload.model.AbortDeploymentRequestResponse;
+import com.cloudera.cdp.dfworkload.model.CancelChangeFlowVersionRequest;
+import com.cloudera.cdp.dfworkload.model.CancelChangeFlowVersionResponse;
 import com.cloudera.cdp.dfworkload.model.CancelNifiVersionUpdateRequest;
 import com.cloudera.cdp.dfworkload.model.CancelNifiVersionUpdateResponse;
+import com.cloudera.cdp.dfworkload.model.ChangeFlowVersionRequest;
+import com.cloudera.cdp.dfworkload.model.ChangeFlowVersionResponse;
 import com.cloudera.cdp.dfworkload.model.CreateAssetUpdateRequestRequest;
 import com.cloudera.cdp.dfworkload.model.CreateAssetUpdateRequestResponse;
 import com.cloudera.cdp.dfworkload.model.CreateCustomNarConfigurationRequest;
 import com.cloudera.cdp.dfworkload.model.CreateCustomNarConfigurationResponse;
+import com.cloudera.cdp.dfworkload.model.CreateCustomPythonConfigurationRequest;
+import com.cloudera.cdp.dfworkload.model.CreateCustomPythonConfigurationResponse;
 import com.cloudera.cdp.dfworkload.model.CreateDeploymentRequest;
 import com.cloudera.cdp.dfworkload.model.CreateDeploymentResponse;
 import com.cloudera.cdp.dfworkload.model.CreateInboundConnectionEndpointRequest;
@@ -46,6 +52,8 @@ import com.cloudera.cdp.dfworkload.model.CreateReportingTaskRequest;
 import com.cloudera.cdp.dfworkload.model.CreateReportingTaskResponse;
 import com.cloudera.cdp.dfworkload.model.DeleteCustomNarConfigurationRequest;
 import com.cloudera.cdp.dfworkload.model.DeleteCustomNarConfigurationResponse;
+import com.cloudera.cdp.dfworkload.model.DeleteCustomPythonConfigurationRequest;
+import com.cloudera.cdp.dfworkload.model.DeleteCustomPythonConfigurationResponse;
 import com.cloudera.cdp.dfworkload.model.DeleteInboundConnectionEndpointRequest;
 import com.cloudera.cdp.dfworkload.model.DeleteInboundConnectionEndpointResponse;
 import com.cloudera.cdp.dfworkload.model.DeleteReportingTaskRequest;
@@ -57,6 +65,8 @@ import com.cloudera.cdp.dfworkload.model.ExportDeploymentRequest;
 import com.cloudera.cdp.dfworkload.model.ExportDeploymentResponse;
 import com.cloudera.cdp.dfworkload.model.GetCustomNarConfigurationRequest;
 import com.cloudera.cdp.dfworkload.model.GetCustomNarConfigurationResponse;
+import com.cloudera.cdp.dfworkload.model.GetCustomPythonConfigurationRequest;
+import com.cloudera.cdp.dfworkload.model.GetCustomPythonConfigurationResponse;
 import com.cloudera.cdp.dfworkload.model.GetDefaultCustomNarConfigurationRequest;
 import com.cloudera.cdp.dfworkload.model.GetDefaultCustomNarConfigurationResponse;
 import com.cloudera.cdp.dfworkload.model.GetDeploymentConfigurationMetadataRequest;
@@ -101,6 +111,8 @@ import com.cloudera.cdp.dfworkload.model.TransitionFlowRequest;
 import com.cloudera.cdp.dfworkload.model.TransitionFlowResponse;
 import com.cloudera.cdp.dfworkload.model.UpdateCustomNarConfigurationRequest;
 import com.cloudera.cdp.dfworkload.model.UpdateCustomNarConfigurationResponse;
+import com.cloudera.cdp.dfworkload.model.UpdateCustomPythonConfigurationRequest;
+import com.cloudera.cdp.dfworkload.model.UpdateCustomPythonConfigurationResponse;
 import com.cloudera.cdp.dfworkload.model.UpdateDeploymentRequest;
 import com.cloudera.cdp.dfworkload.model.UpdateDeploymentResponse;
 import com.cloudera.cdp.dfworkload.model.UpdateNifiVersionRequest;
@@ -109,13 +121,15 @@ import com.cloudera.cdp.dfworkload.model.UploadAssetRequest;
 import com.cloudera.cdp.dfworkload.model.UploadAssetResponse;
 import com.cloudera.cdp.dfworkload.model.ValidateCustomNarConfigurationRequest;
 import com.cloudera.cdp.dfworkload.model.ValidateCustomNarConfigurationResponse;
+import com.cloudera.cdp.dfworkload.model.ValidateCustomPythonConfigurationRequest;
+import com.cloudera.cdp.dfworkload.model.ValidateCustomPythonConfigurationResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:58.634-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:56.886-07:00")
 public class DfworkloadClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dfworkload";
@@ -175,6 +189,20 @@ public class DfworkloadClient extends CdpClient {
   }
 
   /**
+   * Cancel change flow version for an existing deployment.
+   * @param input Cancel Change Flow Version Request
+   * @return CancelChangeFlowVersionResponse
+   */
+  @WorkloadApi
+  public CancelChangeFlowVersionResponse cancelChangeFlowVersion(CancelChangeFlowVersionRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling cancelChangeFlowVersion");
+    }
+
+    return this.invokeAPI("cancelChangeFlowVersion", "/dfx/api/rpc-v1/deployments/cancel-change-flow-version", input, new GenericType<CancelChangeFlowVersionResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
    * Cancels a NiFi version update for a deployment.
    * @param input Cancel NiFi Version Update
    * @return CancelNifiVersionUpdateResponse
@@ -186,6 +214,20 @@ public class DfworkloadClient extends CdpClient {
     }
 
     return this.invokeAPI("cancelNifiVersionUpdate", "/dfx/api/rpc-v1/deployments/cancel-nifi-version-update", input, new GenericType<CancelNifiVersionUpdateResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Change flow version of a running deployment.
+   * @param input Change Flow Version Request
+   * @return ChangeFlowVersionResponse
+   */
+  @WorkloadApi
+  public ChangeFlowVersionResponse changeFlowVersion(ChangeFlowVersionRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling changeFlowVersion");
+    }
+
+    return this.invokeAPI("changeFlowVersion", "/dfx/api/rpc-v1/deployments/change-flow-version", input, new GenericType<ChangeFlowVersionResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
   }
 
   /**
@@ -214,6 +256,20 @@ public class DfworkloadClient extends CdpClient {
     }
 
     return this.invokeAPI("createCustomNarConfiguration", "/dfx/api/rpc-v1/custom-nar-configurations/create-custom-nar-configuration", input, new GenericType<CreateCustomNarConfigurationResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Create the custom Python configuration.
+   * @param input Create Custom Python Configuration Request
+   * @return CreateCustomPythonConfigurationResponse
+   */
+  @WorkloadApi
+  public CreateCustomPythonConfigurationResponse createCustomPythonConfiguration(CreateCustomPythonConfigurationRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createCustomPythonConfiguration");
+    }
+
+    return this.invokeAPI("createCustomPythonConfiguration", "/dfx/api/rpc-v1/custom-python-configurations/create-custom-python-configuration", input, new GenericType<CreateCustomPythonConfigurationResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
   }
 
   /**
@@ -270,6 +326,20 @@ public class DfworkloadClient extends CdpClient {
     }
 
     return this.invokeAPI("deleteCustomNarConfiguration", "/dfx/api/rpc-v1/custom-nar-configurations/delete-custom-nar-configuration", input, new GenericType<DeleteCustomNarConfigurationResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Deletes an orphaned custom Python configuration.
+   * @param input Delete Custom Python Configuration Request
+   * @return DeleteCustomPythonConfigurationResponse
+   */
+  @WorkloadApi
+  public DeleteCustomPythonConfigurationResponse deleteCustomPythonConfiguration(DeleteCustomPythonConfigurationRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteCustomPythonConfiguration");
+    }
+
+    return this.invokeAPI("deleteCustomPythonConfiguration", "/dfx/api/rpc-v1/custom-python-configurations/delete-custom-python-configuration", input, new GenericType<DeleteCustomPythonConfigurationResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
   }
 
   /**
@@ -384,6 +454,20 @@ public class DfworkloadClient extends CdpClient {
     }
 
     return this.invokeAPI("getCustomNarConfiguration", "/dfx/api/rpc-v1/custom-nar-configurations/get-custom-nar-configuration", input, new GenericType<GetCustomNarConfigurationResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Get a custom Python configuration.
+   * @param input Get Custom Python Configuration Request
+   * @return GetCustomPythonConfigurationResponse
+   */
+  @WorkloadApi
+  public GetCustomPythonConfigurationResponse getCustomPythonConfiguration(GetCustomPythonConfigurationRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getCustomPythonConfiguration");
+    }
+
+    return this.invokeAPI("getCustomPythonConfiguration", "/dfx/api/rpc-v1/custom-python-configurations/get-custom-python-configuration", input, new GenericType<GetCustomPythonConfigurationResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
   }
 
   /**
@@ -654,6 +738,20 @@ public class DfworkloadClient extends CdpClient {
   }
 
   /**
+   * Update the custom Python configuration.
+   * @param input Update Custom Python Configuration Request
+   * @return UpdateCustomPythonConfigurationResponse
+   */
+  @WorkloadApi
+  public UpdateCustomPythonConfigurationResponse updateCustomPythonConfiguration(UpdateCustomPythonConfigurationRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateCustomPythonConfiguration");
+    }
+
+    return this.invokeAPI("updateCustomPythonConfiguration", "/dfx/api/rpc-v1/custom-python-configurations/update-custom-python-configuration", input, new GenericType<UpdateCustomPythonConfigurationResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
    * Updates a deployment.
    * @param input Update Deployment Request
    * @return UpdateDeploymentResponse
@@ -707,5 +805,19 @@ public class DfworkloadClient extends CdpClient {
     }
 
     return this.invokeAPI("validateCustomNarConfiguration", "/dfx/api/rpc-v1/custom-nar-configurations/validate-custom-nar-configuration", input, new GenericType<ValidateCustomNarConfigurationResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Validates the custom Python configuration.
+   * @param input Validate Custom Python Configuration Request
+   * @return ValidateCustomPythonConfigurationResponse
+   */
+  @WorkloadApi
+  public ValidateCustomPythonConfigurationResponse validateCustomPythonConfiguration(ValidateCustomPythonConfigurationRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling validateCustomPythonConfiguration");
+    }
+
+    return this.invokeAPI("validateCustomPythonConfiguration", "/dfx/api/rpc-v1/custom-python-configurations/validate-custom-python-configuration", input, new GenericType<ValidateCustomPythonConfigurationResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
   }
 }

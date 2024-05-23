@@ -23,14 +23,15 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.dfworkload.model.BasicClusterSize;
 import com.cloudera.cdp.dfworkload.model.ConfiguredKpi;
 import com.cloudera.cdp.dfworkload.model.FlowParameterGroup;
 import java.util.*;
 
 /**
- * Provides all of the configuration that dictates how a flow should be deployed
+ * Provides all of the configuration that dictates how a flow should be deployed.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:58.634-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:56.886-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class UpdateDeploymentRequest  {
 
@@ -85,9 +86,14 @@ public class UpdateDeploymentRequest  {
   private List<ConfiguredKpi> kpis = new ArrayList<ConfiguredKpi>();
 
   /**
-   * The deployment t-shirt size. Deprecated. Use 'clusterSize.name' instead
+   * The deployment t-shirt size. Deprecated. Use 'clusterSize.name' instead.
    **/
   private String clusterSizeName = null;
+
+  /**
+   * The deployment t-shirt size.
+   **/
+  private BasicClusterSize clusterSize = null;
 
   /**
    * The CRN of the asset update request. Required when updating assets of an existing deployment.
@@ -266,7 +272,7 @@ public class UpdateDeploymentRequest  {
 
   /**
    * Getter for clusterSizeName.
-   * The deployment t-shirt size. Deprecated. Use &#39;clusterSize.name&#39; instead
+   * The deployment t-shirt size. Deprecated. Use &#39;clusterSize.name&#39; instead.
    **/
   @Deprecated
   @JsonProperty("clusterSizeName")
@@ -276,11 +282,28 @@ public class UpdateDeploymentRequest  {
 
   /**
    * Setter for clusterSizeName.
-   * The deployment t-shirt size. Deprecated. Use &#39;clusterSize.name&#39; instead
+   * The deployment t-shirt size. Deprecated. Use &#39;clusterSize.name&#39; instead.
    **/
   @Deprecated
   public void setClusterSizeName(String clusterSizeName) {
     this.clusterSizeName = clusterSizeName;
+  }
+
+  /**
+   * Getter for clusterSize.
+   * The deployment t-shirt size.
+   **/
+  @JsonProperty("clusterSize")
+  public BasicClusterSize getClusterSize() {
+    return clusterSize;
+  }
+
+  /**
+   * Setter for clusterSize.
+   * The deployment t-shirt size.
+   **/
+  public void setClusterSize(BasicClusterSize clusterSize) {
+    this.clusterSize = clusterSize;
   }
 
   /**
@@ -342,6 +365,9 @@ public class UpdateDeploymentRequest  {
     if (!Objects.equals(this.clusterSizeName, updateDeploymentRequest.clusterSizeName)) {
       return false;
     }
+    if (!Objects.equals(this.clusterSize, updateDeploymentRequest.clusterSize)) {
+      return false;
+    }
     if (!Objects.equals(this.assetUpdateRequestCrn, updateDeploymentRequest.assetUpdateRequestCrn)) {
       return false;
     }
@@ -350,7 +376,7 @@ public class UpdateDeploymentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, configurationVersion, deploymentCrn, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, clusterSizeName, assetUpdateRequestCrn);
+    return Objects.hash(environmentCrn, configurationVersion, deploymentCrn, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, clusterSizeName, clusterSize, assetUpdateRequestCrn);
   }
 
   @Override
@@ -368,6 +394,7 @@ public class UpdateDeploymentRequest  {
     sb.append("    staticNodeCount: ").append(toIndentedString(staticNodeCount)).append("\n");
     sb.append("    kpis: ").append(toIndentedString(kpis)).append("\n");
     sb.append("    clusterSizeName: ").append(toIndentedString(clusterSizeName)).append("\n");
+    sb.append("    clusterSize: ").append(toIndentedString(clusterSize)).append("\n");
     sb.append("    assetUpdateRequestCrn: ").append(toIndentedString(assetUpdateRequestCrn)).append("\n");
     sb.append("}");
     return sb.toString();

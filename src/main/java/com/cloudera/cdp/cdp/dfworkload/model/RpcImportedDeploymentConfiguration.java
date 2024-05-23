@@ -23,6 +23,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.dfworkload.model.BasicClusterSize;
 import com.cloudera.cdp.dfworkload.model.ConfiguredKpi;
 import com.cloudera.cdp.dfworkload.model.FlowParameterGroup;
 import com.cloudera.cdp.dfworkload.model.ListenComponent;
@@ -31,7 +32,7 @@ import java.util.*;
 /**
  * Contains the configuration data imported from exported archive.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:58.634-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:56.886-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcImportedDeploymentConfiguration  {
 
@@ -61,9 +62,14 @@ public class RpcImportedDeploymentConfiguration  {
   private Integer staticNodeCount = null;
 
   /**
-   * The cluster size name retrieved from archive.
+   * The cluster size name retrieved from archive. Deprecated, use clusterSize.name instead.
    **/
   private String clusterSizeName = null;
+
+  /**
+   * The deployment t-shirt size.
+   **/
+  private BasicClusterSize clusterSize = null;
 
   /**
    * The list of configured KPIs imported from archive.
@@ -104,6 +110,11 @@ public class RpcImportedDeploymentConfiguration  {
    * The CRN of the custom NAR configuration.
    **/
   private String customNarConfigurationCrn = null;
+
+  /**
+   * The CRN of the custom Python configuration.
+   **/
+  private String customPythonConfigurationCrn = null;
 
   /**
    * Getter for autoScalingEnabled.
@@ -192,8 +203,9 @@ public class RpcImportedDeploymentConfiguration  {
 
   /**
    * Getter for clusterSizeName.
-   * The cluster size name retrieved from archive.
+   * The cluster size name retrieved from archive. Deprecated, use clusterSize.name instead.
    **/
+  @Deprecated
   @JsonProperty("clusterSizeName")
   public String getClusterSizeName() {
     return clusterSizeName;
@@ -201,10 +213,28 @@ public class RpcImportedDeploymentConfiguration  {
 
   /**
    * Setter for clusterSizeName.
-   * The cluster size name retrieved from archive.
+   * The cluster size name retrieved from archive. Deprecated, use clusterSize.name instead.
    **/
+  @Deprecated
   public void setClusterSizeName(String clusterSizeName) {
     this.clusterSizeName = clusterSizeName;
+  }
+
+  /**
+   * Getter for clusterSize.
+   * The deployment t-shirt size.
+   **/
+  @JsonProperty("clusterSize")
+  public BasicClusterSize getClusterSize() {
+    return clusterSize;
+  }
+
+  /**
+   * Setter for clusterSize.
+   * The deployment t-shirt size.
+   **/
+  public void setClusterSize(BasicClusterSize clusterSize) {
+    this.clusterSize = clusterSize;
   }
 
   /**
@@ -343,6 +373,23 @@ public class RpcImportedDeploymentConfiguration  {
     this.customNarConfigurationCrn = customNarConfigurationCrn;
   }
 
+  /**
+   * Getter for customPythonConfigurationCrn.
+   * The CRN of the custom Python configuration.
+   **/
+  @JsonProperty("customPythonConfigurationCrn")
+  public String getCustomPythonConfigurationCrn() {
+    return customPythonConfigurationCrn;
+  }
+
+  /**
+   * Setter for customPythonConfigurationCrn.
+   * The CRN of the custom Python configuration.
+   **/
+  public void setCustomPythonConfigurationCrn(String customPythonConfigurationCrn) {
+    this.customPythonConfigurationCrn = customPythonConfigurationCrn;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -370,6 +417,9 @@ public class RpcImportedDeploymentConfiguration  {
     if (!Objects.equals(this.clusterSizeName, rpcImportedDeploymentConfiguration.clusterSizeName)) {
       return false;
     }
+    if (!Objects.equals(this.clusterSize, rpcImportedDeploymentConfiguration.clusterSize)) {
+      return false;
+    }
     if (!Objects.equals(this.kpis, rpcImportedDeploymentConfiguration.kpis)) {
       return false;
     }
@@ -394,12 +444,15 @@ public class RpcImportedDeploymentConfiguration  {
     if (!Objects.equals(this.customNarConfigurationCrn, rpcImportedDeploymentConfiguration.customNarConfigurationCrn)) {
       return false;
     }
+    if (!Objects.equals(this.customPythonConfigurationCrn, rpcImportedDeploymentConfiguration.customPythonConfigurationCrn)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, clusterSizeName, kpis, flowParameterGroups, cfmNifiVersion, inboundHostName, listenComponents, nodeStorageProfile, projectCrn, customNarConfigurationCrn);
+    return Objects.hash(autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, clusterSizeName, clusterSize, kpis, flowParameterGroups, cfmNifiVersion, inboundHostName, listenComponents, nodeStorageProfile, projectCrn, customNarConfigurationCrn, customPythonConfigurationCrn);
   }
 
   @Override
@@ -412,6 +465,7 @@ public class RpcImportedDeploymentConfiguration  {
     sb.append("    autoScaleMaxNodes: ").append(toIndentedString(autoScaleMaxNodes)).append("\n");
     sb.append("    staticNodeCount: ").append(toIndentedString(staticNodeCount)).append("\n");
     sb.append("    clusterSizeName: ").append(toIndentedString(clusterSizeName)).append("\n");
+    sb.append("    clusterSize: ").append(toIndentedString(clusterSize)).append("\n");
     sb.append("    kpis: ").append(toIndentedString(kpis)).append("\n");
     sb.append("    flowParameterGroups: ").append(toIndentedString(flowParameterGroups)).append("\n");
     sb.append("    cfmNifiVersion: ").append(toIndentedString(cfmNifiVersion)).append("\n");
@@ -420,6 +474,7 @@ public class RpcImportedDeploymentConfiguration  {
     sb.append("    nodeStorageProfile: ").append(toIndentedString(nodeStorageProfile)).append("\n");
     sb.append("    projectCrn: ").append(toIndentedString(projectCrn)).append("\n");
     sb.append("    customNarConfigurationCrn: ").append(toIndentedString(customNarConfigurationCrn)).append("\n");
+    sb.append("    customPythonConfigurationCrn: ").append(toIndentedString(customPythonConfigurationCrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

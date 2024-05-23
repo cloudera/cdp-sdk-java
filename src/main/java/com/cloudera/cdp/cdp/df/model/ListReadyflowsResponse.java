@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for the ListReadyflows method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-09T12:44:58.271-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:56.513-07:00")
 public class ListReadyflowsResponse extends CdpResponse {
 
   /**
