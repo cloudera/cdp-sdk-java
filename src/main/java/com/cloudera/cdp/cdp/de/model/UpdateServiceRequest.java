@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for UpdateService method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:56.034-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-05T15:30:59.789-07:00")
 public class UpdateServiceRequest  {
 
   /**
@@ -65,6 +65,26 @@ public class UpdateServiceRequest  {
    * List of CIDRs that would be allowed to access the load balancer.
    **/
   private List<String> loadbalancerAllowlist = new ArrayList<String>();
+
+  /**
+   * Minimum number of instances for the CDE service for the All Purpose Instance Group.
+   **/
+  private Integer allPurposeMinimumInstances = null;
+
+  /**
+   * Maximum number of instances for the CDE service for the All Purpose Instance Group.
+   **/
+  private Integer allPurposeMaximumInstances = null;
+
+  /**
+   * Minimum number of spot instances for the CDE service for the All Purpose Instance Group.
+   **/
+  private Integer allPurposeMinimumSpotInstances = null;
+
+  /**
+   * Maximum number of spot instances for the CDE service for the All Purpose Instance Group.
+   **/
+  private Integer allPurposeMaximumSpotInstances = null;
 
   /**
    * Getter for clusterId.
@@ -185,6 +205,74 @@ public class UpdateServiceRequest  {
     this.loadbalancerAllowlist = loadbalancerAllowlist;
   }
 
+  /**
+   * Getter for allPurposeMinimumInstances.
+   * Minimum number of instances for the CDE service for the All Purpose Instance Group.
+   **/
+  @JsonProperty("allPurposeMinimumInstances")
+  public Integer getAllPurposeMinimumInstances() {
+    return allPurposeMinimumInstances;
+  }
+
+  /**
+   * Setter for allPurposeMinimumInstances.
+   * Minimum number of instances for the CDE service for the All Purpose Instance Group.
+   **/
+  public void setAllPurposeMinimumInstances(Integer allPurposeMinimumInstances) {
+    this.allPurposeMinimumInstances = allPurposeMinimumInstances;
+  }
+
+  /**
+   * Getter for allPurposeMaximumInstances.
+   * Maximum number of instances for the CDE service for the All Purpose Instance Group.
+   **/
+  @JsonProperty("allPurposeMaximumInstances")
+  public Integer getAllPurposeMaximumInstances() {
+    return allPurposeMaximumInstances;
+  }
+
+  /**
+   * Setter for allPurposeMaximumInstances.
+   * Maximum number of instances for the CDE service for the All Purpose Instance Group.
+   **/
+  public void setAllPurposeMaximumInstances(Integer allPurposeMaximumInstances) {
+    this.allPurposeMaximumInstances = allPurposeMaximumInstances;
+  }
+
+  /**
+   * Getter for allPurposeMinimumSpotInstances.
+   * Minimum number of spot instances for the CDE service for the All Purpose Instance Group.
+   **/
+  @JsonProperty("allPurposeMinimumSpotInstances")
+  public Integer getAllPurposeMinimumSpotInstances() {
+    return allPurposeMinimumSpotInstances;
+  }
+
+  /**
+   * Setter for allPurposeMinimumSpotInstances.
+   * Minimum number of spot instances for the CDE service for the All Purpose Instance Group.
+   **/
+  public void setAllPurposeMinimumSpotInstances(Integer allPurposeMinimumSpotInstances) {
+    this.allPurposeMinimumSpotInstances = allPurposeMinimumSpotInstances;
+  }
+
+  /**
+   * Getter for allPurposeMaximumSpotInstances.
+   * Maximum number of spot instances for the CDE service for the All Purpose Instance Group.
+   **/
+  @JsonProperty("allPurposeMaximumSpotInstances")
+  public Integer getAllPurposeMaximumSpotInstances() {
+    return allPurposeMaximumSpotInstances;
+  }
+
+  /**
+   * Setter for allPurposeMaximumSpotInstances.
+   * Maximum number of spot instances for the CDE service for the All Purpose Instance Group.
+   **/
+  public void setAllPurposeMaximumSpotInstances(Integer allPurposeMaximumSpotInstances) {
+    this.allPurposeMaximumSpotInstances = allPurposeMaximumSpotInstances;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -215,12 +303,24 @@ public class UpdateServiceRequest  {
     if (!Objects.equals(this.loadbalancerAllowlist, updateServiceRequest.loadbalancerAllowlist)) {
       return false;
     }
+    if (!Objects.equals(this.allPurposeMinimumInstances, updateServiceRequest.allPurposeMinimumInstances)) {
+      return false;
+    }
+    if (!Objects.equals(this.allPurposeMaximumInstances, updateServiceRequest.allPurposeMaximumInstances)) {
+      return false;
+    }
+    if (!Objects.equals(this.allPurposeMinimumSpotInstances, updateServiceRequest.allPurposeMinimumSpotInstances)) {
+      return false;
+    }
+    if (!Objects.equals(this.allPurposeMaximumSpotInstances, updateServiceRequest.allPurposeMaximumSpotInstances)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, minimumInstances, maximumInstances, minimumSpotInstances, maximumSpotInstances, whitelistIps, loadbalancerAllowlist);
+    return Objects.hash(clusterId, minimumInstances, maximumInstances, minimumSpotInstances, maximumSpotInstances, whitelistIps, loadbalancerAllowlist, allPurposeMinimumInstances, allPurposeMaximumInstances, allPurposeMinimumSpotInstances, allPurposeMaximumSpotInstances);
   }
 
   @Override
@@ -234,6 +334,10 @@ public class UpdateServiceRequest  {
     sb.append("    maximumSpotInstances: ").append(toIndentedString(maximumSpotInstances)).append("\n");
     sb.append("    whitelistIps: ").append(toIndentedString(whitelistIps)).append("\n");
     sb.append("    loadbalancerAllowlist: ").append(toIndentedString(loadbalancerAllowlist)).append("\n");
+    sb.append("    allPurposeMinimumInstances: ").append(toIndentedString(allPurposeMinimumInstances)).append("\n");
+    sb.append("    allPurposeMaximumInstances: ").append(toIndentedString(allPurposeMaximumInstances)).append("\n");
+    sb.append("    allPurposeMinimumSpotInstances: ").append(toIndentedString(allPurposeMinimumSpotInstances)).append("\n");
+    sb.append("    allPurposeMaximumSpotInstances: ").append(toIndentedString(allPurposeMaximumSpotInstances)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -31,7 +31,7 @@ import com.cloudera.cdp.datalake.model.SolrBackupRestoreState;
 /**
  * Object representing the state of each service running a backup.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:54.547-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-05T15:30:58.453-07:00")
 public class InternalBackupRestoreState  {
 
   /**

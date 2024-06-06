@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * Request object for Enable Service method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:56.034-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-05T15:30:59.789-07:00")
 public class EnableServiceRequest  {
 
   /**
@@ -148,6 +148,46 @@ public class EnableServiceRequest  {
    * Network outbound type. Currently 'udr' is the only supported.
    **/
   private String networkOutboundType = null;
+
+  /**
+   * Instance type of the cluster for CDE Service for the All Purpose Instance Group.
+   **/
+  private String allPurposeInstanceType = null;
+
+  /**
+   * Minimum Instances for the CDE Service for the All Purpose Instance Group.
+   **/
+  private Integer allPurposeMinimumInstances = null;
+
+  /**
+   * Maximum Instances for the CDE Service for the All Purpose Instance Group.
+   **/
+  private Integer allPurposeMaximumInstances = null;
+
+  /**
+   * Minimum Spot instances for the CDE Service for the All Purpose Instance Group.
+   **/
+  private Integer allPurposeMinimumSpotInstances = null;
+
+  /**
+   * Maximum Spot Instances for the CDE Service for the All Purpose Instance Group.
+   **/
+  private Integer allPurposeMaximumSpotInstances = null;
+
+  /**
+   * Initial Instances when the service is enabled for the All Purpose Instance Group.
+   **/
+  private Integer allPurposeInitialInstances = null;
+
+  /**
+   * Initial spot Instances when the service is enabled for the All Purpose Instance Group.
+   **/
+  private Integer allPurposeInitialSpotInstances = null;
+
+  /**
+   * EBS volume size in GB for the All Purpose Instance Group.
+   **/
+  private Integer allPurposeRootVolumeSize = null;
 
   /**
    * Getter for name.
@@ -540,6 +580,142 @@ public class EnableServiceRequest  {
     this.networkOutboundType = networkOutboundType;
   }
 
+  /**
+   * Getter for allPurposeInstanceType.
+   * Instance type of the cluster for CDE Service for the All Purpose Instance Group.
+   **/
+  @JsonProperty("allPurposeInstanceType")
+  public String getAllPurposeInstanceType() {
+    return allPurposeInstanceType;
+  }
+
+  /**
+   * Setter for allPurposeInstanceType.
+   * Instance type of the cluster for CDE Service for the All Purpose Instance Group.
+   **/
+  public void setAllPurposeInstanceType(String allPurposeInstanceType) {
+    this.allPurposeInstanceType = allPurposeInstanceType;
+  }
+
+  /**
+   * Getter for allPurposeMinimumInstances.
+   * Minimum Instances for the CDE Service for the All Purpose Instance Group.
+   **/
+  @JsonProperty("allPurposeMinimumInstances")
+  public Integer getAllPurposeMinimumInstances() {
+    return allPurposeMinimumInstances;
+  }
+
+  /**
+   * Setter for allPurposeMinimumInstances.
+   * Minimum Instances for the CDE Service for the All Purpose Instance Group.
+   **/
+  public void setAllPurposeMinimumInstances(Integer allPurposeMinimumInstances) {
+    this.allPurposeMinimumInstances = allPurposeMinimumInstances;
+  }
+
+  /**
+   * Getter for allPurposeMaximumInstances.
+   * Maximum Instances for the CDE Service for the All Purpose Instance Group.
+   **/
+  @JsonProperty("allPurposeMaximumInstances")
+  public Integer getAllPurposeMaximumInstances() {
+    return allPurposeMaximumInstances;
+  }
+
+  /**
+   * Setter for allPurposeMaximumInstances.
+   * Maximum Instances for the CDE Service for the All Purpose Instance Group.
+   **/
+  public void setAllPurposeMaximumInstances(Integer allPurposeMaximumInstances) {
+    this.allPurposeMaximumInstances = allPurposeMaximumInstances;
+  }
+
+  /**
+   * Getter for allPurposeMinimumSpotInstances.
+   * Minimum Spot instances for the CDE Service for the All Purpose Instance Group.
+   **/
+  @JsonProperty("allPurposeMinimumSpotInstances")
+  public Integer getAllPurposeMinimumSpotInstances() {
+    return allPurposeMinimumSpotInstances;
+  }
+
+  /**
+   * Setter for allPurposeMinimumSpotInstances.
+   * Minimum Spot instances for the CDE Service for the All Purpose Instance Group.
+   **/
+  public void setAllPurposeMinimumSpotInstances(Integer allPurposeMinimumSpotInstances) {
+    this.allPurposeMinimumSpotInstances = allPurposeMinimumSpotInstances;
+  }
+
+  /**
+   * Getter for allPurposeMaximumSpotInstances.
+   * Maximum Spot Instances for the CDE Service for the All Purpose Instance Group.
+   **/
+  @JsonProperty("allPurposeMaximumSpotInstances")
+  public Integer getAllPurposeMaximumSpotInstances() {
+    return allPurposeMaximumSpotInstances;
+  }
+
+  /**
+   * Setter for allPurposeMaximumSpotInstances.
+   * Maximum Spot Instances for the CDE Service for the All Purpose Instance Group.
+   **/
+  public void setAllPurposeMaximumSpotInstances(Integer allPurposeMaximumSpotInstances) {
+    this.allPurposeMaximumSpotInstances = allPurposeMaximumSpotInstances;
+  }
+
+  /**
+   * Getter for allPurposeInitialInstances.
+   * Initial Instances when the service is enabled for the All Purpose Instance Group.
+   **/
+  @JsonProperty("allPurposeInitialInstances")
+  public Integer getAllPurposeInitialInstances() {
+    return allPurposeInitialInstances;
+  }
+
+  /**
+   * Setter for allPurposeInitialInstances.
+   * Initial Instances when the service is enabled for the All Purpose Instance Group.
+   **/
+  public void setAllPurposeInitialInstances(Integer allPurposeInitialInstances) {
+    this.allPurposeInitialInstances = allPurposeInitialInstances;
+  }
+
+  /**
+   * Getter for allPurposeInitialSpotInstances.
+   * Initial spot Instances when the service is enabled for the All Purpose Instance Group.
+   **/
+  @JsonProperty("allPurposeInitialSpotInstances")
+  public Integer getAllPurposeInitialSpotInstances() {
+    return allPurposeInitialSpotInstances;
+  }
+
+  /**
+   * Setter for allPurposeInitialSpotInstances.
+   * Initial spot Instances when the service is enabled for the All Purpose Instance Group.
+   **/
+  public void setAllPurposeInitialSpotInstances(Integer allPurposeInitialSpotInstances) {
+    this.allPurposeInitialSpotInstances = allPurposeInitialSpotInstances;
+  }
+
+  /**
+   * Getter for allPurposeRootVolumeSize.
+   * EBS volume size in GB for the All Purpose Instance Group.
+   **/
+  @JsonProperty("allPurposeRootVolumeSize")
+  public Integer getAllPurposeRootVolumeSize() {
+    return allPurposeRootVolumeSize;
+  }
+
+  /**
+   * Setter for allPurposeRootVolumeSize.
+   * EBS volume size in GB for the All Purpose Instance Group.
+   **/
+  public void setAllPurposeRootVolumeSize(Integer allPurposeRootVolumeSize) {
+    this.allPurposeRootVolumeSize = allPurposeRootVolumeSize;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -618,12 +794,36 @@ public class EnableServiceRequest  {
     if (!Objects.equals(this.networkOutboundType, enableServiceRequest.networkOutboundType)) {
       return false;
     }
+    if (!Objects.equals(this.allPurposeInstanceType, enableServiceRequest.allPurposeInstanceType)) {
+      return false;
+    }
+    if (!Objects.equals(this.allPurposeMinimumInstances, enableServiceRequest.allPurposeMinimumInstances)) {
+      return false;
+    }
+    if (!Objects.equals(this.allPurposeMaximumInstances, enableServiceRequest.allPurposeMaximumInstances)) {
+      return false;
+    }
+    if (!Objects.equals(this.allPurposeMinimumSpotInstances, enableServiceRequest.allPurposeMinimumSpotInstances)) {
+      return false;
+    }
+    if (!Objects.equals(this.allPurposeMaximumSpotInstances, enableServiceRequest.allPurposeMaximumSpotInstances)) {
+      return false;
+    }
+    if (!Objects.equals(this.allPurposeInitialInstances, enableServiceRequest.allPurposeInitialInstances)) {
+      return false;
+    }
+    if (!Objects.equals(this.allPurposeInitialSpotInstances, enableServiceRequest.allPurposeInitialSpotInstances)) {
+      return false;
+    }
+    if (!Objects.equals(this.allPurposeRootVolumeSize, enableServiceRequest.allPurposeRootVolumeSize)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, env, instanceType, minimumInstances, maximumInstances, minimumSpotInstances, maximumSpotInstances, initialInstances, initialSpotInstances, rootVolumeSize, enablePublicEndpoint, deployPreviousVersion, enableWorkloadAnalytics, useSsd, chartValueOverrides, whitelistIps, loadbalancerAllowlist, tags, skipValidation, enablePrivateNetwork, subnets, customAzureFilesConfigs, networkOutboundType);
+    return Objects.hash(name, env, instanceType, minimumInstances, maximumInstances, minimumSpotInstances, maximumSpotInstances, initialInstances, initialSpotInstances, rootVolumeSize, enablePublicEndpoint, deployPreviousVersion, enableWorkloadAnalytics, useSsd, chartValueOverrides, whitelistIps, loadbalancerAllowlist, tags, skipValidation, enablePrivateNetwork, subnets, customAzureFilesConfigs, networkOutboundType, allPurposeInstanceType, allPurposeMinimumInstances, allPurposeMaximumInstances, allPurposeMinimumSpotInstances, allPurposeMaximumSpotInstances, allPurposeInitialInstances, allPurposeInitialSpotInstances, allPurposeRootVolumeSize);
   }
 
   @Override
@@ -653,6 +853,14 @@ public class EnableServiceRequest  {
     sb.append("    subnets: ").append(toIndentedString(subnets)).append("\n");
     sb.append("    customAzureFilesConfigs: ").append(toIndentedString(customAzureFilesConfigs)).append("\n");
     sb.append("    networkOutboundType: ").append(toIndentedString(networkOutboundType)).append("\n");
+    sb.append("    allPurposeInstanceType: ").append(toIndentedString(allPurposeInstanceType)).append("\n");
+    sb.append("    allPurposeMinimumInstances: ").append(toIndentedString(allPurposeMinimumInstances)).append("\n");
+    sb.append("    allPurposeMaximumInstances: ").append(toIndentedString(allPurposeMaximumInstances)).append("\n");
+    sb.append("    allPurposeMinimumSpotInstances: ").append(toIndentedString(allPurposeMinimumSpotInstances)).append("\n");
+    sb.append("    allPurposeMaximumSpotInstances: ").append(toIndentedString(allPurposeMaximumSpotInstances)).append("\n");
+    sb.append("    allPurposeInitialInstances: ").append(toIndentedString(allPurposeInitialInstances)).append("\n");
+    sb.append("    allPurposeInitialSpotInstances: ").append(toIndentedString(allPurposeInitialSpotInstances)).append("\n");
+    sb.append("    allPurposeRootVolumeSize: ").append(toIndentedString(allPurposeRootVolumeSize)).append("\n");
     sb.append("}");
     return sb.toString();
   }

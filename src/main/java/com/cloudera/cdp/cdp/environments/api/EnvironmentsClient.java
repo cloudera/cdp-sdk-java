@@ -95,6 +95,8 @@ import com.cloudera.cdp.environments.model.GetFreeipaLogDescriptorsRequest;
 import com.cloudera.cdp.environments.model.GetFreeipaLogDescriptorsResponse;
 import com.cloudera.cdp.environments.model.GetFreeipaStatusRequest;
 import com.cloudera.cdp.environments.model.GetFreeipaStatusResponse;
+import com.cloudera.cdp.environments.model.GetFreeipaUpgradeOptionsRequest;
+import com.cloudera.cdp.environments.model.GetFreeipaUpgradeOptionsResponse;
 import com.cloudera.cdp.environments.model.GetGovCloudAuditCredentialPrerequisitesRequest;
 import com.cloudera.cdp.environments.model.GetGovCloudAuditCredentialPrerequisitesResponse;
 import com.cloudera.cdp.environments.model.GetGovCloudCredentialPrerequisitesRequest;
@@ -215,7 +217,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:55.093-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-05T15:30:58.948-07:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -673,6 +675,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("getFreeipaStatus", "/api/v1/environments2/getFreeipaStatus", input, new GenericType<GetFreeipaStatusResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Get available images for FreeIPA upgrade.
+   * @param input
+   * @return GetFreeipaUpgradeOptionsResponse
+   */
+  public GetFreeipaUpgradeOptionsResponse getFreeipaUpgradeOptions(GetFreeipaUpgradeOptionsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getFreeipaUpgradeOptions");
+    }
+
+    return this.invokeAPI("getFreeipaUpgradeOptions", "/api/v1/environments2/getFreeipaUpgradeOptions", input, new GenericType<GetFreeipaUpgradeOptionsResponse>(){}, NO_EXTENSION);
   }
 
   /**

@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request to mark archive batches as successful.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:55.866-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-05T15:30:59.696-07:00")
 public class MarkArchiveBatchesAsSuccessfulRequest  {
 
   /**

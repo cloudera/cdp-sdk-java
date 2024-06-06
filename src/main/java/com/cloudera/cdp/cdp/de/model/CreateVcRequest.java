@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for CreateVc method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:56.034-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-05T15:30:59.789-07:00")
 public class CreateVcRequest  {
 
   /**
@@ -77,6 +77,11 @@ public class CreateVcRequest  {
    * Tier of the virtual cluster. Currently supported tiers are CORE and ALLP. CORE tiered virtual cluster enables operational deployment via batch jobs. ALLP virtual clusters are all-purpose virtual clusters supporting both operational batch jobs and interactive sessions. This feature is only supported in CDE-1.19.0 and beyond.
    **/
   private String vcTier = null;
+
+  /**
+   * Set a default timeout for your sessions. The default option is 8 hours. This option can be overridden when creating a new session.
+   **/
+  private String sessionTimeout = null;
 
   /**
    * Comma-separated Workload usernames of CDP users to be granted access to the Virtual Cluster.
@@ -257,6 +262,23 @@ public class CreateVcRequest  {
   }
 
   /**
+   * Getter for sessionTimeout.
+   * Set a default timeout for your sessions. The default option is 8 hours. This option can be overridden when creating a new session.
+   **/
+  @JsonProperty("sessionTimeout")
+  public String getSessionTimeout() {
+    return sessionTimeout;
+  }
+
+  /**
+   * Setter for sessionTimeout.
+   * Set a default timeout for your sessions. The default option is 8 hours. This option can be overridden when creating a new session.
+   **/
+  public void setSessionTimeout(String sessionTimeout) {
+    this.sessionTimeout = sessionTimeout;
+  }
+
+  /**
    * Getter for aclUsers.
    * Comma-separated Workload usernames of CDP users to be granted access to the Virtual Cluster.
    **/
@@ -377,6 +399,9 @@ public class CreateVcRequest  {
     if (!Objects.equals(this.vcTier, createVcRequest.vcTier)) {
       return false;
     }
+    if (!Objects.equals(this.sessionTimeout, createVcRequest.sessionTimeout)) {
+      return false;
+    }
     if (!Objects.equals(this.aclUsers, createVcRequest.aclUsers)) {
       return false;
     }
@@ -397,7 +422,7 @@ public class CreateVcRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, clusterId, cpuRequests, memoryRequests, chartValueOverrides, smtpConfigs, runtimeSpotComponent, sparkVersion, vcTier, aclUsers, fullAccessUsers, fullAccessGroups, viewOnlyUsers, viewOnlyGroups);
+    return Objects.hash(name, clusterId, cpuRequests, memoryRequests, chartValueOverrides, smtpConfigs, runtimeSpotComponent, sparkVersion, vcTier, sessionTimeout, aclUsers, fullAccessUsers, fullAccessGroups, viewOnlyUsers, viewOnlyGroups);
   }
 
   @Override
@@ -413,6 +438,7 @@ public class CreateVcRequest  {
     sb.append("    runtimeSpotComponent: ").append(toIndentedString(runtimeSpotComponent)).append("\n");
     sb.append("    sparkVersion: ").append(toIndentedString(sparkVersion)).append("\n");
     sb.append("    vcTier: ").append(toIndentedString(vcTier)).append("\n");
+    sb.append("    sessionTimeout: ").append(toIndentedString(sessionTimeout)).append("\n");
     sb.append("    aclUsers: ").append(toIndentedString(aclUsers)).append("\n");
     sb.append("    fullAccessUsers: ").append(toIndentedString(fullAccessUsers)).append("\n");
     sb.append("    fullAccessGroups: ").append(toIndentedString(fullAccessGroups)).append("\n");

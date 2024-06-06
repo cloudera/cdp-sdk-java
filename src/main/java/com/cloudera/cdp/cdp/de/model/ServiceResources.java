@@ -23,11 +23,12 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.de.model.AllPurposeInstanceGroupDetailsResponse;
 
 /**
  * Object to store resources for a CDE service.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:56.034-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-05T15:30:59.789-07:00")
 public class ServiceResources  {
 
   /**
@@ -69,6 +70,11 @@ public class ServiceResources  {
    * Root Volume Size.
    **/
   private String rootVolSize = null;
+
+  /**
+   * Resource details for the nodes used in All Purpose Virtual Clusters.
+   **/
+  private AllPurposeInstanceGroupDetailsResponse allPurposeInstanceGroupDetails = null;
 
   /**
    * Getter for instanceType.
@@ -206,6 +212,23 @@ public class ServiceResources  {
     this.rootVolSize = rootVolSize;
   }
 
+  /**
+   * Getter for allPurposeInstanceGroupDetails.
+   * Resource details for the nodes used in All Purpose Virtual Clusters.
+   **/
+  @JsonProperty("allPurposeInstanceGroupDetails")
+  public AllPurposeInstanceGroupDetailsResponse getAllPurposeInstanceGroupDetails() {
+    return allPurposeInstanceGroupDetails;
+  }
+
+  /**
+   * Setter for allPurposeInstanceGroupDetails.
+   * Resource details for the nodes used in All Purpose Virtual Clusters.
+   **/
+  public void setAllPurposeInstanceGroupDetails(AllPurposeInstanceGroupDetailsResponse allPurposeInstanceGroupDetails) {
+    this.allPurposeInstanceGroupDetails = allPurposeInstanceGroupDetails;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -239,12 +262,15 @@ public class ServiceResources  {
     if (!Objects.equals(this.rootVolSize, serviceResources.rootVolSize)) {
       return false;
     }
+    if (!Objects.equals(this.allPurposeInstanceGroupDetails, serviceResources.allPurposeInstanceGroupDetails)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceType, minInstances, maxInstances, initialInstances, minSpotInstances, maxSpotInstances, initialSpotInstances, rootVolSize);
+    return Objects.hash(instanceType, minInstances, maxInstances, initialInstances, minSpotInstances, maxSpotInstances, initialSpotInstances, rootVolSize, allPurposeInstanceGroupDetails);
   }
 
   @Override
@@ -259,6 +285,7 @@ public class ServiceResources  {
     sb.append("    maxSpotInstances: ").append(toIndentedString(maxSpotInstances)).append("\n");
     sb.append("    initialSpotInstances: ").append(toIndentedString(initialSpotInstances)).append("\n");
     sb.append("    rootVolSize: ").append(toIndentedString(rootVolSize)).append("\n");
+    sb.append("    allPurposeInstanceGroupDetails: ").append(toIndentedString(allPurposeInstanceGroupDetails)).append("\n");
     sb.append("}");
     return sb.toString();
   }

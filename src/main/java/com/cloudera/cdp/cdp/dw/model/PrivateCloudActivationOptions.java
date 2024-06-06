@@ -23,11 +23,12 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.dw.model.KeyPairCredentials;
 
 /**
  * Options for activating a Private Cloud environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:53.646-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-05T15:30:57.248-07:00")
 public class PrivateCloudActivationOptions  {
 
   /**
@@ -64,6 +65,11 @@ public class PrivateCloudActivationOptions  {
    * Enable to use dedicated nodes exclusively for executors and coordinators, and improve performance. You can enable this only if you reserved nodes while adding a CDP Private Cloud containerized ECS cluster. When disabled, non-compute pods such as MetaStore and Data Visualization can also use the reserved nodes.
    **/
   private Boolean dedicatedExecutorNodes = false;
+
+  /**
+   * A certificate and private key pair belonging together for mutual SSL handshake when Database Catalog (aka DBC) connects to the metastore database.
+   **/
+  private KeyPairCredentials dbClientCredentials = null;
 
   /**
    * Getter for delegationUsername.
@@ -188,6 +194,23 @@ public class PrivateCloudActivationOptions  {
     this.dedicatedExecutorNodes = dedicatedExecutorNodes;
   }
 
+  /**
+   * Getter for dbClientCredentials.
+   * A certificate and private key pair belonging together for mutual SSL handshake when Database Catalog (aka DBC) connects to the metastore database.
+   **/
+  @JsonProperty("dbClientCredentials")
+  public KeyPairCredentials getDbClientCredentials() {
+    return dbClientCredentials;
+  }
+
+  /**
+   * Setter for dbClientCredentials.
+   * A certificate and private key pair belonging together for mutual SSL handshake when Database Catalog (aka DBC) connects to the metastore database.
+   **/
+  public void setDbClientCredentials(KeyPairCredentials dbClientCredentials) {
+    this.dbClientCredentials = dbClientCredentials;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -218,12 +241,15 @@ public class PrivateCloudActivationOptions  {
     if (!Objects.equals(this.dedicatedExecutorNodes, privateCloudActivationOptions.dedicatedExecutorNodes)) {
       return false;
     }
+    if (!Objects.equals(this.dbClientCredentials, privateCloudActivationOptions.dbClientCredentials)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(delegationUsername, delegationPassword, securityContextConstraintName, storageClass, dbDas, dbHue, dedicatedExecutorNodes);
+    return Objects.hash(delegationUsername, delegationPassword, securityContextConstraintName, storageClass, dbDas, dbHue, dedicatedExecutorNodes, dbClientCredentials);
   }
 
   @Override
@@ -237,6 +263,7 @@ public class PrivateCloudActivationOptions  {
     sb.append("    dbDas: ").append(toIndentedString(dbDas)).append("\n");
     sb.append("    dbHue: ").append(toIndentedString(dbHue)).append("\n");
     sb.append("    dedicatedExecutorNodes: ").append(toIndentedString(dedicatedExecutorNodes)).append("\n");
+    sb.append("    dbClientCredentials: ").append(toIndentedString(dbClientCredentials)).append("\n");
     sb.append("}");
     return sb.toString();
   }

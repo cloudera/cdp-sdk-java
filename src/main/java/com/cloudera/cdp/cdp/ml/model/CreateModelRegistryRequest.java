@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object for creating model registry.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:54.264-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-05T15:30:58.134-07:00")
 public class CreateModelRegistryRequest  {
 
   /**
@@ -106,6 +106,16 @@ public class CreateModelRegistryRequest  {
    * The CRN of the backup that this model registry is created from.
    **/
   private String backupCrn = null;
+
+  /**
+   * Whether to whitelist only authorizedIPRanges given or all public IPs
+   **/
+  private Boolean whitelistAuthorizedIPRanges = null;
+
+  /**
+   * The whitelist of CIDR blocks which can access the API server.
+   **/
+  private List<String> authorizedIPRanges = new ArrayList<String>();
 
   /**
    * Getter for namespace.
@@ -362,6 +372,40 @@ public class CreateModelRegistryRequest  {
     this.backupCrn = backupCrn;
   }
 
+  /**
+   * Getter for whitelistAuthorizedIPRanges.
+   * Whether to whitelist only authorizedIPRanges given or all public IPs
+   **/
+  @JsonProperty("whitelistAuthorizedIPRanges")
+  public Boolean getWhitelistAuthorizedIPRanges() {
+    return whitelistAuthorizedIPRanges;
+  }
+
+  /**
+   * Setter for whitelistAuthorizedIPRanges.
+   * Whether to whitelist only authorizedIPRanges given or all public IPs
+   **/
+  public void setWhitelistAuthorizedIPRanges(Boolean whitelistAuthorizedIPRanges) {
+    this.whitelistAuthorizedIPRanges = whitelistAuthorizedIPRanges;
+  }
+
+  /**
+   * Getter for authorizedIPRanges.
+   * The whitelist of CIDR blocks which can access the API server.
+   **/
+  @JsonProperty("authorizedIPRanges")
+  public List<String> getAuthorizedIPRanges() {
+    return authorizedIPRanges;
+  }
+
+  /**
+   * Setter for authorizedIPRanges.
+   * The whitelist of CIDR blocks which can access the API server.
+   **/
+  public void setAuthorizedIPRanges(List<String> authorizedIPRanges) {
+    this.authorizedIPRanges = authorizedIPRanges;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -416,12 +460,18 @@ public class CreateModelRegistryRequest  {
     if (!Objects.equals(this.backupCrn, createModelRegistryRequest.backupCrn)) {
       return false;
     }
+    if (!Objects.equals(this.whitelistAuthorizedIPRanges, createModelRegistryRequest.whitelistAuthorizedIPRanges)) {
+      return false;
+    }
+    if (!Objects.equals(this.authorizedIPRanges, createModelRegistryRequest.authorizedIPRanges)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(namespace, s3AccessKey, s3SecretKey, s3Bucket, s3Endpoint, creatorCrn, environmentCrn, environmentName, usePublicLoadBalancer, subnetsForLoadBalancers, outboundTypes, skipValidation, privateCluster, provisionK8sRequest, backupCrn);
+    return Objects.hash(namespace, s3AccessKey, s3SecretKey, s3Bucket, s3Endpoint, creatorCrn, environmentCrn, environmentName, usePublicLoadBalancer, subnetsForLoadBalancers, outboundTypes, skipValidation, privateCluster, provisionK8sRequest, backupCrn, whitelistAuthorizedIPRanges, authorizedIPRanges);
   }
 
   @Override
@@ -443,6 +493,8 @@ public class CreateModelRegistryRequest  {
     sb.append("    privateCluster: ").append(toIndentedString(privateCluster)).append("\n");
     sb.append("    provisionK8sRequest: ").append(toIndentedString(provisionK8sRequest)).append("\n");
     sb.append("    backupCrn: ").append(toIndentedString(backupCrn)).append("\n");
+    sb.append("    whitelistAuthorizedIPRanges: ").append(toIndentedString(whitelistAuthorizedIPRanges)).append("\n");
+    sb.append("    authorizedIPRanges: ").append(toIndentedString(authorizedIPRanges)).append("\n");
     sb.append("}");
     return sb.toString();
   }

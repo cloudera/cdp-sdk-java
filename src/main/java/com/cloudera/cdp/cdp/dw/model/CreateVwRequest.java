@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * Request object for the createVw method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:53.646-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-05T15:30:57.248-07:00")
 public class CreateVwRequest  {
 
   /**
@@ -126,6 +126,16 @@ public class CreateVwRequest  {
    * Value of 'true' automatically configures the Virtual Warehouse to support JWTs issues by the CDP JWT token provider.  Value of 'false' does not enable JWT auth on the Virtual Warehouse.  If this field is not specified, it defaults to 'false'.
    **/
   private Boolean platformJwtAuth = false;
+
+  /**
+   * Provides EBS gp3 volume as temporary storage space for Hive LLAP cache, and improves query performance. Configurable only at Virtual Warehouse creation. Using EBS volumes incurs additional costs.
+   **/
+  private Integer ebsLLAPSpillGB = null;
+
+  /**
+   * Set Hive Server High Availability mode in Private Cloud: * `DISABLED` (default) - Disables Hive Server high availability. * `ACTIVE_PASSIVE` - Runs two Hive Server instances, one active and one passive. Hive session failover is not supported in this setup.
+   **/
+  private String hiveServerHaMode = null;
 
   /**
    * Getter for clusterId.
@@ -435,6 +445,40 @@ public class CreateVwRequest  {
     this.platformJwtAuth = platformJwtAuth;
   }
 
+  /**
+   * Getter for ebsLLAPSpillGB.
+   * Provides EBS gp3 volume as temporary storage space for Hive LLAP cache, and improves query performance. Configurable only at Virtual Warehouse creation. Using EBS volumes incurs additional costs.
+   **/
+  @JsonProperty("ebsLLAPSpillGB")
+  public Integer getEbsLLAPSpillGB() {
+    return ebsLLAPSpillGB;
+  }
+
+  /**
+   * Setter for ebsLLAPSpillGB.
+   * Provides EBS gp3 volume as temporary storage space for Hive LLAP cache, and improves query performance. Configurable only at Virtual Warehouse creation. Using EBS volumes incurs additional costs.
+   **/
+  public void setEbsLLAPSpillGB(Integer ebsLLAPSpillGB) {
+    this.ebsLLAPSpillGB = ebsLLAPSpillGB;
+  }
+
+  /**
+   * Getter for hiveServerHaMode.
+   * Set Hive Server High Availability mode in Private Cloud: * &#x60;DISABLED&#x60; (default) - Disables Hive Server high availability. * &#x60;ACTIVE_PASSIVE&#x60; - Runs two Hive Server instances, one active and one passive. Hive session failover is not supported in this setup.
+   **/
+  @JsonProperty("hiveServerHaMode")
+  public String getHiveServerHaMode() {
+    return hiveServerHaMode;
+  }
+
+  /**
+   * Setter for hiveServerHaMode.
+   * Set Hive Server High Availability mode in Private Cloud: * &#x60;DISABLED&#x60; (default) - Disables Hive Server high availability. * &#x60;ACTIVE_PASSIVE&#x60; - Runs two Hive Server instances, one active and one passive. Hive session failover is not supported in this setup.
+   **/
+  public void setHiveServerHaMode(String hiveServerHaMode) {
+    this.hiveServerHaMode = hiveServerHaMode;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -498,12 +542,18 @@ public class CreateVwRequest  {
     if (!Objects.equals(this.platformJwtAuth, createVwRequest.platformJwtAuth)) {
       return false;
     }
+    if (!Objects.equals(this.ebsLLAPSpillGB, createVwRequest.ebsLLAPSpillGB)) {
+      return false;
+    }
+    if (!Objects.equals(this.hiveServerHaMode, createVwRequest.hiveServerHaMode)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, dbcId, vwType, name, imageVersion, template, nodeCount, availabilityZone, enableUnifiedAnalytics, impalaOptions, impalaHaSettings, autoscaling, config, queryIsolationOptions, tags, resourcePool, hiveAuthenticationMode, platformJwtAuth);
+    return Objects.hash(clusterId, dbcId, vwType, name, imageVersion, template, nodeCount, availabilityZone, enableUnifiedAnalytics, impalaOptions, impalaHaSettings, autoscaling, config, queryIsolationOptions, tags, resourcePool, hiveAuthenticationMode, platformJwtAuth, ebsLLAPSpillGB, hiveServerHaMode);
   }
 
   @Override
@@ -528,6 +578,8 @@ public class CreateVwRequest  {
     sb.append("    resourcePool: ").append(toIndentedString(resourcePool)).append("\n");
     sb.append("    hiveAuthenticationMode: ").append(toIndentedString(hiveAuthenticationMode)).append("\n");
     sb.append("    platformJwtAuth: ").append(toIndentedString(platformJwtAuth)).append("\n");
+    sb.append("    ebsLLAPSpillGB: ").append(toIndentedString(ebsLLAPSpillGB)).append("\n");
+    sb.append("    hiveServerHaMode: ").append(toIndentedString(hiveServerHaMode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

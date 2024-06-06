@@ -24,12 +24,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.dw.model.ActorResponse;
+import com.cloudera.cdp.dw.model.ApplicationResources;
 import java.time.ZonedDateTime;
+import java.util.*;
+import java.util.Map;
 
 /**
  * A Database Catalog.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:53.646-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-05T15:30:57.248-07:00")
 public class DbcSummary  {
 
   /**
@@ -76,6 +79,11 @@ public class DbcSummary  {
    * The name of the Resource Pool the Database Catalog is in.
    **/
   private String resourcePool = null;
+
+  /**
+   * The actual resources used by the Database Catalog.
+   **/
+  private Map<String, ApplicationResources> resources = new HashMap<String, ApplicationResources>();
 
   /**
    * Getter for crn.
@@ -230,6 +238,23 @@ public class DbcSummary  {
     this.resourcePool = resourcePool;
   }
 
+  /**
+   * Getter for resources.
+   * The actual resources used by the Database Catalog.
+   **/
+  @JsonProperty("resources")
+  public Map<String, ApplicationResources> getResources() {
+    return resources;
+  }
+
+  /**
+   * Setter for resources.
+   * The actual resources used by the Database Catalog.
+   **/
+  public void setResources(Map<String, ApplicationResources> resources) {
+    this.resources = resources;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -266,12 +291,15 @@ public class DbcSummary  {
     if (!Objects.equals(this.resourcePool, dbcSummary.resourcePool)) {
       return false;
     }
+    if (!Objects.equals(this.resources, dbcSummary.resources)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, name, memorySize, status, statusChangedAt, creator, creationDate, resourcePool);
+    return Objects.hash(crn, id, name, memorySize, status, statusChangedAt, creator, creationDate, resourcePool, resources);
   }
 
   @Override
@@ -287,6 +315,7 @@ public class DbcSummary  {
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    resourcePool: ").append(toIndentedString(resourcePool)).append("\n");
+    sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * A request to create the database
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:55.768-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-05T15:30:59.518-07:00")
 public class CreateDatabaseRequest  {
 
   /**

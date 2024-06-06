@@ -31,7 +31,7 @@ import com.cloudera.cdp.dw.model.ServiceConfigReq;
 /**
  * Request object for the updateVw method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:53.646-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-05T15:30:57.248-07:00")
 public class UpdateVwRequest  {
 
   /**
@@ -83,6 +83,16 @@ public class UpdateVwRequest  {
    * Value of 'true' automatically configures the Virtual Warehouse to support JWTs issues by the CDP JWT token provider.  Value of 'false' does not enable JWT auth on the Virtual Warehouse.  If this field is not specified, it defaults to 'false'.
    **/
   private Boolean platformJwtAuth = null;
+
+  /**
+   * Used to set the resource pool of the Virtual Warehouses that are not enrolled for quota management.
+   **/
+  private String resourcePool = null;
+
+  /**
+   * If specified, modifies Hive Server High Availability mode in Private Cloud: * `DISABLED` - Disables Hive Server high availability. * `ACTIVE_PASSIVE` - Runs two Hive Server instances, one active and one passive. Hive session failover is not supported in this setup.
+   **/
+  private String hiveServerHaMode = null;
 
   /**
    * Getter for clusterId.
@@ -256,6 +266,40 @@ public class UpdateVwRequest  {
     this.platformJwtAuth = platformJwtAuth;
   }
 
+  /**
+   * Getter for resourcePool.
+   * Used to set the resource pool of the Virtual Warehouses that are not enrolled for quota management.
+   **/
+  @JsonProperty("resourcePool")
+  public String getResourcePool() {
+    return resourcePool;
+  }
+
+  /**
+   * Setter for resourcePool.
+   * Used to set the resource pool of the Virtual Warehouses that are not enrolled for quota management.
+   **/
+  public void setResourcePool(String resourcePool) {
+    this.resourcePool = resourcePool;
+  }
+
+  /**
+   * Getter for hiveServerHaMode.
+   * If specified, modifies Hive Server High Availability mode in Private Cloud: * &#x60;DISABLED&#x60; - Disables Hive Server high availability. * &#x60;ACTIVE_PASSIVE&#x60; - Runs two Hive Server instances, one active and one passive. Hive session failover is not supported in this setup.
+   **/
+  @JsonProperty("hiveServerHaMode")
+  public String getHiveServerHaMode() {
+    return hiveServerHaMode;
+  }
+
+  /**
+   * Setter for hiveServerHaMode.
+   * If specified, modifies Hive Server High Availability mode in Private Cloud: * &#x60;DISABLED&#x60; - Disables Hive Server high availability. * &#x60;ACTIVE_PASSIVE&#x60; - Runs two Hive Server instances, one active and one passive. Hive session failover is not supported in this setup.
+   **/
+  public void setHiveServerHaMode(String hiveServerHaMode) {
+    this.hiveServerHaMode = hiveServerHaMode;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -295,12 +339,18 @@ public class UpdateVwRequest  {
     if (!Objects.equals(this.platformJwtAuth, updateVwRequest.platformJwtAuth)) {
       return false;
     }
+    if (!Objects.equals(this.resourcePool, updateVwRequest.resourcePool)) {
+      return false;
+    }
+    if (!Objects.equals(this.hiveServerHaMode, updateVwRequest.hiveServerHaMode)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, vwId, template, nodeCount, config, autoscaling, impalaHaSettings, queryIsolationOptions, hiveAuthenticationMode, platformJwtAuth);
+    return Objects.hash(clusterId, vwId, template, nodeCount, config, autoscaling, impalaHaSettings, queryIsolationOptions, hiveAuthenticationMode, platformJwtAuth, resourcePool, hiveServerHaMode);
   }
 
   @Override
@@ -317,6 +367,8 @@ public class UpdateVwRequest  {
     sb.append("    queryIsolationOptions: ").append(toIndentedString(queryIsolationOptions)).append("\n");
     sb.append("    hiveAuthenticationMode: ").append(toIndentedString(hiveAuthenticationMode)).append("\n");
     sb.append("    platformJwtAuth: ").append(toIndentedString(platformJwtAuth)).append("\n");
+    sb.append("    resourcePool: ").append(toIndentedString(resourcePool)).append("\n");
+    sb.append("    hiveServerHaMode: ").append(toIndentedString(hiveServerHaMode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

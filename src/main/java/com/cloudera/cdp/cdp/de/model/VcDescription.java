@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * CDE virtual cluster summary.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:56.034-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-05T15:30:59.789-07:00")
 public class VcDescription  {
 
   /**
@@ -129,6 +129,11 @@ public class VcDescription  {
    * Tier of the Virtual Cluster.
    **/
   private String vcTier = null;
+
+  /**
+   * Default timeout for Sessions.
+   **/
+  private String sessionTimeout = null;
 
   /**
    * Getter for vcId.
@@ -453,6 +458,23 @@ public class VcDescription  {
     this.vcTier = vcTier;
   }
 
+  /**
+   * Getter for sessionTimeout.
+   * Default timeout for Sessions.
+   **/
+  @JsonProperty("sessionTimeout")
+  public String getSessionTimeout() {
+    return sessionTimeout;
+  }
+
+  /**
+   * Setter for sessionTimeout.
+   * Default timeout for Sessions.
+   **/
+  public void setSessionTimeout(String sessionTimeout) {
+    this.sessionTimeout = sessionTimeout;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -519,12 +541,15 @@ public class VcDescription  {
     if (!Objects.equals(this.vcTier, vcDescription.vcTier)) {
       return false;
     }
+    if (!Objects.equals(this.sessionTimeout, vcDescription.sessionTimeout)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(vcId, vcName, clusterId, status, resources, creatorEmail, creatorID, creatorName, vcApiUrl, vcUiUrl, historyServerUrl, livyServerUrl, safariUrl, creationTime, sparkVersion, chartValueOverrides, accessControl, smtpConfig, vcTier);
+    return Objects.hash(vcId, vcName, clusterId, status, resources, creatorEmail, creatorID, creatorName, vcApiUrl, vcUiUrl, historyServerUrl, livyServerUrl, safariUrl, creationTime, sparkVersion, chartValueOverrides, accessControl, smtpConfig, vcTier, sessionTimeout);
   }
 
   @Override
@@ -550,6 +575,7 @@ public class VcDescription  {
     sb.append("    accessControl: ").append(toIndentedString(accessControl)).append("\n");
     sb.append("    smtpConfig: ").append(toIndentedString(smtpConfig)).append("\n");
     sb.append("    vcTier: ").append(toIndentedString(vcTier)).append("\n");
+    sb.append("    sessionTimeout: ").append(toIndentedString(sessionTimeout)).append("\n");
     sb.append("}");
     return sb.toString();
   }

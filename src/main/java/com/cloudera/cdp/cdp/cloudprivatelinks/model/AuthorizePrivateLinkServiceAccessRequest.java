@@ -23,12 +23,11 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
-import java.util.*;
 
 /**
  * Request object for the AuthorizePrivateLinkServicesAccess method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:57.605-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-05T15:31:01.295-07:00")
 public class AuthorizePrivateLinkServiceAccessRequest  {
 
   /**
@@ -40,11 +39,6 @@ public class AuthorizePrivateLinkServiceAccessRequest  {
    * Region where the private link service exists.
    **/
   private String region = null;
-
-  /**
-   * CDP service component name [API/DBUSAPI/IAMAPI/CCMV2/CONSOLEAUTH].
-   **/
-  private List<String> serviceComponents = new ArrayList<String>();
 
   /**
    * CDP service group. Currently supported \"CDP-CONTROL-PLANE\" for PaaS.
@@ -86,23 +80,6 @@ public class AuthorizePrivateLinkServiceAccessRequest  {
   }
 
   /**
-   * Getter for serviceComponents.
-   * CDP service component name [API/DBUSAPI/IAMAPI/CCMV2/CONSOLEAUTH].
-   **/
-  @JsonProperty("serviceComponents")
-  public List<String> getServiceComponents() {
-    return serviceComponents;
-  }
-
-  /**
-   * Setter for serviceComponents.
-   * CDP service component name [API/DBUSAPI/IAMAPI/CCMV2/CONSOLEAUTH].
-   **/
-  public void setServiceComponents(List<String> serviceComponents) {
-    this.serviceComponents = serviceComponents;
-  }
-
-  /**
    * Getter for serviceGroup.
    * CDP service group. Currently supported \&quot;CDP-CONTROL-PLANE\&quot; for PaaS.
    **/
@@ -134,9 +111,6 @@ public class AuthorizePrivateLinkServiceAccessRequest  {
     if (!Objects.equals(this.region, authorizePrivateLinkServiceAccessRequest.region)) {
       return false;
     }
-    if (!Objects.equals(this.serviceComponents, authorizePrivateLinkServiceAccessRequest.serviceComponents)) {
-      return false;
-    }
     if (!Objects.equals(this.serviceGroup, authorizePrivateLinkServiceAccessRequest.serviceGroup)) {
       return false;
     }
@@ -145,7 +119,7 @@ public class AuthorizePrivateLinkServiceAccessRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cloudAccountId, region, serviceComponents, serviceGroup);
+    return Objects.hash(cloudAccountId, region, serviceGroup);
   }
 
   @Override
@@ -154,7 +128,6 @@ public class AuthorizePrivateLinkServiceAccessRequest  {
     sb.append("class AuthorizePrivateLinkServiceAccessRequest {\n");
     sb.append("    cloudAccountId: ").append(toIndentedString(cloudAccountId)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
-    sb.append("    serviceComponents: ").append(toIndentedString(serviceComponents)).append("\n");
     sb.append("    serviceGroup: ").append(toIndentedString(serviceGroup)).append("\n");
     sb.append("}");
     return sb.toString();

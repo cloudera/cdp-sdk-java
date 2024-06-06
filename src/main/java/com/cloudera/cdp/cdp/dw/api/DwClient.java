@@ -44,6 +44,8 @@ import com.cloudera.cdp.dw.model.CreateDbcDiagnosticDataJobRequest;
 import com.cloudera.cdp.dw.model.CreateDbcDiagnosticDataJobResponse;
 import com.cloudera.cdp.dw.model.CreateDbcRequest;
 import com.cloudera.cdp.dw.model.CreateDbcResponse;
+import com.cloudera.cdp.dw.model.CreateResourceTemplateRequest;
+import com.cloudera.cdp.dw.model.CreateResourceTemplateResponse;
 import com.cloudera.cdp.dw.model.CreateVwDiagnosticDataJobRequest;
 import com.cloudera.cdp.dw.model.CreateVwDiagnosticDataJobResponse;
 import com.cloudera.cdp.dw.model.CreateVwRequest;
@@ -60,6 +62,8 @@ import com.cloudera.cdp.dw.model.DeleteDbcDiagnosticDataJobRequest;
 import com.cloudera.cdp.dw.model.DeleteDbcDiagnosticDataJobResponse;
 import com.cloudera.cdp.dw.model.DeleteDbcRequest;
 import com.cloudera.cdp.dw.model.DeleteDbcResponse;
+import com.cloudera.cdp.dw.model.DeleteResourceTemplateRequest;
+import com.cloudera.cdp.dw.model.DeleteResourceTemplateResponse;
 import com.cloudera.cdp.dw.model.DeleteUserRequest;
 import com.cloudera.cdp.dw.model.DeleteUserResponse;
 import com.cloudera.cdp.dw.model.DeleteVwDiagnosticDataJobRequest;
@@ -131,6 +135,8 @@ import com.cloudera.cdp.dw.model.ListEventsRequest;
 import com.cloudera.cdp.dw.model.ListEventsResponse;
 import com.cloudera.cdp.dw.model.ListLatestVersionsRequest;
 import com.cloudera.cdp.dw.model.ListLatestVersionsResponse;
+import com.cloudera.cdp.dw.model.ListResourceTemplatesRequest;
+import com.cloudera.cdp.dw.model.ListResourceTemplatesResponse;
 import com.cloudera.cdp.dw.model.ListRestoresRequest;
 import com.cloudera.cdp.dw.model.ListRestoresResponse;
 import com.cloudera.cdp.dw.model.ListUsersRequest;
@@ -171,6 +177,8 @@ import com.cloudera.cdp.dw.model.UpdateDbcConfigRequest;
 import com.cloudera.cdp.dw.model.UpdateDbcConfigResponse;
 import com.cloudera.cdp.dw.model.UpdateDbcRequest;
 import com.cloudera.cdp.dw.model.UpdateDbcResponse;
+import com.cloudera.cdp.dw.model.UpdateResourceTemplateRequest;
+import com.cloudera.cdp.dw.model.UpdateResourceTemplateResponse;
 import com.cloudera.cdp.dw.model.UpdateServerSettingRequest;
 import com.cloudera.cdp.dw.model.UpdateServerSettingResponse;
 import com.cloudera.cdp.dw.model.UpdateSshKeyRequest;
@@ -193,7 +201,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:53.646-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-05T15:30:57.248-07:00")
 public class DwClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dw";
@@ -330,6 +338,19 @@ public class DwClient extends CdpClient {
   }
 
   /**
+   * Create a resource allocation template.
+   * @param input
+   * @return CreateResourceTemplateResponse
+   */
+  public CreateResourceTemplateResponse createResourceTemplate(CreateResourceTemplateRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createResourceTemplate");
+    }
+
+    return this.invokeAPI("createResourceTemplate", "/api/v1/dw/createResourceTemplate", input, new GenericType<CreateResourceTemplateResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Create a Virtual Warehouse.
    * @param input
    * @return CreateVwResponse
@@ -431,6 +452,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("deleteDbcDiagnosticDataJob", "/api/v1/dw/deleteDbcDiagnosticDataJob", input, new GenericType<DeleteDbcDiagnosticDataJobResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Delete a resource allocation template.
+   * @param input
+   * @return DeleteResourceTemplateResponse
+   */
+  public DeleteResourceTemplateResponse deleteResourceTemplate(DeleteResourceTemplateRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteResourceTemplate");
+    }
+
+    return this.invokeAPI("deleteResourceTemplate", "/api/v1/dw/deleteResourceTemplate", input, new GenericType<DeleteResourceTemplateResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -889,6 +923,19 @@ public class DwClient extends CdpClient {
   }
 
   /**
+   * Get default resource allocation templates.
+   * @param input
+   * @return ListResourceTemplatesResponse
+   */
+  public ListResourceTemplatesResponse listResourceTemplates(ListResourceTemplatesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listResourceTemplates");
+    }
+
+    return this.invokeAPI("listResourceTemplates", "/api/v1/dw/listResourceTemplates", input, new GenericType<ListResourceTemplatesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Lists restores.
    * @param input
    * @return ListRestoresResponse
@@ -1146,6 +1193,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("updateDbcConfig", "/api/v1/dw/updateDbcConfig", input, new GenericType<UpdateDbcConfigResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Update a resource allocation template.
+   * @param input
+   * @return UpdateResourceTemplateResponse
+   */
+  public UpdateResourceTemplateResponse updateResourceTemplate(UpdateResourceTemplateRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateResourceTemplate");
+    }
+
+    return this.invokeAPI("updateResourceTemplate", "/api/v1/dw/updateResourceTemplate", input, new GenericType<UpdateResourceTemplateResponse>(){}, NO_EXTENSION);
   }
 
   /**

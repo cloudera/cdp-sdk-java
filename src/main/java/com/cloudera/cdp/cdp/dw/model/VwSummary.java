@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.dw.model.ActorResponse;
+import com.cloudera.cdp.dw.model.ApplicationResources;
 import com.cloudera.cdp.dw.model.AutoscalingOptionsResponse;
 import com.cloudera.cdp.dw.model.ImpalaHASettingsOptionsResponse;
 import com.cloudera.cdp.dw.model.ImpalaOptionsResponse;
@@ -35,11 +36,12 @@ import com.cloudera.cdp.dw.model.VwSummaryJwtAuth;
 import com.cloudera.cdp.dw.model.VwSummarySupportedAuthMethods;
 import java.time.ZonedDateTime;
 import java.util.*;
+import java.util.Map;
 
 /**
  * A Virtual Warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-05-22T20:53:53.646-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-05T15:30:57.248-07:00")
 public class VwSummary  {
 
   /**
@@ -186,6 +188,21 @@ public class VwSummary  {
    * DEPRECATED - Authentication mode used by Hive Server: * `LDAP` * `KERBEROS`
    **/
   private String hiveAuthenticationMode = null;
+
+  /**
+   * Provides EBS gp3 volume as temporary storage space for Hive LLAP cache, and improves query performance. Configurable only at Virtual Warehouse creation. Using EBS volumes incurs additional costs.
+   **/
+  private Integer ebsLLAPSpillGB = null;
+
+  /**
+   * Hive Server High Availability mode in Private Cloud: * `DISABLED` - Hive Server high availability is disabled. * `ACTIVE_PASSIVE` - Hive Server high availability is enabled with one active and one passive instances. Hive session failover is not supported in this setup.
+   **/
+  private String hiveServerHaMode = null;
+
+  /**
+   * The actual resources used by the Virtual Warehouse.
+   **/
+  private Map<String, ApplicationResources> resources = new HashMap<String, ApplicationResources>();
 
   /**
    * Getter for crn.
@@ -682,6 +699,57 @@ public class VwSummary  {
     this.hiveAuthenticationMode = hiveAuthenticationMode;
   }
 
+  /**
+   * Getter for ebsLLAPSpillGB.
+   * Provides EBS gp3 volume as temporary storage space for Hive LLAP cache, and improves query performance. Configurable only at Virtual Warehouse creation. Using EBS volumes incurs additional costs.
+   **/
+  @JsonProperty("ebsLLAPSpillGB")
+  public Integer getEbsLLAPSpillGB() {
+    return ebsLLAPSpillGB;
+  }
+
+  /**
+   * Setter for ebsLLAPSpillGB.
+   * Provides EBS gp3 volume as temporary storage space for Hive LLAP cache, and improves query performance. Configurable only at Virtual Warehouse creation. Using EBS volumes incurs additional costs.
+   **/
+  public void setEbsLLAPSpillGB(Integer ebsLLAPSpillGB) {
+    this.ebsLLAPSpillGB = ebsLLAPSpillGB;
+  }
+
+  /**
+   * Getter for hiveServerHaMode.
+   * Hive Server High Availability mode in Private Cloud: * &#x60;DISABLED&#x60; - Hive Server high availability is disabled. * &#x60;ACTIVE_PASSIVE&#x60; - Hive Server high availability is enabled with one active and one passive instances. Hive session failover is not supported in this setup.
+   **/
+  @JsonProperty("hiveServerHaMode")
+  public String getHiveServerHaMode() {
+    return hiveServerHaMode;
+  }
+
+  /**
+   * Setter for hiveServerHaMode.
+   * Hive Server High Availability mode in Private Cloud: * &#x60;DISABLED&#x60; - Hive Server high availability is disabled. * &#x60;ACTIVE_PASSIVE&#x60; - Hive Server high availability is enabled with one active and one passive instances. Hive session failover is not supported in this setup.
+   **/
+  public void setHiveServerHaMode(String hiveServerHaMode) {
+    this.hiveServerHaMode = hiveServerHaMode;
+  }
+
+  /**
+   * Getter for resources.
+   * The actual resources used by the Virtual Warehouse.
+   **/
+  @JsonProperty("resources")
+  public Map<String, ApplicationResources> getResources() {
+    return resources;
+  }
+
+  /**
+   * Setter for resources.
+   * The actual resources used by the Virtual Warehouse.
+   **/
+  public void setResources(Map<String, ApplicationResources> resources) {
+    this.resources = resources;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -778,12 +846,21 @@ public class VwSummary  {
     if (!Objects.equals(this.hiveAuthenticationMode, vwSummary.hiveAuthenticationMode)) {
       return false;
     }
+    if (!Objects.equals(this.ebsLLAPSpillGB, vwSummary.ebsLLAPSpillGB)) {
+      return false;
+    }
+    if (!Objects.equals(this.hiveServerHaMode, vwSummary.hiveServerHaMode)) {
+      return false;
+    }
+    if (!Objects.equals(this.resources, vwSummary.resources)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, name, vwType, dbcId, status, statusChangedAt, creator, creationDate, configId, cdhVersion, numOfCores, memoryCapacity, nodeCount, availabilityZone, endpoints, supportedAuthMethods, jwtAuth, tags, compactor, viz, enableUnifiedAnalytics, autoscalingOptions, impalaOptions, impalaHaSettingsOptions, queryIsolationOptions, replicaStatus, resourcePool, hiveAuthenticationMode);
+    return Objects.hash(crn, id, name, vwType, dbcId, status, statusChangedAt, creator, creationDate, configId, cdhVersion, numOfCores, memoryCapacity, nodeCount, availabilityZone, endpoints, supportedAuthMethods, jwtAuth, tags, compactor, viz, enableUnifiedAnalytics, autoscalingOptions, impalaOptions, impalaHaSettingsOptions, queryIsolationOptions, replicaStatus, resourcePool, hiveAuthenticationMode, ebsLLAPSpillGB, hiveServerHaMode, resources);
   }
 
   @Override
@@ -819,6 +896,9 @@ public class VwSummary  {
     sb.append("    replicaStatus: ").append(toIndentedString(replicaStatus)).append("\n");
     sb.append("    resourcePool: ").append(toIndentedString(resourcePool)).append("\n");
     sb.append("    hiveAuthenticationMode: ").append(toIndentedString(hiveAuthenticationMode)).append("\n");
+    sb.append("    ebsLLAPSpillGB: ").append(toIndentedString(ebsLLAPSpillGB)).append("\n");
+    sb.append("    hiveServerHaMode: ").append(toIndentedString(hiveServerHaMode)).append("\n");
+    sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
     sb.append("}");
     return sb.toString();
   }
