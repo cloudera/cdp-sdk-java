@@ -23,11 +23,12 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import java.util.*;
 
 /**
  * A proxy config object.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-05T15:30:58.948-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-26T16:18:44.068-07:00")
 public class ProxyConfig  {
 
   /**
@@ -74,6 +75,11 @@ public class ProxyConfig  {
    * The proxy password.
    **/
   private String password = null;
+
+  /**
+   * Allow these CIDR for Inbound communication.
+   **/
+  private List<String> inboundProxyCidr = new ArrayList<String>();
 
   /**
    * Getter for proxyConfigName.
@@ -228,6 +234,23 @@ public class ProxyConfig  {
     this.password = password;
   }
 
+  /**
+   * Getter for inboundProxyCidr.
+   * Allow these CIDR for Inbound communication.
+   **/
+  @JsonProperty("inboundProxyCidr")
+  public List<String> getInboundProxyCidr() {
+    return inboundProxyCidr;
+  }
+
+  /**
+   * Setter for inboundProxyCidr.
+   * Allow these CIDR for Inbound communication.
+   **/
+  public void setInboundProxyCidr(List<String> inboundProxyCidr) {
+    this.inboundProxyCidr = inboundProxyCidr;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -264,12 +287,15 @@ public class ProxyConfig  {
     if (!Objects.equals(this.password, proxyConfig.password)) {
       return false;
     }
+    if (!Objects.equals(this.inboundProxyCidr, proxyConfig.inboundProxyCidr)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(proxyConfigName, crn, protocol, host, port, description, noProxyHosts, user, password);
+    return Objects.hash(proxyConfigName, crn, protocol, host, port, description, noProxyHosts, user, password, inboundProxyCidr);
   }
 
   @Override
@@ -285,6 +311,7 @@ public class ProxyConfig  {
     sb.append("    noProxyHosts: ").append(toIndentedString(noProxyHosts)).append("\n");
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
+    sb.append("    inboundProxyCidr: ").append(toIndentedString(inboundProxyCidr)).append("\n");
     sb.append("}");
     return sb.toString();
   }

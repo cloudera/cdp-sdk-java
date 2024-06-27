@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object to list clusters.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-05T15:31:00.992-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-26T16:18:46.421-07:00")
 public class ListClustersRequest  {
 
   /**
@@ -56,9 +56,9 @@ public class ListClustersRequest  {
   private String startingToken = null;
 
   /**
-   * Include deleted clusters in the response. Optional.
+   * Include deleted clusters in the response.
    **/
-  private Boolean includeDeleted = false;
+  private Boolean includeDeleted = null;
 
   /**
    * Getter for envNameOrCrn.
@@ -147,7 +147,7 @@ public class ListClustersRequest  {
 
   /**
    * Getter for includeDeleted.
-   * Include deleted clusters in the response. Optional.
+   * Include deleted clusters in the response.
    **/
   @JsonProperty("includeDeleted")
   public Boolean getIncludeDeleted() {
@@ -156,7 +156,7 @@ public class ListClustersRequest  {
 
   /**
    * Setter for includeDeleted.
-   * Include deleted clusters in the response. Optional.
+   * Include deleted clusters in the response.
    **/
   public void setIncludeDeleted(Boolean includeDeleted) {
     this.includeDeleted = includeDeleted;

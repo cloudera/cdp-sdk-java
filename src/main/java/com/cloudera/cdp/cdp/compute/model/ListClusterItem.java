@@ -32,7 +32,7 @@ import java.util.Map;
 /**
  * List clusters item structure.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-05T15:31:00.992-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-26T16:18:46.421-07:00")
 public class ListClusterItem  {
 
   /**
@@ -154,6 +154,16 @@ public class ListClusterItem  {
    * Map of labels associated with this cluster.
    **/
   private Map<String, String> labels = new HashMap<String, String>();
+
+  /**
+   * The cluster which is automatically created for every containerized environment.
+   **/
+  private Boolean isDefault = null;
+
+  /**
+   * The clusterShape represents the shape of the cluster, which can be \"Embedded\" or \"Externalized\".
+   **/
+  private String clusterShape = null;
 
   /**
    * Getter for envName.
@@ -563,6 +573,40 @@ public class ListClusterItem  {
     this.labels = labels;
   }
 
+  /**
+   * Getter for isDefault.
+   * The cluster which is automatically created for every containerized environment.
+   **/
+  @JsonProperty("isDefault")
+  public Boolean getIsDefault() {
+    return isDefault;
+  }
+
+  /**
+   * Setter for isDefault.
+   * The cluster which is automatically created for every containerized environment.
+   **/
+  public void setIsDefault(Boolean isDefault) {
+    this.isDefault = isDefault;
+  }
+
+  /**
+   * Getter for clusterShape.
+   * The clusterShape represents the shape of the cluster, which can be \&quot;Embedded\&quot; or \&quot;Externalized\&quot;.
+   **/
+  @JsonProperty("clusterShape")
+  public String getClusterShape() {
+    return clusterShape;
+  }
+
+  /**
+   * Setter for clusterShape.
+   * The clusterShape represents the shape of the cluster, which can be \&quot;Embedded\&quot; or \&quot;Externalized\&quot;.
+   **/
+  public void setClusterShape(String clusterShape) {
+    this.clusterShape = clusterShape;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -644,12 +688,18 @@ public class ListClusterItem  {
     if (!Objects.equals(this.labels, listClusterItem.labels)) {
       return false;
     }
+    if (!Objects.equals(this.isDefault, listClusterItem.isDefault)) {
+      return false;
+    }
+    if (!Objects.equals(this.clusterShape, listClusterItem.clusterShape)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(envName, envCloudProvider, clusterName, clusterCrn, status, computePlatform, computePlatformVersion, kubernetesVersion, clusterSize, clusterId, envCrn, clusterType, creationTime, deletionTime, updateTime, clusterStateVersion, clusterOwner, region, message, account, availableUpgrades, imageCatalog, storage, labels);
+    return Objects.hash(envName, envCloudProvider, clusterName, clusterCrn, status, computePlatform, computePlatformVersion, kubernetesVersion, clusterSize, clusterId, envCrn, clusterType, creationTime, deletionTime, updateTime, clusterStateVersion, clusterOwner, region, message, account, availableUpgrades, imageCatalog, storage, labels, isDefault, clusterShape);
   }
 
   @Override
@@ -680,6 +730,8 @@ public class ListClusterItem  {
     sb.append("    imageCatalog: ").append(toIndentedString(imageCatalog)).append("\n");
     sb.append("    storage: ").append(toIndentedString(storage)).append("\n");
     sb.append("    labels: ").append(toIndentedString(labels)).append("\n");
+    sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
+    sb.append("    clusterShape: ").append(toIndentedString(clusterShape)).append("\n");
     sb.append("}");
     return sb.toString();
   }

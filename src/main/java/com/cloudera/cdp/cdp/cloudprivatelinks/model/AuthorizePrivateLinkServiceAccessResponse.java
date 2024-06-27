@@ -29,13 +29,18 @@ import java.util.*;
 /**
  * Response object for the AuthorizePrivateLinkServicesAccess method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-05T15:31:01.295-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-26T16:18:46.724-07:00")
 public class AuthorizePrivateLinkServiceAccessResponse extends CdpResponse {
 
   /**
    * List of AuthorizePrivateLinkServiceAccessResult objects.
    **/
   private List<AuthorizePrivateLinkServiceAccessResult> authorizePrivateLinkServiceAccessResults = new ArrayList<AuthorizePrivateLinkServiceAccessResult>();
+
+  /**
+   * Status of private link service access authorization.
+   **/
+  private String status = null;
 
   /**
    * Getter for authorizePrivateLinkServiceAccessResults.
@@ -54,6 +59,23 @@ public class AuthorizePrivateLinkServiceAccessResponse extends CdpResponse {
     this.authorizePrivateLinkServiceAccessResults = authorizePrivateLinkServiceAccessResults;
   }
 
+  /**
+   * Getter for status.
+   * Status of private link service access authorization.
+   **/
+  @JsonProperty("status")
+  public String getStatus() {
+    return status;
+  }
+
+  /**
+   * Setter for status.
+   * Status of private link service access authorization.
+   **/
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -66,6 +88,9 @@ public class AuthorizePrivateLinkServiceAccessResponse extends CdpResponse {
     if (!Objects.equals(this.authorizePrivateLinkServiceAccessResults, authorizePrivateLinkServiceAccessResponse.authorizePrivateLinkServiceAccessResults)) {
       return false;
     }
+    if (!Objects.equals(this.status, authorizePrivateLinkServiceAccessResponse.status)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -74,7 +99,7 @@ public class AuthorizePrivateLinkServiceAccessResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(authorizePrivateLinkServiceAccessResults, super.hashCode());
+    return Objects.hash(authorizePrivateLinkServiceAccessResults, status, super.hashCode());
   }
 
   @Override
@@ -83,6 +108,7 @@ public class AuthorizePrivateLinkServiceAccessResponse extends CdpResponse {
     sb.append("class AuthorizePrivateLinkServiceAccessResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    authorizePrivateLinkServiceAccessResults: ").append(toIndentedString(authorizePrivateLinkServiceAccessResults)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Breakdown of the service memory requirements.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-05T15:30:57.248-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-26T16:18:42.398-07:00")
 public class ApplicationResourcesBreakdown  {
 
   /**
@@ -41,7 +41,7 @@ public class ApplicationResourcesBreakdown  {
   private String xmx = null;
 
   /**
-   * Java VM configuration for -Xmx (maximum heap size).Java VM overhead for Garbage Collector structures, metaspace, etc., and a safety margin to avoid out-of-memory issues.
+   * DEPRECATED: Java VM configuration for -Xmx (maximum heap size).Java VM overhead for Garbage Collector structures, metaspace, etc., and a safety margin to avoid out-of-memory issues.
    **/
   private String headroom = null;
 
@@ -56,7 +56,7 @@ public class ApplicationResourcesBreakdown  {
   private String maxDirectMemorySize = null;
 
   /**
-   * Overhead buffer for hive.query.isolation.slots.per.node. The total number of concurrent tasks the Hive query executor can process is the sum of the available CPU cores and the value you specify in this field.
+   * DEPRECATED: Set the hive.query.isolation.slots.per.node configuration value instead. Overhead buffer for hive.query.isolation.slots.per.node. The total number of concurrent tasks the Hive query executor can process is the sum of the available CPU cores and the value you specify in this field.
    **/
   private Integer waitQueueSize = null;
 
@@ -96,8 +96,9 @@ public class ApplicationResourcesBreakdown  {
 
   /**
    * Getter for headroom.
-   * Java VM configuration for -Xmx (maximum heap size).Java VM overhead for Garbage Collector structures, metaspace, etc., and a safety margin to avoid out-of-memory issues.
+   * DEPRECATED: Java VM configuration for -Xmx (maximum heap size).Java VM overhead for Garbage Collector structures, metaspace, etc., and a safety margin to avoid out-of-memory issues.
    **/
+  @Deprecated
   @JsonProperty("headroom")
   public String getHeadroom() {
     return headroom;
@@ -105,8 +106,9 @@ public class ApplicationResourcesBreakdown  {
 
   /**
    * Setter for headroom.
-   * Java VM configuration for -Xmx (maximum heap size).Java VM overhead for Garbage Collector structures, metaspace, etc., and a safety margin to avoid out-of-memory issues.
+   * DEPRECATED: Java VM configuration for -Xmx (maximum heap size).Java VM overhead for Garbage Collector structures, metaspace, etc., and a safety margin to avoid out-of-memory issues.
    **/
+  @Deprecated
   public void setHeadroom(String headroom) {
     this.headroom = headroom;
   }
@@ -147,8 +149,9 @@ public class ApplicationResourcesBreakdown  {
 
   /**
    * Getter for waitQueueSize.
-   * Overhead buffer for hive.query.isolation.slots.per.node. The total number of concurrent tasks the Hive query executor can process is the sum of the available CPU cores and the value you specify in this field.
+   * DEPRECATED: Set the hive.query.isolation.slots.per.node configuration value instead. Overhead buffer for hive.query.isolation.slots.per.node. The total number of concurrent tasks the Hive query executor can process is the sum of the available CPU cores and the value you specify in this field.
    **/
+  @Deprecated
   @JsonProperty("waitQueueSize")
   public Integer getWaitQueueSize() {
     return waitQueueSize;
@@ -156,8 +159,9 @@ public class ApplicationResourcesBreakdown  {
 
   /**
    * Setter for waitQueueSize.
-   * Overhead buffer for hive.query.isolation.slots.per.node. The total number of concurrent tasks the Hive query executor can process is the sum of the available CPU cores and the value you specify in this field.
+   * DEPRECATED: Set the hive.query.isolation.slots.per.node configuration value instead. Overhead buffer for hive.query.isolation.slots.per.node. The total number of concurrent tasks the Hive query executor can process is the sum of the available CPU cores and the value you specify in this field.
    **/
+  @Deprecated
   public void setWaitQueueSize(Integer waitQueueSize) {
     this.waitQueueSize = waitQueueSize;
   }

@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * The response object for the list custom configurations request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-05T15:30:56.509-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-26T16:18:41.622-07:00")
 public class ListCustomConfigurationsResponse extends CdpResponse {
 
   /**

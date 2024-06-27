@@ -28,7 +28,7 @@ import com.cloudera.cdp.ml.model.ModelRegistry;
 /**
  * Response object for the DescribeModelRegistry method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-05T15:30:58.134-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-26T16:18:43.137-07:00")
 public class DescribeModelRegistryResponse extends CdpResponse {
 
   /**

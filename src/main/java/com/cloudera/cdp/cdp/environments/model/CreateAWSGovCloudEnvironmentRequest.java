@@ -35,7 +35,7 @@ import java.util.*;
 /**
  * Request object for a create AWS GovCloud environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-05T15:30:58.948-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-26T16:18:44.068-07:00")
 public class CreateAWSGovCloudEnvironmentRequest  {
 
   /**

@@ -28,7 +28,7 @@ import com.cloudera.cdp.datahub.model.AutoScaleRulesResponse;
 /**
  * The AutoScale rules for the cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-05T15:30:56.509-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-26T16:18:41.622-07:00")
 public class CreateAutoScaleRulesResponse extends CdpResponse {
 
   /**
