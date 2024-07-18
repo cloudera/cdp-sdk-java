@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * The response object for the listResourceTemplates method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-26T16:18:42.398-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:53.512-07:00")
 public class ListResourceTemplatesResponse extends CdpResponse {
 
   /**

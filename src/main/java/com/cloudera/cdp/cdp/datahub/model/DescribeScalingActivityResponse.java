@@ -28,7 +28,7 @@ import com.cloudera.cdp.datahub.model.ScalingActivitySummary;
 /**
  * Response object for describe scaling activity request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-26T16:18:41.622-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:52.786-07:00")
 public class DescribeScalingActivityResponse extends CdpResponse {
 
   /**

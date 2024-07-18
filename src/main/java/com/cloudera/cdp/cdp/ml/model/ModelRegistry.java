@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Model registry object
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-26T16:18:43.137-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:54.239-07:00")
 public class ModelRegistry  {
 
   /**
@@ -102,9 +102,19 @@ public class ModelRegistry  {
   private String serviceName = null;
 
   /**
+   * The version of the model registry.
+   **/
+  private String version = null;
+
+  /**
    * The domain of the model registry
    **/
   private String domain = null;
+
+  /**
+   * To indicate if the model registry standalone API endpoint is publicly accessible or not.
+   **/
+  private Boolean endpointPublicAccess = null;
 
   /**
    * Getter for id.
@@ -349,6 +359,23 @@ public class ModelRegistry  {
   }
 
   /**
+   * Getter for version.
+   * The version of the model registry.
+   **/
+  @JsonProperty("version")
+  public String getVersion() {
+    return version;
+  }
+
+  /**
+   * Setter for version.
+   * The version of the model registry.
+   **/
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
+  /**
    * Getter for domain.
    * The domain of the model registry
    **/
@@ -363,6 +390,23 @@ public class ModelRegistry  {
    **/
   public void setDomain(String domain) {
     this.domain = domain;
+  }
+
+  /**
+   * Getter for endpointPublicAccess.
+   * To indicate if the model registry standalone API endpoint is publicly accessible or not.
+   **/
+  @JsonProperty("endpointPublicAccess")
+  public Boolean getEndpointPublicAccess() {
+    return endpointPublicAccess;
+  }
+
+  /**
+   * Setter for endpointPublicAccess.
+   * To indicate if the model registry standalone API endpoint is publicly accessible or not.
+   **/
+  public void setEndpointPublicAccess(Boolean endpointPublicAccess) {
+    this.endpointPublicAccess = endpointPublicAccess;
   }
 
   @Override
@@ -416,7 +460,13 @@ public class ModelRegistry  {
     if (!Objects.equals(this.serviceName, modelRegistry.serviceName)) {
       return false;
     }
+    if (!Objects.equals(this.version, modelRegistry.version)) {
+      return false;
+    }
     if (!Objects.equals(this.domain, modelRegistry.domain)) {
+      return false;
+    }
+    if (!Objects.equals(this.endpointPublicAccess, modelRegistry.endpointPublicAccess)) {
       return false;
     }
     return true;
@@ -424,7 +474,7 @@ public class ModelRegistry  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, namespace, s3Bucket, s3Endpoint, creator, status, environmentCrn, createdAt, crn, workspaceCrn, environmentName, workspaceName, machineUserCrn, serviceName, domain);
+    return Objects.hash(id, namespace, s3Bucket, s3Endpoint, creator, status, environmentCrn, createdAt, crn, workspaceCrn, environmentName, workspaceName, machineUserCrn, serviceName, version, domain, endpointPublicAccess);
   }
 
   @Override
@@ -445,7 +495,9 @@ public class ModelRegistry  {
     sb.append("    workspaceName: ").append(toIndentedString(workspaceName)).append("\n");
     sb.append("    machineUserCrn: ").append(toIndentedString(machineUserCrn)).append("\n");
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
+    sb.append("    endpointPublicAccess: ").append(toIndentedString(endpointPublicAccess)).append("\n");
     sb.append("}");
     return sb.toString();
   }

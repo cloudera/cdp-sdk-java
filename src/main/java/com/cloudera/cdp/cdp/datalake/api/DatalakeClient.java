@@ -36,6 +36,8 @@ import com.cloudera.cdp.datalake.model.CancelBackupRequest;
 import com.cloudera.cdp.datalake.model.CancelBackupResponse;
 import com.cloudera.cdp.datalake.model.CancelDatalakeDiagnosticsRequest;
 import com.cloudera.cdp.datalake.model.CancelDatalakeDiagnosticsResponse;
+import com.cloudera.cdp.datalake.model.CancelRestoreRequest;
+import com.cloudera.cdp.datalake.model.CancelRestoreResponse;
 import com.cloudera.cdp.datalake.model.CollectCmDiagnosticsRequest;
 import com.cloudera.cdp.datalake.model.CollectCmDiagnosticsResponse;
 import com.cloudera.cdp.datalake.model.CollectDatalakeDiagnosticsRequest;
@@ -129,7 +131,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-26T16:18:43.510-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:54.604-07:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datalake";
@@ -210,6 +212,19 @@ public class DatalakeClient extends CdpClient {
     }
 
     return this.invokeAPI("cancelDatalakeDiagnostics", "/api/v1/datalake/cancelDatalakeDiagnostics", input, new GenericType<CancelDatalakeDiagnosticsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Cancels the restore that was performed.
+   * @param input
+   * @return CancelRestoreResponse
+   */
+  public CancelRestoreResponse cancelRestore(CancelRestoreRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling cancelRestore");
+    }
+
+    return this.invokeAPI("cancelRestore", "/api/v1/datalake/cancelRestore", input, new GenericType<CancelRestoreResponse>(){}, NO_EXTENSION);
   }
 
   /**

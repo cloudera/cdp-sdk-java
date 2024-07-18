@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for updateVc method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-26T16:18:44.988-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:56.012-07:00")
 public class UpdateVcRequest  {
 
   /**

@@ -27,13 +27,23 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * The request object for FreeIPA upgrade.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-26T16:18:44.068-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:55.191-07:00")
 public class UpgradeFreeipaRequest  {
 
   /**
    * The name or CRN of the environment.
    **/
   private String environmentName = null;
+
+  /**
+   * Target image ID for upgrade.
+   **/
+  private String imageId = null;
+
+  /**
+   * Allows the upgrade to a subsequent major OS version in the series.
+   **/
+  private Boolean allowMajorOsUpgrade = null;
 
   /**
    * Getter for environmentName.
@@ -52,6 +62,40 @@ public class UpgradeFreeipaRequest  {
     this.environmentName = environmentName;
   }
 
+  /**
+   * Getter for imageId.
+   * Target image ID for upgrade.
+   **/
+  @JsonProperty("imageId")
+  public String getImageId() {
+    return imageId;
+  }
+
+  /**
+   * Setter for imageId.
+   * Target image ID for upgrade.
+   **/
+  public void setImageId(String imageId) {
+    this.imageId = imageId;
+  }
+
+  /**
+   * Getter for allowMajorOsUpgrade.
+   * Allows the upgrade to a subsequent major OS version in the series.
+   **/
+  @JsonProperty("allowMajorOsUpgrade")
+  public Boolean getAllowMajorOsUpgrade() {
+    return allowMajorOsUpgrade;
+  }
+
+  /**
+   * Setter for allowMajorOsUpgrade.
+   * Allows the upgrade to a subsequent major OS version in the series.
+   **/
+  public void setAllowMajorOsUpgrade(Boolean allowMajorOsUpgrade) {
+    this.allowMajorOsUpgrade = allowMajorOsUpgrade;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -64,12 +108,18 @@ public class UpgradeFreeipaRequest  {
     if (!Objects.equals(this.environmentName, upgradeFreeipaRequest.environmentName)) {
       return false;
     }
+    if (!Objects.equals(this.imageId, upgradeFreeipaRequest.imageId)) {
+      return false;
+    }
+    if (!Objects.equals(this.allowMajorOsUpgrade, upgradeFreeipaRequest.allowMajorOsUpgrade)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName);
+    return Objects.hash(environmentName, imageId, allowMajorOsUpgrade);
   }
 
   @Override
@@ -77,6 +127,8 @@ public class UpgradeFreeipaRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpgradeFreeipaRequest {\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
+    sb.append("    imageId: ").append(toIndentedString(imageId)).append("\n");
+    sb.append("    allowMajorOsUpgrade: ").append(toIndentedString(allowMajorOsUpgrade)).append("\n");
     sb.append("}");
     return sb.toString();
   }

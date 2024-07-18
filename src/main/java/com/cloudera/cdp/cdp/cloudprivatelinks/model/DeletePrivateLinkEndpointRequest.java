@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for the DeletePrivateLinkEndpoint method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-26T16:18:46.724-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:57.730-07:00")
 public class DeletePrivateLinkEndpointRequest  {
 
   /**
@@ -52,6 +52,11 @@ public class DeletePrivateLinkEndpointRequest  {
    * Azure account details to delete the PrivateLink endpoint from.
    **/
   private AzureAccountInfo azureAccountInfo = null;
+
+  /**
+   * Cloud Service Provider. Currently supporting AWS and Azure.
+   **/
+  private String cloudServiceProvider = null;
 
   /**
    * Getter for serviceComponents.
@@ -121,6 +126,23 @@ public class DeletePrivateLinkEndpointRequest  {
     this.azureAccountInfo = azureAccountInfo;
   }
 
+  /**
+   * Getter for cloudServiceProvider.
+   * Cloud Service Provider. Currently supporting AWS and Azure.
+   **/
+  @JsonProperty("cloudServiceProvider")
+  public String getCloudServiceProvider() {
+    return cloudServiceProvider;
+  }
+
+  /**
+   * Setter for cloudServiceProvider.
+   * Cloud Service Provider. Currently supporting AWS and Azure.
+   **/
+  public void setCloudServiceProvider(String cloudServiceProvider) {
+    this.cloudServiceProvider = cloudServiceProvider;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -142,12 +164,15 @@ public class DeletePrivateLinkEndpointRequest  {
     if (!Objects.equals(this.azureAccountInfo, deletePrivateLinkEndpointRequest.azureAccountInfo)) {
       return false;
     }
+    if (!Objects.equals(this.cloudServiceProvider, deletePrivateLinkEndpointRequest.cloudServiceProvider)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(serviceComponents, environmentCrn, awsAccountInfo, azureAccountInfo);
+    return Objects.hash(serviceComponents, environmentCrn, awsAccountInfo, azureAccountInfo, cloudServiceProvider);
   }
 
   @Override
@@ -158,6 +183,7 @@ public class DeletePrivateLinkEndpointRequest  {
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
     sb.append("    awsAccountInfo: ").append(toIndentedString(awsAccountInfo)).append("\n");
     sb.append("    azureAccountInfo: ").append(toIndentedString(azureAccountInfo)).append("\n");
+    sb.append("    cloudServiceProvider: ").append(toIndentedString(cloudServiceProvider)).append("\n");
     sb.append("}");
     return sb.toString();
   }

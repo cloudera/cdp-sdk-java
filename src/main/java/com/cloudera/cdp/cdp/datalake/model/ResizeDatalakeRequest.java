@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Datalake resize request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-26T16:18:43.510-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:54.604-07:00")
 public class ResizeDatalakeRequest  {
 
   /**
@@ -63,6 +63,16 @@ public class ResizeDatalakeRequest  {
    * Any custom database properties to override defaults.
    **/
   private CustomDatabaseComputeStorage customDatabaseComputeStorage = null;
+
+  /**
+   * Skips the validation steps that run prior to the resize. If this option is not provided, the validations are performed by default. If skip-validation and validation-only are used together an error is thrown.
+   **/
+  private Boolean skipValidation = null;
+
+  /**
+   * Runs only the validation steps and then returns. If this option is not provided, the resize is performed as normal by default. If skip-validation and validation-only are used together an error is thrown.
+   **/
+  private Boolean validationOnly = null;
 
   /**
    * Getter for datalakeName.
@@ -166,6 +176,40 @@ public class ResizeDatalakeRequest  {
     this.customDatabaseComputeStorage = customDatabaseComputeStorage;
   }
 
+  /**
+   * Getter for skipValidation.
+   * Skips the validation steps that run prior to the resize. If this option is not provided, the validations are performed by default. If skip-validation and validation-only are used together an error is thrown.
+   **/
+  @JsonProperty("skipValidation")
+  public Boolean getSkipValidation() {
+    return skipValidation;
+  }
+
+  /**
+   * Setter for skipValidation.
+   * Skips the validation steps that run prior to the resize. If this option is not provided, the validations are performed by default. If skip-validation and validation-only are used together an error is thrown.
+   **/
+  public void setSkipValidation(Boolean skipValidation) {
+    this.skipValidation = skipValidation;
+  }
+
+  /**
+   * Getter for validationOnly.
+   * Runs only the validation steps and then returns. If this option is not provided, the resize is performed as normal by default. If skip-validation and validation-only are used together an error is thrown.
+   **/
+  @JsonProperty("validationOnly")
+  public Boolean getValidationOnly() {
+    return validationOnly;
+  }
+
+  /**
+   * Setter for validationOnly.
+   * Runs only the validation steps and then returns. If this option is not provided, the resize is performed as normal by default. If skip-validation and validation-only are used together an error is thrown.
+   **/
+  public void setValidationOnly(Boolean validationOnly) {
+    this.validationOnly = validationOnly;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -193,12 +237,18 @@ public class ResizeDatalakeRequest  {
     if (!Objects.equals(this.customDatabaseComputeStorage, resizeDatalakeRequest.customDatabaseComputeStorage)) {
       return false;
     }
+    if (!Objects.equals(this.skipValidation, resizeDatalakeRequest.skipValidation)) {
+      return false;
+    }
+    if (!Objects.equals(this.validationOnly, resizeDatalakeRequest.validationOnly)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, targetSize, multiAz, customInstanceTypes, customInstanceDisks, customDatabaseComputeStorage);
+    return Objects.hash(datalakeName, targetSize, multiAz, customInstanceTypes, customInstanceDisks, customDatabaseComputeStorage, skipValidation, validationOnly);
   }
 
   @Override
@@ -211,6 +261,8 @@ public class ResizeDatalakeRequest  {
     sb.append("    customInstanceTypes: ").append(toIndentedString(customInstanceTypes)).append("\n");
     sb.append("    customInstanceDisks: ").append(toIndentedString(customInstanceDisks)).append("\n");
     sb.append("    customDatabaseComputeStorage: ").append(toIndentedString(customDatabaseComputeStorage)).append("\n");
+    sb.append("    skipValidation: ").append(toIndentedString(skipValidation)).append("\n");
+    sb.append("    validationOnly: ").append(toIndentedString(validationOnly)).append("\n");
     sb.append("}");
     return sb.toString();
   }

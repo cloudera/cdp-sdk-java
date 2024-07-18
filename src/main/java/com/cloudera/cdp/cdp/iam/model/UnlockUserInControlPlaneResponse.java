@@ -28,7 +28,7 @@ import com.cloudera.cdp.iam.model.User;
 /**
  * Response object for unlocking the user in the CDP control plane.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-26T16:18:45.173-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:56.189-07:00")
 public class UnlockUserInControlPlaneResponse extends CdpResponse {
 
   /**

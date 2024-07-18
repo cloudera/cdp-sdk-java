@@ -32,7 +32,7 @@ import java.util.Map;
 /**
  * A template for instantiating KPIs
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-26T16:18:45.994-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:56.971-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class KpiMetaData  {
 

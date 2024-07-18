@@ -28,7 +28,7 @@ import com.cloudera.cdp.environments.model.AwsCredentialPrerequisitesResponse;
 /**
  * The credential prerequisites for GovCloud for the enabled providers.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-26T16:18:44.068-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:55.191-07:00")
 public class GetGovCloudCredentialPrerequisitesResponse extends CdpResponse {
 
   /**

@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * A request to list event history for deployment
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-06-26T16:18:45.629-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:56.601-07:00")
 public class ListDeploymentEventsRequest  {
 
   /**
