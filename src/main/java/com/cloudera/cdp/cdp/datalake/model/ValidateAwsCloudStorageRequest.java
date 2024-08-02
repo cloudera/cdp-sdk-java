@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for AWS cloud storage validation.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:54.604-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-02T09:36:49.744-07:00")
 public class ValidateAwsCloudStorageRequest  {
 
   /**
@@ -64,6 +64,11 @@ public class ValidateAwsCloudStorageRequest  {
    * AWS instance profile.
    **/
   private String instanceProfile = null;
+
+  /**
+   * Ranger RAZ role.
+   **/
+  private String rangerCloudAccessAuthorizerRole = null;
 
   /**
    * Getter for clusterName.
@@ -184,6 +189,23 @@ public class ValidateAwsCloudStorageRequest  {
     this.instanceProfile = instanceProfile;
   }
 
+  /**
+   * Getter for rangerCloudAccessAuthorizerRole.
+   * Ranger RAZ role.
+   **/
+  @JsonProperty("rangerCloudAccessAuthorizerRole")
+  public String getRangerCloudAccessAuthorizerRole() {
+    return rangerCloudAccessAuthorizerRole;
+  }
+
+  /**
+   * Setter for rangerCloudAccessAuthorizerRole.
+   * Ranger RAZ role.
+   **/
+  public void setRangerCloudAccessAuthorizerRole(String rangerCloudAccessAuthorizerRole) {
+    this.rangerCloudAccessAuthorizerRole = rangerCloudAccessAuthorizerRole;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -214,12 +236,15 @@ public class ValidateAwsCloudStorageRequest  {
     if (!Objects.equals(this.instanceProfile, validateAwsCloudStorageRequest.instanceProfile)) {
       return false;
     }
+    if (!Objects.equals(this.rangerCloudAccessAuthorizerRole, validateAwsCloudStorageRequest.rangerCloudAccessAuthorizerRole)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, dataAccessRole, rangerAuditRole, credentialCrn, blueprintName, storageLocation, instanceProfile);
+    return Objects.hash(clusterName, dataAccessRole, rangerAuditRole, credentialCrn, blueprintName, storageLocation, instanceProfile, rangerCloudAccessAuthorizerRole);
   }
 
   @Override
@@ -233,6 +258,7 @@ public class ValidateAwsCloudStorageRequest  {
     sb.append("    blueprintName: ").append(toIndentedString(blueprintName)).append("\n");
     sb.append("    storageLocation: ").append(toIndentedString(storageLocation)).append("\n");
     sb.append("    instanceProfile: ").append(toIndentedString(instanceProfile)).append("\n");
+    sb.append("    rangerCloudAccessAuthorizerRole: ").append(toIndentedString(rangerCloudAccessAuthorizerRole)).append("\n");
     sb.append("}");
     return sb.toString();
   }

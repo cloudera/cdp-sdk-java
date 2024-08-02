@@ -35,8 +35,6 @@ import com.cloudera.cdp.cloudprivatelinks.model.CreatePrivateLinkEndpointRespons
 import com.cloudera.cdp.cloudprivatelinks.model.DeletePrivateLinkEndpointRequest;
 import com.cloudera.cdp.cloudprivatelinks.model.DeletePrivateLinkEndpointResponse;
 import com.cloudera.cdp.cloudprivatelinks.model.Error;
-import com.cloudera.cdp.cloudprivatelinks.model.GetPrivateLinkEndpointStatusRequest;
-import com.cloudera.cdp.cloudprivatelinks.model.GetPrivateLinkEndpointStatusResponse;
 import com.cloudera.cdp.cloudprivatelinks.model.ListPrivateLinkEndpointStatusesRequest;
 import com.cloudera.cdp.cloudprivatelinks.model.ListPrivateLinkEndpointStatusesResponse;
 import com.cloudera.cdp.cloudprivatelinks.model.ListPrivateLinkServicesForRegionRequest;
@@ -47,7 +45,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:57.730-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-02T09:36:52.786-07:00")
 public class CloudprivatelinksClient extends CdpClient {
 
   public static final String SERVICE_NAME = "cloudprivatelinks";
@@ -115,20 +113,6 @@ public class CloudprivatelinksClient extends CdpClient {
     }
 
     return this.invokeAPI("deletePrivateLinkEndpoint", "/api/v1/cloudprivatelinks/deletePrivateLinkEndpoint", input, new GenericType<DeletePrivateLinkEndpointResponse>(){}, NO_EXTENSION);
-  }
-
-  /**
-   * Gets the statuses of PrivateLink endpoints.
-   * @param input
-   * @return GetPrivateLinkEndpointStatusResponse
-   */
-  @Deprecated
-  public GetPrivateLinkEndpointStatusResponse getPrivateLinkEndpointStatus(GetPrivateLinkEndpointStatusRequest input) {
-    if (input == null) {
-      throw new CdpClientException("Missing the required parameter 'input' when calling getPrivateLinkEndpointStatus");
-    }
-
-    return this.invokeAPI("getPrivateLinkEndpointStatus", "/api/v1/cloudprivatelinks/getPrivateLinkEndpointStatus", input, new GenericType<GetPrivateLinkEndpointStatusResponse>(){}, NO_EXTENSION);
   }
 
   /**

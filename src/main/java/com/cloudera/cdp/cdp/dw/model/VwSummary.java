@@ -41,7 +41,7 @@ import java.util.Map;
 /**
  * A Virtual Warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:53.512-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-02T09:36:48.582-07:00")
 public class VwSummary  {
 
   /**
@@ -133,6 +133,11 @@ public class VwSummary  {
    * 
    **/
   private VwSummaryJwtAuth jwtAuth = null;
+
+  /**
+   * Denotes whether the Virtual Warehouse has the Impala Query Log enabled or not.
+   **/
+  private Boolean impalaQueryLog = null;
 
   /**
    * Tags associated with the resources.
@@ -511,6 +516,23 @@ public class VwSummary  {
   }
 
   /**
+   * Getter for impalaQueryLog.
+   * Denotes whether the Virtual Warehouse has the Impala Query Log enabled or not.
+   **/
+  @JsonProperty("impalaQueryLog")
+  public Boolean getImpalaQueryLog() {
+    return impalaQueryLog;
+  }
+
+  /**
+   * Setter for impalaQueryLog.
+   * Denotes whether the Virtual Warehouse has the Impala Query Log enabled or not.
+   **/
+  public void setImpalaQueryLog(Boolean impalaQueryLog) {
+    this.impalaQueryLog = impalaQueryLog;
+  }
+
+  /**
    * Getter for tags.
    * Tags associated with the resources.
    **/
@@ -813,6 +835,9 @@ public class VwSummary  {
     if (!Objects.equals(this.jwtAuth, vwSummary.jwtAuth)) {
       return false;
     }
+    if (!Objects.equals(this.impalaQueryLog, vwSummary.impalaQueryLog)) {
+      return false;
+    }
     if (!Objects.equals(this.tags, vwSummary.tags)) {
       return false;
     }
@@ -860,7 +885,7 @@ public class VwSummary  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, name, vwType, dbcId, status, statusChangedAt, creator, creationDate, configId, cdhVersion, numOfCores, memoryCapacity, nodeCount, availabilityZone, endpoints, supportedAuthMethods, jwtAuth, tags, compactor, viz, enableUnifiedAnalytics, autoscalingOptions, impalaOptions, impalaHaSettingsOptions, queryIsolationOptions, replicaStatus, resourcePool, hiveAuthenticationMode, ebsLLAPSpillGB, hiveServerHaMode, resources);
+    return Objects.hash(crn, id, name, vwType, dbcId, status, statusChangedAt, creator, creationDate, configId, cdhVersion, numOfCores, memoryCapacity, nodeCount, availabilityZone, endpoints, supportedAuthMethods, jwtAuth, impalaQueryLog, tags, compactor, viz, enableUnifiedAnalytics, autoscalingOptions, impalaOptions, impalaHaSettingsOptions, queryIsolationOptions, replicaStatus, resourcePool, hiveAuthenticationMode, ebsLLAPSpillGB, hiveServerHaMode, resources);
   }
 
   @Override
@@ -885,6 +910,7 @@ public class VwSummary  {
     sb.append("    endpoints: ").append(toIndentedString(endpoints)).append("\n");
     sb.append("    supportedAuthMethods: ").append(toIndentedString(supportedAuthMethods)).append("\n");
     sb.append("    jwtAuth: ").append(toIndentedString(jwtAuth)).append("\n");
+    sb.append("    impalaQueryLog: ").append(toIndentedString(impalaQueryLog)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    compactor: ").append(toIndentedString(compactor)).append("\n");
     sb.append("    viz: ").append(toIndentedString(viz)).append("\n");

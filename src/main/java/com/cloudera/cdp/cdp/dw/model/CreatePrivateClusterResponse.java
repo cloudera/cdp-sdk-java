@@ -17,41 +17,39 @@
  * limitations under the License.
  */
 
-package com.cloudera.cdp.cloudprivatelinks.model;
+package com.cloudera.cdp.dw.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
-import com.cloudera.cdp.cloudprivatelinks.model.PrivateLinkEndpointStatus;
-import java.util.*;
 
 /**
- * Response object for GetPrivateLinkEndpointStatus method. Please use ListPrivateLinkEndpointStatusesResponse as replacement. Deprecated.
+ * Response object for the createPrivateCluster method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:57.730-07:00")
-public class GetPrivateLinkEndpointStatusResponse extends CdpResponse {
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-02T09:36:48.582-07:00")
+public class CreatePrivateClusterResponse extends CdpResponse {
 
   /**
-   * List of statuses of PrivateLink endpoints.
+   * ID of new Private Cloud cluster.
    **/
-  private List<PrivateLinkEndpointStatus> privatelinkEndpoints = new ArrayList<PrivateLinkEndpointStatus>();
+  private String clusterId = null;
 
   /**
-   * Getter for privatelinkEndpoints.
-   * List of statuses of PrivateLink endpoints.
+   * Getter for clusterId.
+   * ID of new Private Cloud cluster.
    **/
-  @JsonProperty("privatelinkEndpoints")
-  public List<PrivateLinkEndpointStatus> getPrivatelinkEndpoints() {
-    return privatelinkEndpoints;
+  @JsonProperty("clusterId")
+  public String getClusterId() {
+    return clusterId;
   }
 
   /**
-   * Setter for privatelinkEndpoints.
-   * List of statuses of PrivateLink endpoints.
+   * Setter for clusterId.
+   * ID of new Private Cloud cluster.
    **/
-  public void setPrivatelinkEndpoints(List<PrivateLinkEndpointStatus> privatelinkEndpoints) {
-    this.privatelinkEndpoints = privatelinkEndpoints;
+  public void setClusterId(String clusterId) {
+    this.clusterId = clusterId;
   }
 
   @Override
@@ -62,8 +60,8 @@ public class GetPrivateLinkEndpointStatusResponse extends CdpResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetPrivateLinkEndpointStatusResponse getPrivateLinkEndpointStatusResponse = (GetPrivateLinkEndpointStatusResponse) o;
-    if (!Objects.equals(this.privatelinkEndpoints, getPrivateLinkEndpointStatusResponse.privatelinkEndpoints)) {
+    CreatePrivateClusterResponse createPrivateClusterResponse = (CreatePrivateClusterResponse) o;
+    if (!Objects.equals(this.clusterId, createPrivateClusterResponse.clusterId)) {
       return false;
     }
     if (!super.equals(o)) {
@@ -74,15 +72,15 @@ public class GetPrivateLinkEndpointStatusResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(privatelinkEndpoints, super.hashCode());
+    return Objects.hash(clusterId, super.hashCode());
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetPrivateLinkEndpointStatusResponse {\n");
+    sb.append("class CreatePrivateClusterResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
-    sb.append("    privatelinkEndpoints: ").append(toIndentedString(privatelinkEndpoints)).append("\n");
+    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

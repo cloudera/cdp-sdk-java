@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Options for activating an Azure environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:53.512-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-02T09:36:48.582-07:00")
 public class AzureActivationOptions  {
 
   /**
@@ -67,9 +67,24 @@ public class AzureActivationOptions  {
   private String outboundType = null;
 
   /**
+   * Pod CIDR required for Azure CNI networking. Please refer to the following Azure documentation, https://docs.microsoft.com/en-us/azure/aks/azure-cni-overlay.
+   **/
+  private String aksPodCIDR = null;
+
+  /**
    * Enables private SQL for the cluster deployment.
    **/
   private Boolean enablePrivateSQL = false;
+
+  /**
+   * Name of the delegated subnet where the private SQL should be deployed.
+   **/
+  private String privateSQLSubnetName = null;
+
+  /**
+   * Private DNS zone ID for the PostgreSQL server.
+   **/
+  private String privateDNSZoneSQL = null;
 
   /**
    * Private DNS zone AKS resource ID.
@@ -203,6 +218,23 @@ public class AzureActivationOptions  {
   }
 
   /**
+   * Getter for aksPodCIDR.
+   * Pod CIDR required for Azure CNI networking. Please refer to the following Azure documentation, https://docs.microsoft.com/en-us/azure/aks/azure-cni-overlay.
+   **/
+  @JsonProperty("aksPodCIDR")
+  public String getAksPodCIDR() {
+    return aksPodCIDR;
+  }
+
+  /**
+   * Setter for aksPodCIDR.
+   * Pod CIDR required for Azure CNI networking. Please refer to the following Azure documentation, https://docs.microsoft.com/en-us/azure/aks/azure-cni-overlay.
+   **/
+  public void setAksPodCIDR(String aksPodCIDR) {
+    this.aksPodCIDR = aksPodCIDR;
+  }
+
+  /**
    * Getter for enablePrivateSQL.
    * Enables private SQL for the cluster deployment.
    **/
@@ -217,6 +249,40 @@ public class AzureActivationOptions  {
    **/
   public void setEnablePrivateSQL(Boolean enablePrivateSQL) {
     this.enablePrivateSQL = enablePrivateSQL;
+  }
+
+  /**
+   * Getter for privateSQLSubnetName.
+   * Name of the delegated subnet where the private SQL should be deployed.
+   **/
+  @JsonProperty("privateSQLSubnetName")
+  public String getPrivateSQLSubnetName() {
+    return privateSQLSubnetName;
+  }
+
+  /**
+   * Setter for privateSQLSubnetName.
+   * Name of the delegated subnet where the private SQL should be deployed.
+   **/
+  public void setPrivateSQLSubnetName(String privateSQLSubnetName) {
+    this.privateSQLSubnetName = privateSQLSubnetName;
+  }
+
+  /**
+   * Getter for privateDNSZoneSQL.
+   * Private DNS zone ID for the PostgreSQL server.
+   **/
+  @JsonProperty("privateDNSZoneSQL")
+  public String getPrivateDNSZoneSQL() {
+    return privateDNSZoneSQL;
+  }
+
+  /**
+   * Setter for privateDNSZoneSQL.
+   * Private DNS zone ID for the PostgreSQL server.
+   **/
+  public void setPrivateDNSZoneSQL(String privateDNSZoneSQL) {
+    this.privateDNSZoneSQL = privateDNSZoneSQL;
   }
 
   /**
@@ -283,7 +349,16 @@ public class AzureActivationOptions  {
     if (!Objects.equals(this.outboundType, azureActivationOptions.outboundType)) {
       return false;
     }
+    if (!Objects.equals(this.aksPodCIDR, azureActivationOptions.aksPodCIDR)) {
+      return false;
+    }
     if (!Objects.equals(this.enablePrivateSQL, azureActivationOptions.enablePrivateSQL)) {
+      return false;
+    }
+    if (!Objects.equals(this.privateSQLSubnetName, azureActivationOptions.privateSQLSubnetName)) {
+      return false;
+    }
+    if (!Objects.equals(this.privateDNSZoneSQL, azureActivationOptions.privateDNSZoneSQL)) {
       return false;
     }
     if (!Objects.equals(this.privateDNSZoneAKS, azureActivationOptions.privateDNSZoneAKS)) {
@@ -297,7 +372,7 @@ public class AzureActivationOptions  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(userAssignedManagedIdentity, subnetId, enableAZ, enableSpotInstances, computeInstanceTypes, logAnalyticsWorkspaceId, outboundType, enablePrivateSQL, privateDNSZoneAKS, enablePrivateAks);
+    return Objects.hash(userAssignedManagedIdentity, subnetId, enableAZ, enableSpotInstances, computeInstanceTypes, logAnalyticsWorkspaceId, outboundType, aksPodCIDR, enablePrivateSQL, privateSQLSubnetName, privateDNSZoneSQL, privateDNSZoneAKS, enablePrivateAks);
   }
 
   @Override
@@ -311,7 +386,10 @@ public class AzureActivationOptions  {
     sb.append("    computeInstanceTypes: ").append(toIndentedString(computeInstanceTypes)).append("\n");
     sb.append("    logAnalyticsWorkspaceId: ").append(toIndentedString(logAnalyticsWorkspaceId)).append("\n");
     sb.append("    outboundType: ").append(toIndentedString(outboundType)).append("\n");
+    sb.append("    aksPodCIDR: ").append(toIndentedString(aksPodCIDR)).append("\n");
     sb.append("    enablePrivateSQL: ").append(toIndentedString(enablePrivateSQL)).append("\n");
+    sb.append("    privateSQLSubnetName: ").append(toIndentedString(privateSQLSubnetName)).append("\n");
+    sb.append("    privateDNSZoneSQL: ").append(toIndentedString(privateDNSZoneSQL)).append("\n");
     sb.append("    privateDNSZoneAKS: ").append(toIndentedString(privateDNSZoneAKS)).append("\n");
     sb.append("    enablePrivateAks: ").append(toIndentedString(enablePrivateAks)).append("\n");
     sb.append("}");

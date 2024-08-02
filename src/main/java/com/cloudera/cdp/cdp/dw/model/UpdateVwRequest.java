@@ -31,7 +31,7 @@ import com.cloudera.cdp.dw.model.ServiceConfigReq;
 /**
  * Request object for the updateVw method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:53.512-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-02T09:36:48.582-07:00")
 public class UpdateVwRequest  {
 
   /**
@@ -45,7 +45,7 @@ public class UpdateVwRequest  {
   private String vwId = null;
 
   /**
-   * Name of configuration template to use.
+   * DEPRECATED: It will be replaced by the tShirtSize parameter in an upcoming release. Name of configuration template to use.
    **/
   private String template = null;
 
@@ -83,6 +83,11 @@ public class UpdateVwRequest  {
    * Value of 'true' automatically configures the Virtual Warehouse to support JWTs issues by the CDP JWT token provider.  Value of 'false' does not enable JWT auth on the Virtual Warehouse.  If this field is not specified, it defaults to 'false'.
    **/
   private Boolean platformJwtAuth = null;
+
+  /**
+   * Denotes whether the Virtual Warehouse has the Impala Query Log enabled or not.
+   **/
+  private Boolean impalaQueryLog = null;
 
   /**
    * Used to set the resource pool of the Virtual Warehouses that are not enrolled for quota management.
@@ -130,8 +135,9 @@ public class UpdateVwRequest  {
 
   /**
    * Getter for template.
-   * Name of configuration template to use.
+   * DEPRECATED: It will be replaced by the tShirtSize parameter in an upcoming release. Name of configuration template to use.
    **/
+  @Deprecated
   @JsonProperty("template")
   public String getTemplate() {
     return template;
@@ -139,8 +145,9 @@ public class UpdateVwRequest  {
 
   /**
    * Setter for template.
-   * Name of configuration template to use.
+   * DEPRECATED: It will be replaced by the tShirtSize parameter in an upcoming release. Name of configuration template to use.
    **/
+  @Deprecated
   public void setTemplate(String template) {
     this.template = template;
   }
@@ -267,6 +274,23 @@ public class UpdateVwRequest  {
   }
 
   /**
+   * Getter for impalaQueryLog.
+   * Denotes whether the Virtual Warehouse has the Impala Query Log enabled or not.
+   **/
+  @JsonProperty("impalaQueryLog")
+  public Boolean getImpalaQueryLog() {
+    return impalaQueryLog;
+  }
+
+  /**
+   * Setter for impalaQueryLog.
+   * Denotes whether the Virtual Warehouse has the Impala Query Log enabled or not.
+   **/
+  public void setImpalaQueryLog(Boolean impalaQueryLog) {
+    this.impalaQueryLog = impalaQueryLog;
+  }
+
+  /**
    * Getter for resourcePool.
    * Used to set the resource pool of the Virtual Warehouses that are not enrolled for quota management.
    **/
@@ -339,6 +363,9 @@ public class UpdateVwRequest  {
     if (!Objects.equals(this.platformJwtAuth, updateVwRequest.platformJwtAuth)) {
       return false;
     }
+    if (!Objects.equals(this.impalaQueryLog, updateVwRequest.impalaQueryLog)) {
+      return false;
+    }
     if (!Objects.equals(this.resourcePool, updateVwRequest.resourcePool)) {
       return false;
     }
@@ -350,7 +377,7 @@ public class UpdateVwRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, vwId, template, nodeCount, config, autoscaling, impalaHaSettings, queryIsolationOptions, hiveAuthenticationMode, platformJwtAuth, resourcePool, hiveServerHaMode);
+    return Objects.hash(clusterId, vwId, template, nodeCount, config, autoscaling, impalaHaSettings, queryIsolationOptions, hiveAuthenticationMode, platformJwtAuth, impalaQueryLog, resourcePool, hiveServerHaMode);
   }
 
   @Override
@@ -367,6 +394,7 @@ public class UpdateVwRequest  {
     sb.append("    queryIsolationOptions: ").append(toIndentedString(queryIsolationOptions)).append("\n");
     sb.append("    hiveAuthenticationMode: ").append(toIndentedString(hiveAuthenticationMode)).append("\n");
     sb.append("    platformJwtAuth: ").append(toIndentedString(platformJwtAuth)).append("\n");
+    sb.append("    impalaQueryLog: ").append(toIndentedString(impalaQueryLog)).append("\n");
     sb.append("    resourcePool: ").append(toIndentedString(resourcePool)).append("\n");
     sb.append("    hiveServerHaMode: ").append(toIndentedString(hiveServerHaMode)).append("\n");
     sb.append("}");

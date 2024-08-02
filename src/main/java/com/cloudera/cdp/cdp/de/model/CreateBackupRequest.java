@@ -28,7 +28,7 @@ import com.cloudera.cdp.de.model.BackupContentOptions;
 /**
  * Request object for Create Backup command.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:56.012-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-02T09:36:51.006-07:00")
 public class CreateBackupRequest  {
 
   /**
@@ -60,6 +60,11 @@ public class CreateBackupRequest  {
    * Backup virtual cluster content options.
    **/
   private BackupContentOptions backupVcContentOptions = null;
+
+  /**
+   * Whether to ignore validation errors and proceed with the backup forcefully. By default, the backup operation is not forced.
+   **/
+  private Boolean force = false;
 
   /**
    * Getter for serviceId.
@@ -163,6 +168,23 @@ public class CreateBackupRequest  {
     this.backupVcContentOptions = backupVcContentOptions;
   }
 
+  /**
+   * Getter for force.
+   * Whether to ignore validation errors and proceed with the backup forcefully. By default, the backup operation is not forced.
+   **/
+  @JsonProperty("force")
+  public Boolean getForce() {
+    return force;
+  }
+
+  /**
+   * Setter for force.
+   * Whether to ignore validation errors and proceed with the backup forcefully. By default, the backup operation is not forced.
+   **/
+  public void setForce(Boolean force) {
+    this.force = force;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -190,12 +212,15 @@ public class CreateBackupRequest  {
     if (!Objects.equals(this.backupVcContentOptions, createBackupRequest.backupVcContentOptions)) {
       return false;
     }
+    if (!Objects.equals(this.force, createBackupRequest.force)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(serviceId, description, backupPath, includeVc, timeout, backupVcContentOptions);
+    return Objects.hash(serviceId, description, backupPath, includeVc, timeout, backupVcContentOptions, force);
   }
 
   @Override
@@ -208,6 +233,7 @@ public class CreateBackupRequest  {
     sb.append("    includeVc: ").append(toIndentedString(includeVc)).append("\n");
     sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
     sb.append("    backupVcContentOptions: ").append(toIndentedString(backupVcContentOptions)).append("\n");
+    sb.append("    force: ").append(toIndentedString(force)).append("\n");
     sb.append("}");
     return sb.toString();
   }

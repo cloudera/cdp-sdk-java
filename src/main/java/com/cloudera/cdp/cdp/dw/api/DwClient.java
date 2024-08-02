@@ -32,6 +32,10 @@ import com.cloudera.cdp.dw.model.AddUserRequest;
 import com.cloudera.cdp.dw.model.AddUserResponse;
 import com.cloudera.cdp.dw.model.BackupClusterRequest;
 import com.cloudera.cdp.dw.model.BackupClusterResponse;
+import com.cloudera.cdp.dw.model.CreateAwsClusterRequest;
+import com.cloudera.cdp.dw.model.CreateAwsClusterResponse;
+import com.cloudera.cdp.dw.model.CreateAzureClusterRequest;
+import com.cloudera.cdp.dw.model.CreateAzureClusterResponse;
 import com.cloudera.cdp.dw.model.CreateBackupRequest;
 import com.cloudera.cdp.dw.model.CreateBackupResponse;
 import com.cloudera.cdp.dw.model.CreateClusterDiagnosticDataJobRequest;
@@ -44,6 +48,8 @@ import com.cloudera.cdp.dw.model.CreateDbcDiagnosticDataJobRequest;
 import com.cloudera.cdp.dw.model.CreateDbcDiagnosticDataJobResponse;
 import com.cloudera.cdp.dw.model.CreateDbcRequest;
 import com.cloudera.cdp.dw.model.CreateDbcResponse;
+import com.cloudera.cdp.dw.model.CreatePrivateClusterRequest;
+import com.cloudera.cdp.dw.model.CreatePrivateClusterResponse;
 import com.cloudera.cdp.dw.model.CreateResourceTemplateRequest;
 import com.cloudera.cdp.dw.model.CreateResourceTemplateResponse;
 import com.cloudera.cdp.dw.model.CreateVwDiagnosticDataJobRequest;
@@ -201,7 +207,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:53.512-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-02T09:36:48.582-07:00")
 public class DwClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dw";
@@ -256,6 +262,32 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("backupCluster", "/api/v1/dw/backupCluster", input, new GenericType<BackupClusterResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Create an AWS cluster in the Cloudera Data Warehouse.
+   * @param input
+   * @return CreateAwsClusterResponse
+   */
+  public CreateAwsClusterResponse createAwsCluster(CreateAwsClusterRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createAwsCluster");
+    }
+
+    return this.invokeAPI("createAwsCluster", "/api/v1/dw/createAwsCluster", input, new GenericType<CreateAwsClusterResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Create an Azure cluster in the Cloudera Data Warehouse.
+   * @param input
+   * @return CreateAzureClusterResponse
+   */
+  public CreateAzureClusterResponse createAzureCluster(CreateAzureClusterRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createAzureCluster");
+    }
+
+    return this.invokeAPI("createAzureCluster", "/api/v1/dw/createAzureCluster", input, new GenericType<CreateAzureClusterResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -335,6 +367,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("createDbcDiagnosticDataJob", "/api/v1/dw/createDbcDiagnosticDataJob", input, new GenericType<CreateDbcDiagnosticDataJobResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Create a  a Private Cloud cluster in the Cloudera Data Warehouse.
+   * @param input
+   * @return CreatePrivateClusterResponse
+   */
+  public CreatePrivateClusterResponse createPrivateCluster(CreatePrivateClusterRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createPrivateCluster");
+    }
+
+    return this.invokeAPI("createPrivateCluster", "/api/v1/dw/createPrivateCluster", input, new GenericType<CreatePrivateClusterResponse>(){}, NO_EXTENSION);
   }
 
   /**

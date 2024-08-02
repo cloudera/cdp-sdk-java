@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * High Availability settings for the Impala Virtual Warehouse. The values are disregarded for Hive.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:53.512-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-02T09:36:48.582-07:00")
 public class ImpalaHASettingsCreateRequest  {
 
   /**
@@ -54,6 +54,11 @@ public class ImpalaHASettingsCreateRequest  {
    * Enables a backup instance for Impala catalog to ensure high availability.
    **/
   private Boolean enableCatalogHighAvailability = null;
+
+  /**
+   * Enables a backup instance for Impala Statestore to ensure high availability.
+   **/
+  private Boolean enableStatestoreHighAvailability = null;
 
   /**
    * Getter for highAvailabilityMode.
@@ -140,6 +145,23 @@ public class ImpalaHASettingsCreateRequest  {
     this.enableCatalogHighAvailability = enableCatalogHighAvailability;
   }
 
+  /**
+   * Getter for enableStatestoreHighAvailability.
+   * Enables a backup instance for Impala Statestore to ensure high availability.
+   **/
+  @JsonProperty("enableStatestoreHighAvailability")
+  public Boolean getEnableStatestoreHighAvailability() {
+    return enableStatestoreHighAvailability;
+  }
+
+  /**
+   * Setter for enableStatestoreHighAvailability.
+   * Enables a backup instance for Impala Statestore to ensure high availability.
+   **/
+  public void setEnableStatestoreHighAvailability(Boolean enableStatestoreHighAvailability) {
+    this.enableStatestoreHighAvailability = enableStatestoreHighAvailability;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -164,12 +186,15 @@ public class ImpalaHASettingsCreateRequest  {
     if (!Objects.equals(this.enableCatalogHighAvailability, impalaHASettingsCreateRequest.enableCatalogHighAvailability)) {
       return false;
     }
+    if (!Objects.equals(this.enableStatestoreHighAvailability, impalaHASettingsCreateRequest.enableStatestoreHighAvailability)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(highAvailabilityMode, enableShutdownOfCoordinator, shutdownOfCoordinatorDelaySeconds, numOfActiveCoordinators, enableCatalogHighAvailability);
+    return Objects.hash(highAvailabilityMode, enableShutdownOfCoordinator, shutdownOfCoordinatorDelaySeconds, numOfActiveCoordinators, enableCatalogHighAvailability, enableStatestoreHighAvailability);
   }
 
   @Override
@@ -181,6 +206,7 @@ public class ImpalaHASettingsCreateRequest  {
     sb.append("    shutdownOfCoordinatorDelaySeconds: ").append(toIndentedString(shutdownOfCoordinatorDelaySeconds)).append("\n");
     sb.append("    numOfActiveCoordinators: ").append(toIndentedString(numOfActiveCoordinators)).append("\n");
     sb.append("    enableCatalogHighAvailability: ").append(toIndentedString(enableCatalogHighAvailability)).append("\n");
+    sb.append("    enableStatestoreHighAvailability: ").append(toIndentedString(enableStatestoreHighAvailability)).append("\n");
     sb.append("}");
     return sb.toString();
   }

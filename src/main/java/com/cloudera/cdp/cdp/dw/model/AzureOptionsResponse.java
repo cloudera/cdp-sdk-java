@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object of the cluster Azure settings.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:53.512-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-02T09:36:48.582-07:00")
 public class AzureOptionsResponse extends CdpResponse {
 
   /**
@@ -46,9 +46,44 @@ public class AzureOptionsResponse extends CdpResponse {
   private String outboundType = null;
 
   /**
+   * Pod CIDR setting for Azure CNI networking.
+   **/
+  private String aksPodCIDR = null;
+
+  /**
    * Workspace ID for Azure log analytics.
    **/
   private String logAnalyticsWorkspaceId = null;
+
+  /**
+   * Name of the delegated subnet where the private SQL should be deployed.
+   **/
+  private String privateSQLSubnetName = null;
+
+  /**
+   * Private DNS zone ID for the PostgreSQL server.
+   **/
+  private String privateDNSZoneSQL = null;
+
+  /**
+   * Denotes whether the private SQL is enabled for the cluster.
+   **/
+  private Boolean enablePrivateSQL = false;
+
+  /**
+   * The resource ID of the private DNS zone for the AKS cluster.
+   **/
+  private String privateDNSZoneAKS = null;
+
+  /**
+   * Denotes whether the AKS cluster is in private mode.
+   **/
+  private Boolean enablePrivateAKS = false;
+
+  /**
+   * The resource ID of the managed identity used by the AKS cluster.
+   **/
+  private String userAssignedManagedIdentity = null;
 
   /**
    * Getter for subnetId.
@@ -102,6 +137,23 @@ public class AzureOptionsResponse extends CdpResponse {
   }
 
   /**
+   * Getter for aksPodCIDR.
+   * Pod CIDR setting for Azure CNI networking.
+   **/
+  @JsonProperty("aksPodCIDR")
+  public String getAksPodCIDR() {
+    return aksPodCIDR;
+  }
+
+  /**
+   * Setter for aksPodCIDR.
+   * Pod CIDR setting for Azure CNI networking.
+   **/
+  public void setAksPodCIDR(String aksPodCIDR) {
+    this.aksPodCIDR = aksPodCIDR;
+  }
+
+  /**
    * Getter for logAnalyticsWorkspaceId.
    * Workspace ID for Azure log analytics.
    **/
@@ -116,6 +168,108 @@ public class AzureOptionsResponse extends CdpResponse {
    **/
   public void setLogAnalyticsWorkspaceId(String logAnalyticsWorkspaceId) {
     this.logAnalyticsWorkspaceId = logAnalyticsWorkspaceId;
+  }
+
+  /**
+   * Getter for privateSQLSubnetName.
+   * Name of the delegated subnet where the private SQL should be deployed.
+   **/
+  @JsonProperty("privateSQLSubnetName")
+  public String getPrivateSQLSubnetName() {
+    return privateSQLSubnetName;
+  }
+
+  /**
+   * Setter for privateSQLSubnetName.
+   * Name of the delegated subnet where the private SQL should be deployed.
+   **/
+  public void setPrivateSQLSubnetName(String privateSQLSubnetName) {
+    this.privateSQLSubnetName = privateSQLSubnetName;
+  }
+
+  /**
+   * Getter for privateDNSZoneSQL.
+   * Private DNS zone ID for the PostgreSQL server.
+   **/
+  @JsonProperty("privateDNSZoneSQL")
+  public String getPrivateDNSZoneSQL() {
+    return privateDNSZoneSQL;
+  }
+
+  /**
+   * Setter for privateDNSZoneSQL.
+   * Private DNS zone ID for the PostgreSQL server.
+   **/
+  public void setPrivateDNSZoneSQL(String privateDNSZoneSQL) {
+    this.privateDNSZoneSQL = privateDNSZoneSQL;
+  }
+
+  /**
+   * Getter for enablePrivateSQL.
+   * Denotes whether the private SQL is enabled for the cluster.
+   **/
+  @JsonProperty("enablePrivateSQL")
+  public Boolean getEnablePrivateSQL() {
+    return enablePrivateSQL;
+  }
+
+  /**
+   * Setter for enablePrivateSQL.
+   * Denotes whether the private SQL is enabled for the cluster.
+   **/
+  public void setEnablePrivateSQL(Boolean enablePrivateSQL) {
+    this.enablePrivateSQL = enablePrivateSQL;
+  }
+
+  /**
+   * Getter for privateDNSZoneAKS.
+   * The resource ID of the private DNS zone for the AKS cluster.
+   **/
+  @JsonProperty("privateDNSZoneAKS")
+  public String getPrivateDNSZoneAKS() {
+    return privateDNSZoneAKS;
+  }
+
+  /**
+   * Setter for privateDNSZoneAKS.
+   * The resource ID of the private DNS zone for the AKS cluster.
+   **/
+  public void setPrivateDNSZoneAKS(String privateDNSZoneAKS) {
+    this.privateDNSZoneAKS = privateDNSZoneAKS;
+  }
+
+  /**
+   * Getter for enablePrivateAKS.
+   * Denotes whether the AKS cluster is in private mode.
+   **/
+  @JsonProperty("enablePrivateAKS")
+  public Boolean getEnablePrivateAKS() {
+    return enablePrivateAKS;
+  }
+
+  /**
+   * Setter for enablePrivateAKS.
+   * Denotes whether the AKS cluster is in private mode.
+   **/
+  public void setEnablePrivateAKS(Boolean enablePrivateAKS) {
+    this.enablePrivateAKS = enablePrivateAKS;
+  }
+
+  /**
+   * Getter for userAssignedManagedIdentity.
+   * The resource ID of the managed identity used by the AKS cluster.
+   **/
+  @JsonProperty("userAssignedManagedIdentity")
+  public String getUserAssignedManagedIdentity() {
+    return userAssignedManagedIdentity;
+  }
+
+  /**
+   * Setter for userAssignedManagedIdentity.
+   * The resource ID of the managed identity used by the AKS cluster.
+   **/
+  public void setUserAssignedManagedIdentity(String userAssignedManagedIdentity) {
+    this.userAssignedManagedIdentity = userAssignedManagedIdentity;
   }
 
   @Override
@@ -136,7 +290,28 @@ public class AzureOptionsResponse extends CdpResponse {
     if (!Objects.equals(this.outboundType, azureOptionsResponse.outboundType)) {
       return false;
     }
+    if (!Objects.equals(this.aksPodCIDR, azureOptionsResponse.aksPodCIDR)) {
+      return false;
+    }
     if (!Objects.equals(this.logAnalyticsWorkspaceId, azureOptionsResponse.logAnalyticsWorkspaceId)) {
+      return false;
+    }
+    if (!Objects.equals(this.privateSQLSubnetName, azureOptionsResponse.privateSQLSubnetName)) {
+      return false;
+    }
+    if (!Objects.equals(this.privateDNSZoneSQL, azureOptionsResponse.privateDNSZoneSQL)) {
+      return false;
+    }
+    if (!Objects.equals(this.enablePrivateSQL, azureOptionsResponse.enablePrivateSQL)) {
+      return false;
+    }
+    if (!Objects.equals(this.privateDNSZoneAKS, azureOptionsResponse.privateDNSZoneAKS)) {
+      return false;
+    }
+    if (!Objects.equals(this.enablePrivateAKS, azureOptionsResponse.enablePrivateAKS)) {
+      return false;
+    }
+    if (!Objects.equals(this.userAssignedManagedIdentity, azureOptionsResponse.userAssignedManagedIdentity)) {
       return false;
     }
     if (!super.equals(o)) {
@@ -147,7 +322,7 @@ public class AzureOptionsResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(subnetId, enableAZ, outboundType, logAnalyticsWorkspaceId, super.hashCode());
+    return Objects.hash(subnetId, enableAZ, outboundType, aksPodCIDR, logAnalyticsWorkspaceId, privateSQLSubnetName, privateDNSZoneSQL, enablePrivateSQL, privateDNSZoneAKS, enablePrivateAKS, userAssignedManagedIdentity, super.hashCode());
   }
 
   @Override
@@ -158,7 +333,14 @@ public class AzureOptionsResponse extends CdpResponse {
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    enableAZ: ").append(toIndentedString(enableAZ)).append("\n");
     sb.append("    outboundType: ").append(toIndentedString(outboundType)).append("\n");
+    sb.append("    aksPodCIDR: ").append(toIndentedString(aksPodCIDR)).append("\n");
     sb.append("    logAnalyticsWorkspaceId: ").append(toIndentedString(logAnalyticsWorkspaceId)).append("\n");
+    sb.append("    privateSQLSubnetName: ").append(toIndentedString(privateSQLSubnetName)).append("\n");
+    sb.append("    privateDNSZoneSQL: ").append(toIndentedString(privateDNSZoneSQL)).append("\n");
+    sb.append("    enablePrivateSQL: ").append(toIndentedString(enablePrivateSQL)).append("\n");
+    sb.append("    privateDNSZoneAKS: ").append(toIndentedString(privateDNSZoneAKS)).append("\n");
+    sb.append("    enablePrivateAKS: ").append(toIndentedString(enablePrivateAKS)).append("\n");
+    sb.append("    userAssignedManagedIdentity: ").append(toIndentedString(userAssignedManagedIdentity)).append("\n");
     sb.append("}");
     return sb.toString();
   }

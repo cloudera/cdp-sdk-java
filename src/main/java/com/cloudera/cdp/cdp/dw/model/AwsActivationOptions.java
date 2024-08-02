@@ -28,8 +28,13 @@ import java.util.*;
 /**
  * Options for activating an AWS environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:53.512-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-02T09:36:48.582-07:00")
 public class AwsActivationOptions  {
+
+  /**
+   * Use this option to set up AWS EKS cluster in private only mode with restricted access only from internal/peered networks. Ensure you have ccmv2 setup functional to achieve this integration.
+   **/
+  private Boolean enablePrivateEKS = false;
 
   /**
    * IDs of AWS subnets where the cluster worker nodes should be deployed.
@@ -67,9 +72,26 @@ public class AwsActivationOptions  {
   private List<String> computeInstanceTypes = new ArrayList<String>();
 
   /**
-   * Additional (fallback) instance types listed in their priority order. They will be used instead of the primary compute instance type in case it is unavailable. You cannot include any instance type that was already indicated in computeInstanceTypes. Use describe-allowed-instance-types to see currently supported values and also the default value when nothing is provided for the computeInstanceTypes.
+   * DEPRECATED: Additional compute instance types will be removed in subsequent releases. Additional (fallback) instance types listed in their priority order. They will be used instead of the primary compute instance type in case it is unavailable. You cannot include any instance type that was already indicated in computeInstanceTypes. Use describe-allowed-instance-types to see currently supported values and also the default value when nothing is provided for the computeInstanceTypes.
    **/
   private List<String> additionalInstanceTypes = new ArrayList<String>();
+
+  /**
+   * Getter for enablePrivateEKS.
+   * Use this option to set up AWS EKS cluster in private only mode with restricted access only from internal/peered networks. Ensure you have ccmv2 setup functional to achieve this integration.
+   **/
+  @JsonProperty("enablePrivateEKS")
+  public Boolean getEnablePrivateEKS() {
+    return enablePrivateEKS;
+  }
+
+  /**
+   * Setter for enablePrivateEKS.
+   * Use this option to set up AWS EKS cluster in private only mode with restricted access only from internal/peered networks. Ensure you have ccmv2 setup functional to achieve this integration.
+   **/
+  public void setEnablePrivateEKS(Boolean enablePrivateEKS) {
+    this.enablePrivateEKS = enablePrivateEKS;
+  }
 
   /**
    * Getter for workerSubnetIds.
@@ -194,8 +216,9 @@ public class AwsActivationOptions  {
 
   /**
    * Getter for additionalInstanceTypes.
-   * Additional (fallback) instance types listed in their priority order. They will be used instead of the primary compute instance type in case it is unavailable. You cannot include any instance type that was already indicated in computeInstanceTypes. Use describe-allowed-instance-types to see currently supported values and also the default value when nothing is provided for the computeInstanceTypes.
+   * DEPRECATED: Additional compute instance types will be removed in subsequent releases. Additional (fallback) instance types listed in their priority order. They will be used instead of the primary compute instance type in case it is unavailable. You cannot include any instance type that was already indicated in computeInstanceTypes. Use describe-allowed-instance-types to see currently supported values and also the default value when nothing is provided for the computeInstanceTypes.
    **/
+  @Deprecated
   @JsonProperty("additionalInstanceTypes")
   public List<String> getAdditionalInstanceTypes() {
     return additionalInstanceTypes;
@@ -203,8 +226,9 @@ public class AwsActivationOptions  {
 
   /**
    * Setter for additionalInstanceTypes.
-   * Additional (fallback) instance types listed in their priority order. They will be used instead of the primary compute instance type in case it is unavailable. You cannot include any instance type that was already indicated in computeInstanceTypes. Use describe-allowed-instance-types to see currently supported values and also the default value when nothing is provided for the computeInstanceTypes.
+   * DEPRECATED: Additional compute instance types will be removed in subsequent releases. Additional (fallback) instance types listed in their priority order. They will be used instead of the primary compute instance type in case it is unavailable. You cannot include any instance type that was already indicated in computeInstanceTypes. Use describe-allowed-instance-types to see currently supported values and also the default value when nothing is provided for the computeInstanceTypes.
    **/
+  @Deprecated
   public void setAdditionalInstanceTypes(List<String> additionalInstanceTypes) {
     this.additionalInstanceTypes = additionalInstanceTypes;
   }
@@ -218,6 +242,9 @@ public class AwsActivationOptions  {
       return false;
     }
     AwsActivationOptions awsActivationOptions = (AwsActivationOptions) o;
+    if (!Objects.equals(this.enablePrivateEKS, awsActivationOptions.enablePrivateEKS)) {
+      return false;
+    }
     if (!Objects.equals(this.workerSubnetIds, awsActivationOptions.workerSubnetIds)) {
       return false;
     }
@@ -247,13 +274,14 @@ public class AwsActivationOptions  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(workerSubnetIds, lbSubnetIds, customAmiId, nodeRoleCDWManagedPolicyArn, enableSpotInstances, reducedPermissionMode, computeInstanceTypes, additionalInstanceTypes);
+    return Objects.hash(enablePrivateEKS, workerSubnetIds, lbSubnetIds, customAmiId, nodeRoleCDWManagedPolicyArn, enableSpotInstances, reducedPermissionMode, computeInstanceTypes, additionalInstanceTypes);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AwsActivationOptions {\n");
+    sb.append("    enablePrivateEKS: ").append(toIndentedString(enablePrivateEKS)).append("\n");
     sb.append("    workerSubnetIds: ").append(toIndentedString(workerSubnetIds)).append("\n");
     sb.append("    lbSubnetIds: ").append(toIndentedString(lbSubnetIds)).append("\n");
     sb.append("    customAmiId: ").append(toIndentedString(customAmiId)).append("\n");

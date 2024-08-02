@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-package com.cloudera.cdp.cloudprivatelinks.model;
+package com.cloudera.cdp.datahub.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -25,31 +25,31 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * Request object for GetPrivateLinkEndpointStatus method. Please use ListPrivateLinkEndpointStatusesRequest as replacement. Deprecated.
+ * Request object to rotate ssl certificate a datahub.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:57.730-07:00")
-public class GetPrivateLinkEndpointStatusRequest  {
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-02T09:36:47.839-07:00")
+public class RotateDbCertificateRequest  {
 
   /**
-   * Tracking ID of the create endpoint request.
+   * The name or CRN of the datahub.
    **/
-  private String trackingId = null;
+  private String datahubName = null;
 
   /**
-   * Getter for trackingId.
-   * Tracking ID of the create endpoint request.
+   * Getter for datahubName.
+   * The name or CRN of the datahub.
    **/
-  @JsonProperty("trackingId")
-  public String getTrackingId() {
-    return trackingId;
+  @JsonProperty("datahubName")
+  public String getDatahubName() {
+    return datahubName;
   }
 
   /**
-   * Setter for trackingId.
-   * Tracking ID of the create endpoint request.
+   * Setter for datahubName.
+   * The name or CRN of the datahub.
    **/
-  public void setTrackingId(String trackingId) {
-    this.trackingId = trackingId;
+  public void setDatahubName(String datahubName) {
+    this.datahubName = datahubName;
   }
 
   @Override
@@ -60,8 +60,8 @@ public class GetPrivateLinkEndpointStatusRequest  {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GetPrivateLinkEndpointStatusRequest getPrivateLinkEndpointStatusRequest = (GetPrivateLinkEndpointStatusRequest) o;
-    if (!Objects.equals(this.trackingId, getPrivateLinkEndpointStatusRequest.trackingId)) {
+    RotateDbCertificateRequest rotateDbCertificateRequest = (RotateDbCertificateRequest) o;
+    if (!Objects.equals(this.datahubName, rotateDbCertificateRequest.datahubName)) {
       return false;
     }
     return true;
@@ -69,14 +69,14 @@ public class GetPrivateLinkEndpointStatusRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(trackingId);
+    return Objects.hash(datahubName);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GetPrivateLinkEndpointStatusRequest {\n");
-    sb.append("    trackingId: ").append(toIndentedString(trackingId)).append("\n");
+    sb.append("class RotateDbCertificateRequest {\n");
+    sb.append("    datahubName: ").append(toIndentedString(datahubName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

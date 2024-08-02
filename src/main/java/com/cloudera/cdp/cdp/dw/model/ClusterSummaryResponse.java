@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * A Cloudera Data Warehouse cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:53.512-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-02T09:36:48.582-07:00")
 public class ClusterSummaryResponse extends CdpResponse {
 
   /**
@@ -77,6 +77,11 @@ public class ClusterSummaryResponse extends CdpResponse {
   private String cloudPlatform = null;
 
   /**
+   * The version of the deployed CDW cluster.
+   **/
+  private String version = null;
+
+  /**
    * Denotes whether the spot instances have been enabled for the cluster. This value is only available for AWS and Azure clusters.
    **/
   private Boolean enableSpotInstances = null;
@@ -97,7 +102,7 @@ public class ClusterSummaryResponse extends CdpResponse {
   private List<String> computeInstanceTypes = new ArrayList<String>();
 
   /**
-   * Additional (fallback) instance types listed in their priority order. They are used instead of the primary compute instance type in case it is unavailable. Since additional instance types are not supported for Azure, this is always empty for it.
+   * DEPRECATED: Additional compute instance types will be removed in subsequent releases. Additional (fallback) instance types listed in their priority order. They are used instead of the primary compute instance type in case it is unavailable. Since additional instance types are not supported for Azure, this is always empty for it.
    **/
   private List<String> additionalInstanceTypes = new ArrayList<String>();
 
@@ -125,6 +130,16 @@ public class ClusterSummaryResponse extends CdpResponse {
    * List of IP address CIDRs to whitelist for workload access.
    **/
   private String whitelistWorkloadAccessIpCIDRs = null;
+
+  /**
+   * Denotes whether the overlay network is being used for the cluster.
+   **/
+  private Boolean useOverlayNetwork = false;
+
+  /**
+   * Denotes whether the private load balancer is enabled for the cluster.
+   **/
+  private Boolean enablePrivateLoadBalancer = false;
 
   /**
    * The name of the Resource Pool the cluster is in.
@@ -273,6 +288,23 @@ public class ClusterSummaryResponse extends CdpResponse {
   }
 
   /**
+   * Getter for version.
+   * The version of the deployed CDW cluster.
+   **/
+  @JsonProperty("version")
+  public String getVersion() {
+    return version;
+  }
+
+  /**
+   * Setter for version.
+   * The version of the deployed CDW cluster.
+   **/
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
+  /**
    * Getter for enableSpotInstances.
    * Denotes whether the spot instances have been enabled for the cluster. This value is only available for AWS and Azure clusters.
    **/
@@ -344,8 +376,9 @@ public class ClusterSummaryResponse extends CdpResponse {
 
   /**
    * Getter for additionalInstanceTypes.
-   * Additional (fallback) instance types listed in their priority order. They are used instead of the primary compute instance type in case it is unavailable. Since additional instance types are not supported for Azure, this is always empty for it.
+   * DEPRECATED: Additional compute instance types will be removed in subsequent releases. Additional (fallback) instance types listed in their priority order. They are used instead of the primary compute instance type in case it is unavailable. Since additional instance types are not supported for Azure, this is always empty for it.
    **/
+  @Deprecated
   @JsonProperty("additionalInstanceTypes")
   public List<String> getAdditionalInstanceTypes() {
     return additionalInstanceTypes;
@@ -353,8 +386,9 @@ public class ClusterSummaryResponse extends CdpResponse {
 
   /**
    * Setter for additionalInstanceTypes.
-   * Additional (fallback) instance types listed in their priority order. They are used instead of the primary compute instance type in case it is unavailable. Since additional instance types are not supported for Azure, this is always empty for it.
+   * DEPRECATED: Additional compute instance types will be removed in subsequent releases. Additional (fallback) instance types listed in their priority order. They are used instead of the primary compute instance type in case it is unavailable. Since additional instance types are not supported for Azure, this is always empty for it.
    **/
+  @Deprecated
   public void setAdditionalInstanceTypes(List<String> additionalInstanceTypes) {
     this.additionalInstanceTypes = additionalInstanceTypes;
   }
@@ -445,6 +479,40 @@ public class ClusterSummaryResponse extends CdpResponse {
   }
 
   /**
+   * Getter for useOverlayNetwork.
+   * Denotes whether the overlay network is being used for the cluster.
+   **/
+  @JsonProperty("useOverlayNetwork")
+  public Boolean getUseOverlayNetwork() {
+    return useOverlayNetwork;
+  }
+
+  /**
+   * Setter for useOverlayNetwork.
+   * Denotes whether the overlay network is being used for the cluster.
+   **/
+  public void setUseOverlayNetwork(Boolean useOverlayNetwork) {
+    this.useOverlayNetwork = useOverlayNetwork;
+  }
+
+  /**
+   * Getter for enablePrivateLoadBalancer.
+   * Denotes whether the private load balancer is enabled for the cluster.
+   **/
+  @JsonProperty("enablePrivateLoadBalancer")
+  public Boolean getEnablePrivateLoadBalancer() {
+    return enablePrivateLoadBalancer;
+  }
+
+  /**
+   * Setter for enablePrivateLoadBalancer.
+   * Denotes whether the private load balancer is enabled for the cluster.
+   **/
+  public void setEnablePrivateLoadBalancer(Boolean enablePrivateLoadBalancer) {
+    this.enablePrivateLoadBalancer = enablePrivateLoadBalancer;
+  }
+
+  /**
    * Getter for resourcePool.
    * The name of the Resource Pool the cluster is in.
    **/
@@ -511,6 +579,9 @@ public class ClusterSummaryResponse extends CdpResponse {
     if (!Objects.equals(this.cloudPlatform, clusterSummaryResponse.cloudPlatform)) {
       return false;
     }
+    if (!Objects.equals(this.version, clusterSummaryResponse.version)) {
+      return false;
+    }
     if (!Objects.equals(this.enableSpotInstances, clusterSummaryResponse.enableSpotInstances)) {
       return false;
     }
@@ -541,6 +612,12 @@ public class ClusterSummaryResponse extends CdpResponse {
     if (!Objects.equals(this.whitelistWorkloadAccessIpCIDRs, clusterSummaryResponse.whitelistWorkloadAccessIpCIDRs)) {
       return false;
     }
+    if (!Objects.equals(this.useOverlayNetwork, clusterSummaryResponse.useOverlayNetwork)) {
+      return false;
+    }
+    if (!Objects.equals(this.enablePrivateLoadBalancer, clusterSummaryResponse.enablePrivateLoadBalancer)) {
+      return false;
+    }
     if (!Objects.equals(this.resourcePool, clusterSummaryResponse.resourcePool)) {
       return false;
     }
@@ -555,7 +632,7 @@ public class ClusterSummaryResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, environmentCrn, name, status, creator, creationDate, cloudPlatform, enableSpotInstances, reservedComputeNodes, reservedSharedServicesNodes, computeInstanceTypes, additionalInstanceTypes, awsOptions, azureOptions, description, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, resourcePool, externalBuckets, super.hashCode());
+    return Objects.hash(crn, id, environmentCrn, name, status, creator, creationDate, cloudPlatform, version, enableSpotInstances, reservedComputeNodes, reservedSharedServicesNodes, computeInstanceTypes, additionalInstanceTypes, awsOptions, azureOptions, description, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, useOverlayNetwork, enablePrivateLoadBalancer, resourcePool, externalBuckets, super.hashCode());
   }
 
   @Override
@@ -571,6 +648,7 @@ public class ClusterSummaryResponse extends CdpResponse {
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    cloudPlatform: ").append(toIndentedString(cloudPlatform)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    enableSpotInstances: ").append(toIndentedString(enableSpotInstances)).append("\n");
     sb.append("    reservedComputeNodes: ").append(toIndentedString(reservedComputeNodes)).append("\n");
     sb.append("    reservedSharedServicesNodes: ").append(toIndentedString(reservedSharedServicesNodes)).append("\n");
@@ -581,6 +659,8 @@ public class ClusterSummaryResponse extends CdpResponse {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    whitelistK8sClusterAccessIpCIDRs: ").append(toIndentedString(whitelistK8sClusterAccessIpCIDRs)).append("\n");
     sb.append("    whitelistWorkloadAccessIpCIDRs: ").append(toIndentedString(whitelistWorkloadAccessIpCIDRs)).append("\n");
+    sb.append("    useOverlayNetwork: ").append(toIndentedString(useOverlayNetwork)).append("\n");
+    sb.append("    enablePrivateLoadBalancer: ").append(toIndentedString(enablePrivateLoadBalancer)).append("\n");
     sb.append("    resourcePool: ").append(toIndentedString(resourcePool)).append("\n");
     sb.append("    externalBuckets: ").append(toIndentedString(externalBuckets)).append("\n");
     sb.append("}");

@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * Request object for the createVw method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:53.512-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-02T09:36:48.582-07:00")
 public class CreateVwRequest  {
 
   /**
@@ -63,7 +63,7 @@ public class CreateVwRequest  {
   private String imageVersion = "";
 
   /**
-   * Name of configuration template to use.
+   * DEPRECATED: It will be replaced by the tShirtSize parameter in an upcoming release. Name of configuration template to use.
    **/
   private String template = null;
 
@@ -126,6 +126,11 @@ public class CreateVwRequest  {
    * Value of 'true' automatically configures the Virtual Warehouse to support JWTs issues by the CDP JWT token provider.  Value of 'false' does not enable JWT auth on the Virtual Warehouse.  If this field is not specified, it defaults to 'false'.
    **/
   private Boolean platformJwtAuth = false;
+
+  /**
+   * Denotes whether the Virtual Warehouse has the Impala Query Log enabled or not.
+   **/
+  private Boolean impalaQueryLog = null;
 
   /**
    * Provides EBS gp3 volume as temporary storage space for Hive LLAP cache, and improves query performance. Configurable only at Virtual Warehouse creation. Using EBS volumes incurs additional costs.
@@ -224,8 +229,9 @@ public class CreateVwRequest  {
 
   /**
    * Getter for template.
-   * Name of configuration template to use.
+   * DEPRECATED: It will be replaced by the tShirtSize parameter in an upcoming release. Name of configuration template to use.
    **/
+  @Deprecated
   @JsonProperty("template")
   public String getTemplate() {
     return template;
@@ -233,8 +239,9 @@ public class CreateVwRequest  {
 
   /**
    * Setter for template.
-   * Name of configuration template to use.
+   * DEPRECATED: It will be replaced by the tShirtSize parameter in an upcoming release. Name of configuration template to use.
    **/
+  @Deprecated
   public void setTemplate(String template) {
     this.template = template;
   }
@@ -446,6 +453,23 @@ public class CreateVwRequest  {
   }
 
   /**
+   * Getter for impalaQueryLog.
+   * Denotes whether the Virtual Warehouse has the Impala Query Log enabled or not.
+   **/
+  @JsonProperty("impalaQueryLog")
+  public Boolean getImpalaQueryLog() {
+    return impalaQueryLog;
+  }
+
+  /**
+   * Setter for impalaQueryLog.
+   * Denotes whether the Virtual Warehouse has the Impala Query Log enabled or not.
+   **/
+  public void setImpalaQueryLog(Boolean impalaQueryLog) {
+    this.impalaQueryLog = impalaQueryLog;
+  }
+
+  /**
    * Getter for ebsLLAPSpillGB.
    * Provides EBS gp3 volume as temporary storage space for Hive LLAP cache, and improves query performance. Configurable only at Virtual Warehouse creation. Using EBS volumes incurs additional costs.
    **/
@@ -542,6 +566,9 @@ public class CreateVwRequest  {
     if (!Objects.equals(this.platformJwtAuth, createVwRequest.platformJwtAuth)) {
       return false;
     }
+    if (!Objects.equals(this.impalaQueryLog, createVwRequest.impalaQueryLog)) {
+      return false;
+    }
     if (!Objects.equals(this.ebsLLAPSpillGB, createVwRequest.ebsLLAPSpillGB)) {
       return false;
     }
@@ -553,7 +580,7 @@ public class CreateVwRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, dbcId, vwType, name, imageVersion, template, nodeCount, availabilityZone, enableUnifiedAnalytics, impalaOptions, impalaHaSettings, autoscaling, config, queryIsolationOptions, tags, resourcePool, hiveAuthenticationMode, platformJwtAuth, ebsLLAPSpillGB, hiveServerHaMode);
+    return Objects.hash(clusterId, dbcId, vwType, name, imageVersion, template, nodeCount, availabilityZone, enableUnifiedAnalytics, impalaOptions, impalaHaSettings, autoscaling, config, queryIsolationOptions, tags, resourcePool, hiveAuthenticationMode, platformJwtAuth, impalaQueryLog, ebsLLAPSpillGB, hiveServerHaMode);
   }
 
   @Override
@@ -578,6 +605,7 @@ public class CreateVwRequest  {
     sb.append("    resourcePool: ").append(toIndentedString(resourcePool)).append("\n");
     sb.append("    hiveAuthenticationMode: ").append(toIndentedString(hiveAuthenticationMode)).append("\n");
     sb.append("    platformJwtAuth: ").append(toIndentedString(platformJwtAuth)).append("\n");
+    sb.append("    impalaQueryLog: ").append(toIndentedString(impalaQueryLog)).append("\n");
     sb.append("    ebsLLAPSpillGB: ").append(toIndentedString(ebsLLAPSpillGB)).append("\n");
     sb.append("    hiveServerHaMode: ").append(toIndentedString(hiveServerHaMode)).append("\n");
     sb.append("}");

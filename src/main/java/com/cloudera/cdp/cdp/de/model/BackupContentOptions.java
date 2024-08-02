@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Backup virtual cluster content options.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:56.012-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-02T09:36:51.006-07:00")
 public class BackupContentOptions  {
 
   /**
@@ -60,6 +60,11 @@ public class BackupContentOptions  {
    * Whether to backup credential secrets. Secrets are obfuscated while storing. By default, credential secrets are backed up.
    **/
   private Boolean includeCredentialSecrets = true;
+
+  /**
+   * Whether to backup job runs. By default, job runs are backed up.
+   **/
+  private Boolean includeJobRuns = true;
 
   /**
    * Filter jobs for backup using 'fieldname(operator)argument' syntax. Here, 'fieldname' is one of the job fields (e.g. name, type, etc.), and 'operator' is one of ('eq', 'noteq', 'lte', 'lt', 'gte', 'gt', 'in', 'notin', 'like', 'rlike', 'is', 'isnot'). Multiple filters are ANDed. For example, 'name(eq)SparkPi'. This will only take effect if jobs are backed up, as controlled by the 'includeJobs' option.
@@ -184,6 +189,23 @@ public class BackupContentOptions  {
   }
 
   /**
+   * Getter for includeJobRuns.
+   * Whether to backup job runs. By default, job runs are backed up.
+   **/
+  @JsonProperty("includeJobRuns")
+  public Boolean getIncludeJobRuns() {
+    return includeJobRuns;
+  }
+
+  /**
+   * Setter for includeJobRuns.
+   * Whether to backup job runs. By default, job runs are backed up.
+   **/
+  public void setIncludeJobRuns(Boolean includeJobRuns) {
+    this.includeJobRuns = includeJobRuns;
+  }
+
+  /**
    * Getter for jobFilter.
    * Filter jobs for backup using &#39;fieldname(operator)argument&#39; syntax. Here, &#39;fieldname&#39; is one of the job fields (e.g. name, type, etc.), and &#39;operator&#39; is one of (&#39;eq&#39;, &#39;noteq&#39;, &#39;lte&#39;, &#39;lt&#39;, &#39;gte&#39;, &#39;gt&#39;, &#39;in&#39;, &#39;notin&#39;, &#39;like&#39;, &#39;rlike&#39;, &#39;is&#39;, &#39;isnot&#39;). Multiple filters are ANDed. For example, &#39;name(eq)SparkPi&#39;. This will only take effect if jobs are backed up, as controlled by the &#39;includeJobs&#39; option.
    **/
@@ -278,6 +300,9 @@ public class BackupContentOptions  {
     if (!Objects.equals(this.includeCredentialSecrets, backupContentOptions.includeCredentialSecrets)) {
       return false;
     }
+    if (!Objects.equals(this.includeJobRuns, backupContentOptions.includeJobRuns)) {
+      return false;
+    }
     if (!Objects.equals(this.jobFilter, backupContentOptions.jobFilter)) {
       return false;
     }
@@ -295,7 +320,7 @@ public class BackupContentOptions  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(includeJobs, includeJobResources, includeResources, includeResourceCredentials, includeCredentials, includeCredentialSecrets, jobFilter, resourceFilter, credentialFilter, validateArchive);
+    return Objects.hash(includeJobs, includeJobResources, includeResources, includeResourceCredentials, includeCredentials, includeCredentialSecrets, includeJobRuns, jobFilter, resourceFilter, credentialFilter, validateArchive);
   }
 
   @Override
@@ -308,6 +333,7 @@ public class BackupContentOptions  {
     sb.append("    includeResourceCredentials: ").append(toIndentedString(includeResourceCredentials)).append("\n");
     sb.append("    includeCredentials: ").append(toIndentedString(includeCredentials)).append("\n");
     sb.append("    includeCredentialSecrets: ").append(toIndentedString(includeCredentialSecrets)).append("\n");
+    sb.append("    includeJobRuns: ").append(toIndentedString(includeJobRuns)).append("\n");
     sb.append("    jobFilter: ").append(toIndentedString(jobFilter)).append("\n");
     sb.append("    resourceFilter: ").append(toIndentedString(resourceFilter)).append("\n");
     sb.append("    credentialFilter: ").append(toIndentedString(credentialFilter)).append("\n");

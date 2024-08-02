@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for Azure cloud storage validation.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:54.604-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-02T09:36:49.744-07:00")
 public class ValidateAzureCloudStorageRequest  {
 
   /**
@@ -79,6 +79,11 @@ public class ValidateAzureCloudStorageRequest  {
    * Azure secure flag.
    **/
   private Boolean secure = null;
+
+  /**
+   * Ranger RAZ role.
+   **/
+  private String rangerCloudAccessAuthorizerRole = null;
 
   /**
    * Getter for clusterName.
@@ -250,6 +255,23 @@ public class ValidateAzureCloudStorageRequest  {
     this.secure = secure;
   }
 
+  /**
+   * Getter for rangerCloudAccessAuthorizerRole.
+   * Ranger RAZ role.
+   **/
+  @JsonProperty("rangerCloudAccessAuthorizerRole")
+  public String getRangerCloudAccessAuthorizerRole() {
+    return rangerCloudAccessAuthorizerRole;
+  }
+
+  /**
+   * Setter for rangerCloudAccessAuthorizerRole.
+   * Ranger RAZ role.
+   **/
+  public void setRangerCloudAccessAuthorizerRole(String rangerCloudAccessAuthorizerRole) {
+    this.rangerCloudAccessAuthorizerRole = rangerCloudAccessAuthorizerRole;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -289,12 +311,15 @@ public class ValidateAzureCloudStorageRequest  {
     if (!Objects.equals(this.secure, validateAzureCloudStorageRequest.secure)) {
       return false;
     }
+    if (!Objects.equals(this.rangerCloudAccessAuthorizerRole, validateAzureCloudStorageRequest.rangerCloudAccessAuthorizerRole)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, dataAccessRole, rangerAuditRole, credentialCrn, blueprintName, storageLocation, managedIdentity, accountKey, accountName, secure);
+    return Objects.hash(clusterName, dataAccessRole, rangerAuditRole, credentialCrn, blueprintName, storageLocation, managedIdentity, accountKey, accountName, secure, rangerCloudAccessAuthorizerRole);
   }
 
   @Override
@@ -311,6 +336,7 @@ public class ValidateAzureCloudStorageRequest  {
     sb.append("    accountKey: ").append(toIndentedString(accountKey)).append("\n");
     sb.append("    accountName: ").append(toIndentedString(accountName)).append("\n");
     sb.append("    secure: ").append(toIndentedString(secure)).append("\n");
+    sb.append("    rangerCloudAccessAuthorizerRole: ").append(toIndentedString(rangerCloudAccessAuthorizerRole)).append("\n");
     sb.append("}");
     return sb.toString();
   }

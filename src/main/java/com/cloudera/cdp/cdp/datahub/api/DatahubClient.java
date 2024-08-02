@@ -123,6 +123,8 @@ import com.cloudera.cdp.datahub.model.RetryClusterRequest;
 import com.cloudera.cdp.datahub.model.RetryClusterResponse;
 import com.cloudera.cdp.datahub.model.RotateAutoTlsCertificatesRequest;
 import com.cloudera.cdp.datahub.model.RotateAutoTlsCertificatesResponse;
+import com.cloudera.cdp.datahub.model.RotateDbCertificateRequest;
+import com.cloudera.cdp.datahub.model.RotateDbCertificateResponse;
 import com.cloudera.cdp.datahub.model.RotatePrivateCertificatesRequest;
 import com.cloudera.cdp.datahub.model.RotatePrivateCertificatesResponse;
 import com.cloudera.cdp.datahub.model.RotateSaltPasswordRequest;
@@ -163,7 +165,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-07-18T14:59:52.786-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-02T09:36:47.839-07:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datahub";
@@ -805,6 +807,19 @@ public class DatahubClient extends CdpClient {
     }
 
     return this.invokeAPI("rotateAutoTlsCertificates", "/api/v1/datahub/rotateAutoTlsCertificates", input, new GenericType<RotateAutoTlsCertificatesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Rotates database ssl certificate for a specific Data Hub
+   * @param input
+   * @return RotateDbCertificateResponse
+   */
+  public RotateDbCertificateResponse rotateDbCertificate(RotateDbCertificateRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling rotateDbCertificate");
+    }
+
+    return this.invokeAPI("rotateDbCertificate", "/api/v1/datahub/rotateDbCertificate", input, new GenericType<RotateDbCertificateResponse>(){}, NO_EXTENSION);
   }
 
   /**
