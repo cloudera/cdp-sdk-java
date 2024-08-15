@@ -26,11 +26,12 @@ import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.environments.model.AwsCredentialProperties;
 import com.cloudera.cdp.environments.model.AzureCredentialProperties;
 import com.cloudera.cdp.environments.model.GCPCredentialProperties;
+import java.time.ZonedDateTime;
 
 /**
  * A credential object.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-02T09:36:50.221-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-15T13:42:17.621-07:00")
 public class Credential  {
 
   /**
@@ -47,6 +48,11 @@ public class Credential  {
    * The cloud provider.
    **/
   private String cloudPlatform = null;
+
+  /**
+   * Creation date
+   **/
+  private ZonedDateTime created = null;
 
   /**
    * A description for the credential.
@@ -117,6 +123,23 @@ public class Credential  {
    **/
   public void setCloudPlatform(String cloudPlatform) {
     this.cloudPlatform = cloudPlatform;
+  }
+
+  /**
+   * Getter for created.
+   * Creation date
+   **/
+  @JsonProperty("created")
+  public ZonedDateTime getCreated() {
+    return created;
+  }
+
+  /**
+   * Setter for created.
+   * Creation date
+   **/
+  public void setCreated(ZonedDateTime created) {
+    this.created = created;
   }
 
   /**
@@ -205,6 +228,9 @@ public class Credential  {
     if (!Objects.equals(this.cloudPlatform, credential.cloudPlatform)) {
       return false;
     }
+    if (!Objects.equals(this.created, credential.created)) {
+      return false;
+    }
     if (!Objects.equals(this.description, credential.description)) {
       return false;
     }
@@ -222,7 +248,7 @@ public class Credential  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(credentialName, crn, cloudPlatform, description, awsCredentialProperties, azureCredentialProperties, gcpCredentialProperties);
+    return Objects.hash(credentialName, crn, cloudPlatform, created, description, awsCredentialProperties, azureCredentialProperties, gcpCredentialProperties);
   }
 
   @Override
@@ -232,6 +258,7 @@ public class Credential  {
     sb.append("    credentialName: ").append(toIndentedString(credentialName)).append("\n");
     sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
     sb.append("    cloudPlatform: ").append(toIndentedString(cloudPlatform)).append("\n");
+    sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    awsCredentialProperties: ").append(toIndentedString(awsCredentialProperties)).append("\n");
     sb.append("    azureCredentialProperties: ").append(toIndentedString(azureCredentialProperties)).append("\n");

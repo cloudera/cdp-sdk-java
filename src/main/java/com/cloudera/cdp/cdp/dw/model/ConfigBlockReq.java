@@ -28,18 +28,13 @@ import com.cloudera.cdp.dw.model.ConfigContentReq;
 /**
  * A piece of configuration stored in the same place (e.g. same file or environment variables).
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-02T09:36:48.582-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-15T13:42:16.327-07:00")
 public class ConfigBlockReq  {
 
   /**
    * ID of the ConfigBlock. Unique within an ApplicationConfig.
    **/
   private String id = null;
-
-  /**
-   * Format of ConfigBlock.
-   **/
-  private String format = null;
 
   /**
    * Contents of a ConfigBlock.
@@ -61,23 +56,6 @@ public class ConfigBlockReq  {
    **/
   public void setId(String id) {
     this.id = id;
-  }
-
-  /**
-   * Getter for format.
-   * Format of ConfigBlock.
-   **/
-  @JsonProperty("format")
-  public String getFormat() {
-    return format;
-  }
-
-  /**
-   * Setter for format.
-   * Format of ConfigBlock.
-   **/
-  public void setFormat(String format) {
-    this.format = format;
   }
 
   /**
@@ -109,9 +87,6 @@ public class ConfigBlockReq  {
     if (!Objects.equals(this.id, configBlockReq.id)) {
       return false;
     }
-    if (!Objects.equals(this.format, configBlockReq.format)) {
-      return false;
-    }
     if (!Objects.equals(this.content, configBlockReq.content)) {
       return false;
     }
@@ -120,7 +95,7 @@ public class ConfigBlockReq  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, format, content);
+    return Objects.hash(id, content);
   }
 
   @Override
@@ -128,7 +103,6 @@ public class ConfigBlockReq  {
     StringBuilder sb = new StringBuilder();
     sb.append("class ConfigBlockReq {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    format: ").append(toIndentedString(format)).append("\n");
     sb.append("    content: ").append(toIndentedString(content)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -25,18 +25,17 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.cloudprivatelinks.model.AWSAccountDetails;
 import com.cloudera.cdp.cloudprivatelinks.model.AzureAccountDetails;
-import java.util.*;
 
 /**
  * Request object for the CreatePrivateLinkEndpoint method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-02T09:36:52.786-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-15T13:42:20.381-07:00")
 public class CreatePrivateLinkEndpointRequest  {
 
   /**
-   * CDP service component name [API/DBUSAPI/IAMAPI/CCMV2/CONSOLEAUTH].
+   * Cloud Service Provider. Currently supporting AWS and AZURE.
    **/
-  private List<String> serviceComponents = new ArrayList<String>();
+  private String cloudServiceProvider = null;
 
   /**
    * Enable Private DNS for PrivateLink endpoint.
@@ -49,11 +48,6 @@ public class CreatePrivateLinkEndpointRequest  {
   private String serviceGroup = null;
 
   /**
-   * CRN of the CDP environment in AWS cloud where the PrivateLink endpoint is created.
-   **/
-  private String environmentCrn = null;
-
-  /**
    * AWS account details where the PrivateLink endpoint is created.
    **/
   private AWSAccountDetails awsAccountDetails = null;
@@ -64,25 +58,20 @@ public class CreatePrivateLinkEndpointRequest  {
   private AzureAccountDetails azureAccountDetails = null;
 
   /**
-   * Cloud Service Provider. Currently supporting AWS and Azure.
+   * Getter for cloudServiceProvider.
+   * Cloud Service Provider. Currently supporting AWS and AZURE.
    **/
-  private String cloudServiceProvider = null;
-
-  /**
-   * Getter for serviceComponents.
-   * CDP service component name [API/DBUSAPI/IAMAPI/CCMV2/CONSOLEAUTH].
-   **/
-  @JsonProperty("serviceComponents")
-  public List<String> getServiceComponents() {
-    return serviceComponents;
+  @JsonProperty("cloudServiceProvider")
+  public String getCloudServiceProvider() {
+    return cloudServiceProvider;
   }
 
   /**
-   * Setter for serviceComponents.
-   * CDP service component name [API/DBUSAPI/IAMAPI/CCMV2/CONSOLEAUTH].
+   * Setter for cloudServiceProvider.
+   * Cloud Service Provider. Currently supporting AWS and AZURE.
    **/
-  public void setServiceComponents(List<String> serviceComponents) {
-    this.serviceComponents = serviceComponents;
+  public void setCloudServiceProvider(String cloudServiceProvider) {
+    this.cloudServiceProvider = cloudServiceProvider;
   }
 
   /**
@@ -120,23 +109,6 @@ public class CreatePrivateLinkEndpointRequest  {
   }
 
   /**
-   * Getter for environmentCrn.
-   * CRN of the CDP environment in AWS cloud where the PrivateLink endpoint is created.
-   **/
-  @JsonProperty("environmentCrn")
-  public String getEnvironmentCrn() {
-    return environmentCrn;
-  }
-
-  /**
-   * Setter for environmentCrn.
-   * CRN of the CDP environment in AWS cloud where the PrivateLink endpoint is created.
-   **/
-  public void setEnvironmentCrn(String environmentCrn) {
-    this.environmentCrn = environmentCrn;
-  }
-
-  /**
    * Getter for awsAccountDetails.
    * AWS account details where the PrivateLink endpoint is created.
    **/
@@ -170,23 +142,6 @@ public class CreatePrivateLinkEndpointRequest  {
     this.azureAccountDetails = azureAccountDetails;
   }
 
-  /**
-   * Getter for cloudServiceProvider.
-   * Cloud Service Provider. Currently supporting AWS and Azure.
-   **/
-  @JsonProperty("cloudServiceProvider")
-  public String getCloudServiceProvider() {
-    return cloudServiceProvider;
-  }
-
-  /**
-   * Setter for cloudServiceProvider.
-   * Cloud Service Provider. Currently supporting AWS and Azure.
-   **/
-  public void setCloudServiceProvider(String cloudServiceProvider) {
-    this.cloudServiceProvider = cloudServiceProvider;
-  }
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -196,7 +151,7 @@ public class CreatePrivateLinkEndpointRequest  {
       return false;
     }
     CreatePrivateLinkEndpointRequest createPrivateLinkEndpointRequest = (CreatePrivateLinkEndpointRequest) o;
-    if (!Objects.equals(this.serviceComponents, createPrivateLinkEndpointRequest.serviceComponents)) {
+    if (!Objects.equals(this.cloudServiceProvider, createPrivateLinkEndpointRequest.cloudServiceProvider)) {
       return false;
     }
     if (!Objects.equals(this.enablePrivateDns, createPrivateLinkEndpointRequest.enablePrivateDns)) {
@@ -205,16 +160,10 @@ public class CreatePrivateLinkEndpointRequest  {
     if (!Objects.equals(this.serviceGroup, createPrivateLinkEndpointRequest.serviceGroup)) {
       return false;
     }
-    if (!Objects.equals(this.environmentCrn, createPrivateLinkEndpointRequest.environmentCrn)) {
-      return false;
-    }
     if (!Objects.equals(this.awsAccountDetails, createPrivateLinkEndpointRequest.awsAccountDetails)) {
       return false;
     }
     if (!Objects.equals(this.azureAccountDetails, createPrivateLinkEndpointRequest.azureAccountDetails)) {
-      return false;
-    }
-    if (!Objects.equals(this.cloudServiceProvider, createPrivateLinkEndpointRequest.cloudServiceProvider)) {
       return false;
     }
     return true;
@@ -222,20 +171,18 @@ public class CreatePrivateLinkEndpointRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(serviceComponents, enablePrivateDns, serviceGroup, environmentCrn, awsAccountDetails, azureAccountDetails, cloudServiceProvider);
+    return Objects.hash(cloudServiceProvider, enablePrivateDns, serviceGroup, awsAccountDetails, azureAccountDetails);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreatePrivateLinkEndpointRequest {\n");
-    sb.append("    serviceComponents: ").append(toIndentedString(serviceComponents)).append("\n");
+    sb.append("    cloudServiceProvider: ").append(toIndentedString(cloudServiceProvider)).append("\n");
     sb.append("    enablePrivateDns: ").append(toIndentedString(enablePrivateDns)).append("\n");
     sb.append("    serviceGroup: ").append(toIndentedString(serviceGroup)).append("\n");
-    sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
     sb.append("    awsAccountDetails: ").append(toIndentedString(awsAccountDetails)).append("\n");
     sb.append("    azureAccountDetails: ").append(toIndentedString(azureAccountDetails)).append("\n");
-    sb.append("    cloudServiceProvider: ").append(toIndentedString(cloudServiceProvider)).append("\n");
     sb.append("}");
     return sb.toString();
   }

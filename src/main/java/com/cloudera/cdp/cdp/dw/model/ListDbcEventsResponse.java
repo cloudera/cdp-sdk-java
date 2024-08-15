@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for the listDbcEvents method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-02T09:36:48.582-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-15T13:42:16.327-07:00")
 public class ListDbcEventsResponse extends CdpResponse {
 
   /**

@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Details of the PrivateLink endpoints.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-02T09:36:52.786-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-15T13:42:20.381-07:00")
 public class PrivateLinkEndpointStatus  {
 
   /**

@@ -39,13 +39,15 @@ import com.cloudera.cdp.cloudprivatelinks.model.ListPrivateLinkEndpointStatusesR
 import com.cloudera.cdp.cloudprivatelinks.model.ListPrivateLinkEndpointStatusesResponse;
 import com.cloudera.cdp.cloudprivatelinks.model.ListPrivateLinkServicesForRegionRequest;
 import com.cloudera.cdp.cloudprivatelinks.model.ListPrivateLinkServicesForRegionResponse;
+import com.cloudera.cdp.cloudprivatelinks.model.RevokePrivateLinkServiceAccessRequest;
+import com.cloudera.cdp.cloudprivatelinks.model.RevokePrivateLinkServiceAccessResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-02T09:36:52.786-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-15T13:42:20.381-07:00")
 public class CloudprivatelinksClient extends CdpClient {
 
   public static final String SERVICE_NAME = "cloudprivatelinks";
@@ -139,5 +141,18 @@ public class CloudprivatelinksClient extends CdpClient {
     }
 
     return this.invokeAPI("listPrivateLinkServicesForRegion", "/api/v1/cloudprivatelinks/listPrivateLinkServicesForRegion", input, new GenericType<ListPrivateLinkServicesForRegionResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Revoke private link services access for the cloud account id.
+   * @param input
+   * @return RevokePrivateLinkServiceAccessResponse
+   */
+  public RevokePrivateLinkServiceAccessResponse revokePrivateLinkServiceAccess(RevokePrivateLinkServiceAccessRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling revokePrivateLinkServiceAccess");
+    }
+
+    return this.invokeAPI("revokePrivateLinkServiceAccess", "/api/v1/cloudprivatelinks/revokePrivateLinkServiceAccess", input, new GenericType<RevokePrivateLinkServiceAccessResponse>(){}, NO_EXTENSION);
   }
 }

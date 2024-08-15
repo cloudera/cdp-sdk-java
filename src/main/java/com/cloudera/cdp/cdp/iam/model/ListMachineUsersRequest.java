@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for a list machine users request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-02T09:36:51.134-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-15T13:42:18.698-07:00")
 public class ListMachineUsersRequest  {
 
   /**

@@ -28,7 +28,7 @@ import com.cloudera.cdp.df.model.Flow;
 /**
  * Response object for the DeleteFlow method
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-02T09:36:51.576-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-15T13:42:19.082-07:00")
 public class DeleteFlowResponse extends CdpResponse {
 
   /**

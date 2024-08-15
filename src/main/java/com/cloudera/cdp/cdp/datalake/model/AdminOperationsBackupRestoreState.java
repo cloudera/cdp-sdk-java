@@ -28,7 +28,7 @@ import com.cloudera.cdp.datalake.model.BackupRestoreOperationStatus;
 /**
  * The state of Cloudera Manager admin operations.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-02T09:36:49.744-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-15T13:42:17.227-07:00")
 public class AdminOperationsBackupRestoreState  {
 
   /**
@@ -50,6 +50,11 @@ public class AdminOperationsBackupRestoreState  {
    * Run the ranger audit collection validation in the backup precheck.
    **/
   private BackupRestoreOperationStatus rangerAuditCollectionValidation = null;
+
+  /**
+   * Run the dry run validation in the backup/restore precheck
+   **/
+  private BackupRestoreOperationStatus dryRunValidation = null;
 
   /**
    * Getter for stopServices.
@@ -119,6 +124,23 @@ public class AdminOperationsBackupRestoreState  {
     this.rangerAuditCollectionValidation = rangerAuditCollectionValidation;
   }
 
+  /**
+   * Getter for dryRunValidation.
+   * Run the dry run validation in the backup/restore precheck
+   **/
+  @JsonProperty("dryRunValidation")
+  public BackupRestoreOperationStatus getDryRunValidation() {
+    return dryRunValidation;
+  }
+
+  /**
+   * Setter for dryRunValidation.
+   * Run the dry run validation in the backup/restore precheck
+   **/
+  public void setDryRunValidation(BackupRestoreOperationStatus dryRunValidation) {
+    this.dryRunValidation = dryRunValidation;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -140,12 +162,15 @@ public class AdminOperationsBackupRestoreState  {
     if (!Objects.equals(this.rangerAuditCollectionValidation, adminOperationsBackupRestoreState.rangerAuditCollectionValidation)) {
       return false;
     }
+    if (!Objects.equals(this.dryRunValidation, adminOperationsBackupRestoreState.dryRunValidation)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(stopServices, startServices, precheckStoragePermission, rangerAuditCollectionValidation);
+    return Objects.hash(stopServices, startServices, precheckStoragePermission, rangerAuditCollectionValidation, dryRunValidation);
   }
 
   @Override
@@ -156,6 +181,7 @@ public class AdminOperationsBackupRestoreState  {
     sb.append("    startServices: ").append(toIndentedString(startServices)).append("\n");
     sb.append("    precheckStoragePermission: ").append(toIndentedString(precheckStoragePermission)).append("\n");
     sb.append("    rangerAuditCollectionValidation: ").append(toIndentedString(rangerAuditCollectionValidation)).append("\n");
+    sb.append("    dryRunValidation: ").append(toIndentedString(dryRunValidation)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -25,23 +25,17 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.cloudprivatelinks.model.AWSAccountInfo;
 import com.cloudera.cdp.cloudprivatelinks.model.AzureAccountInfo;
-import java.util.*;
 
 /**
  * Request object for the DeletePrivateLinkEndpoint method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-02T09:36:52.786-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-15T13:42:20.381-07:00")
 public class DeletePrivateLinkEndpointRequest  {
 
   /**
-   * CDP service component name [API/DBUSAPI/IAMAPI/CCMV2/CONSOLEAUTH]
+   * Cloud Service Provider. Currently supporting AWS and AZURE.
    **/
-  private List<String> serviceComponents = new ArrayList<String>();
-
-  /**
-   * CRN of the CDP environment in AWS cloud that this PrivateLink endpoint gets deleted from.
-   **/
-  private String environmentCrn = null;
+  private String cloudServiceProvider = null;
 
   /**
    * AWS account details to delete the PrivateLink endpoint from.
@@ -54,42 +48,20 @@ public class DeletePrivateLinkEndpointRequest  {
   private AzureAccountInfo azureAccountInfo = null;
 
   /**
-   * Cloud Service Provider. Currently supporting AWS and Azure.
+   * Getter for cloudServiceProvider.
+   * Cloud Service Provider. Currently supporting AWS and AZURE.
    **/
-  private String cloudServiceProvider = null;
-
-  /**
-   * Getter for serviceComponents.
-   * CDP service component name [API/DBUSAPI/IAMAPI/CCMV2/CONSOLEAUTH]
-   **/
-  @JsonProperty("serviceComponents")
-  public List<String> getServiceComponents() {
-    return serviceComponents;
+  @JsonProperty("cloudServiceProvider")
+  public String getCloudServiceProvider() {
+    return cloudServiceProvider;
   }
 
   /**
-   * Setter for serviceComponents.
-   * CDP service component name [API/DBUSAPI/IAMAPI/CCMV2/CONSOLEAUTH]
+   * Setter for cloudServiceProvider.
+   * Cloud Service Provider. Currently supporting AWS and AZURE.
    **/
-  public void setServiceComponents(List<String> serviceComponents) {
-    this.serviceComponents = serviceComponents;
-  }
-
-  /**
-   * Getter for environmentCrn.
-   * CRN of the CDP environment in AWS cloud that this PrivateLink endpoint gets deleted from.
-   **/
-  @JsonProperty("environmentCrn")
-  public String getEnvironmentCrn() {
-    return environmentCrn;
-  }
-
-  /**
-   * Setter for environmentCrn.
-   * CRN of the CDP environment in AWS cloud that this PrivateLink endpoint gets deleted from.
-   **/
-  public void setEnvironmentCrn(String environmentCrn) {
-    this.environmentCrn = environmentCrn;
+  public void setCloudServiceProvider(String cloudServiceProvider) {
+    this.cloudServiceProvider = cloudServiceProvider;
   }
 
   /**
@@ -126,23 +98,6 @@ public class DeletePrivateLinkEndpointRequest  {
     this.azureAccountInfo = azureAccountInfo;
   }
 
-  /**
-   * Getter for cloudServiceProvider.
-   * Cloud Service Provider. Currently supporting AWS and Azure.
-   **/
-  @JsonProperty("cloudServiceProvider")
-  public String getCloudServiceProvider() {
-    return cloudServiceProvider;
-  }
-
-  /**
-   * Setter for cloudServiceProvider.
-   * Cloud Service Provider. Currently supporting AWS and Azure.
-   **/
-  public void setCloudServiceProvider(String cloudServiceProvider) {
-    this.cloudServiceProvider = cloudServiceProvider;
-  }
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -152,10 +107,7 @@ public class DeletePrivateLinkEndpointRequest  {
       return false;
     }
     DeletePrivateLinkEndpointRequest deletePrivateLinkEndpointRequest = (DeletePrivateLinkEndpointRequest) o;
-    if (!Objects.equals(this.serviceComponents, deletePrivateLinkEndpointRequest.serviceComponents)) {
-      return false;
-    }
-    if (!Objects.equals(this.environmentCrn, deletePrivateLinkEndpointRequest.environmentCrn)) {
+    if (!Objects.equals(this.cloudServiceProvider, deletePrivateLinkEndpointRequest.cloudServiceProvider)) {
       return false;
     }
     if (!Objects.equals(this.awsAccountInfo, deletePrivateLinkEndpointRequest.awsAccountInfo)) {
@@ -164,26 +116,21 @@ public class DeletePrivateLinkEndpointRequest  {
     if (!Objects.equals(this.azureAccountInfo, deletePrivateLinkEndpointRequest.azureAccountInfo)) {
       return false;
     }
-    if (!Objects.equals(this.cloudServiceProvider, deletePrivateLinkEndpointRequest.cloudServiceProvider)) {
-      return false;
-    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(serviceComponents, environmentCrn, awsAccountInfo, azureAccountInfo, cloudServiceProvider);
+    return Objects.hash(cloudServiceProvider, awsAccountInfo, azureAccountInfo);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeletePrivateLinkEndpointRequest {\n");
-    sb.append("    serviceComponents: ").append(toIndentedString(serviceComponents)).append("\n");
-    sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
+    sb.append("    cloudServiceProvider: ").append(toIndentedString(cloudServiceProvider)).append("\n");
     sb.append("    awsAccountInfo: ").append(toIndentedString(awsAccountInfo)).append("\n");
     sb.append("    azureAccountInfo: ").append(toIndentedString(azureAccountInfo)).append("\n");
-    sb.append("    cloudServiceProvider: ").append(toIndentedString(cloudServiceProvider)).append("\n");
     sb.append("}");
     return sb.toString();
   }
