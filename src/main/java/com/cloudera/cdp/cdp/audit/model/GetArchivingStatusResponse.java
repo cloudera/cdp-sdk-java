@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Information about a current archive process.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-15T13:42:18.454-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-03T11:22:09.962-07:00")
 public class GetArchivingStatusResponse extends CdpResponse {
 
   /**

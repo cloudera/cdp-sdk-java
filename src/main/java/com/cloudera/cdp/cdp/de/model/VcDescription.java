@@ -28,11 +28,12 @@ import com.cloudera.cdp.de.model.ChartValueOverridesResponse;
 import com.cloudera.cdp.de.model.SmtpConfigResponse;
 import com.cloudera.cdp.de.model.VcResources;
 import java.util.*;
+import java.util.Map;
 
 /**
  * CDE virtual cluster summary.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-15T13:42:18.574-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-03T11:22:10.122-07:00")
 public class VcDescription  {
 
   /**
@@ -134,6 +135,11 @@ public class VcDescription  {
    * Default timeout for Sessions.
    **/
   private String sessionTimeout = null;
+
+  /**
+   * Spark configs that will be applied to all the spark jobs inside a virtual cluster.
+   **/
+  private Map<String, String> sparkConfigs = new HashMap<String, String>();
 
   /**
    * Getter for vcId.
@@ -475,6 +481,23 @@ public class VcDescription  {
     this.sessionTimeout = sessionTimeout;
   }
 
+  /**
+   * Getter for sparkConfigs.
+   * Spark configs that will be applied to all the spark jobs inside a virtual cluster.
+   **/
+  @JsonProperty("sparkConfigs")
+  public Map<String, String> getSparkConfigs() {
+    return sparkConfigs;
+  }
+
+  /**
+   * Setter for sparkConfigs.
+   * Spark configs that will be applied to all the spark jobs inside a virtual cluster.
+   **/
+  public void setSparkConfigs(Map<String, String> sparkConfigs) {
+    this.sparkConfigs = sparkConfigs;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -544,12 +567,15 @@ public class VcDescription  {
     if (!Objects.equals(this.sessionTimeout, vcDescription.sessionTimeout)) {
       return false;
     }
+    if (!Objects.equals(this.sparkConfigs, vcDescription.sparkConfigs)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(vcId, vcName, clusterId, status, resources, creatorEmail, creatorID, creatorName, vcApiUrl, vcUiUrl, historyServerUrl, livyServerUrl, safariUrl, creationTime, sparkVersion, chartValueOverrides, accessControl, smtpConfig, vcTier, sessionTimeout);
+    return Objects.hash(vcId, vcName, clusterId, status, resources, creatorEmail, creatorID, creatorName, vcApiUrl, vcUiUrl, historyServerUrl, livyServerUrl, safariUrl, creationTime, sparkVersion, chartValueOverrides, accessControl, smtpConfig, vcTier, sessionTimeout, sparkConfigs);
   }
 
   @Override
@@ -576,6 +602,7 @@ public class VcDescription  {
     sb.append("    smtpConfig: ").append(toIndentedString(smtpConfig)).append("\n");
     sb.append("    vcTier: ").append(toIndentedString(vcTier)).append("\n");
     sb.append("    sessionTimeout: ").append(toIndentedString(sessionTimeout)).append("\n");
+    sb.append("    sparkConfigs: ").append(toIndentedString(sparkConfigs)).append("\n");
     sb.append("}");
     return sb.toString();
   }

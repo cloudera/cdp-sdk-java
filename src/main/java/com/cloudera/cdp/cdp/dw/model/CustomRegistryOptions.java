@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Options for custom ACR, ECR, or Docker registry.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-15T13:42:16.327-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-03T11:22:07.520-07:00")
 public class CustomRegistryOptions  {
 
   /**
@@ -39,21 +39,6 @@ public class CustomRegistryOptions  {
    * URL of the custom image repository.
    **/
   private String repositoryUrl = null;
-
-  /**
-   * Username for custom registry access (required only for Docker type).
-   **/
-  private String userName = null;
-
-  /**
-   * Password for custom registry access (required only for Docker type).
-   **/
-  private String password = null;
-
-  /**
-   * Disable image verification.
-   **/
-  private Boolean disableImageVerification = null;
 
   /**
    * Getter for registryType.
@@ -89,57 +74,6 @@ public class CustomRegistryOptions  {
     this.repositoryUrl = repositoryUrl;
   }
 
-  /**
-   * Getter for userName.
-   * Username for custom registry access (required only for Docker type).
-   **/
-  @JsonProperty("userName")
-  public String getUserName() {
-    return userName;
-  }
-
-  /**
-   * Setter for userName.
-   * Username for custom registry access (required only for Docker type).
-   **/
-  public void setUserName(String userName) {
-    this.userName = userName;
-  }
-
-  /**
-   * Getter for password.
-   * Password for custom registry access (required only for Docker type).
-   **/
-  @JsonProperty("password")
-  public String getPassword() {
-    return password;
-  }
-
-  /**
-   * Setter for password.
-   * Password for custom registry access (required only for Docker type).
-   **/
-  public void setPassword(String password) {
-    this.password = password;
-  }
-
-  /**
-   * Getter for disableImageVerification.
-   * Disable image verification.
-   **/
-  @JsonProperty("disableImageVerification")
-  public Boolean getDisableImageVerification() {
-    return disableImageVerification;
-  }
-
-  /**
-   * Setter for disableImageVerification.
-   * Disable image verification.
-   **/
-  public void setDisableImageVerification(Boolean disableImageVerification) {
-    this.disableImageVerification = disableImageVerification;
-  }
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -155,21 +89,12 @@ public class CustomRegistryOptions  {
     if (!Objects.equals(this.repositoryUrl, customRegistryOptions.repositoryUrl)) {
       return false;
     }
-    if (!Objects.equals(this.userName, customRegistryOptions.userName)) {
-      return false;
-    }
-    if (!Objects.equals(this.password, customRegistryOptions.password)) {
-      return false;
-    }
-    if (!Objects.equals(this.disableImageVerification, customRegistryOptions.disableImageVerification)) {
-      return false;
-    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(registryType, repositoryUrl, userName, password, disableImageVerification);
+    return Objects.hash(registryType, repositoryUrl);
   }
 
   @Override
@@ -178,9 +103,6 @@ public class CustomRegistryOptions  {
     sb.append("class CustomRegistryOptions {\n");
     sb.append("    registryType: ").append(toIndentedString(registryType)).append("\n");
     sb.append("    repositoryUrl: ").append(toIndentedString(repositoryUrl)).append("\n");
-    sb.append("    userName: ").append(toIndentedString(userName)).append("\n");
-    sb.append("    password: ").append(toIndentedString(password)).append("\n");
-    sb.append("    disableImageVerification: ").append(toIndentedString(disableImageVerification)).append("\n");
     sb.append("}");
     return sb.toString();
   }

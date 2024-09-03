@@ -51,6 +51,8 @@ import com.cloudera.cdp.opdb.model.StartDatabaseRequest;
 import com.cloudera.cdp.opdb.model.StartDatabaseResponse;
 import com.cloudera.cdp.opdb.model.StopDatabaseRequest;
 import com.cloudera.cdp.opdb.model.StopDatabaseResponse;
+import com.cloudera.cdp.opdb.model.UpdateDatabaseRequest;
+import com.cloudera.cdp.opdb.model.UpdateDatabaseResponse;
 import com.cloudera.cdp.opdb.model.UpgradeDatabaseRequest;
 import com.cloudera.cdp.opdb.model.UpgradeDatabaseResponse;
 import java.util.ArrayList;
@@ -59,7 +61,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-15T13:42:18.289-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-03T11:22:09.829-07:00")
 public class OpdbClient extends CdpClient {
 
   public static final String SERVICE_NAME = "opdb";
@@ -231,6 +233,19 @@ public class OpdbClient extends CdpClient {
     }
 
     return this.invokeAPI("stopDatabase", "/api/v1/opdb/stopDatabase", input, new GenericType<StopDatabaseResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Updates the database
+   * @param input
+   * @return UpdateDatabaseResponse
+   */
+  public UpdateDatabaseResponse updateDatabase(UpdateDatabaseRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateDatabase");
+    }
+
+    return this.invokeAPI("updateDatabase", "/api/v1/opdb/updateDatabase", input, new GenericType<UpdateDatabaseResponse>(){}, NO_EXTENSION);
   }
 
   /**

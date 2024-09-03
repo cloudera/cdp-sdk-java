@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * Request object for Enable Service method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-15T13:42:18.574-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-03T11:22:10.122-07:00")
 public class EnableServiceRequest  {
 
   /**
@@ -138,6 +138,16 @@ public class EnableServiceRequest  {
    * List of Subnet IDs of CDP subnets to use for the kubernetes worker node.
    **/
   private List<String> subnets = new ArrayList<String>();
+
+  /**
+   * Resource ID of custom private DNS zone for Azure storage account.
+   **/
+  private String azureFilesharePrivateDNSZoneId = null;
+
+  /**
+   * Resource ID of the custom private DNS zone associated with the Azure database.
+   **/
+  private String azureDatabasePrivateDNSZoneId = null;
 
   /**
    * CDE uses a default public File Shares storage provisioned by AKS. Enable this option to use your own public/private File Shares.
@@ -547,6 +557,40 @@ public class EnableServiceRequest  {
   }
 
   /**
+   * Getter for azureFilesharePrivateDNSZoneId.
+   * Resource ID of custom private DNS zone for Azure storage account.
+   **/
+  @JsonProperty("azureFilesharePrivateDNSZoneId")
+  public String getAzureFilesharePrivateDNSZoneId() {
+    return azureFilesharePrivateDNSZoneId;
+  }
+
+  /**
+   * Setter for azureFilesharePrivateDNSZoneId.
+   * Resource ID of custom private DNS zone for Azure storage account.
+   **/
+  public void setAzureFilesharePrivateDNSZoneId(String azureFilesharePrivateDNSZoneId) {
+    this.azureFilesharePrivateDNSZoneId = azureFilesharePrivateDNSZoneId;
+  }
+
+  /**
+   * Getter for azureDatabasePrivateDNSZoneId.
+   * Resource ID of the custom private DNS zone associated with the Azure database.
+   **/
+  @JsonProperty("azureDatabasePrivateDNSZoneId")
+  public String getAzureDatabasePrivateDNSZoneId() {
+    return azureDatabasePrivateDNSZoneId;
+  }
+
+  /**
+   * Setter for azureDatabasePrivateDNSZoneId.
+   * Resource ID of the custom private DNS zone associated with the Azure database.
+   **/
+  public void setAzureDatabasePrivateDNSZoneId(String azureDatabasePrivateDNSZoneId) {
+    this.azureDatabasePrivateDNSZoneId = azureDatabasePrivateDNSZoneId;
+  }
+
+  /**
    * Getter for customAzureFilesConfigs.
    * CDE uses a default public File Shares storage provisioned by AKS. Enable this option to use your own public/private File Shares.
    **/
@@ -788,6 +832,12 @@ public class EnableServiceRequest  {
     if (!Objects.equals(this.subnets, enableServiceRequest.subnets)) {
       return false;
     }
+    if (!Objects.equals(this.azureFilesharePrivateDNSZoneId, enableServiceRequest.azureFilesharePrivateDNSZoneId)) {
+      return false;
+    }
+    if (!Objects.equals(this.azureDatabasePrivateDNSZoneId, enableServiceRequest.azureDatabasePrivateDNSZoneId)) {
+      return false;
+    }
     if (!Objects.equals(this.customAzureFilesConfigs, enableServiceRequest.customAzureFilesConfigs)) {
       return false;
     }
@@ -823,7 +873,7 @@ public class EnableServiceRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, env, instanceType, minimumInstances, maximumInstances, minimumSpotInstances, maximumSpotInstances, initialInstances, initialSpotInstances, rootVolumeSize, enablePublicEndpoint, deployPreviousVersion, enableWorkloadAnalytics, useSsd, chartValueOverrides, whitelistIps, loadbalancerAllowlist, tags, skipValidation, enablePrivateNetwork, subnets, customAzureFilesConfigs, networkOutboundType, allPurposeInstanceType, allPurposeMinimumInstances, allPurposeMaximumInstances, allPurposeMinimumSpotInstances, allPurposeMaximumSpotInstances, allPurposeInitialInstances, allPurposeInitialSpotInstances, allPurposeRootVolumeSize);
+    return Objects.hash(name, env, instanceType, minimumInstances, maximumInstances, minimumSpotInstances, maximumSpotInstances, initialInstances, initialSpotInstances, rootVolumeSize, enablePublicEndpoint, deployPreviousVersion, enableWorkloadAnalytics, useSsd, chartValueOverrides, whitelistIps, loadbalancerAllowlist, tags, skipValidation, enablePrivateNetwork, subnets, azureFilesharePrivateDNSZoneId, azureDatabasePrivateDNSZoneId, customAzureFilesConfigs, networkOutboundType, allPurposeInstanceType, allPurposeMinimumInstances, allPurposeMaximumInstances, allPurposeMinimumSpotInstances, allPurposeMaximumSpotInstances, allPurposeInitialInstances, allPurposeInitialSpotInstances, allPurposeRootVolumeSize);
   }
 
   @Override
@@ -851,6 +901,8 @@ public class EnableServiceRequest  {
     sb.append("    skipValidation: ").append(toIndentedString(skipValidation)).append("\n");
     sb.append("    enablePrivateNetwork: ").append(toIndentedString(enablePrivateNetwork)).append("\n");
     sb.append("    subnets: ").append(toIndentedString(subnets)).append("\n");
+    sb.append("    azureFilesharePrivateDNSZoneId: ").append(toIndentedString(azureFilesharePrivateDNSZoneId)).append("\n");
+    sb.append("    azureDatabasePrivateDNSZoneId: ").append(toIndentedString(azureDatabasePrivateDNSZoneId)).append("\n");
     sb.append("    customAzureFilesConfigs: ").append(toIndentedString(customAzureFilesConfigs)).append("\n");
     sb.append("    networkOutboundType: ").append(toIndentedString(networkOutboundType)).append("\n");
     sb.append("    allPurposeInstanceType: ").append(toIndentedString(allPurposeInstanceType)).append("\n");

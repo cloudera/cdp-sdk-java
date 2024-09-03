@@ -28,20 +28,30 @@ import com.cloudera.cdp.client.CdpRequestContext;
 import com.cloudera.cdp.client.Pair;
 import com.cloudera.cdp.client.ResourceResponse;
 import com.cloudera.cdp.client.RestResponse;
+import com.cloudera.cdp.ml.model.AddInstanceGroupsMlServingAppRequest;
+import com.cloudera.cdp.ml.model.AddInstanceGroupsMlServingAppResponse;
 import com.cloudera.cdp.ml.model.BackupWorkspaceRequest;
 import com.cloudera.cdp.ml.model.BackupWorkspaceResponse;
+import com.cloudera.cdp.ml.model.CreateMlServingAppRequest;
+import com.cloudera.cdp.ml.model.CreateMlServingAppResponse;
 import com.cloudera.cdp.ml.model.CreateModelRegistryRequest;
 import com.cloudera.cdp.ml.model.CreateModelRegistryResponse;
 import com.cloudera.cdp.ml.model.CreateWorkspaceRequest;
 import com.cloudera.cdp.ml.model.CreateWorkspaceResponse;
 import com.cloudera.cdp.ml.model.DeleteBackupRequest;
 import com.cloudera.cdp.ml.model.DeleteBackupResponse;
+import com.cloudera.cdp.ml.model.DeleteInstanceGroupMlServingAppRequest;
+import com.cloudera.cdp.ml.model.DeleteInstanceGroupMlServingAppResponse;
 import com.cloudera.cdp.ml.model.DeleteInstanceGroupRequest;
 import com.cloudera.cdp.ml.model.DeleteInstanceGroupResponse;
+import com.cloudera.cdp.ml.model.DeleteMlServingAppRequest;
+import com.cloudera.cdp.ml.model.DeleteMlServingAppResponse;
 import com.cloudera.cdp.ml.model.DeleteModelRegistryRequest;
 import com.cloudera.cdp.ml.model.DeleteModelRegistryResponse;
 import com.cloudera.cdp.ml.model.DeleteWorkspaceRequest;
 import com.cloudera.cdp.ml.model.DeleteWorkspaceResponse;
+import com.cloudera.cdp.ml.model.DescribeMlServingAppRequest;
+import com.cloudera.cdp.ml.model.DescribeMlServingAppResponse;
 import com.cloudera.cdp.ml.model.DescribeModelRegistryRequest;
 import com.cloudera.cdp.ml.model.DescribeModelRegistryResponse;
 import com.cloudera.cdp.ml.model.DescribeWorkspaceRequest;
@@ -55,16 +65,28 @@ import com.cloudera.cdp.ml.model.GetLatestWorkspaceVersionRequest;
 import com.cloudera.cdp.ml.model.GetLatestWorkspaceVersionResponse;
 import com.cloudera.cdp.ml.model.GetLogsRequest;
 import com.cloudera.cdp.ml.model.GetLogsResponse;
+import com.cloudera.cdp.ml.model.GetMlServingAppKubeconfigRequest;
+import com.cloudera.cdp.ml.model.GetMlServingAppKubeconfigResponse;
 import com.cloudera.cdp.ml.model.GetModelRegistryKubeconfigRequest;
 import com.cloudera.cdp.ml.model.GetModelRegistryKubeconfigResponse;
+import com.cloudera.cdp.ml.model.GrantMlServingAppAccessRequest;
+import com.cloudera.cdp.ml.model.GrantMlServingAppAccessResponse;
 import com.cloudera.cdp.ml.model.GrantModelRegistryAccessRequest;
 import com.cloudera.cdp.ml.model.GrantModelRegistryAccessResponse;
 import com.cloudera.cdp.ml.model.GrantWorkspaceAccessRequest;
 import com.cloudera.cdp.ml.model.GrantWorkspaceAccessResponse;
+import com.cloudera.cdp.ml.model.ListInstanceTypeConfigurationRequest;
+import com.cloudera.cdp.ml.model.ListInstanceTypeConfigurationResponse;
+import com.cloudera.cdp.ml.model.ListMlServingAppAccessRequest;
+import com.cloudera.cdp.ml.model.ListMlServingAppAccessResponse;
+import com.cloudera.cdp.ml.model.ListMlServingAppsRequest;
+import com.cloudera.cdp.ml.model.ListMlServingAppsResponse;
 import com.cloudera.cdp.ml.model.ListModelRegistriesRequest;
 import com.cloudera.cdp.ml.model.ListModelRegistriesResponse;
 import com.cloudera.cdp.ml.model.ListModelRegistryAccessRequest;
 import com.cloudera.cdp.ml.model.ListModelRegistryAccessResponse;
+import com.cloudera.cdp.ml.model.ListRelevantInstancesRequest;
+import com.cloudera.cdp.ml.model.ListRelevantInstancesResponse;
 import com.cloudera.cdp.ml.model.ListWorkspaceAccessRequest;
 import com.cloudera.cdp.ml.model.ListWorkspaceAccessResponse;
 import com.cloudera.cdp.ml.model.ListWorkspaceBackupsRequest;
@@ -75,6 +97,8 @@ import com.cloudera.cdp.ml.model.ModifyClusterInstanceGroupRequest;
 import com.cloudera.cdp.ml.model.ModifyClusterInstanceGroupResponse;
 import com.cloudera.cdp.ml.model.ModifyClusterSecurityRequest;
 import com.cloudera.cdp.ml.model.ModifyClusterSecurityResponse;
+import com.cloudera.cdp.ml.model.ModifyMlServingAppRequest;
+import com.cloudera.cdp.ml.model.ModifyMlServingAppResponse;
 import com.cloudera.cdp.ml.model.ModifyWorkspaceLoadBalancerRequest;
 import com.cloudera.cdp.ml.model.ModifyWorkspaceLoadBalancerResponse;
 import com.cloudera.cdp.ml.model.RefreshModelRegistryConfigmapRequest;
@@ -85,6 +109,8 @@ import com.cloudera.cdp.ml.model.RestoreWorkspaceRequest;
 import com.cloudera.cdp.ml.model.RestoreWorkspaceResponse;
 import com.cloudera.cdp.ml.model.ResumeWorkspaceRequest;
 import com.cloudera.cdp.ml.model.ResumeWorkspaceResponse;
+import com.cloudera.cdp.ml.model.RevokeMlServingAppAccessRequest;
+import com.cloudera.cdp.ml.model.RevokeMlServingAppAccessResponse;
 import com.cloudera.cdp.ml.model.RevokeModelRegistryAccessRequest;
 import com.cloudera.cdp.ml.model.RevokeModelRegistryAccessResponse;
 import com.cloudera.cdp.ml.model.RevokeWorkspaceAccessRequest;
@@ -93,6 +119,8 @@ import com.cloudera.cdp.ml.model.RollbackModelRegistryUpgradeRequest;
 import com.cloudera.cdp.ml.model.RollbackModelRegistryUpgradeResponse;
 import com.cloudera.cdp.ml.model.SuspendWorkspaceRequest;
 import com.cloudera.cdp.ml.model.SuspendWorkspaceResponse;
+import com.cloudera.cdp.ml.model.UpgradeMlServingAppRequest;
+import com.cloudera.cdp.ml.model.UpgradeMlServingAppResponse;
 import com.cloudera.cdp.ml.model.UpgradeModelRegistryRequest;
 import com.cloudera.cdp.ml.model.UpgradeModelRegistryResponse;
 import com.cloudera.cdp.ml.model.UpgradeWorkspaceRequest;
@@ -103,7 +131,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-15T13:42:16.965-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-03T11:22:08.202-07:00")
 public class MlClient extends CdpClient {
 
   public static final String SERVICE_NAME = "ml";
@@ -135,6 +163,19 @@ public class MlClient extends CdpClient {
   }
 
   /**
+   * Add instance group to an existing Cloudera AI Inference Service instance.
+   * @param input
+   * @return AddInstanceGroupsMlServingAppResponse
+   */
+  public AddInstanceGroupsMlServingAppResponse addInstanceGroupsMlServingApp(AddInstanceGroupsMlServingAppRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling addInstanceGroupsMlServingApp");
+    }
+
+    return this.invokeAPI("addInstanceGroupsMlServingApp", "/api/v1/ml/addInstanceGroupsMlServingApp", input, new GenericType<AddInstanceGroupsMlServingAppResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Backup a workspace.
    * @param input
    * @return BackupWorkspaceResponse
@@ -145,6 +186,19 @@ public class MlClient extends CdpClient {
     }
 
     return this.invokeAPI("backupWorkspace", "/api/v1/ml/backupWorkspace", input, new GenericType<BackupWorkspaceResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Deploys Cloudera AI Inference Service into an existing Kubernetes cluster.
+   * @param input
+   * @return CreateMlServingAppResponse
+   */
+  public CreateMlServingAppResponse createMlServingApp(CreateMlServingAppRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createMlServingApp");
+    }
+
+    return this.invokeAPI("createMlServingApp", "/api/v1/ml/createMlServingApp", input, new GenericType<CreateMlServingAppResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -200,6 +254,32 @@ public class MlClient extends CdpClient {
   }
 
   /**
+   * Deletes an instance group from a Cloudera AI Inference Service instance.
+   * @param input
+   * @return DeleteInstanceGroupMlServingAppResponse
+   */
+  public DeleteInstanceGroupMlServingAppResponse deleteInstanceGroupMlServingApp(DeleteInstanceGroupMlServingAppRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteInstanceGroupMlServingApp");
+    }
+
+    return this.invokeAPI("deleteInstanceGroupMlServingApp", "/api/v1/ml/deleteInstanceGroupMlServingApp", input, new GenericType<DeleteInstanceGroupMlServingAppResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Deletes Cloudera AI Inference Service instance.
+   * @param input
+   * @return DeleteMlServingAppResponse
+   */
+  public DeleteMlServingAppResponse deleteMlServingApp(DeleteMlServingAppRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteMlServingApp");
+    }
+
+    return this.invokeAPI("deleteMlServingApp", "/api/v1/ml/deleteMlServingApp", input, new GenericType<DeleteMlServingAppResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Deletes a model registry.
    * @param input
    * @return DeleteModelRegistryResponse
@@ -223,6 +303,19 @@ public class MlClient extends CdpClient {
     }
 
     return this.invokeAPI("deleteWorkspace", "/api/v1/ml/deleteWorkspace", input, new GenericType<DeleteWorkspaceResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Describe Cloudera AI Inference Service instance.
+   * @param input
+   * @return DescribeMlServingAppResponse
+   */
+  public DescribeMlServingAppResponse describeMlServingApp(DescribeMlServingAppRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeMlServingApp");
+    }
+
+    return this.invokeAPI("describeMlServingApp", "/api/v1/ml/describeMlServingApp", input, new GenericType<DescribeMlServingAppResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -304,6 +397,19 @@ public class MlClient extends CdpClient {
   }
 
   /**
+   * Return kubeconfig for a Cloudera AI Inference Service Kubernetes cluster.
+   * @param input
+   * @return GetMlServingAppKubeconfigResponse
+   */
+  public GetMlServingAppKubeconfigResponse getMlServingAppKubeconfig(GetMlServingAppKubeconfigRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getMlServingAppKubeconfig");
+    }
+
+    return this.invokeAPI("getMlServingAppKubeconfig", "/api/v1/ml/getMlServingAppKubeconfig", input, new GenericType<GetMlServingAppKubeconfigResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * GetModelRegistryKubeconfig returns kube config for model registry.
    * @param input
    * @return GetModelRegistryKubeconfigResponse
@@ -314,6 +420,19 @@ public class MlClient extends CdpClient {
     }
 
     return this.invokeAPI("getModelRegistryKubeconfig", "/api/v1/ml/getModelRegistryKubeconfig", input, new GenericType<GetModelRegistryKubeconfigResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Grants admin access to a Cloudera AI Inference Service cluster.
+   * @param input
+   * @return GrantMlServingAppAccessResponse
+   */
+  public GrantMlServingAppAccessResponse grantMlServingAppAccess(GrantMlServingAppAccessRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling grantMlServingAppAccess");
+    }
+
+    return this.invokeAPI("grantMlServingAppAccess", "/api/v1/ml/grantMlServingAppAccess", input, new GenericType<GrantMlServingAppAccessResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -343,6 +462,45 @@ public class MlClient extends CdpClient {
   }
 
   /**
+   * List the instance configuration for a given instance type.
+   * @param input
+   * @return ListInstanceTypeConfigurationResponse
+   */
+  public ListInstanceTypeConfigurationResponse listInstanceTypeConfiguration(ListInstanceTypeConfigurationRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listInstanceTypeConfiguration");
+    }
+
+    return this.invokeAPI("listInstanceTypeConfiguration", "/api/v1/ml/listInstanceTypeConfiguration", input, new GenericType<ListInstanceTypeConfigurationResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * List members that have Kubernetes access to a Cloudera AI Inference Service cluster.
+   * @param input
+   * @return ListMlServingAppAccessResponse
+   */
+  public ListMlServingAppAccessResponse listMlServingAppAccess(ListMlServingAppAccessRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listMlServingAppAccess");
+    }
+
+    return this.invokeAPI("listMlServingAppAccess", "/api/v1/ml/listMlServingAppAccess", input, new GenericType<ListMlServingAppAccessResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * List all Cloudera AI Inference Service instances.
+   * @param input
+   * @return ListMlServingAppsResponse
+   */
+  public ListMlServingAppsResponse listMlServingApps(ListMlServingAppsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listMlServingApps");
+    }
+
+    return this.invokeAPI("listMlServingApps", "/api/v1/ml/listMlServingApps", input, new GenericType<ListMlServingAppsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Lists all model registries.
    * @param input
    * @return ListModelRegistriesResponse
@@ -366,6 +524,19 @@ public class MlClient extends CdpClient {
     }
 
     return this.invokeAPI("listModelRegistryAccess", "/api/v1/ml/listModelRegistryAccess", input, new GenericType<ListModelRegistryAccessResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * List the instance types for CML workspace creation that have the requested resource.
+   * @param input
+   * @return ListRelevantInstancesResponse
+   */
+  public ListRelevantInstancesResponse listRelevantInstances(ListRelevantInstancesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listRelevantInstances");
+    }
+
+    return this.invokeAPI("listRelevantInstances", "/api/v1/ml/listRelevantInstances", input, new GenericType<ListRelevantInstancesResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -434,6 +605,19 @@ public class MlClient extends CdpClient {
   }
 
   /**
+   * Modify instance groups for a Cloudera AI Inference Service cluster.
+   * @param input
+   * @return ModifyMlServingAppResponse
+   */
+  public ModifyMlServingAppResponse modifyMlServingApp(ModifyMlServingAppRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling modifyMlServingApp");
+    }
+
+    return this.invokeAPI("modifyMlServingApp", "/api/v1/ml/modifyMlServingApp", input, new GenericType<ModifyMlServingAppResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Modify Cloudera Machine Learning workspace loadbalancer.
    * @param input
    * @return ModifyWorkspaceLoadBalancerResponse
@@ -499,6 +683,19 @@ public class MlClient extends CdpClient {
   }
 
   /**
+   * Revokes access to a Cloudera AI Inference Service cluster.
+   * @param input
+   * @return RevokeMlServingAppAccessResponse
+   */
+  public RevokeMlServingAppAccessResponse revokeMlServingAppAccess(RevokeMlServingAppAccessRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling revokeMlServingAppAccess");
+    }
+
+    return this.invokeAPI("revokeMlServingAppAccess", "/api/v1/ml/revokeMlServingAppAccess", input, new GenericType<RevokeMlServingAppAccessResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * RevokeModelRegistryAccess Cloudera Machine Learning Model Registry.
    * @param input
    * @return RevokeModelRegistryAccessResponse
@@ -548,6 +745,19 @@ public class MlClient extends CdpClient {
     }
 
     return this.invokeAPI("suspendWorkspace", "/api/v1/ml/suspendWorkspace", input, new GenericType<SuspendWorkspaceResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Upgrade a Cloudera AI Inference Service instance.
+   * @param input
+   * @return UpgradeMlServingAppResponse
+   */
+  public UpgradeMlServingAppResponse upgradeMlServingApp(UpgradeMlServingAppRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling upgradeMlServingApp");
+    }
+
+    return this.invokeAPI("upgradeMlServingApp", "/api/v1/ml/upgradeMlServingApp", input, new GenericType<UpgradeMlServingAppResponse>(){}, NO_EXTENSION);
   }
 
   /**

@@ -26,11 +26,12 @@ import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.de.model.ChartValueOverridesRequest;
 import com.cloudera.cdp.de.model.SmtpConfigRequest;
 import java.util.*;
+import java.util.Map;
 
 /**
  * Request object for CreateVc method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-15T13:42:18.574-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-03T11:22:10.122-07:00")
 public class CreateVcRequest  {
 
   /**
@@ -107,6 +108,11 @@ public class CreateVcRequest  {
    * Groups with view only access.
    **/
   private List<String> viewOnlyGroups = new ArrayList<String>();
+
+  /**
+   * Spark configs that will be applied to all the spark jobs inside a virtual cluster.
+   **/
+  private Map<String, String> sparkConfigs = new HashMap<String, String>();
 
   /**
    * Getter for name.
@@ -363,6 +369,23 @@ public class CreateVcRequest  {
     this.viewOnlyGroups = viewOnlyGroups;
   }
 
+  /**
+   * Getter for sparkConfigs.
+   * Spark configs that will be applied to all the spark jobs inside a virtual cluster.
+   **/
+  @JsonProperty("sparkConfigs")
+  public Map<String, String> getSparkConfigs() {
+    return sparkConfigs;
+  }
+
+  /**
+   * Setter for sparkConfigs.
+   * Spark configs that will be applied to all the spark jobs inside a virtual cluster.
+   **/
+  public void setSparkConfigs(Map<String, String> sparkConfigs) {
+    this.sparkConfigs = sparkConfigs;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -417,12 +440,15 @@ public class CreateVcRequest  {
     if (!Objects.equals(this.viewOnlyGroups, createVcRequest.viewOnlyGroups)) {
       return false;
     }
+    if (!Objects.equals(this.sparkConfigs, createVcRequest.sparkConfigs)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, clusterId, cpuRequests, memoryRequests, chartValueOverrides, smtpConfigs, runtimeSpotComponent, sparkVersion, vcTier, sessionTimeout, aclUsers, fullAccessUsers, fullAccessGroups, viewOnlyUsers, viewOnlyGroups);
+    return Objects.hash(name, clusterId, cpuRequests, memoryRequests, chartValueOverrides, smtpConfigs, runtimeSpotComponent, sparkVersion, vcTier, sessionTimeout, aclUsers, fullAccessUsers, fullAccessGroups, viewOnlyUsers, viewOnlyGroups, sparkConfigs);
   }
 
   @Override
@@ -444,6 +470,7 @@ public class CreateVcRequest  {
     sb.append("    fullAccessGroups: ").append(toIndentedString(fullAccessGroups)).append("\n");
     sb.append("    viewOnlyUsers: ").append(toIndentedString(viewOnlyUsers)).append("\n");
     sb.append("    viewOnlyGroups: ").append(toIndentedString(viewOnlyGroups)).append("\n");
+    sb.append("    sparkConfigs: ").append(toIndentedString(sparkConfigs)).append("\n");
     sb.append("}");
     return sb.toString();
   }

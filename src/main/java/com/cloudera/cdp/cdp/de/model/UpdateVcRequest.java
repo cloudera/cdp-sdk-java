@@ -24,11 +24,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import java.util.*;
+import java.util.Map;
 
 /**
  * Request object for updateVc method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-15T13:42:18.574-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-03T11:22:10.122-07:00")
 public class UpdateVcRequest  {
 
   /**
@@ -65,6 +66,16 @@ public class UpdateVcRequest  {
    * Groups with view only access.
    **/
   private List<String> viewOnlyGroups = new ArrayList<String>();
+
+  /**
+   * Spark configs that will be applied to all the spark jobs inside a virtual cluster.
+   **/
+  private Map<String, String> sparkConfigs = new HashMap<String, String>();
+
+  /**
+   * Discard the Spark configs inside a VC.
+   **/
+  private Boolean discardSparkConfigs = false;
 
   /**
    * Getter for clusterId.
@@ -185,6 +196,40 @@ public class UpdateVcRequest  {
     this.viewOnlyGroups = viewOnlyGroups;
   }
 
+  /**
+   * Getter for sparkConfigs.
+   * Spark configs that will be applied to all the spark jobs inside a virtual cluster.
+   **/
+  @JsonProperty("sparkConfigs")
+  public Map<String, String> getSparkConfigs() {
+    return sparkConfigs;
+  }
+
+  /**
+   * Setter for sparkConfigs.
+   * Spark configs that will be applied to all the spark jobs inside a virtual cluster.
+   **/
+  public void setSparkConfigs(Map<String, String> sparkConfigs) {
+    this.sparkConfigs = sparkConfigs;
+  }
+
+  /**
+   * Getter for discardSparkConfigs.
+   * Discard the Spark configs inside a VC.
+   **/
+  @JsonProperty("discardSparkConfigs")
+  public Boolean getDiscardSparkConfigs() {
+    return discardSparkConfigs;
+  }
+
+  /**
+   * Setter for discardSparkConfigs.
+   * Discard the Spark configs inside a VC.
+   **/
+  public void setDiscardSparkConfigs(Boolean discardSparkConfigs) {
+    this.discardSparkConfigs = discardSparkConfigs;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -215,12 +260,18 @@ public class UpdateVcRequest  {
     if (!Objects.equals(this.viewOnlyGroups, updateVcRequest.viewOnlyGroups)) {
       return false;
     }
+    if (!Objects.equals(this.sparkConfigs, updateVcRequest.sparkConfigs)) {
+      return false;
+    }
+    if (!Objects.equals(this.discardSparkConfigs, updateVcRequest.discardSparkConfigs)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, vcId, aclUsers, fullAccessUsers, fullAccessGroups, viewOnlyUsers, viewOnlyGroups);
+    return Objects.hash(clusterId, vcId, aclUsers, fullAccessUsers, fullAccessGroups, viewOnlyUsers, viewOnlyGroups, sparkConfigs, discardSparkConfigs);
   }
 
   @Override
@@ -234,6 +285,8 @@ public class UpdateVcRequest  {
     sb.append("    fullAccessGroups: ").append(toIndentedString(fullAccessGroups)).append("\n");
     sb.append("    viewOnlyUsers: ").append(toIndentedString(viewOnlyUsers)).append("\n");
     sb.append("    viewOnlyGroups: ").append(toIndentedString(viewOnlyGroups)).append("\n");
+    sb.append("    sparkConfigs: ").append(toIndentedString(sparkConfigs)).append("\n");
+    sb.append("    discardSparkConfigs: ").append(toIndentedString(discardSparkConfigs)).append("\n");
     sb.append("}");
     return sb.toString();
   }

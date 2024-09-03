@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-package com.cloudera.cdp.dw.model;
+package com.cloudera.cdp.ml.model;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -25,31 +25,31 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * Request object for the upgradeCluster method.
+ * Request object for the GetMlServingAppKubeconfig method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-15T13:42:16.327-07:00")
-public class UpgradeClusterRequest  {
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-03T11:22:08.202-07:00")
+public class GetMlServingAppKubeconfigRequest  {
 
   /**
-   * The ID of the cluster to upgrade.
+   * The CRN of the Cloudera AI Inference Service instance for retrieving the kubeconfig.
    **/
-  private String clusterId = null;
+  private String appCrn = null;
 
   /**
-   * Getter for clusterId.
-   * The ID of the cluster to upgrade.
+   * Getter for appCrn.
+   * The CRN of the Cloudera AI Inference Service instance for retrieving the kubeconfig.
    **/
-  @JsonProperty("clusterId")
-  public String getClusterId() {
-    return clusterId;
+  @JsonProperty("appCrn")
+  public String getAppCrn() {
+    return appCrn;
   }
 
   /**
-   * Setter for clusterId.
-   * The ID of the cluster to upgrade.
+   * Setter for appCrn.
+   * The CRN of the Cloudera AI Inference Service instance for retrieving the kubeconfig.
    **/
-  public void setClusterId(String clusterId) {
-    this.clusterId = clusterId;
+  public void setAppCrn(String appCrn) {
+    this.appCrn = appCrn;
   }
 
   @Override
@@ -60,8 +60,8 @@ public class UpgradeClusterRequest  {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpgradeClusterRequest upgradeClusterRequest = (UpgradeClusterRequest) o;
-    if (!Objects.equals(this.clusterId, upgradeClusterRequest.clusterId)) {
+    GetMlServingAppKubeconfigRequest getMlServingAppKubeconfigRequest = (GetMlServingAppKubeconfigRequest) o;
+    if (!Objects.equals(this.appCrn, getMlServingAppKubeconfigRequest.appCrn)) {
       return false;
     }
     return true;
@@ -69,14 +69,14 @@ public class UpgradeClusterRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId);
+    return Objects.hash(appCrn);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpgradeClusterRequest {\n");
-    sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
+    sb.append("class GetMlServingAppKubeconfigRequest {\n");
+    sb.append("    appCrn: ").append(toIndentedString(appCrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

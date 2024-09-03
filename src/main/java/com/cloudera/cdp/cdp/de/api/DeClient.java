@@ -55,6 +55,8 @@ import com.cloudera.cdp.de.model.GetKubeconfigRequest;
 import com.cloudera.cdp.de.model.GetKubeconfigResponse;
 import com.cloudera.cdp.de.model.GetServiceInitLogsRequest;
 import com.cloudera.cdp.de.model.GetServiceInitLogsResponse;
+import com.cloudera.cdp.de.model.GetUpgradeStatusRequest;
+import com.cloudera.cdp.de.model.GetUpgradeStatusResponse;
 import com.cloudera.cdp.de.model.ListBackupsRequest;
 import com.cloudera.cdp.de.model.ListBackupsResponse;
 import com.cloudera.cdp.de.model.ListServicesRequest;
@@ -67,13 +69,15 @@ import com.cloudera.cdp.de.model.UpdateServiceRequest;
 import com.cloudera.cdp.de.model.UpdateServiceResponse;
 import com.cloudera.cdp.de.model.UpdateVcRequest;
 import com.cloudera.cdp.de.model.UpdateVcResponse;
+import com.cloudera.cdp.de.model.UpgradeServiceRequest;
+import com.cloudera.cdp.de.model.UpgradeServiceResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-15T13:42:18.574-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-03T11:22:10.122-07:00")
 public class DeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "de";
@@ -274,6 +278,19 @@ public class DeClient extends CdpClient {
   }
 
   /**
+   * Get CDE Service Upgrade Status.
+   * @param input
+   * @return GetUpgradeStatusResponse
+   */
+  public GetUpgradeStatusResponse getUpgradeStatus(GetUpgradeStatusRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getUpgradeStatus");
+    }
+
+    return this.invokeAPI("getUpgradeStatus", "/api/v1/de/getUpgradeStatus", input, new GenericType<GetUpgradeStatusResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * List Cloudera Data Engineering(CDE) Service Backups
    * @param input
    * @return ListBackupsResponse
@@ -349,5 +366,18 @@ public class DeClient extends CdpClient {
     }
 
     return this.invokeAPI("updateVc", "/api/v1/de/updateVc", input, new GenericType<UpdateVcResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Trigger a particular step (prepare, backup, upgrade, resume) of the upgrade framework.
+   * @param input
+   * @return UpgradeServiceResponse
+   */
+  public UpgradeServiceResponse upgradeService(UpgradeServiceRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling upgradeService");
+    }
+
+    return this.invokeAPI("upgradeService", "/api/v1/de/upgradeService", input, new GenericType<UpgradeServiceResponse>(){}, NO_EXTENSION);
   }
 }

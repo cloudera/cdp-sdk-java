@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * The response object with available FreeIPA upgrade candidates.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-15T13:42:17.621-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-03T11:22:09.163-07:00")
 public class GetFreeipaUpgradeOptionsResponse extends CdpResponse {
 
   /**

@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Options for activating an Azure environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-15T13:42:16.327-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-03T11:22:07.520-07:00")
 public class AzureActivationOptions  {
 
   /**
@@ -52,7 +52,7 @@ public class AzureActivationOptions  {
   private Boolean enableSpotInstances = false;
 
   /**
-   * DEPRECATED: The cluster level instance type selection will be replaced by virtual warehouse level selection. Azure compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values and the default value used for the case it is not provided.
+   * NOTE: The cluster level instance type selection will be replaced by virtual warehouse level selection. Azure compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values and the default value used for the case it is not provided.
    **/
   private List<String> computeInstanceTypes = new ArrayList<String>();
 
@@ -166,9 +166,8 @@ public class AzureActivationOptions  {
 
   /**
    * Getter for computeInstanceTypes.
-   * DEPRECATED: The cluster level instance type selection will be replaced by virtual warehouse level selection. Azure compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values and the default value used for the case it is not provided.
+   * NOTE: The cluster level instance type selection will be replaced by virtual warehouse level selection. Azure compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values and the default value used for the case it is not provided.
    **/
-  @Deprecated
   @JsonProperty("computeInstanceTypes")
   public List<String> getComputeInstanceTypes() {
     return computeInstanceTypes;
@@ -176,9 +175,8 @@ public class AzureActivationOptions  {
 
   /**
    * Setter for computeInstanceTypes.
-   * DEPRECATED: The cluster level instance type selection will be replaced by virtual warehouse level selection. Azure compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values and the default value used for the case it is not provided.
+   * NOTE: The cluster level instance type selection will be replaced by virtual warehouse level selection. Azure compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values and the default value used for the case it is not provided.
    **/
-  @Deprecated
   public void setComputeInstanceTypes(List<String> computeInstanceTypes) {
     this.computeInstanceTypes = computeInstanceTypes;
   }

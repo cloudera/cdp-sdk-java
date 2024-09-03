@@ -193,8 +193,6 @@ import com.cloudera.cdp.dw.model.UpdateVwConfigRequest;
 import com.cloudera.cdp.dw.model.UpdateVwConfigResponse;
 import com.cloudera.cdp.dw.model.UpdateVwRequest;
 import com.cloudera.cdp.dw.model.UpdateVwResponse;
-import com.cloudera.cdp.dw.model.UpgradeClusterRequest;
-import com.cloudera.cdp.dw.model.UpgradeClusterResponse;
 import com.cloudera.cdp.dw.model.UpgradeDataVisualizationRequest;
 import com.cloudera.cdp.dw.model.UpgradeDataVisualizationResponse;
 import com.cloudera.cdp.dw.model.UpgradeDbcRequest;
@@ -207,7 +205,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-08-15T13:42:16.327-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-03T11:22:07.520-07:00")
 public class DwClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dw";
@@ -1303,19 +1301,6 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("updateVwConfig", "/api/v1/dw/updateVwConfig", input, new GenericType<UpdateVwConfigResponse>(){}, NO_EXTENSION);
-  }
-
-  /**
-   * Upgrade the Cloudera Data Warehouse cluster.
-   * @param input
-   * @return UpgradeClusterResponse
-   */
-  public UpgradeClusterResponse upgradeCluster(UpgradeClusterRequest input) {
-    if (input == null) {
-      throw new CdpClientException("Missing the required parameter 'input' when calling upgradeCluster");
-    }
-
-    return this.invokeAPI("upgradeCluster", "/api/v1/dw/upgradeCluster", input, new GenericType<UpgradeClusterResponse>(){}, NO_EXTENSION);
   }
 
   /**
