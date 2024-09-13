@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * A request to create the database
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-03T11:22:09.829-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-12T15:07:45.169-07:00")
 public class CreateDatabaseRequest  {
 
   /**
@@ -126,6 +126,16 @@ public class CreateDatabaseRequest  {
    * Specifies encryption key to encrypt volume for instance group. It is currently supported for AWS cloud provider only.
    **/
   private List<VolumeEncryption> volumeEncryptions = new ArrayList<VolumeEncryption>();
+
+  /**
+   * Number of gateway nodes to be created for the database. When multiple gateway nodes are present Knox works in HA mode. A positive, non-zero number is required. The default value is 1. Requires the COD_RESTWORKERS entitlement.
+   **/
+  private Integer gatewayNodesCount = null;
+
+  /**
+   * Number of REST Worker nodes to be created for the database. A positive, non-zero number is required. The default value is 0. Requires the COD_RESTWORKERS entitlement.
+   **/
+  private Integer restworkerNodesCount = null;
 
   /**
    * Getter for environmentName.
@@ -433,6 +443,40 @@ public class CreateDatabaseRequest  {
     this.volumeEncryptions = volumeEncryptions;
   }
 
+  /**
+   * Getter for gatewayNodesCount.
+   * Number of gateway nodes to be created for the database. When multiple gateway nodes are present Knox works in HA mode. A positive, non-zero number is required. The default value is 1. Requires the COD_RESTWORKERS entitlement.
+   **/
+  @JsonProperty("gatewayNodesCount")
+  public Integer getGatewayNodesCount() {
+    return gatewayNodesCount;
+  }
+
+  /**
+   * Setter for gatewayNodesCount.
+   * Number of gateway nodes to be created for the database. When multiple gateway nodes are present Knox works in HA mode. A positive, non-zero number is required. The default value is 1. Requires the COD_RESTWORKERS entitlement.
+   **/
+  public void setGatewayNodesCount(Integer gatewayNodesCount) {
+    this.gatewayNodesCount = gatewayNodesCount;
+  }
+
+  /**
+   * Getter for restworkerNodesCount.
+   * Number of REST Worker nodes to be created for the database. A positive, non-zero number is required. The default value is 0. Requires the COD_RESTWORKERS entitlement.
+   **/
+  @JsonProperty("restworkerNodesCount")
+  public Integer getRestworkerNodesCount() {
+    return restworkerNodesCount;
+  }
+
+  /**
+   * Setter for restworkerNodesCount.
+   * Number of REST Worker nodes to be created for the database. A positive, non-zero number is required. The default value is 0. Requires the COD_RESTWORKERS entitlement.
+   **/
+  public void setRestworkerNodesCount(Integer restworkerNodesCount) {
+    this.restworkerNodesCount = restworkerNodesCount;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -496,12 +540,18 @@ public class CreateDatabaseRequest  {
     if (!Objects.equals(this.volumeEncryptions, createDatabaseRequest.volumeEncryptions)) {
       return false;
     }
+    if (!Objects.equals(this.gatewayNodesCount, createDatabaseRequest.gatewayNodesCount)) {
+      return false;
+    }
+    if (!Objects.equals(this.restworkerNodesCount, createDatabaseRequest.restworkerNodesCount)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, databaseName, autoScalingParameters, subnetId, customUserTags, disableMultiAz, attachedStorageForWorkers, disableKerberos, numEdgeNodes, image, disableJwtAuth, enableRegionCanary, scaleType, storageType, recipes, enableGrafana, rootVolumeSize, volumeEncryptions);
+    return Objects.hash(environmentName, databaseName, autoScalingParameters, subnetId, customUserTags, disableMultiAz, attachedStorageForWorkers, disableKerberos, numEdgeNodes, image, disableJwtAuth, enableRegionCanary, scaleType, storageType, recipes, enableGrafana, rootVolumeSize, volumeEncryptions, gatewayNodesCount, restworkerNodesCount);
   }
 
   @Override
@@ -526,6 +576,8 @@ public class CreateDatabaseRequest  {
     sb.append("    enableGrafana: ").append(toIndentedString(enableGrafana)).append("\n");
     sb.append("    rootVolumeSize: ").append(toIndentedString(rootVolumeSize)).append("\n");
     sb.append("    volumeEncryptions: ").append(toIndentedString(volumeEncryptions)).append("\n");
+    sb.append("    gatewayNodesCount: ").append(toIndentedString(gatewayNodesCount)).append("\n");
+    sb.append("    restworkerNodesCount: ").append(toIndentedString(restworkerNodesCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

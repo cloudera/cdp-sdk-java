@@ -33,7 +33,7 @@ import java.util.Map;
 /**
  * Replication policy definition.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-03T11:22:11.623-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-12T15:07:47.122-07:00")
 public class Policy  {
 
   /**

@@ -28,7 +28,7 @@ import com.cloudera.cdp.opdb.model.AutoScalingParameters;
 /**
  * A request to update the database
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-03T11:22:09.829-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-12T15:07:45.169-07:00")
 public class UpdateDatabaseRequest  {
 
   /**
@@ -55,6 +55,16 @@ public class UpdateDatabaseRequest  {
    * Removes any strong meta servers provisioned for this database. Requires the COD_STRONG_META_SERVERS entitlement.
    **/
   private Boolean removeStrongMetaServers = null;
+
+  /**
+   * Sets the desired number of REST Worker nodes for the database. A positive, non-zero number is required. Requires the COD_RESTWORKERS entitlement.
+   **/
+  private Integer numDesiredRestworkerNodes = null;
+
+  /**
+   * Removes any REST Worker nodes provisioned for this database. Requires the COD_RESTWORKERS entitlement.
+   **/
+  private Boolean removeRestworkerNodes = null;
 
   /**
    * Getter for environmentName.
@@ -141,6 +151,40 @@ public class UpdateDatabaseRequest  {
     this.removeStrongMetaServers = removeStrongMetaServers;
   }
 
+  /**
+   * Getter for numDesiredRestworkerNodes.
+   * Sets the desired number of REST Worker nodes for the database. A positive, non-zero number is required. Requires the COD_RESTWORKERS entitlement.
+   **/
+  @JsonProperty("numDesiredRestworkerNodes")
+  public Integer getNumDesiredRestworkerNodes() {
+    return numDesiredRestworkerNodes;
+  }
+
+  /**
+   * Setter for numDesiredRestworkerNodes.
+   * Sets the desired number of REST Worker nodes for the database. A positive, non-zero number is required. Requires the COD_RESTWORKERS entitlement.
+   **/
+  public void setNumDesiredRestworkerNodes(Integer numDesiredRestworkerNodes) {
+    this.numDesiredRestworkerNodes = numDesiredRestworkerNodes;
+  }
+
+  /**
+   * Getter for removeRestworkerNodes.
+   * Removes any REST Worker nodes provisioned for this database. Requires the COD_RESTWORKERS entitlement.
+   **/
+  @JsonProperty("removeRestworkerNodes")
+  public Boolean getRemoveRestworkerNodes() {
+    return removeRestworkerNodes;
+  }
+
+  /**
+   * Setter for removeRestworkerNodes.
+   * Removes any REST Worker nodes provisioned for this database. Requires the COD_RESTWORKERS entitlement.
+   **/
+  public void setRemoveRestworkerNodes(Boolean removeRestworkerNodes) {
+    this.removeRestworkerNodes = removeRestworkerNodes;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -165,12 +209,18 @@ public class UpdateDatabaseRequest  {
     if (!Objects.equals(this.removeStrongMetaServers, updateDatabaseRequest.removeStrongMetaServers)) {
       return false;
     }
+    if (!Objects.equals(this.numDesiredRestworkerNodes, updateDatabaseRequest.numDesiredRestworkerNodes)) {
+      return false;
+    }
+    if (!Objects.equals(this.removeRestworkerNodes, updateDatabaseRequest.removeRestworkerNodes)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, databaseName, autoScalingParameters, numDesiredStrongMetaServers, removeStrongMetaServers);
+    return Objects.hash(environmentName, databaseName, autoScalingParameters, numDesiredStrongMetaServers, removeStrongMetaServers, numDesiredRestworkerNodes, removeRestworkerNodes);
   }
 
   @Override
@@ -182,6 +232,8 @@ public class UpdateDatabaseRequest  {
     sb.append("    autoScalingParameters: ").append(toIndentedString(autoScalingParameters)).append("\n");
     sb.append("    numDesiredStrongMetaServers: ").append(toIndentedString(numDesiredStrongMetaServers)).append("\n");
     sb.append("    removeStrongMetaServers: ").append(toIndentedString(removeStrongMetaServers)).append("\n");
+    sb.append("    numDesiredRestworkerNodes: ").append(toIndentedString(numDesiredRestworkerNodes)).append("\n");
+    sb.append("    removeRestworkerNodes: ").append(toIndentedString(removeRestworkerNodes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

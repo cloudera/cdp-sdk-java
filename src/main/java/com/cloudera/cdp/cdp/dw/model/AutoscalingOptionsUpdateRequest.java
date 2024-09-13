@@ -23,11 +23,12 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.dw.model.ImpalaExecutorGroupSetsUpdateRequest;
 
 /**
  * Auto-scaling configuration for a Virtual Warehouse. Provide those values only that you want to update.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-03T11:22:07.520-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-12T15:07:42.845-07:00")
 public class AutoscalingOptionsUpdateRequest  {
 
   /**
@@ -79,6 +80,11 @@ public class AutoscalingOptionsUpdateRequest  {
    * DEPRECATED in favor of the top level impalaHASettings object. Number of the active coordinators.
    **/
   private Integer impalaNumOfActiveCoordinators = null;
+
+  /**
+   * Re-configures executor group sets for workload aware autoscaling.
+   **/
+  private ImpalaExecutorGroupSetsUpdateRequest impalaExecutorGroupSets = null;
 
   /**
    * Getter for minClusters.
@@ -254,6 +260,23 @@ public class AutoscalingOptionsUpdateRequest  {
     this.impalaNumOfActiveCoordinators = impalaNumOfActiveCoordinators;
   }
 
+  /**
+   * Getter for impalaExecutorGroupSets.
+   * Re-configures executor group sets for workload aware autoscaling.
+   **/
+  @JsonProperty("impalaExecutorGroupSets")
+  public ImpalaExecutorGroupSetsUpdateRequest getImpalaExecutorGroupSets() {
+    return impalaExecutorGroupSets;
+  }
+
+  /**
+   * Setter for impalaExecutorGroupSets.
+   * Re-configures executor group sets for workload aware autoscaling.
+   **/
+  public void setImpalaExecutorGroupSets(ImpalaExecutorGroupSetsUpdateRequest impalaExecutorGroupSets) {
+    this.impalaExecutorGroupSets = impalaExecutorGroupSets;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -293,12 +316,15 @@ public class AutoscalingOptionsUpdateRequest  {
     if (!Objects.equals(this.impalaNumOfActiveCoordinators, autoscalingOptionsUpdateRequest.impalaNumOfActiveCoordinators)) {
       return false;
     }
+    if (!Objects.equals(this.impalaExecutorGroupSets, autoscalingOptionsUpdateRequest.impalaExecutorGroupSets)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(minClusters, maxClusters, disableAutoSuspend, autoSuspendTimeoutSeconds, hiveScaleWaitTimeSeconds, hiveDesiredFreeCapacity, impalaScaleUpDelaySeconds, impalaScaleDownDelaySeconds, impalaShutdownOfCoordinatorDelaySeconds, impalaNumOfActiveCoordinators);
+    return Objects.hash(minClusters, maxClusters, disableAutoSuspend, autoSuspendTimeoutSeconds, hiveScaleWaitTimeSeconds, hiveDesiredFreeCapacity, impalaScaleUpDelaySeconds, impalaScaleDownDelaySeconds, impalaShutdownOfCoordinatorDelaySeconds, impalaNumOfActiveCoordinators, impalaExecutorGroupSets);
   }
 
   @Override
@@ -315,6 +341,7 @@ public class AutoscalingOptionsUpdateRequest  {
     sb.append("    impalaScaleDownDelaySeconds: ").append(toIndentedString(impalaScaleDownDelaySeconds)).append("\n");
     sb.append("    impalaShutdownOfCoordinatorDelaySeconds: ").append(toIndentedString(impalaShutdownOfCoordinatorDelaySeconds)).append("\n");
     sb.append("    impalaNumOfActiveCoordinators: ").append(toIndentedString(impalaNumOfActiveCoordinators)).append("\n");
+    sb.append("    impalaExecutorGroupSets: ").append(toIndentedString(impalaExecutorGroupSets)).append("\n");
     sb.append("}");
     return sb.toString();
   }

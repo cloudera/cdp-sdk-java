@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object for ImportFlowDefinition
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-03T11:22:10.617-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-12T15:07:46.050-07:00")
 public class ImportFlowDefinitionRequest  {
 
   /**

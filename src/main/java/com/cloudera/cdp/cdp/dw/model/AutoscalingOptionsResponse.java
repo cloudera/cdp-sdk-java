@@ -23,11 +23,12 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.dw.model.ImpalaExecutorGroupSetsResponse;
 
 /**
  * Auto-scaling configuration for a Virtual Warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-03T11:22:07.520-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-12T15:07:42.845-07:00")
 public class AutoscalingOptionsResponse extends CdpResponse {
 
   /**
@@ -99,6 +100,11 @@ public class AutoscalingOptionsResponse extends CdpResponse {
    * DEPRECATED in favor of the top level impalaHASettings object. Denotes whether a backup instance for Impala catalog is enabled.
    **/
   private Boolean impalaEnableCatalogHighAvailability = null;
+
+  /**
+   * Configurations of executor groups sets for workload aware autoscaling.
+   **/
+  private ImpalaExecutorGroupSetsResponse impalaExecutorGroupSets = null;
 
   /**
    * Getter for minClusters.
@@ -350,6 +356,23 @@ public class AutoscalingOptionsResponse extends CdpResponse {
     this.impalaEnableCatalogHighAvailability = impalaEnableCatalogHighAvailability;
   }
 
+  /**
+   * Getter for impalaExecutorGroupSets.
+   * Configurations of executor groups sets for workload aware autoscaling.
+   **/
+  @JsonProperty("impalaExecutorGroupSets")
+  public ImpalaExecutorGroupSetsResponse getImpalaExecutorGroupSets() {
+    return impalaExecutorGroupSets;
+  }
+
+  /**
+   * Setter for impalaExecutorGroupSets.
+   * Configurations of executor groups sets for workload aware autoscaling.
+   **/
+  public void setImpalaExecutorGroupSets(ImpalaExecutorGroupSetsResponse impalaExecutorGroupSets) {
+    this.impalaExecutorGroupSets = impalaExecutorGroupSets;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -401,6 +424,9 @@ public class AutoscalingOptionsResponse extends CdpResponse {
     if (!Objects.equals(this.impalaEnableCatalogHighAvailability, autoscalingOptionsResponse.impalaEnableCatalogHighAvailability)) {
       return false;
     }
+    if (!Objects.equals(this.impalaExecutorGroupSets, autoscalingOptionsResponse.impalaExecutorGroupSets)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -409,7 +435,7 @@ public class AutoscalingOptionsResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(minClusters, maxClusters, disableAutoSuspend, autoSuspendTimeoutSeconds, enableUnifiedAnalytics, hiveScaleWaitTimeSeconds, hiveDesiredFreeCapacity, impalaHighAvailabilityMode, impalaScaleUpDelaySeconds, impalaScaleDownDelaySeconds, impalaEnableShutdownOfCoordinator, impalaNumOfActiveCoordinators, impalaShutdownOfCoordinatorDelaySeconds, impalaEnableCatalogHighAvailability, super.hashCode());
+    return Objects.hash(minClusters, maxClusters, disableAutoSuspend, autoSuspendTimeoutSeconds, enableUnifiedAnalytics, hiveScaleWaitTimeSeconds, hiveDesiredFreeCapacity, impalaHighAvailabilityMode, impalaScaleUpDelaySeconds, impalaScaleDownDelaySeconds, impalaEnableShutdownOfCoordinator, impalaNumOfActiveCoordinators, impalaShutdownOfCoordinatorDelaySeconds, impalaEnableCatalogHighAvailability, impalaExecutorGroupSets, super.hashCode());
   }
 
   @Override
@@ -431,6 +457,7 @@ public class AutoscalingOptionsResponse extends CdpResponse {
     sb.append("    impalaNumOfActiveCoordinators: ").append(toIndentedString(impalaNumOfActiveCoordinators)).append("\n");
     sb.append("    impalaShutdownOfCoordinatorDelaySeconds: ").append(toIndentedString(impalaShutdownOfCoordinatorDelaySeconds)).append("\n");
     sb.append("    impalaEnableCatalogHighAvailability: ").append(toIndentedString(impalaEnableCatalogHighAvailability)).append("\n");
+    sb.append("    impalaExecutorGroupSets: ").append(toIndentedString(impalaExecutorGroupSets)).append("\n");
     sb.append("}");
     return sb.toString();
   }

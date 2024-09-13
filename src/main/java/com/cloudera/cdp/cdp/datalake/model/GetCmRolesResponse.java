@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Response object for obtaining Cloudera Manger roles. (that can be used for filtering in CM based diagnostics collection)
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-03T11:22:08.521-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-12T15:07:43.950-07:00")
 public class GetCmRolesResponse extends CdpResponse {
 
   /**

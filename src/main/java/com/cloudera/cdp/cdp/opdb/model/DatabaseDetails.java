@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Details of the databases.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-03T11:22:09.829-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-12T15:07:45.169-07:00")
 public class DatabaseDetails  {
 
   /**
@@ -85,6 +85,16 @@ public class DatabaseDetails  {
    * Internal cluster name for this database
    **/
   private String internalName = null;
+
+  /**
+   * Number of gateway nodes for the database.
+   **/
+  private Integer gatewayNodesCount = null;
+
+  /**
+   * Number of REST Worker nodes for the database.
+   **/
+  private Integer restworkerNodesCount = null;
 
   /**
    * Getter for databaseName.
@@ -273,6 +283,40 @@ public class DatabaseDetails  {
     this.internalName = internalName;
   }
 
+  /**
+   * Getter for gatewayNodesCount.
+   * Number of gateway nodes for the database.
+   **/
+  @JsonProperty("gatewayNodesCount")
+  public Integer getGatewayNodesCount() {
+    return gatewayNodesCount;
+  }
+
+  /**
+   * Setter for gatewayNodesCount.
+   * Number of gateway nodes for the database.
+   **/
+  public void setGatewayNodesCount(Integer gatewayNodesCount) {
+    this.gatewayNodesCount = gatewayNodesCount;
+  }
+
+  /**
+   * Getter for restworkerNodesCount.
+   * Number of REST Worker nodes for the database.
+   **/
+  @JsonProperty("restworkerNodesCount")
+  public Integer getRestworkerNodesCount() {
+    return restworkerNodesCount;
+  }
+
+  /**
+   * Setter for restworkerNodesCount.
+   * Number of REST Worker nodes for the database.
+   **/
+  public void setRestworkerNodesCount(Integer restworkerNodesCount) {
+    this.restworkerNodesCount = restworkerNodesCount;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -315,12 +359,18 @@ public class DatabaseDetails  {
     if (!Objects.equals(this.internalName, databaseDetails.internalName)) {
       return false;
     }
+    if (!Objects.equals(this.gatewayNodesCount, databaseDetails.gatewayNodesCount)) {
+      return false;
+    }
+    if (!Objects.equals(this.restworkerNodesCount, databaseDetails.restworkerNodesCount)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(databaseName, environmentCrn, crn, creationDate, status, creatorCrn, dbVersion, hueEndpoint, environmentName, storageLocation, internalName);
+    return Objects.hash(databaseName, environmentCrn, crn, creationDate, status, creatorCrn, dbVersion, hueEndpoint, environmentName, storageLocation, internalName, gatewayNodesCount, restworkerNodesCount);
   }
 
   @Override
@@ -338,6 +388,8 @@ public class DatabaseDetails  {
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    storageLocation: ").append(toIndentedString(storageLocation)).append("\n");
     sb.append("    internalName: ").append(toIndentedString(internalName)).append("\n");
+    sb.append("    gatewayNodesCount: ").append(toIndentedString(gatewayNodesCount)).append("\n");
+    sb.append("    restworkerNodesCount: ").append(toIndentedString(restworkerNodesCount)).append("\n");
     sb.append("}");
     return sb.toString();
   }

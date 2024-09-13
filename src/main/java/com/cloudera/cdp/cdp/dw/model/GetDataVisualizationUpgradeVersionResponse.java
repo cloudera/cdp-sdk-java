@@ -28,7 +28,7 @@ import com.cloudera.cdp.dw.model.UpgradeVersions;
 /**
  * Response object for the getDataVisualizationUpgradeVersion method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-03T11:22:07.520-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-12T15:07:42.845-07:00")
 public class GetDataVisualizationUpgradeVersionResponse extends CdpResponse {
 
   /**

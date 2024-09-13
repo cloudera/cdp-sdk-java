@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object for the createAzureCluster method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-03T11:22:07.520-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-12T15:07:42.845-07:00")
 public class CreateAzureClusterRequest  {
 
   /**
@@ -83,7 +83,7 @@ public class CreateAzureClusterRequest  {
   private Integer reservedSharedServicesNodes = null;
 
   /**
-   * Options for custom ACR/ECR/Docker registries.
+   * Options for custom ACR/ECR registries.
    **/
   private CustomRegistryOptions customRegistryOptions = null;
 
@@ -319,7 +319,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Getter for customRegistryOptions.
-   * Options for custom ACR/ECR/Docker registries.
+   * Options for custom ACR/ECR registries.
    **/
   @JsonProperty("customRegistryOptions")
   public CustomRegistryOptions getCustomRegistryOptions() {
@@ -328,7 +328,7 @@ public class CreateAzureClusterRequest  {
 
   /**
    * Setter for customRegistryOptions.
-   * Options for custom ACR/ECR/Docker registries.
+   * Options for custom ACR/ECR registries.
    **/
   public void setCustomRegistryOptions(CustomRegistryOptions customRegistryOptions) {
     this.customRegistryOptions = customRegistryOptions;
