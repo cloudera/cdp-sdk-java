@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * Request object for create GCP Data Lake request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-12T15:07:43.950-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:26.246-07:00")
 public class CreateGCPDatalakeRequest  {
 
   /**

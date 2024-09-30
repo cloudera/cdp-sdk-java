@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object for the createAwsCluster method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-12T15:07:42.845-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.071-07:00")
 public class CreateAwsClusterRequest  {
 
   /**
@@ -73,12 +73,12 @@ public class CreateAwsClusterRequest  {
   private Boolean enablePrivateEKS = false;
 
   /**
-   * Set additional number of nodes to reserve for executors and coordinators to use during autoscaling. Adding more reserved nodes increases your cloud costs.
+   * DEPRECATED - will be removed in future releases. Set additional number of nodes to reserve for executors and coordinators to use during autoscaling. Adding more reserved nodes increases your cloud costs.
    **/
   private Integer reservedComputeNodes = null;
 
   /**
-   * Set additional number of nodes to reserve for other services in the cluster. Adding more reserved nodes increases your cloud costs.
+   * DEPRECATED - will be removed in future releases. Set additional number of nodes to reserve for other services in the cluster. Adding more reserved nodes increases your cloud costs.
    **/
   private Integer reservedSharedServicesNodes = null;
 
@@ -270,8 +270,9 @@ public class CreateAwsClusterRequest  {
 
   /**
    * Getter for reservedComputeNodes.
-   * Set additional number of nodes to reserve for executors and coordinators to use during autoscaling. Adding more reserved nodes increases your cloud costs.
+   * DEPRECATED - will be removed in future releases. Set additional number of nodes to reserve for executors and coordinators to use during autoscaling. Adding more reserved nodes increases your cloud costs.
    **/
+  @Deprecated
   @JsonProperty("reservedComputeNodes")
   public Integer getReservedComputeNodes() {
     return reservedComputeNodes;
@@ -279,16 +280,18 @@ public class CreateAwsClusterRequest  {
 
   /**
    * Setter for reservedComputeNodes.
-   * Set additional number of nodes to reserve for executors and coordinators to use during autoscaling. Adding more reserved nodes increases your cloud costs.
+   * DEPRECATED - will be removed in future releases. Set additional number of nodes to reserve for executors and coordinators to use during autoscaling. Adding more reserved nodes increases your cloud costs.
    **/
+  @Deprecated
   public void setReservedComputeNodes(Integer reservedComputeNodes) {
     this.reservedComputeNodes = reservedComputeNodes;
   }
 
   /**
    * Getter for reservedSharedServicesNodes.
-   * Set additional number of nodes to reserve for other services in the cluster. Adding more reserved nodes increases your cloud costs.
+   * DEPRECATED - will be removed in future releases. Set additional number of nodes to reserve for other services in the cluster. Adding more reserved nodes increases your cloud costs.
    **/
+  @Deprecated
   @JsonProperty("reservedSharedServicesNodes")
   public Integer getReservedSharedServicesNodes() {
     return reservedSharedServicesNodes;
@@ -296,8 +299,9 @@ public class CreateAwsClusterRequest  {
 
   /**
    * Setter for reservedSharedServicesNodes.
-   * Set additional number of nodes to reserve for other services in the cluster. Adding more reserved nodes increases your cloud costs.
+   * DEPRECATED - will be removed in future releases. Set additional number of nodes to reserve for other services in the cluster. Adding more reserved nodes increases your cloud costs.
    **/
+  @Deprecated
   public void setReservedSharedServicesNodes(Integer reservedSharedServicesNodes) {
     this.reservedSharedServicesNodes = reservedSharedServicesNodes;
   }

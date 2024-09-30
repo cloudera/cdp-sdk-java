@@ -29,7 +29,7 @@ import com.cloudera.cdp.cloudprivatelinks.model.AzureAccountInfo;
 /**
  * Request object for the DeletePrivateLinkEndpoint method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-12T15:07:47.225-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:29.464-07:00")
 public class DeletePrivateLinkEndpointRequest  {
 
   /**

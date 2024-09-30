@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * A Cloudera Data Warehouse cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-12T15:07:42.845-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.071-07:00")
 public class ClusterSummaryResponse extends CdpResponse {
 
   /**
@@ -87,12 +87,12 @@ public class ClusterSummaryResponse extends CdpResponse {
   private Boolean enableSpotInstances = null;
 
   /**
-   * Number of additional reserved nodes for executors and coordinators to use during autoscaling.
+   * DEPRECATED - will be removed in future releases. Number of additional reserved nodes for executors and coordinators to use during autoscaling.
    **/
   private Integer reservedComputeNodes = null;
 
   /**
-   * Number of additional reserved nodes for other services in the cluster.
+   * DEPRECATED - will be removed in future releases. Number of additional reserved nodes for other services in the cluster.
    **/
   private Integer reservedSharedServicesNodes = null;
 
@@ -323,8 +323,9 @@ public class ClusterSummaryResponse extends CdpResponse {
 
   /**
    * Getter for reservedComputeNodes.
-   * Number of additional reserved nodes for executors and coordinators to use during autoscaling.
+   * DEPRECATED - will be removed in future releases. Number of additional reserved nodes for executors and coordinators to use during autoscaling.
    **/
+  @Deprecated
   @JsonProperty("reservedComputeNodes")
   public Integer getReservedComputeNodes() {
     return reservedComputeNodes;
@@ -332,16 +333,18 @@ public class ClusterSummaryResponse extends CdpResponse {
 
   /**
    * Setter for reservedComputeNodes.
-   * Number of additional reserved nodes for executors and coordinators to use during autoscaling.
+   * DEPRECATED - will be removed in future releases. Number of additional reserved nodes for executors and coordinators to use during autoscaling.
    **/
+  @Deprecated
   public void setReservedComputeNodes(Integer reservedComputeNodes) {
     this.reservedComputeNodes = reservedComputeNodes;
   }
 
   /**
    * Getter for reservedSharedServicesNodes.
-   * Number of additional reserved nodes for other services in the cluster.
+   * DEPRECATED - will be removed in future releases. Number of additional reserved nodes for other services in the cluster.
    **/
+  @Deprecated
   @JsonProperty("reservedSharedServicesNodes")
   public Integer getReservedSharedServicesNodes() {
     return reservedSharedServicesNodes;
@@ -349,8 +352,9 @@ public class ClusterSummaryResponse extends CdpResponse {
 
   /**
    * Setter for reservedSharedServicesNodes.
-   * Number of additional reserved nodes for other services in the cluster.
+   * DEPRECATED - will be removed in future releases. Number of additional reserved nodes for other services in the cluster.
    **/
+  @Deprecated
   public void setReservedSharedServicesNodes(Integer reservedSharedServicesNodes) {
     this.reservedSharedServicesNodes = reservedSharedServicesNodes;
   }
