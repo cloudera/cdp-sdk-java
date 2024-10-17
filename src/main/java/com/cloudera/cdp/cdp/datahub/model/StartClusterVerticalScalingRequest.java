@@ -23,12 +23,13 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.datahub.model.DiskOptions;
 import com.cloudera.cdp.datahub.model.InstanceTemplate;
 
 /**
  * The request object for Data Hub vertical scaling.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:24.392-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:49.129-07:00")
 public class StartClusterVerticalScalingRequest  {
 
   /**
@@ -45,6 +46,11 @@ public class StartClusterVerticalScalingRequest  {
    * Instance template that specifies the core information for the vertical scale.
    **/
   private InstanceTemplate instanceTemplate = null;
+
+  /**
+   * Disk options for vertical scaling. Available options are - add, remove, or modify.
+   **/
+  private DiskOptions diskOptions = null;
 
   /**
    * Getter for datahub.
@@ -97,6 +103,23 @@ public class StartClusterVerticalScalingRequest  {
     this.instanceTemplate = instanceTemplate;
   }
 
+  /**
+   * Getter for diskOptions.
+   * Disk options for vertical scaling. Available options are - add, remove, or modify.
+   **/
+  @JsonProperty("diskOptions")
+  public DiskOptions getDiskOptions() {
+    return diskOptions;
+  }
+
+  /**
+   * Setter for diskOptions.
+   * Disk options for vertical scaling. Available options are - add, remove, or modify.
+   **/
+  public void setDiskOptions(DiskOptions diskOptions) {
+    this.diskOptions = diskOptions;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -115,12 +138,15 @@ public class StartClusterVerticalScalingRequest  {
     if (!Objects.equals(this.instanceTemplate, startClusterVerticalScalingRequest.instanceTemplate)) {
       return false;
     }
+    if (!Objects.equals(this.diskOptions, startClusterVerticalScalingRequest.diskOptions)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(datahub, group, instanceTemplate);
+    return Objects.hash(datahub, group, instanceTemplate, diskOptions);
   }
 
   @Override
@@ -130,6 +156,7 @@ public class StartClusterVerticalScalingRequest  {
     sb.append("    datahub: ").append(toIndentedString(datahub)).append("\n");
     sb.append("    group: ").append(toIndentedString(group)).append("\n");
     sb.append("    instanceTemplate: ").append(toIndentedString(instanceTemplate)).append("\n");
+    sb.append("    diskOptions: ").append(toIndentedString(diskOptions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

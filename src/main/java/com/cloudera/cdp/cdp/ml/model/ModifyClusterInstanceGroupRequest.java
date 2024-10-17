@@ -27,37 +27,37 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for ModifyClusterInstanceGroup.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class ModifyClusterInstanceGroupRequest  {
 
   /**
-   * The CRN of the workspace cluster to modify.
+   * The CRN of the workbench cluster to modify.
    **/
   private String workspaceCrn = null;
 
   /**
-   * The name of the instance group of the workspace cluster to modify.
+   * The name of the instance group of the workbench cluster to modify.
    **/
   private String instanceGroupName = null;
 
   /**
-   * The desired autoscaling min of the workspace cluster instance group.
+   * The desired autoscaling min of the workbench cluster instance group.
    **/
   private Integer min = null;
 
   /**
-   * The desired autoscaling min of the workspace cluster instance group.
+   * The desired autoscaling min of the workbench cluster instance group.
    **/
   private Integer max = null;
 
   /**
-   * The desired instance type of the workspace cluster instance group.
+   * The desired instance type of the workbench cluster instance group.
    **/
   private String instanceType = null;
 
   /**
    * Getter for workspaceCrn.
-   * The CRN of the workspace cluster to modify.
+   * The CRN of the workbench cluster to modify.
    **/
   @JsonProperty("workspaceCrn")
   public String getWorkspaceCrn() {
@@ -66,7 +66,7 @@ public class ModifyClusterInstanceGroupRequest  {
 
   /**
    * Setter for workspaceCrn.
-   * The CRN of the workspace cluster to modify.
+   * The CRN of the workbench cluster to modify.
    **/
   public void setWorkspaceCrn(String workspaceCrn) {
     this.workspaceCrn = workspaceCrn;
@@ -74,7 +74,7 @@ public class ModifyClusterInstanceGroupRequest  {
 
   /**
    * Getter for instanceGroupName.
-   * The name of the instance group of the workspace cluster to modify.
+   * The name of the instance group of the workbench cluster to modify.
    **/
   @JsonProperty("instanceGroupName")
   public String getInstanceGroupName() {
@@ -83,7 +83,7 @@ public class ModifyClusterInstanceGroupRequest  {
 
   /**
    * Setter for instanceGroupName.
-   * The name of the instance group of the workspace cluster to modify.
+   * The name of the instance group of the workbench cluster to modify.
    **/
   public void setInstanceGroupName(String instanceGroupName) {
     this.instanceGroupName = instanceGroupName;
@@ -91,7 +91,7 @@ public class ModifyClusterInstanceGroupRequest  {
 
   /**
    * Getter for min.
-   * The desired autoscaling min of the workspace cluster instance group.
+   * The desired autoscaling min of the workbench cluster instance group.
    **/
   @JsonProperty("min")
   public Integer getMin() {
@@ -100,7 +100,7 @@ public class ModifyClusterInstanceGroupRequest  {
 
   /**
    * Setter for min.
-   * The desired autoscaling min of the workspace cluster instance group.
+   * The desired autoscaling min of the workbench cluster instance group.
    **/
   public void setMin(Integer min) {
     this.min = min;
@@ -108,7 +108,7 @@ public class ModifyClusterInstanceGroupRequest  {
 
   /**
    * Getter for max.
-   * The desired autoscaling min of the workspace cluster instance group.
+   * The desired autoscaling min of the workbench cluster instance group.
    **/
   @JsonProperty("max")
   public Integer getMax() {
@@ -117,7 +117,7 @@ public class ModifyClusterInstanceGroupRequest  {
 
   /**
    * Setter for max.
-   * The desired autoscaling min of the workspace cluster instance group.
+   * The desired autoscaling min of the workbench cluster instance group.
    **/
   public void setMax(Integer max) {
     this.max = max;
@@ -125,7 +125,7 @@ public class ModifyClusterInstanceGroupRequest  {
 
   /**
    * Getter for instanceType.
-   * The desired instance type of the workspace cluster instance group.
+   * The desired instance type of the workbench cluster instance group.
    **/
   @JsonProperty("instanceType")
   public String getInstanceType() {
@@ -134,7 +134,7 @@ public class ModifyClusterInstanceGroupRequest  {
 
   /**
    * Setter for instanceType.
-   * The desired instance type of the workspace cluster instance group.
+   * The desired instance type of the workbench cluster instance group.
    **/
   public void setInstanceType(String instanceType) {
     this.instanceType = instanceType;

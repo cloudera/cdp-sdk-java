@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object to stop instances of a host group on a Data Hub.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:24.392-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:49.129-07:00")
 public class StopInstancesRequest  {
 
   /**

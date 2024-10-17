@@ -26,13 +26,13 @@ import com.cloudera.cdp.client.CdpResponse;
 import java.time.ZonedDateTime;
 
 /**
- * Audit event descibes an performed or performing in a given workspace.
+ * Audit event descibes an performed or performing in a given workbench.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class AuditEvent  {
 
   /**
-   * Workspace crn where the event observed.
+   * workbench crn where the event observed.
    **/
   private String workspaceCrn = null;
 
@@ -58,7 +58,7 @@ public class AuditEvent  {
 
   /**
    * Getter for workspaceCrn.
-   * Workspace crn where the event observed.
+   * workbench crn where the event observed.
    **/
   @JsonProperty("workspaceCrn")
   public String getWorkspaceCrn() {
@@ -67,7 +67,7 @@ public class AuditEvent  {
 
   /**
    * Setter for workspaceCrn.
-   * Workspace crn where the event observed.
+   * workbench crn where the event observed.
    **/
   public void setWorkspaceCrn(String workspaceCrn) {
     this.workspaceCrn = workspaceCrn;

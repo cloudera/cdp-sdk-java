@@ -29,9 +29,9 @@ import com.cloudera.cdp.ml.model.ProvisionTag;
 import java.util.*;
 
 /**
- * Request object for workspace provision. Required in public cloud.
+ * Request object for workbench provision. Required in public cloud.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class ProvisionK8sRequest  {
 
   /**
@@ -40,7 +40,7 @@ public class ProvisionK8sRequest  {
   private List<InstanceGroup> instanceGroups = new ArrayList<InstanceGroup>();
 
   /**
-   * The name of the environment for the workspace to create.
+   * The name of the environment for the workbench to create.
    **/
   private String environmentName = null;
 
@@ -73,7 +73,7 @@ public class ProvisionK8sRequest  {
 
   /**
    * Getter for environmentName.
-   * The name of the environment for the workspace to create.
+   * The name of the environment for the workbench to create.
    **/
   @JsonProperty("environmentName")
   public String getEnvironmentName() {
@@ -82,7 +82,7 @@ public class ProvisionK8sRequest  {
 
   /**
    * Setter for environmentName.
-   * The name of the environment for the workspace to create.
+   * The name of the environment for the workbench to create.
    **/
   public void setEnvironmentName(String environmentName) {
     this.environmentName = environmentName;

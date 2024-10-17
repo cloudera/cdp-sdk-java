@@ -28,11 +28,11 @@ import com.cloudera.cdp.ml.model.CreateWorkspaceRequest;
 /**
  * Request object for RestoreWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class RestoreWorkspaceRequest  {
 
   /**
-   * The parameters required for a new Cloudera Machine Learning workspace.
+   * The parameters required for a new Cloudera AI workbench.
    **/
   private CreateWorkspaceRequest newWorkspaceParameters = null;
 
@@ -53,7 +53,7 @@ public class RestoreWorkspaceRequest  {
 
   /**
    * Getter for newWorkspaceParameters.
-   * The parameters required for a new Cloudera Machine Learning workspace.
+   * The parameters required for a new Cloudera AI workbench.
    **/
   @JsonProperty("newWorkspaceParameters")
   public CreateWorkspaceRequest getNewWorkspaceParameters() {
@@ -62,7 +62,7 @@ public class RestoreWorkspaceRequest  {
 
   /**
    * Setter for newWorkspaceParameters.
-   * The parameters required for a new Cloudera Machine Learning workspace.
+   * The parameters required for a new Cloudera AI workbench.
    **/
   public void setNewWorkspaceParameters(CreateWorkspaceRequest newWorkspaceParameters) {
     this.newWorkspaceParameters = newWorkspaceParameters;

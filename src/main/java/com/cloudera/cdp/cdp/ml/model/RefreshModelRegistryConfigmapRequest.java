@@ -25,19 +25,19 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * Request for refreshing workspace&#39;s model registry configmap.
+ * Request for refreshing workbench&#39;s model registry configmap.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class RefreshModelRegistryConfigmapRequest  {
 
   /**
-   * Workspace CRN.
+   * workbench CRN.
    **/
   private String workspaceCrn = null;
 
   /**
    * Getter for workspaceCrn.
-   * Workspace CRN.
+   * workbench CRN.
    **/
   @JsonProperty("workspaceCrn")
   public String getWorkspaceCrn() {
@@ -46,7 +46,7 @@ public class RefreshModelRegistryConfigmapRequest  {
 
   /**
    * Setter for workspaceCrn.
-   * Workspace CRN.
+   * workbench CRN.
    **/
   public void setWorkspaceCrn(String workspaceCrn) {
     this.workspaceCrn = workspaceCrn;

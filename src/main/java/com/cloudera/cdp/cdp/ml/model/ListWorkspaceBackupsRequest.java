@@ -28,21 +28,21 @@ import com.cloudera.cdp.ml.model.ListWorkspaceBackupsQueryOptions;
 /**
  * Request object for ListWorkspaceBackups method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class ListWorkspaceBackupsRequest  {
 
   /**
-   * The environment for the workspace to list backups for.
+   * The environment for the workbench to list backups for.
    **/
   private String environmentName = null;
 
   /**
-   * The name of the workspace to list backups for.
+   * The name of the workbench to list backups for.
    **/
   private String workspaceName = null;
 
   /**
-   * The CRN of the workspace to list backups for. If this field is specified, environmentName and workspaceName are ignored.
+   * The CRN of the workbench to list backups for. If this field is specified, environmentName and workspaceName are ignored.
    **/
   private String workspaceCrn = null;
 
@@ -53,7 +53,7 @@ public class ListWorkspaceBackupsRequest  {
 
   /**
    * Getter for environmentName.
-   * The environment for the workspace to list backups for.
+   * The environment for the workbench to list backups for.
    **/
   @JsonProperty("environmentName")
   public String getEnvironmentName() {
@@ -62,7 +62,7 @@ public class ListWorkspaceBackupsRequest  {
 
   /**
    * Setter for environmentName.
-   * The environment for the workspace to list backups for.
+   * The environment for the workbench to list backups for.
    **/
   public void setEnvironmentName(String environmentName) {
     this.environmentName = environmentName;
@@ -70,7 +70,7 @@ public class ListWorkspaceBackupsRequest  {
 
   /**
    * Getter for workspaceName.
-   * The name of the workspace to list backups for.
+   * The name of the workbench to list backups for.
    **/
   @JsonProperty("workspaceName")
   public String getWorkspaceName() {
@@ -79,7 +79,7 @@ public class ListWorkspaceBackupsRequest  {
 
   /**
    * Setter for workspaceName.
-   * The name of the workspace to list backups for.
+   * The name of the workbench to list backups for.
    **/
   public void setWorkspaceName(String workspaceName) {
     this.workspaceName = workspaceName;
@@ -87,7 +87,7 @@ public class ListWorkspaceBackupsRequest  {
 
   /**
    * Getter for workspaceCrn.
-   * The CRN of the workspace to list backups for. If this field is specified, environmentName and workspaceName are ignored.
+   * The CRN of the workbench to list backups for. If this field is specified, environmentName and workspaceName are ignored.
    **/
   @JsonProperty("workspaceCrn")
   public String getWorkspaceCrn() {
@@ -96,7 +96,7 @@ public class ListWorkspaceBackupsRequest  {
 
   /**
    * Setter for workspaceCrn.
-   * The CRN of the workspace to list backups for. If this field is specified, environmentName and workspaceName are ignored.
+   * The CRN of the workbench to list backups for. If this field is specified, environmentName and workspaceName are ignored.
    **/
   public void setWorkspaceCrn(String workspaceCrn) {
     this.workspaceCrn = workspaceCrn;

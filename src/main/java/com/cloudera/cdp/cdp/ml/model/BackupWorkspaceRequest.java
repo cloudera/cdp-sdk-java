@@ -25,13 +25,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * The request object for workspace backup.
+ * The request object for Cloudera AI workbench backup.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class BackupWorkspaceRequest  {
 
   /**
-   * CRN of the workspace to backup.
+   * CRN of the workbench to backup.
    **/
   private String workspaceCrn = null;
 
@@ -52,7 +52,7 @@ public class BackupWorkspaceRequest  {
 
   /**
    * Getter for workspaceCrn.
-   * CRN of the workspace to backup.
+   * CRN of the workbench to backup.
    **/
   @JsonProperty("workspaceCrn")
   public String getWorkspaceCrn() {
@@ -61,7 +61,7 @@ public class BackupWorkspaceRequest  {
 
   /**
    * Setter for workspaceCrn.
-   * CRN of the workspace to backup.
+   * CRN of the workbench to backup.
    **/
   public void setWorkspaceCrn(String workspaceCrn) {
     this.workspaceCrn = workspaceCrn;

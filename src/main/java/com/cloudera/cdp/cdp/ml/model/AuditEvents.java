@@ -27,24 +27,24 @@ import com.cloudera.cdp.ml.model.AuditEvent;
 import java.util.*;
 
 /**
- * AuditEvents contains all the audit events for a given workspace crn.
+ * AuditEvents contains all the audit events for a given workbench crn.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class AuditEvents  {
 
   /**
-   * Workspace crn unique for the set of audit events.
+   * workbench crn unique for the set of audit events.
    **/
   private String workspaceCrn = null;
 
   /**
-   * AuditEvent belong to the workspace crn.
+   * AuditEvent belong to the workbench crn.
    **/
   private List<AuditEvent> events = new ArrayList<AuditEvent>();
 
   /**
    * Getter for workspaceCrn.
-   * Workspace crn unique for the set of audit events.
+   * workbench crn unique for the set of audit events.
    **/
   @JsonProperty("workspaceCrn")
   public String getWorkspaceCrn() {
@@ -53,7 +53,7 @@ public class AuditEvents  {
 
   /**
    * Setter for workspaceCrn.
-   * Workspace crn unique for the set of audit events.
+   * workbench crn unique for the set of audit events.
    **/
   public void setWorkspaceCrn(String workspaceCrn) {
     this.workspaceCrn = workspaceCrn;
@@ -61,7 +61,7 @@ public class AuditEvents  {
 
   /**
    * Getter for events.
-   * AuditEvent belong to the workspace crn.
+   * AuditEvent belong to the workbench crn.
    **/
   @JsonProperty("events")
   public List<AuditEvent> getEvents() {
@@ -70,7 +70,7 @@ public class AuditEvents  {
 
   /**
    * Setter for events.
-   * AuditEvent belong to the workspace crn.
+   * AuditEvent belong to the workbench crn.
    **/
   public void setEvents(List<AuditEvent> events) {
     this.events = events;

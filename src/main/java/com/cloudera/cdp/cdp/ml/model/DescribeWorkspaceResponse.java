@@ -28,17 +28,17 @@ import com.cloudera.cdp.ml.model.Workspace;
 /**
  * Response object for the DescribeWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class DescribeWorkspaceResponse extends CdpResponse {
 
   /**
-   * The workspace.
+   * The workbench.
    **/
   private Workspace workspace = null;
 
   /**
    * Getter for workspace.
-   * The workspace.
+   * The workbench.
    **/
   @JsonProperty("workspace")
   public Workspace getWorkspace() {
@@ -47,7 +47,7 @@ public class DescribeWorkspaceResponse extends CdpResponse {
 
   /**
    * Setter for workspace.
-   * The workspace.
+   * The workbench.
    **/
   public void setWorkspace(Workspace workspace) {
     this.workspace = workspace;

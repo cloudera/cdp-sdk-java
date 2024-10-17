@@ -27,17 +27,17 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for ResumeWorkspace.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class ResumeWorkspaceRequest  {
 
   /**
-   * The CRN of the workspace to resume.
+   * The CRN of the workbench to resume.
    **/
   private String workspaceCrn = null;
 
   /**
    * Getter for workspaceCrn.
-   * The CRN of the workspace to resume.
+   * The CRN of the workbench to resume.
    **/
   @JsonProperty("workspaceCrn")
   public String getWorkspaceCrn() {
@@ -46,7 +46,7 @@ public class ResumeWorkspaceRequest  {
 
   /**
    * Setter for workspaceCrn.
-   * The CRN of the workspace to resume.
+   * The CRN of the workbench to resume.
    **/
   public void setWorkspaceCrn(String workspaceCrn) {
     this.workspaceCrn = workspaceCrn;

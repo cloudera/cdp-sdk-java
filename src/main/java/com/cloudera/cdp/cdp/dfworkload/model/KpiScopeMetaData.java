@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Provides scoping meta data for use during KPI creation
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:28.696-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:53.426-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class KpiScopeMetaData  {
 

@@ -28,20 +28,30 @@ import com.cloudera.cdp.client.CdpRequestContext;
 import com.cloudera.cdp.client.Pair;
 import com.cloudera.cdp.client.ResourceResponse;
 import com.cloudera.cdp.client.RestResponse;
+import com.cloudera.cdp.compute.model.CreateClusterRequest;
+import com.cloudera.cdp.compute.model.CreateClusterResponse;
+import com.cloudera.cdp.compute.model.DeleteClusterRequest;
+import com.cloudera.cdp.compute.model.DeleteClusterResponse;
+import com.cloudera.cdp.compute.model.DescribeClusterRequest;
+import com.cloudera.cdp.compute.model.DescribeClusterResponse;
 import com.cloudera.cdp.compute.model.DescribeDeploymentRequest;
 import com.cloudera.cdp.compute.model.DescribeDeploymentResponse;
 import com.cloudera.cdp.compute.model.Error;
 import com.cloudera.cdp.compute.model.ListClustersRequest;
 import com.cloudera.cdp.compute.model.ListClustersResponse;
+import com.cloudera.cdp.compute.model.ListDeploymentsRequest;
+import com.cloudera.cdp.compute.model.ListDeploymentsResponse;
 import com.cloudera.cdp.compute.model.UpgradeDeploymentRequest;
 import com.cloudera.cdp.compute.model.UpgradeDeploymentResponse;
+import com.cloudera.cdp.compute.model.ValidateClusterRequest;
+import com.cloudera.cdp.compute.model.ValidateClusterResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:29.145-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:53.893-07:00")
 public class ComputeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "compute";
@@ -73,6 +83,45 @@ public class ComputeClient extends CdpClient {
   }
 
   /**
+   * Create compute cluster
+   * @param input
+   * @return CreateClusterResponse
+   */
+  public CreateClusterResponse createCluster(CreateClusterRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createCluster");
+    }
+
+    return this.invokeAPI("createCluster", "/api/v1/compute/createCluster", input, new GenericType<CreateClusterResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Delete compute cluster
+   * @param input
+   * @return DeleteClusterResponse
+   */
+  public DeleteClusterResponse deleteCluster(DeleteClusterRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteCluster");
+    }
+
+    return this.invokeAPI("deleteCluster", "/api/v1/compute/deleteCluster", input, new GenericType<DeleteClusterResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Describe compute cluster
+   * @param input
+   * @return DescribeClusterResponse
+   */
+  public DescribeClusterResponse describeCluster(DescribeClusterRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeCluster");
+    }
+
+    return this.invokeAPI("describeCluster", "/api/v1/compute/describeCluster", input, new GenericType<DescribeClusterResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Describes a deployment
    * @param input
    * @return DescribeDeploymentResponse
@@ -99,6 +148,19 @@ public class ComputeClient extends CdpClient {
   }
 
   /**
+   * List deployments in the cluster.
+   * @param input
+   * @return ListDeploymentsResponse
+   */
+  public ListDeploymentsResponse listDeployments(ListDeploymentsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listDeployments");
+    }
+
+    return this.invokeAPI("listDeployments", "/api/v1/compute/listDeployments", input, new GenericType<ListDeploymentsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Upgrades a deployment to a different chart.
    * @param input
    * @return UpgradeDeploymentResponse
@@ -109,5 +171,18 @@ public class ComputeClient extends CdpClient {
     }
 
     return this.invokeAPI("upgradeDeployment", "/api/v1/compute/upgradeDeployment", input, new GenericType<UpgradeDeploymentResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Validate compute cluster
+   * @param input
+   * @return ValidateClusterResponse
+   */
+  public ValidateClusterResponse validateCluster(ValidateClusterRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling validateCluster");
+    }
+
+    return this.invokeAPI("validateCluster", "/api/v1/compute/validateCluster", input, new GenericType<ValidateClusterResponse>(){}, NO_EXTENSION);
   }
 }

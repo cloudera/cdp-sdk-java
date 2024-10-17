@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request for deleting model registry.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class DeleteModelRegistryRequest  {
 
   /**
@@ -36,12 +36,12 @@ public class DeleteModelRegistryRequest  {
   private String id = null;
 
   /**
-   * Deprecated. The workspace CRN of the model registry (Public cloud only).
+   * Deprecated. The workbench CRN of the model registry (Public cloud only).
    **/
   private String workspaceCrn = null;
 
   /**
-   * Force delete a model registry workspace even if errors occur during deletion. Force delete removes the guarantee that resources in your cloud account will be cleaned up. By default, force is set to false.
+   * Force delete a model registry workbench even if errors occur during deletion. Force delete removes the guarantee that resources in your cloud account will be cleaned up. By default, force is set to false.
    **/
   private Boolean force = null;
 
@@ -71,7 +71,7 @@ public class DeleteModelRegistryRequest  {
 
   /**
    * Getter for workspaceCrn.
-   * Deprecated. The workspace CRN of the model registry (Public cloud only).
+   * Deprecated. The workbench CRN of the model registry (Public cloud only).
    **/
   @Deprecated
   @JsonProperty("workspaceCrn")
@@ -81,7 +81,7 @@ public class DeleteModelRegistryRequest  {
 
   /**
    * Setter for workspaceCrn.
-   * Deprecated. The workspace CRN of the model registry (Public cloud only).
+   * Deprecated. The workbench CRN of the model registry (Public cloud only).
    **/
   @Deprecated
   public void setWorkspaceCrn(String workspaceCrn) {
@@ -90,7 +90,7 @@ public class DeleteModelRegistryRequest  {
 
   /**
    * Getter for force.
-   * Force delete a model registry workspace even if errors occur during deletion. Force delete removes the guarantee that resources in your cloud account will be cleaned up. By default, force is set to false.
+   * Force delete a model registry workbench even if errors occur during deletion. Force delete removes the guarantee that resources in your cloud account will be cleaned up. By default, force is set to false.
    **/
   @JsonProperty("force")
   public Boolean getForce() {
@@ -99,7 +99,7 @@ public class DeleteModelRegistryRequest  {
 
   /**
    * Setter for force.
-   * Force delete a model registry workspace even if errors occur during deletion. Force delete removes the guarantee that resources in your cloud account will be cleaned up. By default, force is set to false.
+   * Force delete a model registry workbench even if errors occur during deletion. Force delete removes the guarantee that resources in your cloud account will be cleaned up. By default, force is set to false.
    **/
   public void setForce(Boolean force) {
     this.force = force;

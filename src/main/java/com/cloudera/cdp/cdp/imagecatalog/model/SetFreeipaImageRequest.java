@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * The request object to add or update a FreeIPA image in a catalog.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:28.993-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:53.774-07:00")
 public class SetFreeipaImageRequest  {
 
   /**

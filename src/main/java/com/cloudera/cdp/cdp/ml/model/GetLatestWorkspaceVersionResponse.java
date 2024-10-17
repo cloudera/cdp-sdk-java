@@ -27,17 +27,17 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object for GetLatestWorkspaceVersion.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class GetLatestWorkspaceVersionResponse extends CdpResponse {
 
   /**
-   * The latest version of a workspace that is used when deploying Cloudera Machine Learning workspaces.
+   * The latest version of a workbench that is used when deploying Cloudera AI workbenches.
    **/
   private String version = null;
 
   /**
    * Getter for version.
-   * The latest version of a workspace that is used when deploying Cloudera Machine Learning workspaces.
+   * The latest version of a workbench that is used when deploying Cloudera AI workbenches.
    **/
   @JsonProperty("version")
   public String getVersion() {
@@ -46,7 +46,7 @@ public class GetLatestWorkspaceVersionResponse extends CdpResponse {
 
   /**
    * Setter for version.
-   * The latest version of a workspace that is used when deploying Cloudera Machine Learning workspaces.
+   * The latest version of a workbench that is used when deploying Cloudera AI workbenches.
    **/
   public void setVersion(String version) {
     this.version = version;

@@ -30,6 +30,8 @@ import com.cloudera.cdp.client.ResourceResponse;
 import com.cloudera.cdp.client.RestResponse;
 import com.cloudera.cdp.ml.model.AddInstanceGroupsMlServingAppRequest;
 import com.cloudera.cdp.ml.model.AddInstanceGroupsMlServingAppResponse;
+import com.cloudera.cdp.ml.model.AddInstanceGroupsRequest;
+import com.cloudera.cdp.ml.model.AddInstanceGroupsResponse;
 import com.cloudera.cdp.ml.model.BackupWorkspaceRequest;
 import com.cloudera.cdp.ml.model.BackupWorkspaceResponse;
 import com.cloudera.cdp.ml.model.CreateMlServingAppRequest;
@@ -131,7 +133,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class MlClient extends CdpClient {
 
   public static final String SERVICE_NAME = "ml";
@@ -163,6 +165,19 @@ public class MlClient extends CdpClient {
   }
 
   /**
+   * Add new Cloudera AI workbench cluster instance groups.
+   * @param input
+   * @return AddInstanceGroupsResponse
+   */
+  public AddInstanceGroupsResponse addInstanceGroups(AddInstanceGroupsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling addInstanceGroups");
+    }
+
+    return this.invokeAPI("addInstanceGroups", "/api/v1/ml/addInstanceGroups", input, new GenericType<AddInstanceGroupsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Add instance group to an existing Cloudera AI Inference Service instance.
    * @param input
    * @return AddInstanceGroupsMlServingAppResponse
@@ -176,7 +191,7 @@ public class MlClient extends CdpClient {
   }
 
   /**
-   * Backup a workspace.
+   * Backup a Cloudera AI workbench.
    * @param input
    * @return BackupWorkspaceResponse
    */
@@ -215,7 +230,7 @@ public class MlClient extends CdpClient {
   }
 
   /**
-   * Create a Cloudera Machine Learning workspace.
+   * Create a Cloudera AI workbench.
    * @param input
    * @return CreateWorkspaceResponse
    */
@@ -293,7 +308,7 @@ public class MlClient extends CdpClient {
   }
 
   /**
-   * Delete Cloudera Machine Learning Workspace.
+   * Delete Cloudera AI workbench.
    * @param input
    * @return DeleteWorkspaceResponse
    */
@@ -319,7 +334,7 @@ public class MlClient extends CdpClient {
   }
 
   /**
-   * Describe Cloudera Machine Learning Model Registry.
+   * Describe Cloudera AI Model Registry.
    * @param input
    * @return DescribeModelRegistryResponse
    */
@@ -332,7 +347,7 @@ public class MlClient extends CdpClient {
   }
 
   /**
-   * Describe Cloudera Machine Learning Workspace.
+   * Describe Cloudera AI workbench.
    * @param input
    * @return DescribeWorkspaceResponse
    */
@@ -345,7 +360,7 @@ public class MlClient extends CdpClient {
   }
 
   /**
-   * Gets all the events belong to a workspace crn.
+   * Gets all the events belong to a workbench crn.
    * @param input
    * @return GetAuditEventsResponse
    */
@@ -358,7 +373,7 @@ public class MlClient extends CdpClient {
   }
 
   /**
-   * ListWorkspaceAccess Cloudera Machine Learning Workspace.
+   * ListWorkspaceAccess Cloudera AI workbench.
    * @param input
    * @return GetKubeconfigResponse
    */
@@ -371,7 +386,7 @@ public class MlClient extends CdpClient {
   }
 
   /**
-   * GetLatestWorkspaceVersion Cloudera Machine Learning Workspace.
+   * GetLatestWorkspaceVersion Cloudera AI workbench.
    * @param input
    * @return GetLatestWorkspaceVersionResponse
    */
@@ -436,7 +451,7 @@ public class MlClient extends CdpClient {
   }
 
   /**
-   * GrantModelRegistryAccess Cloudera Machine Learning Model Registry.
+   * GrantModelRegistryAccess Cloudera AI Model Registry.
    * @param input
    * @return GrantModelRegistryAccessResponse
    */
@@ -449,7 +464,7 @@ public class MlClient extends CdpClient {
   }
 
   /**
-   * GrantWorkspaceAccess Cloudera Machine Learning Workspace.
+   * GrantWorkspaceAccess Cloudera AI workbench.
    * @param input
    * @return GrantWorkspaceAccessResponse
    */
@@ -514,7 +529,7 @@ public class MlClient extends CdpClient {
   }
 
   /**
-   * ListWorkspaceAccess Cloudera Machine Learning Model Registry.
+   * ListWorkspaceAccess Cloudera AI Model Registry.
    * @param input
    * @return ListModelRegistryAccessResponse
    */
@@ -527,7 +542,7 @@ public class MlClient extends CdpClient {
   }
 
   /**
-   * List the instance types for CML workspace creation that have the requested resource.
+   * List the instance types for Cloudera AI workbench creation that have the requested resource.
    * @param input
    * @return ListRelevantInstancesResponse
    */
@@ -540,7 +555,7 @@ public class MlClient extends CdpClient {
   }
 
   /**
-   * ListWorkspaceAccess Cloudera Machine Learning Workspace.
+   * ListWorkspaceAccess Cloudera AI workbench.
    * @param input
    * @return ListWorkspaceAccessResponse
    */
@@ -553,7 +568,7 @@ public class MlClient extends CdpClient {
   }
 
   /**
-   * List backup snapshots of a workspace.
+   * List backup snapshots of a workbench.
    * @param input
    * @return ListWorkspaceBackupsResponse
    */
@@ -566,7 +581,7 @@ public class MlClient extends CdpClient {
   }
 
   /**
-   * List Cloudera Machine Learning workspaces.
+   * List Cloudera AI workbenches.
    * @param input
    * @return ListWorkspacesResponse
    */
@@ -579,7 +594,7 @@ public class MlClient extends CdpClient {
   }
 
   /**
-   * Modify Cloudera Machine Learning workspace cluster instance group.
+   * Modify Cloudera AI workbench cluster instance group.
    * @param input
    * @return ModifyClusterInstanceGroupResponse
    */
@@ -592,7 +607,7 @@ public class MlClient extends CdpClient {
   }
 
   /**
-   * Modify Cloudera Machine Learning workspace cluster security.
+   * Modify Cloudera AI workbench cluster security.
    * @param input
    * @return ModifyClusterSecurityResponse
    */
@@ -618,7 +633,7 @@ public class MlClient extends CdpClient {
   }
 
   /**
-   * Modify Cloudera Machine Learning workspace loadbalancer.
+   * Modify Cloudera AI workbench loadbalancer.
    * @param input
    * @return ModifyWorkspaceLoadBalancerResponse
    */
@@ -631,7 +646,7 @@ public class MlClient extends CdpClient {
   }
 
   /**
-   * Refreshes the model registry configmap of the workspace.
+   * Refreshes the model registry configmap of the workbench.
    * @param input
    * @return RefreshModelRegistryConfigmapResponse
    */
@@ -657,7 +672,7 @@ public class MlClient extends CdpClient {
   }
 
   /**
-   * Restore a Cloudera Machine Learning workspace.
+   * Restore a Cloudera AI workbench.
    * @param input
    * @return RestoreWorkspaceResponse
    */
@@ -670,7 +685,7 @@ public class MlClient extends CdpClient {
   }
 
   /**
-   * Resume Cloudera Machine Learning workspace.
+   * Resume Cloudera AI workbench.
    * @param input
    * @return ResumeWorkspaceResponse
    */
@@ -696,7 +711,7 @@ public class MlClient extends CdpClient {
   }
 
   /**
-   * RevokeModelRegistryAccess Cloudera Machine Learning Model Registry.
+   * RevokeModelRegistryAccess Cloudera AI Model Registry.
    * @param input
    * @return RevokeModelRegistryAccessResponse
    */
@@ -709,7 +724,7 @@ public class MlClient extends CdpClient {
   }
 
   /**
-   * RevokeWorkspaceAccess Cloudera Machine Learning Workspace.
+   * RevokeWorkspaceAccess Cloudera AI workbench.
    * @param input
    * @return RevokeWorkspaceAccessResponse
    */
@@ -735,7 +750,7 @@ public class MlClient extends CdpClient {
   }
 
   /**
-   * Suspend Cloudera Machine Learning workspace.
+   * Suspend Cloudera AI workbench.
    * @param input
    * @return SuspendWorkspaceResponse
    */
@@ -774,7 +789,7 @@ public class MlClient extends CdpClient {
   }
 
   /**
-   * Upgrade Cloudera Machine Learning workspace.
+   * Upgrade Cloudera AI workbench.
    * @param input
    * @return UpgradeWorkspaceResponse
    */

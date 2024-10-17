@@ -24,7 +24,7 @@ import com.cloudera.cdp.client.CdpClientBuilder;
 /**
 * This class can be used to build a ReplicationmanagerClient object.
 **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:29.297-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:54.118-07:00")
 public class ReplicationmanagerClientBuilder extends CdpClientBuilder<ReplicationmanagerClientBuilder> {
 
   private ReplicationmanagerClientBuilder() {

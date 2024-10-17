@@ -28,7 +28,7 @@ import com.cloudera.cdp.dfworkload.model.RpcDeploymentConfiguration;
 /**
  * Response object for cancel change flow version of a deployment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:28.696-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:53.426-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class CancelChangeFlowVersionResponse extends CdpResponse {
 

@@ -26,9 +26,9 @@ import com.cloudera.cdp.client.CdpResponse;
 import java.time.ZonedDateTime;
 
 /**
- * Backup metadata response object for the workspace summary.
+ * Backup metadata response object for the workbench summary.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class BackupMetadata  {
 
   /**
@@ -42,7 +42,7 @@ public class BackupMetadata  {
   private ZonedDateTime lastSuccessfulBackupTime = null;
 
   /**
-   * Whether successful backups are available for the workspace.
+   * Whether successful backups are available for the workbench.
    **/
   private Boolean isSuccessfulBackupAvailable = null;
 
@@ -92,7 +92,7 @@ public class BackupMetadata  {
 
   /**
    * Getter for isSuccessfulBackupAvailable.
-   * Whether successful backups are available for the workspace.
+   * Whether successful backups are available for the workbench.
    **/
   @JsonProperty("isSuccessfulBackupAvailable")
   public Boolean getIsSuccessfulBackupAvailable() {
@@ -101,7 +101,7 @@ public class BackupMetadata  {
 
   /**
    * Setter for isSuccessfulBackupAvailable.
-   * Whether successful backups are available for the workspace.
+   * Whether successful backups are available for the workbench.
    **/
   public void setIsSuccessfulBackupAvailable(Boolean isSuccessfulBackupAvailable) {
     this.isSuccessfulBackupAvailable = isSuccessfulBackupAvailable;

@@ -30,21 +30,21 @@ import java.util.*;
 /**
  * Request object for the CreateWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class CreateWorkspaceRequest  {
 
   /**
-   * The environment for the workspace to create.
+   * The environment for the workbench to create.
    **/
   private String environmentName = null;
 
   /**
-   * The name of the workspace to create.
+   * The name of the workbench to create.
    **/
   private String workspaceName = null;
 
   /**
-   * The request for Kubernetes workspace provision. Required in public cloud.
+   * The request for Kubernetes workbench provision. Required in public cloud.
    **/
   private ProvisionK8sRequest provisionK8sRequest = null;
 
@@ -54,7 +54,7 @@ public class CreateWorkspaceRequest  {
   private Boolean usePublicLoadBalancer = null;
 
   /**
-   * The boolean flag to disable TLS setup for workspace. By default, the TLS is enabled.
+   * The boolean flag to disable TLS setup for workbench. By default, the TLS is enabled.
    **/
   private Boolean disableTLS = null;
 
@@ -64,7 +64,7 @@ public class CreateWorkspaceRequest  {
   private Boolean enableMonitoring = null;
 
   /**
-   * Enables Cloudera Machine Learning governance by integrating with Cloudera Atlas. By default, this flag is disabled.
+   * Enables Cloudera AI governance by integrating with Cloudera Atlas. By default, this flag is disabled.
    **/
   private Boolean enableGovernance = null;
 
@@ -119,12 +119,12 @@ public class CreateWorkspaceRequest  {
   private Boolean privateCluster = null;
 
   /**
-   * The list of subnets used for the load balancer that CML creates.
+   * The list of subnets used for the load balancer that Cloudera AI creates.
    **/
   private List<String> subnetsForLoadBalancers = new ArrayList<String>();
 
   /**
-   * The static subdomain to be used for the workspace.
+   * The static subdomain to be used for the workbench.
    **/
   private String staticSubdomain = null;
 
@@ -134,13 +134,13 @@ public class CreateWorkspaceRequest  {
   private String cdswMigrationMode = null;
 
   /**
-   * Outbound Types provided for the workspace.
+   * Outbound Types provided for the workbench.
    **/
   private List<String> outboundTypes = new ArrayList<String>();;
 
   /**
    * Getter for environmentName.
-   * The environment for the workspace to create.
+   * The environment for the workbench to create.
    **/
   @JsonProperty("environmentName")
   public String getEnvironmentName() {
@@ -149,7 +149,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Setter for environmentName.
-   * The environment for the workspace to create.
+   * The environment for the workbench to create.
    **/
   public void setEnvironmentName(String environmentName) {
     this.environmentName = environmentName;
@@ -157,7 +157,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Getter for workspaceName.
-   * The name of the workspace to create.
+   * The name of the workbench to create.
    **/
   @JsonProperty("workspaceName")
   public String getWorkspaceName() {
@@ -166,7 +166,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Setter for workspaceName.
-   * The name of the workspace to create.
+   * The name of the workbench to create.
    **/
   public void setWorkspaceName(String workspaceName) {
     this.workspaceName = workspaceName;
@@ -174,7 +174,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Getter for provisionK8sRequest.
-   * The request for Kubernetes workspace provision. Required in public cloud.
+   * The request for Kubernetes workbench provision. Required in public cloud.
    **/
   @JsonProperty("provisionK8sRequest")
   public ProvisionK8sRequest getProvisionK8sRequest() {
@@ -183,7 +183,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Setter for provisionK8sRequest.
-   * The request for Kubernetes workspace provision. Required in public cloud.
+   * The request for Kubernetes workbench provision. Required in public cloud.
    **/
   public void setProvisionK8sRequest(ProvisionK8sRequest provisionK8sRequest) {
     this.provisionK8sRequest = provisionK8sRequest;
@@ -208,7 +208,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Getter for disableTLS.
-   * The boolean flag to disable TLS setup for workspace. By default, the TLS is enabled.
+   * The boolean flag to disable TLS setup for workbench. By default, the TLS is enabled.
    **/
   @JsonProperty("disableTLS")
   public Boolean getDisableTLS() {
@@ -217,7 +217,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Setter for disableTLS.
-   * The boolean flag to disable TLS setup for workspace. By default, the TLS is enabled.
+   * The boolean flag to disable TLS setup for workbench. By default, the TLS is enabled.
    **/
   public void setDisableTLS(Boolean disableTLS) {
     this.disableTLS = disableTLS;
@@ -242,7 +242,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Getter for enableGovernance.
-   * Enables Cloudera Machine Learning governance by integrating with Cloudera Atlas. By default, this flag is disabled.
+   * Enables Cloudera AI governance by integrating with Cloudera Atlas. By default, this flag is disabled.
    **/
   @JsonProperty("enableGovernance")
   public Boolean getEnableGovernance() {
@@ -251,7 +251,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Setter for enableGovernance.
-   * Enables Cloudera Machine Learning governance by integrating with Cloudera Atlas. By default, this flag is disabled.
+   * Enables Cloudera AI governance by integrating with Cloudera Atlas. By default, this flag is disabled.
    **/
   public void setEnableGovernance(Boolean enableGovernance) {
     this.enableGovernance = enableGovernance;
@@ -429,7 +429,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Getter for subnetsForLoadBalancers.
-   * The list of subnets used for the load balancer that CML creates.
+   * The list of subnets used for the load balancer that Cloudera AI creates.
    **/
   @JsonProperty("subnetsForLoadBalancers")
   public List<String> getSubnetsForLoadBalancers() {
@@ -438,7 +438,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Setter for subnetsForLoadBalancers.
-   * The list of subnets used for the load balancer that CML creates.
+   * The list of subnets used for the load balancer that Cloudera AI creates.
    **/
   public void setSubnetsForLoadBalancers(List<String> subnetsForLoadBalancers) {
     this.subnetsForLoadBalancers = subnetsForLoadBalancers;
@@ -446,7 +446,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Getter for staticSubdomain.
-   * The static subdomain to be used for the workspace.
+   * The static subdomain to be used for the workbench.
    **/
   @JsonProperty("staticSubdomain")
   public String getStaticSubdomain() {
@@ -455,7 +455,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Setter for staticSubdomain.
-   * The static subdomain to be used for the workspace.
+   * The static subdomain to be used for the workbench.
    **/
   public void setStaticSubdomain(String staticSubdomain) {
     this.staticSubdomain = staticSubdomain;
@@ -480,7 +480,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Getter for outboundTypes.
-   * Outbound Types provided for the workspace.
+   * Outbound Types provided for the workbench.
    **/
   @JsonProperty("outboundTypes")
   public List<String> getOutboundTypes() {
@@ -489,7 +489,7 @@ public class CreateWorkspaceRequest  {
 
   /**
    * Setter for outboundTypes.
-   * Outbound Types provided for the workspace.
+   * Outbound Types provided for the workbench.
    **/
   public void setOutboundTypes(List<String> outboundTypes) {
     this.outboundTypes = outboundTypes;

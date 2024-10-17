@@ -28,9 +28,9 @@ import com.cloudera.cdp.ml.model.Tag;
 import java.util.*;
 
 /**
- * Instance group information to show in workspace details.
+ * Instance group information to show in workbench details.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class WorkspaceInstanceGroup  {
 
   /**
@@ -64,9 +64,24 @@ public class WorkspaceInstanceGroup  {
   private List<Instance> instances = new ArrayList<Instance>();
 
   /**
-   * Tags are key/value pairs that are applied to all tag-able resources deployed in the workspace's cloud environment.
+   * Tags are key/value pairs that are applied to all tag-able resources deployed in the workbench's cloud environment.
    **/
   private List<Tag> tags = new ArrayList<Tag>();
+
+  /**
+   * Number of CPUs attached to this instance type.
+   **/
+  private String cpu = null;
+
+  /**
+   * Number of GPUs attached to this instance type.
+   **/
+  private String gpu = null;
+
+  /**
+   * Memory in GiB attached to this instance type.
+   **/
+  private String memory = null;
 
   /**
    * Getter for instanceType.
@@ -172,7 +187,7 @@ public class WorkspaceInstanceGroup  {
 
   /**
    * Getter for tags.
-   * Tags are key/value pairs that are applied to all tag-able resources deployed in the workspace&#39;s cloud environment.
+   * Tags are key/value pairs that are applied to all tag-able resources deployed in the workbench&#39;s cloud environment.
    **/
   @JsonProperty("tags")
   public List<Tag> getTags() {
@@ -181,10 +196,61 @@ public class WorkspaceInstanceGroup  {
 
   /**
    * Setter for tags.
-   * Tags are key/value pairs that are applied to all tag-able resources deployed in the workspace&#39;s cloud environment.
+   * Tags are key/value pairs that are applied to all tag-able resources deployed in the workbench&#39;s cloud environment.
    **/
   public void setTags(List<Tag> tags) {
     this.tags = tags;
+  }
+
+  /**
+   * Getter for cpu.
+   * Number of CPUs attached to this instance type.
+   **/
+  @JsonProperty("cpu")
+  public String getCpu() {
+    return cpu;
+  }
+
+  /**
+   * Setter for cpu.
+   * Number of CPUs attached to this instance type.
+   **/
+  public void setCpu(String cpu) {
+    this.cpu = cpu;
+  }
+
+  /**
+   * Getter for gpu.
+   * Number of GPUs attached to this instance type.
+   **/
+  @JsonProperty("gpu")
+  public String getGpu() {
+    return gpu;
+  }
+
+  /**
+   * Setter for gpu.
+   * Number of GPUs attached to this instance type.
+   **/
+  public void setGpu(String gpu) {
+    this.gpu = gpu;
+  }
+
+  /**
+   * Getter for memory.
+   * Memory in GiB attached to this instance type.
+   **/
+  @JsonProperty("memory")
+  public String getMemory() {
+    return memory;
+  }
+
+  /**
+   * Setter for memory.
+   * Memory in GiB attached to this instance type.
+   **/
+  public void setMemory(String memory) {
+    this.memory = memory;
   }
 
   @Override
@@ -217,12 +283,21 @@ public class WorkspaceInstanceGroup  {
     if (!Objects.equals(this.tags, workspaceInstanceGroup.tags)) {
       return false;
     }
+    if (!Objects.equals(this.cpu, workspaceInstanceGroup.cpu)) {
+      return false;
+    }
+    if (!Objects.equals(this.gpu, workspaceInstanceGroup.gpu)) {
+      return false;
+    }
+    if (!Objects.equals(this.memory, workspaceInstanceGroup.memory)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceType, instanceCount, instanceGroupName, minInstances, maxInstances, instances, tags);
+    return Objects.hash(instanceType, instanceCount, instanceGroupName, minInstances, maxInstances, instances, tags, cpu, gpu, memory);
   }
 
   @Override
@@ -236,6 +311,9 @@ public class WorkspaceInstanceGroup  {
     sb.append("    maxInstances: ").append(toIndentedString(maxInstances)).append("\n");
     sb.append("    instances: ").append(toIndentedString(instances)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    cpu: ").append(toIndentedString(cpu)).append("\n");
+    sb.append("    gpu: ").append(toIndentedString(gpu)).append("\n");
+    sb.append("    memory: ").append(toIndentedString(memory)).append("\n");
     sb.append("}");
     return sb.toString();
   }

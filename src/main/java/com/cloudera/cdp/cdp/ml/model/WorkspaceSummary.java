@@ -30,28 +30,28 @@ import java.time.ZonedDateTime;
 import java.util.*;
 
 /**
- * A Cloudera Machine Learning workspace which includes the deployed configuration details.
+ * A Cloudera AI workbench which includes the deployed configuration details.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class WorkspaceSummary  {
 
   /**
-   * The name of the workspace.
+   * The name of the workbench.
    **/
   private String instanceName = null;
 
   /**
-   * The name of the workspace's environment.
+   * The name of the workbench's environment.
    **/
   private String environmentName = null;
 
   /**
-   * The workspace's current status.
+   * The workbench's current status.
    **/
   private String instanceStatus = null;
 
   /**
-   * URL of the workspace's user interface.
+   * URL of the workbench's user interface.
    **/
   private String instanceUrl = null;
 
@@ -61,7 +61,7 @@ public class WorkspaceSummary  {
   private String environmentCrn = null;
 
   /**
-   * The CRN of the workspace.
+   * The CRN of the workbench.
    **/
   private String crn = null;
 
@@ -71,32 +71,32 @@ public class WorkspaceSummary  {
   private String k8sClusterName = null;
 
   /**
-   * The CRN of the creator of the workspace.
+   * The CRN of the creator of the workbench.
    **/
   private String creatorCrn = null;
 
   /**
-   * The version of Cloudera Machine Learning that was installed on the workspace.
+   * The version of Cloudera AI that was installed on the workbench.
    **/
   private String version = null;
 
   /**
-   * Indicates if HTTPs communication was enabled on this workspace when provisioned.
+   * Indicates if HTTPs communication was enabled on this workbench when provisioned.
    **/
   private Boolean httpsEnabled = null;
 
   /**
-   * A filesystem ID referencing the filesystem that was created on the cloud provider environment that this workspace uses.
+   * A filesystem ID referencing the filesystem that was created on the cloud provider environment that this workbench uses.
    **/
   private String filesystemID = null;
 
   /**
-   * The cloud platform of the environment that was used to create this workspace.
+   * The cloud platform of the environment that was used to create this workbench.
    **/
   private String cloudPlatform = null;
 
   /**
-   * If usage monitoring is enabled or not on this workspace.
+   * If usage monitoring is enabled or not on this workbench.
    **/
   private Boolean monitoringEnabled = null;
 
@@ -106,22 +106,22 @@ public class WorkspaceSummary  {
   private List<String> loadBalancerIPWhitelists = new ArrayList<String>();
 
   /**
-   * Creation date of workspace.
+   * Creation date of workbench.
    **/
   private ZonedDateTime creationDate = null;
 
   /**
-   * Failure message from the most recent failure that has occurred during workspace provisioning.
+   * Failure message from the most recent failure that has occurred during workbench provisioning.
    **/
   private String failureMessage = null;
 
   /**
-   * The health info information of the workspace.
+   * The health info information of the workbench.
    **/
   private List<HealthInfo> healthInfoLists = new ArrayList<HealthInfo>();
 
   /**
-   * The upgrade state contains the workspace upgrade information.
+   * The upgrade state contains the workbench upgrade information.
    **/
   private UpgradeState upgradeState = null;
 
@@ -131,12 +131,12 @@ public class WorkspaceSummary  {
   private String nfsVersion = null;
 
   /**
-   * The Backup Metadata for the workspace.
+   * The Backup Metadata for the workbench.
    **/
   private BackupMetadata backupMetadata = null;
 
   /**
-   * The Cluster ID for the workspace.
+   * The Cluster ID for the workbench.
    **/
   private String clusterID = null;
 
@@ -146,13 +146,13 @@ public class WorkspaceSummary  {
   private Boolean isPrivate = null;
 
   /**
-   * The value to indicate if the workspace is restored one or not
+   * The value to indicate if the workbench is restored one or not
    **/
   private Boolean isRestored = null;
 
   /**
    * Getter for instanceName.
-   * The name of the workspace.
+   * The name of the workbench.
    **/
   @JsonProperty("instanceName")
   public String getInstanceName() {
@@ -161,7 +161,7 @@ public class WorkspaceSummary  {
 
   /**
    * Setter for instanceName.
-   * The name of the workspace.
+   * The name of the workbench.
    **/
   public void setInstanceName(String instanceName) {
     this.instanceName = instanceName;
@@ -169,7 +169,7 @@ public class WorkspaceSummary  {
 
   /**
    * Getter for environmentName.
-   * The name of the workspace&#39;s environment.
+   * The name of the workbench&#39;s environment.
    **/
   @JsonProperty("environmentName")
   public String getEnvironmentName() {
@@ -178,7 +178,7 @@ public class WorkspaceSummary  {
 
   /**
    * Setter for environmentName.
-   * The name of the workspace&#39;s environment.
+   * The name of the workbench&#39;s environment.
    **/
   public void setEnvironmentName(String environmentName) {
     this.environmentName = environmentName;
@@ -186,7 +186,7 @@ public class WorkspaceSummary  {
 
   /**
    * Getter for instanceStatus.
-   * The workspace&#39;s current status.
+   * The workbench&#39;s current status.
    **/
   @JsonProperty("instanceStatus")
   public String getInstanceStatus() {
@@ -195,7 +195,7 @@ public class WorkspaceSummary  {
 
   /**
    * Setter for instanceStatus.
-   * The workspace&#39;s current status.
+   * The workbench&#39;s current status.
    **/
   public void setInstanceStatus(String instanceStatus) {
     this.instanceStatus = instanceStatus;
@@ -203,7 +203,7 @@ public class WorkspaceSummary  {
 
   /**
    * Getter for instanceUrl.
-   * URL of the workspace&#39;s user interface.
+   * URL of the workbench&#39;s user interface.
    **/
   @JsonProperty("instanceUrl")
   public String getInstanceUrl() {
@@ -212,7 +212,7 @@ public class WorkspaceSummary  {
 
   /**
    * Setter for instanceUrl.
-   * URL of the workspace&#39;s user interface.
+   * URL of the workbench&#39;s user interface.
    **/
   public void setInstanceUrl(String instanceUrl) {
     this.instanceUrl = instanceUrl;
@@ -237,7 +237,7 @@ public class WorkspaceSummary  {
 
   /**
    * Getter for crn.
-   * The CRN of the workspace.
+   * The CRN of the workbench.
    **/
   @JsonProperty("crn")
   public String getCrn() {
@@ -246,7 +246,7 @@ public class WorkspaceSummary  {
 
   /**
    * Setter for crn.
-   * The CRN of the workspace.
+   * The CRN of the workbench.
    **/
   public void setCrn(String crn) {
     this.crn = crn;
@@ -271,7 +271,7 @@ public class WorkspaceSummary  {
 
   /**
    * Getter for creatorCrn.
-   * The CRN of the creator of the workspace.
+   * The CRN of the creator of the workbench.
    **/
   @JsonProperty("creatorCrn")
   public String getCreatorCrn() {
@@ -280,7 +280,7 @@ public class WorkspaceSummary  {
 
   /**
    * Setter for creatorCrn.
-   * The CRN of the creator of the workspace.
+   * The CRN of the creator of the workbench.
    **/
   public void setCreatorCrn(String creatorCrn) {
     this.creatorCrn = creatorCrn;
@@ -288,7 +288,7 @@ public class WorkspaceSummary  {
 
   /**
    * Getter for version.
-   * The version of Cloudera Machine Learning that was installed on the workspace.
+   * The version of Cloudera AI that was installed on the workbench.
    **/
   @JsonProperty("version")
   public String getVersion() {
@@ -297,7 +297,7 @@ public class WorkspaceSummary  {
 
   /**
    * Setter for version.
-   * The version of Cloudera Machine Learning that was installed on the workspace.
+   * The version of Cloudera AI that was installed on the workbench.
    **/
   public void setVersion(String version) {
     this.version = version;
@@ -305,7 +305,7 @@ public class WorkspaceSummary  {
 
   /**
    * Getter for httpsEnabled.
-   * Indicates if HTTPs communication was enabled on this workspace when provisioned.
+   * Indicates if HTTPs communication was enabled on this workbench when provisioned.
    **/
   @JsonProperty("httpsEnabled")
   public Boolean getHttpsEnabled() {
@@ -314,7 +314,7 @@ public class WorkspaceSummary  {
 
   /**
    * Setter for httpsEnabled.
-   * Indicates if HTTPs communication was enabled on this workspace when provisioned.
+   * Indicates if HTTPs communication was enabled on this workbench when provisioned.
    **/
   public void setHttpsEnabled(Boolean httpsEnabled) {
     this.httpsEnabled = httpsEnabled;
@@ -322,7 +322,7 @@ public class WorkspaceSummary  {
 
   /**
    * Getter for filesystemID.
-   * A filesystem ID referencing the filesystem that was created on the cloud provider environment that this workspace uses.
+   * A filesystem ID referencing the filesystem that was created on the cloud provider environment that this workbench uses.
    **/
   @JsonProperty("filesystemID")
   public String getFilesystemID() {
@@ -331,7 +331,7 @@ public class WorkspaceSummary  {
 
   /**
    * Setter for filesystemID.
-   * A filesystem ID referencing the filesystem that was created on the cloud provider environment that this workspace uses.
+   * A filesystem ID referencing the filesystem that was created on the cloud provider environment that this workbench uses.
    **/
   public void setFilesystemID(String filesystemID) {
     this.filesystemID = filesystemID;
@@ -339,7 +339,7 @@ public class WorkspaceSummary  {
 
   /**
    * Getter for cloudPlatform.
-   * The cloud platform of the environment that was used to create this workspace.
+   * The cloud platform of the environment that was used to create this workbench.
    **/
   @JsonProperty("cloudPlatform")
   public String getCloudPlatform() {
@@ -348,7 +348,7 @@ public class WorkspaceSummary  {
 
   /**
    * Setter for cloudPlatform.
-   * The cloud platform of the environment that was used to create this workspace.
+   * The cloud platform of the environment that was used to create this workbench.
    **/
   public void setCloudPlatform(String cloudPlatform) {
     this.cloudPlatform = cloudPlatform;
@@ -356,7 +356,7 @@ public class WorkspaceSummary  {
 
   /**
    * Getter for monitoringEnabled.
-   * If usage monitoring is enabled or not on this workspace.
+   * If usage monitoring is enabled or not on this workbench.
    **/
   @JsonProperty("monitoringEnabled")
   public Boolean getMonitoringEnabled() {
@@ -365,7 +365,7 @@ public class WorkspaceSummary  {
 
   /**
    * Setter for monitoringEnabled.
-   * If usage monitoring is enabled or not on this workspace.
+   * If usage monitoring is enabled or not on this workbench.
    **/
   public void setMonitoringEnabled(Boolean monitoringEnabled) {
     this.monitoringEnabled = monitoringEnabled;
@@ -390,7 +390,7 @@ public class WorkspaceSummary  {
 
   /**
    * Getter for creationDate.
-   * Creation date of workspace.
+   * Creation date of workbench.
    **/
   @JsonProperty("creationDate")
   public ZonedDateTime getCreationDate() {
@@ -399,7 +399,7 @@ public class WorkspaceSummary  {
 
   /**
    * Setter for creationDate.
-   * Creation date of workspace.
+   * Creation date of workbench.
    **/
   public void setCreationDate(ZonedDateTime creationDate) {
     this.creationDate = creationDate;
@@ -407,7 +407,7 @@ public class WorkspaceSummary  {
 
   /**
    * Getter for failureMessage.
-   * Failure message from the most recent failure that has occurred during workspace provisioning.
+   * Failure message from the most recent failure that has occurred during workbench provisioning.
    **/
   @JsonProperty("failureMessage")
   public String getFailureMessage() {
@@ -416,7 +416,7 @@ public class WorkspaceSummary  {
 
   /**
    * Setter for failureMessage.
-   * Failure message from the most recent failure that has occurred during workspace provisioning.
+   * Failure message from the most recent failure that has occurred during workbench provisioning.
    **/
   public void setFailureMessage(String failureMessage) {
     this.failureMessage = failureMessage;
@@ -424,7 +424,7 @@ public class WorkspaceSummary  {
 
   /**
    * Getter for healthInfoLists.
-   * The health info information of the workspace.
+   * The health info information of the workbench.
    **/
   @JsonProperty("healthInfoLists")
   public List<HealthInfo> getHealthInfoLists() {
@@ -433,7 +433,7 @@ public class WorkspaceSummary  {
 
   /**
    * Setter for healthInfoLists.
-   * The health info information of the workspace.
+   * The health info information of the workbench.
    **/
   public void setHealthInfoLists(List<HealthInfo> healthInfoLists) {
     this.healthInfoLists = healthInfoLists;
@@ -441,7 +441,7 @@ public class WorkspaceSummary  {
 
   /**
    * Getter for upgradeState.
-   * The upgrade state contains the workspace upgrade information.
+   * The upgrade state contains the workbench upgrade information.
    **/
   @JsonProperty("upgradeState")
   public UpgradeState getUpgradeState() {
@@ -450,7 +450,7 @@ public class WorkspaceSummary  {
 
   /**
    * Setter for upgradeState.
-   * The upgrade state contains the workspace upgrade information.
+   * The upgrade state contains the workbench upgrade information.
    **/
   public void setUpgradeState(UpgradeState upgradeState) {
     this.upgradeState = upgradeState;
@@ -475,7 +475,7 @@ public class WorkspaceSummary  {
 
   /**
    * Getter for backupMetadata.
-   * The Backup Metadata for the workspace.
+   * The Backup Metadata for the workbench.
    **/
   @JsonProperty("backupMetadata")
   public BackupMetadata getBackupMetadata() {
@@ -484,7 +484,7 @@ public class WorkspaceSummary  {
 
   /**
    * Setter for backupMetadata.
-   * The Backup Metadata for the workspace.
+   * The Backup Metadata for the workbench.
    **/
   public void setBackupMetadata(BackupMetadata backupMetadata) {
     this.backupMetadata = backupMetadata;
@@ -492,7 +492,7 @@ public class WorkspaceSummary  {
 
   /**
    * Getter for clusterID.
-   * The Cluster ID for the workspace.
+   * The Cluster ID for the workbench.
    **/
   @JsonProperty("clusterID")
   public String getClusterID() {
@@ -501,7 +501,7 @@ public class WorkspaceSummary  {
 
   /**
    * Setter for clusterID.
-   * The Cluster ID for the workspace.
+   * The Cluster ID for the workbench.
    **/
   public void setClusterID(String clusterID) {
     this.clusterID = clusterID;
@@ -526,7 +526,7 @@ public class WorkspaceSummary  {
 
   /**
    * Getter for isRestored.
-   * The value to indicate if the workspace is restored one or not
+   * The value to indicate if the workbench is restored one or not
    **/
   @JsonProperty("isRestored")
   public Boolean getIsRestored() {
@@ -535,7 +535,7 @@ public class WorkspaceSummary  {
 
   /**
    * Setter for isRestored.
-   * The value to indicate if the workspace is restored one or not
+   * The value to indicate if the workbench is restored one or not
    **/
   public void setIsRestored(Boolean isRestored) {
     this.isRestored = isRestored;

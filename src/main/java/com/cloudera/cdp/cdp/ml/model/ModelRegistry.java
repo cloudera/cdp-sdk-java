@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Model registry object
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class ModelRegistry  {
 
   /**
@@ -77,7 +77,7 @@ public class ModelRegistry  {
   private String crn = null;
 
   /**
-   * Deprecated. WorkSpace CRN. This field is no longer used.
+   * Deprecated. workbench CRN. This field is no longer used.
    **/
   private String workspaceCrn = null;
 
@@ -87,7 +87,7 @@ public class ModelRegistry  {
   private String environmentName = null;
 
   /**
-   * Deprecated, please refer to serviceName. Workspace name.
+   * Deprecated, please refer to serviceName. workbench name.
    **/
   private String workspaceName = null;
 
@@ -271,7 +271,7 @@ public class ModelRegistry  {
 
   /**
    * Getter for workspaceCrn.
-   * Deprecated. WorkSpace CRN. This field is no longer used.
+   * Deprecated. workbench CRN. This field is no longer used.
    **/
   @Deprecated
   @JsonProperty("workspaceCrn")
@@ -281,7 +281,7 @@ public class ModelRegistry  {
 
   /**
    * Setter for workspaceCrn.
-   * Deprecated. WorkSpace CRN. This field is no longer used.
+   * Deprecated. workbench CRN. This field is no longer used.
    **/
   @Deprecated
   public void setWorkspaceCrn(String workspaceCrn) {
@@ -307,7 +307,7 @@ public class ModelRegistry  {
 
   /**
    * Getter for workspaceName.
-   * Deprecated, please refer to serviceName. Workspace name.
+   * Deprecated, please refer to serviceName. workbench name.
    **/
   @Deprecated
   @JsonProperty("workspaceName")
@@ -317,7 +317,7 @@ public class ModelRegistry  {
 
   /**
    * Setter for workspaceName.
-   * Deprecated, please refer to serviceName. Workspace name.
+   * Deprecated, please refer to serviceName. workbench name.
    **/
   @Deprecated
   public void setWorkspaceName(String workspaceName) {

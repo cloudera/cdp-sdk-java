@@ -27,17 +27,17 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object for the RestoreWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class RestoreWorkspaceResponse extends CdpResponse {
 
   /**
-   * The CRN of the Cloudera Machine Learning workspace being provisioned.
+   * The CRN of the Cloudera AI workbench being provisioned.
    **/
   private String workspaceCrn = null;
 
   /**
    * Getter for workspaceCrn.
-   * The CRN of the Cloudera Machine Learning workspace being provisioned.
+   * The CRN of the Cloudera AI workbench being provisioned.
    **/
   @JsonProperty("workspaceCrn")
   public String getWorkspaceCrn() {
@@ -46,7 +46,7 @@ public class RestoreWorkspaceResponse extends CdpResponse {
 
   /**
    * Setter for workspaceCrn.
-   * The CRN of the Cloudera Machine Learning workspace being provisioned.
+   * The CRN of the Cloudera AI workbench being provisioned.
    **/
   public void setWorkspaceCrn(String workspaceCrn) {
     this.workspaceCrn = workspaceCrn;

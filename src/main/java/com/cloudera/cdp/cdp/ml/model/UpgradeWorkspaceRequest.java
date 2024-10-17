@@ -27,32 +27,32 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the UpgradeWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class UpgradeWorkspaceRequest  {
 
   /**
-   * The environment of the workspace.
+   * The environment of the workbench.
    **/
   private String environmentName = null;
 
   /**
-   * The name of the workspace.
+   * The name of the workbench.
    **/
   private String workspaceName = null;
 
   /**
-   * The version of workspace to upgrade to.
+   * The version of workbench to upgrade to.
    **/
   private String mlVersion = null;
 
   /**
-   * The CRN of the workspace. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.
+   * The CRN of the workbench. If CRN is specified only the CRN is used for identifying the workbench, environment and name arguments are ignored.
    **/
   private String workspaceCrn = null;
 
   /**
    * Getter for environmentName.
-   * The environment of the workspace.
+   * The environment of the workbench.
    **/
   @JsonProperty("environmentName")
   public String getEnvironmentName() {
@@ -61,7 +61,7 @@ public class UpgradeWorkspaceRequest  {
 
   /**
    * Setter for environmentName.
-   * The environment of the workspace.
+   * The environment of the workbench.
    **/
   public void setEnvironmentName(String environmentName) {
     this.environmentName = environmentName;
@@ -69,7 +69,7 @@ public class UpgradeWorkspaceRequest  {
 
   /**
    * Getter for workspaceName.
-   * The name of the workspace.
+   * The name of the workbench.
    **/
   @JsonProperty("workspaceName")
   public String getWorkspaceName() {
@@ -78,7 +78,7 @@ public class UpgradeWorkspaceRequest  {
 
   /**
    * Setter for workspaceName.
-   * The name of the workspace.
+   * The name of the workbench.
    **/
   public void setWorkspaceName(String workspaceName) {
     this.workspaceName = workspaceName;
@@ -86,7 +86,7 @@ public class UpgradeWorkspaceRequest  {
 
   /**
    * Getter for mlVersion.
-   * The version of workspace to upgrade to.
+   * The version of workbench to upgrade to.
    **/
   @JsonProperty("mlVersion")
   public String getMlVersion() {
@@ -95,7 +95,7 @@ public class UpgradeWorkspaceRequest  {
 
   /**
    * Setter for mlVersion.
-   * The version of workspace to upgrade to.
+   * The version of workbench to upgrade to.
    **/
   public void setMlVersion(String mlVersion) {
     this.mlVersion = mlVersion;
@@ -103,7 +103,7 @@ public class UpgradeWorkspaceRequest  {
 
   /**
    * Getter for workspaceCrn.
-   * The CRN of the workspace. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.
+   * The CRN of the workbench. If CRN is specified only the CRN is used for identifying the workbench, environment and name arguments are ignored.
    **/
   @JsonProperty("workspaceCrn")
   public String getWorkspaceCrn() {
@@ -112,7 +112,7 @@ public class UpgradeWorkspaceRequest  {
 
   /**
    * Setter for workspaceCrn.
-   * The CRN of the workspace. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.
+   * The CRN of the workbench. If CRN is specified only the CRN is used for identifying the workbench, environment and name arguments are ignored.
    **/
   public void setWorkspaceCrn(String workspaceCrn) {
     this.workspaceCrn = workspaceCrn;

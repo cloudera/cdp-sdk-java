@@ -27,27 +27,27 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the ListWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class ListWorkspaceAccessRequest  {
 
   /**
-   * The environment that the workspace is a member of.
+   * The environment that the workbench is a member of.
    **/
   private String environmentName = null;
 
   /**
-   * The name of the workspace to list access.
+   * The name of the workbench to list access.
    **/
   private String workspaceName = null;
 
   /**
-   * The CRN of the workspace to list access. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.
+   * The CRN of the workbench to list access. If CRN is specified only the CRN is used for identifying the workbench, environment and name arguments are ignored.
    **/
   private String workspaceCrn = null;
 
   /**
    * Getter for environmentName.
-   * The environment that the workspace is a member of.
+   * The environment that the workbench is a member of.
    **/
   @JsonProperty("environmentName")
   public String getEnvironmentName() {
@@ -56,7 +56,7 @@ public class ListWorkspaceAccessRequest  {
 
   /**
    * Setter for environmentName.
-   * The environment that the workspace is a member of.
+   * The environment that the workbench is a member of.
    **/
   public void setEnvironmentName(String environmentName) {
     this.environmentName = environmentName;
@@ -64,7 +64,7 @@ public class ListWorkspaceAccessRequest  {
 
   /**
    * Getter for workspaceName.
-   * The name of the workspace to list access.
+   * The name of the workbench to list access.
    **/
   @JsonProperty("workspaceName")
   public String getWorkspaceName() {
@@ -73,7 +73,7 @@ public class ListWorkspaceAccessRequest  {
 
   /**
    * Setter for workspaceName.
-   * The name of the workspace to list access.
+   * The name of the workbench to list access.
    **/
   public void setWorkspaceName(String workspaceName) {
     this.workspaceName = workspaceName;
@@ -81,7 +81,7 @@ public class ListWorkspaceAccessRequest  {
 
   /**
    * Getter for workspaceCrn.
-   * The CRN of the workspace to list access. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.
+   * The CRN of the workbench to list access. If CRN is specified only the CRN is used for identifying the workbench, environment and name arguments are ignored.
    **/
   @JsonProperty("workspaceCrn")
   public String getWorkspaceCrn() {
@@ -90,7 +90,7 @@ public class ListWorkspaceAccessRequest  {
 
   /**
    * Setter for workspaceCrn.
-   * The CRN of the workspace to list access. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.
+   * The CRN of the workbench to list access. If CRN is specified only the CRN is used for identifying the workbench, environment and name arguments are ignored.
    **/
   public void setWorkspaceCrn(String workspaceCrn) {
     this.workspaceCrn = workspaceCrn;

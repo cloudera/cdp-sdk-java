@@ -25,9 +25,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * GetAuditEventsRequest to get all audit events for a given workspace crn.
+ * GetAuditEventsRequest to get all audit events for a given workbench crn.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class GetAuditEventsRequest  {
 
   /**
@@ -36,7 +36,7 @@ public class GetAuditEventsRequest  {
   private String workspaceCrn = null;
 
   /**
-   * Resource crn for which audit events to be fetched. Resource can be workspace or model registry.
+   * Resource crn for which audit events to be fetched. Resource can be workbench or model registry.
    **/
   private String resourceCrn = null;
 
@@ -61,7 +61,7 @@ public class GetAuditEventsRequest  {
 
   /**
    * Getter for resourceCrn.
-   * Resource crn for which audit events to be fetched. Resource can be workspace or model registry.
+   * Resource crn for which audit events to be fetched. Resource can be workbench or model registry.
    **/
   @JsonProperty("resourceCrn")
   public String getResourceCrn() {
@@ -70,7 +70,7 @@ public class GetAuditEventsRequest  {
 
   /**
    * Setter for resourceCrn.
-   * Resource crn for which audit events to be fetched. Resource can be workspace or model registry.
+   * Resource crn for which audit events to be fetched. Resource can be workbench or model registry.
    **/
   public void setResourceCrn(String resourceCrn) {
     this.resourceCrn = resourceCrn;

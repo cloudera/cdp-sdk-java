@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object to list clusters.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:29.145-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:53.893-07:00")
 public class ListClustersRequest  {
 
   /**
@@ -59,6 +59,16 @@ public class ListClustersRequest  {
    * Include deleted clusters in the response.
    **/
   private Boolean includeDeleted = null;
+
+  /**
+   * Only show default clusters.
+   **/
+  private Boolean _default = null;
+
+  /**
+   * Filter between Externalized and Embedded cluster shapes.
+   **/
+  private String clusterShape = null;
 
   /**
    * Getter for envNameOrCrn.
@@ -162,6 +172,40 @@ public class ListClustersRequest  {
     this.includeDeleted = includeDeleted;
   }
 
+  /**
+   * Getter for _default.
+   * Only show default clusters.
+   **/
+  @JsonProperty("default")
+  public Boolean getDefault() {
+    return _default;
+  }
+
+  /**
+   * Setter for _default.
+   * Only show default clusters.
+   **/
+  public void setDefault(Boolean _default) {
+    this._default = _default;
+  }
+
+  /**
+   * Getter for clusterShape.
+   * Filter between Externalized and Embedded cluster shapes.
+   **/
+  @JsonProperty("clusterShape")
+  public String getClusterShape() {
+    return clusterShape;
+  }
+
+  /**
+   * Setter for clusterShape.
+   * Filter between Externalized and Embedded cluster shapes.
+   **/
+  public void setClusterShape(String clusterShape) {
+    this.clusterShape = clusterShape;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -189,12 +233,18 @@ public class ListClustersRequest  {
     if (!Objects.equals(this.includeDeleted, listClustersRequest.includeDeleted)) {
       return false;
     }
+    if (!Objects.equals(this._default, listClustersRequest._default)) {
+      return false;
+    }
+    if (!Objects.equals(this.clusterShape, listClustersRequest.clusterShape)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(envNameOrCrn, workloads, status, pageSize, startingToken, includeDeleted);
+    return Objects.hash(envNameOrCrn, workloads, status, pageSize, startingToken, includeDeleted, _default, clusterShape);
   }
 
   @Override
@@ -207,6 +257,8 @@ public class ListClustersRequest  {
     sb.append("    pageSize: ").append(toIndentedString(pageSize)).append("\n");
     sb.append("    startingToken: ").append(toIndentedString(startingToken)).append("\n");
     sb.append("    includeDeleted: ").append(toIndentedString(includeDeleted)).append("\n");
+    sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
+    sb.append("    clusterShape: ").append(toIndentedString(clusterShape)).append("\n");
     sb.append("}");
     return sb.toString();
   }

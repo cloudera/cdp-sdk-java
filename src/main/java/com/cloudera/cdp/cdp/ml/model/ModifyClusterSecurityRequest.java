@@ -28,11 +28,11 @@ import java.util.*;
 /**
  * Request object for ModifyClusterSecurity.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class ModifyClusterSecurityRequest  {
 
   /**
-   * The CRN of the workspace cluster to modify.
+   * The CRN of the workbench cluster to modify.
    **/
   private String workspaceCrn = null;
 
@@ -48,7 +48,7 @@ public class ModifyClusterSecurityRequest  {
 
   /**
    * Getter for workspaceCrn.
-   * The CRN of the workspace cluster to modify.
+   * The CRN of the workbench cluster to modify.
    **/
   @JsonProperty("workspaceCrn")
   public String getWorkspaceCrn() {
@@ -57,7 +57,7 @@ public class ModifyClusterSecurityRequest  {
 
   /**
    * Setter for workspaceCrn.
-   * The CRN of the workspace cluster to modify.
+   * The CRN of the workbench cluster to modify.
    **/
   public void setWorkspaceCrn(String workspaceCrn) {
     this.workspaceCrn = workspaceCrn;

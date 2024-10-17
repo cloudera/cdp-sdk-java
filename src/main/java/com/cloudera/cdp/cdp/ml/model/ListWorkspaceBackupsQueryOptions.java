@@ -27,17 +27,17 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Query options object for ListWorkspaceBackups method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class ListWorkspaceBackupsQueryOptions  {
 
   /**
-   * When set to true, will return the metadata of the environment where the backed-up workspace is/was present.
+   * When set to true, will return the metadata of the environment where the backed-up workbench is/was present.
    **/
   private Boolean expandEnvironmentMetadata = null;
 
   /**
    * Getter for expandEnvironmentMetadata.
-   * When set to true, will return the metadata of the environment where the backed-up workspace is/was present.
+   * When set to true, will return the metadata of the environment where the backed-up workbench is/was present.
    **/
   @JsonProperty("expandEnvironmentMetadata")
   public Boolean getExpandEnvironmentMetadata() {
@@ -46,7 +46,7 @@ public class ListWorkspaceBackupsQueryOptions  {
 
   /**
    * Setter for expandEnvironmentMetadata.
-   * When set to true, will return the metadata of the environment where the backed-up workspace is/was present.
+   * When set to true, will return the metadata of the environment where the backed-up workbench is/was present.
    **/
   public void setExpandEnvironmentMetadata(Boolean expandEnvironmentMetadata) {
     this.expandEnvironmentMetadata = expandEnvironmentMetadata;

@@ -27,11 +27,11 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Launch Profilers request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.653-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.580-07:00")
 public class LaunchProfilersRequest  {
 
   /**
-   * The Name or CRN of the Datalake.
+   * The CRN of the Datalake.
    **/
   private String datalake = null;
 
@@ -42,7 +42,7 @@ public class LaunchProfilersRequest  {
 
   /**
    * Getter for datalake.
-   * The Name or CRN of the Datalake.
+   * The CRN of the Datalake.
    **/
   @JsonProperty("datalake")
   public String getDatalake() {
@@ -51,7 +51,7 @@ public class LaunchProfilersRequest  {
 
   /**
    * Setter for datalake.
-   * The Name or CRN of the Datalake.
+   * The CRN of the Datalake.
    **/
   public void setDatalake(String datalake) {
     this.datalake = datalake;

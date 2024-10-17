@@ -25,13 +25,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * Response object for the workspace summary.
+ * Response object for the workbench summary.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class UpgradeState  {
 
   /**
-   * The current upgrade state of the workspace.
+   * The current upgrade state of the workbench.
    **/
   private String state = null;
 
@@ -42,7 +42,7 @@ public class UpgradeState  {
 
   /**
    * Getter for state.
-   * The current upgrade state of the workspace.
+   * The current upgrade state of the workbench.
    **/
   @JsonProperty("state")
   public String getState() {
@@ -51,7 +51,7 @@ public class UpgradeState  {
 
   /**
    * Setter for state.
-   * The current upgrade state of the workspace.
+   * The current upgrade state of the workbench.
    **/
   public void setState(String state) {
     this.state = state;

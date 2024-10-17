@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object for creating model registry.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class CreateModelRegistryRequest  {
 
   /**
@@ -78,7 +78,7 @@ public class CreateModelRegistryRequest  {
   private Boolean usePublicLoadBalancer = null;
 
   /**
-   * The list of subnets used for the load balancer that CML creates.
+   * The list of subnets used for the load balancer that Cloudera AI creates.
    **/
   private List<String> subnetsForLoadBalancers = new ArrayList<String>();
 
@@ -272,7 +272,7 @@ public class CreateModelRegistryRequest  {
 
   /**
    * Getter for subnetsForLoadBalancers.
-   * The list of subnets used for the load balancer that CML creates.
+   * The list of subnets used for the load balancer that Cloudera AI creates.
    **/
   @JsonProperty("subnetsForLoadBalancers")
   public List<String> getSubnetsForLoadBalancers() {
@@ -281,7 +281,7 @@ public class CreateModelRegistryRequest  {
 
   /**
    * Setter for subnetsForLoadBalancers.
-   * The list of subnets used for the load balancer that CML creates.
+   * The list of subnets used for the load balancer that Cloudera AI creates.
    **/
   public void setSubnetsForLoadBalancers(List<String> subnetsForLoadBalancers) {
     this.subnetsForLoadBalancers = subnetsForLoadBalancers;

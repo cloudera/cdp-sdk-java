@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Request object for ListComputeUsageRecords method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:29.233-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:54.012-07:00")
 public class ListComputeUsageRecordsRequest  {
 
   /**

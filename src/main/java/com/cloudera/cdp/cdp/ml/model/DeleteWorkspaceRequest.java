@@ -27,37 +27,37 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the DeleteWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class DeleteWorkspaceRequest  {
 
   /**
-   * Force delete a workspace even if errors occur during deletion. Force delete removes the guarantee that resources in your cloud account will be cleaned up.
+   * Force delete a workbench even if errors occur during deletion. Force delete removes the guarantee that resources in your cloud account will be cleaned up.
    **/
   private Boolean force = null;
 
   /**
-   * The remove storage flag indicates weather to keep the backing workspace filesystem storage or remove it during delete.
+   * The remove storage flag indicates weather to keep the backing workbench filesystem storage or remove it during delete.
    **/
   private Boolean removeStorage = null;
 
   /**
-   * The environment for the workspace to delete.
+   * The environment for the workbench to delete.
    **/
   private String environmentName = null;
 
   /**
-   * The name of the workspace to delete.
+   * The name of the workbench to delete.
    **/
   private String workspaceName = null;
 
   /**
-   * The CRN of the workspace to delete. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.
+   * The CRN of the workbench to delete. If CRN is specified only the CRN is used for identifying the workbench, environment and name arguments are ignored.
    **/
   private String workspaceCrn = null;
 
   /**
    * Getter for force.
-   * Force delete a workspace even if errors occur during deletion. Force delete removes the guarantee that resources in your cloud account will be cleaned up.
+   * Force delete a workbench even if errors occur during deletion. Force delete removes the guarantee that resources in your cloud account will be cleaned up.
    **/
   @JsonProperty("force")
   public Boolean getForce() {
@@ -66,7 +66,7 @@ public class DeleteWorkspaceRequest  {
 
   /**
    * Setter for force.
-   * Force delete a workspace even if errors occur during deletion. Force delete removes the guarantee that resources in your cloud account will be cleaned up.
+   * Force delete a workbench even if errors occur during deletion. Force delete removes the guarantee that resources in your cloud account will be cleaned up.
    **/
   public void setForce(Boolean force) {
     this.force = force;
@@ -74,7 +74,7 @@ public class DeleteWorkspaceRequest  {
 
   /**
    * Getter for removeStorage.
-   * The remove storage flag indicates weather to keep the backing workspace filesystem storage or remove it during delete.
+   * The remove storage flag indicates weather to keep the backing workbench filesystem storage or remove it during delete.
    **/
   @JsonProperty("removeStorage")
   public Boolean getRemoveStorage() {
@@ -83,7 +83,7 @@ public class DeleteWorkspaceRequest  {
 
   /**
    * Setter for removeStorage.
-   * The remove storage flag indicates weather to keep the backing workspace filesystem storage or remove it during delete.
+   * The remove storage flag indicates weather to keep the backing workbench filesystem storage or remove it during delete.
    **/
   public void setRemoveStorage(Boolean removeStorage) {
     this.removeStorage = removeStorage;
@@ -91,7 +91,7 @@ public class DeleteWorkspaceRequest  {
 
   /**
    * Getter for environmentName.
-   * The environment for the workspace to delete.
+   * The environment for the workbench to delete.
    **/
   @JsonProperty("environmentName")
   public String getEnvironmentName() {
@@ -100,7 +100,7 @@ public class DeleteWorkspaceRequest  {
 
   /**
    * Setter for environmentName.
-   * The environment for the workspace to delete.
+   * The environment for the workbench to delete.
    **/
   public void setEnvironmentName(String environmentName) {
     this.environmentName = environmentName;
@@ -108,7 +108,7 @@ public class DeleteWorkspaceRequest  {
 
   /**
    * Getter for workspaceName.
-   * The name of the workspace to delete.
+   * The name of the workbench to delete.
    **/
   @JsonProperty("workspaceName")
   public String getWorkspaceName() {
@@ -117,7 +117,7 @@ public class DeleteWorkspaceRequest  {
 
   /**
    * Setter for workspaceName.
-   * The name of the workspace to delete.
+   * The name of the workbench to delete.
    **/
   public void setWorkspaceName(String workspaceName) {
     this.workspaceName = workspaceName;
@@ -125,7 +125,7 @@ public class DeleteWorkspaceRequest  {
 
   /**
    * Getter for workspaceCrn.
-   * The CRN of the workspace to delete. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.
+   * The CRN of the workbench to delete. If CRN is specified only the CRN is used for identifying the workbench, environment and name arguments are ignored.
    **/
   @JsonProperty("workspaceCrn")
   public String getWorkspaceCrn() {
@@ -134,7 +134,7 @@ public class DeleteWorkspaceRequest  {
 
   /**
    * Setter for workspaceCrn.
-   * The CRN of the workspace to delete. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.
+   * The CRN of the workbench to delete. If CRN is specified only the CRN is used for identifying the workbench, environment and name arguments are ignored.
    **/
   public void setWorkspaceCrn(String workspaceCrn) {
     this.workspaceCrn = workspaceCrn;

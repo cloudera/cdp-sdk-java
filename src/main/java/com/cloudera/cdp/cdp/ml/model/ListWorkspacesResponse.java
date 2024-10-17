@@ -29,17 +29,17 @@ import java.util.*;
 /**
  * Response object for the ListWorkspaces method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class ListWorkspacesResponse extends CdpResponse {
 
   /**
-   * The list of workspaces.
+   * The list of workbenches.
    **/
   private List<WorkspaceSummary> workspaces = new ArrayList<WorkspaceSummary>();
 
   /**
    * Getter for workspaces.
-   * The list of workspaces.
+   * The list of workbenches.
    **/
   @JsonProperty("workspaces")
   public List<WorkspaceSummary> getWorkspaces() {
@@ -48,7 +48,7 @@ public class ListWorkspacesResponse extends CdpResponse {
 
   /**
    * Setter for workspaces.
-   * The list of workspaces.
+   * The list of workbenches.
    **/
   public void setWorkspaces(List<WorkspaceSummary> workspaces) {
     this.workspaces = workspaces;

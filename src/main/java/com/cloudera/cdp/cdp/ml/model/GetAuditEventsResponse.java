@@ -26,19 +26,19 @@ import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.ml.model.AuditEvents;
 
 /**
- * GetAuditEventsResponse containes all the audit events for a given workspace crn.
+ * GetAuditEventsResponse containes all the audit events for a given workbench crn.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class GetAuditEventsResponse extends CdpResponse {
 
   /**
-   * Contains all the audit events for a given workspace crn.
+   * Contains all the audit events for a given workbench crn.
    **/
   private AuditEvents auditEvents = null;
 
   /**
    * Getter for auditEvents.
-   * Contains all the audit events for a given workspace crn.
+   * Contains all the audit events for a given workbench crn.
    **/
   @JsonProperty("auditEvents")
   public AuditEvents getAuditEvents() {
@@ -47,7 +47,7 @@ public class GetAuditEventsResponse extends CdpResponse {
 
   /**
    * Setter for auditEvents.
-   * Contains all the audit events for a given workspace crn.
+   * Contains all the audit events for a given workbench crn.
    **/
   public void setAuditEvents(AuditEvents auditEvents) {
     this.auditEvents = auditEvents;

@@ -28,17 +28,17 @@ import com.cloudera.cdp.ml.model.ModelRegistry;
 /**
  * Response object for the DescribeModelRegistry method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class DescribeModelRegistryResponse extends CdpResponse {
 
   /**
-   * The workspace.
+   * The registry.
    **/
   private ModelRegistry modelRegistry = null;
 
   /**
    * Getter for modelRegistry.
-   * The workspace.
+   * The registry.
    **/
   @JsonProperty("modelRegistry")
   public ModelRegistry getModelRegistry() {
@@ -47,7 +47,7 @@ public class DescribeModelRegistryResponse extends CdpResponse {
 
   /**
    * Setter for modelRegistry.
-   * The workspace.
+   * The registry.
    **/
   public void setModelRegistry(ModelRegistry modelRegistry) {
     this.modelRegistry = modelRegistry;

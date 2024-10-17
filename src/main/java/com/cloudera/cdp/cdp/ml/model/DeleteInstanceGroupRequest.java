@@ -27,22 +27,22 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the DeleteInstanceGroup method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class DeleteInstanceGroupRequest  {
 
   /**
-   * The CRN of the workspace from which instance group is to be deleted.
+   * The CRN of the workbench from which instance group is to be deleted.
    **/
   private String workspaceCrn = null;
 
   /**
-   * The instance group that we want to delete from the workspace.
+   * The instance group that we want to delete from the workbench.
    **/
   private String instanceGroupName = null;
 
   /**
    * Getter for workspaceCrn.
-   * The CRN of the workspace from which instance group is to be deleted.
+   * The CRN of the workbench from which instance group is to be deleted.
    **/
   @JsonProperty("workspaceCrn")
   public String getWorkspaceCrn() {
@@ -51,7 +51,7 @@ public class DeleteInstanceGroupRequest  {
 
   /**
    * Setter for workspaceCrn.
-   * The CRN of the workspace from which instance group is to be deleted.
+   * The CRN of the workbench from which instance group is to be deleted.
    **/
   public void setWorkspaceCrn(String workspaceCrn) {
     this.workspaceCrn = workspaceCrn;
@@ -59,7 +59,7 @@ public class DeleteInstanceGroupRequest  {
 
   /**
    * Getter for instanceGroupName.
-   * The instance group that we want to delete from the workspace.
+   * The instance group that we want to delete from the workbench.
    **/
   @JsonProperty("instanceGroupName")
   public String getInstanceGroupName() {
@@ -68,7 +68,7 @@ public class DeleteInstanceGroupRequest  {
 
   /**
    * Setter for instanceGroupName.
-   * The instance group that we want to delete from the workspace.
+   * The instance group that we want to delete from the workbench.
    **/
   public void setInstanceGroupName(String instanceGroupName) {
     this.instanceGroupName = instanceGroupName;

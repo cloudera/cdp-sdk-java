@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the RevokeWorkspace method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-09-27T08:40:25.791-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
 public class RevokeWorkspaceAccessRequest  {
 
   /**
@@ -36,22 +36,22 @@ public class RevokeWorkspaceAccessRequest  {
   private String arn = null;
 
   /**
-   * The environment that the workspace is a member of.
+   * The environment that the workbench is a member of.
    **/
   private String environmentName = null;
 
   /**
-   * The name of the workspace to revoke access to.
+   * The name of the workbench to revoke access to.
    **/
   private String workspaceName = null;
 
   /**
-   * The CRN of the workspace to revoke access to. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.
+   * The CRN of the workbench to revoke access to. If CRN is specified only the CRN is used for identifying the workbench, environment and name arguments are ignored.
    **/
   private String workspaceCrn = null;
 
   /**
-   * The cloud provider user id which will be granted access to the workspace's Kubernetes cluster.
+   * The cloud provider user id which will be granted access to the workbench's Kubernetes cluster.
    **/
   private String identifier = null;
 
@@ -76,7 +76,7 @@ public class RevokeWorkspaceAccessRequest  {
 
   /**
    * Getter for environmentName.
-   * The environment that the workspace is a member of.
+   * The environment that the workbench is a member of.
    **/
   @JsonProperty("environmentName")
   public String getEnvironmentName() {
@@ -85,7 +85,7 @@ public class RevokeWorkspaceAccessRequest  {
 
   /**
    * Setter for environmentName.
-   * The environment that the workspace is a member of.
+   * The environment that the workbench is a member of.
    **/
   public void setEnvironmentName(String environmentName) {
     this.environmentName = environmentName;
@@ -93,7 +93,7 @@ public class RevokeWorkspaceAccessRequest  {
 
   /**
    * Getter for workspaceName.
-   * The name of the workspace to revoke access to.
+   * The name of the workbench to revoke access to.
    **/
   @JsonProperty("workspaceName")
   public String getWorkspaceName() {
@@ -102,7 +102,7 @@ public class RevokeWorkspaceAccessRequest  {
 
   /**
    * Setter for workspaceName.
-   * The name of the workspace to revoke access to.
+   * The name of the workbench to revoke access to.
    **/
   public void setWorkspaceName(String workspaceName) {
     this.workspaceName = workspaceName;
@@ -110,7 +110,7 @@ public class RevokeWorkspaceAccessRequest  {
 
   /**
    * Getter for workspaceCrn.
-   * The CRN of the workspace to revoke access to. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.
+   * The CRN of the workbench to revoke access to. If CRN is specified only the CRN is used for identifying the workbench, environment and name arguments are ignored.
    **/
   @JsonProperty("workspaceCrn")
   public String getWorkspaceCrn() {
@@ -119,7 +119,7 @@ public class RevokeWorkspaceAccessRequest  {
 
   /**
    * Setter for workspaceCrn.
-   * The CRN of the workspace to revoke access to. If CRN is specified only the CRN is used for identifying the workspace, environment and name arguments are ignored.
+   * The CRN of the workbench to revoke access to. If CRN is specified only the CRN is used for identifying the workbench, environment and name arguments are ignored.
    **/
   public void setWorkspaceCrn(String workspaceCrn) {
     this.workspaceCrn = workspaceCrn;
@@ -127,7 +127,7 @@ public class RevokeWorkspaceAccessRequest  {
 
   /**
    * Getter for identifier.
-   * The cloud provider user id which will be granted access to the workspace&#39;s Kubernetes cluster.
+   * The cloud provider user id which will be granted access to the workbench&#39;s Kubernetes cluster.
    **/
   @JsonProperty("identifier")
   public String getIdentifier() {
@@ -136,7 +136,7 @@ public class RevokeWorkspaceAccessRequest  {
 
   /**
    * Setter for identifier.
-   * The cloud provider user id which will be granted access to the workspace&#39;s Kubernetes cluster.
+   * The cloud provider user id which will be granted access to the workbench&#39;s Kubernetes cluster.
    **/
   public void setIdentifier(String identifier) {
     this.identifier = identifier;
