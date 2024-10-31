@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Backup Detail response object for listing backups.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:50.728-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:09.279-07:00")
 public class BackupDetail  {
 
   /**
@@ -60,11 +60,6 @@ public class BackupDetail  {
    * The status of the backup.
    **/
   private String backupStatus = null;
-
-  /**
-   * Status whether the backup is cross namespace enabled.
-   **/
-  private Boolean isCrossNsBackup = null;
 
   /**
    * Getter for backupCrn.
@@ -168,23 +163,6 @@ public class BackupDetail  {
     this.backupStatus = backupStatus;
   }
 
-  /**
-   * Getter for isCrossNsBackup.
-   * Status whether the backup is cross namespace enabled.
-   **/
-  @JsonProperty("isCrossNsBackup")
-  public Boolean getIsCrossNsBackup() {
-    return isCrossNsBackup;
-  }
-
-  /**
-   * Setter for isCrossNsBackup.
-   * Status whether the backup is cross namespace enabled.
-   **/
-  public void setIsCrossNsBackup(Boolean isCrossNsBackup) {
-    this.isCrossNsBackup = isCrossNsBackup;
-  }
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -212,15 +190,12 @@ public class BackupDetail  {
     if (!Objects.equals(this.backupStatus, backupDetail.backupStatus)) {
       return false;
     }
-    if (!Objects.equals(this.isCrossNsBackup, backupDetail.isCrossNsBackup)) {
-      return false;
-    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupCrn, backupName, createdAt, creatorCrn, workspaceVersionAtBackup, backupStatus, isCrossNsBackup);
+    return Objects.hash(backupCrn, backupName, createdAt, creatorCrn, workspaceVersionAtBackup, backupStatus);
   }
 
   @Override
@@ -233,7 +208,6 @@ public class BackupDetail  {
     sb.append("    creatorCrn: ").append(toIndentedString(creatorCrn)).append("\n");
     sb.append("    workspaceVersionAtBackup: ").append(toIndentedString(workspaceVersionAtBackup)).append("\n");
     sb.append("    backupStatus: ").append(toIndentedString(backupStatus)).append("\n");
-    sb.append("    isCrossNsBackup: ").append(toIndentedString(isCrossNsBackup)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -28,23 +28,33 @@ import com.cloudera.cdp.client.CdpRequestContext;
 import com.cloudera.cdp.client.Pair;
 import com.cloudera.cdp.client.ResourceResponse;
 import com.cloudera.cdp.client.RestResponse;
+import com.cloudera.cdp.replicationmanager.model.ActivateHbasePolicyRequest;
+import com.cloudera.cdp.replicationmanager.model.ActivateHbasePolicyResponse;
 import com.cloudera.cdp.replicationmanager.model.ActivatePolicyRequest;
 import com.cloudera.cdp.replicationmanager.model.ActivatePolicyResponse;
 import com.cloudera.cdp.replicationmanager.model.CollectDiagnosticBundleRequest;
 import com.cloudera.cdp.replicationmanager.model.CollectDiagnosticBundleResponse;
+import com.cloudera.cdp.replicationmanager.model.ContinueHbaseSetupRequest;
+import com.cloudera.cdp.replicationmanager.model.ContinueHbaseSetupResponse;
 import com.cloudera.cdp.replicationmanager.model.CreateAbfsCredentialRequest;
 import com.cloudera.cdp.replicationmanager.model.CreateAbfsCredentialResponse;
 import com.cloudera.cdp.replicationmanager.model.CreateAwsCredentialRequest;
 import com.cloudera.cdp.replicationmanager.model.CreateAwsCredentialResponse;
+import com.cloudera.cdp.replicationmanager.model.CreateHbasePolicyRequest;
+import com.cloudera.cdp.replicationmanager.model.CreateHbasePolicyResponse;
 import com.cloudera.cdp.replicationmanager.model.CreatePolicyRequest;
 import com.cloudera.cdp.replicationmanager.model.CreatePolicyResponse;
 import com.cloudera.cdp.replicationmanager.model.DeleteCredentialRequest;
 import com.cloudera.cdp.replicationmanager.model.DeleteCredentialResponse;
+import com.cloudera.cdp.replicationmanager.model.DeleteHbasePolicyRequest;
+import com.cloudera.cdp.replicationmanager.model.DeleteHbasePolicyResponse;
 import com.cloudera.cdp.replicationmanager.model.DeletePolicyRequest;
 import com.cloudera.cdp.replicationmanager.model.DeletePolicyResponse;
 import com.cloudera.cdp.replicationmanager.model.DownloadDiagnosticBundleRequest;
 import com.cloudera.cdp.replicationmanager.model.DownloadDiagnosticBundleResponse;
 import com.cloudera.cdp.replicationmanager.model.Error;
+import com.cloudera.cdp.replicationmanager.model.GetClusterConfigRequest;
+import com.cloudera.cdp.replicationmanager.model.GetClusterConfigResponse;
 import com.cloudera.cdp.replicationmanager.model.GetCommandStatusRequest;
 import com.cloudera.cdp.replicationmanager.model.GetCommandStatusResponse;
 import com.cloudera.cdp.replicationmanager.model.GetCredentialsRequest;
@@ -55,17 +65,25 @@ import com.cloudera.cdp.replicationmanager.model.ListClusterServiceStatusesReque
 import com.cloudera.cdp.replicationmanager.model.ListClusterServiceStatusesResponse;
 import com.cloudera.cdp.replicationmanager.model.ListClustersRequest;
 import com.cloudera.cdp.replicationmanager.model.ListClustersResponse;
+import com.cloudera.cdp.replicationmanager.model.ListPairedHbaseClustersRequest;
+import com.cloudera.cdp.replicationmanager.model.ListPairedHbaseClustersResponse;
 import com.cloudera.cdp.replicationmanager.model.ListPoliciesRequest;
 import com.cloudera.cdp.replicationmanager.model.ListPoliciesResponse;
+import com.cloudera.cdp.replicationmanager.model.SuspendHbasePolicyRequest;
+import com.cloudera.cdp.replicationmanager.model.SuspendHbasePolicyResponse;
 import com.cloudera.cdp.replicationmanager.model.SuspendPolicyRequest;
 import com.cloudera.cdp.replicationmanager.model.SuspendPolicyResponse;
+import com.cloudera.cdp.replicationmanager.model.UpdateHbasePolicyRequest;
+import com.cloudera.cdp.replicationmanager.model.UpdateHbasePolicyResponse;
+import com.cloudera.cdp.replicationmanager.model.VerifyHbaseClusterPairRequest;
+import com.cloudera.cdp.replicationmanager.model.VerifyHbaseClusterPairResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:54.118-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:13.128-07:00")
 public class ReplicationmanagerClient extends CdpClient {
 
   public static final String SERVICE_NAME = "replicationmanager";
@@ -97,6 +115,19 @@ public class ReplicationmanagerClient extends CdpClient {
   }
 
   /**
+   * Resume a suspended HBase replication policy.
+   * @param input
+   * @return ActivateHbasePolicyResponse
+   */
+  public ActivateHbasePolicyResponse activateHbasePolicy(ActivateHbasePolicyRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling activateHbasePolicy");
+    }
+
+    return this.invokeAPI("activateHbasePolicy", "/api/v1/replicationmanager/activateHbasePolicy", input, new GenericType<ActivateHbasePolicyResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Resume all replication tasks defined by the policy.
    * @param input
    * @return ActivatePolicyResponse
@@ -120,6 +151,19 @@ public class ReplicationmanagerClient extends CdpClient {
     }
 
     return this.invokeAPI("collectDiagnosticBundle", "/api/v1/replicationmanager/collectDiagnosticBundle", input, new GenericType<CollectDiagnosticBundleResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Continue the setup of an HBase policy.
+   * @param input
+   * @return ContinueHbaseSetupResponse
+   */
+  public ContinueHbaseSetupResponse continueHbaseSetup(ContinueHbaseSetupRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling continueHbaseSetup");
+    }
+
+    return this.invokeAPI("continueHbaseSetup", "/api/v1/replicationmanager/continueHbaseSetup", input, new GenericType<ContinueHbaseSetupResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -149,6 +193,19 @@ public class ReplicationmanagerClient extends CdpClient {
   }
 
   /**
+   * Create an HBase Replication Policy.
+   * @param input
+   * @return CreateHbasePolicyResponse
+   */
+  public CreateHbasePolicyResponse createHbasePolicy(CreateHbasePolicyRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createHbasePolicy");
+    }
+
+    return this.invokeAPI("createHbasePolicy", "/api/v1/replicationmanager/createHbasePolicy", input, new GenericType<CreateHbasePolicyResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Create a Replication Policy.
    * @param input
    * @return CreatePolicyResponse
@@ -175,6 +232,19 @@ public class ReplicationmanagerClient extends CdpClient {
   }
 
   /**
+   * Delete an HBase Replication Policy.
+   * @param input
+   * @return DeleteHbasePolicyResponse
+   */
+  public DeleteHbasePolicyResponse deleteHbasePolicy(DeleteHbasePolicyRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteHbasePolicy");
+    }
+
+    return this.invokeAPI("deleteHbasePolicy", "/api/v1/replicationmanager/deleteHbasePolicy", input, new GenericType<DeleteHbasePolicyResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Delete Replication Policy.
    * @param input
    * @return DeletePolicyResponse
@@ -198,6 +268,19 @@ public class ReplicationmanagerClient extends CdpClient {
     }
 
     return this.invokeAPI("downloadDiagnosticBundle", "/api/v1/replicationmanager/downloadDiagnosticBundle", input, new GenericType<DownloadDiagnosticBundleResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Get configuration of a cluster.
+   * @param input
+   * @return GetClusterConfigResponse
+   */
+  public GetClusterConfigResponse getClusterConfig(GetClusterConfigRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getClusterConfig");
+    }
+
+    return this.invokeAPI("getClusterConfig", "/api/v1/replicationmanager/getClusterConfig", input, new GenericType<GetClusterConfigResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -266,6 +349,19 @@ public class ReplicationmanagerClient extends CdpClient {
   }
 
   /**
+   * List cluster CRNs which have an active HBase policy.
+   * @param input
+   * @return ListPairedHbaseClustersResponse
+   */
+  public ListPairedHbaseClustersResponse listPairedHbaseClusters(ListPairedHbaseClustersRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listPairedHbaseClusters");
+    }
+
+    return this.invokeAPI("listPairedHbaseClusters", "/api/v1/replicationmanager/listPairedHbaseClusters", input, new GenericType<ListPairedHbaseClustersResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Get All Replication Policies.
    * @param input
    * @return ListPoliciesResponse
@@ -279,6 +375,19 @@ public class ReplicationmanagerClient extends CdpClient {
   }
 
   /**
+   * Suspend an HBase replication policy.
+   * @param input
+   * @return SuspendHbasePolicyResponse
+   */
+  public SuspendHbasePolicyResponse suspendHbasePolicy(SuspendHbasePolicyRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling suspendHbasePolicy");
+    }
+
+    return this.invokeAPI("suspendHbasePolicy", "/api/v1/replicationmanager/suspendHbasePolicy", input, new GenericType<SuspendHbasePolicyResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Stop all replication tasks defined by the policy.
    * @param input
    * @return SuspendPolicyResponse
@@ -289,5 +398,31 @@ public class ReplicationmanagerClient extends CdpClient {
     }
 
     return this.invokeAPI("suspendPolicy", "/api/v1/replicationmanager/suspendPolicy", input, new GenericType<SuspendPolicyResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Update an HBase Replication Policy.
+   * @param input
+   * @return UpdateHbasePolicyResponse
+   */
+  public UpdateHbasePolicyResponse updateHbasePolicy(UpdateHbasePolicyRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateHbasePolicy");
+    }
+
+    return this.invokeAPI("updateHbasePolicy", "/api/v1/replicationmanager/updateHbasePolicy", input, new GenericType<UpdateHbasePolicyResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Verify a source-destination cluster pair for HBase policy creation.
+   * @param input
+   * @return VerifyHbaseClusterPairResponse
+   */
+  public VerifyHbaseClusterPairResponse verifyHbaseClusterPair(VerifyHbaseClusterPairRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling verifyHbaseClusterPair");
+    }
+
+    return this.invokeAPI("verifyHbaseClusterPair", "/api/v1/replicationmanager/verifyHbaseClusterPair", input, new GenericType<VerifyHbaseClusterPairResponse>(){}, NO_EXTENSION);
   }
 }

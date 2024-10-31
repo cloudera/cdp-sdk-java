@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * The request object for the delete custom configurations request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:49.129-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:07.338-07:00")
 public class DeleteCustomConfigurationsRequest  {
 
   /**

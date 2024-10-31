@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.opdb.model.AttachedStorageForWorkers;
 import com.cloudera.cdp.opdb.model.AutoScalingParameters;
+import com.cloudera.cdp.opdb.model.CustomInstanceTypes;
 import com.cloudera.cdp.opdb.model.CustomRecipe;
 import com.cloudera.cdp.opdb.model.Image;
 import com.cloudera.cdp.opdb.model.KeyValuePair;
@@ -34,7 +35,7 @@ import java.util.*;
 /**
  * A request to create the database
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:52.152-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:10.886-07:00")
 public class CreateDatabaseRequest  {
 
   /**
@@ -136,6 +137,11 @@ public class CreateDatabaseRequest  {
    * Number of REST Worker nodes to be created for the database. A positive, non-zero number is required. The default value is 0. Requires the COD_RESTWORKERS entitlement.
    **/
   private Integer restworkerNodesCount = null;
+
+  /**
+   * Provide custom VM instance types for master, worker, gateway, leader, edge and compute groups.
+   **/
+  private CustomInstanceTypes customInstanceTypes = null;
 
   /**
    * Getter for environmentName.
@@ -477,6 +483,23 @@ public class CreateDatabaseRequest  {
     this.restworkerNodesCount = restworkerNodesCount;
   }
 
+  /**
+   * Getter for customInstanceTypes.
+   * Provide custom VM instance types for master, worker, gateway, leader, edge and compute groups.
+   **/
+  @JsonProperty("customInstanceTypes")
+  public CustomInstanceTypes getCustomInstanceTypes() {
+    return customInstanceTypes;
+  }
+
+  /**
+   * Setter for customInstanceTypes.
+   * Provide custom VM instance types for master, worker, gateway, leader, edge and compute groups.
+   **/
+  public void setCustomInstanceTypes(CustomInstanceTypes customInstanceTypes) {
+    this.customInstanceTypes = customInstanceTypes;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -546,12 +569,15 @@ public class CreateDatabaseRequest  {
     if (!Objects.equals(this.restworkerNodesCount, createDatabaseRequest.restworkerNodesCount)) {
       return false;
     }
+    if (!Objects.equals(this.customInstanceTypes, createDatabaseRequest.customInstanceTypes)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, databaseName, autoScalingParameters, subnetId, customUserTags, disableMultiAz, attachedStorageForWorkers, disableKerberos, numEdgeNodes, image, disableJwtAuth, enableRegionCanary, scaleType, storageType, recipes, enableGrafana, rootVolumeSize, volumeEncryptions, gatewayNodesCount, restworkerNodesCount);
+    return Objects.hash(environmentName, databaseName, autoScalingParameters, subnetId, customUserTags, disableMultiAz, attachedStorageForWorkers, disableKerberos, numEdgeNodes, image, disableJwtAuth, enableRegionCanary, scaleType, storageType, recipes, enableGrafana, rootVolumeSize, volumeEncryptions, gatewayNodesCount, restworkerNodesCount, customInstanceTypes);
   }
 
   @Override
@@ -578,6 +604,7 @@ public class CreateDatabaseRequest  {
     sb.append("    volumeEncryptions: ").append(toIndentedString(volumeEncryptions)).append("\n");
     sb.append("    gatewayNodesCount: ").append(toIndentedString(gatewayNodesCount)).append("\n");
     sb.append("    restworkerNodesCount: ").append(toIndentedString(restworkerNodesCount)).append("\n");
+    sb.append("    customInstanceTypes: ").append(toIndentedString(customInstanceTypes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

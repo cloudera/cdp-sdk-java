@@ -29,7 +29,7 @@ import com.cloudera.cdp.compute.model.ValidationResponse;
 /**
  * Create cluster response.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:53.893-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:12.705-07:00")
 public class CreateClusterResponse extends CdpResponse {
 
   /**

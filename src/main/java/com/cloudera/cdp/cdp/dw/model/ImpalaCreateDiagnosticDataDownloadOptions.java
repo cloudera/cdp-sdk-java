@@ -25,45 +25,46 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * Flags that denote which diagnostics to include for an Impala Virtual Warehouse.
+ * DEPRECATED: Included by default, no need to specify
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:49.860-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:08.143-07:00")
 public class ImpalaCreateDiagnosticDataDownloadOptions  {
 
   /**
-   * Include the HMS diagnostics.
+   * DEPRECATED: Included by default, no need to specify
    **/
   private Boolean includeHms = false;
 
   /**
-   * Include the minidump.
+   * DEPRECATED: Included by default, no need to specify
    **/
   private Boolean includeMinidump = false;
 
   /**
-   * Include the profile.
+   * DEPRECATED: Included by default, no need to specify
    **/
   private Boolean includeProfile = false;
 
   /**
-   * Include the sidecar diagnostics.
+   * DEPRECATED: Included by default, no need to specify
    **/
   private Boolean includeSidecar = false;
 
   /**
-   * Include the workload diagnostics.
+   * DEPRECATED: Included by default, no need to specify
    **/
   private Boolean includeWorkload = false;
 
   /**
-   * Include kubernetes resource info.
+   * DEPRECATED: Included by default, no need to specify
    **/
   private Boolean includeKubernetesResourceInfo = false;
 
   /**
    * Getter for includeHms.
-   * Include the HMS diagnostics.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   @JsonProperty("includeHms")
   public Boolean getIncludeHms() {
     return includeHms;
@@ -71,16 +72,18 @@ public class ImpalaCreateDiagnosticDataDownloadOptions  {
 
   /**
    * Setter for includeHms.
-   * Include the HMS diagnostics.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   public void setIncludeHms(Boolean includeHms) {
     this.includeHms = includeHms;
   }
 
   /**
    * Getter for includeMinidump.
-   * Include the minidump.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   @JsonProperty("includeMinidump")
   public Boolean getIncludeMinidump() {
     return includeMinidump;
@@ -88,16 +91,18 @@ public class ImpalaCreateDiagnosticDataDownloadOptions  {
 
   /**
    * Setter for includeMinidump.
-   * Include the minidump.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   public void setIncludeMinidump(Boolean includeMinidump) {
     this.includeMinidump = includeMinidump;
   }
 
   /**
    * Getter for includeProfile.
-   * Include the profile.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   @JsonProperty("includeProfile")
   public Boolean getIncludeProfile() {
     return includeProfile;
@@ -105,16 +110,18 @@ public class ImpalaCreateDiagnosticDataDownloadOptions  {
 
   /**
    * Setter for includeProfile.
-   * Include the profile.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   public void setIncludeProfile(Boolean includeProfile) {
     this.includeProfile = includeProfile;
   }
 
   /**
    * Getter for includeSidecar.
-   * Include the sidecar diagnostics.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   @JsonProperty("includeSidecar")
   public Boolean getIncludeSidecar() {
     return includeSidecar;
@@ -122,16 +129,18 @@ public class ImpalaCreateDiagnosticDataDownloadOptions  {
 
   /**
    * Setter for includeSidecar.
-   * Include the sidecar diagnostics.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   public void setIncludeSidecar(Boolean includeSidecar) {
     this.includeSidecar = includeSidecar;
   }
 
   /**
    * Getter for includeWorkload.
-   * Include the workload diagnostics.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   @JsonProperty("includeWorkload")
   public Boolean getIncludeWorkload() {
     return includeWorkload;
@@ -139,16 +148,18 @@ public class ImpalaCreateDiagnosticDataDownloadOptions  {
 
   /**
    * Setter for includeWorkload.
-   * Include the workload diagnostics.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   public void setIncludeWorkload(Boolean includeWorkload) {
     this.includeWorkload = includeWorkload;
   }
 
   /**
    * Getter for includeKubernetesResourceInfo.
-   * Include kubernetes resource info.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   @JsonProperty("includeKubernetesResourceInfo")
   public Boolean getIncludeKubernetesResourceInfo() {
     return includeKubernetesResourceInfo;
@@ -156,8 +167,9 @@ public class ImpalaCreateDiagnosticDataDownloadOptions  {
 
   /**
    * Setter for includeKubernetesResourceInfo.
-   * Include kubernetes resource info.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   public void setIncludeKubernetesResourceInfo(Boolean includeKubernetesResourceInfo) {
     this.includeKubernetesResourceInfo = includeKubernetesResourceInfo;
   }

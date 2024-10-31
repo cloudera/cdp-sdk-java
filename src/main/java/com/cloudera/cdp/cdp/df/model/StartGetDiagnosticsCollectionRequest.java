@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request to start DataFlow diagnostics bundle creation.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:53.112-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:11.899-07:00")
 public class StartGetDiagnosticsCollectionRequest  {
 
   /**

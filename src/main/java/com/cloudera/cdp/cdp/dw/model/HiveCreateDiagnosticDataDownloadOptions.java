@@ -25,50 +25,51 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * Flags that denote which diagnostics to include for a Hive Virtual Warehouse.
+ * DEPRECATED: Included by default, no need to specify
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:49.860-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:08.143-07:00")
 public class HiveCreateDiagnosticDataDownloadOptions  {
 
   /**
-   * Include the HMS diagnostics.
+   * DEPRECATED: Included by default, no need to specify
    **/
   private Boolean includeHms = false;
 
   /**
-   * Include the error dump.
+   * DEPRECATED: Included by default, no need to specify
    **/
   private Boolean includeErrordump = false;
 
   /**
-   * Include the Garbage collector logs.
+   * DEPRECATED: Included by default, no need to specify
    **/
   private Boolean includeGclogs = false;
 
   /**
-   * Include the heap-dump.
+   * DEPRECATED: Included by default, no need to specify
    **/
   private Boolean includeHeapdump = false;
 
   /**
-   * Include logs.
+   * DEPRECATED: Included by default, no need to specify
    **/
   private Boolean includeLogs = false;
 
   /**
-   * Include compute resource info.
+   * DEPRECATED: Included by default, no need to specify
    **/
   private Boolean includeComputeResourceInfo = false;
 
   /**
-   * Include Kubernetes resource info.
+   * DEPRECATED: Included by default, no need to specify
    **/
   private Boolean includeKubernetesResourceInfo = false;
 
   /**
    * Getter for includeHms.
-   * Include the HMS diagnostics.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   @JsonProperty("includeHms")
   public Boolean getIncludeHms() {
     return includeHms;
@@ -76,16 +77,18 @@ public class HiveCreateDiagnosticDataDownloadOptions  {
 
   /**
    * Setter for includeHms.
-   * Include the HMS diagnostics.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   public void setIncludeHms(Boolean includeHms) {
     this.includeHms = includeHms;
   }
 
   /**
    * Getter for includeErrordump.
-   * Include the error dump.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   @JsonProperty("includeErrordump")
   public Boolean getIncludeErrordump() {
     return includeErrordump;
@@ -93,16 +96,18 @@ public class HiveCreateDiagnosticDataDownloadOptions  {
 
   /**
    * Setter for includeErrordump.
-   * Include the error dump.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   public void setIncludeErrordump(Boolean includeErrordump) {
     this.includeErrordump = includeErrordump;
   }
 
   /**
    * Getter for includeGclogs.
-   * Include the Garbage collector logs.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   @JsonProperty("includeGclogs")
   public Boolean getIncludeGclogs() {
     return includeGclogs;
@@ -110,16 +115,18 @@ public class HiveCreateDiagnosticDataDownloadOptions  {
 
   /**
    * Setter for includeGclogs.
-   * Include the Garbage collector logs.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   public void setIncludeGclogs(Boolean includeGclogs) {
     this.includeGclogs = includeGclogs;
   }
 
   /**
    * Getter for includeHeapdump.
-   * Include the heap-dump.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   @JsonProperty("includeHeapdump")
   public Boolean getIncludeHeapdump() {
     return includeHeapdump;
@@ -127,16 +134,18 @@ public class HiveCreateDiagnosticDataDownloadOptions  {
 
   /**
    * Setter for includeHeapdump.
-   * Include the heap-dump.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   public void setIncludeHeapdump(Boolean includeHeapdump) {
     this.includeHeapdump = includeHeapdump;
   }
 
   /**
    * Getter for includeLogs.
-   * Include logs.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   @JsonProperty("includeLogs")
   public Boolean getIncludeLogs() {
     return includeLogs;
@@ -144,16 +153,18 @@ public class HiveCreateDiagnosticDataDownloadOptions  {
 
   /**
    * Setter for includeLogs.
-   * Include logs.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   public void setIncludeLogs(Boolean includeLogs) {
     this.includeLogs = includeLogs;
   }
 
   /**
    * Getter for includeComputeResourceInfo.
-   * Include compute resource info.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   @JsonProperty("includeComputeResourceInfo")
   public Boolean getIncludeComputeResourceInfo() {
     return includeComputeResourceInfo;
@@ -161,16 +172,18 @@ public class HiveCreateDiagnosticDataDownloadOptions  {
 
   /**
    * Setter for includeComputeResourceInfo.
-   * Include compute resource info.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   public void setIncludeComputeResourceInfo(Boolean includeComputeResourceInfo) {
     this.includeComputeResourceInfo = includeComputeResourceInfo;
   }
 
   /**
    * Getter for includeKubernetesResourceInfo.
-   * Include Kubernetes resource info.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   @JsonProperty("includeKubernetesResourceInfo")
   public Boolean getIncludeKubernetesResourceInfo() {
     return includeKubernetesResourceInfo;
@@ -178,8 +191,9 @@ public class HiveCreateDiagnosticDataDownloadOptions  {
 
   /**
    * Setter for includeKubernetesResourceInfo.
-   * Include Kubernetes resource info.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   public void setIncludeKubernetesResourceInfo(Boolean includeKubernetesResourceInfo) {
     this.includeKubernetesResourceInfo = includeKubernetesResourceInfo;
   }

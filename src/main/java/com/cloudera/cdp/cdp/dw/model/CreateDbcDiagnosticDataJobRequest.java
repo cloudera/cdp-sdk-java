@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * Request object for the createDbcDiagnosticDataJob method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:49.860-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:08.143-07:00")
 public class CreateDbcDiagnosticDataJobRequest  {
 
   /**
@@ -75,7 +75,7 @@ public class CreateDbcDiagnosticDataJobRequest  {
   private Boolean force = false;
 
   /**
-   * Database Catalog diagnostic options. If not provided, everything will be included in the Diagnostic Data.
+   * DEPRECATED: All logs are included by default
    **/
   private DBCCreateDiagnosticDataDownloadOptions downloadOptions = null;
 
@@ -217,7 +217,7 @@ public class CreateDbcDiagnosticDataJobRequest  {
 
   /**
    * Getter for downloadOptions.
-   * Database Catalog diagnostic options. If not provided, everything will be included in the Diagnostic Data.
+   * DEPRECATED: All logs are included by default
    **/
   @JsonProperty("downloadOptions")
   public DBCCreateDiagnosticDataDownloadOptions getDownloadOptions() {
@@ -226,7 +226,7 @@ public class CreateDbcDiagnosticDataJobRequest  {
 
   /**
    * Setter for downloadOptions.
-   * Database Catalog diagnostic options. If not provided, everything will be included in the Diagnostic Data.
+   * DEPRECATED: All logs are included by default
    **/
   public void setDownloadOptions(DBCCreateDiagnosticDataDownloadOptions downloadOptions) {
     this.downloadOptions = downloadOptions;

@@ -23,6 +23,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.environments.model.AzureComputeClusterConfigurationRequest;
 import com.cloudera.cdp.environments.model.AzureFreeIpaCreationRequest;
 import com.cloudera.cdp.environments.model.AzureLogStorageRequest;
 import com.cloudera.cdp.environments.model.CreateAzureEnvironmentRequestNewNetworkParams;
@@ -37,7 +38,7 @@ import java.util.*;
 /**
  * Request object for a create Azure environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:51.607-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:10.185-07:00")
 public class CreateAzureEnvironmentRequest  {
 
   /**
@@ -109,6 +110,16 @@ public class CreateAzureEnvironmentRequest  {
    * The FreeIPA creation request for the environment
    **/
   private AzureFreeIpaCreationRequest freeIpa = null;
+
+  /**
+   * Enable compute clusters for environment
+   **/
+  private Boolean enableComputeCluster = null;
+
+  /**
+   * The Externalized k8s configuration create request for the environment.
+   **/
+  private AzureComputeClusterConfigurationRequest computeClusterConfiguration = null;
 
   /**
    * The FreeIPA image request for the environment
@@ -431,6 +442,40 @@ public class CreateAzureEnvironmentRequest  {
    **/
   public void setFreeIpa(AzureFreeIpaCreationRequest freeIpa) {
     this.freeIpa = freeIpa;
+  }
+
+  /**
+   * Getter for enableComputeCluster.
+   * Enable compute clusters for environment
+   **/
+  @JsonProperty("enableComputeCluster")
+  public Boolean getEnableComputeCluster() {
+    return enableComputeCluster;
+  }
+
+  /**
+   * Setter for enableComputeCluster.
+   * Enable compute clusters for environment
+   **/
+  public void setEnableComputeCluster(Boolean enableComputeCluster) {
+    this.enableComputeCluster = enableComputeCluster;
+  }
+
+  /**
+   * Getter for computeClusterConfiguration.
+   * The Externalized k8s configuration create request for the environment.
+   **/
+  @JsonProperty("computeClusterConfiguration")
+  public AzureComputeClusterConfigurationRequest getComputeClusterConfiguration() {
+    return computeClusterConfiguration;
+  }
+
+  /**
+   * Setter for computeClusterConfiguration.
+   * The Externalized k8s configuration create request for the environment.
+   **/
+  public void setComputeClusterConfiguration(AzureComputeClusterConfigurationRequest computeClusterConfiguration) {
+    this.computeClusterConfiguration = computeClusterConfiguration;
   }
 
   /**
@@ -775,6 +820,12 @@ public class CreateAzureEnvironmentRequest  {
     if (!Objects.equals(this.freeIpa, createAzureEnvironmentRequest.freeIpa)) {
       return false;
     }
+    if (!Objects.equals(this.enableComputeCluster, createAzureEnvironmentRequest.enableComputeCluster)) {
+      return false;
+    }
+    if (!Objects.equals(this.computeClusterConfiguration, createAzureEnvironmentRequest.computeClusterConfiguration)) {
+      return false;
+    }
     if (!Objects.equals(this.image, createAzureEnvironmentRequest.image)) {
       return false;
     }
@@ -831,7 +882,7 @@ public class CreateAzureEnvironmentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, encryptionAtHost, userManagedIdentity, encryptionUserManagedIdentity, encryptionKeyUrl, encryptionKeyResourceGroupName, enableOutboundLoadBalancer, availabilityZones, flexibleServerSubnetIds, dataServices, customDockerRegistry);
+    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, enableComputeCluster, computeClusterConfiguration, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, encryptionAtHost, userManagedIdentity, encryptionUserManagedIdentity, encryptionKeyUrl, encryptionKeyResourceGroupName, enableOutboundLoadBalancer, availabilityZones, flexibleServerSubnetIds, dataServices, customDockerRegistry);
   }
 
   @Override
@@ -852,6 +903,8 @@ public class CreateAzureEnvironmentRequest  {
     sb.append("    workloadAnalytics: ").append(toIndentedString(workloadAnalytics)).append("\n");
     sb.append("    reportDeploymentLogs: ").append(toIndentedString(reportDeploymentLogs)).append("\n");
     sb.append("    freeIpa: ").append(toIndentedString(freeIpa)).append("\n");
+    sb.append("    enableComputeCluster: ").append(toIndentedString(enableComputeCluster)).append("\n");
+    sb.append("    computeClusterConfiguration: ").append(toIndentedString(computeClusterConfiguration)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    proxyConfigName: ").append(toIndentedString(proxyConfigName)).append("\n");

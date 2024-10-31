@@ -23,12 +23,13 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.datalake.model.DiskOptions;
 import com.cloudera.cdp.datalake.model.InstanceTemplate;
 
 /**
  * The request object for Data Lake vertical scaling.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:51.118-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:09.600-07:00")
 public class StartDatalakeVerticalScalingRequest  {
 
   /**
@@ -45,6 +46,11 @@ public class StartDatalakeVerticalScalingRequest  {
    * Instance template that specifies the core information for the vertical scale.
    **/
   private InstanceTemplate instanceTemplate = null;
+
+  /**
+   * Disk options for vertical scaling - modify disks.
+   **/
+  private DiskOptions diskOptions = null;
 
   /**
    * Getter for datalake.
@@ -97,6 +103,23 @@ public class StartDatalakeVerticalScalingRequest  {
     this.instanceTemplate = instanceTemplate;
   }
 
+  /**
+   * Getter for diskOptions.
+   * Disk options for vertical scaling - modify disks.
+   **/
+  @JsonProperty("diskOptions")
+  public DiskOptions getDiskOptions() {
+    return diskOptions;
+  }
+
+  /**
+   * Setter for diskOptions.
+   * Disk options for vertical scaling - modify disks.
+   **/
+  public void setDiskOptions(DiskOptions diskOptions) {
+    this.diskOptions = diskOptions;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -115,12 +138,15 @@ public class StartDatalakeVerticalScalingRequest  {
     if (!Objects.equals(this.instanceTemplate, startDatalakeVerticalScalingRequest.instanceTemplate)) {
       return false;
     }
+    if (!Objects.equals(this.diskOptions, startDatalakeVerticalScalingRequest.diskOptions)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalake, group, instanceTemplate);
+    return Objects.hash(datalake, group, instanceTemplate, diskOptions);
   }
 
   @Override
@@ -130,6 +156,7 @@ public class StartDatalakeVerticalScalingRequest  {
     sb.append("    datalake: ").append(toIndentedString(datalake)).append("\n");
     sb.append("    group: ").append(toIndentedString(group)).append("\n");
     sb.append("    instanceTemplate: ").append(toIndentedString(instanceTemplate)).append("\n");
+    sb.append("    diskOptions: ").append(toIndentedString(diskOptions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

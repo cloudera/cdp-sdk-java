@@ -27,33 +27,34 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Flags that denote which diagnostics to include for the cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:49.860-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:08.143-07:00")
 public class ClusterCreateDiagnosticDataDownloadOptions  {
 
   /**
-   * Include cluster info.
+   * DEPRECATED: Included by default, no need to specify
    **/
   private Boolean includeClusterInfo = false;
 
   /**
-   * Include Istio system.
+   * DEPRECATED: Included by default, no need to specify
    **/
   private Boolean includeIstioSystem = false;
 
   /**
-   * Include shared services.
+   * DEPRECATED: Included by default, no need to specify
    **/
   private Boolean includeSharedServices = false;
 
   /**
-   * Include Kube system.
+   * DEPRECATED: Included by default, no need to specify
    **/
   private Boolean includeKubeSystem = false;
 
   /**
    * Getter for includeClusterInfo.
-   * Include cluster info.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   @JsonProperty("includeClusterInfo")
   public Boolean getIncludeClusterInfo() {
     return includeClusterInfo;
@@ -61,16 +62,18 @@ public class ClusterCreateDiagnosticDataDownloadOptions  {
 
   /**
    * Setter for includeClusterInfo.
-   * Include cluster info.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   public void setIncludeClusterInfo(Boolean includeClusterInfo) {
     this.includeClusterInfo = includeClusterInfo;
   }
 
   /**
    * Getter for includeIstioSystem.
-   * Include Istio system.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   @JsonProperty("includeIstioSystem")
   public Boolean getIncludeIstioSystem() {
     return includeIstioSystem;
@@ -78,16 +81,18 @@ public class ClusterCreateDiagnosticDataDownloadOptions  {
 
   /**
    * Setter for includeIstioSystem.
-   * Include Istio system.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   public void setIncludeIstioSystem(Boolean includeIstioSystem) {
     this.includeIstioSystem = includeIstioSystem;
   }
 
   /**
    * Getter for includeSharedServices.
-   * Include shared services.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   @JsonProperty("includeSharedServices")
   public Boolean getIncludeSharedServices() {
     return includeSharedServices;
@@ -95,16 +100,18 @@ public class ClusterCreateDiagnosticDataDownloadOptions  {
 
   /**
    * Setter for includeSharedServices.
-   * Include shared services.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   public void setIncludeSharedServices(Boolean includeSharedServices) {
     this.includeSharedServices = includeSharedServices;
   }
 
   /**
    * Getter for includeKubeSystem.
-   * Include Kube system.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   @JsonProperty("includeKubeSystem")
   public Boolean getIncludeKubeSystem() {
     return includeKubeSystem;
@@ -112,8 +119,9 @@ public class ClusterCreateDiagnosticDataDownloadOptions  {
 
   /**
    * Setter for includeKubeSystem.
-   * Include Kube system.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   public void setIncludeKubeSystem(Boolean includeKubeSystem) {
     this.includeKubeSystem = includeKubeSystem;
   }

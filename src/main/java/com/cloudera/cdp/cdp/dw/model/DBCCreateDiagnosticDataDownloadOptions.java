@@ -25,20 +25,21 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * Flags that denote which diagnostics to include for a Database Catalog.
+ * DEPRECATED: Included by default, no need to specify
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:49.860-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:08.143-07:00")
 public class DBCCreateDiagnosticDataDownloadOptions  {
 
   /**
-   * Include kubernetes resource info.
+   * DEPRECATED: Included by default, no need to specify
    **/
   private Boolean includeKubernetesResourceInfo = false;
 
   /**
    * Getter for includeKubernetesResourceInfo.
-   * Include kubernetes resource info.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   @JsonProperty("includeKubernetesResourceInfo")
   public Boolean getIncludeKubernetesResourceInfo() {
     return includeKubernetesResourceInfo;
@@ -46,8 +47,9 @@ public class DBCCreateDiagnosticDataDownloadOptions  {
 
   /**
    * Setter for includeKubernetesResourceInfo.
-   * Include kubernetes resource info.
+   * DEPRECATED: Included by default, no need to specify
    **/
+  @Deprecated
   public void setIncludeKubernetesResourceInfo(Boolean includeKubernetesResourceInfo) {
     this.includeKubernetesResourceInfo = includeKubernetesResourceInfo;
   }

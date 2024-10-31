@@ -28,7 +28,7 @@ import com.cloudera.cdp.dfworkload.model.RpcDeployment;
 /**
  * Response object for restarting a deployment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:53.426-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:12.301-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RestartDeploymentResponse extends CdpResponse {
 

@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * The environment summary.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:51.607-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:10.185-07:00")
 public class EnvironmentSummary  {
 
   /**
@@ -75,6 +75,11 @@ public class EnvironmentSummary  {
    * Name of the proxy config of the environment.
    **/
   private String proxyConfigName = null;
+
+  /**
+   * Compute clusters enabled
+   **/
+  private Boolean computeClusterEnabled = null;
 
   /**
    * Getter for environmentName.
@@ -229,6 +234,23 @@ public class EnvironmentSummary  {
     this.proxyConfigName = proxyConfigName;
   }
 
+  /**
+   * Getter for computeClusterEnabled.
+   * Compute clusters enabled
+   **/
+  @JsonProperty("computeClusterEnabled")
+  public Boolean getComputeClusterEnabled() {
+    return computeClusterEnabled;
+  }
+
+  /**
+   * Setter for computeClusterEnabled.
+   * Compute clusters enabled
+   **/
+  public void setComputeClusterEnabled(Boolean computeClusterEnabled) {
+    this.computeClusterEnabled = computeClusterEnabled;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -265,12 +287,15 @@ public class EnvironmentSummary  {
     if (!Objects.equals(this.proxyConfigName, environmentSummary.proxyConfigName)) {
       return false;
     }
+    if (!Objects.equals(this.computeClusterEnabled, environmentSummary.computeClusterEnabled)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, description, created, proxyConfigName);
+    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, description, created, proxyConfigName, computeClusterEnabled);
   }
 
   @Override
@@ -286,6 +311,7 @@ public class EnvironmentSummary  {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    proxyConfigName: ").append(toIndentedString(proxyConfigName)).append("\n");
+    sb.append("    computeClusterEnabled: ").append(toIndentedString(computeClusterEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }

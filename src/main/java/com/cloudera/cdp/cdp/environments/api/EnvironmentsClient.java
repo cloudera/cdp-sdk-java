@@ -113,6 +113,10 @@ import com.cloudera.cdp.environments.model.GetRepairFreeipaStatusRequest;
 import com.cloudera.cdp.environments.model.GetRepairFreeipaStatusResponse;
 import com.cloudera.cdp.environments.model.GetRootCertificateRequest;
 import com.cloudera.cdp.environments.model.GetRootCertificateResponse;
+import com.cloudera.cdp.environments.model.InitializeAWSComputeClusterRequest;
+import com.cloudera.cdp.environments.model.InitializeAWSComputeClusterResponse;
+import com.cloudera.cdp.environments.model.InitializeAzureComputeClusterRequest;
+import com.cloudera.cdp.environments.model.InitializeAzureComputeClusterResponse;
 import com.cloudera.cdp.environments.model.ListAuditCredentialsRequest;
 import com.cloudera.cdp.environments.model.ListAuditCredentialsResponse;
 import com.cloudera.cdp.environments.model.ListConnectedDataServicesRequest;
@@ -217,7 +221,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:51.607-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:10.185-07:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -792,6 +796,32 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("getRootCertificate", "/api/v1/environments2/getRootCertificate", input, new GenericType<GetRootCertificateResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Initialize compute cluster for AWS environment.
+   * @param input
+   * @return InitializeAWSComputeClusterResponse
+   */
+  public InitializeAWSComputeClusterResponse initializeAWSComputeCluster(InitializeAWSComputeClusterRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling initializeAWSComputeCluster");
+    }
+
+    return this.invokeAPI("initializeAWSComputeCluster", "/api/v1/environments2/initializeAWSComputeCluster", input, new GenericType<InitializeAWSComputeClusterResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Initialize compute cluster for Azure environment.
+   * @param input
+   * @return InitializeAzureComputeClusterResponse
+   */
+  public InitializeAzureComputeClusterResponse initializeAzureComputeCluster(InitializeAzureComputeClusterRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling initializeAzureComputeCluster");
+    }
+
+    return this.invokeAPI("initializeAzureComputeCluster", "/api/v1/environments2/initializeAzureComputeCluster", input, new GenericType<InitializeAzureComputeClusterResponse>(){}, NO_EXTENSION);
   }
 
   /**

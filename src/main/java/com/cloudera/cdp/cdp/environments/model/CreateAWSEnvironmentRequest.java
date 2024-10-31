@@ -23,6 +23,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.environments.model.AWSComputeClusterConfigurationRequest;
 import com.cloudera.cdp.environments.model.AWSFreeIpaCreationRequest;
 import com.cloudera.cdp.environments.model.AuthenticationRequest;
 import com.cloudera.cdp.environments.model.AwsLogStorageRequest;
@@ -35,7 +36,7 @@ import java.util.*;
 /**
  * Request object for a create AWS environment request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:51.607-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:10.185-07:00")
 public class CreateAWSEnvironmentRequest  {
 
   /**
@@ -132,6 +133,16 @@ public class CreateAWSEnvironmentRequest  {
    * The FreeIPA creation request for the environment
    **/
   private AWSFreeIpaCreationRequest freeIpa = null;
+
+  /**
+   * Enable compute clusters for environment
+   **/
+  private Boolean enableComputeCluster = null;
+
+  /**
+   * The Externalized k8s configuration create request for the environment
+   **/
+  private AWSComputeClusterConfigurationRequest computeClusterConfiguration = null;
 
   /**
    * The FreeIPA image request for the environment
@@ -482,6 +493,40 @@ public class CreateAWSEnvironmentRequest  {
   }
 
   /**
+   * Getter for enableComputeCluster.
+   * Enable compute clusters for environment
+   **/
+  @JsonProperty("enableComputeCluster")
+  public Boolean getEnableComputeCluster() {
+    return enableComputeCluster;
+  }
+
+  /**
+   * Setter for enableComputeCluster.
+   * Enable compute clusters for environment
+   **/
+  public void setEnableComputeCluster(Boolean enableComputeCluster) {
+    this.enableComputeCluster = enableComputeCluster;
+  }
+
+  /**
+   * Getter for computeClusterConfiguration.
+   * The Externalized k8s configuration create request for the environment
+   **/
+  @JsonProperty("computeClusterConfiguration")
+  public AWSComputeClusterConfigurationRequest getComputeClusterConfiguration() {
+    return computeClusterConfiguration;
+  }
+
+  /**
+   * Setter for computeClusterConfiguration.
+   * The Externalized k8s configuration create request for the environment
+   **/
+  public void setComputeClusterConfiguration(AWSComputeClusterConfigurationRequest computeClusterConfiguration) {
+    this.computeClusterConfiguration = computeClusterConfiguration;
+  }
+
+  /**
    * Getter for image.
    * The FreeIPA image request for the environment
    **/
@@ -632,6 +677,12 @@ public class CreateAWSEnvironmentRequest  {
     if (!Objects.equals(this.freeIpa, createAWSEnvironmentRequest.freeIpa)) {
       return false;
     }
+    if (!Objects.equals(this.enableComputeCluster, createAWSEnvironmentRequest.enableComputeCluster)) {
+      return false;
+    }
+    if (!Objects.equals(this.computeClusterConfiguration, createAWSEnvironmentRequest.computeClusterConfiguration)) {
+      return false;
+    }
     if (!Objects.equals(this.image, createAWSEnvironmentRequest.image)) {
       return false;
     }
@@ -652,7 +703,7 @@ public class CreateAWSEnvironmentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, securityAccess, authentication, logStorage, networkCidr, vpcId, subnetIds, createPrivateSubnets, createServiceEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, s3GuardTableName, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, image, tags, proxyConfigName, encryptionKeyArn, customDockerRegistry);
+    return Objects.hash(environmentName, credentialName, region, securityAccess, authentication, logStorage, networkCidr, vpcId, subnetIds, createPrivateSubnets, createServiceEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, s3GuardTableName, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, enableComputeCluster, computeClusterConfiguration, image, tags, proxyConfigName, encryptionKeyArn, customDockerRegistry);
   }
 
   @Override
@@ -678,6 +729,8 @@ public class CreateAWSEnvironmentRequest  {
     sb.append("    workloadAnalytics: ").append(toIndentedString(workloadAnalytics)).append("\n");
     sb.append("    reportDeploymentLogs: ").append(toIndentedString(reportDeploymentLogs)).append("\n");
     sb.append("    freeIpa: ").append(toIndentedString(freeIpa)).append("\n");
+    sb.append("    enableComputeCluster: ").append(toIndentedString(enableComputeCluster)).append("\n");
+    sb.append("    computeClusterConfiguration: ").append(toIndentedString(computeClusterConfiguration)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    proxyConfigName: ").append(toIndentedString(proxyConfigName)).append("\n");

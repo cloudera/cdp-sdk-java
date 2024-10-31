@@ -29,7 +29,7 @@ import java.util.Map;
 /**
  * Environment tags object containing the tag values defined for the environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:51.607-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:10.185-07:00")
 public class EnvironmentTags  {
 
   /**

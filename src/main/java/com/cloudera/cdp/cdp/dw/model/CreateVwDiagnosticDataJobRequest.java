@@ -32,7 +32,7 @@ import java.util.Map;
 /**
  * Request object for the createVwDiagnosticDataJob method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:49.860-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:08.143-07:00")
 public class CreateVwDiagnosticDataJobRequest  {
 
   /**
@@ -76,12 +76,12 @@ public class CreateVwDiagnosticDataJobRequest  {
   private Boolean force = false;
 
   /**
-   * Hive diagnostic options. If not provided, everything will be included into the Diagnostic Data.
+   * DEPRECATED: All logs are included by default
    **/
   private HiveCreateDiagnosticDataDownloadOptions hiveDownloadOptions = null;
 
   /**
-   * Impala diagnostic options. If not provided, everything will be included into the Diagnostic Data.
+   * DEPRECATED: All logs are included by default
    **/
   private ImpalaCreateDiagnosticDataDownloadOptions impalaDownloadOptions = null;
 
@@ -223,7 +223,7 @@ public class CreateVwDiagnosticDataJobRequest  {
 
   /**
    * Getter for hiveDownloadOptions.
-   * Hive diagnostic options. If not provided, everything will be included into the Diagnostic Data.
+   * DEPRECATED: All logs are included by default
    **/
   @JsonProperty("hiveDownloadOptions")
   public HiveCreateDiagnosticDataDownloadOptions getHiveDownloadOptions() {
@@ -232,7 +232,7 @@ public class CreateVwDiagnosticDataJobRequest  {
 
   /**
    * Setter for hiveDownloadOptions.
-   * Hive diagnostic options. If not provided, everything will be included into the Diagnostic Data.
+   * DEPRECATED: All logs are included by default
    **/
   public void setHiveDownloadOptions(HiveCreateDiagnosticDataDownloadOptions hiveDownloadOptions) {
     this.hiveDownloadOptions = hiveDownloadOptions;
@@ -240,7 +240,7 @@ public class CreateVwDiagnosticDataJobRequest  {
 
   /**
    * Getter for impalaDownloadOptions.
-   * Impala diagnostic options. If not provided, everything will be included into the Diagnostic Data.
+   * DEPRECATED: All logs are included by default
    **/
   @JsonProperty("impalaDownloadOptions")
   public ImpalaCreateDiagnosticDataDownloadOptions getImpalaDownloadOptions() {
@@ -249,7 +249,7 @@ public class CreateVwDiagnosticDataJobRequest  {
 
   /**
    * Setter for impalaDownloadOptions.
-   * Impala diagnostic options. If not provided, everything will be included into the Diagnostic Data.
+   * DEPRECATED: All logs are included by default
    **/
   public void setImpalaDownloadOptions(ImpalaCreateDiagnosticDataDownloadOptions impalaDownloadOptions) {
     this.impalaDownloadOptions = impalaDownloadOptions;

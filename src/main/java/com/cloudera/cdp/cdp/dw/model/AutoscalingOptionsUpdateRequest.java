@@ -28,7 +28,7 @@ import com.cloudera.cdp.dw.model.ImpalaExecutorGroupSetsUpdateRequest;
 /**
  * Auto-scaling configuration for a Virtual Warehouse. Provide those values only that you want to update.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:49.860-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:08.143-07:00")
 public class AutoscalingOptionsUpdateRequest  {
 
   /**

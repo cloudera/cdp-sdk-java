@@ -23,11 +23,14 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.environments.model.AWSComputeClusterConfiguration;
 import com.cloudera.cdp.environments.model.Authentication;
+import com.cloudera.cdp.environments.model.AzureComputeClusterConfiguration;
 import com.cloudera.cdp.environments.model.BackupStorage;
 import com.cloudera.cdp.environments.model.CustomDockerRegistryResponse;
 import com.cloudera.cdp.environments.model.DataServices;
 import com.cloudera.cdp.environments.model.EnvironmentAwsDetails;
+import com.cloudera.cdp.environments.model.EnvironmentAzureDetails;
 import com.cloudera.cdp.environments.model.EnvironmentGcpDetails;
 import com.cloudera.cdp.environments.model.EnvironmentTags;
 import com.cloudera.cdp.environments.model.FreeipaDetails;
@@ -40,7 +43,7 @@ import java.time.ZonedDateTime;
 /**
  * The environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-16T16:58:51.607-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:10.185-07:00")
 public class Environment  {
 
   /**
@@ -126,6 +129,11 @@ public class Environment  {
   /**
    * 
    **/
+  private EnvironmentAzureDetails azureDetails = null;
+
+  /**
+   * 
+   **/
   private EnvironmentGcpDetails gcpDetails = null;
 
   /**
@@ -162,6 +170,21 @@ public class Environment  {
    * The configured custom docker registry for data services on the environment.
    **/
   private CustomDockerRegistryResponse customDockerRegistry = null;
+
+  /**
+   * The Externalized AWS k8s configuration for the environment.
+   **/
+  private AWSComputeClusterConfiguration awsComputeClusterConfiguration = null;
+
+  /**
+   * The Externalized Azure k8s configuration for the environment.
+   **/
+  private AzureComputeClusterConfiguration azureComputeClusterConfiguration = null;
+
+  /**
+   * Compute clusters enabled
+   **/
+  private Boolean computeClusterEnabled = null;
 
   /**
    * Getter for environmentName.
@@ -436,6 +459,23 @@ public class Environment  {
   }
 
   /**
+   * Getter for azureDetails.
+   * 
+   **/
+  @JsonProperty("azureDetails")
+  public EnvironmentAzureDetails getAzureDetails() {
+    return azureDetails;
+  }
+
+  /**
+   * Setter for azureDetails.
+   * 
+   **/
+  public void setAzureDetails(EnvironmentAzureDetails azureDetails) {
+    this.azureDetails = azureDetails;
+  }
+
+  /**
    * Getter for gcpDetails.
    * 
    **/
@@ -571,6 +611,57 @@ public class Environment  {
     this.customDockerRegistry = customDockerRegistry;
   }
 
+  /**
+   * Getter for awsComputeClusterConfiguration.
+   * The Externalized AWS k8s configuration for the environment.
+   **/
+  @JsonProperty("awsComputeClusterConfiguration")
+  public AWSComputeClusterConfiguration getAwsComputeClusterConfiguration() {
+    return awsComputeClusterConfiguration;
+  }
+
+  /**
+   * Setter for awsComputeClusterConfiguration.
+   * The Externalized AWS k8s configuration for the environment.
+   **/
+  public void setAwsComputeClusterConfiguration(AWSComputeClusterConfiguration awsComputeClusterConfiguration) {
+    this.awsComputeClusterConfiguration = awsComputeClusterConfiguration;
+  }
+
+  /**
+   * Getter for azureComputeClusterConfiguration.
+   * The Externalized Azure k8s configuration for the environment.
+   **/
+  @JsonProperty("azureComputeClusterConfiguration")
+  public AzureComputeClusterConfiguration getAzureComputeClusterConfiguration() {
+    return azureComputeClusterConfiguration;
+  }
+
+  /**
+   * Setter for azureComputeClusterConfiguration.
+   * The Externalized Azure k8s configuration for the environment.
+   **/
+  public void setAzureComputeClusterConfiguration(AzureComputeClusterConfiguration azureComputeClusterConfiguration) {
+    this.azureComputeClusterConfiguration = azureComputeClusterConfiguration;
+  }
+
+  /**
+   * Getter for computeClusterEnabled.
+   * Compute clusters enabled
+   **/
+  @JsonProperty("computeClusterEnabled")
+  public Boolean getComputeClusterEnabled() {
+    return computeClusterEnabled;
+  }
+
+  /**
+   * Setter for computeClusterEnabled.
+   * Compute clusters enabled
+   **/
+  public void setComputeClusterEnabled(Boolean computeClusterEnabled) {
+    this.computeClusterEnabled = computeClusterEnabled;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -628,6 +719,9 @@ public class Environment  {
     if (!Objects.equals(this.awsDetails, environment.awsDetails)) {
       return false;
     }
+    if (!Objects.equals(this.azureDetails, environment.azureDetails)) {
+      return false;
+    }
     if (!Objects.equals(this.gcpDetails, environment.gcpDetails)) {
       return false;
     }
@@ -652,12 +746,21 @@ public class Environment  {
     if (!Objects.equals(this.customDockerRegistry, environment.customDockerRegistry)) {
       return false;
     }
+    if (!Objects.equals(this.awsComputeClusterConfiguration, environment.awsComputeClusterConfiguration)) {
+      return false;
+    }
+    if (!Objects.equals(this.azureComputeClusterConfiguration, environment.azureComputeClusterConfiguration)) {
+      return false;
+    }
+    if (!Objects.equals(this.computeClusterEnabled, environment.computeClusterEnabled)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, network, logStorage, backupStorage, authentication, securityAccess, description, statusReason, created, creator, awsDetails, gcpDetails, workloadAnalytics, reportDeploymentLogs, freeipa, proxyConfig, tags, dataServices, customDockerRegistry);
+    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, network, logStorage, backupStorage, authentication, securityAccess, description, statusReason, created, creator, awsDetails, azureDetails, gcpDetails, workloadAnalytics, reportDeploymentLogs, freeipa, proxyConfig, tags, dataServices, customDockerRegistry, awsComputeClusterConfiguration, azureComputeClusterConfiguration, computeClusterEnabled);
   }
 
   @Override
@@ -680,6 +783,7 @@ public class Environment  {
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");
     sb.append("    awsDetails: ").append(toIndentedString(awsDetails)).append("\n");
+    sb.append("    azureDetails: ").append(toIndentedString(azureDetails)).append("\n");
     sb.append("    gcpDetails: ").append(toIndentedString(gcpDetails)).append("\n");
     sb.append("    workloadAnalytics: ").append(toIndentedString(workloadAnalytics)).append("\n");
     sb.append("    reportDeploymentLogs: ").append(toIndentedString(reportDeploymentLogs)).append("\n");
@@ -688,6 +792,9 @@ public class Environment  {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    dataServices: ").append(toIndentedString(dataServices)).append("\n");
     sb.append("    customDockerRegistry: ").append(toIndentedString(customDockerRegistry)).append("\n");
+    sb.append("    awsComputeClusterConfiguration: ").append(toIndentedString(awsComputeClusterConfiguration)).append("\n");
+    sb.append("    azureComputeClusterConfiguration: ").append(toIndentedString(azureComputeClusterConfiguration)).append("\n");
+    sb.append("    computeClusterEnabled: ").append(toIndentedString(computeClusterEnabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }
