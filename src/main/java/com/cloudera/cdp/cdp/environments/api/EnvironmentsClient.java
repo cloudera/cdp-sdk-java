@@ -117,6 +117,8 @@ import com.cloudera.cdp.environments.model.InitializeAWSComputeClusterRequest;
 import com.cloudera.cdp.environments.model.InitializeAWSComputeClusterResponse;
 import com.cloudera.cdp.environments.model.InitializeAzureComputeClusterRequest;
 import com.cloudera.cdp.environments.model.InitializeAzureComputeClusterResponse;
+import com.cloudera.cdp.environments.model.LastSyncStatusRequest;
+import com.cloudera.cdp.environments.model.LastSyncStatusResponse;
 import com.cloudera.cdp.environments.model.ListAuditCredentialsRequest;
 import com.cloudera.cdp.environments.model.ListAuditCredentialsResponse;
 import com.cloudera.cdp.environments.model.ListConnectedDataServicesRequest;
@@ -221,7 +223,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:10.185-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:26.302-08:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -822,6 +824,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("initializeAzureComputeCluster", "/api/v1/environments2/initializeAzureComputeCluster", input, new GenericType<InitializeAzureComputeClusterResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Returns status of the sync operation for the environment crn.
+   * @param input
+   * @return LastSyncStatusResponse
+   */
+  public LastSyncStatusResponse lastSyncStatus(LastSyncStatusRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling lastSyncStatus");
+    }
+
+    return this.invokeAPI("lastSyncStatus", "/api/v1/environments2/lastSyncStatus", input, new GenericType<LastSyncStatusResponse>(){}, NO_EXTENSION);
   }
 
   /**

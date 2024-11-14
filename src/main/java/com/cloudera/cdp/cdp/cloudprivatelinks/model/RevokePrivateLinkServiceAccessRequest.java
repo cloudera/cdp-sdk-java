@@ -27,13 +27,18 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the RevokePrivateLinkServiceAccess method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:13.298-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:28.902-08:00")
 public class RevokePrivateLinkServiceAccessRequest  {
 
   /**
-   * Account ID to revoke access for PrivateLink.
+   * AWS account ID to authorize access for PrivateLink.
    **/
   private String cloudAccountId = null;
+
+  /**
+   * Azure subscription ID to authorize access for PrivateLink.
+   **/
+  private String subscriptionId = null;
 
   /**
    * Region where the private link service exists.
@@ -46,8 +51,13 @@ public class RevokePrivateLinkServiceAccessRequest  {
   private String serviceGroup = null;
 
   /**
+   * Cloud Service Provider. Currently supporting AWS and AZURE.
+   **/
+  private String cloudServiceProvider = null;
+
+  /**
    * Getter for cloudAccountId.
-   * Account ID to revoke access for PrivateLink.
+   * AWS account ID to authorize access for PrivateLink.
    **/
   @JsonProperty("cloudAccountId")
   public String getCloudAccountId() {
@@ -56,10 +66,27 @@ public class RevokePrivateLinkServiceAccessRequest  {
 
   /**
    * Setter for cloudAccountId.
-   * Account ID to revoke access for PrivateLink.
+   * AWS account ID to authorize access for PrivateLink.
    **/
   public void setCloudAccountId(String cloudAccountId) {
     this.cloudAccountId = cloudAccountId;
+  }
+
+  /**
+   * Getter for subscriptionId.
+   * Azure subscription ID to authorize access for PrivateLink.
+   **/
+  @JsonProperty("subscriptionId")
+  public String getSubscriptionId() {
+    return subscriptionId;
+  }
+
+  /**
+   * Setter for subscriptionId.
+   * Azure subscription ID to authorize access for PrivateLink.
+   **/
+  public void setSubscriptionId(String subscriptionId) {
+    this.subscriptionId = subscriptionId;
   }
 
   /**
@@ -96,6 +123,23 @@ public class RevokePrivateLinkServiceAccessRequest  {
     this.serviceGroup = serviceGroup;
   }
 
+  /**
+   * Getter for cloudServiceProvider.
+   * Cloud Service Provider. Currently supporting AWS and AZURE.
+   **/
+  @JsonProperty("cloudServiceProvider")
+  public String getCloudServiceProvider() {
+    return cloudServiceProvider;
+  }
+
+  /**
+   * Setter for cloudServiceProvider.
+   * Cloud Service Provider. Currently supporting AWS and AZURE.
+   **/
+  public void setCloudServiceProvider(String cloudServiceProvider) {
+    this.cloudServiceProvider = cloudServiceProvider;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -108,10 +152,16 @@ public class RevokePrivateLinkServiceAccessRequest  {
     if (!Objects.equals(this.cloudAccountId, revokePrivateLinkServiceAccessRequest.cloudAccountId)) {
       return false;
     }
+    if (!Objects.equals(this.subscriptionId, revokePrivateLinkServiceAccessRequest.subscriptionId)) {
+      return false;
+    }
     if (!Objects.equals(this.region, revokePrivateLinkServiceAccessRequest.region)) {
       return false;
     }
     if (!Objects.equals(this.serviceGroup, revokePrivateLinkServiceAccessRequest.serviceGroup)) {
+      return false;
+    }
+    if (!Objects.equals(this.cloudServiceProvider, revokePrivateLinkServiceAccessRequest.cloudServiceProvider)) {
       return false;
     }
     return true;
@@ -119,7 +169,7 @@ public class RevokePrivateLinkServiceAccessRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(cloudAccountId, region, serviceGroup);
+    return Objects.hash(cloudAccountId, subscriptionId, region, serviceGroup, cloudServiceProvider);
   }
 
   @Override
@@ -127,8 +177,10 @@ public class RevokePrivateLinkServiceAccessRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class RevokePrivateLinkServiceAccessRequest {\n");
     sb.append("    cloudAccountId: ").append(toIndentedString(cloudAccountId)).append("\n");
+    sb.append("    subscriptionId: ").append(toIndentedString(subscriptionId)).append("\n");
     sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    serviceGroup: ").append(toIndentedString(serviceGroup)).append("\n");
+    sb.append("    cloudServiceProvider: ").append(toIndentedString(cloudServiceProvider)).append("\n");
     sb.append("}");
     return sb.toString();
   }

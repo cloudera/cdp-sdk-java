@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Details of the cloud network and the cross-account role required to create the PrivateLink endpoint.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:13.298-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:28.902-08:00")
 public class AWSAccountDetails  {
 
   /**

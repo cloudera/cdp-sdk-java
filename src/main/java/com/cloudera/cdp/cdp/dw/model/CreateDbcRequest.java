@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the createDbc method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:08.143-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:24.581-08:00")
 public class CreateDbcRequest  {
 
   /**
@@ -61,17 +61,17 @@ public class CreateDbcRequest  {
   private Boolean isDefault = false;
 
   /**
-   * The name of the Metastore database.
+   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the Metastore database.
    **/
   private String dbMetastore = "";
 
   /**
-   * The name of the DAS database. Not required for embedded databases.
+   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the DAS database. Not required for embedded databases.
    **/
   private String dbDas = "";
 
   /**
-   * The name of the HUE database. Not required for embedded databases.
+   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the HUE database. Not required for embedded databases.
    **/
   private String dbHue = "";
 
@@ -181,8 +181,9 @@ public class CreateDbcRequest  {
 
   /**
    * Getter for dbMetastore.
-   * The name of the Metastore database.
+   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the Metastore database.
    **/
+  @Deprecated
   @JsonProperty("dbMetastore")
   public String getDbMetastore() {
     return dbMetastore;
@@ -190,16 +191,18 @@ public class CreateDbcRequest  {
 
   /**
    * Setter for dbMetastore.
-   * The name of the Metastore database.
+   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the Metastore database.
    **/
+  @Deprecated
   public void setDbMetastore(String dbMetastore) {
     this.dbMetastore = dbMetastore;
   }
 
   /**
    * Getter for dbDas.
-   * The name of the DAS database. Not required for embedded databases.
+   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the DAS database. Not required for embedded databases.
    **/
+  @Deprecated
   @JsonProperty("dbDas")
   public String getDbDas() {
     return dbDas;
@@ -207,16 +210,18 @@ public class CreateDbcRequest  {
 
   /**
    * Setter for dbDas.
-   * The name of the DAS database. Not required for embedded databases.
+   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the DAS database. Not required for embedded databases.
    **/
+  @Deprecated
   public void setDbDas(String dbDas) {
     this.dbDas = dbDas;
   }
 
   /**
    * Getter for dbHue.
-   * The name of the HUE database. Not required for embedded databases.
+   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the HUE database. Not required for embedded databases.
    **/
+  @Deprecated
   @JsonProperty("dbHue")
   public String getDbHue() {
     return dbHue;
@@ -224,8 +229,9 @@ public class CreateDbcRequest  {
 
   /**
    * Setter for dbHue.
-   * The name of the HUE database. Not required for embedded databases.
+   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the HUE database. Not required for embedded databases.
    **/
+  @Deprecated
   public void setDbHue(String dbHue) {
     this.dbHue = dbHue;
   }

@@ -28,7 +28,7 @@ import com.cloudera.cdp.dw.model.KeyPairCredentials;
 /**
  * Options for activating a Private Cloud environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:08.143-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:24.581-08:00")
 public class PrivateCloudActivationOptions  {
 
   /**
@@ -42,7 +42,7 @@ public class PrivateCloudActivationOptions  {
   private String delegationPassword = null;
 
   /**
-   * The name of the Hive Security Context Constraint.
+   * DEPRECATED: This option will be removed in future releases. Instead of creating a custom Security Context Constraint, we rely on the cluster default. The name of the Hive Security Context Constraint.
    **/
   private String securityContextConstraintName = null;
 
@@ -52,12 +52,12 @@ public class PrivateCloudActivationOptions  {
   private String storageClass = null;
 
   /**
-   * The name of the DAS database. Not required for embedded databases
+   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the DAS database. Not required for embedded databases.
    **/
   private String dbDas = null;
 
   /**
-   * The name of the HUE database. Not required for embedded databases.
+   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the HUE database. Not required for embedded databases.
    **/
   private String dbHue = null;
 
@@ -111,8 +111,9 @@ public class PrivateCloudActivationOptions  {
 
   /**
    * Getter for securityContextConstraintName.
-   * The name of the Hive Security Context Constraint.
+   * DEPRECATED: This option will be removed in future releases. Instead of creating a custom Security Context Constraint, we rely on the cluster default. The name of the Hive Security Context Constraint.
    **/
+  @Deprecated
   @JsonProperty("securityContextConstraintName")
   public String getSecurityContextConstraintName() {
     return securityContextConstraintName;
@@ -120,8 +121,9 @@ public class PrivateCloudActivationOptions  {
 
   /**
    * Setter for securityContextConstraintName.
-   * The name of the Hive Security Context Constraint.
+   * DEPRECATED: This option will be removed in future releases. Instead of creating a custom Security Context Constraint, we rely on the cluster default. The name of the Hive Security Context Constraint.
    **/
+  @Deprecated
   public void setSecurityContextConstraintName(String securityContextConstraintName) {
     this.securityContextConstraintName = securityContextConstraintName;
   }
@@ -145,8 +147,9 @@ public class PrivateCloudActivationOptions  {
 
   /**
    * Getter for dbDas.
-   * The name of the DAS database. Not required for embedded databases
+   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the DAS database. Not required for embedded databases.
    **/
+  @Deprecated
   @JsonProperty("dbDas")
   public String getDbDas() {
     return dbDas;
@@ -154,16 +157,18 @@ public class PrivateCloudActivationOptions  {
 
   /**
    * Setter for dbDas.
-   * The name of the DAS database. Not required for embedded databases
+   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the DAS database. Not required for embedded databases.
    **/
+  @Deprecated
   public void setDbDas(String dbDas) {
     this.dbDas = dbDas;
   }
 
   /**
    * Getter for dbHue.
-   * The name of the HUE database. Not required for embedded databases.
+   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the HUE database. Not required for embedded databases.
    **/
+  @Deprecated
   @JsonProperty("dbHue")
   public String getDbHue() {
     return dbHue;
@@ -171,8 +176,9 @@ public class PrivateCloudActivationOptions  {
 
   /**
    * Setter for dbHue.
-   * The name of the HUE database. Not required for embedded databases.
+   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the HUE database. Not required for embedded databases.
    **/
+  @Deprecated
   public void setDbHue(String dbHue) {
     this.dbHue = dbHue;
   }

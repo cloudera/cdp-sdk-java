@@ -28,7 +28,7 @@ import com.cloudera.cdp.datahub.model.Recipe;
 /**
  * Response object for describe recipe request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:07.338-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:23.628-08:00")
 public class DescribeRecipeResponse extends CdpResponse {
 
   /**

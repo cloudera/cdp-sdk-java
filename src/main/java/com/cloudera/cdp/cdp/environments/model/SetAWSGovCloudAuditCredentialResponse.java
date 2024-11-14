@@ -28,7 +28,7 @@ import com.cloudera.cdp.environments.model.Credential;
 /**
  * Response object for a set AWS GovCloud audit credential request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:10.185-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:26.302-08:00")
 public class SetAWSGovCloudAuditCredentialResponse extends CdpResponse {
 
   /**

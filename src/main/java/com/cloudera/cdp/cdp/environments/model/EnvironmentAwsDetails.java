@@ -27,18 +27,19 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * AWS-specific environment configuration information.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:10.185-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:26.302-08:00")
 public class EnvironmentAwsDetails  {
 
   /**
-   * The name for the DynamoDB table backing S3Guard.
+   * Deprecated. S3Guard was used to ensure consistent S3 updates when S3 was still eventually consistent. With the introduction of Consistent S3, the goal and usage of S3 Guard have become superfluous and defunct.
    **/
   private String s3GuardTableName = null;
 
   /**
    * Getter for s3GuardTableName.
-   * The name for the DynamoDB table backing S3Guard.
+   * Deprecated. S3Guard was used to ensure consistent S3 updates when S3 was still eventually consistent. With the introduction of Consistent S3, the goal and usage of S3 Guard have become superfluous and defunct.
    **/
+  @Deprecated
   @JsonProperty("s3GuardTableName")
   public String getS3GuardTableName() {
     return s3GuardTableName;
@@ -46,8 +47,9 @@ public class EnvironmentAwsDetails  {
 
   /**
    * Setter for s3GuardTableName.
-   * The name for the DynamoDB table backing S3Guard.
+   * Deprecated. S3Guard was used to ensure consistent S3 updates when S3 was still eventually consistent. With the introduction of Consistent S3, the goal and usage of S3 Guard have become superfluous and defunct.
    **/
+  @Deprecated
   public void setS3GuardTableName(String s3GuardTableName) {
     this.s3GuardTableName = s3GuardTableName;
   }

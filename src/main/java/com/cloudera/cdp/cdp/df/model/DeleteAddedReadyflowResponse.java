@@ -28,7 +28,7 @@ import com.cloudera.cdp.df.model.ReadyflowDetails;
 /**
  * Response object for the DeleteAddedReadyflow method
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:11.899-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:27.676-08:00")
 public class DeleteAddedReadyflowResponse extends CdpResponse {
 
   /**

@@ -28,7 +28,7 @@ import com.cloudera.cdp.dw.model.KeyPairCredentials;
 /**
  * Request object for the createPrivateCluster method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:08.143-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:24.581-08:00")
 public class CreatePrivateClusterRequest  {
 
   /**
@@ -47,7 +47,7 @@ public class CreatePrivateClusterRequest  {
   private String delegationPassword = null;
 
   /**
-   * The name of the Hive Security Context Constraint.
+   * DEPRECATED: This option will be removed in future releases. Instead of creating a custom Security Context Constraint, we rely on the cluster default. The name of the Hive Security Context Constraint.
    **/
   private String securityContextConstraintName = null;
 
@@ -133,8 +133,9 @@ public class CreatePrivateClusterRequest  {
 
   /**
    * Getter for securityContextConstraintName.
-   * The name of the Hive Security Context Constraint.
+   * DEPRECATED: This option will be removed in future releases. Instead of creating a custom Security Context Constraint, we rely on the cluster default. The name of the Hive Security Context Constraint.
    **/
+  @Deprecated
   @JsonProperty("securityContextConstraintName")
   public String getSecurityContextConstraintName() {
     return securityContextConstraintName;
@@ -142,8 +143,9 @@ public class CreatePrivateClusterRequest  {
 
   /**
    * Setter for securityContextConstraintName.
-   * The name of the Hive Security Context Constraint.
+   * DEPRECATED: This option will be removed in future releases. Instead of creating a custom Security Context Constraint, we rely on the cluster default. The name of the Hive Security Context Constraint.
    **/
+  @Deprecated
   public void setSecurityContextConstraintName(String securityContextConstraintName) {
     this.securityContextConstraintName = securityContextConstraintName;
   }

@@ -27,17 +27,17 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Volume encryption response structure.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:12.705-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:28.434-08:00")
 public class CommonVolumeEncryptionResp  {
 
   /**
-   * The KMS key ARN used.
+   * AWS KMS key ARN.
    **/
   private String customerKmsKeyArn = null;
 
   /**
    * Getter for customerKmsKeyArn.
-   * The KMS key ARN used.
+   * AWS KMS key ARN.
    **/
   @JsonProperty("customerKmsKeyArn")
   public String getCustomerKmsKeyArn() {
@@ -46,7 +46,7 @@ public class CommonVolumeEncryptionResp  {
 
   /**
    * Setter for customerKmsKeyArn.
-   * The KMS key ARN used.
+   * AWS KMS key ARN.
    **/
   public void setCustomerKmsKeyArn(String customerKmsKeyArn) {
     this.customerKmsKeyArn = customerKmsKeyArn;

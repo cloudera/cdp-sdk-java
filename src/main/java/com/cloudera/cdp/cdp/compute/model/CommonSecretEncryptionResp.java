@@ -27,22 +27,17 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Secret Encryption response structure.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:12.705-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:28.434-08:00")
 public class CommonSecretEncryptionResp  {
 
   /**
-   * The KMS key ARN used.
+   * AWS KMS key ARN.
    **/
   private String customerKmsKeyArn = null;
 
   /**
-   * Flag to indicate if secret encryption is enabled.
-   **/
-  private Boolean enabled = null;
-
-  /**
    * Getter for customerKmsKeyArn.
-   * The KMS key ARN used.
+   * AWS KMS key ARN.
    **/
   @JsonProperty("customerKmsKeyArn")
   public String getCustomerKmsKeyArn() {
@@ -51,27 +46,10 @@ public class CommonSecretEncryptionResp  {
 
   /**
    * Setter for customerKmsKeyArn.
-   * The KMS key ARN used.
+   * AWS KMS key ARN.
    **/
   public void setCustomerKmsKeyArn(String customerKmsKeyArn) {
     this.customerKmsKeyArn = customerKmsKeyArn;
-  }
-
-  /**
-   * Getter for enabled.
-   * Flag to indicate if secret encryption is enabled.
-   **/
-  @JsonProperty("enabled")
-  public Boolean getEnabled() {
-    return enabled;
-  }
-
-  /**
-   * Setter for enabled.
-   * Flag to indicate if secret encryption is enabled.
-   **/
-  public void setEnabled(Boolean enabled) {
-    this.enabled = enabled;
   }
 
   @Override
@@ -86,15 +64,12 @@ public class CommonSecretEncryptionResp  {
     if (!Objects.equals(this.customerKmsKeyArn, commonSecretEncryptionResp.customerKmsKeyArn)) {
       return false;
     }
-    if (!Objects.equals(this.enabled, commonSecretEncryptionResp.enabled)) {
-      return false;
-    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerKmsKeyArn, enabled);
+    return Objects.hash(customerKmsKeyArn);
   }
 
   @Override
@@ -102,7 +77,6 @@ public class CommonSecretEncryptionResp  {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommonSecretEncryptionResp {\n");
     sb.append("    customerKmsKeyArn: ").append(toIndentedString(customerKmsKeyArn)).append("\n");
-    sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
     sb.append("}");
     return sb.toString();
   }

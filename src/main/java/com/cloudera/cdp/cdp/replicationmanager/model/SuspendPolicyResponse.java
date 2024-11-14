@@ -27,8 +27,96 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object for suspendPolicy.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-10-31T09:45:13.128-07:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:28.719-08:00")
 public class SuspendPolicyResponse extends CdpResponse {
+
+  /**
+   * The CRN of the input cluster.
+   **/
+  private String clusterCrn = null;
+
+  /**
+   * The ID of the request. Populated only for Ambari backend.
+   **/
+  private String requestId = null;
+
+  /**
+   * The detailed description of the action taken.
+   **/
+  private String message = null;
+
+  /**
+   * The status of the request.
+   **/
+  private String status = null;
+
+  /**
+   * Getter for clusterCrn.
+   * The CRN of the input cluster.
+   **/
+  @JsonProperty("clusterCrn")
+  public String getClusterCrn() {
+    return clusterCrn;
+  }
+
+  /**
+   * Setter for clusterCrn.
+   * The CRN of the input cluster.
+   **/
+  public void setClusterCrn(String clusterCrn) {
+    this.clusterCrn = clusterCrn;
+  }
+
+  /**
+   * Getter for requestId.
+   * The ID of the request. Populated only for Ambari backend.
+   **/
+  @JsonProperty("requestId")
+  public String getRequestId() {
+    return requestId;
+  }
+
+  /**
+   * Setter for requestId.
+   * The ID of the request. Populated only for Ambari backend.
+   **/
+  public void setRequestId(String requestId) {
+    this.requestId = requestId;
+  }
+
+  /**
+   * Getter for message.
+   * The detailed description of the action taken.
+   **/
+  @JsonProperty("message")
+  public String getMessage() {
+    return message;
+  }
+
+  /**
+   * Setter for message.
+   * The detailed description of the action taken.
+   **/
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
+  /**
+   * Getter for status.
+   * The status of the request.
+   **/
+  @JsonProperty("status")
+  public String getStatus() {
+    return status;
+  }
+
+  /**
+   * Setter for status.
+   * The status of the request.
+   **/
+  public void setStatus(String status) {
+    this.status = status;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -36,6 +124,19 @@ public class SuspendPolicyResponse extends CdpResponse {
       return true;
     }
     if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    SuspendPolicyResponse suspendPolicyResponse = (SuspendPolicyResponse) o;
+    if (!Objects.equals(this.clusterCrn, suspendPolicyResponse.clusterCrn)) {
+      return false;
+    }
+    if (!Objects.equals(this.requestId, suspendPolicyResponse.requestId)) {
+      return false;
+    }
+    if (!Objects.equals(this.message, suspendPolicyResponse.message)) {
+      return false;
+    }
+    if (!Objects.equals(this.status, suspendPolicyResponse.status)) {
       return false;
     }
     if (!super.equals(o)) {
@@ -46,7 +147,7 @@ public class SuspendPolicyResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash( super.hashCode());
+    return Objects.hash(clusterCrn, requestId, message, status, super.hashCode());
   }
 
   @Override
@@ -54,6 +155,10 @@ public class SuspendPolicyResponse extends CdpResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class SuspendPolicyResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    clusterCrn: ").append(toIndentedString(clusterCrn)).append("\n");
+    sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");
     return sb.toString();
   }
