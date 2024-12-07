@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * EKS instance response structure.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:28.434-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-06T11:27:19.452-08:00")
 public class EksInstance  {
 
   /**
@@ -39,6 +39,11 @@ public class EksInstance  {
    * Availability zone.
    **/
   private String availabilityZone = null;
+
+  /**
+   * Subnet ID.
+   **/
+  private String subnetId = null;
 
   /**
    * Getter for instanceId.
@@ -74,6 +79,23 @@ public class EksInstance  {
     this.availabilityZone = availabilityZone;
   }
 
+  /**
+   * Getter for subnetId.
+   * Subnet ID.
+   **/
+  @JsonProperty("subnetId")
+  public String getSubnetId() {
+    return subnetId;
+  }
+
+  /**
+   * Setter for subnetId.
+   * Subnet ID.
+   **/
+  public void setSubnetId(String subnetId) {
+    this.subnetId = subnetId;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -89,12 +111,15 @@ public class EksInstance  {
     if (!Objects.equals(this.availabilityZone, eksInstance.availabilityZone)) {
       return false;
     }
+    if (!Objects.equals(this.subnetId, eksInstance.subnetId)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceId, availabilityZone);
+    return Objects.hash(instanceId, availabilityZone, subnetId);
   }
 
   @Override
@@ -103,6 +128,7 @@ public class EksInstance  {
     sb.append("class EksInstance {\n");
     sb.append("    instanceId: ").append(toIndentedString(instanceId)).append("\n");
     sb.append("    availabilityZone: ").append(toIndentedString(availabilityZone)).append("\n");
+    sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

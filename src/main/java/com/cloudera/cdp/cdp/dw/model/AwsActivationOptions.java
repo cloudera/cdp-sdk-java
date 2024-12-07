@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Options for activating an AWS environment.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:24.581-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-06T11:27:15.173-08:00")
 public class AwsActivationOptions  {
 
   /**
@@ -70,11 +70,6 @@ public class AwsActivationOptions  {
    * NOTE: The cluster level instance type selection will be replaced by virtual warehouse level selection. AWS compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values.
    **/
   private List<String> computeInstanceTypes = new ArrayList<String>();
-
-  /**
-   * DEPRECATED: Additional compute instance types will be removed in subsequent releases. Additional (fallback) instance types listed in their priority order. They will be used instead of the primary compute instance type in case it is unavailable. You cannot include any instance type that was already indicated in computeInstanceTypes. Use describe-allowed-instance-types to see currently supported values and also the default value when nothing is provided for the computeInstanceTypes.
-   **/
-  private List<String> additionalInstanceTypes = new ArrayList<String>();
 
   /**
    * Getter for enablePrivateEKS.
@@ -212,25 +207,6 @@ public class AwsActivationOptions  {
     this.computeInstanceTypes = computeInstanceTypes;
   }
 
-  /**
-   * Getter for additionalInstanceTypes.
-   * DEPRECATED: Additional compute instance types will be removed in subsequent releases. Additional (fallback) instance types listed in their priority order. They will be used instead of the primary compute instance type in case it is unavailable. You cannot include any instance type that was already indicated in computeInstanceTypes. Use describe-allowed-instance-types to see currently supported values and also the default value when nothing is provided for the computeInstanceTypes.
-   **/
-  @Deprecated
-  @JsonProperty("additionalInstanceTypes")
-  public List<String> getAdditionalInstanceTypes() {
-    return additionalInstanceTypes;
-  }
-
-  /**
-   * Setter for additionalInstanceTypes.
-   * DEPRECATED: Additional compute instance types will be removed in subsequent releases. Additional (fallback) instance types listed in their priority order. They will be used instead of the primary compute instance type in case it is unavailable. You cannot include any instance type that was already indicated in computeInstanceTypes. Use describe-allowed-instance-types to see currently supported values and also the default value when nothing is provided for the computeInstanceTypes.
-   **/
-  @Deprecated
-  public void setAdditionalInstanceTypes(List<String> additionalInstanceTypes) {
-    this.additionalInstanceTypes = additionalInstanceTypes;
-  }
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -264,15 +240,12 @@ public class AwsActivationOptions  {
     if (!Objects.equals(this.computeInstanceTypes, awsActivationOptions.computeInstanceTypes)) {
       return false;
     }
-    if (!Objects.equals(this.additionalInstanceTypes, awsActivationOptions.additionalInstanceTypes)) {
-      return false;
-    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(enablePrivateEKS, workerSubnetIds, lbSubnetIds, customAmiId, nodeRoleCDWManagedPolicyArn, enableSpotInstances, reducedPermissionMode, computeInstanceTypes, additionalInstanceTypes);
+    return Objects.hash(enablePrivateEKS, workerSubnetIds, lbSubnetIds, customAmiId, nodeRoleCDWManagedPolicyArn, enableSpotInstances, reducedPermissionMode, computeInstanceTypes);
   }
 
   @Override
@@ -287,7 +260,6 @@ public class AwsActivationOptions  {
     sb.append("    enableSpotInstances: ").append(toIndentedString(enableSpotInstances)).append("\n");
     sb.append("    reducedPermissionMode: ").append(toIndentedString(reducedPermissionMode)).append("\n");
     sb.append("    computeInstanceTypes: ").append(toIndentedString(computeInstanceTypes)).append("\n");
-    sb.append("    additionalInstanceTypes: ").append(toIndentedString(additionalInstanceTypes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

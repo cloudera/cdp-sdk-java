@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for Restore Service command.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:27.102-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-06T11:27:17.909-08:00")
 public class RestoreServiceRequest  {
 
   /**
@@ -41,7 +41,7 @@ public class RestoreServiceRequest  {
   private String environmentCrn = null;
 
   /**
-   * Specify the restored service ID. If not specified, the service ID from the backup will be reused.
+   * Specify the restored service ID. If not specified, a new service ID will be generated.
    **/
   private String serviceId = null;
 
@@ -86,7 +86,7 @@ public class RestoreServiceRequest  {
 
   /**
    * Getter for serviceId.
-   * Specify the restored service ID. If not specified, the service ID from the backup will be reused.
+   * Specify the restored service ID. If not specified, a new service ID will be generated.
    **/
   @JsonProperty("serviceId")
   public String getServiceId() {
@@ -95,7 +95,7 @@ public class RestoreServiceRequest  {
 
   /**
    * Setter for serviceId.
-   * Specify the restored service ID. If not specified, the service ID from the backup will be reused.
+   * Specify the restored service ID. If not specified, a new service ID will be generated.
    **/
   public void setServiceId(String serviceId) {
     this.serviceId = serviceId;

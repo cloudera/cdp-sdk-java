@@ -32,6 +32,10 @@ import com.cloudera.cdp.opdb.model.CollectDiagnosticsRequest;
 import com.cloudera.cdp.opdb.model.CollectDiagnosticsResponse;
 import com.cloudera.cdp.opdb.model.CreateDatabaseRequest;
 import com.cloudera.cdp.opdb.model.CreateDatabaseResponse;
+import com.cloudera.cdp.opdb.model.CreateSnapshotRequest;
+import com.cloudera.cdp.opdb.model.CreateSnapshotResponse;
+import com.cloudera.cdp.opdb.model.DeleteSnapshotRequest;
+import com.cloudera.cdp.opdb.model.DeleteSnapshotResponse;
 import com.cloudera.cdp.opdb.model.DescribeClientConnectivityRequest;
 import com.cloudera.cdp.opdb.model.DescribeClientConnectivityResponse;
 import com.cloudera.cdp.opdb.model.DescribeDatabaseRequest;
@@ -45,8 +49,14 @@ import com.cloudera.cdp.opdb.model.ListDatabasesRequest;
 import com.cloudera.cdp.opdb.model.ListDatabasesResponse;
 import com.cloudera.cdp.opdb.model.ListDiagnosticsRequest;
 import com.cloudera.cdp.opdb.model.ListDiagnosticsResponse;
+import com.cloudera.cdp.opdb.model.ListRestoreSnapshotsRequest;
+import com.cloudera.cdp.opdb.model.ListRestoreSnapshotsResponse;
+import com.cloudera.cdp.opdb.model.ListSnapshotsRequest;
+import com.cloudera.cdp.opdb.model.ListSnapshotsResponse;
 import com.cloudera.cdp.opdb.model.ListSupportedEnvironmentsRequest;
 import com.cloudera.cdp.opdb.model.ListSupportedEnvironmentsResponse;
+import com.cloudera.cdp.opdb.model.RestoreSnapshotRequest;
+import com.cloudera.cdp.opdb.model.RestoreSnapshotResponse;
 import com.cloudera.cdp.opdb.model.StartDatabaseRequest;
 import com.cloudera.cdp.opdb.model.StartDatabaseResponse;
 import com.cloudera.cdp.opdb.model.StopDatabaseRequest;
@@ -61,7 +71,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:26.816-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-06T11:27:17.600-08:00")
 public class OpdbClient extends CdpClient {
 
   public static final String SERVICE_NAME = "opdb";
@@ -116,6 +126,32 @@ public class OpdbClient extends CdpClient {
     }
 
     return this.invokeAPI("createDatabase", "/api/v1/opdb/createDatabase", input, new GenericType<CreateDatabaseResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Creates a snapshot for a specific table.
+   * @param input
+   * @return CreateSnapshotResponse
+   */
+  public CreateSnapshotResponse createSnapshot(CreateSnapshotRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createSnapshot");
+    }
+
+    return this.invokeAPI("createSnapshot", "/api/v1/opdb/createSnapshot", input, new GenericType<CreateSnapshotResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Deletes a snapshot.
+   * @param input
+   * @return DeleteSnapshotResponse
+   */
+  public DeleteSnapshotResponse deleteSnapshot(DeleteSnapshotRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteSnapshot");
+    }
+
+    return this.invokeAPI("deleteSnapshot", "/api/v1/opdb/deleteSnapshot", input, new GenericType<DeleteSnapshotResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -197,6 +233,32 @@ public class OpdbClient extends CdpClient {
   }
 
   /**
+   * Lists instances when a snapshot was restored to a database.
+   * @param input
+   * @return ListRestoreSnapshotsResponse
+   */
+  public ListRestoreSnapshotsResponse listRestoreSnapshots(ListRestoreSnapshotsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listRestoreSnapshots");
+    }
+
+    return this.invokeAPI("listRestoreSnapshots", "/api/v1/opdb/listRestoreSnapshots", input, new GenericType<ListRestoreSnapshotsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Shows snapshot for a table name in a specific location.
+   * @param input
+   * @return ListSnapshotsResponse
+   */
+  public ListSnapshotsResponse listSnapshots(ListSnapshotsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listSnapshots");
+    }
+
+    return this.invokeAPI("listSnapshots", "/api/v1/opdb/listSnapshots", input, new GenericType<ListSnapshotsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * List of environments available for the database creation
    * @param input
    * @return ListSupportedEnvironmentsResponse
@@ -207,6 +269,19 @@ public class OpdbClient extends CdpClient {
     }
 
     return this.invokeAPI("listSupportedEnvironments", "/api/v1/opdb/listSupportedEnvironments", input, new GenericType<ListSupportedEnvironmentsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Restores a snapshot.
+   * @param input
+   * @return RestoreSnapshotResponse
+   */
+  public RestoreSnapshotResponse restoreSnapshot(RestoreSnapshotRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling restoreSnapshot");
+    }
+
+    return this.invokeAPI("restoreSnapshot", "/api/v1/opdb/restoreSnapshot", input, new GenericType<RestoreSnapshotResponse>(){}, NO_EXTENSION);
   }
 
   /**

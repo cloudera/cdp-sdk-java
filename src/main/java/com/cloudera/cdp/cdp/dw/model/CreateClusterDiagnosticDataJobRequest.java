@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * Request object for the createClusterDiagnosticDataJob method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:24.581-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-06T11:27:15.173-08:00")
 public class CreateClusterDiagnosticDataJobRequest  {
 
   /**
@@ -70,7 +70,7 @@ public class CreateClusterDiagnosticDataJobRequest  {
   private Boolean force = false;
 
   /**
-   * Cluster diagnostic options. If not provided, everything will be included in the Diagnostic Data.
+   * DEPRECATED: All logs are included by default. No need to specify options
    **/
   private ClusterCreateDiagnosticDataDownloadOptions downloadOptions = null;
 
@@ -195,7 +195,7 @@ public class CreateClusterDiagnosticDataJobRequest  {
 
   /**
    * Getter for downloadOptions.
-   * Cluster diagnostic options. If not provided, everything will be included in the Diagnostic Data.
+   * DEPRECATED: All logs are included by default. No need to specify options
    **/
   @JsonProperty("downloadOptions")
   public ClusterCreateDiagnosticDataDownloadOptions getDownloadOptions() {
@@ -204,7 +204,7 @@ public class CreateClusterDiagnosticDataJobRequest  {
 
   /**
    * Setter for downloadOptions.
-   * Cluster diagnostic options. If not provided, everything will be included in the Diagnostic Data.
+   * DEPRECATED: All logs are included by default. No need to specify options
    **/
   public void setDownloadOptions(ClusterCreateDiagnosticDataDownloadOptions downloadOptions) {
     this.downloadOptions = downloadOptions;

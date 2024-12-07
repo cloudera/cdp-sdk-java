@@ -27,13 +27,28 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for deleting a cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:28.434-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-06T11:27:19.452-08:00")
 public class DeleteClusterRequest  {
 
   /**
    * Compute cluster CRN.
    **/
   private String clusterCrn = null;
+
+  /**
+   * Forces the cluster into the DELETED state without cleaning up resources; only valid if cluster is in DELETE_FAILED state.
+   **/
+  private Boolean force = null;
+
+  /**
+   * Whether to skip the running workloads validation for externalized clusters
+   **/
+  private Boolean skipWorkloadsValidation = null;
+
+  /**
+   * Whether to skip validation.
+   **/
+  private Boolean skipValidation = null;
 
   /**
    * Getter for clusterCrn.
@@ -52,6 +67,57 @@ public class DeleteClusterRequest  {
     this.clusterCrn = clusterCrn;
   }
 
+  /**
+   * Getter for force.
+   * Forces the cluster into the DELETED state without cleaning up resources; only valid if cluster is in DELETE_FAILED state.
+   **/
+  @JsonProperty("force")
+  public Boolean getForce() {
+    return force;
+  }
+
+  /**
+   * Setter for force.
+   * Forces the cluster into the DELETED state without cleaning up resources; only valid if cluster is in DELETE_FAILED state.
+   **/
+  public void setForce(Boolean force) {
+    this.force = force;
+  }
+
+  /**
+   * Getter for skipWorkloadsValidation.
+   * Whether to skip the running workloads validation for externalized clusters
+   **/
+  @JsonProperty("skipWorkloadsValidation")
+  public Boolean getSkipWorkloadsValidation() {
+    return skipWorkloadsValidation;
+  }
+
+  /**
+   * Setter for skipWorkloadsValidation.
+   * Whether to skip the running workloads validation for externalized clusters
+   **/
+  public void setSkipWorkloadsValidation(Boolean skipWorkloadsValidation) {
+    this.skipWorkloadsValidation = skipWorkloadsValidation;
+  }
+
+  /**
+   * Getter for skipValidation.
+   * Whether to skip validation.
+   **/
+  @JsonProperty("skipValidation")
+  public Boolean getSkipValidation() {
+    return skipValidation;
+  }
+
+  /**
+   * Setter for skipValidation.
+   * Whether to skip validation.
+   **/
+  public void setSkipValidation(Boolean skipValidation) {
+    this.skipValidation = skipValidation;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -64,12 +130,21 @@ public class DeleteClusterRequest  {
     if (!Objects.equals(this.clusterCrn, deleteClusterRequest.clusterCrn)) {
       return false;
     }
+    if (!Objects.equals(this.force, deleteClusterRequest.force)) {
+      return false;
+    }
+    if (!Objects.equals(this.skipWorkloadsValidation, deleteClusterRequest.skipWorkloadsValidation)) {
+      return false;
+    }
+    if (!Objects.equals(this.skipValidation, deleteClusterRequest.skipValidation)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterCrn);
+    return Objects.hash(clusterCrn, force, skipWorkloadsValidation, skipValidation);
   }
 
   @Override
@@ -77,6 +152,9 @@ public class DeleteClusterRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteClusterRequest {\n");
     sb.append("    clusterCrn: ").append(toIndentedString(clusterCrn)).append("\n");
+    sb.append("    force: ").append(toIndentedString(force)).append("\n");
+    sb.append("    skipWorkloadsValidation: ").append(toIndentedString(skipWorkloadsValidation)).append("\n");
+    sb.append("    skipValidation: ").append(toIndentedString(skipValidation)).append("\n");
     sb.append("}");
     return sb.toString();
   }

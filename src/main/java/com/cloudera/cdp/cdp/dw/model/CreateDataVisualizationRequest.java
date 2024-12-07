@@ -28,7 +28,7 @@ import com.cloudera.cdp.dw.model.VizConfig;
 /**
  * Request object for the createDataVisualization call.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:24.581-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-06T11:27:15.173-08:00")
 public class CreateDataVisualizationRequest  {
 
   /**
@@ -52,9 +52,9 @@ public class CreateDataVisualizationRequest  {
   private String imageVersion = null;
 
   /**
-   * DEPRECATED: Use resourceTemplate parameter instead that will be made available in the upcoming release. The template size for the Cloudera Data Visualization.
+   * The name of the available resource template to use for the Cloudera Data Visualization.
    **/
-  private String templateName = null;
+  private String resourceTemplate = null;
 
   /**
    * Getter for clusterId.
@@ -125,22 +125,20 @@ public class CreateDataVisualizationRequest  {
   }
 
   /**
-   * Getter for templateName.
-   * DEPRECATED: Use resourceTemplate parameter instead that will be made available in the upcoming release. The template size for the Cloudera Data Visualization.
+   * Getter for resourceTemplate.
+   * The name of the available resource template to use for the Cloudera Data Visualization.
    **/
-  @Deprecated
-  @JsonProperty("templateName")
-  public String getTemplateName() {
-    return templateName;
+  @JsonProperty("resourceTemplate")
+  public String getResourceTemplate() {
+    return resourceTemplate;
   }
 
   /**
-   * Setter for templateName.
-   * DEPRECATED: Use resourceTemplate parameter instead that will be made available in the upcoming release. The template size for the Cloudera Data Visualization.
+   * Setter for resourceTemplate.
+   * The name of the available resource template to use for the Cloudera Data Visualization.
    **/
-  @Deprecated
-  public void setTemplateName(String templateName) {
-    this.templateName = templateName;
+  public void setResourceTemplate(String resourceTemplate) {
+    this.resourceTemplate = resourceTemplate;
   }
 
   @Override
@@ -164,7 +162,7 @@ public class CreateDataVisualizationRequest  {
     if (!Objects.equals(this.imageVersion, createDataVisualizationRequest.imageVersion)) {
       return false;
     }
-    if (!Objects.equals(this.templateName, createDataVisualizationRequest.templateName)) {
+    if (!Objects.equals(this.resourceTemplate, createDataVisualizationRequest.resourceTemplate)) {
       return false;
     }
     return true;
@@ -172,7 +170,7 @@ public class CreateDataVisualizationRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, name, config, imageVersion, templateName);
+    return Objects.hash(clusterId, name, config, imageVersion, resourceTemplate);
   }
 
   @Override
@@ -183,7 +181,7 @@ public class CreateDataVisualizationRequest  {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    imageVersion: ").append(toIndentedString(imageVersion)).append("\n");
-    sb.append("    templateName: ").append(toIndentedString(templateName)).append("\n");
+    sb.append("    resourceTemplate: ").append(toIndentedString(resourceTemplate)).append("\n");
     sb.append("}");
     return sb.toString();
   }

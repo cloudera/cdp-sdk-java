@@ -26,6 +26,7 @@ import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.dw.model.ActorResponse;
 import com.cloudera.cdp.dw.model.AwsOptionsResponse;
 import com.cloudera.cdp.dw.model.AzureOptionsResponse;
+import com.cloudera.cdp.dw.model.ClusterSummaryProductSupportResponse;
 import com.cloudera.cdp.dw.model.ExternalBucket;
 import java.time.ZonedDateTime;
 import java.util.*;
@@ -33,7 +34,7 @@ import java.util.*;
 /**
  * A Cloudera Data Warehouse cluster.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:24.581-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-06T11:27:15.173-08:00")
 public class ClusterSummaryResponse extends CdpResponse {
 
   /**
@@ -82,6 +83,11 @@ public class ClusterSummaryResponse extends CdpResponse {
   private String version = null;
 
   /**
+   * Support lifecycle details of the given Cluster version (see version field). Learn more at Support lifecycle site: https://www.cloudera.com/services-and-support/support-lifecycle-policy.html.
+   **/
+  private ClusterSummaryProductSupportResponse productSupport = null;
+
+  /**
    * Denotes whether the spot instances have been enabled for the cluster. This value is only available for AWS and Azure clusters.
    **/
   private Boolean enableSpotInstances = null;
@@ -100,11 +106,6 @@ public class ClusterSummaryResponse extends CdpResponse {
    * NOTE: The cluster level instance type selection will be replaced by virtual warehouse level selection. Compute instance types that the environment is restricted to use. This affects the creation of the virtual warehouses where this restriction will apply.
    **/
   private List<String> computeInstanceTypes = new ArrayList<String>();
-
-  /**
-   * DEPRECATED: Additional compute instance types will be removed in subsequent releases. Additional (fallback) instance types listed in their priority order. They are used instead of the primary compute instance type in case it is unavailable. Since additional instance types are not supported for Azure, this is always empty for it.
-   **/
-  private List<String> additionalInstanceTypes = new ArrayList<String>();
 
   /**
    * Response object of AWS related cluster options.
@@ -305,6 +306,23 @@ public class ClusterSummaryResponse extends CdpResponse {
   }
 
   /**
+   * Getter for productSupport.
+   * Support lifecycle details of the given Cluster version (see version field). Learn more at Support lifecycle site: https://www.cloudera.com/services-and-support/support-lifecycle-policy.html.
+   **/
+  @JsonProperty("productSupport")
+  public ClusterSummaryProductSupportResponse getProductSupport() {
+    return productSupport;
+  }
+
+  /**
+   * Setter for productSupport.
+   * Support lifecycle details of the given Cluster version (see version field). Learn more at Support lifecycle site: https://www.cloudera.com/services-and-support/support-lifecycle-policy.html.
+   **/
+  public void setProductSupport(ClusterSummaryProductSupportResponse productSupport) {
+    this.productSupport = productSupport;
+  }
+
+  /**
    * Getter for enableSpotInstances.
    * Denotes whether the spot instances have been enabled for the cluster. This value is only available for AWS and Azure clusters.
    **/
@@ -374,25 +392,6 @@ public class ClusterSummaryResponse extends CdpResponse {
    **/
   public void setComputeInstanceTypes(List<String> computeInstanceTypes) {
     this.computeInstanceTypes = computeInstanceTypes;
-  }
-
-  /**
-   * Getter for additionalInstanceTypes.
-   * DEPRECATED: Additional compute instance types will be removed in subsequent releases. Additional (fallback) instance types listed in their priority order. They are used instead of the primary compute instance type in case it is unavailable. Since additional instance types are not supported for Azure, this is always empty for it.
-   **/
-  @Deprecated
-  @JsonProperty("additionalInstanceTypes")
-  public List<String> getAdditionalInstanceTypes() {
-    return additionalInstanceTypes;
-  }
-
-  /**
-   * Setter for additionalInstanceTypes.
-   * DEPRECATED: Additional compute instance types will be removed in subsequent releases. Additional (fallback) instance types listed in their priority order. They are used instead of the primary compute instance type in case it is unavailable. Since additional instance types are not supported for Azure, this is always empty for it.
-   **/
-  @Deprecated
-  public void setAdditionalInstanceTypes(List<String> additionalInstanceTypes) {
-    this.additionalInstanceTypes = additionalInstanceTypes;
   }
 
   /**
@@ -584,6 +583,9 @@ public class ClusterSummaryResponse extends CdpResponse {
     if (!Objects.equals(this.version, clusterSummaryResponse.version)) {
       return false;
     }
+    if (!Objects.equals(this.productSupport, clusterSummaryResponse.productSupport)) {
+      return false;
+    }
     if (!Objects.equals(this.enableSpotInstances, clusterSummaryResponse.enableSpotInstances)) {
       return false;
     }
@@ -594,9 +596,6 @@ public class ClusterSummaryResponse extends CdpResponse {
       return false;
     }
     if (!Objects.equals(this.computeInstanceTypes, clusterSummaryResponse.computeInstanceTypes)) {
-      return false;
-    }
-    if (!Objects.equals(this.additionalInstanceTypes, clusterSummaryResponse.additionalInstanceTypes)) {
       return false;
     }
     if (!Objects.equals(this.awsOptions, clusterSummaryResponse.awsOptions)) {
@@ -634,7 +633,7 @@ public class ClusterSummaryResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, environmentCrn, name, status, creator, creationDate, cloudPlatform, version, enableSpotInstances, reservedComputeNodes, reservedSharedServicesNodes, computeInstanceTypes, additionalInstanceTypes, awsOptions, azureOptions, description, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, useOverlayNetwork, enablePrivateLoadBalancer, resourcePool, externalBuckets, super.hashCode());
+    return Objects.hash(crn, id, environmentCrn, name, status, creator, creationDate, cloudPlatform, version, productSupport, enableSpotInstances, reservedComputeNodes, reservedSharedServicesNodes, computeInstanceTypes, awsOptions, azureOptions, description, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, useOverlayNetwork, enablePrivateLoadBalancer, resourcePool, externalBuckets, super.hashCode());
   }
 
   @Override
@@ -651,11 +650,11 @@ public class ClusterSummaryResponse extends CdpResponse {
     sb.append("    creationDate: ").append(toIndentedString(creationDate)).append("\n");
     sb.append("    cloudPlatform: ").append(toIndentedString(cloudPlatform)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    productSupport: ").append(toIndentedString(productSupport)).append("\n");
     sb.append("    enableSpotInstances: ").append(toIndentedString(enableSpotInstances)).append("\n");
     sb.append("    reservedComputeNodes: ").append(toIndentedString(reservedComputeNodes)).append("\n");
     sb.append("    reservedSharedServicesNodes: ").append(toIndentedString(reservedSharedServicesNodes)).append("\n");
     sb.append("    computeInstanceTypes: ").append(toIndentedString(computeInstanceTypes)).append("\n");
-    sb.append("    additionalInstanceTypes: ").append(toIndentedString(additionalInstanceTypes)).append("\n");
     sb.append("    awsOptions: ").append(toIndentedString(awsOptions)).append("\n");
     sb.append("    azureOptions: ").append(toIndentedString(azureOptions)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

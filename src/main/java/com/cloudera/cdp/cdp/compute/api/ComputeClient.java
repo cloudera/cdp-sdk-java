@@ -41,6 +41,10 @@ import com.cloudera.cdp.compute.model.ListClustersRequest;
 import com.cloudera.cdp.compute.model.ListClustersResponse;
 import com.cloudera.cdp.compute.model.ListDeploymentsRequest;
 import com.cloudera.cdp.compute.model.ListDeploymentsResponse;
+import com.cloudera.cdp.compute.model.ResumeClusterRequest;
+import com.cloudera.cdp.compute.model.ResumeClusterResponse;
+import com.cloudera.cdp.compute.model.SuspendClusterRequest;
+import com.cloudera.cdp.compute.model.SuspendClusterResponse;
 import com.cloudera.cdp.compute.model.UpgradeDeploymentRequest;
 import com.cloudera.cdp.compute.model.UpgradeDeploymentResponse;
 import com.cloudera.cdp.compute.model.ValidateClusterRequest;
@@ -51,7 +55,7 @@ import java.util.List;
 import java.util.Map;
 import javax.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:28.434-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-06T11:27:19.452-08:00")
 public class ComputeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "compute";
@@ -158,6 +162,32 @@ public class ComputeClient extends CdpClient {
     }
 
     return this.invokeAPI("listDeployments", "/api/v1/compute/listDeployments", input, new GenericType<ListDeploymentsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Resume Cluster
+   * @param input
+   * @return ResumeClusterResponse
+   */
+  public ResumeClusterResponse resumeCluster(ResumeClusterRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling resumeCluster");
+    }
+
+    return this.invokeAPI("resumeCluster", "/api/v1/compute/resumeCluster", input, new GenericType<ResumeClusterResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Suspend Cluster
+   * @param input
+   * @return SuspendClusterResponse
+   */
+  public SuspendClusterResponse suspendCluster(SuspendClusterRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling suspendCluster");
+    }
+
+    return this.invokeAPI("suspendCluster", "/api/v1/compute/suspendCluster", input, new GenericType<SuspendClusterResponse>(){}, NO_EXTENSION);
   }
 
   /**

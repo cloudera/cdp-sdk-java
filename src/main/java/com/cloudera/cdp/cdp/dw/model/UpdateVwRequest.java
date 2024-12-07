@@ -31,7 +31,7 @@ import com.cloudera.cdp.dw.model.ServiceConfigReq;
 /**
  * Request object for the updateVw method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:24.581-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-06T11:27:15.173-08:00")
 public class UpdateVwRequest  {
 
   /**
@@ -45,9 +45,9 @@ public class UpdateVwRequest  {
   private String vwId = null;
 
   /**
-   * DEPRECATED: It will be replaced by the tShirtSize parameter in an upcoming release. Name of configuration template to use.
+   * Name of T-shirt size to use, which will determine the number of nodes.
    **/
-  private String template = null;
+  private String tShirtSize = null;
 
   /**
    * Nodes per compute cluster. If specified, forces 'template' to be 'custom'
@@ -134,22 +134,20 @@ public class UpdateVwRequest  {
   }
 
   /**
-   * Getter for template.
-   * DEPRECATED: It will be replaced by the tShirtSize parameter in an upcoming release. Name of configuration template to use.
+   * Getter for tShirtSize.
+   * Name of T-shirt size to use, which will determine the number of nodes.
    **/
-  @Deprecated
-  @JsonProperty("template")
-  public String getTemplate() {
-    return template;
+  @JsonProperty("tShirtSize")
+  public String getTShirtSize() {
+    return tShirtSize;
   }
 
   /**
-   * Setter for template.
-   * DEPRECATED: It will be replaced by the tShirtSize parameter in an upcoming release. Name of configuration template to use.
+   * Setter for tShirtSize.
+   * Name of T-shirt size to use, which will determine the number of nodes.
    **/
-  @Deprecated
-  public void setTemplate(String template) {
-    this.template = template;
+  public void setTShirtSize(String tShirtSize) {
+    this.tShirtSize = tShirtSize;
   }
 
   /**
@@ -339,7 +337,7 @@ public class UpdateVwRequest  {
     if (!Objects.equals(this.vwId, updateVwRequest.vwId)) {
       return false;
     }
-    if (!Objects.equals(this.template, updateVwRequest.template)) {
+    if (!Objects.equals(this.tShirtSize, updateVwRequest.tShirtSize)) {
       return false;
     }
     if (!Objects.equals(this.nodeCount, updateVwRequest.nodeCount)) {
@@ -377,7 +375,7 @@ public class UpdateVwRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, vwId, template, nodeCount, config, autoscaling, impalaHaSettings, queryIsolationOptions, hiveAuthenticationMode, platformJwtAuth, impalaQueryLog, resourcePool, hiveServerHaMode);
+    return Objects.hash(clusterId, vwId, tShirtSize, nodeCount, config, autoscaling, impalaHaSettings, queryIsolationOptions, hiveAuthenticationMode, platformJwtAuth, impalaQueryLog, resourcePool, hiveServerHaMode);
   }
 
   @Override
@@ -386,7 +384,7 @@ public class UpdateVwRequest  {
     sb.append("class UpdateVwRequest {\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    vwId: ").append(toIndentedString(vwId)).append("\n");
-    sb.append("    template: ").append(toIndentedString(template)).append("\n");
+    sb.append("    tShirtSize: ").append(toIndentedString(tShirtSize)).append("\n");
     sb.append("    nodeCount: ").append(toIndentedString(nodeCount)).append("\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    autoscaling: ").append(toIndentedString(autoscaling)).append("\n");

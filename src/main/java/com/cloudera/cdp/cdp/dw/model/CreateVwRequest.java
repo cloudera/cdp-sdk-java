@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * Request object for the createVw method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:24.581-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-06T11:27:15.173-08:00")
 public class CreateVwRequest  {
 
   /**
@@ -58,14 +58,19 @@ public class CreateVwRequest  {
   private String name = null;
 
   /**
+   * Instance type for this Virtual Warehouse. To learn what instance types are allowed to be used for a Hive or an Impala Virtual Warehouse, please use the 'describe-allowed-instance-types' command. The command output will list the usable instance types in its 'hive' and 'impala' fields accordingly.
+   **/
+  private String instanceType = null;
+
+  /**
    * version of the Virtual Warehouse.
    **/
   private String imageVersion = "";
 
   /**
-   * DEPRECATED: It will be replaced by the tShirtSize parameter in an upcoming release. Name of configuration template to use.
+   * Name of T-shirt size to use, which will determine the number of nodes.
    **/
-  private String template = null;
+  private String tShirtSize = null;
 
   /**
    * Nodes per compute cluster. If specified, forces 'template' to be 'custom'
@@ -211,6 +216,23 @@ public class CreateVwRequest  {
   }
 
   /**
+   * Getter for instanceType.
+   * Instance type for this Virtual Warehouse. To learn what instance types are allowed to be used for a Hive or an Impala Virtual Warehouse, please use the &#39;describe-allowed-instance-types&#39; command. The command output will list the usable instance types in its &#39;hive&#39; and &#39;impala&#39; fields accordingly.
+   **/
+  @JsonProperty("instanceType")
+  public String getInstanceType() {
+    return instanceType;
+  }
+
+  /**
+   * Setter for instanceType.
+   * Instance type for this Virtual Warehouse. To learn what instance types are allowed to be used for a Hive or an Impala Virtual Warehouse, please use the &#39;describe-allowed-instance-types&#39; command. The command output will list the usable instance types in its &#39;hive&#39; and &#39;impala&#39; fields accordingly.
+   **/
+  public void setInstanceType(String instanceType) {
+    this.instanceType = instanceType;
+  }
+
+  /**
    * Getter for imageVersion.
    * version of the Virtual Warehouse.
    **/
@@ -228,22 +250,20 @@ public class CreateVwRequest  {
   }
 
   /**
-   * Getter for template.
-   * DEPRECATED: It will be replaced by the tShirtSize parameter in an upcoming release. Name of configuration template to use.
+   * Getter for tShirtSize.
+   * Name of T-shirt size to use, which will determine the number of nodes.
    **/
-  @Deprecated
-  @JsonProperty("template")
-  public String getTemplate() {
-    return template;
+  @JsonProperty("tShirtSize")
+  public String getTShirtSize() {
+    return tShirtSize;
   }
 
   /**
-   * Setter for template.
-   * DEPRECATED: It will be replaced by the tShirtSize parameter in an upcoming release. Name of configuration template to use.
+   * Setter for tShirtSize.
+   * Name of T-shirt size to use, which will determine the number of nodes.
    **/
-  @Deprecated
-  public void setTemplate(String template) {
-    this.template = template;
+  public void setTShirtSize(String tShirtSize) {
+    this.tShirtSize = tShirtSize;
   }
 
   /**
@@ -524,10 +544,13 @@ public class CreateVwRequest  {
     if (!Objects.equals(this.name, createVwRequest.name)) {
       return false;
     }
+    if (!Objects.equals(this.instanceType, createVwRequest.instanceType)) {
+      return false;
+    }
     if (!Objects.equals(this.imageVersion, createVwRequest.imageVersion)) {
       return false;
     }
-    if (!Objects.equals(this.template, createVwRequest.template)) {
+    if (!Objects.equals(this.tShirtSize, createVwRequest.tShirtSize)) {
       return false;
     }
     if (!Objects.equals(this.nodeCount, createVwRequest.nodeCount)) {
@@ -580,7 +603,7 @@ public class CreateVwRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, dbcId, vwType, name, imageVersion, template, nodeCount, availabilityZone, enableUnifiedAnalytics, impalaOptions, impalaHaSettings, autoscaling, config, queryIsolationOptions, tags, resourcePool, hiveAuthenticationMode, platformJwtAuth, impalaQueryLog, ebsLLAPSpillGB, hiveServerHaMode);
+    return Objects.hash(clusterId, dbcId, vwType, name, instanceType, imageVersion, tShirtSize, nodeCount, availabilityZone, enableUnifiedAnalytics, impalaOptions, impalaHaSettings, autoscaling, config, queryIsolationOptions, tags, resourcePool, hiveAuthenticationMode, platformJwtAuth, impalaQueryLog, ebsLLAPSpillGB, hiveServerHaMode);
   }
 
   @Override
@@ -591,8 +614,9 @@ public class CreateVwRequest  {
     sb.append("    dbcId: ").append(toIndentedString(dbcId)).append("\n");
     sb.append("    vwType: ").append(toIndentedString(vwType)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    imageVersion: ").append(toIndentedString(imageVersion)).append("\n");
-    sb.append("    template: ").append(toIndentedString(template)).append("\n");
+    sb.append("    tShirtSize: ").append(toIndentedString(tShirtSize)).append("\n");
     sb.append("    nodeCount: ").append(toIndentedString(nodeCount)).append("\n");
     sb.append("    availabilityZone: ").append(toIndentedString(availabilityZone)).append("\n");
     sb.append("    enableUnifiedAnalytics: ").append(toIndentedString(enableUnifiedAnalytics)).append("\n");

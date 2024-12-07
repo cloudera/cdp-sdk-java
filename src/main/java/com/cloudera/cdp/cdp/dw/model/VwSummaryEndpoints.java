@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Endpoints for accessing the Virtual Warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:24.581-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-06T11:27:15.173-08:00")
 public class VwSummaryEndpoints  {
 
   /**
@@ -79,6 +79,11 @@ public class VwSummaryEndpoints  {
    * Command to use impala-shell for Impala Virtual Warehouses with Kerberos authentication.
    **/
   private String kerberosImpalaShell = null;
+
+  /**
+   * Command-line client that connects to Trino Virtual Warehouse to execute SQL queries.
+   **/
+  private String trinoCli = null;
 
   /**
    * URL of Hue for both Hive and Impala Virtual Warehouses.
@@ -281,6 +286,23 @@ public class VwSummaryEndpoints  {
   }
 
   /**
+   * Getter for trinoCli.
+   * Command-line client that connects to Trino Virtual Warehouse to execute SQL queries.
+   **/
+  @JsonProperty("trinoCli")
+  public String getTrinoCli() {
+    return trinoCli;
+  }
+
+  /**
+   * Setter for trinoCli.
+   * Command-line client that connects to Trino Virtual Warehouse to execute SQL queries.
+   **/
+  public void setTrinoCli(String trinoCli) {
+    this.trinoCli = trinoCli;
+  }
+
+  /**
    * Getter for hue.
    * URL of Hue for both Hive and Impala Virtual Warehouses.
    **/
@@ -421,6 +443,9 @@ public class VwSummaryEndpoints  {
     if (!Objects.equals(this.kerberosImpalaShell, vwSummaryEndpoints.kerberosImpalaShell)) {
       return false;
     }
+    if (!Objects.equals(this.trinoCli, vwSummaryEndpoints.trinoCli)) {
+      return false;
+    }
     if (!Objects.equals(this.hue, vwSummaryEndpoints.hue)) {
       return false;
     }
@@ -444,7 +469,7 @@ public class VwSummaryEndpoints  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(hiveJdbc, hiveKerberosJdbc, impalaJdbc, impalaKerberosJdbc, impalaFENGJdbc, impalaFengKerberosJdbc, impalaShell, fengImpalaShell, fengKerberosImpalaShell, kerberosImpalaShell, hue, das, hostname, port, jwtConnectionString, jwtTokenGenUrl);
+    return Objects.hash(hiveJdbc, hiveKerberosJdbc, impalaJdbc, impalaKerberosJdbc, impalaFENGJdbc, impalaFengKerberosJdbc, impalaShell, fengImpalaShell, fengKerberosImpalaShell, kerberosImpalaShell, trinoCli, hue, das, hostname, port, jwtConnectionString, jwtTokenGenUrl);
   }
 
   @Override
@@ -461,6 +486,7 @@ public class VwSummaryEndpoints  {
     sb.append("    fengImpalaShell: ").append(toIndentedString(fengImpalaShell)).append("\n");
     sb.append("    fengKerberosImpalaShell: ").append(toIndentedString(fengKerberosImpalaShell)).append("\n");
     sb.append("    kerberosImpalaShell: ").append(toIndentedString(kerberosImpalaShell)).append("\n");
+    sb.append("    trinoCli: ").append(toIndentedString(trinoCli)).append("\n");
     sb.append("    hue: ").append(toIndentedString(hue)).append("\n");
     sb.append("    das: ").append(toIndentedString(das)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");

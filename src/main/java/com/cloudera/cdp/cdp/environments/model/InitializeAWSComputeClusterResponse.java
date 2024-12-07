@@ -27,8 +27,30 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object for an initialize AWS default compute cluster request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:26.302-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-06T11:27:16.941-08:00")
 public class InitializeAWSComputeClusterResponse extends CdpResponse {
+
+  /**
+   * The id of the related operation.
+   **/
+  private String operationId = null;
+
+  /**
+   * Getter for operationId.
+   * The id of the related operation.
+   **/
+  @JsonProperty("operationId")
+  public String getOperationId() {
+    return operationId;
+  }
+
+  /**
+   * Setter for operationId.
+   * The id of the related operation.
+   **/
+  public void setOperationId(String operationId) {
+    this.operationId = operationId;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -36,6 +58,10 @@ public class InitializeAWSComputeClusterResponse extends CdpResponse {
       return true;
     }
     if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    InitializeAWSComputeClusterResponse initializeAWSComputeClusterResponse = (InitializeAWSComputeClusterResponse) o;
+    if (!Objects.equals(this.operationId, initializeAWSComputeClusterResponse.operationId)) {
       return false;
     }
     if (!super.equals(o)) {
@@ -46,7 +72,7 @@ public class InitializeAWSComputeClusterResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash( super.hashCode());
+    return Objects.hash(operationId, super.hashCode());
   }
 
   @Override
@@ -54,6 +80,7 @@ public class InitializeAWSComputeClusterResponse extends CdpResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class InitializeAWSComputeClusterResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    operationId: ").append(toIndentedString(operationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

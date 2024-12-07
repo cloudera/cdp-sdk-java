@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the restoreCluster method.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:24.581-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-06T11:27:15.173-08:00")
 public class RestoreClusterRequest  {
 
   /**
@@ -36,7 +36,7 @@ public class RestoreClusterRequest  {
   private String clusterId = null;
 
   /**
-   * Dump of configuration received by calling \"dump-cluster\" command.
+   * Backup data of configuration received by calling \"backup-cluster\" command.
    **/
   private String data = null;
 
@@ -59,7 +59,7 @@ public class RestoreClusterRequest  {
 
   /**
    * Getter for data.
-   * Dump of configuration received by calling \&quot;dump-cluster\&quot; command.
+   * Backup data of configuration received by calling \&quot;backup-cluster\&quot; command.
    **/
   @JsonProperty("data")
   public String getData() {
@@ -68,7 +68,7 @@ public class RestoreClusterRequest  {
 
   /**
    * Setter for data.
-   * Dump of configuration received by calling \&quot;dump-cluster\&quot; command.
+   * Backup data of configuration received by calling \&quot;backup-cluster\&quot; command.
    **/
   public void setData(String data) {
     this.data = data;

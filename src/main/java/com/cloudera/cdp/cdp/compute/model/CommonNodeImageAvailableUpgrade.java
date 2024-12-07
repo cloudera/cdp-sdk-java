@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Structure to list the currently used images and the new upgrades available.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:28.434-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-06T11:27:19.452-08:00")
 public class CommonNodeImageAvailableUpgrade  {
 
   /**

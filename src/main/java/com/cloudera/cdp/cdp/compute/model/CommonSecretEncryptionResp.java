@@ -23,17 +23,23 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.compute.model.AzureSecretEncryptionResp;
 
 /**
  * Secret Encryption response structure.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:28.434-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-06T11:27:19.452-08:00")
 public class CommonSecretEncryptionResp  {
 
   /**
    * AWS KMS key ARN.
    **/
   private String customerKmsKeyArn = null;
+
+  /**
+   * Azure secret encryption details.
+   **/
+  private AzureSecretEncryptionResp azure = null;
 
   /**
    * Getter for customerKmsKeyArn.
@@ -52,6 +58,23 @@ public class CommonSecretEncryptionResp  {
     this.customerKmsKeyArn = customerKmsKeyArn;
   }
 
+  /**
+   * Getter for azure.
+   * Azure secret encryption details.
+   **/
+  @JsonProperty("azure")
+  public AzureSecretEncryptionResp getAzure() {
+    return azure;
+  }
+
+  /**
+   * Setter for azure.
+   * Azure secret encryption details.
+   **/
+  public void setAzure(AzureSecretEncryptionResp azure) {
+    this.azure = azure;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -64,12 +87,15 @@ public class CommonSecretEncryptionResp  {
     if (!Objects.equals(this.customerKmsKeyArn, commonSecretEncryptionResp.customerKmsKeyArn)) {
       return false;
     }
+    if (!Objects.equals(this.azure, commonSecretEncryptionResp.azure)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(customerKmsKeyArn);
+    return Objects.hash(customerKmsKeyArn, azure);
   }
 
   @Override
@@ -77,6 +103,7 @@ public class CommonSecretEncryptionResp  {
     StringBuilder sb = new StringBuilder();
     sb.append("class CommonSecretEncryptionResp {\n");
     sb.append("    customerKmsKeyArn: ").append(toIndentedString(customerKmsKeyArn)).append("\n");
+    sb.append("    azure: ").append(toIndentedString(azure)).append("\n");
     sb.append("}");
     return sb.toString();
   }

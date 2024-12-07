@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Response object for the Get Backup Logs command.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:27.102-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-06T11:27:17.909-08:00")
 public class GetBackupLogsResponse extends CdpResponse {
 
   /**

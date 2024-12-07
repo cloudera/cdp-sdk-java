@@ -24,17 +24,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.compute.model.CommonStatusMessage;
+import com.cloudera.cdp.compute.model.ValidationResponse;
 
 /**
  * Delete cluster response.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:28.434-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-06T11:27:19.452-08:00")
 public class DeleteClusterResponse extends CdpResponse {
 
   /**
    * Cluster Status.
    **/
   private CommonStatusMessage clusterStatus = null;
+
+  /**
+   * Pre-flight validation check response. Only given on a validation failure.
+   **/
+  private ValidationResponse validationResponse = null;
 
   /**
    * Getter for clusterStatus.
@@ -53,6 +59,23 @@ public class DeleteClusterResponse extends CdpResponse {
     this.clusterStatus = clusterStatus;
   }
 
+  /**
+   * Getter for validationResponse.
+   * Pre-flight validation check response. Only given on a validation failure.
+   **/
+  @JsonProperty("validationResponse")
+  public ValidationResponse getValidationResponse() {
+    return validationResponse;
+  }
+
+  /**
+   * Setter for validationResponse.
+   * Pre-flight validation check response. Only given on a validation failure.
+   **/
+  public void setValidationResponse(ValidationResponse validationResponse) {
+    this.validationResponse = validationResponse;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -65,6 +88,9 @@ public class DeleteClusterResponse extends CdpResponse {
     if (!Objects.equals(this.clusterStatus, deleteClusterResponse.clusterStatus)) {
       return false;
     }
+    if (!Objects.equals(this.validationResponse, deleteClusterResponse.validationResponse)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -73,7 +99,7 @@ public class DeleteClusterResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterStatus, super.hashCode());
+    return Objects.hash(clusterStatus, validationResponse, super.hashCode());
   }
 
   @Override
@@ -82,6 +108,7 @@ public class DeleteClusterResponse extends CdpResponse {
     sb.append("class DeleteClusterResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    clusterStatus: ").append(toIndentedString(clusterStatus)).append("\n");
+    sb.append("    validationResponse: ").append(toIndentedString(validationResponse)).append("\n");
     sb.append("}");
     return sb.toString();
   }

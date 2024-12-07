@@ -41,7 +41,7 @@ import java.util.Map;
 /**
  * A Virtual Warehouse.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:24.581-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-06T11:27:15.173-08:00")
 public class VwSummary  {
 
   /**
@@ -63,6 +63,11 @@ public class VwSummary  {
    * The type of the Virtual Warehouse.
    **/
   private String vwType = null;
+
+  /**
+   * The underlying instance type for this Virtual Warehouse.
+   **/
+  private String instanceType = null;
 
   /**
    * ID of Database Catalog that the Virtual Warehouse is attached to.
@@ -275,6 +280,23 @@ public class VwSummary  {
    **/
   public void setVwType(String vwType) {
     this.vwType = vwType;
+  }
+
+  /**
+   * Getter for instanceType.
+   * The underlying instance type for this Virtual Warehouse.
+   **/
+  @JsonProperty("instanceType")
+  public String getInstanceType() {
+    return instanceType;
+  }
+
+  /**
+   * Setter for instanceType.
+   * The underlying instance type for this Virtual Warehouse.
+   **/
+  public void setInstanceType(String instanceType) {
+    this.instanceType = instanceType;
   }
 
   /**
@@ -793,6 +815,9 @@ public class VwSummary  {
     if (!Objects.equals(this.vwType, vwSummary.vwType)) {
       return false;
     }
+    if (!Objects.equals(this.instanceType, vwSummary.instanceType)) {
+      return false;
+    }
     if (!Objects.equals(this.dbcId, vwSummary.dbcId)) {
       return false;
     }
@@ -885,7 +910,7 @@ public class VwSummary  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, name, vwType, dbcId, status, statusChangedAt, creator, creationDate, configId, cdhVersion, numOfCores, memoryCapacity, nodeCount, availabilityZone, endpoints, supportedAuthMethods, jwtAuth, impalaQueryLog, tags, compactor, viz, enableUnifiedAnalytics, autoscalingOptions, impalaOptions, impalaHaSettingsOptions, queryIsolationOptions, replicaStatus, resourcePool, hiveAuthenticationMode, ebsLLAPSpillGB, hiveServerHaMode, resources);
+    return Objects.hash(crn, id, name, vwType, instanceType, dbcId, status, statusChangedAt, creator, creationDate, configId, cdhVersion, numOfCores, memoryCapacity, nodeCount, availabilityZone, endpoints, supportedAuthMethods, jwtAuth, impalaQueryLog, tags, compactor, viz, enableUnifiedAnalytics, autoscalingOptions, impalaOptions, impalaHaSettingsOptions, queryIsolationOptions, replicaStatus, resourcePool, hiveAuthenticationMode, ebsLLAPSpillGB, hiveServerHaMode, resources);
   }
 
   @Override
@@ -896,6 +921,7 @@ public class VwSummary  {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    vwType: ").append(toIndentedString(vwType)).append("\n");
+    sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    dbcId: ").append(toIndentedString(dbcId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusChangedAt: ").append(toIndentedString(statusChangedAt)).append("\n");

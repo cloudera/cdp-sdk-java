@@ -23,12 +23,13 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.dw.model.AllowedInstanceTypesWithDefault;
 import java.util.*;
 
 /**
  * Allowed compute instance type values and default compute instance type value.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-11-13T12:48:24.581-08:00")
+@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-06T11:27:15.173-08:00")
 public class AllowedInstanceTypes  {
 
   /**
@@ -40,6 +41,21 @@ public class AllowedInstanceTypes  {
    * Allowed values for the instance type. This setting is Cluster-wide.
    **/
   private List<String> allowed = new ArrayList<String>();
+
+  /**
+   * Allowed instance types for Hive Virtual Warehouses.
+   **/
+  private AllowedInstanceTypesWithDefault hive = null;
+
+  /**
+   * Allowed instance types for Impala Virtual Warehouses.
+   **/
+  private AllowedInstanceTypesWithDefault impala = null;
+
+  /**
+   * Allowed instance types for Trino Virtual Warehouses.
+   **/
+  private AllowedInstanceTypesWithDefault trino = null;
 
   /**
    * Getter for _default.
@@ -75,6 +91,57 @@ public class AllowedInstanceTypes  {
     this.allowed = allowed;
   }
 
+  /**
+   * Getter for hive.
+   * Allowed instance types for Hive Virtual Warehouses.
+   **/
+  @JsonProperty("hive")
+  public AllowedInstanceTypesWithDefault getHive() {
+    return hive;
+  }
+
+  /**
+   * Setter for hive.
+   * Allowed instance types for Hive Virtual Warehouses.
+   **/
+  public void setHive(AllowedInstanceTypesWithDefault hive) {
+    this.hive = hive;
+  }
+
+  /**
+   * Getter for impala.
+   * Allowed instance types for Impala Virtual Warehouses.
+   **/
+  @JsonProperty("impala")
+  public AllowedInstanceTypesWithDefault getImpala() {
+    return impala;
+  }
+
+  /**
+   * Setter for impala.
+   * Allowed instance types for Impala Virtual Warehouses.
+   **/
+  public void setImpala(AllowedInstanceTypesWithDefault impala) {
+    this.impala = impala;
+  }
+
+  /**
+   * Getter for trino.
+   * Allowed instance types for Trino Virtual Warehouses.
+   **/
+  @JsonProperty("trino")
+  public AllowedInstanceTypesWithDefault getTrino() {
+    return trino;
+  }
+
+  /**
+   * Setter for trino.
+   * Allowed instance types for Trino Virtual Warehouses.
+   **/
+  public void setTrino(AllowedInstanceTypesWithDefault trino) {
+    this.trino = trino;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -90,12 +157,21 @@ public class AllowedInstanceTypes  {
     if (!Objects.equals(this.allowed, allowedInstanceTypes.allowed)) {
       return false;
     }
+    if (!Objects.equals(this.hive, allowedInstanceTypes.hive)) {
+      return false;
+    }
+    if (!Objects.equals(this.impala, allowedInstanceTypes.impala)) {
+      return false;
+    }
+    if (!Objects.equals(this.trino, allowedInstanceTypes.trino)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(_default, allowed);
+    return Objects.hash(_default, allowed, hive, impala, trino);
   }
 
   @Override
@@ -104,6 +180,9 @@ public class AllowedInstanceTypes  {
     sb.append("class AllowedInstanceTypes {\n");
     sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
     sb.append("    allowed: ").append(toIndentedString(allowed)).append("\n");
+    sb.append("    hive: ").append(toIndentedString(hive)).append("\n");
+    sb.append("    impala: ").append(toIndentedString(impala)).append("\n");
+    sb.append("    trino: ").append(toIndentedString(trino)).append("\n");
     sb.append("}");
     return sb.toString();
   }
