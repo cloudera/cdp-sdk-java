@@ -23,8 +23,8 @@ import static com.cloudera.cdp.ValidationUtils.checkStateAndThrow;
 
 import java.io.InputStream;
 import java.lang.annotation.Annotation;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.ext.MessageBodyReader;
+import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.ext.MessageBodyReader;
 
 public class RestResponse extends BaseResponse implements AutoCloseable {
   private Response response = null;
@@ -58,7 +58,7 @@ public class RestResponse extends BaseResponse implements AutoCloseable {
    *
    * @return the message entity or {@code null} if message does not contain an
    *         entity body (i.e. when {@link #hasEntity()} returns {@code false}).
-   * @see javax.ws.rs.core.Response#getEntity()
+   * @see jakarta.ws.rs.core.Response#getEntity()
    */
   public Object getEntity() {
     checkStateAndThrow(this.response != null);
@@ -71,7 +71,7 @@ public class RestResponse extends BaseResponse implements AutoCloseable {
    * @param <T>        entity instance Java type.
    * @param entityType the type of entity.
    * @return the message entity.
-   * @see javax.ws.rs.core.Response#readEntity(Class)
+   * @see jakarta.ws.rs.core.Response#readEntity(Class)
    */
   public <T> T readEntity(Class<T> entityType) {
     checkStateAndThrow(this.response != null);
@@ -85,7 +85,7 @@ public class RestResponse extends BaseResponse implements AutoCloseable {
    * @param entityType  the type of entity.
    * @param annotations annotations that will be passed to the {@link MessageBodyReader}.
    * @return the message entity.
-   * @see javax.ws.rs.core.Response#readEntity(Class, Annotation[])
+   * @see jakarta.ws.rs.core.Response#readEntity(Class, Annotation[])
    */
   public <T> T readEntity(Class<T> entityType, Annotation[] annotations) {
     checkStateAndThrow(this.response != null);
@@ -98,7 +98,7 @@ public class RestResponse extends BaseResponse implements AutoCloseable {
    *
    * @return {@code true} if there is an entity present in the message,
    *         {@code false} otherwise.
-   * @see javax.ws.rs.core.Response#hasEntity()
+   * @see jakarta.ws.rs.core.Response#hasEntity()
    */
   public boolean hasEntity() {
     checkStateAndThrow(this.response != null);

@@ -28,7 +28,7 @@ import com.cloudera.cdp.datalake.model.InternalBackupRestoreState;
 /**
  * Response object to get the status of datalake backup status request.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-06T11:27:16.302-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-11T11:26:09.577-08:00")
 public class BackupDatalakeStatusResponse extends CdpResponse {
 
   /**

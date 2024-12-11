@@ -31,9 +31,9 @@ import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.time.Duration;
 import javax.net.ssl.SSLHandshakeException;
-import javax.ws.rs.ProcessingException;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.core.Response;
+import jakarta.ws.rs.ProcessingException;
+import jakarta.ws.rs.client.Client;
+import jakarta.ws.rs.core.Response;
 
 import org.glassfish.jersey.apache.connector.ApacheClientProperties;
 import org.junit.Ignore;

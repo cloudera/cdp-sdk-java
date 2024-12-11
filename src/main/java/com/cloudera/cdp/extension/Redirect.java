@@ -32,8 +32,8 @@ import com.google.common.base.Strings;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
-import javax.ws.rs.core.GenericType;
-import javax.ws.rs.core.Response;
+import jakarta.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.Response;
 
 import org.apache.http.HttpHeaders;
 import org.glassfish.jersey.client.ClientProperties;

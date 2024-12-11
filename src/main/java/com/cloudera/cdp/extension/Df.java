@@ -42,7 +42,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import javax.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.MediaType;
 
 @SdkInternalApi
 public class Df implements CdpClientMiddleware {

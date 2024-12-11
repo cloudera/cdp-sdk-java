@@ -35,7 +35,7 @@ import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.Response;
+import jakarta.ws.rs.core.Response;
 
 /**
  * CDP client middleware to parse a CDP response.

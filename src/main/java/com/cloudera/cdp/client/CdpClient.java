@@ -40,10 +40,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.BiFunction;
 import java.util.stream.Collectors;
-import javax.annotation.Nullable;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.core.GenericType;
-import javax.ws.rs.core.MediaType;
+import jakarta.annotation.Nullable;
+import jakarta.ws.rs.client.Client;
+import jakarta.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.MediaType;
 
 /**
  * Abstract base class for all API client classes. This should not be

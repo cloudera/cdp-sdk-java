@@ -22,7 +22,7 @@ package com.cloudera.cdp;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import javax.ws.rs.core.MultivaluedHashMap;
+import jakarta.ws.rs.core.MultivaluedHashMap;
 
 import org.junit.jupiter.api.Test;
 

@@ -23,7 +23,7 @@ import static  com.cloudera.cdp.ValidationUtils.checkNotNullAndThrow;
 
 import com.cloudera.cdp.authentication.credentials.profile.CdpProfileConfigFile;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 
 import org.apache.commons.lang3.StringUtils;
 

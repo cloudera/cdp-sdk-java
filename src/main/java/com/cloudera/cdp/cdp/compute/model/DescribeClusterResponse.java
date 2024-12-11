@@ -35,7 +35,7 @@ import java.util.Map;
 /**
  * Describe cluster response.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-06T11:27:19.452-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-11T11:26:12.496-08:00")
 public class DescribeClusterResponse extends CdpResponse {
 
   /**

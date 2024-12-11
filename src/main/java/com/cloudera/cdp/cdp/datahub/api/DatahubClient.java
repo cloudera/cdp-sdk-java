@@ -163,9 +163,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-06T11:27:14.324-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-11T11:26:07.808-08:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datahub";
@@ -840,6 +840,7 @@ public class DatahubClient extends CdpClient {
    * @param input
    * @return RotateSaltPasswordResponse
    */
+  @Deprecated
   public RotateSaltPasswordResponse rotateSaltPassword(RotateSaltPasswordRequest input) {
     if (input == null) {
       throw new CdpClientException("Missing the required parameter 'input' when calling rotateSaltPassword");

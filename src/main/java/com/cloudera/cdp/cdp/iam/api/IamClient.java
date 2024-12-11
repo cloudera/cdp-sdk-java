@@ -133,6 +133,8 @@ import com.cloudera.cdp.iam.model.ListUserAssignedRolesRequest;
 import com.cloudera.cdp.iam.model.ListUserAssignedRolesResponse;
 import com.cloudera.cdp.iam.model.ListUsersRequest;
 import com.cloudera.cdp.iam.model.ListUsersResponse;
+import com.cloudera.cdp.iam.model.MigrateUsersToIdentityProviderRequest;
+import com.cloudera.cdp.iam.model.MigrateUsersToIdentityProviderResponse;
 import com.cloudera.cdp.iam.model.RemoveMachineUserFromGroupRequest;
 import com.cloudera.cdp.iam.model.RemoveMachineUserFromGroupResponse;
 import com.cloudera.cdp.iam.model.RemoveUserFromGroupRequest;
@@ -177,9 +179,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
+import jakarta.ws.rs.core.GenericType;
 
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-06T11:27:18.102-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-11T11:26:11.241-08:00")
 public class IamClient extends CdpClient {
 
   public static final String SERVICE_NAME = "iam";
@@ -884,6 +886,19 @@ public class IamClient extends CdpClient {
     }
 
     return this.invokeAPI("listUsers", "/iam/listUsers", input, new GenericType<ListUsersResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Migrates all users from an identity provider connector to a different identity provider connector.
+   * @param input
+   * @return MigrateUsersToIdentityProviderResponse
+   */
+  public MigrateUsersToIdentityProviderResponse migrateUsersToIdentityProvider(MigrateUsersToIdentityProviderRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling migrateUsersToIdentityProvider");
+    }
+
+    return this.invokeAPI("migrateUsersToIdentityProvider", "/iam/migrateUsersToIdentityProvider", input, new GenericType<MigrateUsersToIdentityProviderResponse>(){}, NO_EXTENSION);
   }
 
   /**

@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * The response object for the list of registered image catalogs.
  **/
-@javax.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-06T11:27:19.310-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-11T11:26:12.354-08:00")
 public class ListCustomCatalogsResponse extends CdpResponse {
 
   /**

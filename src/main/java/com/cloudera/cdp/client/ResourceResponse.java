@@ -23,8 +23,8 @@ import static com.cloudera.cdp.ValidationUtils.checkStateAndThrow;
 
 import java.io.InputStream;
 import java.lang.annotation.Annotation;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.ext.MessageBodyReader;
+import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.ext.MessageBodyReader;
 
 public class ResourceResponse extends CdpResponse implements AutoCloseable {
   private Response response = null;
