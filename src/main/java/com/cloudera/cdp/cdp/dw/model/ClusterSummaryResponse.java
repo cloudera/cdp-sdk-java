@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * A Cloudera Data Warehouse cluster.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-11T11:26:08.472-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-15T12:52:20.552-08:00")
 public class ClusterSummaryResponse extends CdpResponse {
 
   /**
@@ -103,7 +103,7 @@ public class ClusterSummaryResponse extends CdpResponse {
   private Integer reservedSharedServicesNodes = null;
 
   /**
-   * NOTE: The cluster level instance type selection will be replaced by virtual warehouse level selection. Compute instance types that the environment is restricted to use. This affects the creation of the virtual warehouses where this restriction will apply.
+   * DEPRECATED: The cluster level instance type selection will be replaced by virtual warehouse level selection. Compute instance types that the environment is restricted to use. This affects the creation of the virtual warehouses where this restriction will apply.
    **/
   private List<String> computeInstanceTypes = new ArrayList<String>();
 
@@ -379,8 +379,9 @@ public class ClusterSummaryResponse extends CdpResponse {
 
   /**
    * Getter for computeInstanceTypes.
-   * NOTE: The cluster level instance type selection will be replaced by virtual warehouse level selection. Compute instance types that the environment is restricted to use. This affects the creation of the virtual warehouses where this restriction will apply.
+   * DEPRECATED: The cluster level instance type selection will be replaced by virtual warehouse level selection. Compute instance types that the environment is restricted to use. This affects the creation of the virtual warehouses where this restriction will apply.
    **/
+  @Deprecated
   @JsonProperty("computeInstanceTypes")
   public List<String> getComputeInstanceTypes() {
     return computeInstanceTypes;
@@ -388,8 +389,9 @@ public class ClusterSummaryResponse extends CdpResponse {
 
   /**
    * Setter for computeInstanceTypes.
-   * NOTE: The cluster level instance type selection will be replaced by virtual warehouse level selection. Compute instance types that the environment is restricted to use. This affects the creation of the virtual warehouses where this restriction will apply.
+   * DEPRECATED: The cluster level instance type selection will be replaced by virtual warehouse level selection. Compute instance types that the environment is restricted to use. This affects the creation of the virtual warehouses where this restriction will apply.
    **/
+  @Deprecated
   public void setComputeInstanceTypes(List<String> computeInstanceTypes) {
     this.computeInstanceTypes = computeInstanceTypes;
   }

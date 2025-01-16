@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * Request object for the createVw method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-11T11:26:08.472-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-15T12:52:20.552-08:00")
 public class CreateVwRequest  {
 
   /**

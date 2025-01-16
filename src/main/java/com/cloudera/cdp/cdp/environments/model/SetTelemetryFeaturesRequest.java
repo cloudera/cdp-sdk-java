@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object to enable environment level telemetry features.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-11T11:26:10.209-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-15T12:52:22.145-08:00")
 public class SetTelemetryFeaturesRequest  {
 
   /**
@@ -41,9 +41,9 @@ public class SetTelemetryFeaturesRequest  {
   private Boolean workloadAnalytics = null;
 
   /**
-   * Flag to enable environment level deployment log collection.
+   * [Deprecated] Flag to enable environment level deployment log collection.
    **/
-  private Boolean reportDeploymentLogs = null;
+  private Boolean reportDeploymentLogs = false;
 
   /**
    * Getter for environmentName.
@@ -81,8 +81,9 @@ public class SetTelemetryFeaturesRequest  {
 
   /**
    * Getter for reportDeploymentLogs.
-   * Flag to enable environment level deployment log collection.
+   * [Deprecated] Flag to enable environment level deployment log collection.
    **/
+  @Deprecated
   @JsonProperty("reportDeploymentLogs")
   public Boolean getReportDeploymentLogs() {
     return reportDeploymentLogs;
@@ -90,8 +91,9 @@ public class SetTelemetryFeaturesRequest  {
 
   /**
    * Setter for reportDeploymentLogs.
-   * Flag to enable environment level deployment log collection.
+   * [Deprecated] Flag to enable environment level deployment log collection.
    **/
+  @Deprecated
   public void setReportDeploymentLogs(Boolean reportDeploymentLogs) {
     this.reportDeploymentLogs = reportDeploymentLogs;
   }

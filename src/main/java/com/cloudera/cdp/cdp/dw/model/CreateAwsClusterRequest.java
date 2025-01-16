@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object for the createAwsCluster method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-11T11:26:08.472-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-15T12:52:20.552-08:00")
 public class CreateAwsClusterRequest  {
 
   /**
@@ -123,7 +123,7 @@ public class CreateAwsClusterRequest  {
   private Boolean reducedPermissionMode = null;
 
   /**
-   * NOTE: The cluster level instance type selection will be replaced by virtual warehouse level selection. AWS compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values.
+   * DEPRECATED: The cluster level instance type selection will be replaced by virtual warehouse level selection. AWS compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values.
    **/
   private List<String> computeInstanceTypes = new ArrayList<String>();
 
@@ -439,8 +439,9 @@ public class CreateAwsClusterRequest  {
 
   /**
    * Getter for computeInstanceTypes.
-   * NOTE: The cluster level instance type selection will be replaced by virtual warehouse level selection. AWS compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values.
+   * DEPRECATED: The cluster level instance type selection will be replaced by virtual warehouse level selection. AWS compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values.
    **/
+  @Deprecated
   @JsonProperty("computeInstanceTypes")
   public List<String> getComputeInstanceTypes() {
     return computeInstanceTypes;
@@ -448,8 +449,9 @@ public class CreateAwsClusterRequest  {
 
   /**
    * Setter for computeInstanceTypes.
-   * NOTE: The cluster level instance type selection will be replaced by virtual warehouse level selection. AWS compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values.
+   * DEPRECATED: The cluster level instance type selection will be replaced by virtual warehouse level selection. AWS compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values.
    **/
+  @Deprecated
   public void setComputeInstanceTypes(List<String> computeInstanceTypes) {
     this.computeInstanceTypes = computeInstanceTypes;
   }

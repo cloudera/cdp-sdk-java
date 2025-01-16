@@ -38,7 +38,7 @@ import java.util.*;
 /**
  * Request object for a create Azure environment request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-11T11:26:10.209-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-15T12:52:22.145-08:00")
 public class CreateAzureEnvironmentRequest  {
 
   /**
@@ -102,9 +102,9 @@ public class CreateAzureEnvironmentRequest  {
   private Boolean workloadAnalytics = null;
 
   /**
-   * When true, this will report additional diagnostic information back to Cloudera.
+   * [Deprecated] When true, this will report additional diagnostic information back to Cloudera.
    **/
-  private Boolean reportDeploymentLogs = null;
+  private Boolean reportDeploymentLogs = false;
 
   /**
    * The FreeIPA creation request for the environment
@@ -412,8 +412,9 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Getter for reportDeploymentLogs.
-   * When true, this will report additional diagnostic information back to Cloudera.
+   * [Deprecated] When true, this will report additional diagnostic information back to Cloudera.
    **/
+  @Deprecated
   @JsonProperty("reportDeploymentLogs")
   public Boolean getReportDeploymentLogs() {
     return reportDeploymentLogs;
@@ -421,8 +422,9 @@ public class CreateAzureEnvironmentRequest  {
 
   /**
    * Setter for reportDeploymentLogs.
-   * When true, this will report additional diagnostic information back to Cloudera.
+   * [Deprecated] When true, this will report additional diagnostic information back to Cloudera.
    **/
+  @Deprecated
   public void setReportDeploymentLogs(Boolean reportDeploymentLogs) {
     this.reportDeploymentLogs = reportDeploymentLogs;
   }

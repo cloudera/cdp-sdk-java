@@ -28,7 +28,7 @@ import com.cloudera.cdp.iam.model.SamlProvider;
 /**
  * Response object for an updating SAML provider request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-11T11:26:11.241-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-15T12:52:23.215-08:00")
 public class UpdateSamlProviderResponse extends CdpResponse {
 
   /**

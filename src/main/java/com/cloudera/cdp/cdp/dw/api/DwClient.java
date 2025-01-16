@@ -161,6 +161,8 @@ import com.cloudera.cdp.dw.model.RebuildVwRequest;
 import com.cloudera.cdp.dw.model.RebuildVwResponse;
 import com.cloudera.cdp.dw.model.RenewCertificatesRequest;
 import com.cloudera.cdp.dw.model.RenewCertificatesResponse;
+import com.cloudera.cdp.dw.model.ResetServerSettingsRequest;
+import com.cloudera.cdp.dw.model.ResetServerSettingsResponse;
 import com.cloudera.cdp.dw.model.RestartDbcRequest;
 import com.cloudera.cdp.dw.model.RestartDbcResponse;
 import com.cloudera.cdp.dw.model.RestartVwRequest;
@@ -205,7 +207,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-11T11:26:08.472-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-15T12:52:20.552-08:00")
 public class DwClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dw";
@@ -1093,6 +1095,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("renewCertificates", "/api/v1/dw/renewCertificates", input, new GenericType<RenewCertificatesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Restores the DWX server settings to the default values.
+   * @param input
+   * @return ResetServerSettingsResponse
+   */
+  public ResetServerSettingsResponse resetServerSettings(ResetServerSettingsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling resetServerSettings");
+    }
+
+    return this.invokeAPI("resetServerSettings", "/api/v1/dw/resetServerSettings", input, new GenericType<ResetServerSettingsResponse>(){}, NO_EXTENSION);
   }
 
   /**

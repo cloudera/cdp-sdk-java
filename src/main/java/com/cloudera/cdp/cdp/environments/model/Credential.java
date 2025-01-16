@@ -31,7 +31,7 @@ import java.time.ZonedDateTime;
 /**
  * A credential object.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-11T11:26:10.209-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-15T12:52:22.145-08:00")
 public class Credential  {
 
   /**
@@ -58,6 +58,16 @@ public class Credential  {
    * A description for the credential.
    **/
   private String description = null;
+
+  /**
+   * Skips organization policy decisions during cloud storage validation.
+   **/
+  private Boolean skipOrgPolicyDecisions = false;
+
+  /**
+   * When true, verifies credential permissions.
+   **/
+  private Boolean verifyPermissions = false;
 
   /**
    * The credential properties that closely related to those that have been created on AWS.
@@ -160,6 +170,40 @@ public class Credential  {
   }
 
   /**
+   * Getter for skipOrgPolicyDecisions.
+   * Skips organization policy decisions during cloud storage validation.
+   **/
+  @JsonProperty("skipOrgPolicyDecisions")
+  public Boolean getSkipOrgPolicyDecisions() {
+    return skipOrgPolicyDecisions;
+  }
+
+  /**
+   * Setter for skipOrgPolicyDecisions.
+   * Skips organization policy decisions during cloud storage validation.
+   **/
+  public void setSkipOrgPolicyDecisions(Boolean skipOrgPolicyDecisions) {
+    this.skipOrgPolicyDecisions = skipOrgPolicyDecisions;
+  }
+
+  /**
+   * Getter for verifyPermissions.
+   * When true, verifies credential permissions.
+   **/
+  @JsonProperty("verifyPermissions")
+  public Boolean getVerifyPermissions() {
+    return verifyPermissions;
+  }
+
+  /**
+   * Setter for verifyPermissions.
+   * When true, verifies credential permissions.
+   **/
+  public void setVerifyPermissions(Boolean verifyPermissions) {
+    this.verifyPermissions = verifyPermissions;
+  }
+
+  /**
    * Getter for awsCredentialProperties.
    * The credential properties that closely related to those that have been created on AWS.
    **/
@@ -234,6 +278,12 @@ public class Credential  {
     if (!Objects.equals(this.description, credential.description)) {
       return false;
     }
+    if (!Objects.equals(this.skipOrgPolicyDecisions, credential.skipOrgPolicyDecisions)) {
+      return false;
+    }
+    if (!Objects.equals(this.verifyPermissions, credential.verifyPermissions)) {
+      return false;
+    }
     if (!Objects.equals(this.awsCredentialProperties, credential.awsCredentialProperties)) {
       return false;
     }
@@ -248,7 +298,7 @@ public class Credential  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(credentialName, crn, cloudPlatform, created, description, awsCredentialProperties, azureCredentialProperties, gcpCredentialProperties);
+    return Objects.hash(credentialName, crn, cloudPlatform, created, description, skipOrgPolicyDecisions, verifyPermissions, awsCredentialProperties, azureCredentialProperties, gcpCredentialProperties);
   }
 
   @Override
@@ -260,6 +310,8 @@ public class Credential  {
     sb.append("    cloudPlatform: ").append(toIndentedString(cloudPlatform)).append("\n");
     sb.append("    created: ").append(toIndentedString(created)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    skipOrgPolicyDecisions: ").append(toIndentedString(skipOrgPolicyDecisions)).append("\n");
+    sb.append("    verifyPermissions: ").append(toIndentedString(verifyPermissions)).append("\n");
     sb.append("    awsCredentialProperties: ").append(toIndentedString(awsCredentialProperties)).append("\n");
     sb.append("    azureCredentialProperties: ").append(toIndentedString(azureCredentialProperties)).append("\n");
     sb.append("    gcpCredentialProperties: ").append(toIndentedString(gcpCredentialProperties)).append("\n");

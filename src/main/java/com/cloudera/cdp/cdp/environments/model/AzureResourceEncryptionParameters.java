@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Object containing details of encryption parameters for Azure cloud.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-11T11:26:10.209-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-15T12:52:22.145-08:00")
 public class AzureResourceEncryptionParameters  {
 
   /**
@@ -44,11 +44,6 @@ public class AzureResourceEncryptionParameters  {
    * ID of the Disk Encryption Set created in Azure which is used to encrypt Managed Disks of FreeIPA, Data Lake, Data Hub and PostgreSQL.
    **/
   private String diskEncryptionSetId = null;
-
-  /**
-   * User managed identity for encryption. (deprecated)
-   **/
-  private String userManagedIdentity = null;
 
   /**
    * User managed identity for encryption.
@@ -107,25 +102,6 @@ public class AzureResourceEncryptionParameters  {
   }
 
   /**
-   * Getter for userManagedIdentity.
-   * User managed identity for encryption. (deprecated)
-   **/
-  @Deprecated
-  @JsonProperty("userManagedIdentity")
-  public String getUserManagedIdentity() {
-    return userManagedIdentity;
-  }
-
-  /**
-   * Setter for userManagedIdentity.
-   * User managed identity for encryption. (deprecated)
-   **/
-  @Deprecated
-  public void setUserManagedIdentity(String userManagedIdentity) {
-    this.userManagedIdentity = userManagedIdentity;
-  }
-
-  /**
    * Getter for encryptionUserManagedIdentity.
    * User managed identity for encryption.
    **/
@@ -160,9 +136,6 @@ public class AzureResourceEncryptionParameters  {
     if (!Objects.equals(this.diskEncryptionSetId, azureResourceEncryptionParameters.diskEncryptionSetId)) {
       return false;
     }
-    if (!Objects.equals(this.userManagedIdentity, azureResourceEncryptionParameters.userManagedIdentity)) {
-      return false;
-    }
     if (!Objects.equals(this.encryptionUserManagedIdentity, azureResourceEncryptionParameters.encryptionUserManagedIdentity)) {
       return false;
     }
@@ -171,7 +144,7 @@ public class AzureResourceEncryptionParameters  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(encryptionKeyUrl, encryptionKeyResourceGroupName, diskEncryptionSetId, userManagedIdentity, encryptionUserManagedIdentity);
+    return Objects.hash(encryptionKeyUrl, encryptionKeyResourceGroupName, diskEncryptionSetId, encryptionUserManagedIdentity);
   }
 
   @Override
@@ -181,7 +154,6 @@ public class AzureResourceEncryptionParameters  {
     sb.append("    encryptionKeyUrl: ").append(toIndentedString(encryptionKeyUrl)).append("\n");
     sb.append("    encryptionKeyResourceGroupName: ").append(toIndentedString(encryptionKeyResourceGroupName)).append("\n");
     sb.append("    diskEncryptionSetId: ").append(toIndentedString(diskEncryptionSetId)).append("\n");
-    sb.append("    userManagedIdentity: ").append(toIndentedString(userManagedIdentity)).append("\n");
     sb.append("    encryptionUserManagedIdentity: ").append(toIndentedString(encryptionUserManagedIdentity)).append("\n");
     sb.append("}");
     return sb.toString();

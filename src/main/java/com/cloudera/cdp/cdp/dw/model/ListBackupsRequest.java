@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for the list backups request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-11T11:26:08.472-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-15T12:52:20.552-08:00")
 public class ListBackupsRequest  {
 
   /**
@@ -40,6 +40,11 @@ public class ListBackupsRequest  {
    * The job states we need to filter by. If not present, this filter is not used.
    **/
   private List<String> jobStates = new ArrayList<String>();
+
+  /**
+   * Decides whether automatic (system-generated) backups should be listed or not. Value is true by default.
+   **/
+  private Boolean includeAutomaticBackups = null;
 
   /**
    * Getter for backupName.
@@ -75,6 +80,23 @@ public class ListBackupsRequest  {
     this.jobStates = jobStates;
   }
 
+  /**
+   * Getter for includeAutomaticBackups.
+   * Decides whether automatic (system-generated) backups should be listed or not. Value is true by default.
+   **/
+  @JsonProperty("includeAutomaticBackups")
+  public Boolean getIncludeAutomaticBackups() {
+    return includeAutomaticBackups;
+  }
+
+  /**
+   * Setter for includeAutomaticBackups.
+   * Decides whether automatic (system-generated) backups should be listed or not. Value is true by default.
+   **/
+  public void setIncludeAutomaticBackups(Boolean includeAutomaticBackups) {
+    this.includeAutomaticBackups = includeAutomaticBackups;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -90,12 +112,15 @@ public class ListBackupsRequest  {
     if (!Objects.equals(this.jobStates, listBackupsRequest.jobStates)) {
       return false;
     }
+    if (!Objects.equals(this.includeAutomaticBackups, listBackupsRequest.includeAutomaticBackups)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupName, jobStates);
+    return Objects.hash(backupName, jobStates, includeAutomaticBackups);
   }
 
   @Override
@@ -104,6 +129,7 @@ public class ListBackupsRequest  {
     sb.append("class ListBackupsRequest {\n");
     sb.append("    backupName: ").append(toIndentedString(backupName)).append("\n");
     sb.append("    jobStates: ").append(toIndentedString(jobStates)).append("\n");
+    sb.append("    includeAutomaticBackups: ").append(toIndentedString(includeAutomaticBackups)).append("\n");
     sb.append("}");
     return sb.toString();
   }

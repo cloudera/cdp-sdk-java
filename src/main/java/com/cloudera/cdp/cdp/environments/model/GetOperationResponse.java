@@ -23,11 +23,12 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import java.time.ZonedDateTime;
 
 /**
  * Response object for tracking the latest (current/last) operation on the environment resource.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-11T11:26:10.209-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-15T12:52:22.145-08:00")
 public class GetOperationResponse extends CdpResponse {
 
   /**
@@ -36,9 +37,9 @@ public class GetOperationResponse extends CdpResponse {
   private String operationId = null;
 
   /**
-   * Type of the operation.
+   * Name of the operation.
    **/
-  private String operationType = null;
+  private String operationName = null;
 
   /**
    * Status of the operation.
@@ -46,9 +47,14 @@ public class GetOperationResponse extends CdpResponse {
   private String operationStatus = null;
 
   /**
-   * Progress percentage of the operation.
+   * Start time of the operation.
    **/
-  private Integer progress = null;
+  private ZonedDateTime started = null;
+
+  /**
+   * End time of the operation.
+   **/
+  private ZonedDateTime ended = null;
 
   /**
    * Getter for operationId.
@@ -68,20 +74,20 @@ public class GetOperationResponse extends CdpResponse {
   }
 
   /**
-   * Getter for operationType.
-   * Type of the operation.
+   * Getter for operationName.
+   * Name of the operation.
    **/
-  @JsonProperty("operationType")
-  public String getOperationType() {
-    return operationType;
+  @JsonProperty("operationName")
+  public String getOperationName() {
+    return operationName;
   }
 
   /**
-   * Setter for operationType.
-   * Type of the operation.
+   * Setter for operationName.
+   * Name of the operation.
    **/
-  public void setOperationType(String operationType) {
-    this.operationType = operationType;
+  public void setOperationName(String operationName) {
+    this.operationName = operationName;
   }
 
   /**
@@ -102,20 +108,37 @@ public class GetOperationResponse extends CdpResponse {
   }
 
   /**
-   * Getter for progress.
-   * Progress percentage of the operation.
+   * Getter for started.
+   * Start time of the operation.
    **/
-  @JsonProperty("progress")
-  public Integer getProgress() {
-    return progress;
+  @JsonProperty("started")
+  public ZonedDateTime getStarted() {
+    return started;
   }
 
   /**
-   * Setter for progress.
-   * Progress percentage of the operation.
+   * Setter for started.
+   * Start time of the operation.
    **/
-  public void setProgress(Integer progress) {
-    this.progress = progress;
+  public void setStarted(ZonedDateTime started) {
+    this.started = started;
+  }
+
+  /**
+   * Getter for ended.
+   * End time of the operation.
+   **/
+  @JsonProperty("ended")
+  public ZonedDateTime getEnded() {
+    return ended;
+  }
+
+  /**
+   * Setter for ended.
+   * End time of the operation.
+   **/
+  public void setEnded(ZonedDateTime ended) {
+    this.ended = ended;
   }
 
   @Override
@@ -130,13 +153,16 @@ public class GetOperationResponse extends CdpResponse {
     if (!Objects.equals(this.operationId, getOperationResponse.operationId)) {
       return false;
     }
-    if (!Objects.equals(this.operationType, getOperationResponse.operationType)) {
+    if (!Objects.equals(this.operationName, getOperationResponse.operationName)) {
       return false;
     }
     if (!Objects.equals(this.operationStatus, getOperationResponse.operationStatus)) {
       return false;
     }
-    if (!Objects.equals(this.progress, getOperationResponse.progress)) {
+    if (!Objects.equals(this.started, getOperationResponse.started)) {
+      return false;
+    }
+    if (!Objects.equals(this.ended, getOperationResponse.ended)) {
       return false;
     }
     if (!super.equals(o)) {
@@ -147,7 +173,7 @@ public class GetOperationResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(operationId, operationType, operationStatus, progress, super.hashCode());
+    return Objects.hash(operationId, operationName, operationStatus, started, ended, super.hashCode());
   }
 
   @Override
@@ -156,9 +182,10 @@ public class GetOperationResponse extends CdpResponse {
     sb.append("class GetOperationResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    operationId: ").append(toIndentedString(operationId)).append("\n");
-    sb.append("    operationType: ").append(toIndentedString(operationType)).append("\n");
+    sb.append("    operationName: ").append(toIndentedString(operationName)).append("\n");
     sb.append("    operationStatus: ").append(toIndentedString(operationStatus)).append("\n");
-    sb.append("    progress: ").append(toIndentedString(progress)).append("\n");
+    sb.append("    started: ").append(toIndentedString(started)).append("\n");
+    sb.append("    ended: ").append(toIndentedString(ended)).append("\n");
     sb.append("}");
     return sb.toString();
   }

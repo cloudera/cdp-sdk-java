@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * A flow parameter
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-11T11:26:12.057-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-15T12:52:23.840-08:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class FlowParameter  {
 
@@ -54,7 +54,7 @@ public class FlowParameter  {
   private Boolean sensitive = null;
 
   /**
-   * The type of parameter. Possibly TEXT, FILE, FILES, DIRECTORY
+   * The type of parameter. Possibly TEXT, FILE, FILES
    **/
   private String type = null;
 
@@ -138,7 +138,7 @@ public class FlowParameter  {
 
   /**
    * Getter for type.
-   * The type of parameter. Possibly TEXT, FILE, FILES, DIRECTORY
+   * The type of parameter. Possibly TEXT, FILE, FILES
    **/
   @JsonProperty("type")
   public String getType() {
@@ -147,7 +147,7 @@ public class FlowParameter  {
 
   /**
    * Setter for type.
-   * The type of parameter. Possibly TEXT, FILE, FILES, DIRECTORY
+   * The type of parameter. Possibly TEXT, FILE, FILES
    **/
   public void setType(String type) {
     this.type = type;

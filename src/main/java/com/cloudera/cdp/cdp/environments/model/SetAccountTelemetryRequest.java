@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object to enable environment level telemetry features.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-11T11:26:10.209-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-15T12:52:22.145-08:00")
 public class SetAccountTelemetryRequest  {
 
   /**
@@ -38,9 +38,9 @@ public class SetAccountTelemetryRequest  {
   private Boolean workloadAnalytics = null;
 
   /**
-   * Flag to enable account level deployment log collection. (that will be used as a default for environment)
+   * [Deprecated] Flag to enable environment level deployment log collection.
    **/
-  private Boolean reportDeploymentLogs = null;
+  private Boolean reportDeploymentLogs = false;
 
   /**
    * List of anonymization rules that are applied on logs that are shipped to Cloudera
@@ -66,8 +66,9 @@ public class SetAccountTelemetryRequest  {
 
   /**
    * Getter for reportDeploymentLogs.
-   * Flag to enable account level deployment log collection. (that will be used as a default for environment)
+   * [Deprecated] Flag to enable environment level deployment log collection.
    **/
+  @Deprecated
   @JsonProperty("reportDeploymentLogs")
   public Boolean getReportDeploymentLogs() {
     return reportDeploymentLogs;
@@ -75,8 +76,9 @@ public class SetAccountTelemetryRequest  {
 
   /**
    * Setter for reportDeploymentLogs.
-   * Flag to enable account level deployment log collection. (that will be used as a default for environment)
+   * [Deprecated] Flag to enable environment level deployment log collection.
    **/
+  @Deprecated
   public void setReportDeploymentLogs(Boolean reportDeploymentLogs) {
     this.reportDeploymentLogs = reportDeploymentLogs;
   }

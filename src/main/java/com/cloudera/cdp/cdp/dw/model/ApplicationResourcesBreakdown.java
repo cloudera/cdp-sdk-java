@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Breakdown of the service memory requirements.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-11T11:26:08.472-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-15T12:52:20.552-08:00")
 public class ApplicationResourcesBreakdown  {
 
   /**
@@ -41,11 +41,6 @@ public class ApplicationResourcesBreakdown  {
   private String xmx = null;
 
   /**
-   * DEPRECATED: Java VM configuration for -Xmx (maximum heap size).Java VM overhead for Garbage Collector structures, metaspace, etc., and a safety margin to avoid out-of-memory issues.
-   **/
-  private String headroom = null;
-
-  /**
    * Java VM configuration for -Xss (thread stack size).
    **/
   private String xss = null;
@@ -54,11 +49,6 @@ public class ApplicationResourcesBreakdown  {
    * Java VM configuration for -XX:MaxDirectMemorySize (limit for Direct Byte Buffers).
    **/
   private String maxDirectMemorySize = null;
-
-  /**
-   * DEPRECATED: Set the hive.query.isolation.slots.per.node configuration value instead. Overhead buffer for hive.query.isolation.slots.per.node. The total number of concurrent tasks the Hive query executor can process is the sum of the available CPU cores and the value you specify in this field.
-   **/
-  private Integer waitQueueSize = null;
 
   /**
    * Getter for xms.
@@ -95,25 +85,6 @@ public class ApplicationResourcesBreakdown  {
   }
 
   /**
-   * Getter for headroom.
-   * DEPRECATED: Java VM configuration for -Xmx (maximum heap size).Java VM overhead for Garbage Collector structures, metaspace, etc., and a safety margin to avoid out-of-memory issues.
-   **/
-  @Deprecated
-  @JsonProperty("headroom")
-  public String getHeadroom() {
-    return headroom;
-  }
-
-  /**
-   * Setter for headroom.
-   * DEPRECATED: Java VM configuration for -Xmx (maximum heap size).Java VM overhead for Garbage Collector structures, metaspace, etc., and a safety margin to avoid out-of-memory issues.
-   **/
-  @Deprecated
-  public void setHeadroom(String headroom) {
-    this.headroom = headroom;
-  }
-
-  /**
    * Getter for xss.
    * Java VM configuration for -Xss (thread stack size).
    **/
@@ -147,25 +118,6 @@ public class ApplicationResourcesBreakdown  {
     this.maxDirectMemorySize = maxDirectMemorySize;
   }
 
-  /**
-   * Getter for waitQueueSize.
-   * DEPRECATED: Set the hive.query.isolation.slots.per.node configuration value instead. Overhead buffer for hive.query.isolation.slots.per.node. The total number of concurrent tasks the Hive query executor can process is the sum of the available CPU cores and the value you specify in this field.
-   **/
-  @Deprecated
-  @JsonProperty("waitQueueSize")
-  public Integer getWaitQueueSize() {
-    return waitQueueSize;
-  }
-
-  /**
-   * Setter for waitQueueSize.
-   * DEPRECATED: Set the hive.query.isolation.slots.per.node configuration value instead. Overhead buffer for hive.query.isolation.slots.per.node. The total number of concurrent tasks the Hive query executor can process is the sum of the available CPU cores and the value you specify in this field.
-   **/
-  @Deprecated
-  public void setWaitQueueSize(Integer waitQueueSize) {
-    this.waitQueueSize = waitQueueSize;
-  }
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -181,16 +133,10 @@ public class ApplicationResourcesBreakdown  {
     if (!Objects.equals(this.xmx, applicationResourcesBreakdown.xmx)) {
       return false;
     }
-    if (!Objects.equals(this.headroom, applicationResourcesBreakdown.headroom)) {
-      return false;
-    }
     if (!Objects.equals(this.xss, applicationResourcesBreakdown.xss)) {
       return false;
     }
     if (!Objects.equals(this.maxDirectMemorySize, applicationResourcesBreakdown.maxDirectMemorySize)) {
-      return false;
-    }
-    if (!Objects.equals(this.waitQueueSize, applicationResourcesBreakdown.waitQueueSize)) {
       return false;
     }
     return true;
@@ -198,7 +144,7 @@ public class ApplicationResourcesBreakdown  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(xms, xmx, headroom, xss, maxDirectMemorySize, waitQueueSize);
+    return Objects.hash(xms, xmx, xss, maxDirectMemorySize);
   }
 
   @Override
@@ -207,10 +153,8 @@ public class ApplicationResourcesBreakdown  {
     sb.append("class ApplicationResourcesBreakdown {\n");
     sb.append("    xms: ").append(toIndentedString(xms)).append("\n");
     sb.append("    xmx: ").append(toIndentedString(xmx)).append("\n");
-    sb.append("    headroom: ").append(toIndentedString(headroom)).append("\n");
     sb.append("    xss: ").append(toIndentedString(xss)).append("\n");
     sb.append("    maxDirectMemorySize: ").append(toIndentedString(maxDirectMemorySize)).append("\n");
-    sb.append("    waitQueueSize: ").append(toIndentedString(waitQueueSize)).append("\n");
     sb.append("}");
     return sb.toString();
   }

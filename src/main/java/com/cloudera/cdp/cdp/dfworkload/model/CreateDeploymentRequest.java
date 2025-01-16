@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * Request object to create a deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2024-12-11T11:26:12.057-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-15T12:52:23.840-08:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class CreateDeploymentRequest  {
 
@@ -122,7 +122,7 @@ public class CreateDeploymentRequest  {
   private List<ListenComponent> listenComponents = new ArrayList<ListenComponent>();
 
   /**
-   * Node storage profile name.
+   * The node storage profile name.
    **/
   private String nodeStorageProfileName = null;
 
@@ -434,7 +434,7 @@ public class CreateDeploymentRequest  {
 
   /**
    * Getter for nodeStorageProfileName.
-   * Node storage profile name.
+   * The node storage profile name.
    **/
   @JsonProperty("nodeStorageProfileName")
   public String getNodeStorageProfileName() {
@@ -443,7 +443,7 @@ public class CreateDeploymentRequest  {
 
   /**
    * Setter for nodeStorageProfileName.
-   * Node storage profile name.
+   * The node storage profile name.
    **/
   public void setNodeStorageProfileName(String nodeStorageProfileName) {
     this.nodeStorageProfileName = nodeStorageProfileName;
