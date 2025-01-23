@@ -28,7 +28,7 @@ import com.cloudera.cdp.dw.model.ServiceConfigReq;
 /**
  * Request object for the updateDbc method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-15T12:52:20.552-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-23T07:12:38.977-08:00")
 public class UpdateDbcRequest  {
 
   /**
@@ -42,7 +42,12 @@ public class UpdateDbcRequest  {
   private String dbcId = null;
 
   /**
-   * Set Metastore container memory size. If not provided, small will apply.
+   * The resource template of the Database Catalog.
+   **/
+  private String resourceTemplateId = null;
+
+  /**
+   * DEPRECATED: resourceTemplateId field is replacing this one. Set Metastore container memory size. The small size will apply as default if neither the resourceTemplateId field nor this field is provided.
    **/
   private String memorySize = null;
 
@@ -86,9 +91,27 @@ public class UpdateDbcRequest  {
   }
 
   /**
-   * Getter for memorySize.
-   * Set Metastore container memory size. If not provided, small will apply.
+   * Getter for resourceTemplateId.
+   * The resource template of the Database Catalog.
    **/
+  @JsonProperty("resourceTemplateId")
+  public String getResourceTemplateId() {
+    return resourceTemplateId;
+  }
+
+  /**
+   * Setter for resourceTemplateId.
+   * The resource template of the Database Catalog.
+   **/
+  public void setResourceTemplateId(String resourceTemplateId) {
+    this.resourceTemplateId = resourceTemplateId;
+  }
+
+  /**
+   * Getter for memorySize.
+   * DEPRECATED: resourceTemplateId field is replacing this one. Set Metastore container memory size. The small size will apply as default if neither the resourceTemplateId field nor this field is provided.
+   **/
+  @Deprecated
   @JsonProperty("memorySize")
   public String getMemorySize() {
     return memorySize;
@@ -96,8 +119,9 @@ public class UpdateDbcRequest  {
 
   /**
    * Setter for memorySize.
-   * Set Metastore container memory size. If not provided, small will apply.
+   * DEPRECATED: resourceTemplateId field is replacing this one. Set Metastore container memory size. The small size will apply as default if neither the resourceTemplateId field nor this field is provided.
    **/
+  @Deprecated
   public void setMemorySize(String memorySize) {
     this.memorySize = memorySize;
   }
@@ -134,6 +158,9 @@ public class UpdateDbcRequest  {
     if (!Objects.equals(this.dbcId, updateDbcRequest.dbcId)) {
       return false;
     }
+    if (!Objects.equals(this.resourceTemplateId, updateDbcRequest.resourceTemplateId)) {
+      return false;
+    }
     if (!Objects.equals(this.memorySize, updateDbcRequest.memorySize)) {
       return false;
     }
@@ -145,7 +172,7 @@ public class UpdateDbcRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, dbcId, memorySize, config);
+    return Objects.hash(clusterId, dbcId, resourceTemplateId, memorySize, config);
   }
 
   @Override
@@ -154,6 +181,7 @@ public class UpdateDbcRequest  {
     sb.append("class UpdateDbcRequest {\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    dbcId: ").append(toIndentedString(dbcId)).append("\n");
+    sb.append("    resourceTemplateId: ").append(toIndentedString(resourceTemplateId)).append("\n");
     sb.append("    memorySize: ").append(toIndentedString(memorySize)).append("\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("}");

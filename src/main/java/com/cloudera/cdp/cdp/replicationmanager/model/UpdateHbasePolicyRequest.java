@@ -28,7 +28,7 @@ import com.cloudera.cdp.replicationmanager.model.UpdateHbasePolicyDefinition;
 /**
  * Update HBase replication policy request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-15T12:52:24.443-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-23T07:12:43.267-08:00")
 public class UpdateHbasePolicyRequest  {
 
   /**

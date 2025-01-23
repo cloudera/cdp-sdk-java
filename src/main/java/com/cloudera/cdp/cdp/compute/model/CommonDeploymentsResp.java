@@ -35,7 +35,7 @@ import com.cloudera.cdp.compute.model.CommonYuniKornResp;
 /**
  * Deployments response structure.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-15T12:52:24.261-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-23T07:12:43.033-08:00")
 public class CommonDeploymentsResp  {
 
   /**

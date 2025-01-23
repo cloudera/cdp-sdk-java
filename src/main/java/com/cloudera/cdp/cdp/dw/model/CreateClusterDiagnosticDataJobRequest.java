@@ -23,7 +23,6 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
-import com.cloudera.cdp.dw.model.ClusterCreateDiagnosticDataDownloadOptions;
 import java.time.ZonedDateTime;
 import java.util.*;
 import java.util.Map;
@@ -31,7 +30,7 @@ import java.util.Map;
 /**
  * Request object for the createClusterDiagnosticDataJob method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-15T12:52:20.552-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-23T07:12:38.977-08:00")
 public class CreateClusterDiagnosticDataJobRequest  {
 
   /**
@@ -68,11 +67,6 @@ public class CreateClusterDiagnosticDataJobRequest  {
    * Forced recreation of the diagnostic job.
    **/
   private Boolean force = false;
-
-  /**
-   * DEPRECATED: All logs are included by default. No need to specify options
-   **/
-  private ClusterCreateDiagnosticDataDownloadOptions downloadOptions = null;
 
   /**
    * Getter for clusterId.
@@ -193,23 +187,6 @@ public class CreateClusterDiagnosticDataJobRequest  {
     this.force = force;
   }
 
-  /**
-   * Getter for downloadOptions.
-   * DEPRECATED: All logs are included by default. No need to specify options
-   **/
-  @JsonProperty("downloadOptions")
-  public ClusterCreateDiagnosticDataDownloadOptions getDownloadOptions() {
-    return downloadOptions;
-  }
-
-  /**
-   * Setter for downloadOptions.
-   * DEPRECATED: All logs are included by default. No need to specify options
-   **/
-  public void setDownloadOptions(ClusterCreateDiagnosticDataDownloadOptions downloadOptions) {
-    this.downloadOptions = downloadOptions;
-  }
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -240,15 +217,12 @@ public class CreateClusterDiagnosticDataJobRequest  {
     if (!Objects.equals(this.force, createClusterDiagnosticDataJobRequest.force)) {
       return false;
     }
-    if (!Objects.equals(this.downloadOptions, createClusterDiagnosticDataJobRequest.downloadOptions)) {
-      return false;
-    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, destination, startTime, endTime, caseNumber, bundleMetadata, force, downloadOptions);
+    return Objects.hash(clusterId, destination, startTime, endTime, caseNumber, bundleMetadata, force);
   }
 
   @Override
@@ -262,7 +236,6 @@ public class CreateClusterDiagnosticDataJobRequest  {
     sb.append("    caseNumber: ").append(toIndentedString(caseNumber)).append("\n");
     sb.append("    bundleMetadata: ").append(toIndentedString(bundleMetadata)).append("\n");
     sb.append("    force: ").append(toIndentedString(force)).append("\n");
-    sb.append("    downloadOptions: ").append(toIndentedString(downloadOptions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

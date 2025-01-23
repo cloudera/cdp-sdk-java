@@ -23,8 +23,6 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
-import com.cloudera.cdp.dw.model.HiveCreateDiagnosticDataDownloadOptions;
-import com.cloudera.cdp.dw.model.ImpalaCreateDiagnosticDataDownloadOptions;
 import java.time.ZonedDateTime;
 import java.util.*;
 import java.util.Map;
@@ -32,7 +30,7 @@ import java.util.Map;
 /**
  * Request object for the createVwDiagnosticDataJob method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-15T12:52:20.552-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-23T07:12:38.977-08:00")
 public class CreateVwDiagnosticDataJobRequest  {
 
   /**
@@ -74,16 +72,6 @@ public class CreateVwDiagnosticDataJobRequest  {
    * Forced recreation of the diagnostic job.
    **/
   private Boolean force = false;
-
-  /**
-   * DEPRECATED: All logs are included by default
-   **/
-  private HiveCreateDiagnosticDataDownloadOptions hiveDownloadOptions = null;
-
-  /**
-   * DEPRECATED: All logs are included by default
-   **/
-  private ImpalaCreateDiagnosticDataDownloadOptions impalaDownloadOptions = null;
 
   /**
    * Getter for clusterId.
@@ -221,40 +209,6 @@ public class CreateVwDiagnosticDataJobRequest  {
     this.force = force;
   }
 
-  /**
-   * Getter for hiveDownloadOptions.
-   * DEPRECATED: All logs are included by default
-   **/
-  @JsonProperty("hiveDownloadOptions")
-  public HiveCreateDiagnosticDataDownloadOptions getHiveDownloadOptions() {
-    return hiveDownloadOptions;
-  }
-
-  /**
-   * Setter for hiveDownloadOptions.
-   * DEPRECATED: All logs are included by default
-   **/
-  public void setHiveDownloadOptions(HiveCreateDiagnosticDataDownloadOptions hiveDownloadOptions) {
-    this.hiveDownloadOptions = hiveDownloadOptions;
-  }
-
-  /**
-   * Getter for impalaDownloadOptions.
-   * DEPRECATED: All logs are included by default
-   **/
-  @JsonProperty("impalaDownloadOptions")
-  public ImpalaCreateDiagnosticDataDownloadOptions getImpalaDownloadOptions() {
-    return impalaDownloadOptions;
-  }
-
-  /**
-   * Setter for impalaDownloadOptions.
-   * DEPRECATED: All logs are included by default
-   **/
-  public void setImpalaDownloadOptions(ImpalaCreateDiagnosticDataDownloadOptions impalaDownloadOptions) {
-    this.impalaDownloadOptions = impalaDownloadOptions;
-  }
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -288,18 +242,12 @@ public class CreateVwDiagnosticDataJobRequest  {
     if (!Objects.equals(this.force, createVwDiagnosticDataJobRequest.force)) {
       return false;
     }
-    if (!Objects.equals(this.hiveDownloadOptions, createVwDiagnosticDataJobRequest.hiveDownloadOptions)) {
-      return false;
-    }
-    if (!Objects.equals(this.impalaDownloadOptions, createVwDiagnosticDataJobRequest.impalaDownloadOptions)) {
-      return false;
-    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, vwId, destination, startTime, endTime, caseNumber, bundleMetadata, force, hiveDownloadOptions, impalaDownloadOptions);
+    return Objects.hash(clusterId, vwId, destination, startTime, endTime, caseNumber, bundleMetadata, force);
   }
 
   @Override
@@ -314,8 +262,6 @@ public class CreateVwDiagnosticDataJobRequest  {
     sb.append("    caseNumber: ").append(toIndentedString(caseNumber)).append("\n");
     sb.append("    bundleMetadata: ").append(toIndentedString(bundleMetadata)).append("\n");
     sb.append("    force: ").append(toIndentedString(force)).append("\n");
-    sb.append("    hiveDownloadOptions: ").append(toIndentedString(hiveDownloadOptions)).append("\n");
-    sb.append("    impalaDownloadOptions: ").append(toIndentedString(impalaDownloadOptions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

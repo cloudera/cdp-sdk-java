@@ -31,7 +31,6 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.jakarta.rs.json.JacksonJsonProvider;
 
 import jakarta.ws.rs.client.Client;
-import jakarta.ws.rs.client.ClientBuilder;
 
 import org.apache.http.conn.ConnectionKeepAliveStrategy;
 import org.apache.http.impl.client.DefaultConnectionKeepAliveStrategy;
@@ -39,6 +38,7 @@ import org.glassfish.jersey.apache.connector.ApacheClientProperties;
 import org.glassfish.jersey.apache.connector.ApacheConnectorProvider;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.ClientProperties;
+import org.glassfish.jersey.client.JerseyClientBuilder;
 import org.glassfish.jersey.client.RequestEntityProcessing;
 
 @SdkInternalApi
@@ -103,9 +103,7 @@ public class ClientFactory {
         ClientProperties.PROXY_PASSWORD,
         config.getProxyPassword());
 
-    Client client = ClientBuilder.newBuilder()
-        .withConfig(clientConfig)
-        .build();
+    Client client = JerseyClientBuilder.createClient(clientConfig);
     client.property(ClientProperties.READ_TIMEOUT,
                     (int) config.getReadTimeout().toMillis());
     client.property(ClientProperties.CONNECT_TIMEOUT,

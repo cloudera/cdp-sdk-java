@@ -28,7 +28,7 @@ import com.cloudera.cdp.df.model.Service;
 /**
  * Response object for EnableService
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-15T12:52:23.544-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-23T07:12:42.200-08:00")
 public class EnableServiceResponse extends CdpResponse {
 
   /**

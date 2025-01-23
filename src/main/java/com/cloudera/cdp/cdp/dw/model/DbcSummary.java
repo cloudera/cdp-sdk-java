@@ -32,7 +32,7 @@ import java.util.Map;
 /**
  * A Database Catalog.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-15T12:52:20.552-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-23T07:12:38.977-08:00")
 public class DbcSummary  {
 
   /**
@@ -51,7 +51,12 @@ public class DbcSummary  {
   private String name = null;
 
   /**
-   * Metastore container memory size.
+   * The resource template of the Database Catalog.
+   **/
+  private String resourceTemplateId = null;
+
+  /**
+   * DEPRECATED: resourceTemplateId field is replacing this one. Metastore container memory size.
    **/
   private String memorySize = null;
 
@@ -137,9 +142,27 @@ public class DbcSummary  {
   }
 
   /**
-   * Getter for memorySize.
-   * Metastore container memory size.
+   * Getter for resourceTemplateId.
+   * The resource template of the Database Catalog.
    **/
+  @JsonProperty("resourceTemplateId")
+  public String getResourceTemplateId() {
+    return resourceTemplateId;
+  }
+
+  /**
+   * Setter for resourceTemplateId.
+   * The resource template of the Database Catalog.
+   **/
+  public void setResourceTemplateId(String resourceTemplateId) {
+    this.resourceTemplateId = resourceTemplateId;
+  }
+
+  /**
+   * Getter for memorySize.
+   * DEPRECATED: resourceTemplateId field is replacing this one. Metastore container memory size.
+   **/
+  @Deprecated
   @JsonProperty("memorySize")
   public String getMemorySize() {
     return memorySize;
@@ -147,8 +170,9 @@ public class DbcSummary  {
 
   /**
    * Setter for memorySize.
-   * Metastore container memory size.
+   * DEPRECATED: resourceTemplateId field is replacing this one. Metastore container memory size.
    **/
+  @Deprecated
   public void setMemorySize(String memorySize) {
     this.memorySize = memorySize;
   }
@@ -273,6 +297,9 @@ public class DbcSummary  {
     if (!Objects.equals(this.name, dbcSummary.name)) {
       return false;
     }
+    if (!Objects.equals(this.resourceTemplateId, dbcSummary.resourceTemplateId)) {
+      return false;
+    }
     if (!Objects.equals(this.memorySize, dbcSummary.memorySize)) {
       return false;
     }
@@ -299,7 +326,7 @@ public class DbcSummary  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, name, memorySize, status, statusChangedAt, creator, creationDate, resourcePool, resources);
+    return Objects.hash(crn, id, name, resourceTemplateId, memorySize, status, statusChangedAt, creator, creationDate, resourcePool, resources);
   }
 
   @Override
@@ -309,6 +336,7 @@ public class DbcSummary  {
     sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    resourceTemplateId: ").append(toIndentedString(resourceTemplateId)).append("\n");
     sb.append("    memorySize: ").append(toIndentedString(memorySize)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusChangedAt: ").append(toIndentedString(statusChangedAt)).append("\n");
