@@ -27,13 +27,18 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * The response object for Data Hub cluster vertical scaling.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-23T07:12:38.108-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-06T11:00:47.347-08:00")
 public class StartClusterVerticalScalingResponse extends CdpResponse {
 
   /**
    * The result of the operation.
    **/
   private String result = null;
+
+  /**
+   * Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
+   **/
+  private String operationId = null;
 
   /**
    * Getter for result.
@@ -52,6 +57,23 @@ public class StartClusterVerticalScalingResponse extends CdpResponse {
     this.result = result;
   }
 
+  /**
+   * Getter for operationId.
+   * Unique operation ID assigned to this command execution. Use this identifier with &#39;get-operation&#39; to track status and retrieve detailed results.
+   **/
+  @JsonProperty("operationId")
+  public String getOperationId() {
+    return operationId;
+  }
+
+  /**
+   * Setter for operationId.
+   * Unique operation ID assigned to this command execution. Use this identifier with &#39;get-operation&#39; to track status and retrieve detailed results.
+   **/
+  public void setOperationId(String operationId) {
+    this.operationId = operationId;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -64,6 +86,9 @@ public class StartClusterVerticalScalingResponse extends CdpResponse {
     if (!Objects.equals(this.result, startClusterVerticalScalingResponse.result)) {
       return false;
     }
+    if (!Objects.equals(this.operationId, startClusterVerticalScalingResponse.operationId)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -72,7 +97,7 @@ public class StartClusterVerticalScalingResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(result, super.hashCode());
+    return Objects.hash(result, operationId, super.hashCode());
   }
 
   @Override
@@ -81,6 +106,7 @@ public class StartClusterVerticalScalingResponse extends CdpResponse {
     sb.append("class StartClusterVerticalScalingResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
+    sb.append("    operationId: ").append(toIndentedString(operationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

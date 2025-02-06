@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for upgrade Data Hub request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-23T07:12:38.108-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-06T11:00:47.347-08:00")
 public class PrepareClusterUpgradeResponse extends CdpResponse {
 
   /**
@@ -46,6 +46,11 @@ public class PrepareClusterUpgradeResponse extends CdpResponse {
    * The reason why upgrade is not possible.
    **/
   private String reason = null;
+
+  /**
+   * Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
+   **/
+  private String operationId = null;
 
   /**
    * Getter for current.
@@ -98,6 +103,23 @@ public class PrepareClusterUpgradeResponse extends CdpResponse {
     this.reason = reason;
   }
 
+  /**
+   * Getter for operationId.
+   * Unique operation ID assigned to this command execution. Use this identifier with &#39;get-operation&#39; to track status and retrieve detailed results.
+   **/
+  @JsonProperty("operationId")
+  public String getOperationId() {
+    return operationId;
+  }
+
+  /**
+   * Setter for operationId.
+   * Unique operation ID assigned to this command execution. Use this identifier with &#39;get-operation&#39; to track status and retrieve detailed results.
+   **/
+  public void setOperationId(String operationId) {
+    this.operationId = operationId;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -116,6 +138,9 @@ public class PrepareClusterUpgradeResponse extends CdpResponse {
     if (!Objects.equals(this.reason, prepareClusterUpgradeResponse.reason)) {
       return false;
     }
+    if (!Objects.equals(this.operationId, prepareClusterUpgradeResponse.operationId)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -124,7 +149,7 @@ public class PrepareClusterUpgradeResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(current, upgradeCandidates, reason, super.hashCode());
+    return Objects.hash(current, upgradeCandidates, reason, operationId, super.hashCode());
   }
 
   @Override
@@ -135,6 +160,7 @@ public class PrepareClusterUpgradeResponse extends CdpResponse {
     sb.append("    current: ").append(toIndentedString(current)).append("\n");
     sb.append("    upgradeCandidates: ").append(toIndentedString(upgradeCandidates)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
+    sb.append("    operationId: ").append(toIndentedString(operationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

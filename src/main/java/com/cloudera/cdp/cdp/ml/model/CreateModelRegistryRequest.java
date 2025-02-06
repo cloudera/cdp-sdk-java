@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object for creating model registry.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-23T07:12:39.983-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-06T11:00:49.241-08:00")
 public class CreateModelRegistryRequest  {
 
   /**
@@ -108,7 +108,7 @@ public class CreateModelRegistryRequest  {
   private String backupCrn = null;
 
   /**
-   * Whether to whitelist only authorizedIPRanges given or all public IPs
+   * Whether to whitelist only authorizedIPRanges given or all public IPs.
    **/
   private Boolean whitelistAuthorizedIPRanges = null;
 
@@ -374,7 +374,7 @@ public class CreateModelRegistryRequest  {
 
   /**
    * Getter for whitelistAuthorizedIPRanges.
-   * Whether to whitelist only authorizedIPRanges given or all public IPs
+   * Whether to whitelist only authorizedIPRanges given or all public IPs.
    **/
   @JsonProperty("whitelistAuthorizedIPRanges")
   public Boolean getWhitelistAuthorizedIPRanges() {
@@ -383,7 +383,7 @@ public class CreateModelRegistryRequest  {
 
   /**
    * Setter for whitelistAuthorizedIPRanges.
-   * Whether to whitelist only authorizedIPRanges given or all public IPs
+   * Whether to whitelist only authorizedIPRanges given or all public IPs.
    **/
   public void setWhitelistAuthorizedIPRanges(Boolean whitelistAuthorizedIPRanges) {
     this.whitelistAuthorizedIPRanges = whitelistAuthorizedIPRanges;

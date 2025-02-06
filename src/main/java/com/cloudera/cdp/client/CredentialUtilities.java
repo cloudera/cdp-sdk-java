@@ -34,9 +34,10 @@ import java.security.spec.PKCS8EncodedKeySpec;
 import java.util.Base64;
 
 import java.util.List;
+import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+import org.bouncycastle.asn1.DEROctetString;
 import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-import org.bouncycastle.crypto.params.Ed25519PrivateKeyParameters;
-import org.bouncycastle.crypto.util.PrivateKeyInfoFactory;
+import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.jcajce.provider.asymmetric.edec.KeyFactorySpi;
 import org.bouncycastle.util.io.pem.PemObject;
 import org.bouncycastle.util.io.pem.PemReader;
@@ -96,14 +97,13 @@ public class CredentialUtilities {
   }
 
   private static PrivateKey decodeEd25519PrivateKey(String privateKey) {
-    byte[] seed = Base64.getDecoder().decode(privateKey);
+    byte[] privateKeyByte = Base64.getDecoder().decode(privateKey);
     try {
-      // We instantiate the KeyFactorySpi directly to avoid having to register
-      // the BouncyCastle provider, and even if we did, this parameter based
-      // instantiation is not exposed through the provider interfaces.
-      Ed25519PrivateKeyParameters params = new Ed25519PrivateKeyParameters(seed, 0);
-      PrivateKeyInfo info = PrivateKeyInfoFactory.createPrivateKeyInfo(params);
-      return new KeyFactorySpi.Ed25519().generatePrivate(info);
+      // OID for Ed25519 is 1.3.101.112
+      ASN1ObjectIdentifier oid = new ASN1ObjectIdentifier("1.3.101.112"); //NOPMD
+      AlgorithmIdentifier privateKeyAlg = new AlgorithmIdentifier(oid);
+      PrivateKeyInfo privateKeyInfo = new PrivateKeyInfo(privateKeyAlg, new DEROctetString(privateKeyByte));
+      return new KeyFactorySpi.Ed25519().generatePrivate(privateKeyInfo);
     } catch (IOException e) {
       throw new CdpClientException(
           "Unable to generate private key " + e.getMessage(), e);

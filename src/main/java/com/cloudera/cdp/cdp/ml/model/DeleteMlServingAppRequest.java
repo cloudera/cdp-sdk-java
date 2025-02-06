@@ -27,13 +27,18 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the DeleteMlServingApp method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-23T07:12:39.983-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-06T11:00:49.241-08:00")
 public class DeleteMlServingAppRequest  {
 
   /**
    * The CRN of the Cloudera AI Inference Service to be deleted.
    **/
   private String appCrn = null;
+
+  /**
+   * Forcefully deletes the Cloudera AI Inference service, bypassing any errors encountered during the deletion process. Please note that using force delete removes the assurance that resources in your cloud account will be properly cleaned up. By default, force is set to false.
+   **/
+  private Boolean force = null;
 
   /**
    * Getter for appCrn.
@@ -52,6 +57,23 @@ public class DeleteMlServingAppRequest  {
     this.appCrn = appCrn;
   }
 
+  /**
+   * Getter for force.
+   * Forcefully deletes the Cloudera AI Inference service, bypassing any errors encountered during the deletion process. Please note that using force delete removes the assurance that resources in your cloud account will be properly cleaned up. By default, force is set to false.
+   **/
+  @JsonProperty("force")
+  public Boolean getForce() {
+    return force;
+  }
+
+  /**
+   * Setter for force.
+   * Forcefully deletes the Cloudera AI Inference service, bypassing any errors encountered during the deletion process. Please note that using force delete removes the assurance that resources in your cloud account will be properly cleaned up. By default, force is set to false.
+   **/
+  public void setForce(Boolean force) {
+    this.force = force;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -64,12 +86,15 @@ public class DeleteMlServingAppRequest  {
     if (!Objects.equals(this.appCrn, deleteMlServingAppRequest.appCrn)) {
       return false;
     }
+    if (!Objects.equals(this.force, deleteMlServingAppRequest.force)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(appCrn);
+    return Objects.hash(appCrn, force);
   }
 
   @Override
@@ -77,6 +102,7 @@ public class DeleteMlServingAppRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteMlServingAppRequest {\n");
     sb.append("    appCrn: ").append(toIndentedString(appCrn)).append("\n");
+    sb.append("    force: ").append(toIndentedString(force)).append("\n");
     sb.append("}");
     return sb.toString();
   }

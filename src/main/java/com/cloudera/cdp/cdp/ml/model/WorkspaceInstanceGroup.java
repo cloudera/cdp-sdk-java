@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Instance group information to show in workbench details.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-23T07:12:39.983-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-06T11:00:49.241-08:00")
 public class WorkspaceInstanceGroup  {
 
   /**
@@ -82,6 +82,11 @@ public class WorkspaceInstanceGroup  {
    * Memory in GiB attached to this instance type.
    **/
   private String memory = null;
+
+  /**
+   * Root volume size in GiB attached to this instance type.
+   **/
+  private Long rootVolumeSize = null;
 
   /**
    * Getter for instanceType.
@@ -253,6 +258,23 @@ public class WorkspaceInstanceGroup  {
     this.memory = memory;
   }
 
+  /**
+   * Getter for rootVolumeSize.
+   * Root volume size in GiB attached to this instance type.
+   **/
+  @JsonProperty("rootVolumeSize")
+  public Long getRootVolumeSize() {
+    return rootVolumeSize;
+  }
+
+  /**
+   * Setter for rootVolumeSize.
+   * Root volume size in GiB attached to this instance type.
+   **/
+  public void setRootVolumeSize(Long rootVolumeSize) {
+    this.rootVolumeSize = rootVolumeSize;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -292,12 +314,15 @@ public class WorkspaceInstanceGroup  {
     if (!Objects.equals(this.memory, workspaceInstanceGroup.memory)) {
       return false;
     }
+    if (!Objects.equals(this.rootVolumeSize, workspaceInstanceGroup.rootVolumeSize)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceType, instanceCount, instanceGroupName, minInstances, maxInstances, instances, tags, cpu, gpu, memory);
+    return Objects.hash(instanceType, instanceCount, instanceGroupName, minInstances, maxInstances, instances, tags, cpu, gpu, memory, rootVolumeSize);
   }
 
   @Override
@@ -314,6 +339,7 @@ public class WorkspaceInstanceGroup  {
     sb.append("    cpu: ").append(toIndentedString(cpu)).append("\n");
     sb.append("    gpu: ").append(toIndentedString(gpu)).append("\n");
     sb.append("    memory: ").append(toIndentedString(memory)).append("\n");
+    sb.append("    rootVolumeSize: ").append(toIndentedString(rootVolumeSize)).append("\n");
     sb.append("}");
     return sb.toString();
   }

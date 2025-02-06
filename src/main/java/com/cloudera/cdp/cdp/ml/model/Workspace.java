@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.ml.model.BackupMetadata;
 import com.cloudera.cdp.ml.model.HealthInfo;
+import com.cloudera.cdp.ml.model.ResourceQuota;
 import com.cloudera.cdp.ml.model.Tag;
 import com.cloudera.cdp.ml.model.UpgradeState;
 import com.cloudera.cdp.ml.model.WorkspaceInstanceGroup;
@@ -34,7 +35,7 @@ import java.util.*;
 /**
  * A ML workbench, which includes the cluster and storage.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-23T07:12:39.983-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-06T11:00:49.241-08:00")
 public class Workspace  {
 
   /**
@@ -196,6 +197,26 @@ public class Workspace  {
    * The value to indicate if the cluster is private or not.
    **/
   private Boolean isPrivate = null;
+
+  /**
+   * Resource Pool for the workbench.
+   **/
+  private String resourcePoolName = null;
+
+  /**
+   * Parent Resource Pool for the workbench.
+   **/
+  private String parentResourcePoolName = null;
+
+  /**
+   * Quota configured for the workbench.
+   **/
+  private ResourceQuota quota = null;
+
+  /**
+   * Available Quota for the workbench.
+   **/
+  private ResourceQuota availableQuota = null;
 
   /**
    * The value to indicate if the workbench is restored one or not
@@ -747,6 +768,74 @@ public class Workspace  {
   }
 
   /**
+   * Getter for resourcePoolName.
+   * Resource Pool for the workbench.
+   **/
+  @JsonProperty("resourcePoolName")
+  public String getResourcePoolName() {
+    return resourcePoolName;
+  }
+
+  /**
+   * Setter for resourcePoolName.
+   * Resource Pool for the workbench.
+   **/
+  public void setResourcePoolName(String resourcePoolName) {
+    this.resourcePoolName = resourcePoolName;
+  }
+
+  /**
+   * Getter for parentResourcePoolName.
+   * Parent Resource Pool for the workbench.
+   **/
+  @JsonProperty("parentResourcePoolName")
+  public String getParentResourcePoolName() {
+    return parentResourcePoolName;
+  }
+
+  /**
+   * Setter for parentResourcePoolName.
+   * Parent Resource Pool for the workbench.
+   **/
+  public void setParentResourcePoolName(String parentResourcePoolName) {
+    this.parentResourcePoolName = parentResourcePoolName;
+  }
+
+  /**
+   * Getter for quota.
+   * Quota configured for the workbench.
+   **/
+  @JsonProperty("quota")
+  public ResourceQuota getQuota() {
+    return quota;
+  }
+
+  /**
+   * Setter for quota.
+   * Quota configured for the workbench.
+   **/
+  public void setQuota(ResourceQuota quota) {
+    this.quota = quota;
+  }
+
+  /**
+   * Getter for availableQuota.
+   * Available Quota for the workbench.
+   **/
+  @JsonProperty("availableQuota")
+  public ResourceQuota getAvailableQuota() {
+    return availableQuota;
+  }
+
+  /**
+   * Setter for availableQuota.
+   * Available Quota for the workbench.
+   **/
+  public void setAvailableQuota(ResourceQuota availableQuota) {
+    this.availableQuota = availableQuota;
+  }
+
+  /**
    * Getter for isRestored.
    * The value to indicate if the workbench is restored one or not
    **/
@@ -868,6 +957,18 @@ public class Workspace  {
     if (!Objects.equals(this.isPrivate, workspace.isPrivate)) {
       return false;
     }
+    if (!Objects.equals(this.resourcePoolName, workspace.resourcePoolName)) {
+      return false;
+    }
+    if (!Objects.equals(this.parentResourcePoolName, workspace.parentResourcePoolName)) {
+      return false;
+    }
+    if (!Objects.equals(this.quota, workspace.quota)) {
+      return false;
+    }
+    if (!Objects.equals(this.availableQuota, workspace.availableQuota)) {
+      return false;
+    }
     if (!Objects.equals(this.isRestored, workspace.isRestored)) {
       return false;
     }
@@ -876,7 +977,7 @@ public class Workspace  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, endpointPublicAccess, filesystemID, tags, instanceGroups, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, healthInfoLists, failureMessage, clusterBaseDomain, modelMetricsEnabled, governanceEnabled, subnets, whitelistAuthorizedIPRanges, authorizedIPRanges, nfsVersion, subnetsForLoadBalancers, upgradeState, backupMetadata, clusterID, isPrivate, isRestored);
+    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, endpointPublicAccess, filesystemID, tags, instanceGroups, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, healthInfoLists, failureMessage, clusterBaseDomain, modelMetricsEnabled, governanceEnabled, subnets, whitelistAuthorizedIPRanges, authorizedIPRanges, nfsVersion, subnetsForLoadBalancers, upgradeState, backupMetadata, clusterID, isPrivate, resourcePoolName, parentResourcePoolName, quota, availableQuota, isRestored);
   }
 
   @Override
@@ -915,6 +1016,10 @@ public class Workspace  {
     sb.append("    backupMetadata: ").append(toIndentedString(backupMetadata)).append("\n");
     sb.append("    clusterID: ").append(toIndentedString(clusterID)).append("\n");
     sb.append("    isPrivate: ").append(toIndentedString(isPrivate)).append("\n");
+    sb.append("    resourcePoolName: ").append(toIndentedString(resourcePoolName)).append("\n");
+    sb.append("    parentResourcePoolName: ").append(toIndentedString(parentResourcePoolName)).append("\n");
+    sb.append("    quota: ").append(toIndentedString(quota)).append("\n");
+    sb.append("    availableQuota: ").append(toIndentedString(availableQuota)).append("\n");
     sb.append("    isRestored: ").append(toIndentedString(isRestored)).append("\n");
     sb.append("}");
     return sb.toString();

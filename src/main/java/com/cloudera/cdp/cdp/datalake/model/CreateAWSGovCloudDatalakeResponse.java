@@ -28,13 +28,18 @@ import com.cloudera.cdp.datalake.model.Datalake;
 /**
  * Response object for creating AWS Data Lake request on GovCloud.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-23T07:12:40.257-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-06T11:00:49.586-08:00")
 public class CreateAWSGovCloudDatalakeResponse extends CdpResponse {
 
   /**
    * The Data Lake.
    **/
   private Datalake datalake = null;
+
+  /**
+   * Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
+   **/
+  private String operationId = null;
 
   /**
    * Getter for datalake.
@@ -53,6 +58,23 @@ public class CreateAWSGovCloudDatalakeResponse extends CdpResponse {
     this.datalake = datalake;
   }
 
+  /**
+   * Getter for operationId.
+   * Unique operation ID assigned to this command execution. Use this identifier with &#39;get-operation&#39; to track status and retrieve detailed results.
+   **/
+  @JsonProperty("operationId")
+  public String getOperationId() {
+    return operationId;
+  }
+
+  /**
+   * Setter for operationId.
+   * Unique operation ID assigned to this command execution. Use this identifier with &#39;get-operation&#39; to track status and retrieve detailed results.
+   **/
+  public void setOperationId(String operationId) {
+    this.operationId = operationId;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -65,6 +87,9 @@ public class CreateAWSGovCloudDatalakeResponse extends CdpResponse {
     if (!Objects.equals(this.datalake, createAWSGovCloudDatalakeResponse.datalake)) {
       return false;
     }
+    if (!Objects.equals(this.operationId, createAWSGovCloudDatalakeResponse.operationId)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -73,7 +98,7 @@ public class CreateAWSGovCloudDatalakeResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalake, super.hashCode());
+    return Objects.hash(datalake, operationId, super.hashCode());
   }
 
   @Override
@@ -82,6 +107,7 @@ public class CreateAWSGovCloudDatalakeResponse extends CdpResponse {
     sb.append("class CreateAWSGovCloudDatalakeResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    datalake: ").append(toIndentedString(datalake)).append("\n");
+    sb.append("    operationId: ").append(toIndentedString(operationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

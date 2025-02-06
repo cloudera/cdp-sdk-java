@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Datalake resize response.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-23T07:12:40.257-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-06T11:00:49.586-08:00")
 public class ResizeDatalakeResponse extends CdpResponse {
 
   /**
@@ -71,6 +71,11 @@ public class ResizeDatalakeResponse extends CdpResponse {
    * Datalake tags object containing the tag values defined for the datalake.
    **/
   private List<DatalakeResourceTag> tags = new ArrayList<DatalakeResourceTag>();
+
+  /**
+   * Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
+   **/
+  private String operationId = null;
 
   /**
    * Getter for datalakeName.
@@ -208,6 +213,23 @@ public class ResizeDatalakeResponse extends CdpResponse {
     this.tags = tags;
   }
 
+  /**
+   * Getter for operationId.
+   * Unique operation ID assigned to this command execution. Use this identifier with &#39;get-operation&#39; to track status and retrieve detailed results.
+   **/
+  @JsonProperty("operationId")
+  public String getOperationId() {
+    return operationId;
+  }
+
+  /**
+   * Setter for operationId.
+   * Unique operation ID assigned to this command execution. Use this identifier with &#39;get-operation&#39; to track status and retrieve detailed results.
+   **/
+  public void setOperationId(String operationId) {
+    this.operationId = operationId;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -241,6 +263,9 @@ public class ResizeDatalakeResponse extends CdpResponse {
     if (!Objects.equals(this.tags, resizeDatalakeResponse.tags)) {
       return false;
     }
+    if (!Objects.equals(this.operationId, resizeDatalakeResponse.operationId)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -249,7 +274,7 @@ public class ResizeDatalakeResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, datalakeCrn, environmentCrn, runtime, status, statusReason, cloudbreakVersion, tags, super.hashCode());
+    return Objects.hash(datalakeName, datalakeCrn, environmentCrn, runtime, status, statusReason, cloudbreakVersion, tags, operationId, super.hashCode());
   }
 
   @Override
@@ -265,6 +290,7 @@ public class ResizeDatalakeResponse extends CdpResponse {
     sb.append("    statusReason: ").append(toIndentedString(statusReason)).append("\n");
     sb.append("    cloudbreakVersion: ").append(toIndentedString(cloudbreakVersion)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    operationId: ").append(toIndentedString(operationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

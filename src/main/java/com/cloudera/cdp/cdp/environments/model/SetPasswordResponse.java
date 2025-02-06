@@ -29,11 +29,11 @@ import java.util.*;
 /**
  * Response object for set password request. (deprecated)
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-23T07:12:40.736-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-06T11:00:50.150-08:00")
 public class SetPasswordResponse extends CdpResponse {
 
   /**
-   * UUID of the request for this operation. This Id can be used for geting status on the operation.
+   * Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
    **/
   private String operationId = null;
 
@@ -74,7 +74,7 @@ public class SetPasswordResponse extends CdpResponse {
 
   /**
    * Getter for operationId.
-   * UUID of the request for this operation. This Id can be used for geting status on the operation.
+   * Unique operation ID assigned to this command execution. Use this identifier with &#39;get-operation&#39; to track status and retrieve detailed results.
    **/
   @JsonProperty("operationId")
   public String getOperationId() {
@@ -83,7 +83,7 @@ public class SetPasswordResponse extends CdpResponse {
 
   /**
    * Setter for operationId.
-   * UUID of the request for this operation. This Id can be used for geting status on the operation.
+   * Unique operation ID assigned to this command execution. Use this identifier with &#39;get-operation&#39; to track status and retrieve detailed results.
    **/
   public void setOperationId(String operationId) {
     this.operationId = operationId;

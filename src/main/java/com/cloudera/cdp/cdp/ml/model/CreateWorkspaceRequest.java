@@ -25,12 +25,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.ml.model.ExistingDatabaseConfig;
 import com.cloudera.cdp.ml.model.ProvisionK8sRequest;
+import com.cloudera.cdp.ml.model.ResourcePoolConfig;
 import java.util.*;
 
 /**
  * Request object for the CreateWorkspace method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-23T07:12:39.983-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-06T11:00:49.241-08:00")
 public class CreateWorkspaceRequest  {
 
   /**
@@ -132,6 +133,11 @@ public class CreateWorkspaceRequest  {
    * Outbound Types provided for the workbench.
    **/
   private List<String> outboundTypes = new ArrayList<String>();;
+
+  /**
+   * The resource pool configuration for quota management.
+   **/
+  private ResourcePoolConfig resourcePoolConfig = null;
 
   /**
    * Getter for environmentName.
@@ -473,6 +479,23 @@ public class CreateWorkspaceRequest  {
     this.outboundTypes = outboundTypes;
   }
 
+  /**
+   * Getter for resourcePoolConfig.
+   * The resource pool configuration for quota management.
+   **/
+  @JsonProperty("resourcePoolConfig")
+  public ResourcePoolConfig getResourcePoolConfig() {
+    return resourcePoolConfig;
+  }
+
+  /**
+   * Setter for resourcePoolConfig.
+   * The resource pool configuration for quota management.
+   **/
+  public void setResourcePoolConfig(ResourcePoolConfig resourcePoolConfig) {
+    this.resourcePoolConfig = resourcePoolConfig;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -542,12 +565,15 @@ public class CreateWorkspaceRequest  {
     if (!Objects.equals(this.outboundTypes, createWorkspaceRequest.outboundTypes)) {
       return false;
     }
+    if (!Objects.equals(this.resourcePoolConfig, createWorkspaceRequest.resourcePoolConfig)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, workspaceName, provisionK8sRequest, usePublicLoadBalancer, disableTLS, enableMonitoring, enableGovernance, existingNFS, loadBalancerIPWhitelists, nfsVersion, enableModelMetrics, existingDatabaseConfig, whitelistAuthorizedIPRanges, authorizedIPRanges, skipValidation, privateCluster, subnetsForLoadBalancers, staticSubdomain, cdswMigrationMode, outboundTypes);
+    return Objects.hash(environmentName, workspaceName, provisionK8sRequest, usePublicLoadBalancer, disableTLS, enableMonitoring, enableGovernance, existingNFS, loadBalancerIPWhitelists, nfsVersion, enableModelMetrics, existingDatabaseConfig, whitelistAuthorizedIPRanges, authorizedIPRanges, skipValidation, privateCluster, subnetsForLoadBalancers, staticSubdomain, cdswMigrationMode, outboundTypes, resourcePoolConfig);
   }
 
   @Override
@@ -574,6 +600,7 @@ public class CreateWorkspaceRequest  {
     sb.append("    staticSubdomain: ").append(toIndentedString(staticSubdomain)).append("\n");
     sb.append("    cdswMigrationMode: ").append(toIndentedString(cdswMigrationMode)).append("\n");
     sb.append("    outboundTypes: ").append(toIndentedString(outboundTypes)).append("\n");
+    sb.append("    resourcePoolConfig: ").append(toIndentedString(resourcePoolConfig)).append("\n");
     sb.append("}");
     return sb.toString();
   }

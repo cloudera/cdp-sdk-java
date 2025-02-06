@@ -27,8 +27,30 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object for stop cluster request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-23T07:12:38.108-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-06T11:00:47.347-08:00")
 public class StopClusterResponse extends CdpResponse {
+
+  /**
+   * Unique operation ID assigned to this command execution. Use this identifier with 'get-operation' to track status and retrieve detailed results.
+   **/
+  private String operationId = null;
+
+  /**
+   * Getter for operationId.
+   * Unique operation ID assigned to this command execution. Use this identifier with &#39;get-operation&#39; to track status and retrieve detailed results.
+   **/
+  @JsonProperty("operationId")
+  public String getOperationId() {
+    return operationId;
+  }
+
+  /**
+   * Setter for operationId.
+   * Unique operation ID assigned to this command execution. Use this identifier with &#39;get-operation&#39; to track status and retrieve detailed results.
+   **/
+  public void setOperationId(String operationId) {
+    this.operationId = operationId;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -36,6 +58,10 @@ public class StopClusterResponse extends CdpResponse {
       return true;
     }
     if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    StopClusterResponse stopClusterResponse = (StopClusterResponse) o;
+    if (!Objects.equals(this.operationId, stopClusterResponse.operationId)) {
       return false;
     }
     if (!super.equals(o)) {
@@ -46,7 +72,7 @@ public class StopClusterResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash( super.hashCode());
+    return Objects.hash(operationId, super.hashCode());
   }
 
   @Override
@@ -54,6 +80,7 @@ public class StopClusterResponse extends CdpResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class StopClusterResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    operationId: ").append(toIndentedString(operationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

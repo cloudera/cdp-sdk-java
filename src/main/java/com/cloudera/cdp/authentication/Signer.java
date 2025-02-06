@@ -26,7 +26,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Maps;
 
-import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -36,10 +35,6 @@ import java.security.SignatureException;
 import java.util.SortedMap;
 
 import org.apache.commons.codec.binary.Base64;
-import org.bouncycastle.asn1.ASN1OctetString;
-import org.bouncycastle.asn1.pkcs.PrivateKeyInfo;
-import org.bouncycastle.crypto.params.Ed25519PrivateKeyParameters;
-import org.bouncycastle.crypto.signers.Ed25519Signer;
 
 /**
  * A request signer appropriate for use with the CDP client.
@@ -123,19 +118,10 @@ public class Signer {
         sig = signature.sign();
         break;
       case ED25519_SIGNATURE_ALGORITHM:
-        // This labourious process is necessary because we're trying to avoid
-        // relying on the BouncyCastle provider to be registered with the
-        // security subsystem. And the only way to get a Signature class is
-        // through the provider. The BC SignatureSpi implementation cannot
-        // be used directly.
-        PrivateKeyInfo info = PrivateKeyInfo.getInstance(privateKey.getEncoded());
-        ASN1OctetString asn1Seed = ASN1OctetString.getInstance(info.parsePrivateKey());
-        byte[] seed = asn1Seed.getOctets();
-
-        Ed25519Signer signer = new Ed25519Signer();
-        signer.init(true, new Ed25519PrivateKeyParameters(seed, 0));
-        signer.update(bytesToSign, 0, bytesToSign.length);
-        sig = signer.generateSignature();
+        Signature signer = Signature.getInstance("Ed25519");
+        signer.initSign(privateKey);
+        signer.update(bytesToSign);
+        sig = signer.sign();
         break;
       default:
         throw new CdpClientException("Unsupported key algorithm: " +
@@ -144,8 +130,7 @@ public class Signer {
       signatureString = Base64.encodeBase64URLSafeString(sig);
     } catch (NoSuchAlgorithmException |
              InvalidKeyException |
-             SignatureException |
-             IOException e) {
+             SignatureException e) {
       throw new RuntimeException(e);
     }
 

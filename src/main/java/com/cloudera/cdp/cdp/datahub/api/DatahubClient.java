@@ -89,6 +89,8 @@ import com.cloudera.cdp.datahub.model.GetCmRolesRequest;
 import com.cloudera.cdp.datahub.model.GetCmRolesResponse;
 import com.cloudera.cdp.datahub.model.GetDatahubLogDescriptorsRequest;
 import com.cloudera.cdp.datahub.model.GetDatahubLogDescriptorsResponse;
+import com.cloudera.cdp.datahub.model.GetOperationRequest;
+import com.cloudera.cdp.datahub.model.GetOperationResponse;
 import com.cloudera.cdp.datahub.model.GetVmTypesRequest;
 import com.cloudera.cdp.datahub.model.GetVmTypesResponse;
 import com.cloudera.cdp.datahub.model.ListAutoScaleHistoryRequest;
@@ -165,7 +167,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-23T07:12:38.108-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-06T11:00:47.347-08:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datahub";
@@ -584,6 +586,19 @@ public class DatahubClient extends CdpClient {
     }
 
     return this.invokeAPI("getDatahubLogDescriptors", "/api/v1/datahub/getDatahubLogDescriptors", input, new GenericType<GetDatahubLogDescriptorsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Get the latest (in progress or finished) operation for the datahub cluster.
+   * @param input
+   * @return GetOperationResponse
+   */
+  public GetOperationResponse getOperation(GetOperationRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getOperation");
+    }
+
+    return this.invokeAPI("getOperation", "/api/v1/datahub/getOperation", input, new GenericType<GetOperationResponse>(){}, NO_EXTENSION);
   }
 
   /**

@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Response object for a list groups for machine user request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-23T07:12:41.844-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-06T11:00:51.282-08:00")
 public class ListGroupsForMachineUserResponse extends CdpResponse {
 
   /**

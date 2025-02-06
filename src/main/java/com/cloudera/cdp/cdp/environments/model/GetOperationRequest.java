@@ -27,13 +27,18 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for tracking the latest (current/last) operation on the environment resource.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-01-23T07:12:40.736-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-06T11:00:50.150-08:00")
 public class GetOperationRequest  {
 
   /**
    * Name of the environment resource.
    **/
   private String environmentName = null;
+
+  /**
+   * Filter by operation id.
+   **/
+  private String operationId = null;
 
   /**
    * Getter for environmentName.
@@ -52,6 +57,23 @@ public class GetOperationRequest  {
     this.environmentName = environmentName;
   }
 
+  /**
+   * Getter for operationId.
+   * Filter by operation id.
+   **/
+  @JsonProperty("operationId")
+  public String getOperationId() {
+    return operationId;
+  }
+
+  /**
+   * Setter for operationId.
+   * Filter by operation id.
+   **/
+  public void setOperationId(String operationId) {
+    this.operationId = operationId;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -64,12 +86,15 @@ public class GetOperationRequest  {
     if (!Objects.equals(this.environmentName, getOperationRequest.environmentName)) {
       return false;
     }
+    if (!Objects.equals(this.operationId, getOperationRequest.operationId)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName);
+    return Objects.hash(environmentName, operationId);
   }
 
   @Override
@@ -77,6 +102,7 @@ public class GetOperationRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetOperationRequest {\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
+    sb.append("    operationId: ").append(toIndentedString(operationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
