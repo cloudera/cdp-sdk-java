@@ -32,7 +32,7 @@ import java.util.Map;
 /**
  * A Database Catalog.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-06T11:00:48.289-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-18T18:28:43.574-08:00")
 public class DbcSummary  {
 
   /**

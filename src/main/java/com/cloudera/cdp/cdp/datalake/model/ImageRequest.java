@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * The image request for the datalake. When the &#39;runtime&#39; parameter is set, only the &#39;os&#39; parameter can be provided. Otherwise, you can use &#39;catalog name&#39; and/or &#39;id&#39; for selecting an image.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-06T11:00:49.586-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-18T18:28:44.679-08:00")
 public class ImageRequest  {
 
   /**

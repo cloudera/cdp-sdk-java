@@ -29,7 +29,7 @@ import com.cloudera.cdp.environments.model.Environment;
 /**
  * Response object for a update Azure encryption resources request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-06T11:00:50.150-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-18T18:28:45.237-08:00")
 public class UpdateAzureEncryptionResourcesResponse extends CdpResponse {
 
   /**

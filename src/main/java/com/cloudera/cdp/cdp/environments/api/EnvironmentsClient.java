@@ -223,7 +223,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-06T11:00:50.150-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-18T18:28:45.237-08:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -1362,7 +1362,7 @@ public class EnvironmentsClient extends CdpClient {
   }
 
   /**
-   * Updates the proxy config of the given environment.
+   * Updates the proxy config of the given environment. The newly added proxy configs will only be used for the Cloudera Data Hub clusters created within the environment after the new proxy configs were added. All the existing environment resources such as the Data Lake, FreeIPA, and any existing Cloudera Data Hub clusters will remain with the proxy configs originally defined during environment creation.
    * @param input
    * @return UpdateProxyConfigResponse
    */
@@ -1375,7 +1375,7 @@ public class EnvironmentsClient extends CdpClient {
   }
 
   /**
-   * Updates the security access settings of the given environment.
+   * Updates the security access settings of the given environment. The newly added security groups will only be used for the Cloudera Data Hub clusters created within the environment after the new security groups were added. All the existing environment resources such as the Data Lake, FreeIPA, and any existing Cloudera Data Hub clusters will remain within the security groups originally defined during environment creation.
    * @param input
    * @return UpdateSecurityAccessResponse
    */
@@ -1388,7 +1388,7 @@ public class EnvironmentsClient extends CdpClient {
   }
 
   /**
-   * Updates the designated SSH key for the given environment.
+   * Updates the designated SSH key for the given environment. The newly added SSH key will only be used for the Cloudera Data Hub clusters created within the environment after the new SSH key were added. All the existing environment resources such as the Data Lake, FreeIPA, and any existing Cloudera Data Hub clusters will remain within the SSH key originally defined during environment creation.
    * @param input
    * @return UpdateSshKeyResponse
    */
@@ -1401,7 +1401,7 @@ public class EnvironmentsClient extends CdpClient {
   }
 
   /**
-   * Updates the subnet(s) of the given environment.
+   * Updates the subnet(s) of the given environment. The newly added subnets will only be used for the Cloudera Data Hub clusters created within the environment after the new subnets were added. All the existing environment resources such as the Data Lake, FreeIPA, and any existing Cloudera Data Hub clusters will remain within the subnets originally defined during environment creation.
    * @param input
    * @return UpdateSubnetResponse
    */

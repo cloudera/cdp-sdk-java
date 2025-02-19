@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object for the createAzureCluster method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-06T11:00:48.289-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-18T18:28:43.574-08:00")
 public class CreateAzureClusterRequest  {
 
   /**
@@ -71,16 +71,6 @@ public class CreateAzureClusterRequest  {
    * Set up load balancer with private IP address. An internal load balancer gets created. Make sure there is connectivity between your client network and the network VNet where CDW environment is deployed.
    **/
   private Boolean useInternalLoadBalancer = null;
-
-  /**
-   * DEPRECATED - will be removed in future releases. Set additional number of nodes to reserve for executors and coordinators to use during autoscaling. Adding more reserved nodes increases your cloud costs.
-   **/
-  private Integer reservedComputeNodes = null;
-
-  /**
-   * DEPRECATED - will be removed in future releases. Set additional number of nodes to reserve for other services in the cluster. Adding more reserved nodes increases your cloud costs.
-   **/
-  private Integer reservedSharedServicesNodes = null;
 
   /**
    * Options for custom ACR/ECR registries.
@@ -281,44 +271,6 @@ public class CreateAzureClusterRequest  {
    **/
   public void setUseInternalLoadBalancer(Boolean useInternalLoadBalancer) {
     this.useInternalLoadBalancer = useInternalLoadBalancer;
-  }
-
-  /**
-   * Getter for reservedComputeNodes.
-   * DEPRECATED - will be removed in future releases. Set additional number of nodes to reserve for executors and coordinators to use during autoscaling. Adding more reserved nodes increases your cloud costs.
-   **/
-  @Deprecated
-  @JsonProperty("reservedComputeNodes")
-  public Integer getReservedComputeNodes() {
-    return reservedComputeNodes;
-  }
-
-  /**
-   * Setter for reservedComputeNodes.
-   * DEPRECATED - will be removed in future releases. Set additional number of nodes to reserve for executors and coordinators to use during autoscaling. Adding more reserved nodes increases your cloud costs.
-   **/
-  @Deprecated
-  public void setReservedComputeNodes(Integer reservedComputeNodes) {
-    this.reservedComputeNodes = reservedComputeNodes;
-  }
-
-  /**
-   * Getter for reservedSharedServicesNodes.
-   * DEPRECATED - will be removed in future releases. Set additional number of nodes to reserve for other services in the cluster. Adding more reserved nodes increases your cloud costs.
-   **/
-  @Deprecated
-  @JsonProperty("reservedSharedServicesNodes")
-  public Integer getReservedSharedServicesNodes() {
-    return reservedSharedServicesNodes;
-  }
-
-  /**
-   * Setter for reservedSharedServicesNodes.
-   * DEPRECATED - will be removed in future releases. Set additional number of nodes to reserve for other services in the cluster. Adding more reserved nodes increases your cloud costs.
-   **/
-  @Deprecated
-  public void setReservedSharedServicesNodes(Integer reservedSharedServicesNodes) {
-    this.reservedSharedServicesNodes = reservedSharedServicesNodes;
   }
 
   /**
@@ -577,12 +529,6 @@ public class CreateAzureClusterRequest  {
     if (!Objects.equals(this.useInternalLoadBalancer, createAzureClusterRequest.useInternalLoadBalancer)) {
       return false;
     }
-    if (!Objects.equals(this.reservedComputeNodes, createAzureClusterRequest.reservedComputeNodes)) {
-      return false;
-    }
-    if (!Objects.equals(this.reservedSharedServicesNodes, createAzureClusterRequest.reservedSharedServicesNodes)) {
-      return false;
-    }
     if (!Objects.equals(this.customRegistryOptions, createAzureClusterRequest.customRegistryOptions)) {
       return false;
     }
@@ -627,7 +573,7 @@ public class CreateAzureClusterRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, userAssignedManagedIdentity, subnetName, useOverlayNetworking, databaseBackupRetentionPeriod, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, useInternalLoadBalancer, reservedComputeNodes, reservedSharedServicesNodes, customRegistryOptions, customSubdomain, enableAZ, enableSpotInstances, computeInstanceTypes, logAnalyticsWorkspaceId, outboundType, aksPodCIDR, enablePrivateSQL, privateSQLSubnetName, privateDNSZoneSQL, privateDNSZoneAKS, enablePrivateAks);
+    return Objects.hash(environmentCrn, userAssignedManagedIdentity, subnetName, useOverlayNetworking, databaseBackupRetentionPeriod, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, useInternalLoadBalancer, customRegistryOptions, customSubdomain, enableAZ, enableSpotInstances, computeInstanceTypes, logAnalyticsWorkspaceId, outboundType, aksPodCIDR, enablePrivateSQL, privateSQLSubnetName, privateDNSZoneSQL, privateDNSZoneAKS, enablePrivateAks);
   }
 
   @Override
@@ -642,8 +588,6 @@ public class CreateAzureClusterRequest  {
     sb.append("    whitelistK8sClusterAccessIpCIDRs: ").append(toIndentedString(whitelistK8sClusterAccessIpCIDRs)).append("\n");
     sb.append("    whitelistWorkloadAccessIpCIDRs: ").append(toIndentedString(whitelistWorkloadAccessIpCIDRs)).append("\n");
     sb.append("    useInternalLoadBalancer: ").append(toIndentedString(useInternalLoadBalancer)).append("\n");
-    sb.append("    reservedComputeNodes: ").append(toIndentedString(reservedComputeNodes)).append("\n");
-    sb.append("    reservedSharedServicesNodes: ").append(toIndentedString(reservedSharedServicesNodes)).append("\n");
     sb.append("    customRegistryOptions: ").append(toIndentedString(customRegistryOptions)).append("\n");
     sb.append("    customSubdomain: ").append(toIndentedString(customSubdomain)).append("\n");
     sb.append("    enableAZ: ").append(toIndentedString(enableAZ)).append("\n");

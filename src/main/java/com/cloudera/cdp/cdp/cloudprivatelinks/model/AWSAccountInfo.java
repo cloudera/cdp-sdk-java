@@ -28,7 +28,7 @@ import com.cloudera.cdp.cloudprivatelinks.model.CrossAccountRoleDetails;
 /**
  * Details of the cloud network and the cross-account role required to delete the PrivateLink endpoint.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-06T11:00:52.863-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-18T18:28:47.805-08:00")
 public class AWSAccountInfo  {
 
   /**

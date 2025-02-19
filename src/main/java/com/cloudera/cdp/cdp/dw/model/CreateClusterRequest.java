@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * Request object for the createCluster method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-06T11:00:48.289-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-18T18:28:43.574-08:00")
 public class CreateClusterRequest  {
 
   /**
@@ -79,16 +79,6 @@ public class CreateClusterRequest  {
    * DEPRECATED - Enable Storage Roles
    **/
   private Boolean enableStorageRoles = false;
-
-  /**
-   * DEPRECATED - will be removed in future releases. Set additional number of nodes to reserve for executors and coordinators to use during autoscaling. Adding more reserved nodes increases your cloud costs.
-   **/
-  private Integer reservedComputeNodes = null;
-
-  /**
-   * DEPRECATED - will be removed in future releases. Set additional number of nodes to reserve for other services in the cluster. Adding more reserved nodes increases your cloud costs.
-   **/
-  private Integer reservedSharedServicesNodes = null;
 
   /**
    * Options for custom ACR/ECR registries.
@@ -276,44 +266,6 @@ public class CreateClusterRequest  {
   }
 
   /**
-   * Getter for reservedComputeNodes.
-   * DEPRECATED - will be removed in future releases. Set additional number of nodes to reserve for executors and coordinators to use during autoscaling. Adding more reserved nodes increases your cloud costs.
-   **/
-  @Deprecated
-  @JsonProperty("reservedComputeNodes")
-  public Integer getReservedComputeNodes() {
-    return reservedComputeNodes;
-  }
-
-  /**
-   * Setter for reservedComputeNodes.
-   * DEPRECATED - will be removed in future releases. Set additional number of nodes to reserve for executors and coordinators to use during autoscaling. Adding more reserved nodes increases your cloud costs.
-   **/
-  @Deprecated
-  public void setReservedComputeNodes(Integer reservedComputeNodes) {
-    this.reservedComputeNodes = reservedComputeNodes;
-  }
-
-  /**
-   * Getter for reservedSharedServicesNodes.
-   * DEPRECATED - will be removed in future releases. Set additional number of nodes to reserve for other services in the cluster. Adding more reserved nodes increases your cloud costs.
-   **/
-  @Deprecated
-  @JsonProperty("reservedSharedServicesNodes")
-  public Integer getReservedSharedServicesNodes() {
-    return reservedSharedServicesNodes;
-  }
-
-  /**
-   * Setter for reservedSharedServicesNodes.
-   * DEPRECATED - will be removed in future releases. Set additional number of nodes to reserve for other services in the cluster. Adding more reserved nodes increases your cloud costs.
-   **/
-  @Deprecated
-  public void setReservedSharedServicesNodes(Integer reservedSharedServicesNodes) {
-    this.reservedSharedServicesNodes = reservedSharedServicesNodes;
-  }
-
-  /**
    * Getter for customRegistryOptions.
    * Options for custom ACR/ECR registries.
    **/
@@ -451,12 +403,6 @@ public class CreateClusterRequest  {
     if (!Objects.equals(this.enableStorageRoles, createClusterRequest.enableStorageRoles)) {
       return false;
     }
-    if (!Objects.equals(this.reservedComputeNodes, createClusterRequest.reservedComputeNodes)) {
-      return false;
-    }
-    if (!Objects.equals(this.reservedSharedServicesNodes, createClusterRequest.reservedSharedServicesNodes)) {
-      return false;
-    }
     if (!Objects.equals(this.customRegistryOptions, createClusterRequest.customRegistryOptions)) {
       return false;
     }
@@ -480,7 +426,7 @@ public class CreateClusterRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, useOverlayNetwork, databaseBackupRetentionPeriod, whitelistIpCIDRs, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, usePrivateLoadBalancer, usePublicWorkerNode, enableStorageRoles, reservedComputeNodes, reservedSharedServicesNodes, customRegistryOptions, awsOptions, azureOptions, privateCloudOptions, customSubdomain, resourcePool);
+    return Objects.hash(environmentCrn, useOverlayNetwork, databaseBackupRetentionPeriod, whitelistIpCIDRs, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, usePrivateLoadBalancer, usePublicWorkerNode, enableStorageRoles, customRegistryOptions, awsOptions, azureOptions, privateCloudOptions, customSubdomain, resourcePool);
   }
 
   @Override
@@ -496,8 +442,6 @@ public class CreateClusterRequest  {
     sb.append("    usePrivateLoadBalancer: ").append(toIndentedString(usePrivateLoadBalancer)).append("\n");
     sb.append("    usePublicWorkerNode: ").append(toIndentedString(usePublicWorkerNode)).append("\n");
     sb.append("    enableStorageRoles: ").append(toIndentedString(enableStorageRoles)).append("\n");
-    sb.append("    reservedComputeNodes: ").append(toIndentedString(reservedComputeNodes)).append("\n");
-    sb.append("    reservedSharedServicesNodes: ").append(toIndentedString(reservedSharedServicesNodes)).append("\n");
     sb.append("    customRegistryOptions: ").append(toIndentedString(customRegistryOptions)).append("\n");
     sb.append("    awsOptions: ").append(toIndentedString(awsOptions)).append("\n");
     sb.append("    azureOptions: ").append(toIndentedString(azureOptions)).append("\n");

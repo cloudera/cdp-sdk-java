@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * A Cloudera Data Warehouse cluster.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-06T11:00:48.289-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-18T18:28:43.574-08:00")
 public class ClusterSummaryResponse extends CdpResponse {
 
   /**
@@ -91,16 +91,6 @@ public class ClusterSummaryResponse extends CdpResponse {
    * Denotes whether the spot instances have been enabled for the cluster. This value is only available for AWS and Azure clusters.
    **/
   private Boolean enableSpotInstances = null;
-
-  /**
-   * DEPRECATED - will be removed in future releases. Number of additional reserved nodes for executors and coordinators to use during autoscaling.
-   **/
-  private Integer reservedComputeNodes = null;
-
-  /**
-   * DEPRECATED - will be removed in future releases. Number of additional reserved nodes for other services in the cluster.
-   **/
-  private Integer reservedSharedServicesNodes = null;
 
   /**
    * DEPRECATED: The cluster level instance type selection will be replaced by virtual warehouse level selection. Compute instance types that the environment is restricted to use. This affects the creation of the virtual warehouses where this restriction will apply.
@@ -340,44 +330,6 @@ public class ClusterSummaryResponse extends CdpResponse {
   }
 
   /**
-   * Getter for reservedComputeNodes.
-   * DEPRECATED - will be removed in future releases. Number of additional reserved nodes for executors and coordinators to use during autoscaling.
-   **/
-  @Deprecated
-  @JsonProperty("reservedComputeNodes")
-  public Integer getReservedComputeNodes() {
-    return reservedComputeNodes;
-  }
-
-  /**
-   * Setter for reservedComputeNodes.
-   * DEPRECATED - will be removed in future releases. Number of additional reserved nodes for executors and coordinators to use during autoscaling.
-   **/
-  @Deprecated
-  public void setReservedComputeNodes(Integer reservedComputeNodes) {
-    this.reservedComputeNodes = reservedComputeNodes;
-  }
-
-  /**
-   * Getter for reservedSharedServicesNodes.
-   * DEPRECATED - will be removed in future releases. Number of additional reserved nodes for other services in the cluster.
-   **/
-  @Deprecated
-  @JsonProperty("reservedSharedServicesNodes")
-  public Integer getReservedSharedServicesNodes() {
-    return reservedSharedServicesNodes;
-  }
-
-  /**
-   * Setter for reservedSharedServicesNodes.
-   * DEPRECATED - will be removed in future releases. Number of additional reserved nodes for other services in the cluster.
-   **/
-  @Deprecated
-  public void setReservedSharedServicesNodes(Integer reservedSharedServicesNodes) {
-    this.reservedSharedServicesNodes = reservedSharedServicesNodes;
-  }
-
-  /**
    * Getter for computeInstanceTypes.
    * DEPRECATED: The cluster level instance type selection will be replaced by virtual warehouse level selection. Compute instance types that the environment is restricted to use. This affects the creation of the virtual warehouses where this restriction will apply.
    **/
@@ -591,12 +543,6 @@ public class ClusterSummaryResponse extends CdpResponse {
     if (!Objects.equals(this.enableSpotInstances, clusterSummaryResponse.enableSpotInstances)) {
       return false;
     }
-    if (!Objects.equals(this.reservedComputeNodes, clusterSummaryResponse.reservedComputeNodes)) {
-      return false;
-    }
-    if (!Objects.equals(this.reservedSharedServicesNodes, clusterSummaryResponse.reservedSharedServicesNodes)) {
-      return false;
-    }
     if (!Objects.equals(this.computeInstanceTypes, clusterSummaryResponse.computeInstanceTypes)) {
       return false;
     }
@@ -635,7 +581,7 @@ public class ClusterSummaryResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, environmentCrn, name, status, creator, creationDate, cloudPlatform, version, productSupport, enableSpotInstances, reservedComputeNodes, reservedSharedServicesNodes, computeInstanceTypes, awsOptions, azureOptions, description, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, useOverlayNetwork, enablePrivateLoadBalancer, resourcePool, externalBuckets, super.hashCode());
+    return Objects.hash(crn, id, environmentCrn, name, status, creator, creationDate, cloudPlatform, version, productSupport, enableSpotInstances, computeInstanceTypes, awsOptions, azureOptions, description, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, useOverlayNetwork, enablePrivateLoadBalancer, resourcePool, externalBuckets, super.hashCode());
   }
 
   @Override
@@ -654,8 +600,6 @@ public class ClusterSummaryResponse extends CdpResponse {
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    productSupport: ").append(toIndentedString(productSupport)).append("\n");
     sb.append("    enableSpotInstances: ").append(toIndentedString(enableSpotInstances)).append("\n");
-    sb.append("    reservedComputeNodes: ").append(toIndentedString(reservedComputeNodes)).append("\n");
-    sb.append("    reservedSharedServicesNodes: ").append(toIndentedString(reservedSharedServicesNodes)).append("\n");
     sb.append("    computeInstanceTypes: ").append(toIndentedString(computeInstanceTypes)).append("\n");
     sb.append("    awsOptions: ").append(toIndentedString(awsOptions)).append("\n");
     sb.append("    azureOptions: ").append(toIndentedString(azureOptions)).append("\n");

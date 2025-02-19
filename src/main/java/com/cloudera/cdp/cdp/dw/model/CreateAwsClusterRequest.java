@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object for the createAwsCluster method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-06T11:00:48.289-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-18T18:28:43.574-08:00")
 public class CreateAwsClusterRequest  {
 
   /**
@@ -71,16 +71,6 @@ public class CreateAwsClusterRequest  {
    * Use this option to set up AWS EKS cluster in private only mode with restricted access only from internal/peered networks. Ensure you have ccmv2 setup functional to achieve this integration.
    **/
   private Boolean enablePrivateEKS = false;
-
-  /**
-   * DEPRECATED - will be removed in future releases. Set additional number of nodes to reserve for executors and coordinators to use during autoscaling. Adding more reserved nodes increases your cloud costs.
-   **/
-  private Integer reservedComputeNodes = null;
-
-  /**
-   * DEPRECATED - will be removed in future releases. Set additional number of nodes to reserve for other services in the cluster. Adding more reserved nodes increases your cloud costs.
-   **/
-  private Integer reservedSharedServicesNodes = null;
 
   /**
    * Options for custom ACR/ECR registries.
@@ -261,44 +251,6 @@ public class CreateAwsClusterRequest  {
    **/
   public void setEnablePrivateEKS(Boolean enablePrivateEKS) {
     this.enablePrivateEKS = enablePrivateEKS;
-  }
-
-  /**
-   * Getter for reservedComputeNodes.
-   * DEPRECATED - will be removed in future releases. Set additional number of nodes to reserve for executors and coordinators to use during autoscaling. Adding more reserved nodes increases your cloud costs.
-   **/
-  @Deprecated
-  @JsonProperty("reservedComputeNodes")
-  public Integer getReservedComputeNodes() {
-    return reservedComputeNodes;
-  }
-
-  /**
-   * Setter for reservedComputeNodes.
-   * DEPRECATED - will be removed in future releases. Set additional number of nodes to reserve for executors and coordinators to use during autoscaling. Adding more reserved nodes increases your cloud costs.
-   **/
-  @Deprecated
-  public void setReservedComputeNodes(Integer reservedComputeNodes) {
-    this.reservedComputeNodes = reservedComputeNodes;
-  }
-
-  /**
-   * Getter for reservedSharedServicesNodes.
-   * DEPRECATED - will be removed in future releases. Set additional number of nodes to reserve for other services in the cluster. Adding more reserved nodes increases your cloud costs.
-   **/
-  @Deprecated
-  @JsonProperty("reservedSharedServicesNodes")
-  public Integer getReservedSharedServicesNodes() {
-    return reservedSharedServicesNodes;
-  }
-
-  /**
-   * Setter for reservedSharedServicesNodes.
-   * DEPRECATED - will be removed in future releases. Set additional number of nodes to reserve for other services in the cluster. Adding more reserved nodes increases your cloud costs.
-   **/
-  @Deprecated
-  public void setReservedSharedServicesNodes(Integer reservedSharedServicesNodes) {
-    this.reservedSharedServicesNodes = reservedSharedServicesNodes;
   }
 
   /**
@@ -489,12 +441,6 @@ public class CreateAwsClusterRequest  {
     if (!Objects.equals(this.enablePrivateEKS, createAwsClusterRequest.enablePrivateEKS)) {
       return false;
     }
-    if (!Objects.equals(this.reservedComputeNodes, createAwsClusterRequest.reservedComputeNodes)) {
-      return false;
-    }
-    if (!Objects.equals(this.reservedSharedServicesNodes, createAwsClusterRequest.reservedSharedServicesNodes)) {
-      return false;
-    }
     if (!Objects.equals(this.customRegistryOptions, createAwsClusterRequest.customRegistryOptions)) {
       return false;
     }
@@ -527,7 +473,7 @@ public class CreateAwsClusterRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, useOverlayNetwork, databaseBackupRetentionPeriod, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, usePrivateLoadBalancer, usePublicWorkerNode, enablePrivateEKS, reservedComputeNodes, reservedSharedServicesNodes, customRegistryOptions, customSubdomain, workerSubnetIds, lbSubnetIds, customAmiId, nodeRoleCDWManagedPolicyArn, enableSpotInstances, reducedPermissionMode, computeInstanceTypes);
+    return Objects.hash(environmentCrn, useOverlayNetwork, databaseBackupRetentionPeriod, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, usePrivateLoadBalancer, usePublicWorkerNode, enablePrivateEKS, customRegistryOptions, customSubdomain, workerSubnetIds, lbSubnetIds, customAmiId, nodeRoleCDWManagedPolicyArn, enableSpotInstances, reducedPermissionMode, computeInstanceTypes);
   }
 
   @Override
@@ -542,8 +488,6 @@ public class CreateAwsClusterRequest  {
     sb.append("    usePrivateLoadBalancer: ").append(toIndentedString(usePrivateLoadBalancer)).append("\n");
     sb.append("    usePublicWorkerNode: ").append(toIndentedString(usePublicWorkerNode)).append("\n");
     sb.append("    enablePrivateEKS: ").append(toIndentedString(enablePrivateEKS)).append("\n");
-    sb.append("    reservedComputeNodes: ").append(toIndentedString(reservedComputeNodes)).append("\n");
-    sb.append("    reservedSharedServicesNodes: ").append(toIndentedString(reservedSharedServicesNodes)).append("\n");
     sb.append("    customRegistryOptions: ").append(toIndentedString(customRegistryOptions)).append("\n");
     sb.append("    customSubdomain: ").append(toIndentedString(customSubdomain)).append("\n");
     sb.append("    workerSubnetIds: ").append(toIndentedString(workerSubnetIds)).append("\n");

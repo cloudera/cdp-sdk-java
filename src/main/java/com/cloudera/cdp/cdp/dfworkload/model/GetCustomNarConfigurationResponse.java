@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object for retrieving a custom NAR configuration by CRN.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-06T11:00:51.937-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-18T18:28:46.956-08:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class GetCustomNarConfigurationResponse extends CdpResponse {
 

@@ -36,7 +36,7 @@ import java.util.*;
 /**
  * Request object for a create AWS environment request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-06T11:00:50.150-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-18T18:28:45.237-08:00")
 public class CreateAWSEnvironmentRequest  {
 
   /**
@@ -70,19 +70,19 @@ public class CreateAWSEnvironmentRequest  {
   private AwsLogStorageRequest logStorage = null;
 
   /**
-   * The network CIDR. This will create a VPC along with subnets in multiple Availability Zones.
-   **/
-  private String networkCidr = null;
-
-  /**
-   * The Amazon VPC ID. Mutually exclusive with networkCidr.
+   * The Amazon VPC ID.
    **/
   private String vpcId = null;
 
   /**
-   * One or more subnet IDs within the VPC. Mutually exclusive with networkCidr.
+   * One or more subnet IDs within the VPC.
    **/
   private List<String> subnetIds = new ArrayList<String>();
+
+  /**
+   * [Deprecated] The network CIDR. This will create a VPC along with subnets in multiple Availability Zones.
+   **/
+  private String networkCidr = null;
 
   /**
    * Whether to create private subnets or not.
@@ -272,25 +272,8 @@ public class CreateAWSEnvironmentRequest  {
   }
 
   /**
-   * Getter for networkCidr.
-   * The network CIDR. This will create a VPC along with subnets in multiple Availability Zones.
-   **/
-  @JsonProperty("networkCidr")
-  public String getNetworkCidr() {
-    return networkCidr;
-  }
-
-  /**
-   * Setter for networkCidr.
-   * The network CIDR. This will create a VPC along with subnets in multiple Availability Zones.
-   **/
-  public void setNetworkCidr(String networkCidr) {
-    this.networkCidr = networkCidr;
-  }
-
-  /**
    * Getter for vpcId.
-   * The Amazon VPC ID. Mutually exclusive with networkCidr.
+   * The Amazon VPC ID.
    **/
   @JsonProperty("vpcId")
   public String getVpcId() {
@@ -299,7 +282,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Setter for vpcId.
-   * The Amazon VPC ID. Mutually exclusive with networkCidr.
+   * The Amazon VPC ID.
    **/
   public void setVpcId(String vpcId) {
     this.vpcId = vpcId;
@@ -307,7 +290,7 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Getter for subnetIds.
-   * One or more subnet IDs within the VPC. Mutually exclusive with networkCidr.
+   * One or more subnet IDs within the VPC.
    **/
   @JsonProperty("subnetIds")
   public List<String> getSubnetIds() {
@@ -316,10 +299,29 @@ public class CreateAWSEnvironmentRequest  {
 
   /**
    * Setter for subnetIds.
-   * One or more subnet IDs within the VPC. Mutually exclusive with networkCidr.
+   * One or more subnet IDs within the VPC.
    **/
   public void setSubnetIds(List<String> subnetIds) {
     this.subnetIds = subnetIds;
+  }
+
+  /**
+   * Getter for networkCidr.
+   * [Deprecated] The network CIDR. This will create a VPC along with subnets in multiple Availability Zones.
+   **/
+  @Deprecated
+  @JsonProperty("networkCidr")
+  public String getNetworkCidr() {
+    return networkCidr;
+  }
+
+  /**
+   * Setter for networkCidr.
+   * [Deprecated] The network CIDR. This will create a VPC along with subnets in multiple Availability Zones.
+   **/
+  @Deprecated
+  public void setNetworkCidr(String networkCidr) {
+    this.networkCidr = networkCidr;
   }
 
   /**
@@ -642,13 +644,13 @@ public class CreateAWSEnvironmentRequest  {
     if (!Objects.equals(this.logStorage, createAWSEnvironmentRequest.logStorage)) {
       return false;
     }
-    if (!Objects.equals(this.networkCidr, createAWSEnvironmentRequest.networkCidr)) {
-      return false;
-    }
     if (!Objects.equals(this.vpcId, createAWSEnvironmentRequest.vpcId)) {
       return false;
     }
     if (!Objects.equals(this.subnetIds, createAWSEnvironmentRequest.subnetIds)) {
+      return false;
+    }
+    if (!Objects.equals(this.networkCidr, createAWSEnvironmentRequest.networkCidr)) {
       return false;
     }
     if (!Objects.equals(this.createPrivateSubnets, createAWSEnvironmentRequest.createPrivateSubnets)) {
@@ -707,7 +709,7 @@ public class CreateAWSEnvironmentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, securityAccess, authentication, logStorage, networkCidr, vpcId, subnetIds, createPrivateSubnets, createServiceEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, s3GuardTableName, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, enableComputeCluster, computeClusterConfiguration, image, tags, proxyConfigName, encryptionKeyArn, customDockerRegistry);
+    return Objects.hash(environmentName, credentialName, region, securityAccess, authentication, logStorage, vpcId, subnetIds, networkCidr, createPrivateSubnets, createServiceEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, s3GuardTableName, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, enableComputeCluster, computeClusterConfiguration, image, tags, proxyConfigName, encryptionKeyArn, customDockerRegistry);
   }
 
   @Override
@@ -720,9 +722,9 @@ public class CreateAWSEnvironmentRequest  {
     sb.append("    securityAccess: ").append(toIndentedString(securityAccess)).append("\n");
     sb.append("    authentication: ").append(toIndentedString(authentication)).append("\n");
     sb.append("    logStorage: ").append(toIndentedString(logStorage)).append("\n");
-    sb.append("    networkCidr: ").append(toIndentedString(networkCidr)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
+    sb.append("    networkCidr: ").append(toIndentedString(networkCidr)).append("\n");
     sb.append("    createPrivateSubnets: ").append(toIndentedString(createPrivateSubnets)).append("\n");
     sb.append("    createServiceEndpoints: ").append(toIndentedString(createServiceEndpoints)).append("\n");
     sb.append("    endpointAccessGatewayScheme: ").append(toIndentedString(endpointAccessGatewayScheme)).append("\n");

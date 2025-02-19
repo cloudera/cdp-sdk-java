@@ -28,7 +28,7 @@ import com.cloudera.cdp.df.model.Flow;
 /**
  * Response object for the DescribeFlow method
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-06T11:00:51.605-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-18T18:28:46.634-08:00")
 public class DescribeFlowResponse extends CdpResponse {
 
   /**
