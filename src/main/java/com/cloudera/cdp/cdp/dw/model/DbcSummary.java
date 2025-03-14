@@ -32,7 +32,7 @@ import java.util.Map;
 /**
  * A Database Catalog.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-18T18:28:43.574-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-13T11:52:44.548-07:00")
 public class DbcSummary  {
 
   /**
@@ -54,11 +54,6 @@ public class DbcSummary  {
    * The resource template of the Database Catalog.
    **/
   private String resourceTemplateId = null;
-
-  /**
-   * DEPRECATED: resourceTemplateId field is replacing this one. Metastore container memory size.
-   **/
-  private String memorySize = null;
 
   /**
    * Status of the Database Catalog. Possible values are: Creating, Created, Accepted, Starting, Running, Stopping, Stopped, Updating, PreUpdate, Upgrading, PreUpgrade, Restarting, Deleting, Waiting, Failed, Error.
@@ -156,25 +151,6 @@ public class DbcSummary  {
    **/
   public void setResourceTemplateId(String resourceTemplateId) {
     this.resourceTemplateId = resourceTemplateId;
-  }
-
-  /**
-   * Getter for memorySize.
-   * DEPRECATED: resourceTemplateId field is replacing this one. Metastore container memory size.
-   **/
-  @Deprecated
-  @JsonProperty("memorySize")
-  public String getMemorySize() {
-    return memorySize;
-  }
-
-  /**
-   * Setter for memorySize.
-   * DEPRECATED: resourceTemplateId field is replacing this one. Metastore container memory size.
-   **/
-  @Deprecated
-  public void setMemorySize(String memorySize) {
-    this.memorySize = memorySize;
   }
 
   /**
@@ -300,9 +276,6 @@ public class DbcSummary  {
     if (!Objects.equals(this.resourceTemplateId, dbcSummary.resourceTemplateId)) {
       return false;
     }
-    if (!Objects.equals(this.memorySize, dbcSummary.memorySize)) {
-      return false;
-    }
     if (!Objects.equals(this.status, dbcSummary.status)) {
       return false;
     }
@@ -326,7 +299,7 @@ public class DbcSummary  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, name, resourceTemplateId, memorySize, status, statusChangedAt, creator, creationDate, resourcePool, resources);
+    return Objects.hash(crn, id, name, resourceTemplateId, status, statusChangedAt, creator, creationDate, resourcePool, resources);
   }
 
   @Override
@@ -337,7 +310,6 @@ public class DbcSummary  {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    resourceTemplateId: ").append(toIndentedString(resourceTemplateId)).append("\n");
-    sb.append("    memorySize: ").append(toIndentedString(memorySize)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusChangedAt: ").append(toIndentedString(statusChangedAt)).append("\n");
     sb.append("    creator: ").append(toIndentedString(creator)).append("\n");

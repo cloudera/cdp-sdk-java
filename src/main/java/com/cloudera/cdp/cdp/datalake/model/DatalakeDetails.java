@@ -37,7 +37,7 @@ import java.util.*;
 /**
  * Details about a datalake
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-18T18:28:44.679-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-13T11:52:45.749-07:00")
 public class DatalakeDetails  {
 
   /**
@@ -56,7 +56,7 @@ public class DatalakeDetails  {
   private String status = null;
 
   /**
-   * The shape of the datalake (either LIGHT_DUTY or MEDIUM_DUTY_HA).
+   * The shape of the datalake.
    **/
   private String shape = null;
 
@@ -193,7 +193,7 @@ public class DatalakeDetails  {
 
   /**
    * Getter for shape.
-   * The shape of the datalake (either LIGHT_DUTY or MEDIUM_DUTY_HA).
+   * The shape of the datalake.
    **/
   @JsonProperty("shape")
   public String getShape() {
@@ -202,7 +202,7 @@ public class DatalakeDetails  {
 
   /**
    * Setter for shape.
-   * The shape of the datalake (either LIGHT_DUTY or MEDIUM_DUTY_HA).
+   * The shape of the datalake.
    **/
   public void setShape(String shape) {
     this.shape = shape;

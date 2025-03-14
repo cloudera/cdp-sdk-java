@@ -27,13 +27,18 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Azure-specific Data Service parameters request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-18T18:28:45.237-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-13T11:52:46.289-07:00")
 public class AzureDataServicesParametersRequest  {
 
   /**
    * User-assigned managed identity used by the AKS control plane.
    **/
   private String sharedManagedIdentity = null;
+
+  /**
+   * The full Azure resource ID of an existing Private DNS zone used for the AKS.
+   **/
+  private String aksPrivateDnsZoneId = null;
 
   /**
    * Getter for sharedManagedIdentity.
@@ -52,6 +57,23 @@ public class AzureDataServicesParametersRequest  {
     this.sharedManagedIdentity = sharedManagedIdentity;
   }
 
+  /**
+   * Getter for aksPrivateDnsZoneId.
+   * The full Azure resource ID of an existing Private DNS zone used for the AKS.
+   **/
+  @JsonProperty("aksPrivateDnsZoneId")
+  public String getAksPrivateDnsZoneId() {
+    return aksPrivateDnsZoneId;
+  }
+
+  /**
+   * Setter for aksPrivateDnsZoneId.
+   * The full Azure resource ID of an existing Private DNS zone used for the AKS.
+   **/
+  public void setAksPrivateDnsZoneId(String aksPrivateDnsZoneId) {
+    this.aksPrivateDnsZoneId = aksPrivateDnsZoneId;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -64,12 +86,15 @@ public class AzureDataServicesParametersRequest  {
     if (!Objects.equals(this.sharedManagedIdentity, azureDataServicesParametersRequest.sharedManagedIdentity)) {
       return false;
     }
+    if (!Objects.equals(this.aksPrivateDnsZoneId, azureDataServicesParametersRequest.aksPrivateDnsZoneId)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(sharedManagedIdentity);
+    return Objects.hash(sharedManagedIdentity, aksPrivateDnsZoneId);
   }
 
   @Override
@@ -77,6 +102,7 @@ public class AzureDataServicesParametersRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class AzureDataServicesParametersRequest {\n");
     sb.append("    sharedManagedIdentity: ").append(toIndentedString(sharedManagedIdentity)).append("\n");
+    sb.append("    aksPrivateDnsZoneId: ").append(toIndentedString(aksPrivateDnsZoneId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for provisioning model registry.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-18T18:28:44.315-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-13T11:52:45.419-07:00")
 public class ModelRegistryProvisionK8sRequest  {
 
   /**

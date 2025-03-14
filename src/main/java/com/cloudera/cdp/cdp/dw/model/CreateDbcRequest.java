@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the createDbc method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-18T18:28:43.574-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-13T11:52:44.548-07:00")
 public class CreateDbcRequest  {
 
   /**
@@ -54,11 +54,6 @@ public class CreateDbcRequest  {
    * The resource template of the Database Catalog.
    **/
   private String resourceTemplateId = null;
-
-  /**
-   * DEPRECATED: resourceTemplateId field is replacing this one. Set Metastore container memory size. The small size will apply as default if neither the resourceTemplateId field nor this field is provided.
-   **/
-  private String memorySize = null;
 
   /**
    * NOTE: creating Default Database Catalogs is deprecated and explicitly disabled. Denotes if Default Database Catalog creation needed.
@@ -166,25 +161,6 @@ public class CreateDbcRequest  {
   }
 
   /**
-   * Getter for memorySize.
-   * DEPRECATED: resourceTemplateId field is replacing this one. Set Metastore container memory size. The small size will apply as default if neither the resourceTemplateId field nor this field is provided.
-   **/
-  @Deprecated
-  @JsonProperty("memorySize")
-  public String getMemorySize() {
-    return memorySize;
-  }
-
-  /**
-   * Setter for memorySize.
-   * DEPRECATED: resourceTemplateId field is replacing this one. Set Metastore container memory size. The small size will apply as default if neither the resourceTemplateId field nor this field is provided.
-   **/
-  @Deprecated
-  public void setMemorySize(String memorySize) {
-    this.memorySize = memorySize;
-  }
-
-  /**
    * Getter for isDefault.
    * NOTE: creating Default Database Catalogs is deprecated and explicitly disabled. Denotes if Default Database Catalog creation needed.
    **/
@@ -284,9 +260,6 @@ public class CreateDbcRequest  {
     if (!Objects.equals(this.resourceTemplateId, createDbcRequest.resourceTemplateId)) {
       return false;
     }
-    if (!Objects.equals(this.memorySize, createDbcRequest.memorySize)) {
-      return false;
-    }
     if (!Objects.equals(this.isDefault, createDbcRequest.isDefault)) {
       return false;
     }
@@ -304,7 +277,7 @@ public class CreateDbcRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, name, loadDemoData, imageVersion, resourceTemplateId, memorySize, isDefault, dbMetastore, dbDas, dbHue);
+    return Objects.hash(clusterId, name, loadDemoData, imageVersion, resourceTemplateId, isDefault, dbMetastore, dbDas, dbHue);
   }
 
   @Override
@@ -316,7 +289,6 @@ public class CreateDbcRequest  {
     sb.append("    loadDemoData: ").append(toIndentedString(loadDemoData)).append("\n");
     sb.append("    imageVersion: ").append(toIndentedString(imageVersion)).append("\n");
     sb.append("    resourceTemplateId: ").append(toIndentedString(resourceTemplateId)).append("\n");
-    sb.append("    memorySize: ").append(toIndentedString(memorySize)).append("\n");
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
     sb.append("    dbMetastore: ").append(toIndentedString(dbMetastore)).append("\n");
     sb.append("    dbDas: ").append(toIndentedString(dbDas)).append("\n");

@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Object which holds the exposed endpoints for the given cluster.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-18T18:28:44.679-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-13T11:52:45.749-07:00")
 public class Endpoints  {
 
   /**

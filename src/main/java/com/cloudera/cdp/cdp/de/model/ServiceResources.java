@@ -28,7 +28,7 @@ import com.cloudera.cdp.de.model.AllPurposeInstanceGroupDetailsResponse;
 /**
  * Object to store resources for a CDE service.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-18T18:28:46.140-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-13T11:52:47.155-07:00")
 public class ServiceResources  {
 
   /**
@@ -70,6 +70,21 @@ public class ServiceResources  {
    * Root Volume Size.
    **/
   private String rootVolSize = null;
+
+  /**
+   * CPU Requests for the entire CDE service quota.
+   **/
+  private String cpuRequests = null;
+
+  /**
+   * Memory requests for the entire CDE service quota, eg. 100Gi.
+   **/
+  private String memoryRequests = null;
+
+  /**
+   * Resource Pool for the CDE service.
+   **/
+  private String resourcePool = null;
 
   /**
    * Resource details for the nodes used in All Purpose Virtual Clusters.
@@ -213,6 +228,57 @@ public class ServiceResources  {
   }
 
   /**
+   * Getter for cpuRequests.
+   * CPU Requests for the entire CDE service quota.
+   **/
+  @JsonProperty("cpuRequests")
+  public String getCpuRequests() {
+    return cpuRequests;
+  }
+
+  /**
+   * Setter for cpuRequests.
+   * CPU Requests for the entire CDE service quota.
+   **/
+  public void setCpuRequests(String cpuRequests) {
+    this.cpuRequests = cpuRequests;
+  }
+
+  /**
+   * Getter for memoryRequests.
+   * Memory requests for the entire CDE service quota, eg. 100Gi.
+   **/
+  @JsonProperty("memoryRequests")
+  public String getMemoryRequests() {
+    return memoryRequests;
+  }
+
+  /**
+   * Setter for memoryRequests.
+   * Memory requests for the entire CDE service quota, eg. 100Gi.
+   **/
+  public void setMemoryRequests(String memoryRequests) {
+    this.memoryRequests = memoryRequests;
+  }
+
+  /**
+   * Getter for resourcePool.
+   * Resource Pool for the CDE service.
+   **/
+  @JsonProperty("resourcePool")
+  public String getResourcePool() {
+    return resourcePool;
+  }
+
+  /**
+   * Setter for resourcePool.
+   * Resource Pool for the CDE service.
+   **/
+  public void setResourcePool(String resourcePool) {
+    this.resourcePool = resourcePool;
+  }
+
+  /**
    * Getter for allPurposeInstanceGroupDetails.
    * Resource details for the nodes used in All Purpose Virtual Clusters.
    **/
@@ -262,6 +328,15 @@ public class ServiceResources  {
     if (!Objects.equals(this.rootVolSize, serviceResources.rootVolSize)) {
       return false;
     }
+    if (!Objects.equals(this.cpuRequests, serviceResources.cpuRequests)) {
+      return false;
+    }
+    if (!Objects.equals(this.memoryRequests, serviceResources.memoryRequests)) {
+      return false;
+    }
+    if (!Objects.equals(this.resourcePool, serviceResources.resourcePool)) {
+      return false;
+    }
     if (!Objects.equals(this.allPurposeInstanceGroupDetails, serviceResources.allPurposeInstanceGroupDetails)) {
       return false;
     }
@@ -270,7 +345,7 @@ public class ServiceResources  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceType, minInstances, maxInstances, initialInstances, minSpotInstances, maxSpotInstances, initialSpotInstances, rootVolSize, allPurposeInstanceGroupDetails);
+    return Objects.hash(instanceType, minInstances, maxInstances, initialInstances, minSpotInstances, maxSpotInstances, initialSpotInstances, rootVolSize, cpuRequests, memoryRequests, resourcePool, allPurposeInstanceGroupDetails);
   }
 
   @Override
@@ -285,6 +360,9 @@ public class ServiceResources  {
     sb.append("    maxSpotInstances: ").append(toIndentedString(maxSpotInstances)).append("\n");
     sb.append("    initialSpotInstances: ").append(toIndentedString(initialSpotInstances)).append("\n");
     sb.append("    rootVolSize: ").append(toIndentedString(rootVolSize)).append("\n");
+    sb.append("    cpuRequests: ").append(toIndentedString(cpuRequests)).append("\n");
+    sb.append("    memoryRequests: ").append(toIndentedString(memoryRequests)).append("\n");
+    sb.append("    resourcePool: ").append(toIndentedString(resourcePool)).append("\n");
     sb.append("    allPurposeInstanceGroupDetails: ").append(toIndentedString(allPurposeInstanceGroupDetails)).append("\n");
     sb.append("}");
     return sb.toString();

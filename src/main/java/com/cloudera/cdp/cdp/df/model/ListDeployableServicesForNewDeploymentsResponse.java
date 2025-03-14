@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for the ListDeployableServicesForNewDeploymentsRequest method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-18T18:28:46.634-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-13T11:52:47.828-07:00")
 public class ListDeployableServicesForNewDeploymentsResponse extends CdpResponse {
 
   /**

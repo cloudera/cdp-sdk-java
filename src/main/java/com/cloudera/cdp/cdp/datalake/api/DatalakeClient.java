@@ -89,6 +89,8 @@ import com.cloudera.cdp.datalake.model.ReplaceRecipesRequest;
 import com.cloudera.cdp.datalake.model.ReplaceRecipesResponse;
 import com.cloudera.cdp.datalake.model.ResizeDatalakeRequest;
 import com.cloudera.cdp.datalake.model.ResizeDatalakeResponse;
+import com.cloudera.cdp.datalake.model.RestartDatalakeInstancesRequest;
+import com.cloudera.cdp.datalake.model.RestartDatalakeInstancesResponse;
 import com.cloudera.cdp.datalake.model.RestoreDatalakeRequest;
 import com.cloudera.cdp.datalake.model.RestoreDatalakeResponse;
 import com.cloudera.cdp.datalake.model.RestoreDatalakeStatusRequest;
@@ -135,7 +137,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-18T18:28:44.679-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-13T11:52:45.749-07:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datalake";
@@ -555,6 +557,19 @@ public class DatalakeClient extends CdpClient {
     }
 
     return this.invokeAPI("resizeDatalake", "/api/v1/datalake/resizeDatalake", input, new GenericType<ResizeDatalakeResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Restarts instances of a datalake on Cloud provider.
+   * @param input
+   * @return RestartDatalakeInstancesResponse
+   */
+  public RestartDatalakeInstancesResponse restartDatalakeInstances(RestartDatalakeInstancesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling restartDatalakeInstances");
+    }
+
+    return this.invokeAPI("restartDatalakeInstances", "/api/v1/datalake/restartDatalakeInstances", input, new GenericType<RestartDatalakeInstancesResponse>(){}, NO_EXTENSION);
   }
 
   /**

@@ -207,6 +207,8 @@ import com.cloudera.cdp.environments.model.UpdateSshKeyRequest;
 import com.cloudera.cdp.environments.model.UpdateSshKeyResponse;
 import com.cloudera.cdp.environments.model.UpdateSubnetRequest;
 import com.cloudera.cdp.environments.model.UpdateSubnetResponse;
+import com.cloudera.cdp.environments.model.UpdateTagsRequest;
+import com.cloudera.cdp.environments.model.UpdateTagsResponse;
 import com.cloudera.cdp.environments.model.UpgradeCcmRequest;
 import com.cloudera.cdp.environments.model.UpgradeCcmResponse;
 import com.cloudera.cdp.environments.model.UpgradeFreeipaRequest;
@@ -223,7 +225,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-18T18:28:45.237-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-13T11:52:46.289-07:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -1411,6 +1413,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("updateSubnet", "/api/v1/environments2/updateSubnet", input, new GenericType<UpdateSubnetResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Updates the user defined tags of the given environment. The newly added tags will only be used for the Cloudera Data Hub clusters created within the environment after the new tags were added. All the existing environment resources such as the Data Lake, FreeIPA, and any existing Cloudera Data Hub clusters will remain with the tags originally defined during environment creation.
+   * @param input
+   * @return UpdateTagsResponse
+   */
+  public UpdateTagsResponse updateTags(UpdateTagsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateTags");
+    }
+
+    return this.invokeAPI("updateTags", "/api/v1/environments2/updateTags", input, new GenericType<UpdateTagsResponse>(){}, NO_EXTENSION);
   }
 
   /**

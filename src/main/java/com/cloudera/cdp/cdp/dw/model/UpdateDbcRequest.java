@@ -28,7 +28,7 @@ import com.cloudera.cdp.dw.model.ServiceConfigReq;
 /**
  * Request object for the updateDbc method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-18T18:28:43.574-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-13T11:52:44.548-07:00")
 public class UpdateDbcRequest  {
 
   /**
@@ -45,11 +45,6 @@ public class UpdateDbcRequest  {
    * The resource template of the Database Catalog.
    **/
   private String resourceTemplateId = null;
-
-  /**
-   * DEPRECATED: resourceTemplateId field is replacing this one. Set Metastore container memory size. The small size will apply as default if neither the resourceTemplateId field nor this field is provided.
-   **/
-  private String memorySize = null;
 
   /**
    * The service configuration to update the DBC with. This will be applied on top of the existing configuration so there's no need to list configurations that stay the same.
@@ -108,25 +103,6 @@ public class UpdateDbcRequest  {
   }
 
   /**
-   * Getter for memorySize.
-   * DEPRECATED: resourceTemplateId field is replacing this one. Set Metastore container memory size. The small size will apply as default if neither the resourceTemplateId field nor this field is provided.
-   **/
-  @Deprecated
-  @JsonProperty("memorySize")
-  public String getMemorySize() {
-    return memorySize;
-  }
-
-  /**
-   * Setter for memorySize.
-   * DEPRECATED: resourceTemplateId field is replacing this one. Set Metastore container memory size. The small size will apply as default if neither the resourceTemplateId field nor this field is provided.
-   **/
-  @Deprecated
-  public void setMemorySize(String memorySize) {
-    this.memorySize = memorySize;
-  }
-
-  /**
    * Getter for config.
    * The service configuration to update the DBC with. This will be applied on top of the existing configuration so there&#39;s no need to list configurations that stay the same.
    **/
@@ -161,9 +137,6 @@ public class UpdateDbcRequest  {
     if (!Objects.equals(this.resourceTemplateId, updateDbcRequest.resourceTemplateId)) {
       return false;
     }
-    if (!Objects.equals(this.memorySize, updateDbcRequest.memorySize)) {
-      return false;
-    }
     if (!Objects.equals(this.config, updateDbcRequest.config)) {
       return false;
     }
@@ -172,7 +145,7 @@ public class UpdateDbcRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, dbcId, resourceTemplateId, memorySize, config);
+    return Objects.hash(clusterId, dbcId, resourceTemplateId, config);
   }
 
   @Override
@@ -182,7 +155,6 @@ public class UpdateDbcRequest  {
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    dbcId: ").append(toIndentedString(dbcId)).append("\n");
     sb.append("    resourceTemplateId: ").append(toIndentedString(resourceTemplateId)).append("\n");
-    sb.append("    memorySize: ").append(toIndentedString(memorySize)).append("\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("}");
     return sb.toString();

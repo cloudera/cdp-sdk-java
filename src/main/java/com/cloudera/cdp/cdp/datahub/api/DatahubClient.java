@@ -121,6 +121,8 @@ import com.cloudera.cdp.datahub.model.RepairClusterRequest;
 import com.cloudera.cdp.datahub.model.RepairClusterResponse;
 import com.cloudera.cdp.datahub.model.ReplaceRecipesRequest;
 import com.cloudera.cdp.datahub.model.ReplaceRecipesResponse;
+import com.cloudera.cdp.datahub.model.RestartClusterInstancesRequest;
+import com.cloudera.cdp.datahub.model.RestartClusterInstancesResponse;
 import com.cloudera.cdp.datahub.model.RetryClusterRequest;
 import com.cloudera.cdp.datahub.model.RetryClusterResponse;
 import com.cloudera.cdp.datahub.model.RotateAutoTlsCertificatesRequest;
@@ -167,7 +169,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-18T18:28:42.593-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-13T11:52:43.637-07:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datahub";
@@ -795,6 +797,19 @@ public class DatahubClient extends CdpClient {
     }
 
     return this.invokeAPI("replaceRecipes", "/api/v1/datahub/replaceRecipes", input, new GenericType<ReplaceRecipesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Restarts instances of a cluster on Cloud provider.
+   * @param input
+   * @return RestartClusterInstancesResponse
+   */
+  public RestartClusterInstancesResponse restartClusterInstances(RestartClusterInstancesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling restartClusterInstances");
+    }
+
+    return this.invokeAPI("restartClusterInstances", "/api/v1/datahub/restartClusterInstances", input, new GenericType<RestartClusterInstancesResponse>(){}, NO_EXTENSION);
   }
 
   /**

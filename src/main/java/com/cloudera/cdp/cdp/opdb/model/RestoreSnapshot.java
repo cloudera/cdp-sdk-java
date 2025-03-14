@@ -27,8 +27,18 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * An instance of restoring a snapshot to a database.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-02-18T18:28:45.825-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-13T11:52:46.837-07:00")
 public class RestoreSnapshot  {
+
+  /**
+   * The id of the restore snapshot.
+   **/
+  private Long restoreId = null;
+
+  /**
+   * The id of the snapshot.
+   **/
+  private Long snapshotId = null;
 
   /**
    * The name of the snapshot.
@@ -64,6 +74,40 @@ public class RestoreSnapshot  {
    * Reason for the failure in case of restore snapshot failed.
    **/
   private String failureReason = null;
+
+  /**
+   * Getter for restoreId.
+   * The id of the restore snapshot.
+   **/
+  @JsonProperty("restoreId")
+  public Long getRestoreId() {
+    return restoreId;
+  }
+
+  /**
+   * Setter for restoreId.
+   * The id of the restore snapshot.
+   **/
+  public void setRestoreId(Long restoreId) {
+    this.restoreId = restoreId;
+  }
+
+  /**
+   * Getter for snapshotId.
+   * The id of the snapshot.
+   **/
+  @JsonProperty("snapshotId")
+  public Long getSnapshotId() {
+    return snapshotId;
+  }
+
+  /**
+   * Setter for snapshotId.
+   * The id of the snapshot.
+   **/
+  public void setSnapshotId(Long snapshotId) {
+    this.snapshotId = snapshotId;
+  }
 
   /**
    * Getter for snapshotName.
@@ -193,6 +237,12 @@ public class RestoreSnapshot  {
       return false;
     }
     RestoreSnapshot restoreSnapshot = (RestoreSnapshot) o;
+    if (!Objects.equals(this.restoreId, restoreSnapshot.restoreId)) {
+      return false;
+    }
+    if (!Objects.equals(this.snapshotId, restoreSnapshot.snapshotId)) {
+      return false;
+    }
     if (!Objects.equals(this.snapshotName, restoreSnapshot.snapshotName)) {
       return false;
     }
@@ -219,13 +269,15 @@ public class RestoreSnapshot  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(snapshotName, targetEnvironmentName, targetDatabaseName, status, restoreTime, commandID, failureReason);
+    return Objects.hash(restoreId, snapshotId, snapshotName, targetEnvironmentName, targetDatabaseName, status, restoreTime, commandID, failureReason);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class RestoreSnapshot {\n");
+    sb.append("    restoreId: ").append(toIndentedString(restoreId)).append("\n");
+    sb.append("    snapshotId: ").append(toIndentedString(snapshotId)).append("\n");
     sb.append("    snapshotName: ").append(toIndentedString(snapshotName)).append("\n");
     sb.append("    targetEnvironmentName: ").append(toIndentedString(targetEnvironmentName)).append("\n");
     sb.append("    targetDatabaseName: ").append(toIndentedString(targetDatabaseName)).append("\n");
