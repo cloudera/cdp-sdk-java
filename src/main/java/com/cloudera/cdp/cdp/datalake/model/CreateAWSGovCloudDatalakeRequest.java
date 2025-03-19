@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * Request object for createing AWS Data Lake request on GovCloud.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-13T11:52:45.749-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-19T13:03:28.689-07:00")
 public class CreateAWSGovCloudDatalakeRequest  {
 
   /**

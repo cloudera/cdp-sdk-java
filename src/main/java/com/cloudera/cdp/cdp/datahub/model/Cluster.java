@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * Information about a cluster.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-13T11:52:43.637-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-19T13:03:26.284-07:00")
 public class Cluster  {
 
   /**

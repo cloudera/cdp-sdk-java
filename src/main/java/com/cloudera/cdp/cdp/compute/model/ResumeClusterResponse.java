@@ -29,7 +29,7 @@ import com.cloudera.cdp.compute.model.ValidationResponse;
 /**
  * Response structure for resuming the compute cluster
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-13T11:52:48.661-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-19T13:03:31.556-07:00")
 public class ResumeClusterResponse extends CdpResponse {
 
   /**
