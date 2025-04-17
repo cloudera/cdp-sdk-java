@@ -23,13 +23,14 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.ml.model.MlServingOzoneCreds;
 import com.cloudera.cdp.ml.model.MlServingProvisionK8sRequest;
 import java.util.*;
 
 /**
  * Request object for the CreateMlServingApp method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-19T13:03:28.401-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:12.559-07:00")
 public class CreateMlServingAppRequest  {
 
   /**
@@ -76,6 +77,11 @@ public class CreateMlServingAppRequest  {
    * The static subdomain to be used for the Cloudera AI Inference Service instance.
    **/
   private String staticSubdomain = null;
+
+  /**
+   * Ozone credentials for the Cloudera On-Premise cluster.
+   **/
+  private MlServingOzoneCreds ozoneS3Creds = null;
 
   /**
    * Getter for appName.
@@ -230,6 +236,23 @@ public class CreateMlServingAppRequest  {
     this.staticSubdomain = staticSubdomain;
   }
 
+  /**
+   * Getter for ozoneS3Creds.
+   * Ozone credentials for the Cloudera On-Premise cluster.
+   **/
+  @JsonProperty("ozoneS3Creds")
+  public MlServingOzoneCreds getOzoneS3Creds() {
+    return ozoneS3Creds;
+  }
+
+  /**
+   * Setter for ozoneS3Creds.
+   * Ozone credentials for the Cloudera On-Premise cluster.
+   **/
+  public void setOzoneS3Creds(MlServingOzoneCreds ozoneS3Creds) {
+    this.ozoneS3Creds = ozoneS3Creds;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -266,12 +289,15 @@ public class CreateMlServingAppRequest  {
     if (!Objects.equals(this.staticSubdomain, createMlServingAppRequest.staticSubdomain)) {
       return false;
     }
+    if (!Objects.equals(this.ozoneS3Creds, createMlServingAppRequest.ozoneS3Creds)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(appName, environmentCrn, clusterCrn, provisionK8sRequest, usePublicLoadBalancer, skipValidation, loadBalancerIPWhitelists, subnetsForLoadBalancers, staticSubdomain);
+    return Objects.hash(appName, environmentCrn, clusterCrn, provisionK8sRequest, usePublicLoadBalancer, skipValidation, loadBalancerIPWhitelists, subnetsForLoadBalancers, staticSubdomain, ozoneS3Creds);
   }
 
   @Override
@@ -287,6 +313,7 @@ public class CreateMlServingAppRequest  {
     sb.append("    loadBalancerIPWhitelists: ").append(toIndentedString(loadBalancerIPWhitelists)).append("\n");
     sb.append("    subnetsForLoadBalancers: ").append(toIndentedString(subnetsForLoadBalancers)).append("\n");
     sb.append("    staticSubdomain: ").append(toIndentedString(staticSubdomain)).append("\n");
+    sb.append("    ozoneS3Creds: ").append(toIndentedString(ozoneS3Creds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

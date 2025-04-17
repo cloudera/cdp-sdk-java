@@ -27,11 +27,16 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for tracking the latest (current/last) operation on the datahub resource.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-19T13:03:26.284-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:10.577-07:00")
 public class GetOperationRequest  {
 
   /**
-   * CRN of the datahub resource.
+   * The name or CRN of the datahub.
+   **/
+  private String clusterName = null;
+
+  /**
+   * CRN of the datahub resource, deprecated.
    **/
   private String crn = null;
 
@@ -41,9 +46,27 @@ public class GetOperationRequest  {
   private String operationId = null;
 
   /**
-   * Getter for crn.
-   * CRN of the datahub resource.
+   * Getter for clusterName.
+   * The name or CRN of the datahub.
    **/
+  @JsonProperty("clusterName")
+  public String getClusterName() {
+    return clusterName;
+  }
+
+  /**
+   * Setter for clusterName.
+   * The name or CRN of the datahub.
+   **/
+  public void setClusterName(String clusterName) {
+    this.clusterName = clusterName;
+  }
+
+  /**
+   * Getter for crn.
+   * CRN of the datahub resource, deprecated.
+   **/
+  @Deprecated
   @JsonProperty("crn")
   public String getCrn() {
     return crn;
@@ -51,8 +74,9 @@ public class GetOperationRequest  {
 
   /**
    * Setter for crn.
-   * CRN of the datahub resource.
+   * CRN of the datahub resource, deprecated.
    **/
+  @Deprecated
   public void setCrn(String crn) {
     this.crn = crn;
   }
@@ -83,6 +107,9 @@ public class GetOperationRequest  {
       return false;
     }
     GetOperationRequest getOperationRequest = (GetOperationRequest) o;
+    if (!Objects.equals(this.clusterName, getOperationRequest.clusterName)) {
+      return false;
+    }
     if (!Objects.equals(this.crn, getOperationRequest.crn)) {
       return false;
     }
@@ -94,13 +121,14 @@ public class GetOperationRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, operationId);
+    return Objects.hash(clusterName, crn, operationId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetOperationRequest {\n");
+    sb.append("    clusterName: ").append(toIndentedString(clusterName)).append("\n");
     sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
     sb.append("    operationId: ").append(toIndentedString(operationId)).append("\n");
     sb.append("}");

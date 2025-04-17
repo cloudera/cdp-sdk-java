@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * The response from listing recent archive runs.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-19T13:03:30.057-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:14.499-07:00")
 public class ListRecentArchiveRunsResponse extends CdpResponse {
 
   /**

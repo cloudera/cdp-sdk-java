@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Instance group information to show in workbench details.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-19T13:03:28.401-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:12.559-07:00")
 public class WorkspaceInstanceGroup  {
 
   /**
@@ -44,7 +44,7 @@ public class WorkspaceInstanceGroup  {
   private Integer instanceCount = null;
 
   /**
-   * The unique name of the instance group.
+   * The system-assigned name of the instance group.
    **/
   private String instanceGroupName = null;
 
@@ -89,6 +89,11 @@ public class WorkspaceInstanceGroup  {
   private Long rootVolumeSize = null;
 
   /**
+   * The unique name for the instance or resource group of the workbench.
+   **/
+  private String name = null;
+
+  /**
    * Getter for instanceType.
    * The cloud provider instance type for the node instance.
    **/
@@ -124,7 +129,7 @@ public class WorkspaceInstanceGroup  {
 
   /**
    * Getter for instanceGroupName.
-   * The unique name of the instance group.
+   * The system-assigned name of the instance group.
    **/
   @JsonProperty("instanceGroupName")
   public String getInstanceGroupName() {
@@ -133,7 +138,7 @@ public class WorkspaceInstanceGroup  {
 
   /**
    * Setter for instanceGroupName.
-   * The unique name of the instance group.
+   * The system-assigned name of the instance group.
    **/
   public void setInstanceGroupName(String instanceGroupName) {
     this.instanceGroupName = instanceGroupName;
@@ -275,6 +280,23 @@ public class WorkspaceInstanceGroup  {
     this.rootVolumeSize = rootVolumeSize;
   }
 
+  /**
+   * Getter for name.
+   * The unique name for the instance or resource group of the workbench.
+   **/
+  @JsonProperty("name")
+  public String getName() {
+    return name;
+  }
+
+  /**
+   * Setter for name.
+   * The unique name for the instance or resource group of the workbench.
+   **/
+  public void setName(String name) {
+    this.name = name;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -317,12 +339,15 @@ public class WorkspaceInstanceGroup  {
     if (!Objects.equals(this.rootVolumeSize, workspaceInstanceGroup.rootVolumeSize)) {
       return false;
     }
+    if (!Objects.equals(this.name, workspaceInstanceGroup.name)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceType, instanceCount, instanceGroupName, minInstances, maxInstances, instances, tags, cpu, gpu, memory, rootVolumeSize);
+    return Objects.hash(instanceType, instanceCount, instanceGroupName, minInstances, maxInstances, instances, tags, cpu, gpu, memory, rootVolumeSize, name);
   }
 
   @Override
@@ -340,6 +365,7 @@ public class WorkspaceInstanceGroup  {
     sb.append("    gpu: ").append(toIndentedString(gpu)).append("\n");
     sb.append("    memory: ").append(toIndentedString(memory)).append("\n");
     sb.append("    rootVolumeSize: ").append(toIndentedString(rootVolumeSize)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Response object for Repair Operation.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-19T13:03:29.236-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:13.601-07:00")
 public class GetRepairFreeipaStatusResponse extends CdpResponse {
 
   /**

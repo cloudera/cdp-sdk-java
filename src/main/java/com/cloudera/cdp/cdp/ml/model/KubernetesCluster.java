@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * The Kubernetes cluster information
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-19T13:03:28.401-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:12.559-07:00")
 public class KubernetesCluster  {
 
   /**
@@ -49,12 +49,12 @@ public class KubernetesCluster  {
   private String liftieID = null;
 
   /**
-   * Indicates if this cluster is accepting incoming connection from public internet.
+   * Deprecated: Please use isPrivateCluster instead, as this will soon be unsupported.
    **/
   private Boolean isPublic = null;
 
   /**
-   * The allow list of IPs for incoming connections.
+   * Deprecated: Please use loadBalancerIPWhitelists instead, as this will soon be unsupported.
    **/
   private String ipAllowlist = null;
 
@@ -146,8 +146,9 @@ public class KubernetesCluster  {
 
   /**
    * Getter for isPublic.
-   * Indicates if this cluster is accepting incoming connection from public internet.
+   * Deprecated: Please use isPrivateCluster instead, as this will soon be unsupported.
    **/
+  @Deprecated
   @JsonProperty("isPublic")
   public Boolean getIsPublic() {
     return isPublic;
@@ -155,16 +156,18 @@ public class KubernetesCluster  {
 
   /**
    * Setter for isPublic.
-   * Indicates if this cluster is accepting incoming connection from public internet.
+   * Deprecated: Please use isPrivateCluster instead, as this will soon be unsupported.
    **/
+  @Deprecated
   public void setIsPublic(Boolean isPublic) {
     this.isPublic = isPublic;
   }
 
   /**
    * Getter for ipAllowlist.
-   * The allow list of IPs for incoming connections.
+   * Deprecated: Please use loadBalancerIPWhitelists instead, as this will soon be unsupported.
    **/
+  @Deprecated
   @JsonProperty("ipAllowlist")
   public String getIpAllowlist() {
     return ipAllowlist;
@@ -172,8 +175,9 @@ public class KubernetesCluster  {
 
   /**
    * Setter for ipAllowlist.
-   * The allow list of IPs for incoming connections.
+   * Deprecated: Please use loadBalancerIPWhitelists instead, as this will soon be unsupported.
    **/
+  @Deprecated
   public void setIpAllowlist(String ipAllowlist) {
     this.ipAllowlist = ipAllowlist;
   }

@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Contains the necessary info for an instance group.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-19T13:03:28.401-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:12.559-07:00")
 public class InstanceGroup  {
 
   /**
@@ -49,7 +49,7 @@ public class InstanceGroup  {
   private Integer instanceCount = null;
 
   /**
-   * The unique name of the instance group.
+   * The unique name for the instance or resource group of the workbench.
    **/
   private String name = null;
 
@@ -121,7 +121,7 @@ public class InstanceGroup  {
 
   /**
    * Getter for name.
-   * The unique name of the instance group.
+   * The unique name for the instance or resource group of the workbench.
    **/
   @JsonProperty("name")
   public String getName() {
@@ -130,7 +130,7 @@ public class InstanceGroup  {
 
   /**
    * Setter for name.
-   * The unique name of the instance group.
+   * The unique name for the instance or resource group of the workbench.
    **/
   public void setName(String name) {
     this.name = name;

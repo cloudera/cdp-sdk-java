@@ -36,7 +36,7 @@ import java.util.*;
 /**
  * Request object for a create AWS environment request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-19T13:03:29.236-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:13.601-07:00")
 public class CreateAWSEnvironmentRequest  {
 
   /**
@@ -78,11 +78,6 @@ public class CreateAWSEnvironmentRequest  {
    * One or more subnet IDs within the VPC.
    **/
   private List<String> subnetIds = new ArrayList<String>();
-
-  /**
-   * [Deprecated] The network CIDR. This will create a VPC along with subnets in multiple Availability Zones.
-   **/
-  private String networkCidr = null;
 
   /**
    * Whether to create private subnets or not.
@@ -303,25 +298,6 @@ public class CreateAWSEnvironmentRequest  {
    **/
   public void setSubnetIds(List<String> subnetIds) {
     this.subnetIds = subnetIds;
-  }
-
-  /**
-   * Getter for networkCidr.
-   * [Deprecated] The network CIDR. This will create a VPC along with subnets in multiple Availability Zones.
-   **/
-  @Deprecated
-  @JsonProperty("networkCidr")
-  public String getNetworkCidr() {
-    return networkCidr;
-  }
-
-  /**
-   * Setter for networkCidr.
-   * [Deprecated] The network CIDR. This will create a VPC along with subnets in multiple Availability Zones.
-   **/
-  @Deprecated
-  public void setNetworkCidr(String networkCidr) {
-    this.networkCidr = networkCidr;
   }
 
   /**
@@ -650,9 +626,6 @@ public class CreateAWSEnvironmentRequest  {
     if (!Objects.equals(this.subnetIds, createAWSEnvironmentRequest.subnetIds)) {
       return false;
     }
-    if (!Objects.equals(this.networkCidr, createAWSEnvironmentRequest.networkCidr)) {
-      return false;
-    }
     if (!Objects.equals(this.createPrivateSubnets, createAWSEnvironmentRequest.createPrivateSubnets)) {
       return false;
     }
@@ -709,7 +682,7 @@ public class CreateAWSEnvironmentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, securityAccess, authentication, logStorage, vpcId, subnetIds, networkCidr, createPrivateSubnets, createServiceEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, s3GuardTableName, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, enableComputeCluster, computeClusterConfiguration, image, tags, proxyConfigName, encryptionKeyArn, customDockerRegistry);
+    return Objects.hash(environmentName, credentialName, region, securityAccess, authentication, logStorage, vpcId, subnetIds, createPrivateSubnets, createServiceEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, s3GuardTableName, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, enableComputeCluster, computeClusterConfiguration, image, tags, proxyConfigName, encryptionKeyArn, customDockerRegistry);
   }
 
   @Override
@@ -724,7 +697,6 @@ public class CreateAWSEnvironmentRequest  {
     sb.append("    logStorage: ").append(toIndentedString(logStorage)).append("\n");
     sb.append("    vpcId: ").append(toIndentedString(vpcId)).append("\n");
     sb.append("    subnetIds: ").append(toIndentedString(subnetIds)).append("\n");
-    sb.append("    networkCidr: ").append(toIndentedString(networkCidr)).append("\n");
     sb.append("    createPrivateSubnets: ").append(toIndentedString(createPrivateSubnets)).append("\n");
     sb.append("    createServiceEndpoints: ").append(toIndentedString(createServiceEndpoints)).append("\n");
     sb.append("    endpointAccessGatewayScheme: ").append(toIndentedString(endpointAccessGatewayScheme)).append("\n");

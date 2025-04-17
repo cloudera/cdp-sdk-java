@@ -26,7 +26,6 @@ import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.environments.model.AzureComputeClusterConfigurationRequest;
 import com.cloudera.cdp.environments.model.AzureFreeIpaCreationRequest;
 import com.cloudera.cdp.environments.model.AzureLogStorageRequest;
-import com.cloudera.cdp.environments.model.CreateAzureEnvironmentRequestNewNetworkParams;
 import com.cloudera.cdp.environments.model.CustomDockerRegistryRequest;
 import com.cloudera.cdp.environments.model.DataServicesRequest;
 import com.cloudera.cdp.environments.model.ExistingAzureNetworkRequest;
@@ -38,7 +37,7 @@ import java.util.*;
 /**
  * Request object for a create Azure environment request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-19T13:03:29.236-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:13.601-07:00")
 public class CreateAzureEnvironmentRequest  {
 
   /**
@@ -80,11 +79,6 @@ public class CreateAzureEnvironmentRequest  {
    * Parameters needed to use an existing VNet and Subnets.
    **/
   private ExistingAzureNetworkRequest existingNetworkParams = null;
-
-  /**
-   * 
-   **/
-  private CreateAzureEnvironmentRequestNewNetworkParams newNetworkParams = null;
 
   /**
    * An description of the environment.
@@ -340,23 +334,6 @@ public class CreateAzureEnvironmentRequest  {
    **/
   public void setExistingNetworkParams(ExistingAzureNetworkRequest existingNetworkParams) {
     this.existingNetworkParams = existingNetworkParams;
-  }
-
-  /**
-   * Getter for newNetworkParams.
-   * 
-   **/
-  @JsonProperty("newNetworkParams")
-  public CreateAzureEnvironmentRequestNewNetworkParams getNewNetworkParams() {
-    return newNetworkParams;
-  }
-
-  /**
-   * Setter for newNetworkParams.
-   * 
-   **/
-  public void setNewNetworkParams(CreateAzureEnvironmentRequestNewNetworkParams newNetworkParams) {
-    this.newNetworkParams = newNetworkParams;
   }
 
   /**
@@ -804,9 +781,6 @@ public class CreateAzureEnvironmentRequest  {
     if (!Objects.equals(this.existingNetworkParams, createAzureEnvironmentRequest.existingNetworkParams)) {
       return false;
     }
-    if (!Objects.equals(this.newNetworkParams, createAzureEnvironmentRequest.newNetworkParams)) {
-      return false;
-    }
     if (!Objects.equals(this.description, createAzureEnvironmentRequest.description)) {
       return false;
     }
@@ -884,7 +858,7 @@ public class CreateAzureEnvironmentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, newNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, enableComputeCluster, computeClusterConfiguration, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, encryptionAtHost, userManagedIdentity, encryptionUserManagedIdentity, encryptionKeyUrl, encryptionKeyResourceGroupName, enableOutboundLoadBalancer, availabilityZones, flexibleServerSubnetIds, dataServices, customDockerRegistry);
+    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, enableComputeCluster, computeClusterConfiguration, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, encryptionAtHost, userManagedIdentity, encryptionUserManagedIdentity, encryptionKeyUrl, encryptionKeyResourceGroupName, enableOutboundLoadBalancer, availabilityZones, flexibleServerSubnetIds, dataServices, customDockerRegistry);
   }
 
   @Override
@@ -899,7 +873,6 @@ public class CreateAzureEnvironmentRequest  {
     sb.append("    usePublicIp: ").append(toIndentedString(usePublicIp)).append("\n");
     sb.append("    logStorage: ").append(toIndentedString(logStorage)).append("\n");
     sb.append("    existingNetworkParams: ").append(toIndentedString(existingNetworkParams)).append("\n");
-    sb.append("    newNetworkParams: ").append(toIndentedString(newNetworkParams)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enableTunnel: ").append(toIndentedString(enableTunnel)).append("\n");
     sb.append("    workloadAnalytics: ").append(toIndentedString(workloadAnalytics)).append("\n");

@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the DeleteInstanceGroup method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-19T13:03:28.401-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:12.559-07:00")
 public class DeleteInstanceGroupRequest  {
 
   /**
@@ -36,7 +36,7 @@ public class DeleteInstanceGroupRequest  {
   private String workspaceCrn = null;
 
   /**
-   * The instance group that we want to delete from the workbench.
+   * The system-assigned name of the instance group to be deleted from the workbench.
    **/
   private String instanceGroupName = null;
 
@@ -59,7 +59,7 @@ public class DeleteInstanceGroupRequest  {
 
   /**
    * Getter for instanceGroupName.
-   * The instance group that we want to delete from the workbench.
+   * The system-assigned name of the instance group to be deleted from the workbench.
    **/
   @JsonProperty("instanceGroupName")
   public String getInstanceGroupName() {
@@ -68,7 +68,7 @@ public class DeleteInstanceGroupRequest  {
 
   /**
    * Setter for instanceGroupName.
-   * The instance group that we want to delete from the workbench.
+   * The system-assigned name of the instance group to be deleted from the workbench.
    **/
   public void setInstanceGroupName(String instanceGroupName) {
     this.instanceGroupName = instanceGroupName;

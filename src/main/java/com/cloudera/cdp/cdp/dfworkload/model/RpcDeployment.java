@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * Provides details about a deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-19T13:03:31.089-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:15.711-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcDeployment  {
 
@@ -42,7 +42,7 @@ public class RpcDeployment  {
   private String name = null;
 
   /**
-   * The status of the deployment.
+   * The workflow status of the deployment.
    **/
   private DeploymentStatus status = null;
 
@@ -265,7 +265,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for status.
-   * The status of the deployment.
+   * The workflow status of the deployment.
    **/
   @JsonProperty("status")
   public DeploymentStatus getStatus() {
@@ -274,7 +274,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for status.
-   * The status of the deployment.
+   * The workflow status of the deployment.
    **/
   public void setStatus(DeploymentStatus status) {
     this.status = status;

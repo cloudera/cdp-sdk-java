@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the DeleteInstanceGroupMlServingApp method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-19T13:03:28.401-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:12.559-07:00")
 public class DeleteInstanceGroupMlServingAppRequest  {
 
   /**
@@ -36,7 +36,7 @@ public class DeleteInstanceGroupMlServingAppRequest  {
   private String appCrn = null;
 
   /**
-   * The instance group to be deleted from the Cloudera AI Inference Service instance.
+   * The system-assigned name of the instance group to be deleted from the Cloudera AI Inference Service instance.
    **/
   private String instanceGroupName = null;
 
@@ -59,7 +59,7 @@ public class DeleteInstanceGroupMlServingAppRequest  {
 
   /**
    * Getter for instanceGroupName.
-   * The instance group to be deleted from the Cloudera AI Inference Service instance.
+   * The system-assigned name of the instance group to be deleted from the Cloudera AI Inference Service instance.
    **/
   @JsonProperty("instanceGroupName")
   public String getInstanceGroupName() {
@@ -68,7 +68,7 @@ public class DeleteInstanceGroupMlServingAppRequest  {
 
   /**
    * Setter for instanceGroupName.
-   * The instance group to be deleted from the Cloudera AI Inference Service instance.
+   * The system-assigned name of the instance group to be deleted from the Cloudera AI Inference Service instance.
    **/
   public void setInstanceGroupName(String instanceGroupName) {
     this.instanceGroupName = instanceGroupName;

@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Details of the databases.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-19T13:03:29.900-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:14.354-07:00")
 public class DatabaseDetails  {
 
   /**
@@ -95,6 +95,11 @@ public class DatabaseDetails  {
    * Number of REST Worker nodes for the database.
    **/
   private Integer restworkerNodesCount = null;
+
+  /**
+   * Specifies the architecture of the cluster nodes.
+   **/
+  private String architecture = null;
 
   /**
    * Getter for databaseName.
@@ -317,6 +322,23 @@ public class DatabaseDetails  {
     this.restworkerNodesCount = restworkerNodesCount;
   }
 
+  /**
+   * Getter for architecture.
+   * Specifies the architecture of the cluster nodes.
+   **/
+  @JsonProperty("architecture")
+  public String getArchitecture() {
+    return architecture;
+  }
+
+  /**
+   * Setter for architecture.
+   * Specifies the architecture of the cluster nodes.
+   **/
+  public void setArchitecture(String architecture) {
+    this.architecture = architecture;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -365,12 +387,15 @@ public class DatabaseDetails  {
     if (!Objects.equals(this.restworkerNodesCount, databaseDetails.restworkerNodesCount)) {
       return false;
     }
+    if (!Objects.equals(this.architecture, databaseDetails.architecture)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(databaseName, environmentCrn, crn, creationDate, status, creatorCrn, dbVersion, hueEndpoint, environmentName, storageLocation, internalName, gatewayNodesCount, restworkerNodesCount);
+    return Objects.hash(databaseName, environmentCrn, crn, creationDate, status, creatorCrn, dbVersion, hueEndpoint, environmentName, storageLocation, internalName, gatewayNodesCount, restworkerNodesCount, architecture);
   }
 
   @Override
@@ -390,6 +415,7 @@ public class DatabaseDetails  {
     sb.append("    internalName: ").append(toIndentedString(internalName)).append("\n");
     sb.append("    gatewayNodesCount: ").append(toIndentedString(gatewayNodesCount)).append("\n");
     sb.append("    restworkerNodesCount: ").append(toIndentedString(restworkerNodesCount)).append("\n");
+    sb.append("    architecture: ").append(toIndentedString(architecture)).append("\n");
     sb.append("}");
     return sb.toString();
   }

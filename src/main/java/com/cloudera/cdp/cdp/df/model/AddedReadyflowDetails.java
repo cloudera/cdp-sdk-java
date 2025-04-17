@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * A detailed representation of a ready flow as added by the current account
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-19T13:03:30.744-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:15.310-07:00")
 public class AddedReadyflowDetails  {
 
   /**

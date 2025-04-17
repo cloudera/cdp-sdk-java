@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for ModifyClusterInstanceGroup.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-19T13:03:28.401-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:12.559-07:00")
 public class ModifyClusterInstanceGroupRequest  {
 
   /**
@@ -36,7 +36,7 @@ public class ModifyClusterInstanceGroupRequest  {
   private String workspaceCrn = null;
 
   /**
-   * The name of the instance group of the workbench cluster to modify.
+   * The system-assigned name of the instance group in the workbench cluster to be modified.
    **/
   private String instanceGroupName = null;
 
@@ -74,7 +74,7 @@ public class ModifyClusterInstanceGroupRequest  {
 
   /**
    * Getter for instanceGroupName.
-   * The name of the instance group of the workbench cluster to modify.
+   * The system-assigned name of the instance group in the workbench cluster to be modified.
    **/
   @JsonProperty("instanceGroupName")
   public String getInstanceGroupName() {
@@ -83,7 +83,7 @@ public class ModifyClusterInstanceGroupRequest  {
 
   /**
    * Setter for instanceGroupName.
-   * The name of the instance group of the workbench cluster to modify.
+   * The system-assigned name of the instance group in the workbench cluster to be modified.
    **/
   public void setInstanceGroupName(String instanceGroupName) {
     this.instanceGroupName = instanceGroupName;

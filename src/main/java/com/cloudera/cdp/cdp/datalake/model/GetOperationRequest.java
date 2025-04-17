@@ -27,11 +27,16 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for tracking the latest (current/last) operation on the datalake resource.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-19T13:03:28.689-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:12.970-07:00")
 public class GetOperationRequest  {
 
   /**
-   * CRN of the datalake resource.
+   * The name or CRN of the datahub.
+   **/
+  private String datalakeName = null;
+
+  /**
+   * CRN of the datalake resource, deprecated.
    **/
   private String crn = null;
 
@@ -41,9 +46,27 @@ public class GetOperationRequest  {
   private String operationId = null;
 
   /**
-   * Getter for crn.
-   * CRN of the datalake resource.
+   * Getter for datalakeName.
+   * The name or CRN of the datahub.
    **/
+  @JsonProperty("datalakeName")
+  public String getDatalakeName() {
+    return datalakeName;
+  }
+
+  /**
+   * Setter for datalakeName.
+   * The name or CRN of the datahub.
+   **/
+  public void setDatalakeName(String datalakeName) {
+    this.datalakeName = datalakeName;
+  }
+
+  /**
+   * Getter for crn.
+   * CRN of the datalake resource, deprecated.
+   **/
+  @Deprecated
   @JsonProperty("crn")
   public String getCrn() {
     return crn;
@@ -51,8 +74,9 @@ public class GetOperationRequest  {
 
   /**
    * Setter for crn.
-   * CRN of the datalake resource.
+   * CRN of the datalake resource, deprecated.
    **/
+  @Deprecated
   public void setCrn(String crn) {
     this.crn = crn;
   }
@@ -83,6 +107,9 @@ public class GetOperationRequest  {
       return false;
     }
     GetOperationRequest getOperationRequest = (GetOperationRequest) o;
+    if (!Objects.equals(this.datalakeName, getOperationRequest.datalakeName)) {
+      return false;
+    }
     if (!Objects.equals(this.crn, getOperationRequest.crn)) {
       return false;
     }
@@ -94,13 +121,14 @@ public class GetOperationRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, operationId);
+    return Objects.hash(datalakeName, crn, operationId);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetOperationRequest {\n");
+    sb.append("    datalakeName: ").append(toIndentedString(datalakeName)).append("\n");
     sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
     sb.append("    operationId: ").append(toIndentedString(operationId)).append("\n");
     sb.append("}");

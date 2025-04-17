@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Inbound Connection Endpoint Summary
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-19T13:03:31.089-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:15.711-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class InboundConnectionEndpointSummary  {
 

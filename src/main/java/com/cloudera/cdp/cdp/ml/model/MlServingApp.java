@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * The Cloudera AI Inference Service instance.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-19T13:03:28.401-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:12.559-07:00")
 public class MlServingApp  {
 
   /**
@@ -107,6 +107,11 @@ public class MlServingApp  {
    * The list of subnets used for the load balancer.
    **/
   private List<String> subnetsForLoadBalancers = new ArrayList<String>();
+
+  /**
+   * The allowed list of IPs for the load balancer.
+   **/
+  private String loadBalancerIPWhitelists = null;
 
   /**
    * Getter for cloudPlatform.
@@ -363,6 +368,23 @@ public class MlServingApp  {
     this.subnetsForLoadBalancers = subnetsForLoadBalancers;
   }
 
+  /**
+   * Getter for loadBalancerIPWhitelists.
+   * The allowed list of IPs for the load balancer.
+   **/
+  @JsonProperty("loadBalancerIPWhitelists")
+  public String getLoadBalancerIPWhitelists() {
+    return loadBalancerIPWhitelists;
+  }
+
+  /**
+   * Setter for loadBalancerIPWhitelists.
+   * The allowed list of IPs for the load balancer.
+   **/
+  public void setLoadBalancerIPWhitelists(String loadBalancerIPWhitelists) {
+    this.loadBalancerIPWhitelists = loadBalancerIPWhitelists;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -417,12 +439,15 @@ public class MlServingApp  {
     if (!Objects.equals(this.subnetsForLoadBalancers, mlServingApp.subnetsForLoadBalancers)) {
       return false;
     }
+    if (!Objects.equals(this.loadBalancerIPWhitelists, mlServingApp.loadBalancerIPWhitelists)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cloudPlatform, appName, appCrn, environmentCrn, environmentName, namespace, ownerEmail, mlServingVersion, isPrivateCluster, creationDate, cluster, status, usePublicLoadBalancer, httpsEnabled, subnetsForLoadBalancers);
+    return Objects.hash(cloudPlatform, appName, appCrn, environmentCrn, environmentName, namespace, ownerEmail, mlServingVersion, isPrivateCluster, creationDate, cluster, status, usePublicLoadBalancer, httpsEnabled, subnetsForLoadBalancers, loadBalancerIPWhitelists);
   }
 
   @Override
@@ -444,6 +469,7 @@ public class MlServingApp  {
     sb.append("    usePublicLoadBalancer: ").append(toIndentedString(usePublicLoadBalancer)).append("\n");
     sb.append("    httpsEnabled: ").append(toIndentedString(httpsEnabled)).append("\n");
     sb.append("    subnetsForLoadBalancers: ").append(toIndentedString(subnetsForLoadBalancers)).append("\n");
+    sb.append("    loadBalancerIPWhitelists: ").append(toIndentedString(loadBalancerIPWhitelists)).append("\n");
     sb.append("}");
     return sb.toString();
   }

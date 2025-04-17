@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object for the CreateWorkspace method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-19T13:03:28.401-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:12.559-07:00")
 public class CreateWorkspaceRequest  {
 
   /**
@@ -138,6 +138,11 @@ public class CreateWorkspaceRequest  {
    * The resource pool configuration for quota management.
    **/
   private ResourcePoolConfig resourcePoolConfig = null;
+
+  /**
+   * Enable Enhanced Performance Mode to maximize throughput and IOPS for root volumes attached to worker nodes.
+   **/
+  private Boolean enableEnhancedPerformance = null;
 
   /**
    * Getter for environmentName.
@@ -496,6 +501,23 @@ public class CreateWorkspaceRequest  {
     this.resourcePoolConfig = resourcePoolConfig;
   }
 
+  /**
+   * Getter for enableEnhancedPerformance.
+   * Enable Enhanced Performance Mode to maximize throughput and IOPS for root volumes attached to worker nodes.
+   **/
+  @JsonProperty("enableEnhancedPerformance")
+  public Boolean getEnableEnhancedPerformance() {
+    return enableEnhancedPerformance;
+  }
+
+  /**
+   * Setter for enableEnhancedPerformance.
+   * Enable Enhanced Performance Mode to maximize throughput and IOPS for root volumes attached to worker nodes.
+   **/
+  public void setEnableEnhancedPerformance(Boolean enableEnhancedPerformance) {
+    this.enableEnhancedPerformance = enableEnhancedPerformance;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -568,12 +590,15 @@ public class CreateWorkspaceRequest  {
     if (!Objects.equals(this.resourcePoolConfig, createWorkspaceRequest.resourcePoolConfig)) {
       return false;
     }
+    if (!Objects.equals(this.enableEnhancedPerformance, createWorkspaceRequest.enableEnhancedPerformance)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, workspaceName, provisionK8sRequest, usePublicLoadBalancer, disableTLS, enableMonitoring, enableGovernance, existingNFS, loadBalancerIPWhitelists, nfsVersion, enableModelMetrics, existingDatabaseConfig, whitelistAuthorizedIPRanges, authorizedIPRanges, skipValidation, privateCluster, subnetsForLoadBalancers, staticSubdomain, cdswMigrationMode, outboundTypes, resourcePoolConfig);
+    return Objects.hash(environmentName, workspaceName, provisionK8sRequest, usePublicLoadBalancer, disableTLS, enableMonitoring, enableGovernance, existingNFS, loadBalancerIPWhitelists, nfsVersion, enableModelMetrics, existingDatabaseConfig, whitelistAuthorizedIPRanges, authorizedIPRanges, skipValidation, privateCluster, subnetsForLoadBalancers, staticSubdomain, cdswMigrationMode, outboundTypes, resourcePoolConfig, enableEnhancedPerformance);
   }
 
   @Override
@@ -601,6 +626,7 @@ public class CreateWorkspaceRequest  {
     sb.append("    cdswMigrationMode: ").append(toIndentedString(cdswMigrationMode)).append("\n");
     sb.append("    outboundTypes: ").append(toIndentedString(outboundTypes)).append("\n");
     sb.append("    resourcePoolConfig: ").append(toIndentedString(resourcePoolConfig)).append("\n");
+    sb.append("    enableEnhancedPerformance: ").append(toIndentedString(enableEnhancedPerformance)).append("\n");
     sb.append("}");
     return sb.toString();
   }

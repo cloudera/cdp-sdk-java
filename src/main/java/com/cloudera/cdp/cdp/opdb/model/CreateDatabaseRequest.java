@@ -35,7 +35,7 @@ import java.util.*;
 /**
  * A request to create the database
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-19T13:03:29.900-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:14.354-07:00")
 public class CreateDatabaseRequest  {
 
   /**
@@ -137,6 +137,11 @@ public class CreateDatabaseRequest  {
    * Number of REST Worker nodes to be created for the database. A positive, non-zero number is required. The default value is 0. Requires the COD_RESTWORKERS entitlement.
    **/
   private Integer restworkerNodesCount = null;
+
+  /**
+   * Specifies the Architecture of the cluster nodes.
+   **/
+  private String architecture = null;
 
   /**
    * Provide custom VM instance types for master, worker, gateway, leader, edge and compute groups.
@@ -484,6 +489,23 @@ public class CreateDatabaseRequest  {
   }
 
   /**
+   * Getter for architecture.
+   * Specifies the Architecture of the cluster nodes.
+   **/
+  @JsonProperty("architecture")
+  public String getArchitecture() {
+    return architecture;
+  }
+
+  /**
+   * Setter for architecture.
+   * Specifies the Architecture of the cluster nodes.
+   **/
+  public void setArchitecture(String architecture) {
+    this.architecture = architecture;
+  }
+
+  /**
    * Getter for customInstanceTypes.
    * Provide custom VM instance types for master, worker, gateway, leader, edge and compute groups.
    **/
@@ -569,6 +591,9 @@ public class CreateDatabaseRequest  {
     if (!Objects.equals(this.restworkerNodesCount, createDatabaseRequest.restworkerNodesCount)) {
       return false;
     }
+    if (!Objects.equals(this.architecture, createDatabaseRequest.architecture)) {
+      return false;
+    }
     if (!Objects.equals(this.customInstanceTypes, createDatabaseRequest.customInstanceTypes)) {
       return false;
     }
@@ -577,7 +602,7 @@ public class CreateDatabaseRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, databaseName, autoScalingParameters, subnetId, customUserTags, disableMultiAz, attachedStorageForWorkers, disableKerberos, numEdgeNodes, image, disableJwtAuth, enableRegionCanary, scaleType, storageType, recipes, enableGrafana, rootVolumeSize, volumeEncryptions, gatewayNodesCount, restworkerNodesCount, customInstanceTypes);
+    return Objects.hash(environmentName, databaseName, autoScalingParameters, subnetId, customUserTags, disableMultiAz, attachedStorageForWorkers, disableKerberos, numEdgeNodes, image, disableJwtAuth, enableRegionCanary, scaleType, storageType, recipes, enableGrafana, rootVolumeSize, volumeEncryptions, gatewayNodesCount, restworkerNodesCount, architecture, customInstanceTypes);
   }
 
   @Override
@@ -604,6 +629,7 @@ public class CreateDatabaseRequest  {
     sb.append("    volumeEncryptions: ").append(toIndentedString(volumeEncryptions)).append("\n");
     sb.append("    gatewayNodesCount: ").append(toIndentedString(gatewayNodesCount)).append("\n");
     sb.append("    restworkerNodesCount: ").append(toIndentedString(restworkerNodesCount)).append("\n");
+    sb.append("    architecture: ").append(toIndentedString(architecture)).append("\n");
     sb.append("    customInstanceTypes: ").append(toIndentedString(customInstanceTypes)).append("\n");
     sb.append("}");
     return sb.toString();

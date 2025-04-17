@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the ModifyMlServingApp method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-03-19T13:03:28.401-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:12.559-07:00")
 public class ModifyMlServingAppRequest  {
 
   /**
@@ -36,7 +36,7 @@ public class ModifyMlServingAppRequest  {
   private String appCrn = null;
 
   /**
-   * The name of the instance group to be modified.
+   * The system-assigned name of the instance group to be modified.
    **/
   private String instanceGroupName = null;
 
@@ -74,7 +74,7 @@ public class ModifyMlServingAppRequest  {
 
   /**
    * Getter for instanceGroupName.
-   * The name of the instance group to be modified.
+   * The system-assigned name of the instance group to be modified.
    **/
   @JsonProperty("instanceGroupName")
   public String getInstanceGroupName() {
@@ -83,7 +83,7 @@ public class ModifyMlServingAppRequest  {
 
   /**
    * Setter for instanceGroupName.
-   * The name of the instance group to be modified.
+   * The system-assigned name of the instance group to be modified.
    **/
   public void setInstanceGroupName(String instanceGroupName) {
     this.instanceGroupName = instanceGroupName;
