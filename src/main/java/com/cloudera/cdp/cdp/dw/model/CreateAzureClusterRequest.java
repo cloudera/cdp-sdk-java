@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object for the createAzureCluster method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:11.502-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:33.344-07:00")
 public class CreateAzureClusterRequest  {
 
   /**
@@ -91,11 +91,6 @@ public class CreateAzureClusterRequest  {
    * Whether to enable spot instances for Virtual warehouses. It cannot be updated later. Defaults to false.
    **/
   private Boolean enableSpotInstances = false;
-
-  /**
-   * DEPRECATED: The cluster level instance type selection will be replaced by virtual warehouse level selection. Azure compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values and the default value used for the case it is not provided.
-   **/
-  private List<String> computeInstanceTypes = new ArrayList<String>();
 
   /**
    * Enable monitoring of Azure Kubernetes Service (AKS) cluster. Workspace ID for Azure log analytics.
@@ -342,25 +337,6 @@ public class CreateAzureClusterRequest  {
   }
 
   /**
-   * Getter for computeInstanceTypes.
-   * DEPRECATED: The cluster level instance type selection will be replaced by virtual warehouse level selection. Azure compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values and the default value used for the case it is not provided.
-   **/
-  @Deprecated
-  @JsonProperty("computeInstanceTypes")
-  public List<String> getComputeInstanceTypes() {
-    return computeInstanceTypes;
-  }
-
-  /**
-   * Setter for computeInstanceTypes.
-   * DEPRECATED: The cluster level instance type selection will be replaced by virtual warehouse level selection. Azure compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values and the default value used for the case it is not provided.
-   **/
-  @Deprecated
-  public void setComputeInstanceTypes(List<String> computeInstanceTypes) {
-    this.computeInstanceTypes = computeInstanceTypes;
-  }
-
-  /**
    * Getter for logAnalyticsWorkspaceId.
    * Enable monitoring of Azure Kubernetes Service (AKS) cluster. Workspace ID for Azure log analytics.
    **/
@@ -541,9 +517,6 @@ public class CreateAzureClusterRequest  {
     if (!Objects.equals(this.enableSpotInstances, createAzureClusterRequest.enableSpotInstances)) {
       return false;
     }
-    if (!Objects.equals(this.computeInstanceTypes, createAzureClusterRequest.computeInstanceTypes)) {
-      return false;
-    }
     if (!Objects.equals(this.logAnalyticsWorkspaceId, createAzureClusterRequest.logAnalyticsWorkspaceId)) {
       return false;
     }
@@ -573,7 +546,7 @@ public class CreateAzureClusterRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, userAssignedManagedIdentity, subnetName, useOverlayNetworking, databaseBackupRetentionPeriod, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, useInternalLoadBalancer, customRegistryOptions, customSubdomain, enableAZ, enableSpotInstances, computeInstanceTypes, logAnalyticsWorkspaceId, outboundType, aksPodCIDR, enablePrivateSQL, privateSQLSubnetName, privateDNSZoneSQL, privateDNSZoneAKS, enablePrivateAks);
+    return Objects.hash(environmentCrn, userAssignedManagedIdentity, subnetName, useOverlayNetworking, databaseBackupRetentionPeriod, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, useInternalLoadBalancer, customRegistryOptions, customSubdomain, enableAZ, enableSpotInstances, logAnalyticsWorkspaceId, outboundType, aksPodCIDR, enablePrivateSQL, privateSQLSubnetName, privateDNSZoneSQL, privateDNSZoneAKS, enablePrivateAks);
   }
 
   @Override
@@ -592,7 +565,6 @@ public class CreateAzureClusterRequest  {
     sb.append("    customSubdomain: ").append(toIndentedString(customSubdomain)).append("\n");
     sb.append("    enableAZ: ").append(toIndentedString(enableAZ)).append("\n");
     sb.append("    enableSpotInstances: ").append(toIndentedString(enableSpotInstances)).append("\n");
-    sb.append("    computeInstanceTypes: ").append(toIndentedString(computeInstanceTypes)).append("\n");
     sb.append("    logAnalyticsWorkspaceId: ").append(toIndentedString(logAnalyticsWorkspaceId)).append("\n");
     sb.append("    outboundType: ").append(toIndentedString(outboundType)).append("\n");
     sb.append("    aksPodCIDR: ").append(toIndentedString(aksPodCIDR)).append("\n");

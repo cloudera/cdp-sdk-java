@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * The request object for the startVw method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:11.502-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:33.344-07:00")
 public class StartVwRequest  {
 
   /**
@@ -39,6 +39,11 @@ public class StartVwRequest  {
    * The ID of the Virtual Warehouse.
    **/
   private String vwId = null;
+
+  /**
+   * Enforce refreshing configurations.
+   **/
+  private Boolean forceRefresh = null;
 
   /**
    * Getter for clusterId.
@@ -74,6 +79,23 @@ public class StartVwRequest  {
     this.vwId = vwId;
   }
 
+  /**
+   * Getter for forceRefresh.
+   * Enforce refreshing configurations.
+   **/
+  @JsonProperty("forceRefresh")
+  public Boolean getForceRefresh() {
+    return forceRefresh;
+  }
+
+  /**
+   * Setter for forceRefresh.
+   * Enforce refreshing configurations.
+   **/
+  public void setForceRefresh(Boolean forceRefresh) {
+    this.forceRefresh = forceRefresh;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -89,12 +111,15 @@ public class StartVwRequest  {
     if (!Objects.equals(this.vwId, startVwRequest.vwId)) {
       return false;
     }
+    if (!Objects.equals(this.forceRefresh, startVwRequest.forceRefresh)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, vwId);
+    return Objects.hash(clusterId, vwId, forceRefresh);
   }
 
   @Override
@@ -103,6 +128,7 @@ public class StartVwRequest  {
     sb.append("class StartVwRequest {\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    vwId: ").append(toIndentedString(vwId)).append("\n");
+    sb.append("    forceRefresh: ").append(toIndentedString(forceRefresh)).append("\n");
     sb.append("}");
     return sb.toString();
   }

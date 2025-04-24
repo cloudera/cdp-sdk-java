@@ -30,7 +30,7 @@ import com.cloudera.cdp.environments.model.GcpCredentialPrerequisitesResponse;
 /**
  * The audit credential prerequisites.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:13.601-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:35.313-07:00")
 public class GetAuditCredentialPrerequisitesResponse extends CdpResponse {
 
   /**

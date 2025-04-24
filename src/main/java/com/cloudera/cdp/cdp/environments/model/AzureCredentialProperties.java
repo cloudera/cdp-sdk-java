@@ -28,7 +28,7 @@ import com.cloudera.cdp.environments.model.AzureCredentialCertificateProperties;
 /**
  * The credential properties that closely related to those that have been created on Azure.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:13.601-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:35.313-07:00")
 public class AzureCredentialProperties  {
 
   /**

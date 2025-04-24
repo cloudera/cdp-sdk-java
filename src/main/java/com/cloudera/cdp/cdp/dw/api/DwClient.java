@@ -171,6 +171,8 @@ import com.cloudera.cdp.dw.model.RestoreBackupRequest;
 import com.cloudera.cdp.dw.model.RestoreBackupResponse;
 import com.cloudera.cdp.dw.model.RestoreClusterRequest;
 import com.cloudera.cdp.dw.model.RestoreClusterResponse;
+import com.cloudera.cdp.dw.model.StartDbcRequest;
+import com.cloudera.cdp.dw.model.StartDbcResponse;
 import com.cloudera.cdp.dw.model.StartVwRequest;
 import com.cloudera.cdp.dw.model.StartVwResponse;
 import com.cloudera.cdp.dw.model.SuspendDbcRequest;
@@ -207,7 +209,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:11.502-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:33.344-07:00")
 public class DwClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dw";
@@ -1115,6 +1117,7 @@ public class DwClient extends CdpClient {
    * @param input
    * @return RestartDbcResponse
    */
+  @Deprecated
   public RestartDbcResponse restartDbc(RestartDbcRequest input) {
     if (input == null) {
       throw new CdpClientException("Missing the required parameter 'input' when calling restartDbc");
@@ -1128,6 +1131,7 @@ public class DwClient extends CdpClient {
    * @param input
    * @return RestartVwResponse
    */
+  @Deprecated
   public RestartVwResponse restartVw(RestartVwRequest input) {
     if (input == null) {
       throw new CdpClientException("Missing the required parameter 'input' when calling restartVw");
@@ -1160,6 +1164,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("restoreCluster", "/api/v1/dw/restoreCluster", input, new GenericType<RestoreClusterResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Start a Database Catalog.
+   * @param input
+   * @return StartDbcResponse
+   */
+  public StartDbcResponse startDbc(StartDbcRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling startDbc");
+    }
+
+    return this.invokeAPI("startDbc", "/api/v1/dw/startDbc", input, new GenericType<StartDbcResponse>(){}, NO_EXTENSION);
   }
 
   /**

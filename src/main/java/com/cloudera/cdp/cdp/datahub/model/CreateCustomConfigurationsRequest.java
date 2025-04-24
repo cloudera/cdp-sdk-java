@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * The request object for creating custom configurations request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:10.577-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:32.339-07:00")
 public class CreateCustomConfigurationsRequest  {
 
   /**

@@ -23,12 +23,13 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.dw.model.AwsActivationOptionsNonTransparentProxy;
 import java.util.*;
 
 /**
  * Options for activating an AWS environment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:11.502-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:33.344-07:00")
 public class AwsActivationOptions  {
 
   /**
@@ -67,9 +68,9 @@ public class AwsActivationOptions  {
   private Boolean reducedPermissionMode = null;
 
   /**
-   * DEPRECATED: The cluster level instance type selection will be replaced by virtual warehouse level selection. AWS compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values.
+   * Non-transparent proxy settings. Read more: https://docs.cloudera.com/data-warehouse/cloud/aws-environments/topics/dw-aws-use-non-transparent-proxy.html
    **/
-  private List<String> computeInstanceTypes = new ArrayList<String>();
+  private AwsActivationOptionsNonTransparentProxy nonTransparentProxy = null;
 
   /**
    * Getter for enablePrivateEKS.
@@ -191,22 +192,20 @@ public class AwsActivationOptions  {
   }
 
   /**
-   * Getter for computeInstanceTypes.
-   * DEPRECATED: The cluster level instance type selection will be replaced by virtual warehouse level selection. AWS compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values.
+   * Getter for nonTransparentProxy.
+   * Non-transparent proxy settings. Read more: https://docs.cloudera.com/data-warehouse/cloud/aws-environments/topics/dw-aws-use-non-transparent-proxy.html
    **/
-  @Deprecated
-  @JsonProperty("computeInstanceTypes")
-  public List<String> getComputeInstanceTypes() {
-    return computeInstanceTypes;
+  @JsonProperty("nonTransparentProxy")
+  public AwsActivationOptionsNonTransparentProxy getNonTransparentProxy() {
+    return nonTransparentProxy;
   }
 
   /**
-   * Setter for computeInstanceTypes.
-   * DEPRECATED: The cluster level instance type selection will be replaced by virtual warehouse level selection. AWS compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values.
+   * Setter for nonTransparentProxy.
+   * Non-transparent proxy settings. Read more: https://docs.cloudera.com/data-warehouse/cloud/aws-environments/topics/dw-aws-use-non-transparent-proxy.html
    **/
-  @Deprecated
-  public void setComputeInstanceTypes(List<String> computeInstanceTypes) {
-    this.computeInstanceTypes = computeInstanceTypes;
+  public void setNonTransparentProxy(AwsActivationOptionsNonTransparentProxy nonTransparentProxy) {
+    this.nonTransparentProxy = nonTransparentProxy;
   }
 
   @Override
@@ -239,7 +238,7 @@ public class AwsActivationOptions  {
     if (!Objects.equals(this.reducedPermissionMode, awsActivationOptions.reducedPermissionMode)) {
       return false;
     }
-    if (!Objects.equals(this.computeInstanceTypes, awsActivationOptions.computeInstanceTypes)) {
+    if (!Objects.equals(this.nonTransparentProxy, awsActivationOptions.nonTransparentProxy)) {
       return false;
     }
     return true;
@@ -247,7 +246,7 @@ public class AwsActivationOptions  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(enablePrivateEKS, workerSubnetIds, lbSubnetIds, customAmiId, nodeRoleCDWManagedPolicyArn, enableSpotInstances, reducedPermissionMode, computeInstanceTypes);
+    return Objects.hash(enablePrivateEKS, workerSubnetIds, lbSubnetIds, customAmiId, nodeRoleCDWManagedPolicyArn, enableSpotInstances, reducedPermissionMode, nonTransparentProxy);
   }
 
   @Override
@@ -261,7 +260,7 @@ public class AwsActivationOptions  {
     sb.append("    nodeRoleCDWManagedPolicyArn: ").append(toIndentedString(nodeRoleCDWManagedPolicyArn)).append("\n");
     sb.append("    enableSpotInstances: ").append(toIndentedString(enableSpotInstances)).append("\n");
     sb.append("    reducedPermissionMode: ").append(toIndentedString(reducedPermissionMode)).append("\n");
-    sb.append("    computeInstanceTypes: ").append(toIndentedString(computeInstanceTypes)).append("\n");
+    sb.append("    nonTransparentProxy: ").append(toIndentedString(nonTransparentProxy)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for the restoreCluster method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:11.502-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:33.344-07:00")
 public class RestoreClusterResponse extends CdpResponse {
 
   /**
@@ -76,6 +76,11 @@ public class RestoreClusterResponse extends CdpResponse {
    * Information about the restore-plan of the Data Visualization Apps.
    **/
   private List<RestoreClusterEntityPlan> vizRestorePlans = new ArrayList<RestoreClusterEntityPlan>();
+
+  /**
+   * The plan for the restoration of the Hue Query Editors.
+   **/
+  private List<RestoreClusterEntityPlan> cdwHueRestorePlans = new ArrayList<RestoreClusterEntityPlan>();
 
   /**
    * Getter for clusterId.
@@ -230,6 +235,23 @@ public class RestoreClusterResponse extends CdpResponse {
     this.vizRestorePlans = vizRestorePlans;
   }
 
+  /**
+   * Getter for cdwHueRestorePlans.
+   * The plan for the restoration of the Hue Query Editors.
+   **/
+  @JsonProperty("cdwHueRestorePlans")
+  public List<RestoreClusterEntityPlan> getCdwHueRestorePlans() {
+    return cdwHueRestorePlans;
+  }
+
+  /**
+   * Setter for cdwHueRestorePlans.
+   * The plan for the restoration of the Hue Query Editors.
+   **/
+  public void setCdwHueRestorePlans(List<RestoreClusterEntityPlan> cdwHueRestorePlans) {
+    this.cdwHueRestorePlans = cdwHueRestorePlans;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -266,6 +288,9 @@ public class RestoreClusterResponse extends CdpResponse {
     if (!Objects.equals(this.vizRestorePlans, restoreClusterResponse.vizRestorePlans)) {
       return false;
     }
+    if (!Objects.equals(this.cdwHueRestorePlans, restoreClusterResponse.cdwHueRestorePlans)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -274,7 +299,7 @@ public class RestoreClusterResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, operationId, action, message, dbcRestorePlans, hueRestorePlans, hiveRestorePlans, impalaRestorePlans, vizRestorePlans, super.hashCode());
+    return Objects.hash(clusterId, operationId, action, message, dbcRestorePlans, hueRestorePlans, hiveRestorePlans, impalaRestorePlans, vizRestorePlans, cdwHueRestorePlans, super.hashCode());
   }
 
   @Override
@@ -291,6 +316,7 @@ public class RestoreClusterResponse extends CdpResponse {
     sb.append("    hiveRestorePlans: ").append(toIndentedString(hiveRestorePlans)).append("\n");
     sb.append("    impalaRestorePlans: ").append(toIndentedString(impalaRestorePlans)).append("\n");
     sb.append("    vizRestorePlans: ").append(toIndentedString(vizRestorePlans)).append("\n");
+    sb.append("    cdwHueRestorePlans: ").append(toIndentedString(cdwHueRestorePlans)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object for AddInstanceGroupsMlServingApp method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:12.559-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:34.210-07:00")
 public class AddInstanceGroupsMlServingAppRequest  {
 
   /**

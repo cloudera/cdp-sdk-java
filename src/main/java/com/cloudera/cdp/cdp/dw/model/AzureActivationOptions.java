@@ -23,12 +23,11 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
-import java.util.*;
 
 /**
  * Options for activating an Azure environment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:11.502-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:33.344-07:00")
 public class AzureActivationOptions  {
 
   /**
@@ -50,11 +49,6 @@ public class AzureActivationOptions  {
    * Whether to enable spot instances for Virtual warehouses. It cannot be updated later. If the AzureActivationOptions is not provided it defaults to false.
    **/
   private Boolean enableSpotInstances = false;
-
-  /**
-   * DEPRECATED: The cluster level instance type selection will be replaced by virtual warehouse level selection. Azure compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values and the default value used for the case it is not provided.
-   **/
-  private List<String> computeInstanceTypes = new ArrayList<String>();
 
   /**
    * Enable monitoring of Azure Kubernetes Service (AKS) cluster. Workspace ID for Azure log analytics.
@@ -162,25 +156,6 @@ public class AzureActivationOptions  {
    **/
   public void setEnableSpotInstances(Boolean enableSpotInstances) {
     this.enableSpotInstances = enableSpotInstances;
-  }
-
-  /**
-   * Getter for computeInstanceTypes.
-   * DEPRECATED: The cluster level instance type selection will be replaced by virtual warehouse level selection. Azure compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values and the default value used for the case it is not provided.
-   **/
-  @Deprecated
-  @JsonProperty("computeInstanceTypes")
-  public List<String> getComputeInstanceTypes() {
-    return computeInstanceTypes;
-  }
-
-  /**
-   * Setter for computeInstanceTypes.
-   * DEPRECATED: The cluster level instance type selection will be replaced by virtual warehouse level selection. Azure compute instance types that the environment is restricted to use. This affects the creation of virtual warehouses where this restriction will apply. Select an instance type that meets your computing, memory, networking, or storage needs. As of now, only a single instance type can be listed. Use describe-allowed-instance-types to see currently possible values and the default value used for the case it is not provided.
-   **/
-  @Deprecated
-  public void setComputeInstanceTypes(List<String> computeInstanceTypes) {
-    this.computeInstanceTypes = computeInstanceTypes;
   }
 
   /**
@@ -340,9 +315,6 @@ public class AzureActivationOptions  {
     if (!Objects.equals(this.enableSpotInstances, azureActivationOptions.enableSpotInstances)) {
       return false;
     }
-    if (!Objects.equals(this.computeInstanceTypes, azureActivationOptions.computeInstanceTypes)) {
-      return false;
-    }
     if (!Objects.equals(this.logAnalyticsWorkspaceId, azureActivationOptions.logAnalyticsWorkspaceId)) {
       return false;
     }
@@ -372,7 +344,7 @@ public class AzureActivationOptions  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(userAssignedManagedIdentity, subnetId, enableAZ, enableSpotInstances, computeInstanceTypes, logAnalyticsWorkspaceId, outboundType, aksPodCIDR, enablePrivateSQL, privateSQLSubnetName, privateDNSZoneSQL, privateDNSZoneAKS, enablePrivateAks);
+    return Objects.hash(userAssignedManagedIdentity, subnetId, enableAZ, enableSpotInstances, logAnalyticsWorkspaceId, outboundType, aksPodCIDR, enablePrivateSQL, privateSQLSubnetName, privateDNSZoneSQL, privateDNSZoneAKS, enablePrivateAks);
   }
 
   @Override
@@ -383,7 +355,6 @@ public class AzureActivationOptions  {
     sb.append("    subnetId: ").append(toIndentedString(subnetId)).append("\n");
     sb.append("    enableAZ: ").append(toIndentedString(enableAZ)).append("\n");
     sb.append("    enableSpotInstances: ").append(toIndentedString(enableSpotInstances)).append("\n");
-    sb.append("    computeInstanceTypes: ").append(toIndentedString(computeInstanceTypes)).append("\n");
     sb.append("    logAnalyticsWorkspaceId: ").append(toIndentedString(logAnalyticsWorkspaceId)).append("\n");
     sb.append("    outboundType: ").append(toIndentedString(outboundType)).append("\n");
     sb.append("    aksPodCIDR: ").append(toIndentedString(aksPodCIDR)).append("\n");

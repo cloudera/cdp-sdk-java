@@ -23,12 +23,13 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.dw.model.AwsOptionsNonTransparentProxyResponse;
 import java.util.*;
 
 /**
  * Response object of the cluster AWS settings.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:11.502-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:33.344-07:00")
 public class AwsOptionsResponse extends CdpResponse {
 
   /**
@@ -60,6 +61,11 @@ public class AwsOptionsResponse extends CdpResponse {
    * Denotes whether the Reduced Permission mode is enabled.
    **/
   private Boolean reducedPermissionMode = null;
+
+  /**
+   * Non-transparent proxy settings.
+   **/
+  private AwsOptionsNonTransparentProxyResponse nonTransparentProxy = null;
 
   /**
    * Getter for subnetIds.
@@ -163,6 +169,23 @@ public class AwsOptionsResponse extends CdpResponse {
     this.reducedPermissionMode = reducedPermissionMode;
   }
 
+  /**
+   * Getter for nonTransparentProxy.
+   * Non-transparent proxy settings.
+   **/
+  @JsonProperty("nonTransparentProxy")
+  public AwsOptionsNonTransparentProxyResponse getNonTransparentProxy() {
+    return nonTransparentProxy;
+  }
+
+  /**
+   * Setter for nonTransparentProxy.
+   * Non-transparent proxy settings.
+   **/
+  public void setNonTransparentProxy(AwsOptionsNonTransparentProxyResponse nonTransparentProxy) {
+    this.nonTransparentProxy = nonTransparentProxy;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -190,6 +213,9 @@ public class AwsOptionsResponse extends CdpResponse {
     if (!Objects.equals(this.reducedPermissionMode, awsOptionsResponse.reducedPermissionMode)) {
       return false;
     }
+    if (!Objects.equals(this.nonTransparentProxy, awsOptionsResponse.nonTransparentProxy)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -198,7 +224,7 @@ public class AwsOptionsResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(subnetIds, workerSubnetIds, lbSubnetIds, availabilityZones, customAmiId, reducedPermissionMode, super.hashCode());
+    return Objects.hash(subnetIds, workerSubnetIds, lbSubnetIds, availabilityZones, customAmiId, reducedPermissionMode, nonTransparentProxy, super.hashCode());
   }
 
   @Override
@@ -212,6 +238,7 @@ public class AwsOptionsResponse extends CdpResponse {
     sb.append("    availabilityZones: ").append(toIndentedString(availabilityZones)).append("\n");
     sb.append("    customAmiId: ").append(toIndentedString(customAmiId)).append("\n");
     sb.append("    reducedPermissionMode: ").append(toIndentedString(reducedPermissionMode)).append("\n");
+    sb.append("    nonTransparentProxy: ").append(toIndentedString(nonTransparentProxy)).append("\n");
     sb.append("}");
     return sb.toString();
   }

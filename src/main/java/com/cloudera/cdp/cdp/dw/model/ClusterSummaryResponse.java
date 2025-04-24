@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * A Cloudera Data Warehouse cluster.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:11.502-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:33.344-07:00")
 public class ClusterSummaryResponse extends CdpResponse {
 
   /**
@@ -91,11 +91,6 @@ public class ClusterSummaryResponse extends CdpResponse {
    * Denotes whether the spot instances have been enabled for the cluster. This value is only available for AWS and Azure clusters.
    **/
   private Boolean enableSpotInstances = null;
-
-  /**
-   * DEPRECATED: The cluster level instance type selection will be replaced by virtual warehouse level selection. Compute instance types that the environment is restricted to use. This affects the creation of the virtual warehouses where this restriction will apply.
-   **/
-  private List<String> computeInstanceTypes = new ArrayList<String>();
 
   /**
    * Response object of AWS related cluster options.
@@ -330,25 +325,6 @@ public class ClusterSummaryResponse extends CdpResponse {
   }
 
   /**
-   * Getter for computeInstanceTypes.
-   * DEPRECATED: The cluster level instance type selection will be replaced by virtual warehouse level selection. Compute instance types that the environment is restricted to use. This affects the creation of the virtual warehouses where this restriction will apply.
-   **/
-  @Deprecated
-  @JsonProperty("computeInstanceTypes")
-  public List<String> getComputeInstanceTypes() {
-    return computeInstanceTypes;
-  }
-
-  /**
-   * Setter for computeInstanceTypes.
-   * DEPRECATED: The cluster level instance type selection will be replaced by virtual warehouse level selection. Compute instance types that the environment is restricted to use. This affects the creation of the virtual warehouses where this restriction will apply.
-   **/
-  @Deprecated
-  public void setComputeInstanceTypes(List<String> computeInstanceTypes) {
-    this.computeInstanceTypes = computeInstanceTypes;
-  }
-
-  /**
    * Getter for awsOptions.
    * Response object of AWS related cluster options.
    **/
@@ -543,9 +519,6 @@ public class ClusterSummaryResponse extends CdpResponse {
     if (!Objects.equals(this.enableSpotInstances, clusterSummaryResponse.enableSpotInstances)) {
       return false;
     }
-    if (!Objects.equals(this.computeInstanceTypes, clusterSummaryResponse.computeInstanceTypes)) {
-      return false;
-    }
     if (!Objects.equals(this.awsOptions, clusterSummaryResponse.awsOptions)) {
       return false;
     }
@@ -581,7 +554,7 @@ public class ClusterSummaryResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, environmentCrn, name, status, creator, creationDate, cloudPlatform, version, productSupport, enableSpotInstances, computeInstanceTypes, awsOptions, azureOptions, description, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, useOverlayNetwork, enablePrivateLoadBalancer, resourcePool, externalBuckets, super.hashCode());
+    return Objects.hash(crn, id, environmentCrn, name, status, creator, creationDate, cloudPlatform, version, productSupport, enableSpotInstances, awsOptions, azureOptions, description, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, useOverlayNetwork, enablePrivateLoadBalancer, resourcePool, externalBuckets, super.hashCode());
   }
 
   @Override
@@ -600,7 +573,6 @@ public class ClusterSummaryResponse extends CdpResponse {
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    productSupport: ").append(toIndentedString(productSupport)).append("\n");
     sb.append("    enableSpotInstances: ").append(toIndentedString(enableSpotInstances)).append("\n");
-    sb.append("    computeInstanceTypes: ").append(toIndentedString(computeInstanceTypes)).append("\n");
     sb.append("    awsOptions: ").append(toIndentedString(awsOptions)).append("\n");
     sb.append("    azureOptions: ").append(toIndentedString(azureOptions)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");

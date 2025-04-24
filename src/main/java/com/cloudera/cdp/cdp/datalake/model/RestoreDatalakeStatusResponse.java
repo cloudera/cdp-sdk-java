@@ -28,7 +28,7 @@ import com.cloudera.cdp.datalake.model.InternalBackupRestoreState;
 /**
  * Response object with information on last restore operation on a datalake.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-17T06:49:12.970-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:34.693-07:00")
 public class RestoreDatalakeStatusResponse extends CdpResponse {
 
   /**
