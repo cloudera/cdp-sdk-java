@@ -29,6 +29,7 @@ import com.cloudera.cdp.datalake.model.ClouderaManagerDetails;
 import com.cloudera.cdp.datalake.model.DatalakeResourceTag;
 import com.cloudera.cdp.datalake.model.Endpoints;
 import com.cloudera.cdp.datalake.model.GCPConfiguration;
+import com.cloudera.cdp.datalake.model.ImageInfo;
 import com.cloudera.cdp.datalake.model.InstanceGroup;
 import com.cloudera.cdp.datalake.model.ProductVersion;
 import java.time.ZonedDateTime;
@@ -37,7 +38,7 @@ import java.util.*;
 /**
  * Details about a datalake
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:34.693-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:34.979-07:00")
 public class DatalakeDetails  {
 
   /**
@@ -134,6 +135,11 @@ public class DatalakeDetails  {
    * Whether Ranger RAZ is enabled for the datalake.
    **/
   private Boolean enableRangerRaz = null;
+
+  /**
+   * The image details.
+   **/
+  private ImageInfo imageDetails = null;
 
   /**
    * Datalake tags object containing the tag values defined for the datalake.
@@ -464,6 +470,23 @@ public class DatalakeDetails  {
   }
 
   /**
+   * Getter for imageDetails.
+   * The image details.
+   **/
+  @JsonProperty("imageDetails")
+  public ImageInfo getImageDetails() {
+    return imageDetails;
+  }
+
+  /**
+   * Setter for imageDetails.
+   * The image details.
+   **/
+  public void setImageDetails(ImageInfo imageDetails) {
+    this.imageDetails = imageDetails;
+  }
+
+  /**
    * Getter for tags.
    * Datalake tags object containing the tag values defined for the datalake.
    **/
@@ -546,6 +569,9 @@ public class DatalakeDetails  {
     if (!Objects.equals(this.enableRangerRaz, datalakeDetails.enableRangerRaz)) {
       return false;
     }
+    if (!Objects.equals(this.imageDetails, datalakeDetails.imageDetails)) {
+      return false;
+    }
     if (!Objects.equals(this.tags, datalakeDetails.tags)) {
       return false;
     }
@@ -554,7 +580,7 @@ public class DatalakeDetails  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, datalakeName, status, shape, environmentCrn, credentialCrn, cloudPlatform, instanceGroups, creationDate, clouderaManager, productVersions, region, statusReason, awsConfiguration, azureConfiguration, gcpConfiguration, endpoints, cloudStorageBaseLocation, enableRangerRaz, tags);
+    return Objects.hash(crn, datalakeName, status, shape, environmentCrn, credentialCrn, cloudPlatform, instanceGroups, creationDate, clouderaManager, productVersions, region, statusReason, awsConfiguration, azureConfiguration, gcpConfiguration, endpoints, cloudStorageBaseLocation, enableRangerRaz, imageDetails, tags);
   }
 
   @Override
@@ -580,6 +606,7 @@ public class DatalakeDetails  {
     sb.append("    endpoints: ").append(toIndentedString(endpoints)).append("\n");
     sb.append("    cloudStorageBaseLocation: ").append(toIndentedString(cloudStorageBaseLocation)).append("\n");
     sb.append("    enableRangerRaz: ").append(toIndentedString(enableRangerRaz)).append("\n");
+    sb.append("    imageDetails: ").append(toIndentedString(imageDetails)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
     return sb.toString();

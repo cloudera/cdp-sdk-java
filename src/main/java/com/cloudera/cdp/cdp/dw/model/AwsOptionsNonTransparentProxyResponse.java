@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Non-transparent proxy settings. Read more: https://docs.cloudera.com/data-warehouse/cloud/aws-environments/topics/dw-aws-use-non-transparent-proxy.html
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:33.344-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:33.811-07:00")
 public class AwsOptionsNonTransparentProxyResponse extends CdpResponse {
 
   /**

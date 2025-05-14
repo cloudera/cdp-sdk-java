@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.dfworkload.model.ClusterSize;
 import com.cloudera.cdp.dfworkload.model.DeploymentStatus;
+import com.cloudera.cdp.dfworkload.model.NodeStorage;
 import com.cloudera.cdp.dfworkload.model.ProjectMeta;
 import com.cloudera.cdp.dfworkload.model.ServiceMeta;
 import java.util.*;
@@ -32,7 +33,7 @@ import java.util.*;
 /**
  * Provides details about a deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:37.211-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:38.216-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcDeployment  {
 
@@ -55,6 +56,11 @@ public class RpcDeployment  {
    * The CRN of the deployment.
    **/
   private String crn = null;
+
+  /**
+   * The runtime status of the deployment.
+   **/
+  private DeploymentStatus runtimeStatus = null;
 
   /**
    * Current count of active alerts classified as an info.
@@ -242,6 +248,21 @@ public class RpcDeployment  {
   private String nodeStorageProfile = null;
 
   /**
+   * The node storage data.
+   **/
+  private NodeStorage nodeStorage = null;
+
+  /**
+   * The target process group ID of the deployment.
+   **/
+  private String targetProcessGroupId = null;
+
+  /**
+   * Set of authorized IP ranges for the inbound connections.
+   **/
+  private List<String> inboundConnectionAuthorizedIpRanges = new ArrayList<String>();
+
+  /**
    * The crn of the project this deployment belongs to, or null if does not belong to a project.
    **/
   private String projectCrn = null;
@@ -312,6 +333,23 @@ public class RpcDeployment  {
    **/
   public void setCrn(String crn) {
     this.crn = crn;
+  }
+
+  /**
+   * Getter for runtimeStatus.
+   * The runtime status of the deployment.
+   **/
+  @JsonProperty("runtimeStatus")
+  public DeploymentStatus getRuntimeStatus() {
+    return runtimeStatus;
+  }
+
+  /**
+   * Setter for runtimeStatus.
+   * The runtime status of the deployment.
+   **/
+  public void setRuntimeStatus(DeploymentStatus runtimeStatus) {
+    this.runtimeStatus = runtimeStatus;
   }
 
   /**
@@ -952,6 +990,57 @@ public class RpcDeployment  {
   }
 
   /**
+   * Getter for nodeStorage.
+   * The node storage data.
+   **/
+  @JsonProperty("nodeStorage")
+  public NodeStorage getNodeStorage() {
+    return nodeStorage;
+  }
+
+  /**
+   * Setter for nodeStorage.
+   * The node storage data.
+   **/
+  public void setNodeStorage(NodeStorage nodeStorage) {
+    this.nodeStorage = nodeStorage;
+  }
+
+  /**
+   * Getter for targetProcessGroupId.
+   * The target process group ID of the deployment.
+   **/
+  @JsonProperty("targetProcessGroupId")
+  public String getTargetProcessGroupId() {
+    return targetProcessGroupId;
+  }
+
+  /**
+   * Setter for targetProcessGroupId.
+   * The target process group ID of the deployment.
+   **/
+  public void setTargetProcessGroupId(String targetProcessGroupId) {
+    this.targetProcessGroupId = targetProcessGroupId;
+  }
+
+  /**
+   * Getter for inboundConnectionAuthorizedIpRanges.
+   * Set of authorized IP ranges for the inbound connections.
+   **/
+  @JsonProperty("inboundConnectionAuthorizedIpRanges")
+  public List<String> getInboundConnectionAuthorizedIpRanges() {
+    return inboundConnectionAuthorizedIpRanges;
+  }
+
+  /**
+   * Setter for inboundConnectionAuthorizedIpRanges.
+   * Set of authorized IP ranges for the inbound connections.
+   **/
+  public void setInboundConnectionAuthorizedIpRanges(List<String> inboundConnectionAuthorizedIpRanges) {
+    this.inboundConnectionAuthorizedIpRanges = inboundConnectionAuthorizedIpRanges;
+  }
+
+  /**
    * Getter for projectCrn.
    * The crn of the project this deployment belongs to, or null if does not belong to a project.
    **/
@@ -987,6 +1076,9 @@ public class RpcDeployment  {
       return false;
     }
     if (!Objects.equals(this.crn, rpcDeployment.crn)) {
+      return false;
+    }
+    if (!Objects.equals(this.runtimeStatus, rpcDeployment.runtimeStatus)) {
       return false;
     }
     if (!Objects.equals(this.activeInfoAlertCount, rpcDeployment.activeInfoAlertCount)) {
@@ -1100,6 +1192,15 @@ public class RpcDeployment  {
     if (!Objects.equals(this.nodeStorageProfile, rpcDeployment.nodeStorageProfile)) {
       return false;
     }
+    if (!Objects.equals(this.nodeStorage, rpcDeployment.nodeStorage)) {
+      return false;
+    }
+    if (!Objects.equals(this.targetProcessGroupId, rpcDeployment.targetProcessGroupId)) {
+      return false;
+    }
+    if (!Objects.equals(this.inboundConnectionAuthorizedIpRanges, rpcDeployment.inboundConnectionAuthorizedIpRanges)) {
+      return false;
+    }
     if (!Objects.equals(this.projectCrn, rpcDeployment.projectCrn)) {
       return false;
     }
@@ -1108,7 +1209,7 @@ public class RpcDeployment  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, status, service, crn, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, created, updated, validActions, project, nifiUrl, clusterSize, coresPerNode, heapSize, memoryLimit, clusterSizeParams, autoscalingEnabled, flowMetricsScalingEnabled, autoscaleMinNodes, autoscaleMaxNodes, staticNodeCount, flowName, flowVersion, flowVersionCrn, flowCrn, creatorCrn, artifactTypeName, currentNodeCount, deployedByUsername, deployedByName, dfxLocalUrl, configurationVersion, lastUpdatedByUsername, cfmNifiVersion, inboundConnectionEndpointId, testSession, flowDesignerId, customNarConfigurationId, customPythonConfigurationId, nodeStorageProfile, projectCrn);
+    return Objects.hash(name, status, service, crn, runtimeStatus, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, created, updated, validActions, project, nifiUrl, clusterSize, coresPerNode, heapSize, memoryLimit, clusterSizeParams, autoscalingEnabled, flowMetricsScalingEnabled, autoscaleMinNodes, autoscaleMaxNodes, staticNodeCount, flowName, flowVersion, flowVersionCrn, flowCrn, creatorCrn, artifactTypeName, currentNodeCount, deployedByUsername, deployedByName, dfxLocalUrl, configurationVersion, lastUpdatedByUsername, cfmNifiVersion, inboundConnectionEndpointId, testSession, flowDesignerId, customNarConfigurationId, customPythonConfigurationId, nodeStorageProfile, nodeStorage, targetProcessGroupId, inboundConnectionAuthorizedIpRanges, projectCrn);
   }
 
   @Override
@@ -1119,6 +1220,7 @@ public class RpcDeployment  {
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    service: ").append(toIndentedString(service)).append("\n");
     sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
+    sb.append("    runtimeStatus: ").append(toIndentedString(runtimeStatus)).append("\n");
     sb.append("    activeInfoAlertCount: ").append(toIndentedString(activeInfoAlertCount)).append("\n");
     sb.append("    activeWarningAlertCount: ").append(toIndentedString(activeWarningAlertCount)).append("\n");
     sb.append("    activeErrorAlertCount: ").append(toIndentedString(activeErrorAlertCount)).append("\n");
@@ -1156,6 +1258,9 @@ public class RpcDeployment  {
     sb.append("    customNarConfigurationId: ").append(toIndentedString(customNarConfigurationId)).append("\n");
     sb.append("    customPythonConfigurationId: ").append(toIndentedString(customPythonConfigurationId)).append("\n");
     sb.append("    nodeStorageProfile: ").append(toIndentedString(nodeStorageProfile)).append("\n");
+    sb.append("    nodeStorage: ").append(toIndentedString(nodeStorage)).append("\n");
+    sb.append("    targetProcessGroupId: ").append(toIndentedString(targetProcessGroupId)).append("\n");
+    sb.append("    inboundConnectionAuthorizedIpRanges: ").append(toIndentedString(inboundConnectionAuthorizedIpRanges)).append("\n");
     sb.append("    projectCrn: ").append(toIndentedString(projectCrn)).append("\n");
     sb.append("}");
     return sb.toString();

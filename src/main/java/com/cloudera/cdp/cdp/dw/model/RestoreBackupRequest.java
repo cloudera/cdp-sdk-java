@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for the restore backup request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:33.344-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:33.811-07:00")
 public class RestoreBackupRequest  {
 
   /**

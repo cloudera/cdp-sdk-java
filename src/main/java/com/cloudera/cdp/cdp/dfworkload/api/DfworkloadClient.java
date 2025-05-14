@@ -81,6 +81,7 @@ import com.cloudera.cdp.dfworkload.model.ImportDeploymentResponse;
 import com.cloudera.cdp.dfworkload.model.InboundConnectionEndpointClientCertificateRequest;
 import com.cloudera.cdp.dfworkload.model.InboundConnectionEndpointClientCertificateResponse;
 import com.cloudera.cdp.dfworkload.model.InboundConnectionEndpointClientCertificatesRequest;
+import com.cloudera.cdp.dfworkload.model.InboundConnectionEndpointClientCertificatesResponse;
 import com.cloudera.cdp.dfworkload.model.InboundConnectionEndpointClientPrivateKeyRequest;
 import com.cloudera.cdp.dfworkload.model.InboundConnectionEndpointClientPrivateKeyResponse;
 import com.cloudera.cdp.dfworkload.model.ListDeploymentArchivesRequest;
@@ -129,7 +130,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:37.211-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:38.216-07:00")
 public class DfworkloadClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dfworkload";
@@ -416,15 +417,15 @@ public class DfworkloadClient extends CdpClient {
   /**
    * Get Inbound Connection Endpoint Client Certificates (in PEM encoding)
    * @param input Get Inbound Connection Endpoint client&#39;s certificates
-   * @return InboundConnectionEndpointClientPrivateKeyResponse
+   * @return InboundConnectionEndpointClientCertificatesResponse
    */
   @WorkloadApi
-  public InboundConnectionEndpointClientPrivateKeyResponse getClientCertificatesEncoded(InboundConnectionEndpointClientCertificatesRequest input) {
+  public InboundConnectionEndpointClientCertificatesResponse getClientCertificatesEncoded(InboundConnectionEndpointClientCertificatesRequest input) {
     if (input == null) {
       throw new CdpClientException("Missing the required parameter 'input' when calling getClientCertificatesEncoded");
     }
 
-    return this.invokeAPI("getClientCertificatesEncoded", "/dfx/api/rpc-v1/inbound-connection-endpoint-certificates/download-client-certificates-encoded", input, new GenericType<InboundConnectionEndpointClientPrivateKeyResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+    return this.invokeAPI("getClientCertificatesEncoded", "/dfx/api/rpc-v1/inbound-connection-endpoint-certificates/download-client-certificates-encoded", input, new GenericType<InboundConnectionEndpointClientCertificatesResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
   }
 
   /**

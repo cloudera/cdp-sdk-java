@@ -30,14 +30,20 @@ import com.cloudera.cdp.client.ResourceResponse;
 import com.cloudera.cdp.client.RestResponse;
 import com.cloudera.cdp.df.model.AddReadyflowRequest;
 import com.cloudera.cdp.df.model.AddReadyflowResponse;
+import com.cloudera.cdp.df.model.AssignToCollectionRequest;
+import com.cloudera.cdp.df.model.AssignToCollectionResponse;
 import com.cloudera.cdp.df.model.CancelDeleteProjectRequest;
 import com.cloudera.cdp.df.model.CancelDeleteProjectResponse;
+import com.cloudera.cdp.df.model.CreateCollectionRequest;
+import com.cloudera.cdp.df.model.CreateCollectionResponse;
 import com.cloudera.cdp.df.model.CreateFlowVersionTagRequest;
 import com.cloudera.cdp.df.model.CreateFlowVersionTagResponse;
 import com.cloudera.cdp.df.model.CreateProjectRequest;
 import com.cloudera.cdp.df.model.CreateProjectResponse;
 import com.cloudera.cdp.df.model.DeleteAddedReadyflowRequest;
 import com.cloudera.cdp.df.model.DeleteAddedReadyflowResponse;
+import com.cloudera.cdp.df.model.DeleteCollectionRequest;
+import com.cloudera.cdp.df.model.DeleteCollectionResponse;
 import com.cloudera.cdp.df.model.DeleteFlowRequest;
 import com.cloudera.cdp.df.model.DeleteFlowResponse;
 import com.cloudera.cdp.df.model.DeleteFlowVersionTagRequest;
@@ -46,6 +52,8 @@ import com.cloudera.cdp.df.model.DeleteProjectRequest;
 import com.cloudera.cdp.df.model.DeleteProjectResponse;
 import com.cloudera.cdp.df.model.DescribeAddedReadyflowRequest;
 import com.cloudera.cdp.df.model.DescribeAddedReadyflowResponse;
+import com.cloudera.cdp.df.model.DescribeCollectionRequest;
+import com.cloudera.cdp.df.model.DescribeCollectionResponse;
 import com.cloudera.cdp.df.model.DescribeDeploymentEventDetailRequest;
 import com.cloudera.cdp.df.model.DescribeDeploymentEventDetailResponse;
 import com.cloudera.cdp.df.model.DescribeDeploymentRequest;
@@ -78,6 +86,8 @@ import com.cloudera.cdp.df.model.ImportFlowDefinitionVersionRequest;
 import com.cloudera.cdp.df.model.ImportFlowDefinitionVersionResponse;
 import com.cloudera.cdp.df.model.InitiateDeploymentRequest;
 import com.cloudera.cdp.df.model.InitiateDeploymentResponse;
+import com.cloudera.cdp.df.model.ListCollectionsRequest;
+import com.cloudera.cdp.df.model.ListCollectionsResponse;
 import com.cloudera.cdp.df.model.ListDeployableServicesForNewDeploymentsRequest;
 import com.cloudera.cdp.df.model.ListDeployableServicesForNewDeploymentsResponse;
 import com.cloudera.cdp.df.model.ListDeploymentActiveAlertsRequest;
@@ -124,8 +134,12 @@ import com.cloudera.cdp.df.model.ResetServiceRequest;
 import com.cloudera.cdp.df.model.ResetServiceResponse;
 import com.cloudera.cdp.df.model.RevokeUserKubernetesAccessRequest;
 import com.cloudera.cdp.df.model.RevokeUserKubernetesAccessResponse;
+import com.cloudera.cdp.df.model.RotatePasswordRequest;
+import com.cloudera.cdp.df.model.RotatePasswordResponse;
 import com.cloudera.cdp.df.model.StartGetDiagnosticsCollectionRequest;
 import com.cloudera.cdp.df.model.StartGetDiagnosticsCollectionResponse;
+import com.cloudera.cdp.df.model.UpdateCollectionRequest;
+import com.cloudera.cdp.df.model.UpdateCollectionResponse;
 import com.cloudera.cdp.df.model.UpdateProjectRequest;
 import com.cloudera.cdp.df.model.UpdateProjectResponse;
 import com.cloudera.cdp.df.model.UpdateServiceRequest;
@@ -138,7 +152,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:36.786-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:37.723-07:00")
 public class DfClient extends CdpClient {
 
   public static final String SERVICE_NAME = "df";
@@ -183,6 +197,19 @@ public class DfClient extends CdpClient {
   }
 
   /**
+   * Assign a flow definition to collection.
+   * @param input
+   * @return AssignToCollectionResponse
+   */
+  public AssignToCollectionResponse assignToCollection(AssignToCollectionRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling assignToCollection");
+    }
+
+    return this.invokeAPI("assignToCollection", "/api/v1/df/assignToCollection", input, new GenericType<AssignToCollectionResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Cancels deletion of a Project.
    * @param input
    * @return CancelDeleteProjectResponse
@@ -193,6 +220,19 @@ public class DfClient extends CdpClient {
     }
 
     return this.invokeAPI("cancelDeleteProject", "/api/v1/df/cancelDeleteProject", input, new GenericType<CancelDeleteProjectResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Create catalog collection.
+   * @param input
+   * @return CreateCollectionResponse
+   */
+  public CreateCollectionResponse createCollection(CreateCollectionRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createCollection");
+    }
+
+    return this.invokeAPI("createCollection", "/api/v1/df/createCollection", input, new GenericType<CreateCollectionResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -232,6 +272,19 @@ public class DfClient extends CdpClient {
     }
 
     return this.invokeAPI("deleteAddedReadyflow", "/api/v1/df/deleteAddedReadyflow", input, new GenericType<DeleteAddedReadyflowResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Delete catalog collection.
+   * @param input
+   * @return DeleteCollectionResponse
+   */
+  public DeleteCollectionResponse deleteCollection(DeleteCollectionRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteCollection");
+    }
+
+    return this.invokeAPI("deleteCollection", "/api/v1/df/deleteCollection", input, new GenericType<DeleteCollectionResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -284,6 +337,19 @@ public class DfClient extends CdpClient {
     }
 
     return this.invokeAPI("describeAddedReadyflow", "/api/v1/df/describeAddedReadyflow", input, new GenericType<DescribeAddedReadyflowResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Describe catalog collection.
+   * @param input
+   * @return DescribeCollectionResponse
+   */
+  public DescribeCollectionResponse describeCollection(DescribeCollectionRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeCollection");
+    }
+
+    return this.invokeAPI("describeCollection", "/api/v1/df/describeCollection", input, new GenericType<DescribeCollectionResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -479,6 +545,19 @@ public class DfClient extends CdpClient {
     }
 
     return this.invokeAPI("initiateDeployment", "/api/v1/df/initiateDeployment", input, new GenericType<InitiateDeploymentResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * List catalog collections.
+   * @param input
+   * @return ListCollectionsResponse
+   */
+  public ListCollectionsResponse listCollections(ListCollectionsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listCollections");
+    }
+
+    return this.invokeAPI("listCollections", "/api/v1/df/listCollections", input, new GenericType<ListCollectionsResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -781,6 +860,19 @@ public class DfClient extends CdpClient {
   }
 
   /**
+   * Rotate password.
+   * @param input
+   * @return RotatePasswordResponse
+   */
+  public RotatePasswordResponse rotatePassword(RotatePasswordRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling rotatePassword");
+    }
+
+    return this.invokeAPI("rotatePassword", "/api/v1/df/rotatePassword", input, new GenericType<RotatePasswordResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Start diagnostics collection.
    * @param input
    * @return StartGetDiagnosticsCollectionResponse
@@ -791,6 +883,19 @@ public class DfClient extends CdpClient {
     }
 
     return this.invokeAPI("startGetDiagnosticsCollection", "/api/v1/df/startGetDiagnosticsCollection", input, new GenericType<StartGetDiagnosticsCollectionResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Update a collection&#39;s details.
+   * @param input
+   * @return UpdateCollectionResponse
+   */
+  public UpdateCollectionResponse updateCollection(UpdateCollectionRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateCollection");
+    }
+
+    return this.invokeAPI("updateCollection", "/api/v1/df/updateCollection", input, new GenericType<UpdateCollectionResponse>(){}, NO_EXTENSION);
   }
 
   /**

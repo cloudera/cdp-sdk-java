@@ -129,12 +129,16 @@ import com.cloudera.cdp.environments.model.ListEnvironmentsRequest;
 import com.cloudera.cdp.environments.model.ListEnvironmentsResponse;
 import com.cloudera.cdp.environments.model.ListFreeipaDiagnosticsRequest;
 import com.cloudera.cdp.environments.model.ListFreeipaDiagnosticsResponse;
+import com.cloudera.cdp.environments.model.ListFreeipaSecretTypesRequest;
+import com.cloudera.cdp.environments.model.ListFreeipaSecretTypesResponse;
 import com.cloudera.cdp.environments.model.ListProxyConfigsRequest;
 import com.cloudera.cdp.environments.model.ListProxyConfigsResponse;
 import com.cloudera.cdp.environments.model.RepairFreeipaRequest;
 import com.cloudera.cdp.environments.model.RepairFreeipaResponse;
 import com.cloudera.cdp.environments.model.RetryFreeipaRequest;
 import com.cloudera.cdp.environments.model.RetryFreeipaResponse;
+import com.cloudera.cdp.environments.model.RotateFreeipaSecretsRequest;
+import com.cloudera.cdp.environments.model.RotateFreeipaSecretsResponse;
 import com.cloudera.cdp.environments.model.RotateSaltPasswordRequest;
 import com.cloudera.cdp.environments.model.RotateSaltPasswordResponse;
 import com.cloudera.cdp.environments.model.SetAWSAuditCredentialRequest;
@@ -225,7 +229,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:35.313-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:35.786-07:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -907,6 +911,19 @@ public class EnvironmentsClient extends CdpClient {
   }
 
   /**
+   * Lists all FreeIPA related secret types.
+   * @param input
+   * @return ListFreeipaSecretTypesResponse
+   */
+  public ListFreeipaSecretTypesResponse listFreeipaSecretTypes(ListFreeipaSecretTypesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listFreeipaSecretTypes");
+    }
+
+    return this.invokeAPI("listFreeipaSecretTypes", "/api/v1/environments2/listFreeipaSecretTypes", input, new GenericType<ListFreeipaSecretTypesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Lists proxy configs.
    * @param input
    * @return ListProxyConfigsResponse
@@ -943,6 +960,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("retryFreeipa", "/api/v1/environments2/retryFreeipa", input, new GenericType<RetryFreeipaResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Rotate FreeIPA related secret for FreeIPA instances.
+   * @param input
+   * @return RotateFreeipaSecretsResponse
+   */
+  public RotateFreeipaSecretsResponse rotateFreeipaSecrets(RotateFreeipaSecretsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling rotateFreeipaSecrets");
+    }
+
+    return this.invokeAPI("rotateFreeipaSecrets", "/api/v1/environments2/rotateFreeipaSecrets", input, new GenericType<RotateFreeipaSecretsResponse>(){}, NO_EXTENSION);
   }
 
   /**

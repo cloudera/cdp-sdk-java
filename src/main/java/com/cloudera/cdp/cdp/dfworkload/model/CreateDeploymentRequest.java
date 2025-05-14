@@ -27,12 +27,13 @@ import com.cloudera.cdp.dfworkload.model.BasicClusterSize;
 import com.cloudera.cdp.dfworkload.model.ConfiguredKpi;
 import com.cloudera.cdp.dfworkload.model.FlowParameterGroup;
 import com.cloudera.cdp.dfworkload.model.ListenComponent;
+import com.cloudera.cdp.dfworkload.model.NodeStorage;
 import java.util.*;
 
 /**
  * Request object to create a deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:37.211-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:38.216-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class CreateDeploymentRequest  {
 
@@ -122,9 +123,19 @@ public class CreateDeploymentRequest  {
   private List<ListenComponent> listenComponents = new ArrayList<ListenComponent>();
 
   /**
+   * Set of authorized CIDR ranges for the inbound connections.
+   **/
+  private List<String> inboundConnectionAuthorizedIpRanges = new ArrayList<String>();
+
+  /**
    * The node storage profile name.
    **/
   private String nodeStorageProfileName = null;
+
+  /**
+   * The node storage data.
+   **/
+  private NodeStorage nodeStorage = null;
 
   /**
    * The CRN of the custom NAR configuration.
@@ -433,6 +444,23 @@ public class CreateDeploymentRequest  {
   }
 
   /**
+   * Getter for inboundConnectionAuthorizedIpRanges.
+   * Set of authorized CIDR ranges for the inbound connections.
+   **/
+  @JsonProperty("inboundConnectionAuthorizedIpRanges")
+  public List<String> getInboundConnectionAuthorizedIpRanges() {
+    return inboundConnectionAuthorizedIpRanges;
+  }
+
+  /**
+   * Setter for inboundConnectionAuthorizedIpRanges.
+   * Set of authorized CIDR ranges for the inbound connections.
+   **/
+  public void setInboundConnectionAuthorizedIpRanges(List<String> inboundConnectionAuthorizedIpRanges) {
+    this.inboundConnectionAuthorizedIpRanges = inboundConnectionAuthorizedIpRanges;
+  }
+
+  /**
    * Getter for nodeStorageProfileName.
    * The node storage profile name.
    **/
@@ -447,6 +475,23 @@ public class CreateDeploymentRequest  {
    **/
   public void setNodeStorageProfileName(String nodeStorageProfileName) {
     this.nodeStorageProfileName = nodeStorageProfileName;
+  }
+
+  /**
+   * Getter for nodeStorage.
+   * The node storage data.
+   **/
+  @JsonProperty("nodeStorage")
+  public NodeStorage getNodeStorage() {
+    return nodeStorage;
+  }
+
+  /**
+   * Setter for nodeStorage.
+   * The node storage data.
+   **/
+  public void setNodeStorage(NodeStorage nodeStorage) {
+    this.nodeStorage = nodeStorage;
   }
 
   /**
@@ -560,7 +605,13 @@ public class CreateDeploymentRequest  {
     if (!Objects.equals(this.listenComponents, createDeploymentRequest.listenComponents)) {
       return false;
     }
+    if (!Objects.equals(this.inboundConnectionAuthorizedIpRanges, createDeploymentRequest.inboundConnectionAuthorizedIpRanges)) {
+      return false;
+    }
     if (!Objects.equals(this.nodeStorageProfileName, createDeploymentRequest.nodeStorageProfileName)) {
+      return false;
+    }
+    if (!Objects.equals(this.nodeStorage, createDeploymentRequest.nodeStorage)) {
       return false;
     }
     if (!Objects.equals(this.customNarConfigurationCrn, createDeploymentRequest.customNarConfigurationCrn)) {
@@ -577,7 +628,7 @@ public class CreateDeploymentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, configurationVersion, name, deploymentRequestCrn, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, cfmNifiVersion, autoStartFlow, clusterSizeName, clusterSize, inboundHostname, listenComponents, nodeStorageProfileName, customNarConfigurationCrn, customPythonConfigurationCrn, projectCrn);
+    return Objects.hash(environmentCrn, configurationVersion, name, deploymentRequestCrn, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, cfmNifiVersion, autoStartFlow, clusterSizeName, clusterSize, inboundHostname, listenComponents, inboundConnectionAuthorizedIpRanges, nodeStorageProfileName, nodeStorage, customNarConfigurationCrn, customPythonConfigurationCrn, projectCrn);
   }
 
   @Override
@@ -601,7 +652,9 @@ public class CreateDeploymentRequest  {
     sb.append("    clusterSize: ").append(toIndentedString(clusterSize)).append("\n");
     sb.append("    inboundHostname: ").append(toIndentedString(inboundHostname)).append("\n");
     sb.append("    listenComponents: ").append(toIndentedString(listenComponents)).append("\n");
+    sb.append("    inboundConnectionAuthorizedIpRanges: ").append(toIndentedString(inboundConnectionAuthorizedIpRanges)).append("\n");
     sb.append("    nodeStorageProfileName: ").append(toIndentedString(nodeStorageProfileName)).append("\n");
+    sb.append("    nodeStorage: ").append(toIndentedString(nodeStorage)).append("\n");
     sb.append("    customNarConfigurationCrn: ").append(toIndentedString(customNarConfigurationCrn)).append("\n");
     sb.append("    customPythonConfigurationCrn: ").append(toIndentedString(customPythonConfigurationCrn)).append("\n");
     sb.append("    projectCrn: ").append(toIndentedString(projectCrn)).append("\n");

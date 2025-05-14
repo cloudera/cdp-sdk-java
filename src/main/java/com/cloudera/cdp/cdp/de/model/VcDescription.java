@@ -33,7 +33,7 @@ import java.util.Map;
 /**
  * CDE virtual cluster summary.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:36.254-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:36.936-07:00")
 public class VcDescription  {
 
   /**

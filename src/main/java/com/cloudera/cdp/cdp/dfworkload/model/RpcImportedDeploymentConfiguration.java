@@ -27,12 +27,13 @@ import com.cloudera.cdp.dfworkload.model.BasicClusterSize;
 import com.cloudera.cdp.dfworkload.model.ConfiguredKpi;
 import com.cloudera.cdp.dfworkload.model.FlowParameterGroup;
 import com.cloudera.cdp.dfworkload.model.ListenComponent;
+import com.cloudera.cdp.dfworkload.model.NodeStorage;
 import java.util.*;
 
 /**
  * Contains the configuration data imported from exported archive.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:37.211-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:38.216-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcImportedDeploymentConfiguration  {
 
@@ -97,9 +98,19 @@ public class RpcImportedDeploymentConfiguration  {
   private List<ListenComponent> listenComponents = new ArrayList<ListenComponent>();
 
   /**
+   * Set of authorized CIDR ranges for the inbound connections.
+   **/
+  private List<String> inboundConnectionAuthorizedIpRanges = new ArrayList<String>();
+
+  /**
    * The node storage profile imported from archive.
    **/
   private String nodeStorageProfile = null;
+
+  /**
+   * The node storage data imported from archive.
+   **/
+  private NodeStorage nodeStorage = null;
 
   /**
    * The project CRN retrieved from backup.
@@ -323,6 +334,23 @@ public class RpcImportedDeploymentConfiguration  {
   }
 
   /**
+   * Getter for inboundConnectionAuthorizedIpRanges.
+   * Set of authorized CIDR ranges for the inbound connections.
+   **/
+  @JsonProperty("inboundConnectionAuthorizedIpRanges")
+  public List<String> getInboundConnectionAuthorizedIpRanges() {
+    return inboundConnectionAuthorizedIpRanges;
+  }
+
+  /**
+   * Setter for inboundConnectionAuthorizedIpRanges.
+   * Set of authorized CIDR ranges for the inbound connections.
+   **/
+  public void setInboundConnectionAuthorizedIpRanges(List<String> inboundConnectionAuthorizedIpRanges) {
+    this.inboundConnectionAuthorizedIpRanges = inboundConnectionAuthorizedIpRanges;
+  }
+
+  /**
    * Getter for nodeStorageProfile.
    * The node storage profile imported from archive.
    **/
@@ -337,6 +365,23 @@ public class RpcImportedDeploymentConfiguration  {
    **/
   public void setNodeStorageProfile(String nodeStorageProfile) {
     this.nodeStorageProfile = nodeStorageProfile;
+  }
+
+  /**
+   * Getter for nodeStorage.
+   * The node storage data imported from archive.
+   **/
+  @JsonProperty("nodeStorage")
+  public NodeStorage getNodeStorage() {
+    return nodeStorage;
+  }
+
+  /**
+   * Setter for nodeStorage.
+   * The node storage data imported from archive.
+   **/
+  public void setNodeStorage(NodeStorage nodeStorage) {
+    this.nodeStorage = nodeStorage;
   }
 
   /**
@@ -435,7 +480,13 @@ public class RpcImportedDeploymentConfiguration  {
     if (!Objects.equals(this.listenComponents, rpcImportedDeploymentConfiguration.listenComponents)) {
       return false;
     }
+    if (!Objects.equals(this.inboundConnectionAuthorizedIpRanges, rpcImportedDeploymentConfiguration.inboundConnectionAuthorizedIpRanges)) {
+      return false;
+    }
     if (!Objects.equals(this.nodeStorageProfile, rpcImportedDeploymentConfiguration.nodeStorageProfile)) {
+      return false;
+    }
+    if (!Objects.equals(this.nodeStorage, rpcImportedDeploymentConfiguration.nodeStorage)) {
       return false;
     }
     if (!Objects.equals(this.projectCrn, rpcImportedDeploymentConfiguration.projectCrn)) {
@@ -452,7 +503,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, clusterSizeName, clusterSize, kpis, flowParameterGroups, cfmNifiVersion, inboundHostName, listenComponents, nodeStorageProfile, projectCrn, customNarConfigurationCrn, customPythonConfigurationCrn);
+    return Objects.hash(autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, clusterSizeName, clusterSize, kpis, flowParameterGroups, cfmNifiVersion, inboundHostName, listenComponents, inboundConnectionAuthorizedIpRanges, nodeStorageProfile, nodeStorage, projectCrn, customNarConfigurationCrn, customPythonConfigurationCrn);
   }
 
   @Override
@@ -471,7 +522,9 @@ public class RpcImportedDeploymentConfiguration  {
     sb.append("    cfmNifiVersion: ").append(toIndentedString(cfmNifiVersion)).append("\n");
     sb.append("    inboundHostName: ").append(toIndentedString(inboundHostName)).append("\n");
     sb.append("    listenComponents: ").append(toIndentedString(listenComponents)).append("\n");
+    sb.append("    inboundConnectionAuthorizedIpRanges: ").append(toIndentedString(inboundConnectionAuthorizedIpRanges)).append("\n");
     sb.append("    nodeStorageProfile: ").append(toIndentedString(nodeStorageProfile)).append("\n");
+    sb.append("    nodeStorage: ").append(toIndentedString(nodeStorage)).append("\n");
     sb.append("    projectCrn: ").append(toIndentedString(projectCrn)).append("\n");
     sb.append("    customNarConfigurationCrn: ").append(toIndentedString(customNarConfigurationCrn)).append("\n");
     sb.append("    customPythonConfigurationCrn: ").append(toIndentedString(customPythonConfigurationCrn)).append("\n");

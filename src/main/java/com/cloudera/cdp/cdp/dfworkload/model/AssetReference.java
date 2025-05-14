@@ -27,9 +27,14 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * A reference to an asset used in a flow parameter
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:37.211-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:38.216-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class AssetReference  {
+
+  /**
+   * The ID of the asset
+   **/
+  private String id = null;
 
   /**
    * The name of the asset
@@ -50,6 +55,23 @@ public class AssetReference  {
    * Whether or not the asset is provided automatically by the environment. If true, the asset cannot removed or replaced.
    **/
   private Boolean environmentProvided = null;
+
+  /**
+   * Getter for id.
+   * The ID of the asset
+   **/
+  @JsonProperty("id")
+  public String getId() {
+    return id;
+  }
+
+  /**
+   * Setter for id.
+   * The ID of the asset
+   **/
+  public void setId(String id) {
+    this.id = id;
+  }
 
   /**
    * Getter for name.
@@ -128,6 +150,9 @@ public class AssetReference  {
       return false;
     }
     AssetReference assetReference = (AssetReference) o;
+    if (!Objects.equals(this.id, assetReference.id)) {
+      return false;
+    }
     if (!Objects.equals(this.name, assetReference.name)) {
       return false;
     }
@@ -145,13 +170,14 @@ public class AssetReference  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, _path, version, environmentProvided);
+    return Objects.hash(id, name, _path, version, environmentProvided);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AssetReference {\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    _path: ").append(toIndentedString(_path)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");

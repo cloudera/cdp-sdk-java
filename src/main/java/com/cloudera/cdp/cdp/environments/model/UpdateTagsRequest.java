@@ -29,7 +29,7 @@ import java.util.Map;
 /**
  * The request object for updating the tags of the given environment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:35.313-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:35.786-07:00")
 public class UpdateTagsRequest  {
 
   /**

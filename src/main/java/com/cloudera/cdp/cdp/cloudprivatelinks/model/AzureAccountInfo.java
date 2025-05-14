@@ -28,7 +28,7 @@ import com.cloudera.cdp.cloudprivatelinks.model.AzureClientSecretCredential;
 /**
  * Details of the cloud network and the cross-account role required to delete the PrivateLink endpoint.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:38.136-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:39.239-07:00")
 public class AzureAccountInfo  {
 
   /**

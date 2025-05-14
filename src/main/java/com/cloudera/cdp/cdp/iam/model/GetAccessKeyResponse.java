@@ -28,7 +28,7 @@ import com.cloudera.cdp.iam.model.AccessKey;
 /**
  * Response object for a get access key request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:36.406-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:37.253-07:00")
 public class GetAccessKeyResponse extends CdpResponse {
 
   /**

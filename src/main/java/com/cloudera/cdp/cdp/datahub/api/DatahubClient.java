@@ -107,6 +107,8 @@ import com.cloudera.cdp.datahub.model.ListCustomConfigurationsRequest;
 import com.cloudera.cdp.datahub.model.ListCustomConfigurationsResponse;
 import com.cloudera.cdp.datahub.model.ListDatahubDiagnosticsRequest;
 import com.cloudera.cdp.datahub.model.ListDatahubDiagnosticsResponse;
+import com.cloudera.cdp.datahub.model.ListDatahubSecretTypesRequest;
+import com.cloudera.cdp.datahub.model.ListDatahubSecretTypesResponse;
 import com.cloudera.cdp.datahub.model.ListRecipesRequest;
 import com.cloudera.cdp.datahub.model.ListRecipesResponse;
 import com.cloudera.cdp.datahub.model.ListScalingActivitiesRequest;
@@ -133,6 +135,8 @@ import com.cloudera.cdp.datahub.model.RotatePrivateCertificatesRequest;
 import com.cloudera.cdp.datahub.model.RotatePrivateCertificatesResponse;
 import com.cloudera.cdp.datahub.model.RotateSaltPasswordRequest;
 import com.cloudera.cdp.datahub.model.RotateSaltPasswordResponse;
+import com.cloudera.cdp.datahub.model.RotateSecretsRequest;
+import com.cloudera.cdp.datahub.model.RotateSecretsResponse;
 import com.cloudera.cdp.datahub.model.ScaleClusterRequest;
 import com.cloudera.cdp.datahub.model.ScaleClusterResponse;
 import com.cloudera.cdp.datahub.model.SetCatalogRequest;
@@ -169,7 +173,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:32.339-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:32.759-07:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datahub";
@@ -708,6 +712,19 @@ public class DatahubClient extends CdpClient {
   }
 
   /**
+   * Lists all Datahub related secret types.
+   * @param input
+   * @return ListDatahubSecretTypesResponse
+   */
+  public ListDatahubSecretTypesResponse listDatahubSecretTypes(ListDatahubSecretTypesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listDatahubSecretTypes");
+    }
+
+    return this.invokeAPI("listDatahubSecretTypes", "/api/v1/datahub/listDatahubSecretTypes", input, new GenericType<ListDatahubSecretTypesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Lists recipes. A recipe is a script that runs on all nodes of a specified instance group.
    * @param input
    * @return ListRecipesResponse
@@ -877,6 +894,19 @@ public class DatahubClient extends CdpClient {
     }
 
     return this.invokeAPI("rotateSaltPassword", "/api/v1/datahub/rotateSaltPassword", input, new GenericType<RotateSaltPasswordResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Rotates secrets for a specific datahub
+   * @param input
+   * @return RotateSecretsResponse
+   */
+  public RotateSecretsResponse rotateSecrets(RotateSecretsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling rotateSecrets");
+    }
+
+    return this.invokeAPI("rotateSecrets", "/api/v1/datahub/rotateSecrets", input, new GenericType<RotateSecretsResponse>(){}, NO_EXTENSION);
   }
 
   /**

@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Inbound Connection Endpoint Summary
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:37.211-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:38.216-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class InboundConnectionEndpointSummary  {
 
@@ -62,6 +62,11 @@ public class InboundConnectionEndpointSummary  {
    * The CRN of the project.
    **/
   private String projectCrn = null;
+
+  /**
+   * Set of authorized IP ranges for the inbound connection.
+   **/
+  private List<String> authorizedIpRanges = new ArrayList<String>();
 
   /**
    * Getter for fullyQualifiedDomainName.
@@ -165,6 +170,23 @@ public class InboundConnectionEndpointSummary  {
     this.projectCrn = projectCrn;
   }
 
+  /**
+   * Getter for authorizedIpRanges.
+   * Set of authorized IP ranges for the inbound connection.
+   **/
+  @JsonProperty("authorizedIpRanges")
+  public List<String> getAuthorizedIpRanges() {
+    return authorizedIpRanges;
+  }
+
+  /**
+   * Setter for authorizedIpRanges.
+   * Set of authorized IP ranges for the inbound connection.
+   **/
+  public void setAuthorizedIpRanges(List<String> authorizedIpRanges) {
+    this.authorizedIpRanges = authorizedIpRanges;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -192,12 +214,15 @@ public class InboundConnectionEndpointSummary  {
     if (!Objects.equals(this.projectCrn, inboundConnectionEndpointSummary.projectCrn)) {
       return false;
     }
+    if (!Objects.equals(this.authorizedIpRanges, inboundConnectionEndpointSummary.authorizedIpRanges)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(fullyQualifiedDomainName, state, deploymentCrn, crn, certificateSummaries, projectCrn);
+    return Objects.hash(fullyQualifiedDomainName, state, deploymentCrn, crn, certificateSummaries, projectCrn, authorizedIpRanges);
   }
 
   @Override
@@ -210,6 +235,7 @@ public class InboundConnectionEndpointSummary  {
     sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
     sb.append("    certificateSummaries: ").append(toIndentedString(certificateSummaries)).append("\n");
     sb.append("    projectCrn: ").append(toIndentedString(projectCrn)).append("\n");
+    sb.append("    authorizedIpRanges: ").append(toIndentedString(authorizedIpRanges)).append("\n");
     sb.append("}");
     return sb.toString();
   }

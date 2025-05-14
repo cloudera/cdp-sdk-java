@@ -24,12 +24,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.environments.model.CreatePrivateEnvironmentRequestDockerUserPass;
+import com.cloudera.cdp.environments.model.EnvironmentQuota;
 import java.util.*;
 
 /**
  * Request object for a create private cloud environment request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:35.313-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:35.786-07:00")
 public class CreatePrivateEnvironmentRequest  {
 
   /**
@@ -56,6 +57,11 @@ public class CreatePrivateEnvironmentRequest  {
    * The name of the cluster(s) to use as a Datalake for the environment.
    **/
   private List<String> clusterNames = new ArrayList<String>();
+
+  /**
+   * Set quota for resources in this Environment.
+   **/
+  private EnvironmentQuota environmentQuota = null;
 
   /**
    * Name of credentials holding kubeconfig for access to the kubernetes cluster paired with this Environment.
@@ -185,6 +191,23 @@ public class CreatePrivateEnvironmentRequest  {
    **/
   public void setClusterNames(List<String> clusterNames) {
     this.clusterNames = clusterNames;
+  }
+
+  /**
+   * Getter for environmentQuota.
+   * Set quota for resources in this Environment.
+   **/
+  @JsonProperty("environmentQuota")
+  public EnvironmentQuota getEnvironmentQuota() {
+    return environmentQuota;
+  }
+
+  /**
+   * Setter for environmentQuota.
+   * Set quota for resources in this Environment.
+   **/
+  public void setEnvironmentQuota(EnvironmentQuota environmentQuota) {
+    this.environmentQuota = environmentQuota;
   }
 
   /**
@@ -364,6 +387,9 @@ public class CreatePrivateEnvironmentRequest  {
     if (!Objects.equals(this.clusterNames, createPrivateEnvironmentRequest.clusterNames)) {
       return false;
     }
+    if (!Objects.equals(this.environmentQuota, createPrivateEnvironmentRequest.environmentQuota)) {
+      return false;
+    }
     if (!Objects.equals(this.kubeConfig, createPrivateEnvironmentRequest.kubeConfig)) {
       return false;
     }
@@ -396,7 +422,7 @@ public class CreatePrivateEnvironmentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, address, user, authenticationToken, clusterNames, kubeConfig, authenticationTokenType, namespacePrefix, domain, platform, dockerConfigJson, dockerUserPass, description, storageClass);
+    return Objects.hash(environmentName, address, user, authenticationToken, clusterNames, environmentQuota, kubeConfig, authenticationTokenType, namespacePrefix, domain, platform, dockerConfigJson, dockerUserPass, description, storageClass);
   }
 
   @Override
@@ -408,6 +434,7 @@ public class CreatePrivateEnvironmentRequest  {
     sb.append("    user: ").append(toIndentedString(user)).append("\n");
     sb.append("    authenticationToken: ").append(toIndentedString(authenticationToken)).append("\n");
     sb.append("    clusterNames: ").append(toIndentedString(clusterNames)).append("\n");
+    sb.append("    environmentQuota: ").append(toIndentedString(environmentQuota)).append("\n");
     sb.append("    kubeConfig: ").append(toIndentedString(kubeConfig)).append("\n");
     sb.append("    authenticationTokenType: ").append(toIndentedString(authenticationTokenType)).append("\n");
     sb.append("    namespacePrefix: ").append(toIndentedString(namespacePrefix)).append("\n");

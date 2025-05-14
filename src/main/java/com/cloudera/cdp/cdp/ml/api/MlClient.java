@@ -63,6 +63,8 @@ import com.cloudera.cdp.ml.model.GetAuditEventsRequest;
 import com.cloudera.cdp.ml.model.GetAuditEventsResponse;
 import com.cloudera.cdp.ml.model.GetKubeconfigRequest;
 import com.cloudera.cdp.ml.model.GetKubeconfigResponse;
+import com.cloudera.cdp.ml.model.GetLatestModelRegistryVersionRequest;
+import com.cloudera.cdp.ml.model.GetLatestModelRegistryVersionResponse;
 import com.cloudera.cdp.ml.model.GetLatestWorkspaceVersionRequest;
 import com.cloudera.cdp.ml.model.GetLatestWorkspaceVersionResponse;
 import com.cloudera.cdp.ml.model.GetLogsRequest;
@@ -133,7 +135,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:34.210-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:34.535-07:00")
 public class MlClient extends CdpClient {
 
   public static final String SERVICE_NAME = "ml";
@@ -334,7 +336,7 @@ public class MlClient extends CdpClient {
   }
 
   /**
-   * Describe Cloudera AI Model Registry.
+   * Deprecated: Cloudera AI Model Registry is now deprecated.
    * @param input
    * @return DescribeModelRegistryResponse
    */
@@ -383,6 +385,19 @@ public class MlClient extends CdpClient {
     }
 
     return this.invokeAPI("getKubeconfig", "/api/v1/ml/getKubeconfig", input, new GenericType<GetKubeconfigResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * GetLatestModelRegistryVersion Cloudera AI Registry.
+   * @param input
+   * @return GetLatestModelRegistryVersionResponse
+   */
+  public GetLatestModelRegistryVersionResponse getLatestModelRegistryVersion(GetLatestModelRegistryVersionRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getLatestModelRegistryVersion");
+    }
+
+    return this.invokeAPI("getLatestModelRegistryVersion", "/api/v1/ml/getLatestModelRegistryVersion", input, new GenericType<GetLatestModelRegistryVersionResponse>(){}, NO_EXTENSION);
   }
 
   /**

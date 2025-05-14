@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * A flow parameter
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:37.211-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:38.216-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class FlowParameter  {
 
@@ -67,6 +67,11 @@ public class FlowParameter  {
    * Indicates if the value of this parameter is set (i.e. not null)
    **/
   private Boolean valueSet = null;
+
+  /**
+   * The ID of the shared parameter group where the value should come from.
+   **/
+  private String sourceParameterGroupId = null;
 
   /**
    * Getter for name.
@@ -187,6 +192,23 @@ public class FlowParameter  {
     this.valueSet = valueSet;
   }
 
+  /**
+   * Getter for sourceParameterGroupId.
+   * The ID of the shared parameter group where the value should come from.
+   **/
+  @JsonProperty("sourceParameterGroupId")
+  public String getSourceParameterGroupId() {
+    return sourceParameterGroupId;
+  }
+
+  /**
+   * Setter for sourceParameterGroupId.
+   * The ID of the shared parameter group where the value should come from.
+   **/
+  public void setSourceParameterGroupId(String sourceParameterGroupId) {
+    this.sourceParameterGroupId = sourceParameterGroupId;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -217,12 +239,15 @@ public class FlowParameter  {
     if (!Objects.equals(this.valueSet, flowParameter.valueSet)) {
       return false;
     }
+    if (!Objects.equals(this.sourceParameterGroupId, flowParameter.sourceParameterGroupId)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, description, value, sensitive, type, assetReferences, valueSet);
+    return Objects.hash(name, description, value, sensitive, type, assetReferences, valueSet, sourceParameterGroupId);
   }
 
   @Override
@@ -236,6 +261,7 @@ public class FlowParameter  {
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    assetReferences: ").append(toIndentedString(assetReferences)).append("\n");
     sb.append("    valueSet: ").append(toIndentedString(valueSet)).append("\n");
+    sb.append("    sourceParameterGroupId: ").append(toIndentedString(sourceParameterGroupId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

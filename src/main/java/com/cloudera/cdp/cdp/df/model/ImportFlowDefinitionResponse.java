@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for ImportFlowDefinition
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:36.786-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:37.723-07:00")
 public class ImportFlowDefinitionResponse extends CdpResponse {
 
   /**
@@ -71,6 +71,16 @@ public class ImportFlowDefinitionResponse extends CdpResponse {
    * The list of artifactDetail versions
    **/
   private List<FlowVersion> versions = new ArrayList<FlowVersion>();
+
+  /**
+   * The collection name.
+   **/
+  private String collectionName = null;
+
+  /**
+   * The collection CRN.
+   **/
+  private String collectionCrn = null;
 
   /**
    * Getter for crn.
@@ -208,6 +218,40 @@ public class ImportFlowDefinitionResponse extends CdpResponse {
     this.versions = versions;
   }
 
+  /**
+   * Getter for collectionName.
+   * The collection name.
+   **/
+  @JsonProperty("collectionName")
+  public String getCollectionName() {
+    return collectionName;
+  }
+
+  /**
+   * Setter for collectionName.
+   * The collection name.
+   **/
+  public void setCollectionName(String collectionName) {
+    this.collectionName = collectionName;
+  }
+
+  /**
+   * Getter for collectionCrn.
+   * The collection CRN.
+   **/
+  @JsonProperty("collectionCrn")
+  public String getCollectionCrn() {
+    return collectionCrn;
+  }
+
+  /**
+   * Setter for collectionCrn.
+   * The collection CRN.
+   **/
+  public void setCollectionCrn(String collectionCrn) {
+    this.collectionCrn = collectionCrn;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -241,6 +285,12 @@ public class ImportFlowDefinitionResponse extends CdpResponse {
     if (!Objects.equals(this.versions, importFlowDefinitionResponse.versions)) {
       return false;
     }
+    if (!Objects.equals(this.collectionName, importFlowDefinitionResponse.collectionName)) {
+      return false;
+    }
+    if (!Objects.equals(this.collectionCrn, importFlowDefinitionResponse.collectionCrn)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -249,7 +299,7 @@ public class ImportFlowDefinitionResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, name, versionCount, createdTimestamp, author, description, modifiedTimestamp, versions, super.hashCode());
+    return Objects.hash(crn, name, versionCount, createdTimestamp, author, description, modifiedTimestamp, versions, collectionName, collectionCrn, super.hashCode());
   }
 
   @Override
@@ -265,6 +315,8 @@ public class ImportFlowDefinitionResponse extends CdpResponse {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    modifiedTimestamp: ").append(toIndentedString(modifiedTimestamp)).append("\n");
     sb.append("    versions: ").append(toIndentedString(versions)).append("\n");
+    sb.append("    collectionName: ").append(toIndentedString(collectionName)).append("\n");
+    sb.append("    collectionCrn: ").append(toIndentedString(collectionCrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

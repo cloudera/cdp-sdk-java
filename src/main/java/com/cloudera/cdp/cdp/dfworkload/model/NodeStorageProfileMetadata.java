@@ -23,11 +23,14 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.dfworkload.model.AWSNodeStorageProfileMetaData;
+import com.cloudera.cdp.dfworkload.model.AzureNodeStorageProfileMetaData;
+import java.util.*;
 
 /**
  * Provides details about the node storage options.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:37.211-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:38.216-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class NodeStorageProfileMetadata  {
 
@@ -70,6 +73,16 @@ public class NodeStorageProfileMetadata  {
    * The text (i.e., the human readable name) for this Storage Profile
    **/
   private String text = null;
+
+  /**
+   * Provides details about the node storage custom disk sizes and performance options.
+   **/
+  private List<AzureNodeStorageProfileMetaData> azureNodeStorageProfileMetaData = new ArrayList<AzureNodeStorageProfileMetaData>();
+
+  /**
+   * AWS custom storage size, iops and throughput limits
+   **/
+  private AWSNodeStorageProfileMetaData awsNodeStorageProfileMetaData = null;
 
   /**
    * Getter for contentRepoSize.
@@ -207,6 +220,40 @@ public class NodeStorageProfileMetadata  {
     this.text = text;
   }
 
+  /**
+   * Getter for azureNodeStorageProfileMetaData.
+   * Provides details about the node storage custom disk sizes and performance options.
+   **/
+  @JsonProperty("azureNodeStorageProfileMetaData")
+  public List<AzureNodeStorageProfileMetaData> getAzureNodeStorageProfileMetaData() {
+    return azureNodeStorageProfileMetaData;
+  }
+
+  /**
+   * Setter for azureNodeStorageProfileMetaData.
+   * Provides details about the node storage custom disk sizes and performance options.
+   **/
+  public void setAzureNodeStorageProfileMetaData(List<AzureNodeStorageProfileMetaData> azureNodeStorageProfileMetaData) {
+    this.azureNodeStorageProfileMetaData = azureNodeStorageProfileMetaData;
+  }
+
+  /**
+   * Getter for awsNodeStorageProfileMetaData.
+   * AWS custom storage size, iops and throughput limits
+   **/
+  @JsonProperty("awsNodeStorageProfileMetaData")
+  public AWSNodeStorageProfileMetaData getAwsNodeStorageProfileMetaData() {
+    return awsNodeStorageProfileMetaData;
+  }
+
+  /**
+   * Setter for awsNodeStorageProfileMetaData.
+   * AWS custom storage size, iops and throughput limits
+   **/
+  public void setAwsNodeStorageProfileMetaData(AWSNodeStorageProfileMetaData awsNodeStorageProfileMetaData) {
+    this.awsNodeStorageProfileMetaData = awsNodeStorageProfileMetaData;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -240,12 +287,18 @@ public class NodeStorageProfileMetadata  {
     if (!Objects.equals(this.text, nodeStorageProfileMetadata.text)) {
       return false;
     }
+    if (!Objects.equals(this.azureNodeStorageProfileMetaData, nodeStorageProfileMetadata.azureNodeStorageProfileMetaData)) {
+      return false;
+    }
+    if (!Objects.equals(this.awsNodeStorageProfileMetaData, nodeStorageProfileMetadata.awsNodeStorageProfileMetaData)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(contentRepoSize, provenanceRepoSize, flowfileRepoSize, iops, throughput, storageVolumeType, name, text);
+    return Objects.hash(contentRepoSize, provenanceRepoSize, flowfileRepoSize, iops, throughput, storageVolumeType, name, text, azureNodeStorageProfileMetaData, awsNodeStorageProfileMetaData);
   }
 
   @Override
@@ -260,6 +313,8 @@ public class NodeStorageProfileMetadata  {
     sb.append("    storageVolumeType: ").append(toIndentedString(storageVolumeType)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    text: ").append(toIndentedString(text)).append("\n");
+    sb.append("    azureNodeStorageProfileMetaData: ").append(toIndentedString(azureNodeStorageProfileMetaData)).append("\n");
+    sb.append("    awsNodeStorageProfileMetaData: ").append(toIndentedString(awsNodeStorageProfileMetaData)).append("\n");
     sb.append("}");
     return sb.toString();
   }

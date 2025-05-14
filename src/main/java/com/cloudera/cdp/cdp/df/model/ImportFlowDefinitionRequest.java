@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object for ImportFlowDefinition
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:36.786-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:37.723-07:00")
 public class ImportFlowDefinitionRequest  {
 
   /**
@@ -56,6 +56,11 @@ public class ImportFlowDefinitionRequest  {
    * The list of tags for the initial flow definition version
    **/
   private List<FlowDefinitionTagData> tags = new ArrayList<FlowDefinitionTagData>();
+
+  /**
+   * The CRN of the collection into which the flow definition will be imported. If unspecified, the flow will not be assigned to a collection.
+   **/
+  private String collectionCrn = null;
 
   /**
    * Getter for file.
@@ -142,6 +147,23 @@ public class ImportFlowDefinitionRequest  {
     this.tags = tags;
   }
 
+  /**
+   * Getter for collectionCrn.
+   * The CRN of the collection into which the flow definition will be imported. If unspecified, the flow will not be assigned to a collection.
+   **/
+  @JsonProperty("collectionCrn")
+  public String getCollectionCrn() {
+    return collectionCrn;
+  }
+
+  /**
+   * Setter for collectionCrn.
+   * The CRN of the collection into which the flow definition will be imported. If unspecified, the flow will not be assigned to a collection.
+   **/
+  public void setCollectionCrn(String collectionCrn) {
+    this.collectionCrn = collectionCrn;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -166,12 +188,15 @@ public class ImportFlowDefinitionRequest  {
     if (!Objects.equals(this.tags, importFlowDefinitionRequest.tags)) {
       return false;
     }
+    if (!Objects.equals(this.collectionCrn, importFlowDefinitionRequest.collectionCrn)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(file, name, description, comments, tags);
+    return Objects.hash(file, name, description, comments, tags, collectionCrn);
   }
 
   @Override
@@ -183,6 +208,7 @@ public class ImportFlowDefinitionRequest  {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    comments: ").append(toIndentedString(comments)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    collectionCrn: ").append(toIndentedString(collectionCrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

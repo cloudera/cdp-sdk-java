@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for the ListFlowDefinitions method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:36.786-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:37.723-07:00")
 public class ListFlowDefinitionsRequest  {
 
   /**
@@ -50,6 +50,11 @@ public class ListFlowDefinitionsRequest  {
    * Search term to filter by name
    **/
   private String searchTerm = null;
+
+  /**
+   * Filter by collection CRN.
+   **/
+  private String collectionCrn = null;
 
   /**
    * Getter for pageSize.
@@ -119,6 +124,23 @@ public class ListFlowDefinitionsRequest  {
     this.searchTerm = searchTerm;
   }
 
+  /**
+   * Getter for collectionCrn.
+   * Filter by collection CRN.
+   **/
+  @JsonProperty("collectionCrn")
+  public String getCollectionCrn() {
+    return collectionCrn;
+  }
+
+  /**
+   * Setter for collectionCrn.
+   * Filter by collection CRN.
+   **/
+  public void setCollectionCrn(String collectionCrn) {
+    this.collectionCrn = collectionCrn;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -140,12 +162,15 @@ public class ListFlowDefinitionsRequest  {
     if (!Objects.equals(this.searchTerm, listFlowDefinitionsRequest.searchTerm)) {
       return false;
     }
+    if (!Objects.equals(this.collectionCrn, listFlowDefinitionsRequest.collectionCrn)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageSize, startingToken, sorts, searchTerm);
+    return Objects.hash(pageSize, startingToken, sorts, searchTerm, collectionCrn);
   }
 
   @Override
@@ -156,6 +181,7 @@ public class ListFlowDefinitionsRequest  {
     sb.append("    startingToken: ").append(toIndentedString(startingToken)).append("\n");
     sb.append("    sorts: ").append(toIndentedString(sorts)).append("\n");
     sb.append("    searchTerm: ").append(toIndentedString(searchTerm)).append("\n");
+    sb.append("    collectionCrn: ").append(toIndentedString(collectionCrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

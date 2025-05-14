@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * The summary of the DF Service enabled in a CDP Environment
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:36.786-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:37.723-07:00")
 public class ServiceSummary  {
 
   /**
@@ -76,6 +76,11 @@ public class ServiceSummary  {
    * The workload version of the service.
    **/
   private String workloadVersion = null;
+
+  /**
+   * The upgrade deployments NiFi version flag value of the service.
+   **/
+  private Boolean upgradeDeploymentsNiFiVersion = null;
 
   /**
    * The number of kubernetes nodes currently running for this service.
@@ -276,6 +281,23 @@ public class ServiceSummary  {
   }
 
   /**
+   * Getter for upgradeDeploymentsNiFiVersion.
+   * The upgrade deployments NiFi version flag value of the service.
+   **/
+  @JsonProperty("upgradeDeploymentsNiFiVersion")
+  public Boolean getUpgradeDeploymentsNiFiVersion() {
+    return upgradeDeploymentsNiFiVersion;
+  }
+
+  /**
+   * Setter for upgradeDeploymentsNiFiVersion.
+   * The upgrade deployments NiFi version flag value of the service.
+   **/
+  public void setUpgradeDeploymentsNiFiVersion(Boolean upgradeDeploymentsNiFiVersion) {
+    this.upgradeDeploymentsNiFiVersion = upgradeDeploymentsNiFiVersion;
+  }
+
+  /**
    * Getter for runningK8sNodeCount.
    * The number of kubernetes nodes currently running for this service.
    **/
@@ -466,6 +488,9 @@ public class ServiceSummary  {
     if (!Objects.equals(this.workloadVersion, serviceSummary.workloadVersion)) {
       return false;
     }
+    if (!Objects.equals(this.upgradeDeploymentsNiFiVersion, serviceSummary.upgradeDeploymentsNiFiVersion)) {
+      return false;
+    }
     if (!Objects.equals(this.runningK8sNodeCount, serviceSummary.runningK8sNodeCount)) {
       return false;
     }
@@ -498,7 +523,7 @@ public class ServiceSummary  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, environmentCrn, name, cloudPlatform, region, deploymentCount, maxK8sNodeCount, status, workloadVersion, runningK8sNodeCount, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, clusterId, instanceType, clusterUsable, validActions, proxyName);
+    return Objects.hash(crn, environmentCrn, name, cloudPlatform, region, deploymentCount, maxK8sNodeCount, status, workloadVersion, upgradeDeploymentsNiFiVersion, runningK8sNodeCount, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, clusterId, instanceType, clusterUsable, validActions, proxyName);
   }
 
   @Override
@@ -514,6 +539,7 @@ public class ServiceSummary  {
     sb.append("    maxK8sNodeCount: ").append(toIndentedString(maxK8sNodeCount)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    workloadVersion: ").append(toIndentedString(workloadVersion)).append("\n");
+    sb.append("    upgradeDeploymentsNiFiVersion: ").append(toIndentedString(upgradeDeploymentsNiFiVersion)).append("\n");
     sb.append("    runningK8sNodeCount: ").append(toIndentedString(runningK8sNodeCount)).append("\n");
     sb.append("    activeInfoAlertCount: ").append(toIndentedString(activeInfoAlertCount)).append("\n");
     sb.append("    activeWarningAlertCount: ").append(toIndentedString(activeWarningAlertCount)).append("\n");

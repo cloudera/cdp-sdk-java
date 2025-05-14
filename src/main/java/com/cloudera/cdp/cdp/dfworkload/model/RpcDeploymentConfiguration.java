@@ -27,12 +27,13 @@ import com.cloudera.cdp.dfworkload.model.BasicClusterSize;
 import com.cloudera.cdp.dfworkload.model.ConfiguredKpi;
 import com.cloudera.cdp.dfworkload.model.FlowParameterGroup;
 import com.cloudera.cdp.dfworkload.model.ListenComponent;
+import com.cloudera.cdp.dfworkload.model.NodeStorage;
 import java.util.*;
 
 /**
  * Provides all of the configuration that dictates how a flow should be deployed.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:37.211-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:38.216-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcDeploymentConfiguration  {
 
@@ -155,6 +156,11 @@ public class RpcDeploymentConfiguration  {
    * Indicates whether the cluster is configured to accept FILE/FILES type parameters.
    **/
   private Boolean assetConfigurationAvailable = null;
+
+  /**
+   * The node storage data.
+   **/
+  private NodeStorage nodeStorage = null;
 
   /**
    * Getter for configurationVersion.
@@ -566,6 +572,23 @@ public class RpcDeploymentConfiguration  {
     this.assetConfigurationAvailable = assetConfigurationAvailable;
   }
 
+  /**
+   * Getter for nodeStorage.
+   * The node storage data.
+   **/
+  @JsonProperty("nodeStorage")
+  public NodeStorage getNodeStorage() {
+    return nodeStorage;
+  }
+
+  /**
+   * Setter for nodeStorage.
+   * The node storage data.
+   **/
+  public void setNodeStorage(NodeStorage nodeStorage) {
+    this.nodeStorage = nodeStorage;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -647,12 +670,15 @@ public class RpcDeploymentConfiguration  {
     if (!Objects.equals(this.assetConfigurationAvailable, rpcDeploymentConfiguration.assetConfigurationAvailable)) {
       return false;
     }
+    if (!Objects.equals(this.nodeStorage, rpcDeploymentConfiguration.nodeStorage)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(configurationVersion, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, deploymentId, deploymentCrn, name, cfmNifiVersion, autoStartFlow, clusterSizeName, clusterSize, nodeStorageProfileName, parametersDirty, kpisDirty, sizingAndScalingDirty, lastUpdatedByUsername, inboundHostname, listenComponents, projectCrn, assetConfigurationAvailable);
+    return Objects.hash(configurationVersion, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, deploymentId, deploymentCrn, name, cfmNifiVersion, autoStartFlow, clusterSizeName, clusterSize, nodeStorageProfileName, parametersDirty, kpisDirty, sizingAndScalingDirty, lastUpdatedByUsername, inboundHostname, listenComponents, projectCrn, assetConfigurationAvailable, nodeStorage);
   }
 
   @Override
@@ -683,6 +709,7 @@ public class RpcDeploymentConfiguration  {
     sb.append("    listenComponents: ").append(toIndentedString(listenComponents)).append("\n");
     sb.append("    projectCrn: ").append(toIndentedString(projectCrn)).append("\n");
     sb.append("    assetConfigurationAvailable: ").append(toIndentedString(assetConfigurationAvailable)).append("\n");
+    sb.append("    nodeStorage: ").append(toIndentedString(nodeStorage)).append("\n");
     sb.append("}");
     return sb.toString();
   }

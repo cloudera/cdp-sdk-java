@@ -71,6 +71,8 @@ import com.cloudera.cdp.datalake.model.ListDatalakeBackupsRequest;
 import com.cloudera.cdp.datalake.model.ListDatalakeBackupsResponse;
 import com.cloudera.cdp.datalake.model.ListDatalakeDiagnosticsRequest;
 import com.cloudera.cdp.datalake.model.ListDatalakeDiagnosticsResponse;
+import com.cloudera.cdp.datalake.model.ListDatalakeSecretTypesRequest;
+import com.cloudera.cdp.datalake.model.ListDatalakeSecretTypesResponse;
 import com.cloudera.cdp.datalake.model.ListDatalakesRequest;
 import com.cloudera.cdp.datalake.model.ListDatalakesResponse;
 import com.cloudera.cdp.datalake.model.ListRuntimesRequest;
@@ -105,6 +107,8 @@ import com.cloudera.cdp.datalake.model.RotatePrivateCertificatesRequest;
 import com.cloudera.cdp.datalake.model.RotatePrivateCertificatesResponse;
 import com.cloudera.cdp.datalake.model.RotateSaltPasswordRequest;
 import com.cloudera.cdp.datalake.model.RotateSaltPasswordResponse;
+import com.cloudera.cdp.datalake.model.RotateSecretsRequest;
+import com.cloudera.cdp.datalake.model.RotateSecretsResponse;
 import com.cloudera.cdp.datalake.model.ScaleHorizontallyRequest;
 import com.cloudera.cdp.datalake.model.ScaleHorizontallyResponse;
 import com.cloudera.cdp.datalake.model.SetCatalogRequest;
@@ -137,7 +141,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:34.693-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:34.979-07:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datalake";
@@ -442,6 +446,19 @@ public class DatalakeClient extends CdpClient {
   }
 
   /**
+   * Lists all Datalake related secret types.
+   * @param input
+   * @return ListDatalakeSecretTypesResponse
+   */
+  public ListDatalakeSecretTypesResponse listDatalakeSecretTypes(ListDatalakeSecretTypesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listDatalakeSecretTypes");
+    }
+
+    return this.invokeAPI("listDatalakeSecretTypes", "/api/v1/datalake/listDatalakeSecretTypes", input, new GenericType<ListDatalakeSecretTypesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Lists datalakes.
    * @param input
    * @return ListDatalakesResponse
@@ -663,6 +680,19 @@ public class DatalakeClient extends CdpClient {
     }
 
     return this.invokeAPI("rotateSaltPassword", "/api/v1/datalake/rotateSaltPassword", input, new GenericType<RotateSaltPasswordResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Rotates secrets for a specific Datalake
+   * @param input
+   * @return RotateSecretsResponse
+   */
+  public RotateSecretsResponse rotateSecrets(RotateSecretsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling rotateSecrets");
+    }
+
+    return this.invokeAPI("rotateSecrets", "/api/v1/datalake/rotateSecrets", input, new GenericType<RotateSecretsResponse>(){}, NO_EXTENSION);
   }
 
   /**

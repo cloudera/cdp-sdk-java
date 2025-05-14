@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * The DataFlow view of a CDP service.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:36.786-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:37.723-07:00")
 public class Service  {
 
   /**
@@ -83,6 +83,11 @@ public class Service  {
    * The workload version of the service.
    **/
   private String workloadVersion = null;
+
+  /**
+   * The upgrade deployments NiFi version flag value of the service.
+   **/
+  private Boolean upgradeDeploymentsNiFiVersion = null;
 
   /**
    * The number of kubernetes nodes currently running for this service.
@@ -377,6 +382,23 @@ public class Service  {
    **/
   public void setWorkloadVersion(String workloadVersion) {
     this.workloadVersion = workloadVersion;
+  }
+
+  /**
+   * Getter for upgradeDeploymentsNiFiVersion.
+   * The upgrade deployments NiFi version flag value of the service.
+   **/
+  @JsonProperty("upgradeDeploymentsNiFiVersion")
+  public Boolean getUpgradeDeploymentsNiFiVersion() {
+    return upgradeDeploymentsNiFiVersion;
+  }
+
+  /**
+   * Setter for upgradeDeploymentsNiFiVersion.
+   * The upgrade deployments NiFi version flag value of the service.
+   **/
+  public void setUpgradeDeploymentsNiFiVersion(Boolean upgradeDeploymentsNiFiVersion) {
+    this.upgradeDeploymentsNiFiVersion = upgradeDeploymentsNiFiVersion;
   }
 
   /**
@@ -845,6 +867,9 @@ public class Service  {
     if (!Objects.equals(this.workloadVersion, service.workloadVersion)) {
       return false;
     }
+    if (!Objects.equals(this.upgradeDeploymentsNiFiVersion, service.upgradeDeploymentsNiFiVersion)) {
+      return false;
+    }
     if (!Objects.equals(this.runningK8sNodeCount, service.runningK8sNodeCount)) {
       return false;
     }
@@ -925,7 +950,7 @@ public class Service  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, environmentCrn, name, cloudPlatform, region, deploymentCount, minK8sNodeCount, maxK8sNodeCount, status, workloadVersion, runningK8sNodeCount, instanceType, dfLocalUrl, kubeApiAuthorizedIpRanges, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, clusterId, clusterUsable, validActions, usePublicLoadBalancer, tags, loadBalancerAuthorizedIpRanges, clusterSubnets, creatingK8sNodeCount, terminatingK8sNodeCount, loadBalancerSubnets, privateCluster, proxyName, k8sServerVersion, availableK8sVersionUpgrade, userDefinedRouting, podCidr, serviceCidr, encryptionParameters);
+    return Objects.hash(crn, environmentCrn, name, cloudPlatform, region, deploymentCount, minK8sNodeCount, maxK8sNodeCount, status, workloadVersion, upgradeDeploymentsNiFiVersion, runningK8sNodeCount, instanceType, dfLocalUrl, kubeApiAuthorizedIpRanges, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, clusterId, clusterUsable, validActions, usePublicLoadBalancer, tags, loadBalancerAuthorizedIpRanges, clusterSubnets, creatingK8sNodeCount, terminatingK8sNodeCount, loadBalancerSubnets, privateCluster, proxyName, k8sServerVersion, availableK8sVersionUpgrade, userDefinedRouting, podCidr, serviceCidr, encryptionParameters);
   }
 
   @Override
@@ -942,6 +967,7 @@ public class Service  {
     sb.append("    maxK8sNodeCount: ").append(toIndentedString(maxK8sNodeCount)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    workloadVersion: ").append(toIndentedString(workloadVersion)).append("\n");
+    sb.append("    upgradeDeploymentsNiFiVersion: ").append(toIndentedString(upgradeDeploymentsNiFiVersion)).append("\n");
     sb.append("    runningK8sNodeCount: ").append(toIndentedString(runningK8sNodeCount)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    dfLocalUrl: ").append(toIndentedString(dfLocalUrl)).append("\n");

@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * A representation of a versioned data flow.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:36.786-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:37.723-07:00")
 public class Flow  {
 
   /**
@@ -71,6 +71,16 @@ public class Flow  {
    * The list of artifactDetail versions
    **/
   private List<FlowVersion> versions = new ArrayList<FlowVersion>();
+
+  /**
+   * The collection name.
+   **/
+  private String collectionName = null;
+
+  /**
+   * The collection CRN.
+   **/
+  private String collectionCrn = null;
 
   /**
    * Getter for crn.
@@ -208,6 +218,40 @@ public class Flow  {
     this.versions = versions;
   }
 
+  /**
+   * Getter for collectionName.
+   * The collection name.
+   **/
+  @JsonProperty("collectionName")
+  public String getCollectionName() {
+    return collectionName;
+  }
+
+  /**
+   * Setter for collectionName.
+   * The collection name.
+   **/
+  public void setCollectionName(String collectionName) {
+    this.collectionName = collectionName;
+  }
+
+  /**
+   * Getter for collectionCrn.
+   * The collection CRN.
+   **/
+  @JsonProperty("collectionCrn")
+  public String getCollectionCrn() {
+    return collectionCrn;
+  }
+
+  /**
+   * Setter for collectionCrn.
+   * The collection CRN.
+   **/
+  public void setCollectionCrn(String collectionCrn) {
+    this.collectionCrn = collectionCrn;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -241,12 +285,18 @@ public class Flow  {
     if (!Objects.equals(this.versions, flow.versions)) {
       return false;
     }
+    if (!Objects.equals(this.collectionName, flow.collectionName)) {
+      return false;
+    }
+    if (!Objects.equals(this.collectionCrn, flow.collectionCrn)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, name, versionCount, createdTimestamp, author, description, modifiedTimestamp, versions);
+    return Objects.hash(crn, name, versionCount, createdTimestamp, author, description, modifiedTimestamp, versions, collectionName, collectionCrn);
   }
 
   @Override
@@ -261,6 +311,8 @@ public class Flow  {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    modifiedTimestamp: ").append(toIndentedString(modifiedTimestamp)).append("\n");
     sb.append("    versions: ").append(toIndentedString(versions)).append("\n");
+    sb.append("    collectionName: ").append(toIndentedString(collectionName)).append("\n");
+    sb.append("    collectionCrn: ").append(toIndentedString(collectionCrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

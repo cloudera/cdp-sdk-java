@@ -24,12 +24,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.dfworkload.model.FlowParameter;
+import com.cloudera.cdp.dfworkload.model.VersionedParameterGroupReference;
 import java.util.*;
 
 /**
  * A flow parameter group
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-04-23T14:14:37.211-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:38.216-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class FlowParameterGroup  {
 
@@ -42,6 +43,11 @@ public class FlowParameterGroup  {
    * The parameters in the group
    **/
   private List<FlowParameter> parameters = new ArrayList<FlowParameter>();
+
+  /**
+   * The names and versions of the inherited parameter groups
+   **/
+  private List<VersionedParameterGroupReference> inheritedParameterGroups = new ArrayList<VersionedParameterGroupReference>();
 
   /**
    * Getter for name.
@@ -77,6 +83,23 @@ public class FlowParameterGroup  {
     this.parameters = parameters;
   }
 
+  /**
+   * Getter for inheritedParameterGroups.
+   * The names and versions of the inherited parameter groups
+   **/
+  @JsonProperty("inheritedParameterGroups")
+  public List<VersionedParameterGroupReference> getInheritedParameterGroups() {
+    return inheritedParameterGroups;
+  }
+
+  /**
+   * Setter for inheritedParameterGroups.
+   * The names and versions of the inherited parameter groups
+   **/
+  public void setInheritedParameterGroups(List<VersionedParameterGroupReference> inheritedParameterGroups) {
+    this.inheritedParameterGroups = inheritedParameterGroups;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -92,12 +115,15 @@ public class FlowParameterGroup  {
     if (!Objects.equals(this.parameters, flowParameterGroup.parameters)) {
       return false;
     }
+    if (!Objects.equals(this.inheritedParameterGroups, flowParameterGroup.inheritedParameterGroups)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, parameters);
+    return Objects.hash(name, parameters, inheritedParameterGroups);
   }
 
   @Override
@@ -106,6 +132,7 @@ public class FlowParameterGroup  {
     sb.append("class FlowParameterGroup {\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
+    sb.append("    inheritedParameterGroups: ").append(toIndentedString(inheritedParameterGroups)).append("\n");
     sb.append("}");
     return sb.toString();
   }
