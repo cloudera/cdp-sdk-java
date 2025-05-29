@@ -28,7 +28,7 @@ import com.cloudera.cdp.df.model.FlowSummary;
 /**
  * Response object when assigning a flow to a catalog collection.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:37.723-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:22.132-07:00")
 public class AssignToCollectionResponse extends CdpResponse {
 
   /**

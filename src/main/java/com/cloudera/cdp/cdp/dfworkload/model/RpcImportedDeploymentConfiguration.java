@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * Contains the configuration data imported from exported archive.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:38.216-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:22.522-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcImportedDeploymentConfiguration  {
 
@@ -61,11 +61,6 @@ public class RpcImportedDeploymentConfiguration  {
    * The cluster's static node count retrieved from archive.
    **/
   private Integer staticNodeCount = null;
-
-  /**
-   * The cluster size name retrieved from archive. Deprecated, use clusterSize.name instead.
-   **/
-  private String clusterSizeName = null;
 
   /**
    * The deployment t-shirt size.
@@ -210,25 +205,6 @@ public class RpcImportedDeploymentConfiguration  {
    **/
   public void setStaticNodeCount(Integer staticNodeCount) {
     this.staticNodeCount = staticNodeCount;
-  }
-
-  /**
-   * Getter for clusterSizeName.
-   * The cluster size name retrieved from archive. Deprecated, use clusterSize.name instead.
-   **/
-  @Deprecated
-  @JsonProperty("clusterSizeName")
-  public String getClusterSizeName() {
-    return clusterSizeName;
-  }
-
-  /**
-   * Setter for clusterSizeName.
-   * The cluster size name retrieved from archive. Deprecated, use clusterSize.name instead.
-   **/
-  @Deprecated
-  public void setClusterSizeName(String clusterSizeName) {
-    this.clusterSizeName = clusterSizeName;
   }
 
   /**
@@ -459,9 +435,6 @@ public class RpcImportedDeploymentConfiguration  {
     if (!Objects.equals(this.staticNodeCount, rpcImportedDeploymentConfiguration.staticNodeCount)) {
       return false;
     }
-    if (!Objects.equals(this.clusterSizeName, rpcImportedDeploymentConfiguration.clusterSizeName)) {
-      return false;
-    }
     if (!Objects.equals(this.clusterSize, rpcImportedDeploymentConfiguration.clusterSize)) {
       return false;
     }
@@ -503,7 +476,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, clusterSizeName, clusterSize, kpis, flowParameterGroups, cfmNifiVersion, inboundHostName, listenComponents, inboundConnectionAuthorizedIpRanges, nodeStorageProfile, nodeStorage, projectCrn, customNarConfigurationCrn, customPythonConfigurationCrn);
+    return Objects.hash(autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, clusterSize, kpis, flowParameterGroups, cfmNifiVersion, inboundHostName, listenComponents, inboundConnectionAuthorizedIpRanges, nodeStorageProfile, nodeStorage, projectCrn, customNarConfigurationCrn, customPythonConfigurationCrn);
   }
 
   @Override
@@ -515,7 +488,6 @@ public class RpcImportedDeploymentConfiguration  {
     sb.append("    autoScaleMinNodes: ").append(toIndentedString(autoScaleMinNodes)).append("\n");
     sb.append("    autoScaleMaxNodes: ").append(toIndentedString(autoScaleMaxNodes)).append("\n");
     sb.append("    staticNodeCount: ").append(toIndentedString(staticNodeCount)).append("\n");
-    sb.append("    clusterSizeName: ").append(toIndentedString(clusterSizeName)).append("\n");
     sb.append("    clusterSize: ").append(toIndentedString(clusterSize)).append("\n");
     sb.append("    kpis: ").append(toIndentedString(kpis)).append("\n");
     sb.append("    flowParameterGroups: ").append(toIndentedString(flowParameterGroups)).append("\n");

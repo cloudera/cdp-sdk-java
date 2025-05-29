@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Information about a datalake.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:34.979-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:19.972-07:00")
 public class Datalake  {
 
   /**

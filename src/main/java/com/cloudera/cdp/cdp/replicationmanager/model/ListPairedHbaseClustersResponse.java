@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Response object for listPairedHbaseClusters.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:38.989-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:23.276-07:00")
 public class ListPairedHbaseClustersResponse extends CdpResponse {
 
   /**

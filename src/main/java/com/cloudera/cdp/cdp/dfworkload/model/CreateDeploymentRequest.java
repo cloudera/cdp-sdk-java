@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * Request object to create a deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:38.216-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:22.522-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class CreateDeploymentRequest  {
 
@@ -101,11 +101,6 @@ public class CreateDeploymentRequest  {
    * Indicates whether or not the flow should be started during deployment creation.
    **/
   private Boolean autoStartFlow = null;
-
-  /**
-   * The size of the cluster to deploy. Deprecated. Use 'clusterSize.name' instead.
-   **/
-  private String clusterSizeName = null;
 
   /**
    * The size of the cluster to deploy.
@@ -374,25 +369,6 @@ public class CreateDeploymentRequest  {
   }
 
   /**
-   * Getter for clusterSizeName.
-   * The size of the cluster to deploy. Deprecated. Use &#39;clusterSize.name&#39; instead.
-   **/
-  @Deprecated
-  @JsonProperty("clusterSizeName")
-  public String getClusterSizeName() {
-    return clusterSizeName;
-  }
-
-  /**
-   * Setter for clusterSizeName.
-   * The size of the cluster to deploy. Deprecated. Use &#39;clusterSize.name&#39; instead.
-   **/
-  @Deprecated
-  public void setClusterSizeName(String clusterSizeName) {
-    this.clusterSizeName = clusterSizeName;
-  }
-
-  /**
    * Getter for clusterSize.
    * The size of the cluster to deploy.
    **/
@@ -593,9 +569,6 @@ public class CreateDeploymentRequest  {
     if (!Objects.equals(this.autoStartFlow, createDeploymentRequest.autoStartFlow)) {
       return false;
     }
-    if (!Objects.equals(this.clusterSizeName, createDeploymentRequest.clusterSizeName)) {
-      return false;
-    }
     if (!Objects.equals(this.clusterSize, createDeploymentRequest.clusterSize)) {
       return false;
     }
@@ -628,7 +601,7 @@ public class CreateDeploymentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, configurationVersion, name, deploymentRequestCrn, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, cfmNifiVersion, autoStartFlow, clusterSizeName, clusterSize, inboundHostname, listenComponents, inboundConnectionAuthorizedIpRanges, nodeStorageProfileName, nodeStorage, customNarConfigurationCrn, customPythonConfigurationCrn, projectCrn);
+    return Objects.hash(environmentCrn, configurationVersion, name, deploymentRequestCrn, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, cfmNifiVersion, autoStartFlow, clusterSize, inboundHostname, listenComponents, inboundConnectionAuthorizedIpRanges, nodeStorageProfileName, nodeStorage, customNarConfigurationCrn, customPythonConfigurationCrn, projectCrn);
   }
 
   @Override
@@ -648,7 +621,6 @@ public class CreateDeploymentRequest  {
     sb.append("    kpis: ").append(toIndentedString(kpis)).append("\n");
     sb.append("    cfmNifiVersion: ").append(toIndentedString(cfmNifiVersion)).append("\n");
     sb.append("    autoStartFlow: ").append(toIndentedString(autoStartFlow)).append("\n");
-    sb.append("    clusterSizeName: ").append(toIndentedString(clusterSizeName)).append("\n");
     sb.append("    clusterSize: ").append(toIndentedString(clusterSize)).append("\n");
     sb.append("    inboundHostname: ").append(toIndentedString(inboundHostname)).append("\n");
     sb.append("    listenComponents: ").append(toIndentedString(listenComponents)).append("\n");

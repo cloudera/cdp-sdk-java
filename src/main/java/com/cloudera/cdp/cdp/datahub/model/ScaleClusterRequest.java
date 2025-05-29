@@ -23,11 +23,12 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import java.util.*;
 
 /**
  * Request object for scale cluster request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:32.759-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:17.636-07:00")
 public class ScaleClusterRequest  {
 
   /**
@@ -44,6 +45,11 @@ public class ScaleClusterRequest  {
    * The desired number of instances in the instance group.
    **/
   private Integer instanceGroupDesiredCount = null;
+
+  /**
+   * The preferred subnet IDs for the scaling cluster (only for AWS).
+   **/
+  private List<String> preferredSubnetIds = new ArrayList<String>();
 
   /**
    * Getter for clusterName.
@@ -96,6 +102,23 @@ public class ScaleClusterRequest  {
     this.instanceGroupDesiredCount = instanceGroupDesiredCount;
   }
 
+  /**
+   * Getter for preferredSubnetIds.
+   * The preferred subnet IDs for the scaling cluster (only for AWS).
+   **/
+  @JsonProperty("preferredSubnetIds")
+  public List<String> getPreferredSubnetIds() {
+    return preferredSubnetIds;
+  }
+
+  /**
+   * Setter for preferredSubnetIds.
+   * The preferred subnet IDs for the scaling cluster (only for AWS).
+   **/
+  public void setPreferredSubnetIds(List<String> preferredSubnetIds) {
+    this.preferredSubnetIds = preferredSubnetIds;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -114,12 +137,15 @@ public class ScaleClusterRequest  {
     if (!Objects.equals(this.instanceGroupDesiredCount, scaleClusterRequest.instanceGroupDesiredCount)) {
       return false;
     }
+    if (!Objects.equals(this.preferredSubnetIds, scaleClusterRequest.preferredSubnetIds)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, instanceGroupName, instanceGroupDesiredCount);
+    return Objects.hash(clusterName, instanceGroupName, instanceGroupDesiredCount, preferredSubnetIds);
   }
 
   @Override
@@ -129,6 +155,7 @@ public class ScaleClusterRequest  {
     sb.append("    clusterName: ").append(toIndentedString(clusterName)).append("\n");
     sb.append("    instanceGroupName: ").append(toIndentedString(instanceGroupName)).append("\n");
     sb.append("    instanceGroupDesiredCount: ").append(toIndentedString(instanceGroupDesiredCount)).append("\n");
+    sb.append("    preferredSubnetIds: ").append(toIndentedString(preferredSubnetIds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

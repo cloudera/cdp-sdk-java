@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Provides all of the configuration that dictates how a flow should be deployed.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:38.216-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:22.522-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class UpdateDeploymentRequest  {
 
@@ -84,11 +84,6 @@ public class UpdateDeploymentRequest  {
    * The list of configured KPIs.
    **/
   private List<ConfiguredKpi> kpis = new ArrayList<ConfiguredKpi>();
-
-  /**
-   * The deployment t-shirt size. Deprecated. Use 'clusterSize.name' instead.
-   **/
-  private String clusterSizeName = null;
 
   /**
    * The deployment t-shirt size.
@@ -271,25 +266,6 @@ public class UpdateDeploymentRequest  {
   }
 
   /**
-   * Getter for clusterSizeName.
-   * The deployment t-shirt size. Deprecated. Use &#39;clusterSize.name&#39; instead.
-   **/
-  @Deprecated
-  @JsonProperty("clusterSizeName")
-  public String getClusterSizeName() {
-    return clusterSizeName;
-  }
-
-  /**
-   * Setter for clusterSizeName.
-   * The deployment t-shirt size. Deprecated. Use &#39;clusterSize.name&#39; instead.
-   **/
-  @Deprecated
-  public void setClusterSizeName(String clusterSizeName) {
-    this.clusterSizeName = clusterSizeName;
-  }
-
-  /**
    * Getter for clusterSize.
    * The deployment t-shirt size.
    **/
@@ -362,9 +338,6 @@ public class UpdateDeploymentRequest  {
     if (!Objects.equals(this.kpis, updateDeploymentRequest.kpis)) {
       return false;
     }
-    if (!Objects.equals(this.clusterSizeName, updateDeploymentRequest.clusterSizeName)) {
-      return false;
-    }
     if (!Objects.equals(this.clusterSize, updateDeploymentRequest.clusterSize)) {
       return false;
     }
@@ -376,7 +349,7 @@ public class UpdateDeploymentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, configurationVersion, deploymentCrn, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, clusterSizeName, clusterSize, assetUpdateRequestCrn);
+    return Objects.hash(environmentCrn, configurationVersion, deploymentCrn, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, clusterSize, assetUpdateRequestCrn);
   }
 
   @Override
@@ -393,7 +366,6 @@ public class UpdateDeploymentRequest  {
     sb.append("    autoScaleMaxNodes: ").append(toIndentedString(autoScaleMaxNodes)).append("\n");
     sb.append("    staticNodeCount: ").append(toIndentedString(staticNodeCount)).append("\n");
     sb.append("    kpis: ").append(toIndentedString(kpis)).append("\n");
-    sb.append("    clusterSizeName: ").append(toIndentedString(clusterSizeName)).append("\n");
     sb.append("    clusterSize: ").append(toIndentedString(clusterSize)).append("\n");
     sb.append("    assetUpdateRequestCrn: ").append(toIndentedString(assetUpdateRequestCrn)).append("\n");
     sb.append("}");

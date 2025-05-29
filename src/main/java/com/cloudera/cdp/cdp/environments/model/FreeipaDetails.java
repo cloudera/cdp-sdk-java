@@ -24,12 +24,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.environments.model.FreeIpaInstance;
+import com.cloudera.cdp.environments.model.ImageInfo;
 import java.util.*;
 
 /**
  * Details of a FreeIPA cluster.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:35.786-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:20.540-07:00")
 public class FreeipaDetails  {
 
   /**
@@ -71,6 +72,11 @@ public class FreeipaDetails  {
    * Whether the given FreeIPA is deployed in a multi-availability zone way or not.
    **/
   private Boolean multiAz = null;
+
+  /**
+   * The image details.
+   **/
+  private ImageInfo imageDetails = null;
 
   /**
    * Getter for crn.
@@ -208,6 +214,23 @@ public class FreeipaDetails  {
     this.multiAz = multiAz;
   }
 
+  /**
+   * Getter for imageDetails.
+   * The image details.
+   **/
+  @JsonProperty("imageDetails")
+  public ImageInfo getImageDetails() {
+    return imageDetails;
+  }
+
+  /**
+   * Setter for imageDetails.
+   * The image details.
+   **/
+  public void setImageDetails(ImageInfo imageDetails) {
+    this.imageDetails = imageDetails;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -241,12 +264,15 @@ public class FreeipaDetails  {
     if (!Objects.equals(this.multiAz, freeipaDetails.multiAz)) {
       return false;
     }
+    if (!Objects.equals(this.imageDetails, freeipaDetails.imageDetails)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, domain, hostname, serverIP, recipes, instances, instanceCountByGroup, multiAz);
+    return Objects.hash(crn, domain, hostname, serverIP, recipes, instances, instanceCountByGroup, multiAz, imageDetails);
   }
 
   @Override
@@ -261,6 +287,7 @@ public class FreeipaDetails  {
     sb.append("    instances: ").append(toIndentedString(instances)).append("\n");
     sb.append("    instanceCountByGroup: ").append(toIndentedString(instanceCountByGroup)).append("\n");
     sb.append("    multiAz: ").append(toIndentedString(multiAz)).append("\n");
+    sb.append("    imageDetails: ").append(toIndentedString(imageDetails)).append("\n");
     sb.append("}");
     return sb.toString();
   }

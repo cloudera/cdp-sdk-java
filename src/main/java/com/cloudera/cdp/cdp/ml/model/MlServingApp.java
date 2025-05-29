@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * The Cloudera AI Inference Service instance.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:34.535-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:19.577-07:00")
 public class MlServingApp  {
 
   /**

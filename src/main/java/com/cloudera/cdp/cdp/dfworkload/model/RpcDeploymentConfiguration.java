@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * Provides all of the configuration that dictates how a flow should be deployed.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:38.216-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:22.522-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcDeploymentConfiguration  {
 
@@ -101,11 +101,6 @@ public class RpcDeploymentConfiguration  {
    * Indicates whether or not the flow should be started during deployment creation.
    **/
   private Boolean autoStartFlow = null;
-
-  /**
-   * The size of the cluster to deploy. Deprecated, use clusterSize.name instead.
-   **/
-  private String clusterSizeName = null;
 
   /**
    * The size of the cluster to deploy.
@@ -384,25 +379,6 @@ public class RpcDeploymentConfiguration  {
   }
 
   /**
-   * Getter for clusterSizeName.
-   * The size of the cluster to deploy. Deprecated, use clusterSize.name instead.
-   **/
-  @Deprecated
-  @JsonProperty("clusterSizeName")
-  public String getClusterSizeName() {
-    return clusterSizeName;
-  }
-
-  /**
-   * Setter for clusterSizeName.
-   * The size of the cluster to deploy. Deprecated, use clusterSize.name instead.
-   **/
-  @Deprecated
-  public void setClusterSizeName(String clusterSizeName) {
-    this.clusterSizeName = clusterSizeName;
-  }
-
-  /**
    * Getter for clusterSize.
    * The size of the cluster to deploy.
    **/
@@ -637,9 +613,6 @@ public class RpcDeploymentConfiguration  {
     if (!Objects.equals(this.autoStartFlow, rpcDeploymentConfiguration.autoStartFlow)) {
       return false;
     }
-    if (!Objects.equals(this.clusterSizeName, rpcDeploymentConfiguration.clusterSizeName)) {
-      return false;
-    }
     if (!Objects.equals(this.clusterSize, rpcDeploymentConfiguration.clusterSize)) {
       return false;
     }
@@ -678,7 +651,7 @@ public class RpcDeploymentConfiguration  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(configurationVersion, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, deploymentId, deploymentCrn, name, cfmNifiVersion, autoStartFlow, clusterSizeName, clusterSize, nodeStorageProfileName, parametersDirty, kpisDirty, sizingAndScalingDirty, lastUpdatedByUsername, inboundHostname, listenComponents, projectCrn, assetConfigurationAvailable, nodeStorage);
+    return Objects.hash(configurationVersion, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, deploymentId, deploymentCrn, name, cfmNifiVersion, autoStartFlow, clusterSize, nodeStorageProfileName, parametersDirty, kpisDirty, sizingAndScalingDirty, lastUpdatedByUsername, inboundHostname, listenComponents, projectCrn, assetConfigurationAvailable, nodeStorage);
   }
 
   @Override
@@ -698,7 +671,6 @@ public class RpcDeploymentConfiguration  {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    cfmNifiVersion: ").append(toIndentedString(cfmNifiVersion)).append("\n");
     sb.append("    autoStartFlow: ").append(toIndentedString(autoStartFlow)).append("\n");
-    sb.append("    clusterSizeName: ").append(toIndentedString(clusterSizeName)).append("\n");
     sb.append("    clusterSize: ").append(toIndentedString(clusterSize)).append("\n");
     sb.append("    nodeStorageProfileName: ").append(toIndentedString(nodeStorageProfileName)).append("\n");
     sb.append("    parametersDirty: ").append(toIndentedString(parametersDirty)).append("\n");

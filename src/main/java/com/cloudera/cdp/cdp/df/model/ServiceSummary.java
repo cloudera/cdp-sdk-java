@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * The summary of the DF Service enabled in a CDP Environment
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:37.723-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:22.132-07:00")
 public class ServiceSummary  {
 
   /**
@@ -111,11 +111,6 @@ public class ServiceSummary  {
    * The instance type of the kubernetes nodes currently in use by DataFlow for this service.
    **/
   private String instanceType = null;
-
-  /**
-   * Whether or not a successfully created and usable cluster exists. Deprecated. Use 'validActions' instead.
-   **/
-  private Boolean clusterUsable = null;
 
   /**
    * Valid actions that can be applied based on the current state of the service
@@ -400,25 +395,6 @@ public class ServiceSummary  {
   }
 
   /**
-   * Getter for clusterUsable.
-   * Whether or not a successfully created and usable cluster exists. Deprecated. Use &#39;validActions&#39; instead.
-   **/
-  @Deprecated
-  @JsonProperty("clusterUsable")
-  public Boolean getClusterUsable() {
-    return clusterUsable;
-  }
-
-  /**
-   * Setter for clusterUsable.
-   * Whether or not a successfully created and usable cluster exists. Deprecated. Use &#39;validActions&#39; instead.
-   **/
-  @Deprecated
-  public void setClusterUsable(Boolean clusterUsable) {
-    this.clusterUsable = clusterUsable;
-  }
-
-  /**
    * Getter for validActions.
    * Valid actions that can be applied based on the current state of the service
    **/
@@ -509,9 +485,6 @@ public class ServiceSummary  {
     if (!Objects.equals(this.instanceType, serviceSummary.instanceType)) {
       return false;
     }
-    if (!Objects.equals(this.clusterUsable, serviceSummary.clusterUsable)) {
-      return false;
-    }
     if (!Objects.equals(this.validActions, serviceSummary.validActions)) {
       return false;
     }
@@ -523,7 +496,7 @@ public class ServiceSummary  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, environmentCrn, name, cloudPlatform, region, deploymentCount, maxK8sNodeCount, status, workloadVersion, upgradeDeploymentsNiFiVersion, runningK8sNodeCount, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, clusterId, instanceType, clusterUsable, validActions, proxyName);
+    return Objects.hash(crn, environmentCrn, name, cloudPlatform, region, deploymentCount, maxK8sNodeCount, status, workloadVersion, upgradeDeploymentsNiFiVersion, runningK8sNodeCount, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, clusterId, instanceType, validActions, proxyName);
   }
 
   @Override
@@ -546,7 +519,6 @@ public class ServiceSummary  {
     sb.append("    activeErrorAlertCount: ").append(toIndentedString(activeErrorAlertCount)).append("\n");
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
-    sb.append("    clusterUsable: ").append(toIndentedString(clusterUsable)).append("\n");
     sb.append("    validActions: ").append(toIndentedString(validActions)).append("\n");
     sb.append("    proxyName: ").append(toIndentedString(proxyName)).append("\n");
     sb.append("}");

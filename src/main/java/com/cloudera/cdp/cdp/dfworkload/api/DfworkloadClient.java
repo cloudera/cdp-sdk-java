@@ -78,12 +78,8 @@ import com.cloudera.cdp.dfworkload.model.GetDeploymentRequestDetailsResponse;
 import com.google.common.collect.ImmutableList;
 import com.cloudera.cdp.dfworkload.model.ImportDeploymentRequest;
 import com.cloudera.cdp.dfworkload.model.ImportDeploymentResponse;
-import com.cloudera.cdp.dfworkload.model.InboundConnectionEndpointClientCertificateRequest;
-import com.cloudera.cdp.dfworkload.model.InboundConnectionEndpointClientCertificateResponse;
 import com.cloudera.cdp.dfworkload.model.InboundConnectionEndpointClientCertificatesRequest;
 import com.cloudera.cdp.dfworkload.model.InboundConnectionEndpointClientCertificatesResponse;
-import com.cloudera.cdp.dfworkload.model.InboundConnectionEndpointClientPrivateKeyRequest;
-import com.cloudera.cdp.dfworkload.model.InboundConnectionEndpointClientPrivateKeyResponse;
 import com.cloudera.cdp.dfworkload.model.ListDeploymentArchivesRequest;
 import com.cloudera.cdp.dfworkload.model.ListDeploymentArchivesResponse;
 import com.cloudera.cdp.dfworkload.model.ListInboundConnectionEndpointsRequest;
@@ -108,8 +104,6 @@ import com.cloudera.cdp.dfworkload.model.SuspendDeploymentRequest;
 import com.cloudera.cdp.dfworkload.model.SuspendDeploymentResponse;
 import com.cloudera.cdp.dfworkload.model.TerminateDeploymentRequest;
 import com.cloudera.cdp.dfworkload.model.TerminateDeploymentResponse;
-import com.cloudera.cdp.dfworkload.model.TransitionFlowRequest;
-import com.cloudera.cdp.dfworkload.model.TransitionFlowResponse;
 import com.cloudera.cdp.dfworkload.model.UpdateCustomNarConfigurationRequest;
 import com.cloudera.cdp.dfworkload.model.UpdateCustomNarConfigurationResponse;
 import com.cloudera.cdp.dfworkload.model.UpdateCustomPythonConfigurationRequest;
@@ -130,7 +124,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-14T11:34:38.216-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:22.522-07:00")
 public class DfworkloadClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dfworkload";
@@ -400,21 +394,6 @@ public class DfworkloadClient extends CdpClient {
   }
 
   /**
-   * Get Inbound Connection Endpoint Client Certificate (in PEM encoding). Deprecated. Use &#x60;download-client-certificates-encoded&#x60; instead.
-   * @param input Get Inbound Connection Endpoint client&#39;s certificate request
-   * @return InboundConnectionEndpointClientCertificateResponse
-   */
-  @WorkloadApi
-  @Deprecated
-  public InboundConnectionEndpointClientCertificateResponse getClientCertificateEncoded(InboundConnectionEndpointClientCertificateRequest input) {
-    if (input == null) {
-      throw new CdpClientException("Missing the required parameter 'input' when calling getClientCertificateEncoded");
-    }
-
-    return this.invokeAPI("getClientCertificateEncoded", "/dfx/api/rpc-v1/inbound-connection-endpoint-certificates/download-client-certificate-encoded", input, new GenericType<InboundConnectionEndpointClientCertificateResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
-  }
-
-  /**
    * Get Inbound Connection Endpoint Client Certificates (in PEM encoding)
    * @param input Get Inbound Connection Endpoint client&#39;s certificates
    * @return InboundConnectionEndpointClientCertificatesResponse
@@ -426,21 +405,6 @@ public class DfworkloadClient extends CdpClient {
     }
 
     return this.invokeAPI("getClientCertificatesEncoded", "/dfx/api/rpc-v1/inbound-connection-endpoint-certificates/download-client-certificates-encoded", input, new GenericType<InboundConnectionEndpointClientCertificatesResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
-  }
-
-  /**
-   * Get Inbound Connection Endpoint Client&#39;s Private Key (in PEM encoding). Deprecated. Use &#x60;download-client-certificates-encoded&#x60; instead.
-   * @param input Get Inbound Connection Endpoint client&#39;s private key request
-   * @return InboundConnectionEndpointClientPrivateKeyResponse
-   */
-  @WorkloadApi
-  @Deprecated
-  public InboundConnectionEndpointClientPrivateKeyResponse getClientPrivateKeyEncoded(InboundConnectionEndpointClientPrivateKeyRequest input) {
-    if (input == null) {
-      throw new CdpClientException("Missing the required parameter 'input' when calling getClientPrivateKeyEncoded");
-    }
-
-    return this.invokeAPI("getClientPrivateKeyEncoded", "/dfx/api/rpc-v1/inbound-connection-endpoint-certificates/download-client-private-key-encoded", input, new GenericType<InboundConnectionEndpointClientPrivateKeyResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
   }
 
   /**
@@ -707,21 +671,6 @@ public class DfworkloadClient extends CdpClient {
     }
 
     return this.invokeAPI("terminateDeployment", "/dfx/api/rpc-v1/deployments/terminate-deployment", input, new GenericType<TerminateDeploymentResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
-  }
-
-  /**
-   * Transitions a flow.
-   * @param input Transition Flow
-   * @return TransitionFlowResponse
-   */
-  @WorkloadApi
-  @Deprecated
-  public TransitionFlowResponse transitionFlow(TransitionFlowRequest input) {
-    if (input == null) {
-      throw new CdpClientException("Missing the required parameter 'input' when calling transitionFlow");
-    }
-
-    return this.invokeAPI("transitionFlow", "/dfx/api/rpc-v1/deployments/transition-flow", input, new GenericType<TransitionFlowResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
   }
 
   /**
