@@ -31,7 +31,7 @@ import com.cloudera.cdp.dw.model.ServiceConfigReq;
 /**
  * Request object for the updateVw method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:18.456-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-12T15:05:26.077-07:00")
 public class UpdateVwRequest  {
 
   /**
@@ -88,6 +88,11 @@ public class UpdateVwRequest  {
    * Denotes whether the Virtual Warehouse has the Impala Query Log enabled or not.
    **/
   private Boolean impalaQueryLog = null;
+
+  /**
+   * Denotes whether the Hive Virtual Warehouse stores Hive query information for all completed queries in the sys.query_history system table. You can query this table using SQL to monitor and optimize the Hive engine.
+   **/
+  private Boolean logHiveQueries = null;
 
   /**
    * Used to set the resource pool of the Virtual Warehouses that are not enrolled for quota management.
@@ -289,6 +294,23 @@ public class UpdateVwRequest  {
   }
 
   /**
+   * Getter for logHiveQueries.
+   * Denotes whether the Hive Virtual Warehouse stores Hive query information for all completed queries in the sys.query_history system table. You can query this table using SQL to monitor and optimize the Hive engine.
+   **/
+  @JsonProperty("logHiveQueries")
+  public Boolean getLogHiveQueries() {
+    return logHiveQueries;
+  }
+
+  /**
+   * Setter for logHiveQueries.
+   * Denotes whether the Hive Virtual Warehouse stores Hive query information for all completed queries in the sys.query_history system table. You can query this table using SQL to monitor and optimize the Hive engine.
+   **/
+  public void setLogHiveQueries(Boolean logHiveQueries) {
+    this.logHiveQueries = logHiveQueries;
+  }
+
+  /**
    * Getter for resourcePool.
    * Used to set the resource pool of the Virtual Warehouses that are not enrolled for quota management.
    **/
@@ -364,6 +386,9 @@ public class UpdateVwRequest  {
     if (!Objects.equals(this.impalaQueryLog, updateVwRequest.impalaQueryLog)) {
       return false;
     }
+    if (!Objects.equals(this.logHiveQueries, updateVwRequest.logHiveQueries)) {
+      return false;
+    }
     if (!Objects.equals(this.resourcePool, updateVwRequest.resourcePool)) {
       return false;
     }
@@ -375,7 +400,7 @@ public class UpdateVwRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, vwId, tShirtSize, nodeCount, config, autoscaling, impalaHaSettings, queryIsolationOptions, hiveAuthenticationMode, platformJwtAuth, impalaQueryLog, resourcePool, hiveServerHaMode);
+    return Objects.hash(clusterId, vwId, tShirtSize, nodeCount, config, autoscaling, impalaHaSettings, queryIsolationOptions, hiveAuthenticationMode, platformJwtAuth, impalaQueryLog, logHiveQueries, resourcePool, hiveServerHaMode);
   }
 
   @Override
@@ -393,6 +418,7 @@ public class UpdateVwRequest  {
     sb.append("    hiveAuthenticationMode: ").append(toIndentedString(hiveAuthenticationMode)).append("\n");
     sb.append("    platformJwtAuth: ").append(toIndentedString(platformJwtAuth)).append("\n");
     sb.append("    impalaQueryLog: ").append(toIndentedString(impalaQueryLog)).append("\n");
+    sb.append("    logHiveQueries: ").append(toIndentedString(logHiveQueries)).append("\n");
     sb.append("    resourcePool: ").append(toIndentedString(resourcePool)).append("\n");
     sb.append("    hiveServerHaMode: ").append(toIndentedString(hiveServerHaMode)).append("\n");
     sb.append("}");

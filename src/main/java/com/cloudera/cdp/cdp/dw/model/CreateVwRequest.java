@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * Request object for the createVw method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:18.456-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-12T15:05:26.077-07:00")
 public class CreateVwRequest  {
 
   /**
@@ -136,6 +136,11 @@ public class CreateVwRequest  {
    * Denotes whether the Virtual Warehouse has the Impala Query Log enabled or not.
    **/
   private Boolean impalaQueryLog = null;
+
+  /**
+   * Denotes whether the Hive Virtual Warehouse stores Hive query information for all completed queries in the sys.query_history system table. You can query this table using SQL to monitor and optimize the Hive engine.
+   **/
+  private Boolean logHiveQueries = null;
 
   /**
    * Provides EBS gp3 volume as temporary storage space for Hive LLAP cache, and improves query performance. Configurable only at Virtual Warehouse creation. Using EBS volumes incurs additional costs.
@@ -490,6 +495,23 @@ public class CreateVwRequest  {
   }
 
   /**
+   * Getter for logHiveQueries.
+   * Denotes whether the Hive Virtual Warehouse stores Hive query information for all completed queries in the sys.query_history system table. You can query this table using SQL to monitor and optimize the Hive engine.
+   **/
+  @JsonProperty("logHiveQueries")
+  public Boolean getLogHiveQueries() {
+    return logHiveQueries;
+  }
+
+  /**
+   * Setter for logHiveQueries.
+   * Denotes whether the Hive Virtual Warehouse stores Hive query information for all completed queries in the sys.query_history system table. You can query this table using SQL to monitor and optimize the Hive engine.
+   **/
+  public void setLogHiveQueries(Boolean logHiveQueries) {
+    this.logHiveQueries = logHiveQueries;
+  }
+
+  /**
    * Getter for ebsLLAPSpillGB.
    * Provides EBS gp3 volume as temporary storage space for Hive LLAP cache, and improves query performance. Configurable only at Virtual Warehouse creation. Using EBS volumes incurs additional costs.
    **/
@@ -592,6 +614,9 @@ public class CreateVwRequest  {
     if (!Objects.equals(this.impalaQueryLog, createVwRequest.impalaQueryLog)) {
       return false;
     }
+    if (!Objects.equals(this.logHiveQueries, createVwRequest.logHiveQueries)) {
+      return false;
+    }
     if (!Objects.equals(this.ebsLLAPSpillGB, createVwRequest.ebsLLAPSpillGB)) {
       return false;
     }
@@ -603,7 +628,7 @@ public class CreateVwRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, dbcId, vwType, name, instanceType, imageVersion, tShirtSize, nodeCount, availabilityZone, enableUnifiedAnalytics, impalaOptions, impalaHaSettings, autoscaling, config, queryIsolationOptions, tags, resourcePool, hiveAuthenticationMode, platformJwtAuth, impalaQueryLog, ebsLLAPSpillGB, hiveServerHaMode);
+    return Objects.hash(clusterId, dbcId, vwType, name, instanceType, imageVersion, tShirtSize, nodeCount, availabilityZone, enableUnifiedAnalytics, impalaOptions, impalaHaSettings, autoscaling, config, queryIsolationOptions, tags, resourcePool, hiveAuthenticationMode, platformJwtAuth, impalaQueryLog, logHiveQueries, ebsLLAPSpillGB, hiveServerHaMode);
   }
 
   @Override
@@ -630,6 +655,7 @@ public class CreateVwRequest  {
     sb.append("    hiveAuthenticationMode: ").append(toIndentedString(hiveAuthenticationMode)).append("\n");
     sb.append("    platformJwtAuth: ").append(toIndentedString(platformJwtAuth)).append("\n");
     sb.append("    impalaQueryLog: ").append(toIndentedString(impalaQueryLog)).append("\n");
+    sb.append("    logHiveQueries: ").append(toIndentedString(logHiveQueries)).append("\n");
     sb.append("    ebsLLAPSpillGB: ").append(toIndentedString(ebsLLAPSpillGB)).append("\n");
     sb.append("    hiveServerHaMode: ").append(toIndentedString(hiveServerHaMode)).append("\n");
     sb.append("}");

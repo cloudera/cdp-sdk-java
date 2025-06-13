@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * Request object for create GCP cluster request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:17.636-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-12T15:05:25.126-07:00")
 public class CreateGCPClusterRequest  {
 
   /**
@@ -99,6 +99,11 @@ public class CreateGCPClusterRequest  {
    * Configure the major version of Java on the cluster.
    **/
   private Integer javaVersion = null;
+
+  /**
+   * Creates CDP Data Hub distributed across multiple availability zones in GCP region
+   **/
+  private Boolean multiAz = false;
 
   /**
    * Getter for clusterName.
@@ -321,6 +326,23 @@ public class CreateGCPClusterRequest  {
     this.javaVersion = javaVersion;
   }
 
+  /**
+   * Getter for multiAz.
+   * Creates CDP Data Hub distributed across multiple availability zones in GCP region
+   **/
+  @JsonProperty("multiAz")
+  public Boolean getMultiAz() {
+    return multiAz;
+  }
+
+  /**
+   * Setter for multiAz.
+   * Creates CDP Data Hub distributed across multiple availability zones in GCP region
+   **/
+  public void setMultiAz(Boolean multiAz) {
+    this.multiAz = multiAz;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -369,12 +391,15 @@ public class CreateGCPClusterRequest  {
     if (!Objects.equals(this.javaVersion, createGCPClusterRequest.javaVersion)) {
       return false;
     }
+    if (!Objects.equals(this.multiAz, createGCPClusterRequest.multiAz)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, clusterDefinitionName, environmentName, clusterTemplateName, customConfigurationsName, instanceGroups, subnetName, image, tags, requestTemplate, datahubDatabase, clusterExtension, javaVersion);
+    return Objects.hash(clusterName, clusterDefinitionName, environmentName, clusterTemplateName, customConfigurationsName, instanceGroups, subnetName, image, tags, requestTemplate, datahubDatabase, clusterExtension, javaVersion, multiAz);
   }
 
   @Override
@@ -394,6 +419,7 @@ public class CreateGCPClusterRequest  {
     sb.append("    datahubDatabase: ").append(toIndentedString(datahubDatabase)).append("\n");
     sb.append("    clusterExtension: ").append(toIndentedString(clusterExtension)).append("\n");
     sb.append("    javaVersion: ").append(toIndentedString(javaVersion)).append("\n");
+    sb.append("    multiAz: ").append(toIndentedString(multiAz)).append("\n");
     sb.append("}");
     return sb.toString();
   }

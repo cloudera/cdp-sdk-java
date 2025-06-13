@@ -25,11 +25,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.cloudprivatelinks.model.AWSAccountDetails;
 import com.cloudera.cdp.cloudprivatelinks.model.AzureAccountDetails;
+import com.cloudera.cdp.cloudprivatelinks.model.ResourceTag;
+import java.util.*;
 
 /**
  * Request object for the CreatePrivateLinkEndpoint method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:23.484-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-12T15:05:30.775-07:00")
 public class CreatePrivateLinkEndpointRequest  {
 
   /**
@@ -56,6 +58,11 @@ public class CreatePrivateLinkEndpointRequest  {
    * Azure account details where PrivateLink endpoint is created.
    **/
   private AzureAccountDetails azureAccountDetails = null;
+
+  /**
+   * Custom tags for the different cloud resources created during Private Links creation.
+   **/
+  private List<ResourceTag> resourceTags = new ArrayList<ResourceTag>();
 
   /**
    * Getter for cloudServiceProvider.
@@ -142,6 +149,23 @@ public class CreatePrivateLinkEndpointRequest  {
     this.azureAccountDetails = azureAccountDetails;
   }
 
+  /**
+   * Getter for resourceTags.
+   * Custom tags for the different cloud resources created during Private Links creation.
+   **/
+  @JsonProperty("resourceTags")
+  public List<ResourceTag> getResourceTags() {
+    return resourceTags;
+  }
+
+  /**
+   * Setter for resourceTags.
+   * Custom tags for the different cloud resources created during Private Links creation.
+   **/
+  public void setResourceTags(List<ResourceTag> resourceTags) {
+    this.resourceTags = resourceTags;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -166,12 +190,15 @@ public class CreatePrivateLinkEndpointRequest  {
     if (!Objects.equals(this.azureAccountDetails, createPrivateLinkEndpointRequest.azureAccountDetails)) {
       return false;
     }
+    if (!Objects.equals(this.resourceTags, createPrivateLinkEndpointRequest.resourceTags)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cloudServiceProvider, enablePrivateDns, serviceGroup, awsAccountDetails, azureAccountDetails);
+    return Objects.hash(cloudServiceProvider, enablePrivateDns, serviceGroup, awsAccountDetails, azureAccountDetails, resourceTags);
   }
 
   @Override
@@ -183,6 +210,7 @@ public class CreatePrivateLinkEndpointRequest  {
     sb.append("    serviceGroup: ").append(toIndentedString(serviceGroup)).append("\n");
     sb.append("    awsAccountDetails: ").append(toIndentedString(awsAccountDetails)).append("\n");
     sb.append("    azureAccountDetails: ").append(toIndentedString(azureAccountDetails)).append("\n");
+    sb.append("    resourceTags: ").append(toIndentedString(resourceTags)).append("\n");
     sb.append("}");
     return sb.toString();
   }

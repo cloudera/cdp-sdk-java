@@ -27,12 +27,13 @@ import com.cloudera.cdp.datalake.model.AzureConfigurationRequest;
 import com.cloudera.cdp.datalake.model.DatalakeResourceTagRequest;
 import com.cloudera.cdp.datalake.model.ImageRequest;
 import com.cloudera.cdp.datalake.model.InstanceGroupRecipeRequest;
+import com.cloudera.cdp.datalake.model.SdxInstanceGroupRequest;
 import java.util.*;
 
 /**
  * Request object for create Azure datalake request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:19.972-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-12T15:05:27.264-07:00")
 public class CreateAzureDatalakeRequest  {
 
   /**
@@ -94,6 +95,11 @@ public class CreateAzureDatalakeRequest  {
    * Additional recipes that will be attached on the datalake instances (by instance groups, most common ones are like 'master' or 'idbroker').
    **/
   private List<InstanceGroupRecipeRequest> recipes = new ArrayList<InstanceGroupRecipeRequest>();
+
+  /**
+   * Configure custom properties on an instance group level.
+   **/
+  private List<SdxInstanceGroupRequest> customInstanceGroups = new ArrayList<SdxInstanceGroupRequest>();
 
   /**
    * Configure the major version of Java on the cluster.
@@ -310,6 +316,23 @@ public class CreateAzureDatalakeRequest  {
   }
 
   /**
+   * Getter for customInstanceGroups.
+   * Configure custom properties on an instance group level.
+   **/
+  @JsonProperty("customInstanceGroups")
+  public List<SdxInstanceGroupRequest> getCustomInstanceGroups() {
+    return customInstanceGroups;
+  }
+
+  /**
+   * Setter for customInstanceGroups.
+   * Configure custom properties on an instance group level.
+   **/
+  public void setCustomInstanceGroups(List<SdxInstanceGroupRequest> customInstanceGroups) {
+    this.customInstanceGroups = customInstanceGroups;
+  }
+
+  /**
    * Getter for javaVersion.
    * Configure the major version of Java on the cluster.
    **/
@@ -388,6 +411,9 @@ public class CreateAzureDatalakeRequest  {
     if (!Objects.equals(this.recipes, createAzureDatalakeRequest.recipes)) {
       return false;
     }
+    if (!Objects.equals(this.customInstanceGroups, createAzureDatalakeRequest.customInstanceGroups)) {
+      return false;
+    }
     if (!Objects.equals(this.javaVersion, createAzureDatalakeRequest.javaVersion)) {
       return false;
     }
@@ -399,7 +425,7 @@ public class CreateAzureDatalakeRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, scale, tags, runtime, image, loadBalancerSku, enableRangerRaz, databaseType, flexibleServerDelegatedSubnetId, recipes, javaVersion, multiAz);
+    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, scale, tags, runtime, image, loadBalancerSku, enableRangerRaz, databaseType, flexibleServerDelegatedSubnetId, recipes, customInstanceGroups, javaVersion, multiAz);
   }
 
   @Override
@@ -418,6 +444,7 @@ public class CreateAzureDatalakeRequest  {
     sb.append("    databaseType: ").append(toIndentedString(databaseType)).append("\n");
     sb.append("    flexibleServerDelegatedSubnetId: ").append(toIndentedString(flexibleServerDelegatedSubnetId)).append("\n");
     sb.append("    recipes: ").append(toIndentedString(recipes)).append("\n");
+    sb.append("    customInstanceGroups: ").append(toIndentedString(customInstanceGroups)).append("\n");
     sb.append("    javaVersion: ").append(toIndentedString(javaVersion)).append("\n");
     sb.append("    multiAz: ").append(toIndentedString(multiAz)).append("\n");
     sb.append("}");

@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the createDbc method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:18.456-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-12T15:05:26.077-07:00")
 public class CreateDbcRequest  {
 
   /**
@@ -59,21 +59,6 @@ public class CreateDbcRequest  {
    * NOTE: creating Default Database Catalogs is deprecated and explicitly disabled. Denotes if Default Database Catalog creation needed.
    **/
   private Boolean isDefault = false;
-
-  /**
-   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the Metastore database.
-   **/
-  private String dbMetastore = "";
-
-  /**
-   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the DAS database. Not required for embedded databases.
-   **/
-  private String dbDas = "";
-
-  /**
-   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the HUE database. Not required for embedded databases.
-   **/
-  private String dbHue = "";
 
   /**
    * Getter for clusterId.
@@ -179,63 +164,6 @@ public class CreateDbcRequest  {
     this.isDefault = isDefault;
   }
 
-  /**
-   * Getter for dbMetastore.
-   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the Metastore database.
-   **/
-  @Deprecated
-  @JsonProperty("dbMetastore")
-  public String getDbMetastore() {
-    return dbMetastore;
-  }
-
-  /**
-   * Setter for dbMetastore.
-   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the Metastore database.
-   **/
-  @Deprecated
-  public void setDbMetastore(String dbMetastore) {
-    this.dbMetastore = dbMetastore;
-  }
-
-  /**
-   * Getter for dbDas.
-   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the DAS database. Not required for embedded databases.
-   **/
-  @Deprecated
-  @JsonProperty("dbDas")
-  public String getDbDas() {
-    return dbDas;
-  }
-
-  /**
-   * Setter for dbDas.
-   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the DAS database. Not required for embedded databases.
-   **/
-  @Deprecated
-  public void setDbDas(String dbDas) {
-    this.dbDas = dbDas;
-  }
-
-  /**
-   * Getter for dbHue.
-   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the HUE database. Not required for embedded databases.
-   **/
-  @Deprecated
-  @JsonProperty("dbHue")
-  public String getDbHue() {
-    return dbHue;
-  }
-
-  /**
-   * Setter for dbHue.
-   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the HUE database. Not required for embedded databases.
-   **/
-  @Deprecated
-  public void setDbHue(String dbHue) {
-    this.dbHue = dbHue;
-  }
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -263,21 +191,12 @@ public class CreateDbcRequest  {
     if (!Objects.equals(this.isDefault, createDbcRequest.isDefault)) {
       return false;
     }
-    if (!Objects.equals(this.dbMetastore, createDbcRequest.dbMetastore)) {
-      return false;
-    }
-    if (!Objects.equals(this.dbDas, createDbcRequest.dbDas)) {
-      return false;
-    }
-    if (!Objects.equals(this.dbHue, createDbcRequest.dbHue)) {
-      return false;
-    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, name, loadDemoData, imageVersion, resourceTemplateId, isDefault, dbMetastore, dbDas, dbHue);
+    return Objects.hash(clusterId, name, loadDemoData, imageVersion, resourceTemplateId, isDefault);
   }
 
   @Override
@@ -290,9 +209,6 @@ public class CreateDbcRequest  {
     sb.append("    imageVersion: ").append(toIndentedString(imageVersion)).append("\n");
     sb.append("    resourceTemplateId: ").append(toIndentedString(resourceTemplateId)).append("\n");
     sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
-    sb.append("    dbMetastore: ").append(toIndentedString(dbMetastore)).append("\n");
-    sb.append("    dbDas: ").append(toIndentedString(dbDas)).append("\n");
-    sb.append("    dbHue: ").append(toIndentedString(dbHue)).append("\n");
     sb.append("}");
     return sb.toString();
   }

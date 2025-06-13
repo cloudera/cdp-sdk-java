@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * Request object for create AWS cluster request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:17.636-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-12T15:05:25.126-07:00")
 public class CreateAWSClusterRequest  {
 
   /**
@@ -129,6 +129,11 @@ public class CreateAWSClusterRequest  {
    * Configure the major version of Java on the cluster.
    **/
   private Integer javaVersion = null;
+
+  /**
+   * Specifies the CPU architecture of the cluster. Values are ARM64, X86_64.
+   **/
+  private String architecture = null;
 
   /**
    * Getter for clusterName.
@@ -459,6 +464,23 @@ public class CreateAWSClusterRequest  {
     this.javaVersion = javaVersion;
   }
 
+  /**
+   * Getter for architecture.
+   * Specifies the CPU architecture of the cluster. Values are ARM64, X86_64.
+   **/
+  @JsonProperty("architecture")
+  public String getArchitecture() {
+    return architecture;
+  }
+
+  /**
+   * Setter for architecture.
+   * Specifies the CPU architecture of the cluster. Values are ARM64, X86_64.
+   **/
+  public void setArchitecture(String architecture) {
+    this.architecture = architecture;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -525,12 +547,15 @@ public class CreateAWSClusterRequest  {
     if (!Objects.equals(this.javaVersion, createAWSClusterRequest.javaVersion)) {
       return false;
     }
+    if (!Objects.equals(this.architecture, createAWSClusterRequest.architecture)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, clusterDefinitionName, clusterDefinition, environmentName, environment, clusterTemplateName, clusterTemplate, customConfigurationsName, instanceGroups, subnetId, image, tags, requestTemplate, datahubDatabase, subnetIds, multiAz, clusterExtension, enableLoadBalancer, javaVersion);
+    return Objects.hash(clusterName, clusterDefinitionName, clusterDefinition, environmentName, environment, clusterTemplateName, clusterTemplate, customConfigurationsName, instanceGroups, subnetId, image, tags, requestTemplate, datahubDatabase, subnetIds, multiAz, clusterExtension, enableLoadBalancer, javaVersion, architecture);
   }
 
   @Override
@@ -556,6 +581,7 @@ public class CreateAWSClusterRequest  {
     sb.append("    clusterExtension: ").append(toIndentedString(clusterExtension)).append("\n");
     sb.append("    enableLoadBalancer: ").append(toIndentedString(enableLoadBalancer)).append("\n");
     sb.append("    javaVersion: ").append(toIndentedString(javaVersion)).append("\n");
+    sb.append("    architecture: ").append(toIndentedString(architecture)).append("\n");
     sb.append("}");
     return sb.toString();
   }

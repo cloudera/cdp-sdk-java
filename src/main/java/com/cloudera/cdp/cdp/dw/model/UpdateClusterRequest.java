@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object for the updateCluster method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:18.456-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-12T15:05:26.077-07:00")
 public class UpdateClusterRequest  {
 
   /**
@@ -73,11 +73,6 @@ public class UpdateClusterRequest  {
    * Cluster observability configurations to update. You can forward logs from environments activated in Cloudera Data Warehouse (CDW) to observability and monitoring systems such as Datadog, New Relic, or Splunk. Please refer to the following Cloudera documentation for more info. https://docs.cloudera.com/data-warehouse/cloud/monitoring/topics/dw-observability-log-forwarding.html
    **/
   private UpdateClusterObservabilityConfig observabilityConfig = null;
-
-  /**
-   * Used to set the resource pool of the Private Cloud Data Services clusters that are not enrolled for quota management.
-   **/
-  private String resourcePool = null;
 
   /**
    * Getter for clusterId.
@@ -215,23 +210,6 @@ public class UpdateClusterRequest  {
     this.observabilityConfig = observabilityConfig;
   }
 
-  /**
-   * Getter for resourcePool.
-   * Used to set the resource pool of the Private Cloud Data Services clusters that are not enrolled for quota management.
-   **/
-  @JsonProperty("resourcePool")
-  public String getResourcePool() {
-    return resourcePool;
-  }
-
-  /**
-   * Setter for resourcePool.
-   * Used to set the resource pool of the Private Cloud Data Services clusters that are not enrolled for quota management.
-   **/
-  public void setResourcePool(String resourcePool) {
-    this.resourcePool = resourcePool;
-  }
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -265,15 +243,12 @@ public class UpdateClusterRequest  {
     if (!Objects.equals(this.observabilityConfig, updateClusterRequest.observabilityConfig)) {
       return false;
     }
-    if (!Objects.equals(this.resourcePool, updateClusterRequest.resourcePool)) {
-      return false;
-    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, description, whitelistIpCIDRs, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, awsUpdate, azureUpdate, observabilityConfig, resourcePool);
+    return Objects.hash(clusterId, description, whitelistIpCIDRs, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, awsUpdate, azureUpdate, observabilityConfig);
   }
 
   @Override
@@ -288,7 +263,6 @@ public class UpdateClusterRequest  {
     sb.append("    awsUpdate: ").append(toIndentedString(awsUpdate)).append("\n");
     sb.append("    azureUpdate: ").append(toIndentedString(azureUpdate)).append("\n");
     sb.append("    observabilityConfig: ").append(toIndentedString(observabilityConfig)).append("\n");
-    sb.append("    resourcePool: ").append(toIndentedString(resourcePool)).append("\n");
     sb.append("}");
     return sb.toString();
   }

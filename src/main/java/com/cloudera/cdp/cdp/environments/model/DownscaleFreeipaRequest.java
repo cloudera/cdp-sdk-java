@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * The request object for FreeIPA downscale. Either targetAvailabilityType or instances
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:20.540-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-12T15:05:27.960-07:00")
 public class DownscaleFreeipaRequest  {
 
   /**

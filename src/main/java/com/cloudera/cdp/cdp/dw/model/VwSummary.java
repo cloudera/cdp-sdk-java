@@ -41,7 +41,7 @@ import java.util.Map;
 /**
  * A Virtual Warehouse.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:18.456-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-12T15:05:26.077-07:00")
 public class VwSummary  {
 
   /**
@@ -143,6 +143,11 @@ public class VwSummary  {
    * Denotes whether the Virtual Warehouse has the Impala Query Log enabled or not.
    **/
   private Boolean impalaQueryLog = null;
+
+  /**
+   * Denotes whether the Hive Virtual Warehouse stores Hive query information for all completed queries in the sys.query_history system table. You can query this table using SQL to monitor and optimize the Hive engine.
+   **/
+  private Boolean logHiveQueries = null;
 
   /**
    * Tags associated with the resources.
@@ -555,6 +560,23 @@ public class VwSummary  {
   }
 
   /**
+   * Getter for logHiveQueries.
+   * Denotes whether the Hive Virtual Warehouse stores Hive query information for all completed queries in the sys.query_history system table. You can query this table using SQL to monitor and optimize the Hive engine.
+   **/
+  @JsonProperty("logHiveQueries")
+  public Boolean getLogHiveQueries() {
+    return logHiveQueries;
+  }
+
+  /**
+   * Setter for logHiveQueries.
+   * Denotes whether the Hive Virtual Warehouse stores Hive query information for all completed queries in the sys.query_history system table. You can query this table using SQL to monitor and optimize the Hive engine.
+   **/
+  public void setLogHiveQueries(Boolean logHiveQueries) {
+    this.logHiveQueries = logHiveQueries;
+  }
+
+  /**
    * Getter for tags.
    * Tags associated with the resources.
    **/
@@ -863,6 +885,9 @@ public class VwSummary  {
     if (!Objects.equals(this.impalaQueryLog, vwSummary.impalaQueryLog)) {
       return false;
     }
+    if (!Objects.equals(this.logHiveQueries, vwSummary.logHiveQueries)) {
+      return false;
+    }
     if (!Objects.equals(this.tags, vwSummary.tags)) {
       return false;
     }
@@ -910,7 +935,7 @@ public class VwSummary  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, name, vwType, instanceType, dbcId, status, statusChangedAt, creator, creationDate, configId, cdhVersion, numOfCores, memoryCapacity, nodeCount, availabilityZone, endpoints, supportedAuthMethods, jwtAuth, impalaQueryLog, tags, compactor, viz, enableUnifiedAnalytics, autoscalingOptions, impalaOptions, impalaHaSettingsOptions, queryIsolationOptions, replicaStatus, resourcePool, hiveAuthenticationMode, ebsLLAPSpillGB, hiveServerHaMode, resources);
+    return Objects.hash(crn, id, name, vwType, instanceType, dbcId, status, statusChangedAt, creator, creationDate, configId, cdhVersion, numOfCores, memoryCapacity, nodeCount, availabilityZone, endpoints, supportedAuthMethods, jwtAuth, impalaQueryLog, logHiveQueries, tags, compactor, viz, enableUnifiedAnalytics, autoscalingOptions, impalaOptions, impalaHaSettingsOptions, queryIsolationOptions, replicaStatus, resourcePool, hiveAuthenticationMode, ebsLLAPSpillGB, hiveServerHaMode, resources);
   }
 
   @Override
@@ -937,6 +962,7 @@ public class VwSummary  {
     sb.append("    supportedAuthMethods: ").append(toIndentedString(supportedAuthMethods)).append("\n");
     sb.append("    jwtAuth: ").append(toIndentedString(jwtAuth)).append("\n");
     sb.append("    impalaQueryLog: ").append(toIndentedString(impalaQueryLog)).append("\n");
+    sb.append("    logHiveQueries: ").append(toIndentedString(logHiveQueries)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    compactor: ").append(toIndentedString(compactor)).append("\n");
     sb.append("    viz: ").append(toIndentedString(viz)).append("\n");

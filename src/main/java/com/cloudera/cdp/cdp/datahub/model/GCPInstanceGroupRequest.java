@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Configurations for instance group
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:17.636-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-12T15:05:25.126-07:00")
 public class GCPInstanceGroupRequest  {
 
   /**
@@ -71,6 +71,11 @@ public class GCPInstanceGroupRequest  {
    * Recovery mode for the instance group.
    **/
   private String recoveryMode = null;
+
+  /**
+   * List of availability zones that this instance group is associated with.
+   **/
+  private List<String> availabilityZones = new ArrayList<String>();
 
   /**
    * Getter for nodeCount.
@@ -208,6 +213,23 @@ public class GCPInstanceGroupRequest  {
     this.recoveryMode = recoveryMode;
   }
 
+  /**
+   * Getter for availabilityZones.
+   * List of availability zones that this instance group is associated with.
+   **/
+  @JsonProperty("availabilityZones")
+  public List<String> getAvailabilityZones() {
+    return availabilityZones;
+  }
+
+  /**
+   * Setter for availabilityZones.
+   * List of availability zones that this instance group is associated with.
+   **/
+  public void setAvailabilityZones(List<String> availabilityZones) {
+    this.availabilityZones = availabilityZones;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -241,12 +263,15 @@ public class GCPInstanceGroupRequest  {
     if (!Objects.equals(this.recoveryMode, gCPInstanceGroupRequest.recoveryMode)) {
       return false;
     }
+    if (!Objects.equals(this.availabilityZones, gCPInstanceGroupRequest.availabilityZones)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(nodeCount, instanceGroupName, instanceGroupType, instanceType, rootVolumeSize, attachedVolumeConfiguration, recipeNames, recoveryMode);
+    return Objects.hash(nodeCount, instanceGroupName, instanceGroupType, instanceType, rootVolumeSize, attachedVolumeConfiguration, recipeNames, recoveryMode, availabilityZones);
   }
 
   @Override
@@ -261,6 +286,7 @@ public class GCPInstanceGroupRequest  {
     sb.append("    attachedVolumeConfiguration: ").append(toIndentedString(attachedVolumeConfiguration)).append("\n");
     sb.append("    recipeNames: ").append(toIndentedString(recipeNames)).append("\n");
     sb.append("    recoveryMode: ").append(toIndentedString(recoveryMode)).append("\n");
+    sb.append("    availabilityZones: ").append(toIndentedString(availabilityZones)).append("\n");
     sb.append("}");
     return sb.toString();
   }

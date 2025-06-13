@@ -27,12 +27,13 @@ import com.cloudera.cdp.datalake.model.DatalakeResourceGCPTagRequest;
 import com.cloudera.cdp.datalake.model.GCPConfigurationRequest;
 import com.cloudera.cdp.datalake.model.ImageRequest;
 import com.cloudera.cdp.datalake.model.InstanceGroupRecipeRequest;
+import com.cloudera.cdp.datalake.model.SdxInstanceGroupRequest;
 import java.util.*;
 
 /**
  * Request object for create GCP Data Lake request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:19.972-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-12T15:05:27.264-07:00")
 public class CreateGCPDatalakeRequest  {
 
   /**
@@ -76,9 +77,19 @@ public class CreateGCPDatalakeRequest  {
   private List<InstanceGroupRecipeRequest> recipes = new ArrayList<InstanceGroupRecipeRequest>();
 
   /**
+   * Configure custom properties on an instance group level.
+   **/
+  private List<SdxInstanceGroupRequest> customInstanceGroups = new ArrayList<SdxInstanceGroupRequest>();
+
+  /**
    * Configure the major version of Java on the cluster.
    **/
   private Integer javaVersion = null;
+
+  /**
+   * Creates CDP datalake distributed across multiple availability zones in GCP region.
+   **/
+  private Boolean multiAz = false;
 
   /**
    * Getter for datalakeName.
@@ -217,6 +228,23 @@ public class CreateGCPDatalakeRequest  {
   }
 
   /**
+   * Getter for customInstanceGroups.
+   * Configure custom properties on an instance group level.
+   **/
+  @JsonProperty("customInstanceGroups")
+  public List<SdxInstanceGroupRequest> getCustomInstanceGroups() {
+    return customInstanceGroups;
+  }
+
+  /**
+   * Setter for customInstanceGroups.
+   * Configure custom properties on an instance group level.
+   **/
+  public void setCustomInstanceGroups(List<SdxInstanceGroupRequest> customInstanceGroups) {
+    this.customInstanceGroups = customInstanceGroups;
+  }
+
+  /**
    * Getter for javaVersion.
    * Configure the major version of Java on the cluster.
    **/
@@ -231,6 +259,23 @@ public class CreateGCPDatalakeRequest  {
    **/
   public void setJavaVersion(Integer javaVersion) {
     this.javaVersion = javaVersion;
+  }
+
+  /**
+   * Getter for multiAz.
+   * Creates CDP datalake distributed across multiple availability zones in GCP region.
+   **/
+  @JsonProperty("multiAz")
+  public Boolean getMultiAz() {
+    return multiAz;
+  }
+
+  /**
+   * Setter for multiAz.
+   * Creates CDP datalake distributed across multiple availability zones in GCP region.
+   **/
+  public void setMultiAz(Boolean multiAz) {
+    this.multiAz = multiAz;
   }
 
   @Override
@@ -266,7 +311,13 @@ public class CreateGCPDatalakeRequest  {
     if (!Objects.equals(this.recipes, createGCPDatalakeRequest.recipes)) {
       return false;
     }
+    if (!Objects.equals(this.customInstanceGroups, createGCPDatalakeRequest.customInstanceGroups)) {
+      return false;
+    }
     if (!Objects.equals(this.javaVersion, createGCPDatalakeRequest.javaVersion)) {
+      return false;
+    }
+    if (!Objects.equals(this.multiAz, createGCPDatalakeRequest.multiAz)) {
       return false;
     }
     return true;
@@ -274,7 +325,7 @@ public class CreateGCPDatalakeRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, tags, scale, runtime, image, recipes, javaVersion);
+    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, tags, scale, runtime, image, recipes, customInstanceGroups, javaVersion, multiAz);
   }
 
   @Override
@@ -289,7 +340,9 @@ public class CreateGCPDatalakeRequest  {
     sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
     sb.append("    image: ").append(toIndentedString(image)).append("\n");
     sb.append("    recipes: ").append(toIndentedString(recipes)).append("\n");
+    sb.append("    customInstanceGroups: ").append(toIndentedString(customInstanceGroups)).append("\n");
     sb.append("    javaVersion: ").append(toIndentedString(javaVersion)).append("\n");
+    sb.append("    multiAz: ").append(toIndentedString(multiAz)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * Request object for the createCluster method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:18.456-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-12T15:05:26.077-07:00")
 public class CreateClusterRequest  {
 
   /**
@@ -104,11 +104,6 @@ public class CreateClusterRequest  {
    * Custom environment subdomain. Overrides the environment subdomain using a customized domain either in the old subdomain format like ENV_ID.dw or the new format like dw-ENV_NAME.
    **/
   private String customSubdomain = null;
-
-  /**
-   * The Resource Pool of the cluster.
-   **/
-  private String resourcePool = null;
 
   /**
    * Getter for environmentCrn.
@@ -350,23 +345,6 @@ public class CreateClusterRequest  {
     this.customSubdomain = customSubdomain;
   }
 
-  /**
-   * Getter for resourcePool.
-   * The Resource Pool of the cluster.
-   **/
-  @JsonProperty("resourcePool")
-  public String getResourcePool() {
-    return resourcePool;
-  }
-
-  /**
-   * Setter for resourcePool.
-   * The Resource Pool of the cluster.
-   **/
-  public void setResourcePool(String resourcePool) {
-    this.resourcePool = resourcePool;
-  }
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -418,15 +396,12 @@ public class CreateClusterRequest  {
     if (!Objects.equals(this.customSubdomain, createClusterRequest.customSubdomain)) {
       return false;
     }
-    if (!Objects.equals(this.resourcePool, createClusterRequest.resourcePool)) {
-      return false;
-    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, useOverlayNetwork, databaseBackupRetentionPeriod, whitelistIpCIDRs, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, usePrivateLoadBalancer, usePublicWorkerNode, enableStorageRoles, customRegistryOptions, awsOptions, azureOptions, privateCloudOptions, customSubdomain, resourcePool);
+    return Objects.hash(environmentCrn, useOverlayNetwork, databaseBackupRetentionPeriod, whitelistIpCIDRs, whitelistK8sClusterAccessIpCIDRs, whitelistWorkloadAccessIpCIDRs, usePrivateLoadBalancer, usePublicWorkerNode, enableStorageRoles, customRegistryOptions, awsOptions, azureOptions, privateCloudOptions, customSubdomain);
   }
 
   @Override
@@ -447,7 +422,6 @@ public class CreateClusterRequest  {
     sb.append("    azureOptions: ").append(toIndentedString(azureOptions)).append("\n");
     sb.append("    privateCloudOptions: ").append(toIndentedString(privateCloudOptions)).append("\n");
     sb.append("    customSubdomain: ").append(toIndentedString(customSubdomain)).append("\n");
-    sb.append("    resourcePool: ").append(toIndentedString(resourcePool)).append("\n");
     sb.append("}");
     return sb.toString();
   }

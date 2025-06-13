@@ -28,7 +28,7 @@ import com.cloudera.cdp.dfworkload.model.RpcImportedDeploymentConfiguration;
 /**
  * Response object for importing deployment configuration.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:22.522-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-12T15:05:29.746-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class ImportDeploymentResponse extends CdpResponse {
 

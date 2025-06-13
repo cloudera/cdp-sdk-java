@@ -28,7 +28,7 @@ import com.cloudera.cdp.dw.model.KeyPairCredentials;
 /**
  * Options for activating a Private Cloud environment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:18.456-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-12T15:05:26.077-07:00")
 public class PrivateCloudActivationOptions  {
 
   /**
@@ -42,24 +42,9 @@ public class PrivateCloudActivationOptions  {
   private String delegationPassword = null;
 
   /**
-   * DEPRECATED: This option will be removed in future releases. Instead of creating a custom Security Context Constraint, we rely on the cluster default. The name of the Hive Security Context Constraint.
-   **/
-  private String securityContextConstraintName = null;
-
-  /**
    * The storage class for the Local Storage Operator.
    **/
   private String storageClass = null;
-
-  /**
-   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the DAS database. Not required for embedded databases.
-   **/
-  private String dbDas = null;
-
-  /**
-   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the HUE database. Not required for embedded databases.
-   **/
-  private String dbHue = null;
 
   /**
    * Enable to use dedicated nodes exclusively for executors and coordinators, and improve performance. You can enable this only if you reserved nodes while adding a CDP Private Cloud containerized ECS cluster. When disabled, non-compute pods such as MetaStore and Data Visualization can also use the reserved nodes.
@@ -110,25 +95,6 @@ public class PrivateCloudActivationOptions  {
   }
 
   /**
-   * Getter for securityContextConstraintName.
-   * DEPRECATED: This option will be removed in future releases. Instead of creating a custom Security Context Constraint, we rely on the cluster default. The name of the Hive Security Context Constraint.
-   **/
-  @Deprecated
-  @JsonProperty("securityContextConstraintName")
-  public String getSecurityContextConstraintName() {
-    return securityContextConstraintName;
-  }
-
-  /**
-   * Setter for securityContextConstraintName.
-   * DEPRECATED: This option will be removed in future releases. Instead of creating a custom Security Context Constraint, we rely on the cluster default. The name of the Hive Security Context Constraint.
-   **/
-  @Deprecated
-  public void setSecurityContextConstraintName(String securityContextConstraintName) {
-    this.securityContextConstraintName = securityContextConstraintName;
-  }
-
-  /**
    * Getter for storageClass.
    * The storage class for the Local Storage Operator.
    **/
@@ -143,44 +109,6 @@ public class PrivateCloudActivationOptions  {
    **/
   public void setStorageClass(String storageClass) {
     this.storageClass = storageClass;
-  }
-
-  /**
-   * Getter for dbDas.
-   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the DAS database. Not required for embedded databases.
-   **/
-  @Deprecated
-  @JsonProperty("dbDas")
-  public String getDbDas() {
-    return dbDas;
-  }
-
-  /**
-   * Setter for dbDas.
-   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the DAS database. Not required for embedded databases.
-   **/
-  @Deprecated
-  public void setDbDas(String dbDas) {
-    this.dbDas = dbDas;
-  }
-
-  /**
-   * Getter for dbHue.
-   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the HUE database. Not required for embedded databases.
-   **/
-  @Deprecated
-  @JsonProperty("dbHue")
-  public String getDbHue() {
-    return dbHue;
-  }
-
-  /**
-   * Setter for dbHue.
-   * DEPRECATED: Current Private Cloud releases only support embedded database, the value of this field is ignored. The name of the HUE database. Not required for embedded databases.
-   **/
-  @Deprecated
-  public void setDbHue(String dbHue) {
-    this.dbHue = dbHue;
   }
 
   /**
@@ -232,16 +160,7 @@ public class PrivateCloudActivationOptions  {
     if (!Objects.equals(this.delegationPassword, privateCloudActivationOptions.delegationPassword)) {
       return false;
     }
-    if (!Objects.equals(this.securityContextConstraintName, privateCloudActivationOptions.securityContextConstraintName)) {
-      return false;
-    }
     if (!Objects.equals(this.storageClass, privateCloudActivationOptions.storageClass)) {
-      return false;
-    }
-    if (!Objects.equals(this.dbDas, privateCloudActivationOptions.dbDas)) {
-      return false;
-    }
-    if (!Objects.equals(this.dbHue, privateCloudActivationOptions.dbHue)) {
       return false;
     }
     if (!Objects.equals(this.dedicatedExecutorNodes, privateCloudActivationOptions.dedicatedExecutorNodes)) {
@@ -255,7 +174,7 @@ public class PrivateCloudActivationOptions  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(delegationUsername, delegationPassword, securityContextConstraintName, storageClass, dbDas, dbHue, dedicatedExecutorNodes, dbClientCredentials);
+    return Objects.hash(delegationUsername, delegationPassword, storageClass, dedicatedExecutorNodes, dbClientCredentials);
   }
 
   @Override
@@ -264,10 +183,7 @@ public class PrivateCloudActivationOptions  {
     sb.append("class PrivateCloudActivationOptions {\n");
     sb.append("    delegationUsername: ").append(toIndentedString(delegationUsername)).append("\n");
     sb.append("    delegationPassword: ").append(toIndentedString(delegationPassword)).append("\n");
-    sb.append("    securityContextConstraintName: ").append(toIndentedString(securityContextConstraintName)).append("\n");
     sb.append("    storageClass: ").append(toIndentedString(storageClass)).append("\n");
-    sb.append("    dbDas: ").append(toIndentedString(dbDas)).append("\n");
-    sb.append("    dbHue: ").append(toIndentedString(dbHue)).append("\n");
     sb.append("    dedicatedExecutorNodes: ").append(toIndentedString(dedicatedExecutorNodes)).append("\n");
     sb.append("    dbClientCredentials: ").append(toIndentedString(dbClientCredentials)).append("\n");
     sb.append("}");

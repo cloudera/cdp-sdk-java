@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * A request to drop the database
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:21.213-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-12T15:05:28.487-07:00")
 public class DropDatabaseRequest  {
 
   /**
@@ -39,6 +39,11 @@ public class DropDatabaseRequest  {
    * database name
    **/
   private String databaseName = null;
+
+  /**
+   * Whether to forcefully drop the database
+   **/
+  private Boolean force = null;
 
   /**
    * Getter for environmentName.
@@ -74,6 +79,23 @@ public class DropDatabaseRequest  {
     this.databaseName = databaseName;
   }
 
+  /**
+   * Getter for force.
+   * Whether to forcefully drop the database
+   **/
+  @JsonProperty("force")
+  public Boolean getForce() {
+    return force;
+  }
+
+  /**
+   * Setter for force.
+   * Whether to forcefully drop the database
+   **/
+  public void setForce(Boolean force) {
+    this.force = force;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -89,12 +111,15 @@ public class DropDatabaseRequest  {
     if (!Objects.equals(this.databaseName, dropDatabaseRequest.databaseName)) {
       return false;
     }
+    if (!Objects.equals(this.force, dropDatabaseRequest.force)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, databaseName);
+    return Objects.hash(environmentName, databaseName, force);
   }
 
   @Override
@@ -103,6 +128,7 @@ public class DropDatabaseRequest  {
     sb.append("class DropDatabaseRequest {\n");
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    databaseName: ").append(toIndentedString(databaseName)).append("\n");
+    sb.append("    force: ").append(toIndentedString(force)).append("\n");
     sb.append("}");
     return sb.toString();
   }

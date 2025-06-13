@@ -28,7 +28,7 @@ import com.cloudera.cdp.dw.model.ServiceConfigReq;
 /**
  * Request object for the updateDbc method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-05-29T08:54:18.456-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-12T15:05:26.077-07:00")
 public class UpdateDbcRequest  {
 
   /**
@@ -45,6 +45,11 @@ public class UpdateDbcRequest  {
    * The resource template of the Database Catalog.
    **/
   private String resourceTemplateId = null;
+
+  /**
+   * Sets the resource pool of the Database Catalog. Updating an already set resource pool for a Database Catalog is not supported.
+   **/
+  private String resourcePool = null;
 
   /**
    * The service configuration to update the DBC with. This will be applied on top of the existing configuration so there's no need to list configurations that stay the same.
@@ -103,6 +108,23 @@ public class UpdateDbcRequest  {
   }
 
   /**
+   * Getter for resourcePool.
+   * Sets the resource pool of the Database Catalog. Updating an already set resource pool for a Database Catalog is not supported.
+   **/
+  @JsonProperty("resourcePool")
+  public String getResourcePool() {
+    return resourcePool;
+  }
+
+  /**
+   * Setter for resourcePool.
+   * Sets the resource pool of the Database Catalog. Updating an already set resource pool for a Database Catalog is not supported.
+   **/
+  public void setResourcePool(String resourcePool) {
+    this.resourcePool = resourcePool;
+  }
+
+  /**
    * Getter for config.
    * The service configuration to update the DBC with. This will be applied on top of the existing configuration so there&#39;s no need to list configurations that stay the same.
    **/
@@ -137,6 +159,9 @@ public class UpdateDbcRequest  {
     if (!Objects.equals(this.resourceTemplateId, updateDbcRequest.resourceTemplateId)) {
       return false;
     }
+    if (!Objects.equals(this.resourcePool, updateDbcRequest.resourcePool)) {
+      return false;
+    }
     if (!Objects.equals(this.config, updateDbcRequest.config)) {
       return false;
     }
@@ -145,7 +170,7 @@ public class UpdateDbcRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, dbcId, resourceTemplateId, config);
+    return Objects.hash(clusterId, dbcId, resourceTemplateId, resourcePool, config);
   }
 
   @Override
@@ -155,6 +180,7 @@ public class UpdateDbcRequest  {
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    dbcId: ").append(toIndentedString(dbcId)).append("\n");
     sb.append("    resourceTemplateId: ").append(toIndentedString(resourceTemplateId)).append("\n");
+    sb.append("    resourcePool: ").append(toIndentedString(resourcePool)).append("\n");
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("}");
     return sb.toString();
