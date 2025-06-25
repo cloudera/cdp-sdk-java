@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * The response object which describes the AutoScale rules for a DataHub cluster.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-12T15:05:25.126-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-24T14:06:20.043-07:00")
 public class ListAutoScaleHistoryResponse extends CdpResponse {
 
   /**

@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for scale cluster request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-12T15:05:25.126-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-24T14:06:20.043-07:00")
 public class ScaleClusterRequest  {
 
   /**

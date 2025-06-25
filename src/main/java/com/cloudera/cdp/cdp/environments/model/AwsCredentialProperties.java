@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * The credential properties that closely related to those that have been created on AWS.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-12T15:05:27.960-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-24T14:06:22.886-07:00")
 public class AwsCredentialProperties  {
 
   /**
@@ -36,7 +36,7 @@ public class AwsCredentialProperties  {
   private String roleArn = null;
 
   /**
-   * Flag that indicates that the given AWS credential is GovCloud specfic.
+   * Flag that indicates that the given AWS credential is GovCloud specific.
    **/
   private Boolean govCloud = null;
 
@@ -59,7 +59,7 @@ public class AwsCredentialProperties  {
 
   /**
    * Getter for govCloud.
-   * Flag that indicates that the given AWS credential is GovCloud specfic.
+   * Flag that indicates that the given AWS credential is GovCloud specific.
    **/
   @JsonProperty("govCloud")
   public Boolean getGovCloud() {
@@ -68,7 +68,7 @@ public class AwsCredentialProperties  {
 
   /**
    * Setter for govCloud.
-   * Flag that indicates that the given AWS credential is GovCloud specfic.
+   * Flag that indicates that the given AWS credential is GovCloud specific.
    **/
   public void setGovCloud(Boolean govCloud) {
     this.govCloud = govCloud;

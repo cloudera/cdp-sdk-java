@@ -56,6 +56,8 @@ import com.cloudera.cdp.ml.model.DescribeMlServingAppRequest;
 import com.cloudera.cdp.ml.model.DescribeMlServingAppResponse;
 import com.cloudera.cdp.ml.model.DescribeModelRegistryRequest;
 import com.cloudera.cdp.ml.model.DescribeModelRegistryResponse;
+import com.cloudera.cdp.ml.model.DescribeWorkspaceBackupRequest;
+import com.cloudera.cdp.ml.model.DescribeWorkspaceBackupResponse;
 import com.cloudera.cdp.ml.model.DescribeWorkspaceRequest;
 import com.cloudera.cdp.ml.model.DescribeWorkspaceResponse;
 import com.cloudera.cdp.ml.model.Error;
@@ -135,7 +137,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-12T15:05:26.860-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-24T14:06:21.852-07:00")
 public class MlClient extends CdpClient {
 
   public static final String SERVICE_NAME = "ml";
@@ -359,6 +361,19 @@ public class MlClient extends CdpClient {
     }
 
     return this.invokeAPI("describeWorkspace", "/api/v1/ml/describeWorkspace", input, new GenericType<DescribeWorkspaceResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Describe backup snaphot of a workbench.
+   * @param input
+   * @return DescribeWorkspaceBackupResponse
+   */
+  public DescribeWorkspaceBackupResponse describeWorkspaceBackup(DescribeWorkspaceBackupRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeWorkspaceBackup");
+    }
+
+    return this.invokeAPI("describeWorkspaceBackup", "/api/v1/ml/describeWorkspaceBackup", input, new GenericType<DescribeWorkspaceBackupResponse>(){}, NO_EXTENSION);
   }
 
   /**

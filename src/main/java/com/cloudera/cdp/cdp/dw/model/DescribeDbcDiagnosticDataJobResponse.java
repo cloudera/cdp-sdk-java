@@ -28,7 +28,7 @@ import com.cloudera.cdp.dw.model.DbcDiagnosticDataJob;
 /**
  * Response object for the describeDbcDiagnosticDataJobRequest method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-12T15:05:26.077-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-24T14:06:21.133-07:00")
 public class DescribeDbcDiagnosticDataJobResponse extends CdpResponse {
 
   /**

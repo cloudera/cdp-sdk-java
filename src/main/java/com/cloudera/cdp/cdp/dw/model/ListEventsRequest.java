@@ -27,21 +27,21 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the listEvents method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-12T15:05:26.077-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-24T14:06:21.133-07:00")
 public class ListEventsRequest  {
 
   /**
-   * Filter events based on the operation ID. Either operation ID or service ID is required.
+   * Filters events based on the operation ID. Either operation ID or service ID is required.
    **/
   private String operationId = null;
 
   /**
-   * Filter events based on the service ID. It can be Cluster ID, Database Catalog ID, Virtual Warehouse ID or Data Visualization App ID.
+   * Filters events based on the service ID. It can be Cluster ID, Database Catalog ID, Virtual Warehouse ID or Data Visualization App ID.
    **/
   private String serviceId = null;
 
   /**
-   * Limit the number of returned rows. If not specified then the recent 20 events will be returned. The maximum is 100.
+   * Limit the number of returned rows. If not specified then the recent 20 events will be returned. The maximum is 500.
    **/
   private Integer limit = null;
 
@@ -52,7 +52,7 @@ public class ListEventsRequest  {
 
   /**
    * Getter for operationId.
-   * Filter events based on the operation ID. Either operation ID or service ID is required.
+   * Filters events based on the operation ID. Either operation ID or service ID is required.
    **/
   @JsonProperty("operationId")
   public String getOperationId() {
@@ -61,7 +61,7 @@ public class ListEventsRequest  {
 
   /**
    * Setter for operationId.
-   * Filter events based on the operation ID. Either operation ID or service ID is required.
+   * Filters events based on the operation ID. Either operation ID or service ID is required.
    **/
   public void setOperationId(String operationId) {
     this.operationId = operationId;
@@ -69,7 +69,7 @@ public class ListEventsRequest  {
 
   /**
    * Getter for serviceId.
-   * Filter events based on the service ID. It can be Cluster ID, Database Catalog ID, Virtual Warehouse ID or Data Visualization App ID.
+   * Filters events based on the service ID. It can be Cluster ID, Database Catalog ID, Virtual Warehouse ID or Data Visualization App ID.
    **/
   @JsonProperty("serviceId")
   public String getServiceId() {
@@ -78,7 +78,7 @@ public class ListEventsRequest  {
 
   /**
    * Setter for serviceId.
-   * Filter events based on the service ID. It can be Cluster ID, Database Catalog ID, Virtual Warehouse ID or Data Visualization App ID.
+   * Filters events based on the service ID. It can be Cluster ID, Database Catalog ID, Virtual Warehouse ID or Data Visualization App ID.
    **/
   public void setServiceId(String serviceId) {
     this.serviceId = serviceId;
@@ -86,7 +86,7 @@ public class ListEventsRequest  {
 
   /**
    * Getter for limit.
-   * Limit the number of returned rows. If not specified then the recent 20 events will be returned. The maximum is 100.
+   * Limit the number of returned rows. If not specified then the recent 20 events will be returned. The maximum is 500.
    **/
   @JsonProperty("limit")
   public Integer getLimit() {
@@ -95,7 +95,7 @@ public class ListEventsRequest  {
 
   /**
    * Setter for limit.
-   * Limit the number of returned rows. If not specified then the recent 20 events will be returned. The maximum is 100.
+   * Limit the number of returned rows. If not specified then the recent 20 events will be returned. The maximum is 500.
    **/
   public void setLimit(Integer limit) {
     this.limit = limit;

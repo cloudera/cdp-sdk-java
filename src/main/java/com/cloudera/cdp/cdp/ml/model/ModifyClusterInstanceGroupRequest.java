@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for ModifyClusterInstanceGroup.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-12T15:05:26.860-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-24T14:06:21.852-07:00")
 public class ModifyClusterInstanceGroupRequest  {
 
   /**
@@ -54,6 +54,11 @@ public class ModifyClusterInstanceGroupRequest  {
    * The desired instance type of the workbench cluster instance group.
    **/
   private String instanceType = null;
+
+  /**
+   * The unique name for the instance or resource group of the workbench.
+   **/
+  private String name = null;
 
   /**
    * Getter for workspaceCrn.
@@ -140,6 +145,23 @@ public class ModifyClusterInstanceGroupRequest  {
     this.instanceType = instanceType;
   }
 
+  /**
+   * Getter for name.
+   * The unique name for the instance or resource group of the workbench.
+   **/
+  @JsonProperty("name")
+  public String getName() {
+    return name;
+  }
+
+  /**
+   * Setter for name.
+   * The unique name for the instance or resource group of the workbench.
+   **/
+  public void setName(String name) {
+    this.name = name;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -164,12 +186,15 @@ public class ModifyClusterInstanceGroupRequest  {
     if (!Objects.equals(this.instanceType, modifyClusterInstanceGroupRequest.instanceType)) {
       return false;
     }
+    if (!Objects.equals(this.name, modifyClusterInstanceGroupRequest.name)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(workspaceCrn, instanceGroupName, min, max, instanceType);
+    return Objects.hash(workspaceCrn, instanceGroupName, min, max, instanceType, name);
   }
 
   @Override
@@ -181,6 +206,7 @@ public class ModifyClusterInstanceGroupRequest  {
     sb.append("    min: ").append(toIndentedString(min)).append("\n");
     sb.append("    max: ").append(toIndentedString(max)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("}");
     return sb.toString();
   }
