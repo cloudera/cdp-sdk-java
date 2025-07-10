@@ -77,6 +77,8 @@ import com.cloudera.cdp.datalake.model.ListDatalakesRequest;
 import com.cloudera.cdp.datalake.model.ListDatalakesResponse;
 import com.cloudera.cdp.datalake.model.ListRuntimesRequest;
 import com.cloudera.cdp.datalake.model.ListRuntimesResponse;
+import com.cloudera.cdp.datalake.model.MigrateSkusRequest;
+import com.cloudera.cdp.datalake.model.MigrateSkusResponse;
 import com.cloudera.cdp.datalake.model.PrepareDatalakeUpgradeRequest;
 import com.cloudera.cdp.datalake.model.PrepareDatalakeUpgradeResponse;
 import com.cloudera.cdp.datalake.model.RecoverDatalakeRequest;
@@ -141,7 +143,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-24T14:06:22.252-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-09T13:56:12.765-07:00")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datalake";
@@ -482,6 +484,19 @@ public class DatalakeClient extends CdpClient {
     }
 
     return this.invokeAPI("listRuntimes", "/api/v1/datalake/listRuntimes", input, new GenericType<ListRuntimesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Migrate the Data Lake to a new SKU.
+   * @param input
+   * @return MigrateSkusResponse
+   */
+  public MigrateSkusResponse migrateSkus(MigrateSkusRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling migrateSkus");
+    }
+
+    return this.invokeAPI("migrateSkus", "/api/v1/datalake/migrateSkus", input, new GenericType<MigrateSkusResponse>(){}, NO_EXTENSION);
   }
 
   /**

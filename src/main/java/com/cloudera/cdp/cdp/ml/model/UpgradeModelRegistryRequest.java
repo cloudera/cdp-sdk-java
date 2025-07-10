@@ -27,13 +27,18 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request for upgrading model registry.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-24T14:06:21.852-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-09T13:56:12.208-07:00")
 public class UpgradeModelRegistryRequest  {
 
   /**
    * The CRN of the model registry to be upgraded.
    **/
   private String crn = null;
+
+  /**
+   * If true, opt out of enabling the object store CSI driver integration. CSI driver integration offers increased scalability but requires the “Storage Account Contributor” role on Azure.
+   **/
+  private Boolean disableObjectStoreCsiDriver = null;
 
   /**
    * Getter for crn.
@@ -52,6 +57,23 @@ public class UpgradeModelRegistryRequest  {
     this.crn = crn;
   }
 
+  /**
+   * Getter for disableObjectStoreCsiDriver.
+   * If true, opt out of enabling the object store CSI driver integration. CSI driver integration offers increased scalability but requires the “Storage Account Contributor” role on Azure.
+   **/
+  @JsonProperty("disableObjectStoreCsiDriver")
+  public Boolean getDisableObjectStoreCsiDriver() {
+    return disableObjectStoreCsiDriver;
+  }
+
+  /**
+   * Setter for disableObjectStoreCsiDriver.
+   * If true, opt out of enabling the object store CSI driver integration. CSI driver integration offers increased scalability but requires the “Storage Account Contributor” role on Azure.
+   **/
+  public void setDisableObjectStoreCsiDriver(Boolean disableObjectStoreCsiDriver) {
+    this.disableObjectStoreCsiDriver = disableObjectStoreCsiDriver;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -64,12 +86,15 @@ public class UpgradeModelRegistryRequest  {
     if (!Objects.equals(this.crn, upgradeModelRegistryRequest.crn)) {
       return false;
     }
+    if (!Objects.equals(this.disableObjectStoreCsiDriver, upgradeModelRegistryRequest.disableObjectStoreCsiDriver)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn);
+    return Objects.hash(crn, disableObjectStoreCsiDriver);
   }
 
   @Override
@@ -77,6 +102,7 @@ public class UpgradeModelRegistryRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpgradeModelRegistryRequest {\n");
     sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
+    sb.append("    disableObjectStoreCsiDriver: ").append(toIndentedString(disableObjectStoreCsiDriver)).append("\n");
     sb.append("}");
     return sb.toString();
   }

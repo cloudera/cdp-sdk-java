@@ -3,7 +3,7 @@
 
   <groupId>com.cloudera.cdp</groupId>
   <artifactId>cdp-sdk-java</artifactId>
-  <version>0.9.140</version>
+  <version>0.9.141</version>
   <name>Cloudera CDP Java SDK</name>
   <packaging>jar</packaging>
 
@@ -29,7 +29,7 @@
     <jsr305.version>3.0.2</jsr305.version>
     <junit-jupiter.version>5.5.2</junit-jupiter.version>
     <junit-platform.version>1.5.2</junit-platform.version>
-    <mockito.version>5.11.0</mockito.version>
+    <mockito.version>5.16.1</mockito.version>
     <slf4j-api.version>2.0.9</slf4j-api.version>
     <spotbugs.version>4.8.3</spotbugs.version>
 

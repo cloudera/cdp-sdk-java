@@ -28,7 +28,7 @@ import com.cloudera.cdp.environments.model.AwsCredentialPrerequisitesResponse;
 /**
  * The audit credential prerequisites for GovCloud for the enabled providers.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-24T14:06:22.886-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-09T13:56:13.429-07:00")
 public class GetGovCloudAuditCredentialPrerequisitesResponse extends CdpResponse {
 
   /**

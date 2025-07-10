@@ -113,6 +113,8 @@ import com.cloudera.cdp.datahub.model.ListRecipesRequest;
 import com.cloudera.cdp.datahub.model.ListRecipesResponse;
 import com.cloudera.cdp.datahub.model.ListScalingActivitiesRequest;
 import com.cloudera.cdp.datahub.model.ListScalingActivitiesResponse;
+import com.cloudera.cdp.datahub.model.MigrateSkusRequest;
+import com.cloudera.cdp.datahub.model.MigrateSkusResponse;
 import com.cloudera.cdp.datahub.model.PrepareClusterUpgradeRequest;
 import com.cloudera.cdp.datahub.model.PrepareClusterUpgradeResponse;
 import com.cloudera.cdp.datahub.model.RenewCertificateRequest;
@@ -173,7 +175,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-24T14:06:20.043-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-09T13:56:10.708-07:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datahub";
@@ -748,6 +750,19 @@ public class DatahubClient extends CdpClient {
     }
 
     return this.invokeAPI("listScalingActivities", "/api/v1/datahub/listScalingActivities", input, new GenericType<ListScalingActivitiesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Migrate Data Hub cluster SKUs.
+   * @param input
+   * @return MigrateSkusResponse
+   */
+  public MigrateSkusResponse migrateSkus(MigrateSkusRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling migrateSkus");
+    }
+
+    return this.invokeAPI("migrateSkus", "/api/v1/datahub/migrateSkus", input, new GenericType<MigrateSkusResponse>(){}, NO_EXTENSION);
   }
 
   /**

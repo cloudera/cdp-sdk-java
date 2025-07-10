@@ -27,13 +27,8 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the ListInstanceTypeConfiguration method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-24T14:06:21.852-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-09T13:56:12.208-07:00")
 public class ListInstanceTypeConfigurationRequest  {
-
-  /**
-   * Specifies the name of the region for which instance support details are requested.
-   **/
-  private String region = null;
 
   /**
    * Defines the category of the instance (e.g., CPU, GPU) relevant for the query in the specified region.
@@ -41,31 +36,29 @@ public class ListInstanceTypeConfigurationRequest  {
   private String instanceCategory = null;
 
   /**
-   * Identifies the cloud provider (e.g., AWS, Azure) for which to list supported instances.
-   **/
-  private String cloudProvider = null;
-
-  /**
    * Identifies the instance type.
    **/
   private String instanceType = null;
 
   /**
-   * Getter for region.
-   * Specifies the name of the region for which instance support details are requested.
+   * Specifies the environment name of respective cloud provider for which instance support details are requested.
    **/
-  @JsonProperty("region")
-  public String getRegion() {
-    return region;
-  }
+  private String environmentName = null;
 
   /**
-   * Setter for region.
-   * Specifies the name of the region for which instance support details are requested.
+   * Specifies the product type for which instance support details are requested.
    **/
-  public void setRegion(String region) {
-    this.region = region;
-  }
+  private String productType = null;
+
+  /**
+   * Deprecated. Please use environmentName instead, from which the region will be determined.
+   **/
+  private String region = null;
+
+  /**
+   * Deprecated. Please use environmentName instead, from which the cloud provider will be determined.
+   **/
+  private String cloudProvider = null;
 
   /**
    * Getter for instanceCategory.
@@ -85,23 +78,6 @@ public class ListInstanceTypeConfigurationRequest  {
   }
 
   /**
-   * Getter for cloudProvider.
-   * Identifies the cloud provider (e.g., AWS, Azure) for which to list supported instances.
-   **/
-  @JsonProperty("cloudProvider")
-  public String getCloudProvider() {
-    return cloudProvider;
-  }
-
-  /**
-   * Setter for cloudProvider.
-   * Identifies the cloud provider (e.g., AWS, Azure) for which to list supported instances.
-   **/
-  public void setCloudProvider(String cloudProvider) {
-    this.cloudProvider = cloudProvider;
-  }
-
-  /**
    * Getter for instanceType.
    * Identifies the instance type.
    **/
@@ -118,6 +94,78 @@ public class ListInstanceTypeConfigurationRequest  {
     this.instanceType = instanceType;
   }
 
+  /**
+   * Getter for environmentName.
+   * Specifies the environment name of respective cloud provider for which instance support details are requested.
+   **/
+  @JsonProperty("environmentName")
+  public String getEnvironmentName() {
+    return environmentName;
+  }
+
+  /**
+   * Setter for environmentName.
+   * Specifies the environment name of respective cloud provider for which instance support details are requested.
+   **/
+  public void setEnvironmentName(String environmentName) {
+    this.environmentName = environmentName;
+  }
+
+  /**
+   * Getter for productType.
+   * Specifies the product type for which instance support details are requested.
+   **/
+  @JsonProperty("productType")
+  public String getProductType() {
+    return productType;
+  }
+
+  /**
+   * Setter for productType.
+   * Specifies the product type for which instance support details are requested.
+   **/
+  public void setProductType(String productType) {
+    this.productType = productType;
+  }
+
+  /**
+   * Getter for region.
+   * Deprecated. Please use environmentName instead, from which the region will be determined.
+   **/
+  @Deprecated
+  @JsonProperty("region")
+  public String getRegion() {
+    return region;
+  }
+
+  /**
+   * Setter for region.
+   * Deprecated. Please use environmentName instead, from which the region will be determined.
+   **/
+  @Deprecated
+  public void setRegion(String region) {
+    this.region = region;
+  }
+
+  /**
+   * Getter for cloudProvider.
+   * Deprecated. Please use environmentName instead, from which the cloud provider will be determined.
+   **/
+  @Deprecated
+  @JsonProperty("cloudProvider")
+  public String getCloudProvider() {
+    return cloudProvider;
+  }
+
+  /**
+   * Setter for cloudProvider.
+   * Deprecated. Please use environmentName instead, from which the cloud provider will be determined.
+   **/
+  @Deprecated
+  public void setCloudProvider(String cloudProvider) {
+    this.cloudProvider = cloudProvider;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -127,16 +175,22 @@ public class ListInstanceTypeConfigurationRequest  {
       return false;
     }
     ListInstanceTypeConfigurationRequest listInstanceTypeConfigurationRequest = (ListInstanceTypeConfigurationRequest) o;
-    if (!Objects.equals(this.region, listInstanceTypeConfigurationRequest.region)) {
-      return false;
-    }
     if (!Objects.equals(this.instanceCategory, listInstanceTypeConfigurationRequest.instanceCategory)) {
       return false;
     }
-    if (!Objects.equals(this.cloudProvider, listInstanceTypeConfigurationRequest.cloudProvider)) {
+    if (!Objects.equals(this.instanceType, listInstanceTypeConfigurationRequest.instanceType)) {
       return false;
     }
-    if (!Objects.equals(this.instanceType, listInstanceTypeConfigurationRequest.instanceType)) {
+    if (!Objects.equals(this.environmentName, listInstanceTypeConfigurationRequest.environmentName)) {
+      return false;
+    }
+    if (!Objects.equals(this.productType, listInstanceTypeConfigurationRequest.productType)) {
+      return false;
+    }
+    if (!Objects.equals(this.region, listInstanceTypeConfigurationRequest.region)) {
+      return false;
+    }
+    if (!Objects.equals(this.cloudProvider, listInstanceTypeConfigurationRequest.cloudProvider)) {
       return false;
     }
     return true;
@@ -144,17 +198,19 @@ public class ListInstanceTypeConfigurationRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(region, instanceCategory, cloudProvider, instanceType);
+    return Objects.hash(instanceCategory, instanceType, environmentName, productType, region, cloudProvider);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListInstanceTypeConfigurationRequest {\n");
-    sb.append("    region: ").append(toIndentedString(region)).append("\n");
     sb.append("    instanceCategory: ").append(toIndentedString(instanceCategory)).append("\n");
-    sb.append("    cloudProvider: ").append(toIndentedString(cloudProvider)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
+    sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
+    sb.append("    productType: ").append(toIndentedString(productType)).append("\n");
+    sb.append("    region: ").append(toIndentedString(region)).append("\n");
+    sb.append("    cloudProvider: ").append(toIndentedString(cloudProvider)).append("\n");
     sb.append("}");
     return sb.toString();
   }

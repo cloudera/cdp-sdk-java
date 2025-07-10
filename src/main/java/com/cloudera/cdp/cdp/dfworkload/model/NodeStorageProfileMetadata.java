@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Provides details about the node storage options.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-24T14:06:24.983-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-09T13:56:15.542-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class NodeStorageProfileMetadata  {
 

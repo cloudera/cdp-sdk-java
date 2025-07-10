@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object for the CreateWorkspace method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-24T14:06:21.852-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-09T13:56:12.208-07:00")
 public class CreateWorkspaceRequest  {
 
   /**
@@ -73,6 +73,11 @@ public class CreateWorkspaceRequest  {
    * Optionally use an existing NFS by providing the hostname and desired path (Azure and Private Cloud only).
    **/
   private String existingNFS = null;
+
+  /**
+   * The boolean flag is used to enable yunikorn scheduling. By default, yunikorn scheduling is disabled.
+   **/
+  private Boolean enableYunikorn = null;
 
   /**
    * The whitelist of IPs for load balancer.
@@ -278,6 +283,23 @@ public class CreateWorkspaceRequest  {
    **/
   public void setExistingNFS(String existingNFS) {
     this.existingNFS = existingNFS;
+  }
+
+  /**
+   * Getter for enableYunikorn.
+   * The boolean flag is used to enable yunikorn scheduling. By default, yunikorn scheduling is disabled.
+   **/
+  @JsonProperty("enableYunikorn")
+  public Boolean getEnableYunikorn() {
+    return enableYunikorn;
+  }
+
+  /**
+   * Setter for enableYunikorn.
+   * The boolean flag is used to enable yunikorn scheduling. By default, yunikorn scheduling is disabled.
+   **/
+  public void setEnableYunikorn(Boolean enableYunikorn) {
+    this.enableYunikorn = enableYunikorn;
   }
 
   /**
@@ -551,6 +573,9 @@ public class CreateWorkspaceRequest  {
     if (!Objects.equals(this.existingNFS, createWorkspaceRequest.existingNFS)) {
       return false;
     }
+    if (!Objects.equals(this.enableYunikorn, createWorkspaceRequest.enableYunikorn)) {
+      return false;
+    }
     if (!Objects.equals(this.loadBalancerIPWhitelists, createWorkspaceRequest.loadBalancerIPWhitelists)) {
       return false;
     }
@@ -598,7 +623,7 @@ public class CreateWorkspaceRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, workspaceName, provisionK8sRequest, usePublicLoadBalancer, disableTLS, enableMonitoring, enableGovernance, existingNFS, loadBalancerIPWhitelists, nfsVersion, enableModelMetrics, existingDatabaseConfig, whitelistAuthorizedIPRanges, authorizedIPRanges, skipValidation, privateCluster, subnetsForLoadBalancers, staticSubdomain, cdswMigrationMode, outboundTypes, resourcePoolConfig, enableEnhancedPerformance);
+    return Objects.hash(environmentName, workspaceName, provisionK8sRequest, usePublicLoadBalancer, disableTLS, enableMonitoring, enableGovernance, existingNFS, enableYunikorn, loadBalancerIPWhitelists, nfsVersion, enableModelMetrics, existingDatabaseConfig, whitelistAuthorizedIPRanges, authorizedIPRanges, skipValidation, privateCluster, subnetsForLoadBalancers, staticSubdomain, cdswMigrationMode, outboundTypes, resourcePoolConfig, enableEnhancedPerformance);
   }
 
   @Override
@@ -613,6 +638,7 @@ public class CreateWorkspaceRequest  {
     sb.append("    enableMonitoring: ").append(toIndentedString(enableMonitoring)).append("\n");
     sb.append("    enableGovernance: ").append(toIndentedString(enableGovernance)).append("\n");
     sb.append("    existingNFS: ").append(toIndentedString(existingNFS)).append("\n");
+    sb.append("    enableYunikorn: ").append(toIndentedString(enableYunikorn)).append("\n");
     sb.append("    loadBalancerIPWhitelists: ").append(toIndentedString(loadBalancerIPWhitelists)).append("\n");
     sb.append("    nfsVersion: ").append(toIndentedString(nfsVersion)).append("\n");
     sb.append("    enableModelMetrics: ").append(toIndentedString(enableModelMetrics)).append("\n");

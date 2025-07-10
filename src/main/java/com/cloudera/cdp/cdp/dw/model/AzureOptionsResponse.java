@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object of the cluster Azure settings.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-24T14:06:21.133-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-09T13:56:11.491-07:00")
 public class AzureOptionsResponse extends CdpResponse {
 
   /**
@@ -36,7 +36,7 @@ public class AzureOptionsResponse extends CdpResponse {
   private String subnetId = null;
 
   /**
-   * Denotes whther the Azure Availability Zones for the cluster is enabled or not.
+   * Denotes whether the Azure Availability Zones for the cluster is enabled or not.
    **/
   private Boolean enableAZ = false;
 
@@ -104,7 +104,7 @@ public class AzureOptionsResponse extends CdpResponse {
 
   /**
    * Getter for enableAZ.
-   * Denotes whther the Azure Availability Zones for the cluster is enabled or not.
+   * Denotes whether the Azure Availability Zones for the cluster is enabled or not.
    **/
   @JsonProperty("enableAZ")
   public Boolean getEnableAZ() {
@@ -113,7 +113,7 @@ public class AzureOptionsResponse extends CdpResponse {
 
   /**
    * Setter for enableAZ.
-   * Denotes whther the Azure Availability Zones for the cluster is enabled or not.
+   * Denotes whether the Azure Availability Zones for the cluster is enabled or not.
    **/
   public void setEnableAZ(Boolean enableAZ) {
     this.enableAZ = enableAZ;

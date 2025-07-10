@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * The request object for FreeIPA downscale. Either targetAvailabilityType or instances
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-06-24T14:06:22.886-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-09T13:56:13.429-07:00")
 public class DownscaleFreeipaRequest  {
 
   /**
@@ -45,6 +45,11 @@ public class DownscaleFreeipaRequest  {
    * The instance Ids to downscale.
    **/
   private List<String> instances = new ArrayList<String>();
+
+  /**
+   * Force the downscale regardless of the status of the FreeIPA nodes and skip some validations.
+   **/
+  private Boolean force = false;
 
   /**
    * Getter for environmentName.
@@ -97,6 +102,23 @@ public class DownscaleFreeipaRequest  {
     this.instances = instances;
   }
 
+  /**
+   * Getter for force.
+   * Force the downscale regardless of the status of the FreeIPA nodes and skip some validations.
+   **/
+  @JsonProperty("force")
+  public Boolean getForce() {
+    return force;
+  }
+
+  /**
+   * Setter for force.
+   * Force the downscale regardless of the status of the FreeIPA nodes and skip some validations.
+   **/
+  public void setForce(Boolean force) {
+    this.force = force;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -115,12 +137,15 @@ public class DownscaleFreeipaRequest  {
     if (!Objects.equals(this.instances, downscaleFreeipaRequest.instances)) {
       return false;
     }
+    if (!Objects.equals(this.force, downscaleFreeipaRequest.force)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, targetAvailabilityType, instances);
+    return Objects.hash(environmentName, targetAvailabilityType, instances, force);
   }
 
   @Override
@@ -130,6 +155,7 @@ public class DownscaleFreeipaRequest  {
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    targetAvailabilityType: ").append(toIndentedString(targetAvailabilityType)).append("\n");
     sb.append("    instances: ").append(toIndentedString(instances)).append("\n");
+    sb.append("    force: ").append(toIndentedString(force)).append("\n");
     sb.append("}");
     return sb.toString();
   }
