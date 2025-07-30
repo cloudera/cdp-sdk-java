@@ -28,7 +28,7 @@ import com.cloudera.cdp.replicationmanager.model.PolicyReportDetails;
 /**
  * Policy report.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-09T13:56:16.355-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:45.641-07:00")
 public class PolicyReport  {
 
   /**

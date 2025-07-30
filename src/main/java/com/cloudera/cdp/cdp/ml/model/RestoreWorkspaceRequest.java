@@ -28,7 +28,7 @@ import com.cloudera.cdp.ml.model.CreateWorkspaceRequest;
 /**
  * Request object for RestoreWorkspace method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-09T13:56:12.208-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:41.723-07:00")
 public class RestoreWorkspaceRequest  {
 
   /**

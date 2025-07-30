@@ -33,7 +33,7 @@ import java.util.Map;
 /**
  * CDE virtual cluster summary.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-09T13:56:14.457-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:43.816-07:00")
 public class VcDescription  {
 
   /**
@@ -110,6 +110,11 @@ public class VcDescription  {
    * Spark version for the virtual cluster.
    **/
   private String sparkVersion = null;
+
+  /**
+   * Spark os name for the virtual cluster.
+   **/
+  private String sparkOSName = null;
 
   /**
    * Chart overrides for the Virtual Cluster.
@@ -397,6 +402,23 @@ public class VcDescription  {
   }
 
   /**
+   * Getter for sparkOSName.
+   * Spark os name for the virtual cluster.
+   **/
+  @JsonProperty("sparkOSName")
+  public String getSparkOSName() {
+    return sparkOSName;
+  }
+
+  /**
+   * Setter for sparkOSName.
+   * Spark os name for the virtual cluster.
+   **/
+  public void setSparkOSName(String sparkOSName) {
+    this.sparkOSName = sparkOSName;
+  }
+
+  /**
    * Getter for chartValueOverrides.
    * Chart overrides for the Virtual Cluster.
    **/
@@ -552,6 +574,9 @@ public class VcDescription  {
     if (!Objects.equals(this.sparkVersion, vcDescription.sparkVersion)) {
       return false;
     }
+    if (!Objects.equals(this.sparkOSName, vcDescription.sparkOSName)) {
+      return false;
+    }
     if (!Objects.equals(this.chartValueOverrides, vcDescription.chartValueOverrides)) {
       return false;
     }
@@ -575,7 +600,7 @@ public class VcDescription  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(vcId, vcName, clusterId, status, resources, creatorEmail, creatorID, creatorName, vcApiUrl, vcUiUrl, historyServerUrl, livyServerUrl, safariUrl, creationTime, sparkVersion, chartValueOverrides, accessControl, smtpConfig, vcTier, sessionTimeout, sparkConfigs);
+    return Objects.hash(vcId, vcName, clusterId, status, resources, creatorEmail, creatorID, creatorName, vcApiUrl, vcUiUrl, historyServerUrl, livyServerUrl, safariUrl, creationTime, sparkVersion, sparkOSName, chartValueOverrides, accessControl, smtpConfig, vcTier, sessionTimeout, sparkConfigs);
   }
 
   @Override
@@ -597,6 +622,7 @@ public class VcDescription  {
     sb.append("    safariUrl: ").append(toIndentedString(safariUrl)).append("\n");
     sb.append("    creationTime: ").append(toIndentedString(creationTime)).append("\n");
     sb.append("    sparkVersion: ").append(toIndentedString(sparkVersion)).append("\n");
+    sb.append("    sparkOSName: ").append(toIndentedString(sparkOSName)).append("\n");
     sb.append("    chartValueOverrides: ").append(toIndentedString(chartValueOverrides)).append("\n");
     sb.append("    accessControl: ").append(toIndentedString(accessControl)).append("\n");
     sb.append("    smtpConfig: ").append(toIndentedString(smtpConfig)).append("\n");

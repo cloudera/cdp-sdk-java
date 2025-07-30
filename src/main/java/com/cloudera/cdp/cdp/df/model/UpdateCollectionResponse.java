@@ -28,7 +28,7 @@ import com.cloudera.cdp.df.model.CatalogCollection;
 /**
  * Response object when updating a catalog collection.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-09T13:56:15.137-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:44.473-07:00")
 public class UpdateCollectionResponse extends CdpResponse {
 
   /**

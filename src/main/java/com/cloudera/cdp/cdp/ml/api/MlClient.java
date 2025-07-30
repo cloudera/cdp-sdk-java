@@ -34,6 +34,8 @@ import com.cloudera.cdp.ml.model.AddInstanceGroupsRequest;
 import com.cloudera.cdp.ml.model.AddInstanceGroupsResponse;
 import com.cloudera.cdp.ml.model.BackupWorkspaceRequest;
 import com.cloudera.cdp.ml.model.BackupWorkspaceResponse;
+import com.cloudera.cdp.ml.model.CreateFileReplicaRequest;
+import com.cloudera.cdp.ml.model.CreateFileReplicaResponse;
 import com.cloudera.cdp.ml.model.CreateMlServingAppRequest;
 import com.cloudera.cdp.ml.model.CreateMlServingAppResponse;
 import com.cloudera.cdp.ml.model.CreateModelRegistryRequest;
@@ -42,6 +44,8 @@ import com.cloudera.cdp.ml.model.CreateWorkspaceRequest;
 import com.cloudera.cdp.ml.model.CreateWorkspaceResponse;
 import com.cloudera.cdp.ml.model.DeleteBackupRequest;
 import com.cloudera.cdp.ml.model.DeleteBackupResponse;
+import com.cloudera.cdp.ml.model.DeleteFileReplicaRequest;
+import com.cloudera.cdp.ml.model.DeleteFileReplicaResponse;
 import com.cloudera.cdp.ml.model.DeleteInstanceGroupMlServingAppRequest;
 import com.cloudera.cdp.ml.model.DeleteInstanceGroupMlServingAppResponse;
 import com.cloudera.cdp.ml.model.DeleteInstanceGroupRequest;
@@ -61,6 +65,8 @@ import com.cloudera.cdp.ml.model.DescribeWorkspaceBackupResponse;
 import com.cloudera.cdp.ml.model.DescribeWorkspaceRequest;
 import com.cloudera.cdp.ml.model.DescribeWorkspaceResponse;
 import com.cloudera.cdp.ml.model.Error;
+import com.cloudera.cdp.ml.model.FailOverFileSystemRequest;
+import com.cloudera.cdp.ml.model.FailOverFileSystemResponse;
 import com.cloudera.cdp.ml.model.GetAuditEventsRequest;
 import com.cloudera.cdp.ml.model.GetAuditEventsResponse;
 import com.cloudera.cdp.ml.model.GetKubeconfigRequest;
@@ -137,7 +143,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-09T13:56:12.208-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:41.723-07:00")
 public class MlClient extends CdpClient {
 
   public static final String SERVICE_NAME = "ml";
@@ -208,6 +214,19 @@ public class MlClient extends CdpClient {
   }
 
   /**
+   * Create file system replica.
+   * @param input
+   * @return CreateFileReplicaResponse
+   */
+  public CreateFileReplicaResponse createFileReplica(CreateFileReplicaRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createFileReplica");
+    }
+
+    return this.invokeAPI("createFileReplica", "/api/v1/ml/createFileReplica", input, new GenericType<CreateFileReplicaResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Deploys Cloudera AI Inference Service into an existing Kubernetes cluster.
    * @param input
    * @return CreateMlServingAppResponse
@@ -257,6 +276,19 @@ public class MlClient extends CdpClient {
     }
 
     return this.invokeAPI("deleteBackup", "/api/v1/ml/deleteBackup", input, new GenericType<DeleteBackupResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Delete existing replication for project files.
+   * @param input
+   * @return DeleteFileReplicaResponse
+   */
+  public DeleteFileReplicaResponse deleteFileReplica(DeleteFileReplicaRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteFileReplica");
+    }
+
+    return this.invokeAPI("deleteFileReplica", "/api/v1/ml/deleteFileReplica", input, new GenericType<DeleteFileReplicaResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -374,6 +406,19 @@ public class MlClient extends CdpClient {
     }
 
     return this.invokeAPI("describeWorkspaceBackup", "/api/v1/ml/describeWorkspaceBackup", input, new GenericType<DescribeWorkspaceBackupResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Failover to replica file system
+   * @param input
+   * @return FailOverFileSystemResponse
+   */
+  public FailOverFileSystemResponse failOverFileSystem(FailOverFileSystemRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling failOverFileSystem");
+    }
+
+    return this.invokeAPI("failOverFileSystem", "/api/v1/ml/failOverFileSystem", input, new GenericType<FailOverFileSystemResponse>(){}, NO_EXTENSION);
   }
 
   /**

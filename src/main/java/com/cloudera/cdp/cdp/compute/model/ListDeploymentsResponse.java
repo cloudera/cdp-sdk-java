@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Response structure to list deployments in the cluster.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-09T13:56:16.086-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:45.355-07:00")
 public class ListDeploymentsResponse extends CdpResponse {
 
   /**

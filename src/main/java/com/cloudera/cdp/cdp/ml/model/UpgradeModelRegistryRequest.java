@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request for upgrading model registry.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-09T13:56:12.208-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:41.723-07:00")
 public class UpgradeModelRegistryRequest  {
 
   /**
@@ -36,7 +36,7 @@ public class UpgradeModelRegistryRequest  {
   private String crn = null;
 
   /**
-   * If true, opt out of enabling the object store CSI driver integration. CSI driver integration offers increased scalability but requires the “Storage Account Contributor” role on Azure.
+   * If true, opt out of enabling the object store CSI driver integration. CSI driver integration offers increased scalability but requires the \"Storage Account Contributor\" role on Azure.
    **/
   private Boolean disableObjectStoreCsiDriver = null;
 
@@ -59,7 +59,7 @@ public class UpgradeModelRegistryRequest  {
 
   /**
    * Getter for disableObjectStoreCsiDriver.
-   * If true, opt out of enabling the object store CSI driver integration. CSI driver integration offers increased scalability but requires the “Storage Account Contributor” role on Azure.
+   * If true, opt out of enabling the object store CSI driver integration. CSI driver integration offers increased scalability but requires the \&quot;Storage Account Contributor\&quot; role on Azure.
    **/
   @JsonProperty("disableObjectStoreCsiDriver")
   public Boolean getDisableObjectStoreCsiDriver() {
@@ -68,7 +68,7 @@ public class UpgradeModelRegistryRequest  {
 
   /**
    * Setter for disableObjectStoreCsiDriver.
-   * If true, opt out of enabling the object store CSI driver integration. CSI driver integration offers increased scalability but requires the “Storage Account Contributor” role on Azure.
+   * If true, opt out of enabling the object store CSI driver integration. CSI driver integration offers increased scalability but requires the \&quot;Storage Account Contributor\&quot; role on Azure.
    **/
   public void setDisableObjectStoreCsiDriver(Boolean disableObjectStoreCsiDriver) {
     this.disableObjectStoreCsiDriver = disableObjectStoreCsiDriver;

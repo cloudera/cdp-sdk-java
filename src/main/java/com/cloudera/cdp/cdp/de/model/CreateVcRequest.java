@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * Request object for CreateVc method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-09T13:56:14.457-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:43.816-07:00")
 public class CreateVcRequest  {
 
   /**
@@ -73,6 +73,11 @@ public class CreateVcRequest  {
    * Spark version for the virtual cluster. Currently supported Spark versions are SPARK2(deprecated), SPARK3, SPARK3_3 and SPARK3_5. This feature is only supported in CDE-1.7.0 and later. SPARK3_3 is supported in CDE-1.19 and later. SPARK3_5 is supported in CDE-1.21 and later.
    **/
   private String sparkVersion = null;
+
+  /**
+   * Spark os name for the virtual cluster. Currently supported types are SECURITYHARDENED(chainguard) and REDHAT(will be deprecated, and we will use INSECURE). The default value is SECURITYHARDENED.
+   **/
+  private String sparkOSName = null;
 
   /**
    * Tier of the virtual cluster. Currently supported tiers are CORE and ALLP. CORE tiered virtual cluster enables operational deployment via batch jobs. ALLP virtual clusters are all-purpose virtual clusters supporting both operational batch jobs and interactive sessions. This feature is only supported in CDE-1.19.0 and beyond.
@@ -251,6 +256,23 @@ public class CreateVcRequest  {
   }
 
   /**
+   * Getter for sparkOSName.
+   * Spark os name for the virtual cluster. Currently supported types are SECURITYHARDENED(chainguard) and REDHAT(will be deprecated, and we will use INSECURE). The default value is SECURITYHARDENED.
+   **/
+  @JsonProperty("sparkOSName")
+  public String getSparkOSName() {
+    return sparkOSName;
+  }
+
+  /**
+   * Setter for sparkOSName.
+   * Spark os name for the virtual cluster. Currently supported types are SECURITYHARDENED(chainguard) and REDHAT(will be deprecated, and we will use INSECURE). The default value is SECURITYHARDENED.
+   **/
+  public void setSparkOSName(String sparkOSName) {
+    this.sparkOSName = sparkOSName;
+  }
+
+  /**
    * Getter for vcTier.
    * Tier of the virtual cluster. Currently supported tiers are CORE and ALLP. CORE tiered virtual cluster enables operational deployment via batch jobs. ALLP virtual clusters are all-purpose virtual clusters supporting both operational batch jobs and interactive sessions. This feature is only supported in CDE-1.19.0 and beyond.
    **/
@@ -419,6 +441,9 @@ public class CreateVcRequest  {
     if (!Objects.equals(this.sparkVersion, createVcRequest.sparkVersion)) {
       return false;
     }
+    if (!Objects.equals(this.sparkOSName, createVcRequest.sparkOSName)) {
+      return false;
+    }
     if (!Objects.equals(this.vcTier, createVcRequest.vcTier)) {
       return false;
     }
@@ -448,7 +473,7 @@ public class CreateVcRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, clusterId, cpuRequests, memoryRequests, chartValueOverrides, smtpConfigs, runtimeSpotComponent, sparkVersion, vcTier, sessionTimeout, aclUsers, fullAccessUsers, fullAccessGroups, viewOnlyUsers, viewOnlyGroups, sparkConfigs);
+    return Objects.hash(name, clusterId, cpuRequests, memoryRequests, chartValueOverrides, smtpConfigs, runtimeSpotComponent, sparkVersion, sparkOSName, vcTier, sessionTimeout, aclUsers, fullAccessUsers, fullAccessGroups, viewOnlyUsers, viewOnlyGroups, sparkConfigs);
   }
 
   @Override
@@ -463,6 +488,7 @@ public class CreateVcRequest  {
     sb.append("    smtpConfigs: ").append(toIndentedString(smtpConfigs)).append("\n");
     sb.append("    runtimeSpotComponent: ").append(toIndentedString(runtimeSpotComponent)).append("\n");
     sb.append("    sparkVersion: ").append(toIndentedString(sparkVersion)).append("\n");
+    sb.append("    sparkOSName: ").append(toIndentedString(sparkOSName)).append("\n");
     sb.append("    vcTier: ").append(toIndentedString(vcTier)).append("\n");
     sb.append("    sessionTimeout: ").append(toIndentedString(sessionTimeout)).append("\n");
     sb.append("    aclUsers: ").append(toIndentedString(aclUsers)).append("\n");

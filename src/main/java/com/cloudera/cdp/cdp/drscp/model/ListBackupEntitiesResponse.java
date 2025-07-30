@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Response object for the list entities request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-09T13:56:13.245-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:42.686-07:00")
 public class ListBackupEntitiesResponse extends CdpResponse {
 
   /**

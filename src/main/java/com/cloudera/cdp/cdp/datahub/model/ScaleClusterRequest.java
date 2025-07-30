@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for scale cluster request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-09T13:56:10.708-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:39.671-07:00")
 public class ScaleClusterRequest  {
 
   /**
@@ -50,6 +50,11 @@ public class ScaleClusterRequest  {
    * The preferred subnet IDs for the scaling cluster (only for AWS).
    **/
   private List<String> preferredSubnetIds = new ArrayList<String>();
+
+  /**
+   * The preferred zones for the scaling cluster (only for Azure and Google Cloud).
+   **/
+  private List<String> preferredZones = new ArrayList<String>();
 
   /**
    * Getter for clusterName.
@@ -119,6 +124,23 @@ public class ScaleClusterRequest  {
     this.preferredSubnetIds = preferredSubnetIds;
   }
 
+  /**
+   * Getter for preferredZones.
+   * The preferred zones for the scaling cluster (only for Azure and Google Cloud).
+   **/
+  @JsonProperty("preferredZones")
+  public List<String> getPreferredZones() {
+    return preferredZones;
+  }
+
+  /**
+   * Setter for preferredZones.
+   * The preferred zones for the scaling cluster (only for Azure and Google Cloud).
+   **/
+  public void setPreferredZones(List<String> preferredZones) {
+    this.preferredZones = preferredZones;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -140,12 +162,15 @@ public class ScaleClusterRequest  {
     if (!Objects.equals(this.preferredSubnetIds, scaleClusterRequest.preferredSubnetIds)) {
       return false;
     }
+    if (!Objects.equals(this.preferredZones, scaleClusterRequest.preferredZones)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterName, instanceGroupName, instanceGroupDesiredCount, preferredSubnetIds);
+    return Objects.hash(clusterName, instanceGroupName, instanceGroupDesiredCount, preferredSubnetIds, preferredZones);
   }
 
   @Override
@@ -156,6 +181,7 @@ public class ScaleClusterRequest  {
     sb.append("    instanceGroupName: ").append(toIndentedString(instanceGroupName)).append("\n");
     sb.append("    instanceGroupDesiredCount: ").append(toIndentedString(instanceGroupDesiredCount)).append("\n");
     sb.append("    preferredSubnetIds: ").append(toIndentedString(preferredSubnetIds)).append("\n");
+    sb.append("    preferredZones: ").append(toIndentedString(preferredZones)).append("\n");
     sb.append("}");
     return sb.toString();
   }

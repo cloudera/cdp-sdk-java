@@ -28,7 +28,7 @@ import com.cloudera.cdp.df.model.Service;
 /**
  * Response object for UpgradeService
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-09T13:56:15.137-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:44.473-07:00")
 public class UpgradeServiceResponse extends CdpResponse {
 
   /**

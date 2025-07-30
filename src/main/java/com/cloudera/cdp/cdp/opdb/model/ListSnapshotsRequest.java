@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Show Snapshots Request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-09T13:56:14.025-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:43.495-07:00")
 public class ListSnapshotsRequest  {
 
   /**

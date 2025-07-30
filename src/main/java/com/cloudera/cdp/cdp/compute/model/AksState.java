@@ -32,7 +32,7 @@ import java.util.Map;
 /**
  * AKS state response structure.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-09T13:56:16.086-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:45.355-07:00")
 public class AksState  {
 
   /**
@@ -189,6 +189,26 @@ public class AksState  {
    * Security.
    **/
   private CommonSecurityResp security = null;
+
+  /**
+   * EgressType specifies the outbound type used by the cluster.
+   **/
+  private String egressType = null;
+
+  /**
+   * AksManagedIdentity is the user-assigned managed identity to be used by the AKS control plane.
+   **/
+  private String aksManagedIdentity = null;
+
+  /**
+   * PrivateDNSZone for the AKS cluster.
+   **/
+  private String privateDnsZone = null;
+
+  /**
+   * URL of the OIDCIssuer attached to the cluster.
+   **/
+  private String oidcIssuerURL = null;
 
   /**
    * Getter for provider.
@@ -717,6 +737,74 @@ public class AksState  {
     this.security = security;
   }
 
+  /**
+   * Getter for egressType.
+   * EgressType specifies the outbound type used by the cluster.
+   **/
+  @JsonProperty("egressType")
+  public String getEgressType() {
+    return egressType;
+  }
+
+  /**
+   * Setter for egressType.
+   * EgressType specifies the outbound type used by the cluster.
+   **/
+  public void setEgressType(String egressType) {
+    this.egressType = egressType;
+  }
+
+  /**
+   * Getter for aksManagedIdentity.
+   * AksManagedIdentity is the user-assigned managed identity to be used by the AKS control plane.
+   **/
+  @JsonProperty("aksManagedIdentity")
+  public String getAksManagedIdentity() {
+    return aksManagedIdentity;
+  }
+
+  /**
+   * Setter for aksManagedIdentity.
+   * AksManagedIdentity is the user-assigned managed identity to be used by the AKS control plane.
+   **/
+  public void setAksManagedIdentity(String aksManagedIdentity) {
+    this.aksManagedIdentity = aksManagedIdentity;
+  }
+
+  /**
+   * Getter for privateDnsZone.
+   * PrivateDNSZone for the AKS cluster.
+   **/
+  @JsonProperty("privateDnsZone")
+  public String getPrivateDnsZone() {
+    return privateDnsZone;
+  }
+
+  /**
+   * Setter for privateDnsZone.
+   * PrivateDNSZone for the AKS cluster.
+   **/
+  public void setPrivateDnsZone(String privateDnsZone) {
+    this.privateDnsZone = privateDnsZone;
+  }
+
+  /**
+   * Getter for oidcIssuerURL.
+   * URL of the OIDCIssuer attached to the cluster.
+   **/
+  @JsonProperty("oidcIssuerURL")
+  public String getOidcIssuerURL() {
+    return oidcIssuerURL;
+  }
+
+  /**
+   * Setter for oidcIssuerURL.
+   * URL of the OIDCIssuer attached to the cluster.
+   **/
+  public void setOidcIssuerURL(String oidcIssuerURL) {
+    this.oidcIssuerURL = oidcIssuerURL;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -819,12 +907,24 @@ public class AksState  {
     if (!Objects.equals(this.security, aksState.security)) {
       return false;
     }
+    if (!Objects.equals(this.egressType, aksState.egressType)) {
+      return false;
+    }
+    if (!Objects.equals(this.aksManagedIdentity, aksState.aksManagedIdentity)) {
+      return false;
+    }
+    if (!Objects.equals(this.privateDnsZone, aksState.privateDnsZone)) {
+      return false;
+    }
+    if (!Objects.equals(this.oidcIssuerURL, aksState.oidcIssuerURL)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(provider, clusterDisplayName, clusterResourceGroup, clusterResourceGroupCreated, enableHttpApplicationRouting, enableMonitoring, logAnalyticsWorkspaceResourceGroup, logAnalyticsWorkspace, virtualNetworkResourceGroup, virtualNetwork, subnets, selectedSubnet, parentResourceGroup, adminUsername, sshPublicKeyContents, sshPublicKey, dnsServiceIp, dockerBridgeCidr, networkPlugin, networkPolicy, podCidr, serviceCidr, networkCidrs, workerIngressRules, workerEgressRules, masterDnsPrefix, tags, instanceGroups, deployments, userData, security);
+    return Objects.hash(provider, clusterDisplayName, clusterResourceGroup, clusterResourceGroupCreated, enableHttpApplicationRouting, enableMonitoring, logAnalyticsWorkspaceResourceGroup, logAnalyticsWorkspace, virtualNetworkResourceGroup, virtualNetwork, subnets, selectedSubnet, parentResourceGroup, adminUsername, sshPublicKeyContents, sshPublicKey, dnsServiceIp, dockerBridgeCidr, networkPlugin, networkPolicy, podCidr, serviceCidr, networkCidrs, workerIngressRules, workerEgressRules, masterDnsPrefix, tags, instanceGroups, deployments, userData, security, egressType, aksManagedIdentity, privateDnsZone, oidcIssuerURL);
   }
 
   @Override
@@ -862,6 +962,10 @@ public class AksState  {
     sb.append("    deployments: ").append(toIndentedString(deployments)).append("\n");
     sb.append("    userData: ").append(toIndentedString(userData)).append("\n");
     sb.append("    security: ").append(toIndentedString(security)).append("\n");
+    sb.append("    egressType: ").append(toIndentedString(egressType)).append("\n");
+    sb.append("    aksManagedIdentity: ").append(toIndentedString(aksManagedIdentity)).append("\n");
+    sb.append("    privateDnsZone: ").append(toIndentedString(privateDnsZone)).append("\n");
+    sb.append("    oidcIssuerURL: ").append(toIndentedString(oidcIssuerURL)).append("\n");
     sb.append("}");
     return sb.toString();
   }

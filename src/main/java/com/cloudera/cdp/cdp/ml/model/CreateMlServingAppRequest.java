@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for the CreateMlServingApp method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-09T13:56:12.208-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:41.723-07:00")
 public class CreateMlServingAppRequest  {
 
   /**
@@ -82,6 +82,11 @@ public class CreateMlServingAppRequest  {
    * Ozone credentials for the Cloudera On-Premise cluster.
    **/
   private MlServingOzoneCreds ozoneS3Creds = null;
+
+  /**
+   * The boolean flag to enable fine-grained access control. By default, this flag is disabled.
+   **/
+  private Boolean enableFineGrainedAccessControl = null;
 
   /**
    * Getter for appName.
@@ -253,6 +258,23 @@ public class CreateMlServingAppRequest  {
     this.ozoneS3Creds = ozoneS3Creds;
   }
 
+  /**
+   * Getter for enableFineGrainedAccessControl.
+   * The boolean flag to enable fine-grained access control. By default, this flag is disabled.
+   **/
+  @JsonProperty("enableFineGrainedAccessControl")
+  public Boolean getEnableFineGrainedAccessControl() {
+    return enableFineGrainedAccessControl;
+  }
+
+  /**
+   * Setter for enableFineGrainedAccessControl.
+   * The boolean flag to enable fine-grained access control. By default, this flag is disabled.
+   **/
+  public void setEnableFineGrainedAccessControl(Boolean enableFineGrainedAccessControl) {
+    this.enableFineGrainedAccessControl = enableFineGrainedAccessControl;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -292,12 +314,15 @@ public class CreateMlServingAppRequest  {
     if (!Objects.equals(this.ozoneS3Creds, createMlServingAppRequest.ozoneS3Creds)) {
       return false;
     }
+    if (!Objects.equals(this.enableFineGrainedAccessControl, createMlServingAppRequest.enableFineGrainedAccessControl)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(appName, environmentCrn, clusterCrn, provisionK8sRequest, usePublicLoadBalancer, skipValidation, loadBalancerIPWhitelists, subnetsForLoadBalancers, staticSubdomain, ozoneS3Creds);
+    return Objects.hash(appName, environmentCrn, clusterCrn, provisionK8sRequest, usePublicLoadBalancer, skipValidation, loadBalancerIPWhitelists, subnetsForLoadBalancers, staticSubdomain, ozoneS3Creds, enableFineGrainedAccessControl);
   }
 
   @Override
@@ -314,6 +339,7 @@ public class CreateMlServingAppRequest  {
     sb.append("    subnetsForLoadBalancers: ").append(toIndentedString(subnetsForLoadBalancers)).append("\n");
     sb.append("    staticSubdomain: ").append(toIndentedString(staticSubdomain)).append("\n");
     sb.append("    ozoneS3Creds: ").append(toIndentedString(ozoneS3Creds)).append("\n");
+    sb.append("    enableFineGrainedAccessControl: ").append(toIndentedString(enableFineGrainedAccessControl)).append("\n");
     sb.append("}");
     return sb.toString();
   }

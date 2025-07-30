@@ -24,13 +24,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.environments.model.FreeIpaInstance;
+import com.cloudera.cdp.environments.model.FreeIpaLoadBalancer;
 import com.cloudera.cdp.environments.model.ImageInfo;
 import java.util.*;
 
 /**
  * Details of a FreeIPA cluster.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-09T13:56:13.429-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:42.850-07:00")
 public class FreeipaDetails  {
 
   /**
@@ -72,6 +73,11 @@ public class FreeipaDetails  {
    * Whether the given FreeIPA is deployed in a multi-availability zone way or not.
    **/
   private Boolean multiAz = null;
+
+  /**
+   * Details of a FreeIPA load balancer.
+   **/
+  private FreeIpaLoadBalancer loadBalancer = null;
 
   /**
    * The image details.
@@ -215,6 +221,23 @@ public class FreeipaDetails  {
   }
 
   /**
+   * Getter for loadBalancer.
+   * Details of a FreeIPA load balancer.
+   **/
+  @JsonProperty("loadBalancer")
+  public FreeIpaLoadBalancer getLoadBalancer() {
+    return loadBalancer;
+  }
+
+  /**
+   * Setter for loadBalancer.
+   * Details of a FreeIPA load balancer.
+   **/
+  public void setLoadBalancer(FreeIpaLoadBalancer loadBalancer) {
+    this.loadBalancer = loadBalancer;
+  }
+
+  /**
    * Getter for imageDetails.
    * The image details.
    **/
@@ -264,6 +287,9 @@ public class FreeipaDetails  {
     if (!Objects.equals(this.multiAz, freeipaDetails.multiAz)) {
       return false;
     }
+    if (!Objects.equals(this.loadBalancer, freeipaDetails.loadBalancer)) {
+      return false;
+    }
     if (!Objects.equals(this.imageDetails, freeipaDetails.imageDetails)) {
       return false;
     }
@@ -272,7 +298,7 @@ public class FreeipaDetails  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, domain, hostname, serverIP, recipes, instances, instanceCountByGroup, multiAz, imageDetails);
+    return Objects.hash(crn, domain, hostname, serverIP, recipes, instances, instanceCountByGroup, multiAz, loadBalancer, imageDetails);
   }
 
   @Override
@@ -287,6 +313,7 @@ public class FreeipaDetails  {
     sb.append("    instances: ").append(toIndentedString(instances)).append("\n");
     sb.append("    instanceCountByGroup: ").append(toIndentedString(instanceCountByGroup)).append("\n");
     sb.append("    multiAz: ").append(toIndentedString(multiAz)).append("\n");
+    sb.append("    loadBalancer: ").append(toIndentedString(loadBalancer)).append("\n");
     sb.append("    imageDetails: ").append(toIndentedString(imageDetails)).append("\n");
     sb.append("}");
     return sb.toString();

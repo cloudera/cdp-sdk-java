@@ -80,8 +80,12 @@ import com.cloudera.cdp.iam.model.DescribeSshPublicKeyRequest;
 import com.cloudera.cdp.iam.model.DescribeSshPublicKeyResponse;
 import com.cloudera.cdp.iam.model.DisableClouderaSSOLoginRequest;
 import com.cloudera.cdp.iam.model.DisableClouderaSSOLoginResponse;
+import com.cloudera.cdp.iam.model.DisableUserWorkloadPasswordChangedNotificationsRequest;
+import com.cloudera.cdp.iam.model.DisableUserWorkloadPasswordChangedNotificationsResponse;
 import com.cloudera.cdp.iam.model.EnableClouderaSSOLoginRequest;
 import com.cloudera.cdp.iam.model.EnableClouderaSSOLoginResponse;
+import com.cloudera.cdp.iam.model.EnableUserWorkloadPasswordChangedNotificationsRequest;
+import com.cloudera.cdp.iam.model.EnableUserWorkloadPasswordChangedNotificationsResponse;
 import com.cloudera.cdp.iam.model.Error;
 import com.cloudera.cdp.iam.model.GenerateWorkloadAuthTokenRequest;
 import com.cloudera.cdp.iam.model.GenerateWorkloadAuthTokenResponse;
@@ -181,7 +185,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-09T13:56:14.663-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:44.034-07:00")
 public class IamClient extends CdpClient {
 
   public static final String SERVICE_NAME = "iam";
@@ -551,6 +555,19 @@ public class IamClient extends CdpClient {
   }
 
   /**
+   * Disables sending user workload password changed email notifications for the account.
+   * @param input
+   * @return DisableUserWorkloadPasswordChangedNotificationsResponse
+   */
+  public DisableUserWorkloadPasswordChangedNotificationsResponse disableUserWorkloadPasswordChangedNotifications(DisableUserWorkloadPasswordChangedNotificationsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling disableUserWorkloadPasswordChangedNotifications");
+    }
+
+    return this.invokeAPI("disableUserWorkloadPasswordChangedNotifications", "/iam/disableUserWorkloadPasswordChangedNotifications", input, new GenericType<DisableUserWorkloadPasswordChangedNotificationsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Enables interactive login using Cloudera SSO for this account.
    * @param input
    * @return EnableClouderaSSOLoginResponse
@@ -561,6 +578,19 @@ public class IamClient extends CdpClient {
     }
 
     return this.invokeAPI("enableClouderaSSOLogin", "/iam/enableClouderaSSOLogin", input, new GenericType<EnableClouderaSSOLoginResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Enables sending user workload password changed email notifications for the account.
+   * @param input
+   * @return EnableUserWorkloadPasswordChangedNotificationsResponse
+   */
+  public EnableUserWorkloadPasswordChangedNotificationsResponse enableUserWorkloadPasswordChangedNotifications(EnableUserWorkloadPasswordChangedNotificationsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling enableUserWorkloadPasswordChangedNotifications");
+    }
+
+    return this.invokeAPI("enableUserWorkloadPasswordChangedNotifications", "/iam/enableUserWorkloadPasswordChangedNotifications", input, new GenericType<EnableUserWorkloadPasswordChangedNotificationsResponse>(){}, NO_EXTENSION);
   }
 
   /**
