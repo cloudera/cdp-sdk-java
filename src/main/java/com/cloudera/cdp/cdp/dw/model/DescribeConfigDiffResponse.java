@@ -28,7 +28,7 @@ import com.cloudera.cdp.dw.model.ServiceConfigDiff;
 /**
  * Response object for the describeConfigDiff method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:40.786-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-14T20:25:43.953-07:00")
 public class DescribeConfigDiffResponse extends CdpResponse {
 
   /**

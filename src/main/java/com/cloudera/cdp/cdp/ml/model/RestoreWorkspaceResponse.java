@@ -23,17 +23,23 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import java.util.*;
 
 /**
  * Response object for the RestoreWorkspace method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:41.723-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-14T20:25:44.648-07:00")
 public class RestoreWorkspaceResponse extends CdpResponse {
 
   /**
    * The CRN of the Cloudera AI workbench being provisioned.
    **/
   private String workspaceCrn = null;
+
+  /**
+   * Warning messages about restore behavior.
+   **/
+  private List<String> warnings = new ArrayList<String>();
 
   /**
    * Getter for workspaceCrn.
@@ -52,6 +58,23 @@ public class RestoreWorkspaceResponse extends CdpResponse {
     this.workspaceCrn = workspaceCrn;
   }
 
+  /**
+   * Getter for warnings.
+   * Warning messages about restore behavior.
+   **/
+  @JsonProperty("warnings")
+  public List<String> getWarnings() {
+    return warnings;
+  }
+
+  /**
+   * Setter for warnings.
+   * Warning messages about restore behavior.
+   **/
+  public void setWarnings(List<String> warnings) {
+    this.warnings = warnings;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -64,6 +87,9 @@ public class RestoreWorkspaceResponse extends CdpResponse {
     if (!Objects.equals(this.workspaceCrn, restoreWorkspaceResponse.workspaceCrn)) {
       return false;
     }
+    if (!Objects.equals(this.warnings, restoreWorkspaceResponse.warnings)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -72,7 +98,7 @@ public class RestoreWorkspaceResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(workspaceCrn, super.hashCode());
+    return Objects.hash(workspaceCrn, warnings, super.hashCode());
   }
 
   @Override
@@ -81,6 +107,7 @@ public class RestoreWorkspaceResponse extends CdpResponse {
     sb.append("class RestoreWorkspaceResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    workspaceCrn: ").append(toIndentedString(workspaceCrn)).append("\n");
+    sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
     sb.append("}");
     return sb.toString();
   }

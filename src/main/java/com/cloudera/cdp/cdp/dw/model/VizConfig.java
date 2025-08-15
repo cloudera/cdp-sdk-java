@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Configurations for a Cloudera Data Visualization
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:40.786-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-14T20:25:43.953-07:00")
 public class VizConfig  {
 
   /**
@@ -42,7 +42,7 @@ public class VizConfig  {
   private List<String> adminGroups = new ArrayList<String>();
 
   /**
-   * The Resource Pool of the Cloudera Data Visualization.
+   * DEPRECATED: This functionality for update will be removed in the next release. For create, please use the new resourcePool field. The Resource Pool of the Cloudera Data Visualization.
    **/
   private String resourcePool = null;
 
@@ -82,8 +82,9 @@ public class VizConfig  {
 
   /**
    * Getter for resourcePool.
-   * The Resource Pool of the Cloudera Data Visualization.
+   * DEPRECATED: This functionality for update will be removed in the next release. For create, please use the new resourcePool field. The Resource Pool of the Cloudera Data Visualization.
    **/
+  @Deprecated
   @JsonProperty("resourcePool")
   public String getResourcePool() {
     return resourcePool;
@@ -91,8 +92,9 @@ public class VizConfig  {
 
   /**
    * Setter for resourcePool.
-   * The Resource Pool of the Cloudera Data Visualization.
+   * DEPRECATED: This functionality for update will be removed in the next release. For create, please use the new resourcePool field. The Resource Pool of the Cloudera Data Visualization.
    **/
+  @Deprecated
   public void setResourcePool(String resourcePool) {
     this.resourcePool = resourcePool;
   }

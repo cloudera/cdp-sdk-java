@@ -24,7 +24,7 @@ import com.cloudera.cdp.client.CdpClientBuilder;
 /**
 * This class can be used to build a ConsumptionClient object.
 **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:45.571-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-14T20:25:48.539-07:00")
 public class ConsumptionClientBuilder extends CdpClientBuilder<ConsumptionClientBuilder> {
 
   private ConsumptionClientBuilder() {

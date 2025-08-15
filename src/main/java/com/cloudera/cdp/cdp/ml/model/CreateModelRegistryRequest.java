@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object for creating model registry.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:41.723-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-14T20:25:44.648-07:00")
 public class CreateModelRegistryRequest  {
 
   /**
@@ -116,11 +116,6 @@ public class CreateModelRegistryRequest  {
    * The whitelist of CIDR blocks which can access the API server.
    **/
   private List<String> authorizedIPRanges = new ArrayList<String>();
-
-  /**
-   * If true, opt out of enabling the object store CSI driver integration. CSI driver integration offers increased scalability but requires the \"Storage Account Contributor\" role on Azure.
-   **/
-  private Boolean disableObjectStoreCsiDriver = null;
 
   /**
    * Getter for namespace.
@@ -411,23 +406,6 @@ public class CreateModelRegistryRequest  {
     this.authorizedIPRanges = authorizedIPRanges;
   }
 
-  /**
-   * Getter for disableObjectStoreCsiDriver.
-   * If true, opt out of enabling the object store CSI driver integration. CSI driver integration offers increased scalability but requires the \&quot;Storage Account Contributor\&quot; role on Azure.
-   **/
-  @JsonProperty("disableObjectStoreCsiDriver")
-  public Boolean getDisableObjectStoreCsiDriver() {
-    return disableObjectStoreCsiDriver;
-  }
-
-  /**
-   * Setter for disableObjectStoreCsiDriver.
-   * If true, opt out of enabling the object store CSI driver integration. CSI driver integration offers increased scalability but requires the \&quot;Storage Account Contributor\&quot; role on Azure.
-   **/
-  public void setDisableObjectStoreCsiDriver(Boolean disableObjectStoreCsiDriver) {
-    this.disableObjectStoreCsiDriver = disableObjectStoreCsiDriver;
-  }
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -488,15 +466,12 @@ public class CreateModelRegistryRequest  {
     if (!Objects.equals(this.authorizedIPRanges, createModelRegistryRequest.authorizedIPRanges)) {
       return false;
     }
-    if (!Objects.equals(this.disableObjectStoreCsiDriver, createModelRegistryRequest.disableObjectStoreCsiDriver)) {
-      return false;
-    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(namespace, s3AccessKey, s3SecretKey, s3Bucket, s3Endpoint, creatorCrn, environmentCrn, environmentName, usePublicLoadBalancer, subnetsForLoadBalancers, outboundTypes, skipValidation, privateCluster, provisionK8sRequest, backupCrn, whitelistAuthorizedIPRanges, authorizedIPRanges, disableObjectStoreCsiDriver);
+    return Objects.hash(namespace, s3AccessKey, s3SecretKey, s3Bucket, s3Endpoint, creatorCrn, environmentCrn, environmentName, usePublicLoadBalancer, subnetsForLoadBalancers, outboundTypes, skipValidation, privateCluster, provisionK8sRequest, backupCrn, whitelistAuthorizedIPRanges, authorizedIPRanges);
   }
 
   @Override
@@ -520,7 +495,6 @@ public class CreateModelRegistryRequest  {
     sb.append("    backupCrn: ").append(toIndentedString(backupCrn)).append("\n");
     sb.append("    whitelistAuthorizedIPRanges: ").append(toIndentedString(whitelistAuthorizedIPRanges)).append("\n");
     sb.append("    authorizedIPRanges: ").append(toIndentedString(authorizedIPRanges)).append("\n");
-    sb.append("    disableObjectStoreCsiDriver: ").append(toIndentedString(disableObjectStoreCsiDriver)).append("\n");
     sb.append("}");
     return sb.toString();
   }

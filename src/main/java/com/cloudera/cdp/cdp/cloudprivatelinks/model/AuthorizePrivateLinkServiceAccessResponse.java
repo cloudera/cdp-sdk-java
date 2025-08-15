@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for the AuthorizePrivateLinkServicesAccess method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:45.842-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-14T20:25:48.865-07:00")
 public class AuthorizePrivateLinkServiceAccessResponse extends CdpResponse {
 
   /**

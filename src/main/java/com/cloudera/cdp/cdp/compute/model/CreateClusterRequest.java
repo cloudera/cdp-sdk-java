@@ -30,7 +30,7 @@ import java.util.Map;
 /**
  * Request object for creating a cluster.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:45.355-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-14T20:25:48.309-07:00")
 public class CreateClusterRequest  {
 
   /**

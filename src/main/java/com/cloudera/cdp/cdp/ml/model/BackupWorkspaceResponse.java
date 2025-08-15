@@ -23,11 +23,12 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import java.util.*;
 
 /**
  * The response object for Cloudera AI workbench backup.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:41.723-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-14T20:25:44.648-07:00")
 public class BackupWorkspaceResponse extends CdpResponse {
 
   /**
@@ -39,6 +40,11 @@ public class BackupWorkspaceResponse extends CdpResponse {
    * Name of the vault where backup related volumes are stored.
    **/
   private String vaultName = null;
+
+  /**
+   * Warning messages about backup behavior.
+   **/
+  private List<String> warnings = new ArrayList<String>();
 
   /**
    * Getter for backupCrn.
@@ -74,6 +80,23 @@ public class BackupWorkspaceResponse extends CdpResponse {
     this.vaultName = vaultName;
   }
 
+  /**
+   * Getter for warnings.
+   * Warning messages about backup behavior.
+   **/
+  @JsonProperty("warnings")
+  public List<String> getWarnings() {
+    return warnings;
+  }
+
+  /**
+   * Setter for warnings.
+   * Warning messages about backup behavior.
+   **/
+  public void setWarnings(List<String> warnings) {
+    this.warnings = warnings;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -89,6 +112,9 @@ public class BackupWorkspaceResponse extends CdpResponse {
     if (!Objects.equals(this.vaultName, backupWorkspaceResponse.vaultName)) {
       return false;
     }
+    if (!Objects.equals(this.warnings, backupWorkspaceResponse.warnings)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -97,7 +123,7 @@ public class BackupWorkspaceResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupCrn, vaultName, super.hashCode());
+    return Objects.hash(backupCrn, vaultName, warnings, super.hashCode());
   }
 
   @Override
@@ -107,6 +133,7 @@ public class BackupWorkspaceResponse extends CdpResponse {
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    backupCrn: ").append(toIndentedString(backupCrn)).append("\n");
     sb.append("    vaultName: ").append(toIndentedString(vaultName)).append("\n");
+    sb.append("    warnings: ").append(toIndentedString(warnings)).append("\n");
     sb.append("}");
     return sb.toString();
   }

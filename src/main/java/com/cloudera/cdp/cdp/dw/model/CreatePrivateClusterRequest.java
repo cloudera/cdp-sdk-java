@@ -28,7 +28,7 @@ import com.cloudera.cdp.dw.model.KeyPairCredentials;
 /**
  * Request object for the createPrivateCluster method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:40.786-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-14T20:25:43.953-07:00")
 public class CreatePrivateClusterRequest  {
 
   /**
@@ -52,7 +52,7 @@ public class CreatePrivateClusterRequest  {
   private String storageClass = null;
 
   /**
-   * Enable to use dedicated nodes exclusively for executors and coordinators, and improve performance. You can enable this only if you reserved nodes while adding a CDP Private Cloud containerized ECS cluster. When disabled, non-compute pods such as MetaStore and Data Visualization can also use the reserved nodes.
+   * DEPRECATED: As of 1.5.5, this feature flag can be set as an advanced configuration. Enable to use dedicated nodes exclusively for executors and coordinators, and improve performance. You can enable this only if you reserved nodes while adding a CDP Private Cloud containerized ECS cluster. When disabled, non-compute pods such as MetaStore and Data Visualization can also use the reserved nodes.
    **/
   private Boolean dedicatedExecutorNodes = false;
 
@@ -135,8 +135,9 @@ public class CreatePrivateClusterRequest  {
 
   /**
    * Getter for dedicatedExecutorNodes.
-   * Enable to use dedicated nodes exclusively for executors and coordinators, and improve performance. You can enable this only if you reserved nodes while adding a CDP Private Cloud containerized ECS cluster. When disabled, non-compute pods such as MetaStore and Data Visualization can also use the reserved nodes.
+   * DEPRECATED: As of 1.5.5, this feature flag can be set as an advanced configuration. Enable to use dedicated nodes exclusively for executors and coordinators, and improve performance. You can enable this only if you reserved nodes while adding a CDP Private Cloud containerized ECS cluster. When disabled, non-compute pods such as MetaStore and Data Visualization can also use the reserved nodes.
    **/
+  @Deprecated
   @JsonProperty("dedicatedExecutorNodes")
   public Boolean getDedicatedExecutorNodes() {
     return dedicatedExecutorNodes;
@@ -144,8 +145,9 @@ public class CreatePrivateClusterRequest  {
 
   /**
    * Setter for dedicatedExecutorNodes.
-   * Enable to use dedicated nodes exclusively for executors and coordinators, and improve performance. You can enable this only if you reserved nodes while adding a CDP Private Cloud containerized ECS cluster. When disabled, non-compute pods such as MetaStore and Data Visualization can also use the reserved nodes.
+   * DEPRECATED: As of 1.5.5, this feature flag can be set as an advanced configuration. Enable to use dedicated nodes exclusively for executors and coordinators, and improve performance. You can enable this only if you reserved nodes while adding a CDP Private Cloud containerized ECS cluster. When disabled, non-compute pods such as MetaStore and Data Visualization can also use the reserved nodes.
    **/
+  @Deprecated
   public void setDedicatedExecutorNodes(Boolean dedicatedExecutorNodes) {
     this.dedicatedExecutorNodes = dedicatedExecutorNodes;
   }

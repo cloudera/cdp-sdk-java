@@ -28,7 +28,7 @@ import com.cloudera.cdp.drscp.model.Restore;
 /**
  * Response object for the describe restore request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:42.686-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-14T20:25:45.595-07:00")
 public class DescribeRestoreResponse extends CdpResponse {
 
   /**

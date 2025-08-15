@@ -30,11 +30,11 @@ import java.util.Map;
 /**
  * Request object for the createResourceTemplate method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:40.786-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-14T20:25:43.953-07:00")
 public class CreateResourceTemplateRequest  {
 
   /**
-   * ID of the template.
+   * DEPRECATED: ID of the template. This field is unused and always empty. Subject of removal.
    **/
   private String id = null;
 
@@ -60,8 +60,9 @@ public class CreateResourceTemplateRequest  {
 
   /**
    * Getter for id.
-   * ID of the template.
+   * DEPRECATED: ID of the template. This field is unused and always empty. Subject of removal.
    **/
+  @Deprecated
   @JsonProperty("id")
   public String getId() {
     return id;
@@ -69,8 +70,9 @@ public class CreateResourceTemplateRequest  {
 
   /**
    * Setter for id.
-   * ID of the template.
+   * DEPRECATED: ID of the template. This field is unused and always empty. Subject of removal.
    **/
+  @Deprecated
   public void setId(String id) {
     this.id = id;
   }

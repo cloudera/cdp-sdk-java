@@ -28,7 +28,7 @@ import com.cloudera.cdp.dw.model.ServiceConfigReq;
 /**
  * Request object for the updateDbc method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:40.786-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-14T20:25:43.953-07:00")
 public class UpdateDbcRequest  {
 
   /**
@@ -47,7 +47,7 @@ public class UpdateDbcRequest  {
   private String resourceTemplateId = null;
 
   /**
-   * Sets the resource pool of the Database Catalog. Updating an already set resource pool for a Database Catalog is not supported.
+   * DEPRECATED: This functionality will be removed in the next release. Sets the resource pool of the Database Catalog. Updating an already set resource pool for a Database Catalog is not supported.
    **/
   private String resourcePool = null;
 
@@ -109,8 +109,9 @@ public class UpdateDbcRequest  {
 
   /**
    * Getter for resourcePool.
-   * Sets the resource pool of the Database Catalog. Updating an already set resource pool for a Database Catalog is not supported.
+   * DEPRECATED: This functionality will be removed in the next release. Sets the resource pool of the Database Catalog. Updating an already set resource pool for a Database Catalog is not supported.
    **/
+  @Deprecated
   @JsonProperty("resourcePool")
   public String getResourcePool() {
     return resourcePool;
@@ -118,8 +119,9 @@ public class UpdateDbcRequest  {
 
   /**
    * Setter for resourcePool.
-   * Sets the resource pool of the Database Catalog. Updating an already set resource pool for a Database Catalog is not supported.
+   * DEPRECATED: This functionality will be removed in the next release. Sets the resource pool of the Database Catalog. Updating an already set resource pool for a Database Catalog is not supported.
    **/
+  @Deprecated
   public void setResourcePool(String resourcePool) {
     this.resourcePool = resourcePool;
   }

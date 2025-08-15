@@ -31,7 +31,7 @@ import com.cloudera.cdp.dw.model.ServiceConfigReq;
 /**
  * Request object for the updateVw method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-07-30T10:22:40.786-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-14T20:25:43.953-07:00")
 public class UpdateVwRequest  {
 
   /**
@@ -95,7 +95,7 @@ public class UpdateVwRequest  {
   private Boolean logHiveQueries = null;
 
   /**
-   * Used to set the resource pool of the Virtual Warehouses that are not enrolled for quota management.
+   * DEPRECATED: This functionality will be removed in the next release. Used to set the resource pool of the Virtual Warehouses that are not enrolled for quota management.
    **/
   private String resourcePool = null;
 
@@ -312,8 +312,9 @@ public class UpdateVwRequest  {
 
   /**
    * Getter for resourcePool.
-   * Used to set the resource pool of the Virtual Warehouses that are not enrolled for quota management.
+   * DEPRECATED: This functionality will be removed in the next release. Used to set the resource pool of the Virtual Warehouses that are not enrolled for quota management.
    **/
+  @Deprecated
   @JsonProperty("resourcePool")
   public String getResourcePool() {
     return resourcePool;
@@ -321,8 +322,9 @@ public class UpdateVwRequest  {
 
   /**
    * Setter for resourcePool.
-   * Used to set the resource pool of the Virtual Warehouses that are not enrolled for quota management.
+   * DEPRECATED: This functionality will be removed in the next release. Used to set the resource pool of the Virtual Warehouses that are not enrolled for quota management.
    **/
+  @Deprecated
   public void setResourcePool(String resourcePool) {
     this.resourcePool = resourcePool;
   }
