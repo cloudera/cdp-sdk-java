@@ -26,23 +26,23 @@ import com.cloudera.cdp.client.CdpResponse;
 import java.time.ZonedDateTime;
 
 /**
- * Describe a diagnostics bundle
+ * Describe a diagnostics bundle.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-14T20:25:46.408-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:30.192-07:00")
 public class DiagnosticsBundle  {
 
   /**
-   * Identifier for each bundle collection
+   * Identifier for each bundle collection.
    **/
   private String id = null;
 
   /**
-   * The object on which diagnostics was collected
+   * The object on which diagnostics was collected.
    **/
   private String crn = null;
 
   /**
-   * Start time
+   * Start time.
    **/
   private ZonedDateTime startTime = null;
 
@@ -52,18 +52,28 @@ public class DiagnosticsBundle  {
   private ZonedDateTime endTime = null;
 
   /**
-   * A status of the diagnostics collection process
+   * Requested destination of the bundle.
+   **/
+  private String destination = null;
+
+  /**
+   * CSH case number.
+   **/
+  private String caseNumber = null;
+
+  /**
+   * A status of the diagnostics collection process.
    **/
   private String status = null;
 
   /**
-   * If this is a download, a link to the download location of the bundle
+   * If this is a download, a link to the download location of the bundle.
    **/
   private String result = null;
 
   /**
    * Getter for id.
-   * Identifier for each bundle collection
+   * Identifier for each bundle collection.
    **/
   @JsonProperty("id")
   public String getId() {
@@ -72,7 +82,7 @@ public class DiagnosticsBundle  {
 
   /**
    * Setter for id.
-   * Identifier for each bundle collection
+   * Identifier for each bundle collection.
    **/
   public void setId(String id) {
     this.id = id;
@@ -80,7 +90,7 @@ public class DiagnosticsBundle  {
 
   /**
    * Getter for crn.
-   * The object on which diagnostics was collected
+   * The object on which diagnostics was collected.
    **/
   @JsonProperty("crn")
   public String getCrn() {
@@ -89,7 +99,7 @@ public class DiagnosticsBundle  {
 
   /**
    * Setter for crn.
-   * The object on which diagnostics was collected
+   * The object on which diagnostics was collected.
    **/
   public void setCrn(String crn) {
     this.crn = crn;
@@ -97,7 +107,7 @@ public class DiagnosticsBundle  {
 
   /**
    * Getter for startTime.
-   * Start time
+   * Start time.
    **/
   @JsonProperty("startTime")
   public ZonedDateTime getStartTime() {
@@ -106,7 +116,7 @@ public class DiagnosticsBundle  {
 
   /**
    * Setter for startTime.
-   * Start time
+   * Start time.
    **/
   public void setStartTime(ZonedDateTime startTime) {
     this.startTime = startTime;
@@ -130,8 +140,42 @@ public class DiagnosticsBundle  {
   }
 
   /**
+   * Getter for destination.
+   * Requested destination of the bundle.
+   **/
+  @JsonProperty("destination")
+  public String getDestination() {
+    return destination;
+  }
+
+  /**
+   * Setter for destination.
+   * Requested destination of the bundle.
+   **/
+  public void setDestination(String destination) {
+    this.destination = destination;
+  }
+
+  /**
+   * Getter for caseNumber.
+   * CSH case number.
+   **/
+  @JsonProperty("caseNumber")
+  public String getCaseNumber() {
+    return caseNumber;
+  }
+
+  /**
+   * Setter for caseNumber.
+   * CSH case number.
+   **/
+  public void setCaseNumber(String caseNumber) {
+    this.caseNumber = caseNumber;
+  }
+
+  /**
    * Getter for status.
-   * A status of the diagnostics collection process
+   * A status of the diagnostics collection process.
    **/
   @JsonProperty("status")
   public String getStatus() {
@@ -140,7 +184,7 @@ public class DiagnosticsBundle  {
 
   /**
    * Setter for status.
-   * A status of the diagnostics collection process
+   * A status of the diagnostics collection process.
    **/
   public void setStatus(String status) {
     this.status = status;
@@ -148,7 +192,7 @@ public class DiagnosticsBundle  {
 
   /**
    * Getter for result.
-   * If this is a download, a link to the download location of the bundle
+   * If this is a download, a link to the download location of the bundle.
    **/
   @JsonProperty("result")
   public String getResult() {
@@ -157,7 +201,7 @@ public class DiagnosticsBundle  {
 
   /**
    * Setter for result.
-   * If this is a download, a link to the download location of the bundle
+   * If this is a download, a link to the download location of the bundle.
    **/
   public void setResult(String result) {
     this.result = result;
@@ -184,6 +228,12 @@ public class DiagnosticsBundle  {
     if (!Objects.equals(this.endTime, diagnosticsBundle.endTime)) {
       return false;
     }
+    if (!Objects.equals(this.destination, diagnosticsBundle.destination)) {
+      return false;
+    }
+    if (!Objects.equals(this.caseNumber, diagnosticsBundle.caseNumber)) {
+      return false;
+    }
     if (!Objects.equals(this.status, diagnosticsBundle.status)) {
       return false;
     }
@@ -195,7 +245,7 @@ public class DiagnosticsBundle  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, crn, startTime, endTime, status, result);
+    return Objects.hash(id, crn, startTime, endTime, destination, caseNumber, status, result);
   }
 
   @Override
@@ -206,6 +256,8 @@ public class DiagnosticsBundle  {
     sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
+    sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
+    sb.append("    caseNumber: ").append(toIndentedString(caseNumber)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    result: ").append(toIndentedString(result)).append("\n");
     sb.append("}");

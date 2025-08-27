@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * Request object for the createVw method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-14T20:25:43.953-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:27.657-07:00")
 public class CreateVwRequest  {
 
   /**
@@ -83,7 +83,7 @@ public class CreateVwRequest  {
   private String availabilityZone = null;
 
   /**
-   * Enable Unified Analytics. In the case of Hive Virtual Warehouses, this cannot be provided, because this value is inferred. In the case of Impala, this can be set. Passing --query-isolation-options will be considered only if this flag is set to true. If Unified Analytics is enabled then the \"enableShutdownOfCoordinator\" in --impala-ha-settings is explicitly disabled (ignored) and should not be provided, furthermore the \"highAvailabilityMode\" in --impala-ha-settings cannot be set to ACTIVE_ACTIVE.
+   * DEPRECATED: Enable Unified Analytics. In the case of Hive Virtual Warehouses, this cannot be provided, because this value is inferred. In the case of Impala, this can be set. Passing --query-isolation-options will be considered only if this flag is set to true. If Unified Analytics is enabled then the \"enableShutdownOfCoordinator\" in --impala-ha-settings is explicitly disabled (ignored) and should not be provided, furthermore the \"highAvailabilityMode\" in --impala-ha-settings cannot be set to ACTIVE_ACTIVE. FENG support will be removed in subsequent releases.
    **/
   private Boolean enableUnifiedAnalytics = null;
 
@@ -307,8 +307,9 @@ public class CreateVwRequest  {
 
   /**
    * Getter for enableUnifiedAnalytics.
-   * Enable Unified Analytics. In the case of Hive Virtual Warehouses, this cannot be provided, because this value is inferred. In the case of Impala, this can be set. Passing --query-isolation-options will be considered only if this flag is set to true. If Unified Analytics is enabled then the \&quot;enableShutdownOfCoordinator\&quot; in --impala-ha-settings is explicitly disabled (ignored) and should not be provided, furthermore the \&quot;highAvailabilityMode\&quot; in --impala-ha-settings cannot be set to ACTIVE_ACTIVE.
+   * DEPRECATED: Enable Unified Analytics. In the case of Hive Virtual Warehouses, this cannot be provided, because this value is inferred. In the case of Impala, this can be set. Passing --query-isolation-options will be considered only if this flag is set to true. If Unified Analytics is enabled then the \&quot;enableShutdownOfCoordinator\&quot; in --impala-ha-settings is explicitly disabled (ignored) and should not be provided, furthermore the \&quot;highAvailabilityMode\&quot; in --impala-ha-settings cannot be set to ACTIVE_ACTIVE. FENG support will be removed in subsequent releases.
    **/
+  @Deprecated
   @JsonProperty("enableUnifiedAnalytics")
   public Boolean getEnableUnifiedAnalytics() {
     return enableUnifiedAnalytics;
@@ -316,8 +317,9 @@ public class CreateVwRequest  {
 
   /**
    * Setter for enableUnifiedAnalytics.
-   * Enable Unified Analytics. In the case of Hive Virtual Warehouses, this cannot be provided, because this value is inferred. In the case of Impala, this can be set. Passing --query-isolation-options will be considered only if this flag is set to true. If Unified Analytics is enabled then the \&quot;enableShutdownOfCoordinator\&quot; in --impala-ha-settings is explicitly disabled (ignored) and should not be provided, furthermore the \&quot;highAvailabilityMode\&quot; in --impala-ha-settings cannot be set to ACTIVE_ACTIVE.
+   * DEPRECATED: Enable Unified Analytics. In the case of Hive Virtual Warehouses, this cannot be provided, because this value is inferred. In the case of Impala, this can be set. Passing --query-isolation-options will be considered only if this flag is set to true. If Unified Analytics is enabled then the \&quot;enableShutdownOfCoordinator\&quot; in --impala-ha-settings is explicitly disabled (ignored) and should not be provided, furthermore the \&quot;highAvailabilityMode\&quot; in --impala-ha-settings cannot be set to ACTIVE_ACTIVE. FENG support will be removed in subsequent releases.
    **/
+  @Deprecated
   public void setEnableUnifiedAnalytics(Boolean enableUnifiedAnalytics) {
     this.enableUnifiedAnalytics = enableUnifiedAnalytics;
   }

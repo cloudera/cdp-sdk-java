@@ -27,19 +27,19 @@ import com.cloudera.cdp.opdb.model.DiagnosticsBundle;
 import java.util.*;
 
 /**
- * The list of in-progress diagnostic bundle operations
+ * The list of in-progress diagnostic bundle operations.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-14T20:25:46.408-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:30.192-07:00")
 public class ListDiagnosticsResponse extends CdpResponse {
 
   /**
-   * List of diagnostics operations
+   * List of diagnostics operations.
    **/
   private List<DiagnosticsBundle> diagnosticsBundles = new ArrayList<DiagnosticsBundle>();
 
   /**
    * Getter for diagnosticsBundles.
-   * List of diagnostics operations
+   * List of diagnostics operations.
    **/
   @JsonProperty("diagnosticsBundles")
   public List<DiagnosticsBundle> getDiagnosticsBundles() {
@@ -48,7 +48,7 @@ public class ListDiagnosticsResponse extends CdpResponse {
 
   /**
    * Setter for diagnosticsBundles.
-   * List of diagnostics operations
+   * List of diagnostics operations.
    **/
   public void setDiagnosticsBundles(List<DiagnosticsBundle> diagnosticsBundles) {
     this.diagnosticsBundles = diagnosticsBundles;

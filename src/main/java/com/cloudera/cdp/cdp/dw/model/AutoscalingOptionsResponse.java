@@ -28,7 +28,7 @@ import com.cloudera.cdp.dw.model.ImpalaExecutorGroupSetsResponse;
 /**
  * Auto-scaling configuration for a Virtual Warehouse.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-14T20:25:43.953-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:27.657-07:00")
 public class AutoscalingOptionsResponse extends CdpResponse {
 
   /**
@@ -52,7 +52,7 @@ public class AutoscalingOptionsResponse extends CdpResponse {
   private Integer autoSuspendTimeoutSeconds = null;
 
   /**
-   * DEPRECATED in favor of the top level enableUnifiedAnalytics flag. Whether the Unified Analytics is enabled.
+   * DEPRECATED: in favor of the top level enableUnifiedAnalytics flag. Whether the Unified Analytics is enabled. FENG support will be removed in subsequent releases.
    **/
   private Boolean enableUnifiedAnalytics = null;
 
@@ -176,7 +176,7 @@ public class AutoscalingOptionsResponse extends CdpResponse {
 
   /**
    * Getter for enableUnifiedAnalytics.
-   * DEPRECATED in favor of the top level enableUnifiedAnalytics flag. Whether the Unified Analytics is enabled.
+   * DEPRECATED: in favor of the top level enableUnifiedAnalytics flag. Whether the Unified Analytics is enabled. FENG support will be removed in subsequent releases.
    **/
   @Deprecated
   @JsonProperty("enableUnifiedAnalytics")
@@ -186,7 +186,7 @@ public class AutoscalingOptionsResponse extends CdpResponse {
 
   /**
    * Setter for enableUnifiedAnalytics.
-   * DEPRECATED in favor of the top level enableUnifiedAnalytics flag. Whether the Unified Analytics is enabled.
+   * DEPRECATED: in favor of the top level enableUnifiedAnalytics flag. Whether the Unified Analytics is enabled. FENG support will be removed in subsequent releases.
    **/
   @Deprecated
   public void setEnableUnifiedAnalytics(Boolean enableUnifiedAnalytics) {

@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * A request to list past and present diagnostics for a given DataFlow Service.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-14T20:25:47.457-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:31.155-07:00")
 public class ListDiagnosticsRequest  {
 
   /**

@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Allowed compute instance type values and default compute instance type value.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-14T20:25:43.953-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:27.657-07:00")
 public class AllowedInstanceTypes  {
 
   /**

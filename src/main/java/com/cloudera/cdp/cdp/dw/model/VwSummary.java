@@ -41,7 +41,7 @@ import java.util.Map;
 /**
  * A Virtual Warehouse.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-14T20:25:43.953-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:27.657-07:00")
 public class VwSummary  {
 
   /**
@@ -165,7 +165,7 @@ public class VwSummary  {
   private Boolean viz = null;
 
   /**
-   * Denotes whether the Unified Analytics is enabled.
+   * DEPRECATED: Denotes whether the Unified Analytics is enabled. FENG support will be removed in subsequent releases.
    **/
   private Boolean enableUnifiedAnalytics = null;
 
@@ -629,8 +629,9 @@ public class VwSummary  {
 
   /**
    * Getter for enableUnifiedAnalytics.
-   * Denotes whether the Unified Analytics is enabled.
+   * DEPRECATED: Denotes whether the Unified Analytics is enabled. FENG support will be removed in subsequent releases.
    **/
+  @Deprecated
   @JsonProperty("enableUnifiedAnalytics")
   public Boolean getEnableUnifiedAnalytics() {
     return enableUnifiedAnalytics;
@@ -638,8 +639,9 @@ public class VwSummary  {
 
   /**
    * Setter for enableUnifiedAnalytics.
-   * Denotes whether the Unified Analytics is enabled.
+   * DEPRECATED: Denotes whether the Unified Analytics is enabled. FENG support will be removed in subsequent releases.
    **/
+  @Deprecated
   public void setEnableUnifiedAnalytics(Boolean enableUnifiedAnalytics) {
     this.enableUnifiedAnalytics = enableUnifiedAnalytics;
   }

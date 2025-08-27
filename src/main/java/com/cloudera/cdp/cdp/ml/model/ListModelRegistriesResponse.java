@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * List of all available model registries.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-14T20:25:44.648-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:28.588-07:00")
 public class ListModelRegistriesResponse extends CdpResponse {
 
   /**

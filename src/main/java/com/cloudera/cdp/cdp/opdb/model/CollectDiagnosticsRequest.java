@@ -27,16 +27,16 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Enables starting collection of the diagnostics. This is an asynchronous API and not expected to block.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-14T20:25:46.408-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:30.192-07:00")
 public class CollectDiagnosticsRequest  {
 
   /**
-   * The name of the environment
+   * The name of the environment.
    **/
   private String environmentName = null;
 
   /**
-   * The name of the database
+   * The name of the database.
    **/
   private String databaseName = null;
 
@@ -51,8 +51,23 @@ public class CollectDiagnosticsRequest  {
   private String startTime = null;
 
   /**
+   * This defines where to put the resulting bundle.
+   **/
+  private String destination = null;
+
+  /**
+   * The CSH case number to associate the bundle.
+   **/
+  private String caseNumber = null;
+
+  /**
+   * Bundle size limit.
+   **/
+  private Long bundleSizeBytes = null;
+
+  /**
    * Getter for environmentName.
-   * The name of the environment
+   * The name of the environment.
    **/
   @JsonProperty("environmentName")
   public String getEnvironmentName() {
@@ -61,7 +76,7 @@ public class CollectDiagnosticsRequest  {
 
   /**
    * Setter for environmentName.
-   * The name of the environment
+   * The name of the environment.
    **/
   public void setEnvironmentName(String environmentName) {
     this.environmentName = environmentName;
@@ -69,7 +84,7 @@ public class CollectDiagnosticsRequest  {
 
   /**
    * Getter for databaseName.
-   * The name of the database
+   * The name of the database.
    **/
   @JsonProperty("databaseName")
   public String getDatabaseName() {
@@ -78,7 +93,7 @@ public class CollectDiagnosticsRequest  {
 
   /**
    * Setter for databaseName.
-   * The name of the database
+   * The name of the database.
    **/
   public void setDatabaseName(String databaseName) {
     this.databaseName = databaseName;
@@ -118,6 +133,57 @@ public class CollectDiagnosticsRequest  {
     this.startTime = startTime;
   }
 
+  /**
+   * Getter for destination.
+   * This defines where to put the resulting bundle.
+   **/
+  @JsonProperty("destination")
+  public String getDestination() {
+    return destination;
+  }
+
+  /**
+   * Setter for destination.
+   * This defines where to put the resulting bundle.
+   **/
+  public void setDestination(String destination) {
+    this.destination = destination;
+  }
+
+  /**
+   * Getter for caseNumber.
+   * The CSH case number to associate the bundle.
+   **/
+  @JsonProperty("caseNumber")
+  public String getCaseNumber() {
+    return caseNumber;
+  }
+
+  /**
+   * Setter for caseNumber.
+   * The CSH case number to associate the bundle.
+   **/
+  public void setCaseNumber(String caseNumber) {
+    this.caseNumber = caseNumber;
+  }
+
+  /**
+   * Getter for bundleSizeBytes.
+   * Bundle size limit.
+   **/
+  @JsonProperty("bundleSizeBytes")
+  public Long getBundleSizeBytes() {
+    return bundleSizeBytes;
+  }
+
+  /**
+   * Setter for bundleSizeBytes.
+   * Bundle size limit.
+   **/
+  public void setBundleSizeBytes(Long bundleSizeBytes) {
+    this.bundleSizeBytes = bundleSizeBytes;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -139,12 +205,21 @@ public class CollectDiagnosticsRequest  {
     if (!Objects.equals(this.startTime, collectDiagnosticsRequest.startTime)) {
       return false;
     }
+    if (!Objects.equals(this.destination, collectDiagnosticsRequest.destination)) {
+      return false;
+    }
+    if (!Objects.equals(this.caseNumber, collectDiagnosticsRequest.caseNumber)) {
+      return false;
+    }
+    if (!Objects.equals(this.bundleSizeBytes, collectDiagnosticsRequest.bundleSizeBytes)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, databaseName, endTime, startTime);
+    return Objects.hash(environmentName, databaseName, endTime, startTime, destination, caseNumber, bundleSizeBytes);
   }
 
   @Override
@@ -155,6 +230,9 @@ public class CollectDiagnosticsRequest  {
     sb.append("    databaseName: ").append(toIndentedString(databaseName)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
+    sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
+    sb.append("    caseNumber: ").append(toIndentedString(caseNumber)).append("\n");
+    sb.append("    bundleSizeBytes: ").append(toIndentedString(bundleSizeBytes)).append("\n");
     sb.append("}");
     return sb.toString();
   }

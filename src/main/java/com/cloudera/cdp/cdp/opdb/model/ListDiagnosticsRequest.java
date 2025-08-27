@@ -27,22 +27,22 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Lists the in-progress diagnostic bundle operations.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-14T20:25:46.408-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:30.192-07:00")
 public class ListDiagnosticsRequest  {
 
   /**
-   * The name of the environment
+   * The name of the environment.
    **/
   private String environmentName = null;
 
   /**
-   * The name of the database
+   * The name of the database.
    **/
   private String databaseName = null;
 
   /**
    * Getter for environmentName.
-   * The name of the environment
+   * The name of the environment.
    **/
   @JsonProperty("environmentName")
   public String getEnvironmentName() {
@@ -51,7 +51,7 @@ public class ListDiagnosticsRequest  {
 
   /**
    * Setter for environmentName.
-   * The name of the environment
+   * The name of the environment.
    **/
   public void setEnvironmentName(String environmentName) {
     this.environmentName = environmentName;
@@ -59,7 +59,7 @@ public class ListDiagnosticsRequest  {
 
   /**
    * Getter for databaseName.
-   * The name of the database
+   * The name of the database.
    **/
   @JsonProperty("databaseName")
   public String getDatabaseName() {
@@ -68,7 +68,7 @@ public class ListDiagnosticsRequest  {
 
   /**
    * Setter for databaseName.
-   * The name of the database
+   * The name of the database.
    **/
   public void setDatabaseName(String databaseName) {
     this.databaseName = databaseName;

@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Endpoints for accessing the Virtual Warehouse.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-14T20:25:43.953-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:27.657-07:00")
 public class VwSummaryEndpoints  {
 
   /**
@@ -51,12 +51,12 @@ public class VwSummaryEndpoints  {
   private String impalaKerberosJdbc = null;
 
   /**
-   * FENG JDBC URL for Impala Virtual Warehouses.
+   * DEPRECATED: FENG JDBC URL for Impala Virtual Warehouses. FENG support will be removed in subsequent releases.
    **/
   private String impalaFENGJdbc = null;
 
   /**
-   * Unified Analytics JDBC URL with Kerberos authentication for Impala Virtual Warehouses in Private Cloud.
+   * DEPRECATED: Unified Analytics JDBC URL with Kerberos authentication for Impala Virtual Warehouses in Private Cloud. FENG support will be removed in subsequent releases.
    **/
   private String impalaFengKerberosJdbc = null;
 
@@ -66,12 +66,12 @@ public class VwSummaryEndpoints  {
   private String impalaShell = null;
 
   /**
-   * Command to use impala-shell for Unified Analytics
+   * DEPRECATED: Command to use impala-shell for Unified Analytics. FENG support will be removed in subsequent releases.
    **/
   private String fengImpalaShell = null;
 
   /**
-   * Command to use impala-shell for Unified Analytics with Kerberos authentication in Private Cloud.
+   * DEPRECATED: Command to use impala-shell for Unified Analytics with Kerberos authentication in Private Cloud. FENG support will be removed in subsequent releases.
    **/
   private String fengKerberosImpalaShell = null;
 
@@ -185,8 +185,9 @@ public class VwSummaryEndpoints  {
 
   /**
    * Getter for impalaFENGJdbc.
-   * FENG JDBC URL for Impala Virtual Warehouses.
+   * DEPRECATED: FENG JDBC URL for Impala Virtual Warehouses. FENG support will be removed in subsequent releases.
    **/
+  @Deprecated
   @JsonProperty("impalaFENGJdbc")
   public String getImpalaFENGJdbc() {
     return impalaFENGJdbc;
@@ -194,16 +195,18 @@ public class VwSummaryEndpoints  {
 
   /**
    * Setter for impalaFENGJdbc.
-   * FENG JDBC URL for Impala Virtual Warehouses.
+   * DEPRECATED: FENG JDBC URL for Impala Virtual Warehouses. FENG support will be removed in subsequent releases.
    **/
+  @Deprecated
   public void setImpalaFENGJdbc(String impalaFENGJdbc) {
     this.impalaFENGJdbc = impalaFENGJdbc;
   }
 
   /**
    * Getter for impalaFengKerberosJdbc.
-   * Unified Analytics JDBC URL with Kerberos authentication for Impala Virtual Warehouses in Private Cloud.
+   * DEPRECATED: Unified Analytics JDBC URL with Kerberos authentication for Impala Virtual Warehouses in Private Cloud. FENG support will be removed in subsequent releases.
    **/
+  @Deprecated
   @JsonProperty("impalaFengKerberosJdbc")
   public String getImpalaFengKerberosJdbc() {
     return impalaFengKerberosJdbc;
@@ -211,8 +214,9 @@ public class VwSummaryEndpoints  {
 
   /**
    * Setter for impalaFengKerberosJdbc.
-   * Unified Analytics JDBC URL with Kerberos authentication for Impala Virtual Warehouses in Private Cloud.
+   * DEPRECATED: Unified Analytics JDBC URL with Kerberos authentication for Impala Virtual Warehouses in Private Cloud. FENG support will be removed in subsequent releases.
    **/
+  @Deprecated
   public void setImpalaFengKerberosJdbc(String impalaFengKerberosJdbc) {
     this.impalaFengKerberosJdbc = impalaFengKerberosJdbc;
   }
@@ -236,8 +240,9 @@ public class VwSummaryEndpoints  {
 
   /**
    * Getter for fengImpalaShell.
-   * Command to use impala-shell for Unified Analytics
+   * DEPRECATED: Command to use impala-shell for Unified Analytics. FENG support will be removed in subsequent releases.
    **/
+  @Deprecated
   @JsonProperty("fengImpalaShell")
   public String getFengImpalaShell() {
     return fengImpalaShell;
@@ -245,16 +250,18 @@ public class VwSummaryEndpoints  {
 
   /**
    * Setter for fengImpalaShell.
-   * Command to use impala-shell for Unified Analytics
+   * DEPRECATED: Command to use impala-shell for Unified Analytics. FENG support will be removed in subsequent releases.
    **/
+  @Deprecated
   public void setFengImpalaShell(String fengImpalaShell) {
     this.fengImpalaShell = fengImpalaShell;
   }
 
   /**
    * Getter for fengKerberosImpalaShell.
-   * Command to use impala-shell for Unified Analytics with Kerberos authentication in Private Cloud.
+   * DEPRECATED: Command to use impala-shell for Unified Analytics with Kerberos authentication in Private Cloud. FENG support will be removed in subsequent releases.
    **/
+  @Deprecated
   @JsonProperty("fengKerberosImpalaShell")
   public String getFengKerberosImpalaShell() {
     return fengKerberosImpalaShell;
@@ -262,8 +269,9 @@ public class VwSummaryEndpoints  {
 
   /**
    * Setter for fengKerberosImpalaShell.
-   * Command to use impala-shell for Unified Analytics with Kerberos authentication in Private Cloud.
+   * DEPRECATED: Command to use impala-shell for Unified Analytics with Kerberos authentication in Private Cloud. FENG support will be removed in subsequent releases.
    **/
+  @Deprecated
   public void setFengKerberosImpalaShell(String fengKerberosImpalaShell) {
     this.fengKerberosImpalaShell = fengKerberosImpalaShell;
   }

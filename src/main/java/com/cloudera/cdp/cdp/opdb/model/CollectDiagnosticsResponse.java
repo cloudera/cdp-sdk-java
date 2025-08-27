@@ -26,19 +26,19 @@ import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.opdb.model.DiagnosticsBundle;
 
 /**
- * Information about diagnostic bundle generation
+ * Information about diagnostic bundle generation.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-14T20:25:46.408-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:30.192-07:00")
 public class CollectDiagnosticsResponse extends CdpResponse {
 
   /**
-   * Details of requested diagnostic bundle collection
+   * Details of requested diagnostic bundle collection.
    **/
   private DiagnosticsBundle diagnosticsBundle = null;
 
   /**
    * Getter for diagnosticsBundle.
-   * Details of requested diagnostic bundle collection
+   * Details of requested diagnostic bundle collection.
    **/
   @JsonProperty("diagnosticsBundle")
   public DiagnosticsBundle getDiagnosticsBundle() {
@@ -47,7 +47,7 @@ public class CollectDiagnosticsResponse extends CdpResponse {
 
   /**
    * Setter for diagnosticsBundle.
-   * Details of requested diagnostic bundle collection
+   * Details of requested diagnostic bundle collection.
    **/
   public void setDiagnosticsBundle(DiagnosticsBundle diagnosticsBundle) {
     this.diagnosticsBundle = diagnosticsBundle;

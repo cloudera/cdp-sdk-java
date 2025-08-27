@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for change flow version of a deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-14T20:25:47.841-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:31.577-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class ChangeFlowVersionRequest  {
 

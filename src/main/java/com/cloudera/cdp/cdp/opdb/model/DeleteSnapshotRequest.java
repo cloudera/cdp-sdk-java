@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the DeleteSnapshot method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-14T20:25:46.408-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:30.192-07:00")
 public class DeleteSnapshotRequest  {
 
   /**
@@ -44,6 +44,11 @@ public class DeleteSnapshotRequest  {
    * The name of the snapshot.
    **/
   private String snapshotName = null;
+
+  /**
+   * Forcefully delete the snapshot.
+   **/
+  private Boolean force = null;
 
   /**
    * Getter for environmentName.
@@ -96,6 +101,23 @@ public class DeleteSnapshotRequest  {
     this.snapshotName = snapshotName;
   }
 
+  /**
+   * Getter for force.
+   * Forcefully delete the snapshot.
+   **/
+  @JsonProperty("force")
+  public Boolean getForce() {
+    return force;
+  }
+
+  /**
+   * Setter for force.
+   * Forcefully delete the snapshot.
+   **/
+  public void setForce(Boolean force) {
+    this.force = force;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -114,12 +136,15 @@ public class DeleteSnapshotRequest  {
     if (!Objects.equals(this.snapshotName, deleteSnapshotRequest.snapshotName)) {
       return false;
     }
+    if (!Objects.equals(this.force, deleteSnapshotRequest.force)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, databaseName, snapshotName);
+    return Objects.hash(environmentName, databaseName, snapshotName, force);
   }
 
   @Override
@@ -129,6 +154,7 @@ public class DeleteSnapshotRequest  {
     sb.append("    environmentName: ").append(toIndentedString(environmentName)).append("\n");
     sb.append("    databaseName: ").append(toIndentedString(databaseName)).append("\n");
     sb.append("    snapshotName: ").append(toIndentedString(snapshotName)).append("\n");
+    sb.append("    force: ").append(toIndentedString(force)).append("\n");
     sb.append("}");
     return sb.toString();
   }
