@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object with base64 encoded contents of the public certificate for an environment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:29.563-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-09T16:18:24.748-07:00")
 public class GetRootCertificateResponse extends CdpResponse {
 
   /**

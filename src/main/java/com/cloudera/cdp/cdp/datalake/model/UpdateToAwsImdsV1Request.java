@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for updating Data Lake to use AWS IMDSv1.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:28.964-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-09T16:18:24.086-07:00")
 public class UpdateToAwsImdsV1Request  {
 
   /**

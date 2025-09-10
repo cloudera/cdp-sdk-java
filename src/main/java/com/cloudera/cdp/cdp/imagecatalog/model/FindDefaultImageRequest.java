@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * The request object to filter data that is used for retrieving an image from the default image catalog.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:31.831-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-09T16:18:27.107-07:00")
 public class FindDefaultImageRequest  {
 
   /**

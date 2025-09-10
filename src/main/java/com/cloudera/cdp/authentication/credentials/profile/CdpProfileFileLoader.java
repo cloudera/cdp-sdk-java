@@ -24,14 +24,17 @@ import static com.cloudera.cdp.ValidationUtils.checkNotNullAndThrow;
 import com.cloudera.cdp.CdpClientException;
 import com.cloudera.cdp.annotation.SdkInternalApi;
 import com.google.common.collect.ImmutableMap;
-import com.google.common.io.Closeables;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Iterator;
 
-import org.ini4j.Ini;
-import org.ini4j.Profile.Section;
+import org.apache.commons.configuration2.INIConfiguration;
+import org.apache.commons.configuration2.SubnodeConfiguration;
+import org.apache.commons.configuration2.ex.ConfigurationException;
+import org.apache.commons.configuration2.builder.FileBasedConfigurationBuilder;
+import org.apache.commons.configuration2.builder.fluent.Parameters;
+
 
 /**
  * Handles the actual loading of an CDP configuration file.
@@ -56,28 +59,30 @@ class CdpProfileFileLoader {
           "a directory " + file.getAbsolutePath());
     }
 
-    FileInputStream is = null;
     try {
-      is = new FileInputStream(file);
-      Ini ini = new Ini(is);
+      Parameters params = new Parameters();
+      FileBasedConfigurationBuilder<INIConfiguration> builder = new FileBasedConfigurationBuilder<>(INIConfiguration.class).configure(params.fileBased().setFile(file));
+      INIConfiguration ini = builder.getConfiguration();
       return loadProfiles(ini);
+    } catch (ConfigurationException e) {
+      throw new CdpClientException("Unable to load CDP profile specified " +
+          "at " + file.getAbsolutePath(), e);
     } catch (IOException ioe) {
       throw new CdpClientException("Unable to load CDP profile specified " +
           "at " + file.getAbsolutePath(), ioe);
-    } finally {
-      if (is != null) {
-        Closeables.closeQuietly(is);
-      }
     }
   }
 
-  private AllCdpProfiles loadProfiles(Ini ini) throws IOException {
+  private AllCdpProfiles loadProfiles(INIConfiguration ini) throws IOException, ConfigurationException {
     ImmutableMap.Builder<String, CdpProfile> profilesByName = ImmutableMap.builder();
-    for (String sectionName : ini.keySet()) {
-      Section section = ini.get(sectionName);
+
+    for (String sectionName : ini.getSections() ) {
+      SubnodeConfiguration section = ini.getSection(sectionName);
+
       ImmutableMap.Builder<String, String> mapBuilder = ImmutableMap.builder();
-      for (String optionKey : section.keySet()) {
-        mapBuilder.put(optionKey, section.get(optionKey));
+      for (Iterator<String> it = section.getKeys(); it.hasNext(); ) {
+        String key = it.next();
+        mapBuilder.put(key, section.getString(key));
       }
       profilesByName.put(sectionName, new CdpProfile(mapBuilder.build()));
     }

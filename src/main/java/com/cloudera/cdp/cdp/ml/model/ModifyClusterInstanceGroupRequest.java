@@ -23,11 +23,12 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.ml.model.Accelerator;
 
 /**
  * Request object for ModifyClusterInstanceGroup.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:28.588-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-09T16:18:23.744-07:00")
 public class ModifyClusterInstanceGroupRequest  {
 
   /**
@@ -59,6 +60,11 @@ public class ModifyClusterInstanceGroupRequest  {
    * The unique name for the instance or resource group of the workbench.
    **/
   private String name = null;
+
+  /**
+   * The accelerator, which refers to the GPU type configuration.
+   **/
+  private Accelerator accelerator = null;
 
   /**
    * Getter for workspaceCrn.
@@ -162,6 +168,23 @@ public class ModifyClusterInstanceGroupRequest  {
     this.name = name;
   }
 
+  /**
+   * Getter for accelerator.
+   * The accelerator, which refers to the GPU type configuration.
+   **/
+  @JsonProperty("accelerator")
+  public Accelerator getAccelerator() {
+    return accelerator;
+  }
+
+  /**
+   * Setter for accelerator.
+   * The accelerator, which refers to the GPU type configuration.
+   **/
+  public void setAccelerator(Accelerator accelerator) {
+    this.accelerator = accelerator;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -189,12 +212,15 @@ public class ModifyClusterInstanceGroupRequest  {
     if (!Objects.equals(this.name, modifyClusterInstanceGroupRequest.name)) {
       return false;
     }
+    if (!Objects.equals(this.accelerator, modifyClusterInstanceGroupRequest.accelerator)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(workspaceCrn, instanceGroupName, min, max, instanceType, name);
+    return Objects.hash(workspaceCrn, instanceGroupName, min, max, instanceType, name, accelerator);
   }
 
   @Override
@@ -207,6 +233,7 @@ public class ModifyClusterInstanceGroupRequest  {
     sb.append("    max: ").append(toIndentedString(max)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    accelerator: ").append(toIndentedString(accelerator)).append("\n");
     sb.append("}");
     return sb.toString();
   }

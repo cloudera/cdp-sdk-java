@@ -23,12 +23,13 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.ml.model.Gcp;
 import com.cloudera.cdp.ml.model.Topology;
 
 /**
  * Contains the information about overlay network.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:28.588-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-09T16:18:23.744-07:00")
 public class OverlayNetwork  {
 
   /**
@@ -40,6 +41,11 @@ public class OverlayNetwork  {
    * The options for overlay topology.
    **/
   private Topology topology = null;
+
+  /**
+   * The networking options for GCP platform.
+   **/
+  private Gcp gcp = null;
 
   /**
    * Getter for plugin.
@@ -75,6 +81,23 @@ public class OverlayNetwork  {
     this.topology = topology;
   }
 
+  /**
+   * Getter for gcp.
+   * The networking options for GCP platform.
+   **/
+  @JsonProperty("gcp")
+  public Gcp getGcp() {
+    return gcp;
+  }
+
+  /**
+   * Setter for gcp.
+   * The networking options for GCP platform.
+   **/
+  public void setGcp(Gcp gcp) {
+    this.gcp = gcp;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -90,12 +113,15 @@ public class OverlayNetwork  {
     if (!Objects.equals(this.topology, overlayNetwork.topology)) {
       return false;
     }
+    if (!Objects.equals(this.gcp, overlayNetwork.gcp)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(plugin, topology);
+    return Objects.hash(plugin, topology, gcp);
   }
 
   @Override
@@ -104,6 +130,7 @@ public class OverlayNetwork  {
     sb.append("class OverlayNetwork {\n");
     sb.append("    plugin: ").append(toIndentedString(plugin)).append("\n");
     sb.append("    topology: ").append(toIndentedString(topology)).append("\n");
+    sb.append("    gcp: ").append(toIndentedString(gcp)).append("\n");
     sb.append("}");
     return sb.toString();
   }

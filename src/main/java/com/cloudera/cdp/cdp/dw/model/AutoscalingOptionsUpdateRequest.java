@@ -28,16 +28,16 @@ import com.cloudera.cdp.dw.model.ImpalaExecutorGroupSetsUpdateRequest;
 /**
  * Auto-scaling configuration for a Virtual Warehouse. Provide those values only that you want to update.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:27.657-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-09T16:18:22.699-07:00")
 public class AutoscalingOptionsUpdateRequest  {
 
   /**
-   * Minimum number of available compute groups. Zero means, the minClusters will not be updated.
+   * Sets the minimum number of Executor Groups. Zero means the minClusters will not be updated.
    **/
   private Integer minClusters = 0;
 
   /**
-   * Maximum number of available compute groups. Zero means, the maxClusters will not be updated..
+   * Sets the maximum number of Executor Groups the Virtual Warehouse can scale up to. Zero means that this value will not be updated. This value defines the upper boundary for autoscaling. The total node capacity is determined by this number multiplied by the number of nodes in the selected `--t-shirt-size`. NOTE: On Azure, all IPs for the maximum node count are pre-allocated. If you use the same `--instance-type` for multiple Virtual Warehouses, they will share the same underlying nodepool and its limit is calculated as the sum of all nodes required by the corresponding Virtual Warehouses.
    **/
   private Integer maxClusters = 0;
 
@@ -88,7 +88,7 @@ public class AutoscalingOptionsUpdateRequest  {
 
   /**
    * Getter for minClusters.
-   * Minimum number of available compute groups. Zero means, the minClusters will not be updated.
+   * Sets the minimum number of Executor Groups. Zero means the minClusters will not be updated.
    **/
   @JsonProperty("minClusters")
   public Integer getMinClusters() {
@@ -97,7 +97,7 @@ public class AutoscalingOptionsUpdateRequest  {
 
   /**
    * Setter for minClusters.
-   * Minimum number of available compute groups. Zero means, the minClusters will not be updated.
+   * Sets the minimum number of Executor Groups. Zero means the minClusters will not be updated.
    **/
   public void setMinClusters(Integer minClusters) {
     this.minClusters = minClusters;
@@ -105,7 +105,7 @@ public class AutoscalingOptionsUpdateRequest  {
 
   /**
    * Getter for maxClusters.
-   * Maximum number of available compute groups. Zero means, the maxClusters will not be updated..
+   * Sets the maximum number of Executor Groups the Virtual Warehouse can scale up to. Zero means that this value will not be updated. This value defines the upper boundary for autoscaling. The total node capacity is determined by this number multiplied by the number of nodes in the selected &#x60;--t-shirt-size&#x60;. NOTE: On Azure, all IPs for the maximum node count are pre-allocated. If you use the same &#x60;--instance-type&#x60; for multiple Virtual Warehouses, they will share the same underlying nodepool and its limit is calculated as the sum of all nodes required by the corresponding Virtual Warehouses.
    **/
   @JsonProperty("maxClusters")
   public Integer getMaxClusters() {
@@ -114,7 +114,7 @@ public class AutoscalingOptionsUpdateRequest  {
 
   /**
    * Setter for maxClusters.
-   * Maximum number of available compute groups. Zero means, the maxClusters will not be updated..
+   * Sets the maximum number of Executor Groups the Virtual Warehouse can scale up to. Zero means that this value will not be updated. This value defines the upper boundary for autoscaling. The total node capacity is determined by this number multiplied by the number of nodes in the selected &#x60;--t-shirt-size&#x60;. NOTE: On Azure, all IPs for the maximum node count are pre-allocated. If you use the same &#x60;--instance-type&#x60; for multiple Virtual Warehouses, they will share the same underlying nodepool and its limit is calculated as the sum of all nodes required by the corresponding Virtual Warehouses.
    **/
   public void setMaxClusters(Integer maxClusters) {
     this.maxClusters = maxClusters;

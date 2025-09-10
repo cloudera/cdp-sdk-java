@@ -28,18 +28,18 @@ import com.cloudera.cdp.dw.model.ImpalaExecutorGroupSetsCreateRequest;
 /**
  * Auto-scaling configuration for a Virtual Warehouse.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:27.657-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-09T16:18:22.699-07:00")
 public class AutoscalingOptionsCreateRequest  {
 
   /**
-   * Minimum number of available compute groups.
+   * Sets the minimum number of Executor Groups.
    **/
   private Integer minClusters = 1;
 
   /**
-   * Maximum number of available compute groups.
+   * Sets the maximum number of Executor Groups the Virtual Warehouse can scale up to. This value defines the upper boundary for autoscaling. The total node capacity is determined by this number multiplied by the number of nodes in the selected `--t-shirt-size`. NOTE: On Azure, all IPs for the maximum node count are pre-allocated. If you use the same `--instance-type` for multiple Virtual Warehouses, they will share the same underlying nodepool and its limit is calculated as the sum of all nodes required by the corresponding Virtual Warehouses.
    **/
-  private Integer maxClusters = 10;
+  private Integer maxClusters = 5;
 
   /**
    * Turn off auto suspend for Virtual Warehouse.
@@ -108,7 +108,7 @@ public class AutoscalingOptionsCreateRequest  {
 
   /**
    * Getter for minClusters.
-   * Minimum number of available compute groups.
+   * Sets the minimum number of Executor Groups.
    **/
   @JsonProperty("minClusters")
   public Integer getMinClusters() {
@@ -117,7 +117,7 @@ public class AutoscalingOptionsCreateRequest  {
 
   /**
    * Setter for minClusters.
-   * Minimum number of available compute groups.
+   * Sets the minimum number of Executor Groups.
    **/
   public void setMinClusters(Integer minClusters) {
     this.minClusters = minClusters;
@@ -125,7 +125,7 @@ public class AutoscalingOptionsCreateRequest  {
 
   /**
    * Getter for maxClusters.
-   * Maximum number of available compute groups.
+   * Sets the maximum number of Executor Groups the Virtual Warehouse can scale up to. This value defines the upper boundary for autoscaling. The total node capacity is determined by this number multiplied by the number of nodes in the selected &#x60;--t-shirt-size&#x60;. NOTE: On Azure, all IPs for the maximum node count are pre-allocated. If you use the same &#x60;--instance-type&#x60; for multiple Virtual Warehouses, they will share the same underlying nodepool and its limit is calculated as the sum of all nodes required by the corresponding Virtual Warehouses.
    **/
   @JsonProperty("maxClusters")
   public Integer getMaxClusters() {
@@ -134,7 +134,7 @@ public class AutoscalingOptionsCreateRequest  {
 
   /**
    * Setter for maxClusters.
-   * Maximum number of available compute groups.
+   * Sets the maximum number of Executor Groups the Virtual Warehouse can scale up to. This value defines the upper boundary for autoscaling. The total node capacity is determined by this number multiplied by the number of nodes in the selected &#x60;--t-shirt-size&#x60;. NOTE: On Azure, all IPs for the maximum node count are pre-allocated. If you use the same &#x60;--instance-type&#x60; for multiple Virtual Warehouses, they will share the same underlying nodepool and its limit is calculated as the sum of all nodes required by the corresponding Virtual Warehouses.
    **/
   public void setMaxClusters(Integer maxClusters) {
     this.maxClusters = maxClusters;

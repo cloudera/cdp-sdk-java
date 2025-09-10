@@ -35,7 +35,7 @@ import java.util.*;
 /**
  * A ML workbench, which includes the cluster and storage.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:28.588-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-09T16:18:23.744-07:00")
 public class Workspace  {
 
   /**
@@ -222,6 +222,16 @@ public class Workspace  {
    * The value to indicate if the workbench is restored one or not
    **/
   private Boolean isRestored = null;
+
+  /**
+   * Secondary range names for kubernetes pod CIDR in GCP.
+   **/
+  private List<String> secondaryPodRangeNames = new ArrayList<String>();
+
+  /**
+   * Enable global access to the load balancer so the workbench is accessible from other regions.
+   **/
+  private Boolean enableGlobalAccessLoadBalancer = null;
 
   /**
    * Getter for instanceName.
@@ -852,6 +862,40 @@ public class Workspace  {
     this.isRestored = isRestored;
   }
 
+  /**
+   * Getter for secondaryPodRangeNames.
+   * Secondary range names for kubernetes pod CIDR in GCP.
+   **/
+  @JsonProperty("secondaryPodRangeNames")
+  public List<String> getSecondaryPodRangeNames() {
+    return secondaryPodRangeNames;
+  }
+
+  /**
+   * Setter for secondaryPodRangeNames.
+   * Secondary range names for kubernetes pod CIDR in GCP.
+   **/
+  public void setSecondaryPodRangeNames(List<String> secondaryPodRangeNames) {
+    this.secondaryPodRangeNames = secondaryPodRangeNames;
+  }
+
+  /**
+   * Getter for enableGlobalAccessLoadBalancer.
+   * Enable global access to the load balancer so the workbench is accessible from other regions.
+   **/
+  @JsonProperty("enableGlobalAccessLoadBalancer")
+  public Boolean getEnableGlobalAccessLoadBalancer() {
+    return enableGlobalAccessLoadBalancer;
+  }
+
+  /**
+   * Setter for enableGlobalAccessLoadBalancer.
+   * Enable global access to the load balancer so the workbench is accessible from other regions.
+   **/
+  public void setEnableGlobalAccessLoadBalancer(Boolean enableGlobalAccessLoadBalancer) {
+    this.enableGlobalAccessLoadBalancer = enableGlobalAccessLoadBalancer;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -972,12 +1016,18 @@ public class Workspace  {
     if (!Objects.equals(this.isRestored, workspace.isRestored)) {
       return false;
     }
+    if (!Objects.equals(this.secondaryPodRangeNames, workspace.secondaryPodRangeNames)) {
+      return false;
+    }
+    if (!Objects.equals(this.enableGlobalAccessLoadBalancer, workspace.enableGlobalAccessLoadBalancer)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, endpointPublicAccess, filesystemID, tags, instanceGroups, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, healthInfoLists, failureMessage, clusterBaseDomain, modelMetricsEnabled, governanceEnabled, subnets, whitelistAuthorizedIPRanges, authorizedIPRanges, nfsVersion, subnetsForLoadBalancers, upgradeState, backupMetadata, clusterID, isPrivate, resourcePoolName, parentResourcePoolName, quota, availableQuota, isRestored);
+    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, endpointPublicAccess, filesystemID, tags, instanceGroups, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, healthInfoLists, failureMessage, clusterBaseDomain, modelMetricsEnabled, governanceEnabled, subnets, whitelistAuthorizedIPRanges, authorizedIPRanges, nfsVersion, subnetsForLoadBalancers, upgradeState, backupMetadata, clusterID, isPrivate, resourcePoolName, parentResourcePoolName, quota, availableQuota, isRestored, secondaryPodRangeNames, enableGlobalAccessLoadBalancer);
   }
 
   @Override
@@ -1021,6 +1071,8 @@ public class Workspace  {
     sb.append("    quota: ").append(toIndentedString(quota)).append("\n");
     sb.append("    availableQuota: ").append(toIndentedString(availableQuota)).append("\n");
     sb.append("    isRestored: ").append(toIndentedString(isRestored)).append("\n");
+    sb.append("    secondaryPodRangeNames: ").append(toIndentedString(secondaryPodRangeNames)).append("\n");
+    sb.append("    enableGlobalAccessLoadBalancer: ").append(toIndentedString(enableGlobalAccessLoadBalancer)).append("\n");
     sb.append("}");
     return sb.toString();
   }

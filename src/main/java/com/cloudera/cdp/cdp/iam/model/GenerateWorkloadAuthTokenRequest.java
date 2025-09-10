@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for GenerateWorkloadAuthToken method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:30.759-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-09T16:18:25.896-07:00")
 public class GenerateWorkloadAuthTokenRequest  {
 
   /**
@@ -39,6 +39,11 @@ public class GenerateWorkloadAuthTokenRequest  {
    * The environment CRN, required by DF.
    **/
   private String environmentCrn = null;
+
+  /**
+   * Whether to exclude 'groups' claim from the token.
+   **/
+  private Boolean excludeGroups = null;
 
   /**
    * Getter for workloadName.
@@ -74,6 +79,23 @@ public class GenerateWorkloadAuthTokenRequest  {
     this.environmentCrn = environmentCrn;
   }
 
+  /**
+   * Getter for excludeGroups.
+   * Whether to exclude &#39;groups&#39; claim from the token.
+   **/
+  @JsonProperty("excludeGroups")
+  public Boolean getExcludeGroups() {
+    return excludeGroups;
+  }
+
+  /**
+   * Setter for excludeGroups.
+   * Whether to exclude &#39;groups&#39; claim from the token.
+   **/
+  public void setExcludeGroups(Boolean excludeGroups) {
+    this.excludeGroups = excludeGroups;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -89,12 +111,15 @@ public class GenerateWorkloadAuthTokenRequest  {
     if (!Objects.equals(this.environmentCrn, generateWorkloadAuthTokenRequest.environmentCrn)) {
       return false;
     }
+    if (!Objects.equals(this.excludeGroups, generateWorkloadAuthTokenRequest.excludeGroups)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(workloadName, environmentCrn);
+    return Objects.hash(workloadName, environmentCrn, excludeGroups);
   }
 
   @Override
@@ -103,6 +128,7 @@ public class GenerateWorkloadAuthTokenRequest  {
     sb.append("class GenerateWorkloadAuthTokenRequest {\n");
     sb.append("    workloadName: ").append(toIndentedString(workloadName)).append("\n");
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
+    sb.append("    excludeGroups: ").append(toIndentedString(excludeGroups)).append("\n");
     sb.append("}");
     return sb.toString();
   }

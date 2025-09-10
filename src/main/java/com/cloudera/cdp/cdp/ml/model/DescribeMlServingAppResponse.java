@@ -28,7 +28,7 @@ import com.cloudera.cdp.ml.model.MlServingApp;
 /**
  * Response object for the DescribeMlServingApp method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:28.588-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-09T16:18:23.744-07:00")
 public class DescribeMlServingAppResponse extends CdpResponse {
 
   /**

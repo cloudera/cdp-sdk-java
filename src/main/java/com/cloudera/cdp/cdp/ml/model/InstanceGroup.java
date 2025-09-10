@@ -23,6 +23,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.ml.model.Accelerator;
 import com.cloudera.cdp.ml.model.Autoscaling;
 import com.cloudera.cdp.ml.model.RootVolume;
 import java.util.*;
@@ -30,7 +31,7 @@ import java.util.*;
 /**
  * Contains the necessary info for an instance group.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:28.588-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-09T16:18:23.744-07:00")
 public class InstanceGroup  {
 
   /**
@@ -67,6 +68,11 @@ public class InstanceGroup  {
    * The auto scaling configuration.
    **/
   private Autoscaling autoscaling = null;
+
+  /**
+   * The accelerator, which refers to the GPU type configuration.
+   **/
+  private Accelerator accelerator = null;
 
   /**
    * Getter for instanceType.
@@ -187,6 +193,23 @@ public class InstanceGroup  {
     this.autoscaling = autoscaling;
   }
 
+  /**
+   * Getter for accelerator.
+   * The accelerator, which refers to the GPU type configuration.
+   **/
+  @JsonProperty("accelerator")
+  public Accelerator getAccelerator() {
+    return accelerator;
+  }
+
+  /**
+   * Setter for accelerator.
+   * The accelerator, which refers to the GPU type configuration.
+   **/
+  public void setAccelerator(Accelerator accelerator) {
+    this.accelerator = accelerator;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -217,12 +240,15 @@ public class InstanceGroup  {
     if (!Objects.equals(this.autoscaling, instanceGroup.autoscaling)) {
       return false;
     }
+    if (!Objects.equals(this.accelerator, instanceGroup.accelerator)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceType, instanceTier, instanceCount, name, ingressRules, rootVolume, autoscaling);
+    return Objects.hash(instanceType, instanceTier, instanceCount, name, ingressRules, rootVolume, autoscaling, accelerator);
   }
 
   @Override
@@ -236,6 +262,7 @@ public class InstanceGroup  {
     sb.append("    ingressRules: ").append(toIndentedString(ingressRules)).append("\n");
     sb.append("    rootVolume: ").append(toIndentedString(rootVolume)).append("\n");
     sb.append("    autoscaling: ").append(toIndentedString(autoscaling)).append("\n");
+    sb.append("    accelerator: ").append(toIndentedString(accelerator)).append("\n");
     sb.append("}");
     return sb.toString();
   }

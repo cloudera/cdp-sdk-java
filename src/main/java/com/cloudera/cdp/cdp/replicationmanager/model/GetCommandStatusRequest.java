@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Get the current status of any CM command.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:32.351-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-09T16:18:27.585-07:00")
 public class GetCommandStatusRequest  {
 
   /**

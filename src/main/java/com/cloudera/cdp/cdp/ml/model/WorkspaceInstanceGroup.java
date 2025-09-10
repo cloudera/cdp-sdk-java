@@ -23,6 +23,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.ml.model.AcceleratorResponse;
 import com.cloudera.cdp.ml.model.Instance;
 import com.cloudera.cdp.ml.model.Tag;
 import java.util.*;
@@ -30,7 +31,7 @@ import java.util.*;
 /**
  * Instance group information to show in workbench details.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:28.588-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-09T16:18:23.744-07:00")
 public class WorkspaceInstanceGroup  {
 
   /**
@@ -92,6 +93,11 @@ public class WorkspaceInstanceGroup  {
    * The unique name for the instance or resource group of the workbench.
    **/
   private String name = null;
+
+  /**
+   * The accelerator, which refers to the GPU type configuration.
+   **/
+  private AcceleratorResponse accelerator = null;
 
   /**
    * Getter for instanceType.
@@ -297,6 +303,23 @@ public class WorkspaceInstanceGroup  {
     this.name = name;
   }
 
+  /**
+   * Getter for accelerator.
+   * The accelerator, which refers to the GPU type configuration.
+   **/
+  @JsonProperty("accelerator")
+  public AcceleratorResponse getAccelerator() {
+    return accelerator;
+  }
+
+  /**
+   * Setter for accelerator.
+   * The accelerator, which refers to the GPU type configuration.
+   **/
+  public void setAccelerator(AcceleratorResponse accelerator) {
+    this.accelerator = accelerator;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -342,12 +365,15 @@ public class WorkspaceInstanceGroup  {
     if (!Objects.equals(this.name, workspaceInstanceGroup.name)) {
       return false;
     }
+    if (!Objects.equals(this.accelerator, workspaceInstanceGroup.accelerator)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceType, instanceCount, instanceGroupName, minInstances, maxInstances, instances, tags, cpu, gpu, memory, rootVolumeSize, name);
+    return Objects.hash(instanceType, instanceCount, instanceGroupName, minInstances, maxInstances, instances, tags, cpu, gpu, memory, rootVolumeSize, name, accelerator);
   }
 
   @Override
@@ -366,6 +392,7 @@ public class WorkspaceInstanceGroup  {
     sb.append("    memory: ").append(toIndentedString(memory)).append("\n");
     sb.append("    rootVolumeSize: ").append(toIndentedString(rootVolumeSize)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    accelerator: ").append(toIndentedString(accelerator)).append("\n");
     sb.append("}");
     return sb.toString();
   }

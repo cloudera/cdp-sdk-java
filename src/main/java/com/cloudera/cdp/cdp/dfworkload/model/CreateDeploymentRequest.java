@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * Request object to create a deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:31.577-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-09T16:18:26.711-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class CreateDeploymentRequest  {
 
@@ -131,6 +131,11 @@ public class CreateDeploymentRequest  {
    * The node storage data.
    **/
   private NodeStorage nodeStorage = null;
+
+  /**
+   * The size of the extra volume mounted for flows containing python.
+   **/
+  private Integer pythonWorkDirectorySize = null;
 
   /**
    * The CRN of the custom NAR configuration.
@@ -471,6 +476,23 @@ public class CreateDeploymentRequest  {
   }
 
   /**
+   * Getter for pythonWorkDirectorySize.
+   * The size of the extra volume mounted for flows containing python.
+   **/
+  @JsonProperty("pythonWorkDirectorySize")
+  public Integer getPythonWorkDirectorySize() {
+    return pythonWorkDirectorySize;
+  }
+
+  /**
+   * Setter for pythonWorkDirectorySize.
+   * The size of the extra volume mounted for flows containing python.
+   **/
+  public void setPythonWorkDirectorySize(Integer pythonWorkDirectorySize) {
+    this.pythonWorkDirectorySize = pythonWorkDirectorySize;
+  }
+
+  /**
    * Getter for customNarConfigurationCrn.
    * The CRN of the custom NAR configuration.
    **/
@@ -587,6 +609,9 @@ public class CreateDeploymentRequest  {
     if (!Objects.equals(this.nodeStorage, createDeploymentRequest.nodeStorage)) {
       return false;
     }
+    if (!Objects.equals(this.pythonWorkDirectorySize, createDeploymentRequest.pythonWorkDirectorySize)) {
+      return false;
+    }
     if (!Objects.equals(this.customNarConfigurationCrn, createDeploymentRequest.customNarConfigurationCrn)) {
       return false;
     }
@@ -601,7 +626,7 @@ public class CreateDeploymentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, configurationVersion, name, deploymentRequestCrn, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, cfmNifiVersion, autoStartFlow, clusterSize, inboundHostname, listenComponents, inboundConnectionAuthorizedIpRanges, nodeStorageProfileName, nodeStorage, customNarConfigurationCrn, customPythonConfigurationCrn, projectCrn);
+    return Objects.hash(environmentCrn, configurationVersion, name, deploymentRequestCrn, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, cfmNifiVersion, autoStartFlow, clusterSize, inboundHostname, listenComponents, inboundConnectionAuthorizedIpRanges, nodeStorageProfileName, nodeStorage, pythonWorkDirectorySize, customNarConfigurationCrn, customPythonConfigurationCrn, projectCrn);
   }
 
   @Override
@@ -627,6 +652,7 @@ public class CreateDeploymentRequest  {
     sb.append("    inboundConnectionAuthorizedIpRanges: ").append(toIndentedString(inboundConnectionAuthorizedIpRanges)).append("\n");
     sb.append("    nodeStorageProfileName: ").append(toIndentedString(nodeStorageProfileName)).append("\n");
     sb.append("    nodeStorage: ").append(toIndentedString(nodeStorage)).append("\n");
+    sb.append("    pythonWorkDirectorySize: ").append(toIndentedString(pythonWorkDirectorySize)).append("\n");
     sb.append("    customNarConfigurationCrn: ").append(toIndentedString(customNarConfigurationCrn)).append("\n");
     sb.append("    customPythonConfigurationCrn: ").append(toIndentedString(customPythonConfigurationCrn)).append("\n");
     sb.append("    projectCrn: ").append(toIndentedString(projectCrn)).append("\n");

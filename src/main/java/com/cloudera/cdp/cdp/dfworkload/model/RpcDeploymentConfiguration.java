@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * Provides all of the configuration that dictates how a flow should be deployed.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:31.577-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-09T16:18:26.711-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcDeploymentConfiguration  {
 
@@ -156,6 +156,11 @@ public class RpcDeploymentConfiguration  {
    * The node storage data.
    **/
   private NodeStorage nodeStorage = null;
+
+  /**
+   * The size of the extra volume mounted for flows containing python.
+   **/
+  private Integer pythonWorkDirectorySize = null;
 
   /**
    * Getter for configurationVersion.
@@ -565,6 +570,23 @@ public class RpcDeploymentConfiguration  {
     this.nodeStorage = nodeStorage;
   }
 
+  /**
+   * Getter for pythonWorkDirectorySize.
+   * The size of the extra volume mounted for flows containing python.
+   **/
+  @JsonProperty("pythonWorkDirectorySize")
+  public Integer getPythonWorkDirectorySize() {
+    return pythonWorkDirectorySize;
+  }
+
+  /**
+   * Setter for pythonWorkDirectorySize.
+   * The size of the extra volume mounted for flows containing python.
+   **/
+  public void setPythonWorkDirectorySize(Integer pythonWorkDirectorySize) {
+    this.pythonWorkDirectorySize = pythonWorkDirectorySize;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -646,12 +668,15 @@ public class RpcDeploymentConfiguration  {
     if (!Objects.equals(this.nodeStorage, rpcDeploymentConfiguration.nodeStorage)) {
       return false;
     }
+    if (!Objects.equals(this.pythonWorkDirectorySize, rpcDeploymentConfiguration.pythonWorkDirectorySize)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(configurationVersion, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, deploymentId, deploymentCrn, name, cfmNifiVersion, autoStartFlow, clusterSize, nodeStorageProfileName, parametersDirty, kpisDirty, sizingAndScalingDirty, lastUpdatedByUsername, inboundHostname, listenComponents, projectCrn, assetConfigurationAvailable, nodeStorage);
+    return Objects.hash(configurationVersion, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, deploymentId, deploymentCrn, name, cfmNifiVersion, autoStartFlow, clusterSize, nodeStorageProfileName, parametersDirty, kpisDirty, sizingAndScalingDirty, lastUpdatedByUsername, inboundHostname, listenComponents, projectCrn, assetConfigurationAvailable, nodeStorage, pythonWorkDirectorySize);
   }
 
   @Override
@@ -682,6 +707,7 @@ public class RpcDeploymentConfiguration  {
     sb.append("    projectCrn: ").append(toIndentedString(projectCrn)).append("\n");
     sb.append("    assetConfigurationAvailable: ").append(toIndentedString(assetConfigurationAvailable)).append("\n");
     sb.append("    nodeStorage: ").append(toIndentedString(nodeStorage)).append("\n");
+    sb.append("    pythonWorkDirectorySize: ").append(toIndentedString(pythonWorkDirectorySize)).append("\n");
     sb.append("}");
     return sb.toString();
   }

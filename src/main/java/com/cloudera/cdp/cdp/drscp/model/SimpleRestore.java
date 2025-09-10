@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * A simple Restore entry for listRestore Usage
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:29.415-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-09T16:18:24.548-07:00")
 public class SimpleRestore  {
 
   /**

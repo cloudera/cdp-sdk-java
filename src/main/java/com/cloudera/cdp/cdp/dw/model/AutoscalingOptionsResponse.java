@@ -28,16 +28,16 @@ import com.cloudera.cdp.dw.model.ImpalaExecutorGroupSetsResponse;
 /**
  * Auto-scaling configuration for a Virtual Warehouse.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:27.657-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-09T16:18:22.699-07:00")
 public class AutoscalingOptionsResponse extends CdpResponse {
 
   /**
-   * Minimum number of available compute groups.
+   * Minimum number of available Executor Groups.
    **/
   private Integer minClusters = null;
 
   /**
-   * Maximum number of available compute groups.
+   * Maximum number of available Executor Groups.
    **/
   private Integer maxClusters = null;
 
@@ -108,7 +108,7 @@ public class AutoscalingOptionsResponse extends CdpResponse {
 
   /**
    * Getter for minClusters.
-   * Minimum number of available compute groups.
+   * Minimum number of available Executor Groups.
    **/
   @JsonProperty("minClusters")
   public Integer getMinClusters() {
@@ -117,7 +117,7 @@ public class AutoscalingOptionsResponse extends CdpResponse {
 
   /**
    * Setter for minClusters.
-   * Minimum number of available compute groups.
+   * Minimum number of available Executor Groups.
    **/
   public void setMinClusters(Integer minClusters) {
     this.minClusters = minClusters;
@@ -125,7 +125,7 @@ public class AutoscalingOptionsResponse extends CdpResponse {
 
   /**
    * Getter for maxClusters.
-   * Maximum number of available compute groups.
+   * Maximum number of available Executor Groups.
    **/
   @JsonProperty("maxClusters")
   public Integer getMaxClusters() {
@@ -134,7 +134,7 @@ public class AutoscalingOptionsResponse extends CdpResponse {
 
   /**
    * Setter for maxClusters.
-   * Maximum number of available compute groups.
+   * Maximum number of available Executor Groups.
    **/
   public void setMaxClusters(Integer maxClusters) {
     this.maxClusters = maxClusters;

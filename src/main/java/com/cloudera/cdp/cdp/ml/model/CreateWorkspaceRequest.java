@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object for the CreateWorkspace method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:28.588-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-09T16:18:23.744-07:00")
 public class CreateWorkspaceRequest  {
 
   /**
@@ -148,6 +148,11 @@ public class CreateWorkspaceRequest  {
    * Enable Enhanced Performance Mode to maximize throughput and IOPS for root volumes attached to worker nodes.
    **/
   private Boolean enableEnhancedPerformance = null;
+
+  /**
+   * Enable global access to the load balancer so the workbench is accessible from other regions.
+   **/
+  private Boolean enableGlobalAccessLoadBalancer = null;
 
   /**
    * Getter for environmentName.
@@ -540,6 +545,23 @@ public class CreateWorkspaceRequest  {
     this.enableEnhancedPerformance = enableEnhancedPerformance;
   }
 
+  /**
+   * Getter for enableGlobalAccessLoadBalancer.
+   * Enable global access to the load balancer so the workbench is accessible from other regions.
+   **/
+  @JsonProperty("enableGlobalAccessLoadBalancer")
+  public Boolean getEnableGlobalAccessLoadBalancer() {
+    return enableGlobalAccessLoadBalancer;
+  }
+
+  /**
+   * Setter for enableGlobalAccessLoadBalancer.
+   * Enable global access to the load balancer so the workbench is accessible from other regions.
+   **/
+  public void setEnableGlobalAccessLoadBalancer(Boolean enableGlobalAccessLoadBalancer) {
+    this.enableGlobalAccessLoadBalancer = enableGlobalAccessLoadBalancer;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -618,12 +640,15 @@ public class CreateWorkspaceRequest  {
     if (!Objects.equals(this.enableEnhancedPerformance, createWorkspaceRequest.enableEnhancedPerformance)) {
       return false;
     }
+    if (!Objects.equals(this.enableGlobalAccessLoadBalancer, createWorkspaceRequest.enableGlobalAccessLoadBalancer)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, workspaceName, provisionK8sRequest, usePublicLoadBalancer, disableTLS, enableMonitoring, enableGovernance, existingNFS, enableYunikorn, loadBalancerIPWhitelists, nfsVersion, enableModelMetrics, existingDatabaseConfig, whitelistAuthorizedIPRanges, authorizedIPRanges, skipValidation, privateCluster, subnetsForLoadBalancers, staticSubdomain, cdswMigrationMode, outboundTypes, resourcePoolConfig, enableEnhancedPerformance);
+    return Objects.hash(environmentName, workspaceName, provisionK8sRequest, usePublicLoadBalancer, disableTLS, enableMonitoring, enableGovernance, existingNFS, enableYunikorn, loadBalancerIPWhitelists, nfsVersion, enableModelMetrics, existingDatabaseConfig, whitelistAuthorizedIPRanges, authorizedIPRanges, skipValidation, privateCluster, subnetsForLoadBalancers, staticSubdomain, cdswMigrationMode, outboundTypes, resourcePoolConfig, enableEnhancedPerformance, enableGlobalAccessLoadBalancer);
   }
 
   @Override
@@ -653,6 +678,7 @@ public class CreateWorkspaceRequest  {
     sb.append("    outboundTypes: ").append(toIndentedString(outboundTypes)).append("\n");
     sb.append("    resourcePoolConfig: ").append(toIndentedString(resourcePoolConfig)).append("\n");
     sb.append("    enableEnhancedPerformance: ").append(toIndentedString(enableEnhancedPerformance)).append("\n");
+    sb.append("    enableGlobalAccessLoadBalancer: ").append(toIndentedString(enableGlobalAccessLoadBalancer)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * The response object for Cloudera AI workbench backup.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:28.588-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-09T16:18:23.744-07:00")
 public class BackupWorkspaceResponse extends CdpResponse {
 
   /**

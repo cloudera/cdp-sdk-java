@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for the RevokePrivateLinkServiceAccess method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-08-27T10:36:32.551-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-09T16:18:27.799-07:00")
 public class RevokePrivateLinkServiceAccessResponse extends CdpResponse {
 
   /**
