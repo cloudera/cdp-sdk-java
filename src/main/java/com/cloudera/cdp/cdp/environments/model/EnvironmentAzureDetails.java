@@ -28,7 +28,7 @@ import com.cloudera.cdp.environments.model.AzureResourceEncryptionParameters;
 /**
  * Azure specific environment configuration information.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-09T16:18:24.748-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-16T07:43:43.890-07:00")
 public class EnvironmentAzureDetails  {
 
   /**

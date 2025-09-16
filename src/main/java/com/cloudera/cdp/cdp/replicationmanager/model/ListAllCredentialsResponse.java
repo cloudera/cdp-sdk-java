@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Response object for list credentials request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-09T16:18:27.585-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-16T07:43:46.615-07:00")
 public class ListAllCredentialsResponse extends CdpResponse {
 
   /**

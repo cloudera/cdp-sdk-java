@@ -33,7 +33,7 @@ import java.util.Map;
 /**
  * EKS instance group response structure.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-09T16:18:27.210-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-16T07:43:46.341-07:00")
 public class EksInstanceGroup  {
 
   /**

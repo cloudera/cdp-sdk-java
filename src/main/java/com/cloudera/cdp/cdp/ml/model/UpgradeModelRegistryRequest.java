@@ -23,17 +23,23 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.ml.model.AzureUpgradeOptions;
 
 /**
  * Request for upgrading model registry.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-09T16:18:23.744-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-16T07:43:42.881-07:00")
 public class UpgradeModelRegistryRequest  {
 
   /**
    * The CRN of the model registry to be upgraded.
    **/
   private String crn = null;
+
+  /**
+   * AzureUpgradeOptions options for model registry upgrade when using User Defined Routing (UDR).
+   **/
+  private AzureUpgradeOptions azureOptions = null;
 
   /**
    * Getter for crn.
@@ -52,6 +58,23 @@ public class UpgradeModelRegistryRequest  {
     this.crn = crn;
   }
 
+  /**
+   * Getter for azureOptions.
+   * AzureUpgradeOptions options for model registry upgrade when using User Defined Routing (UDR).
+   **/
+  @JsonProperty("azureOptions")
+  public AzureUpgradeOptions getAzureOptions() {
+    return azureOptions;
+  }
+
+  /**
+   * Setter for azureOptions.
+   * AzureUpgradeOptions options for model registry upgrade when using User Defined Routing (UDR).
+   **/
+  public void setAzureOptions(AzureUpgradeOptions azureOptions) {
+    this.azureOptions = azureOptions;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -64,12 +87,15 @@ public class UpgradeModelRegistryRequest  {
     if (!Objects.equals(this.crn, upgradeModelRegistryRequest.crn)) {
       return false;
     }
+    if (!Objects.equals(this.azureOptions, upgradeModelRegistryRequest.azureOptions)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn);
+    return Objects.hash(crn, azureOptions);
   }
 
   @Override
@@ -77,6 +103,7 @@ public class UpgradeModelRegistryRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpgradeModelRegistryRequest {\n");
     sb.append("    crn: ").append(toIndentedString(crn)).append("\n");
+    sb.append("    azureOptions: ").append(toIndentedString(azureOptions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

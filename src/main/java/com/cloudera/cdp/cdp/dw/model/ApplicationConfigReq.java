@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Configurations for an application inside a service.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-09T16:18:22.699-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-16T07:43:41.843-07:00")
 public class ApplicationConfigReq  {
 
   /**
