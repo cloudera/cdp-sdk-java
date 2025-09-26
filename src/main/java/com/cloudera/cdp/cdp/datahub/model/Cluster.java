@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * Information about a cluster.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-16T07:43:40.813-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-26T09:46:32.561-07:00")
 public class Cluster  {
 
   /**
@@ -57,7 +57,7 @@ public class Cluster  {
   private String status = null;
 
   /**
-   * The status of the cluster.
+   * The status of the cluster. It always returns the same value as the status field. Deprecated.
    **/
   private String clusterStatus = null;
 
@@ -196,8 +196,9 @@ public class Cluster  {
 
   /**
    * Getter for clusterStatus.
-   * The status of the cluster.
+   * The status of the cluster. It always returns the same value as the status field. Deprecated.
    **/
+  @Deprecated
   @JsonProperty("clusterStatus")
   public String getClusterStatus() {
     return clusterStatus;
@@ -205,8 +206,9 @@ public class Cluster  {
 
   /**
    * Setter for clusterStatus.
-   * The status of the cluster.
+   * The status of the cluster. It always returns the same value as the status field. Deprecated.
    **/
+  @Deprecated
   public void setClusterStatus(String clusterStatus) {
     this.clusterStatus = clusterStatus;
   }

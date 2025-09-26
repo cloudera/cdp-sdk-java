@@ -30,7 +30,7 @@ import java.time.ZonedDateTime;
 /**
  * Related events for the stack.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-16T07:43:40.813-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-26T09:46:32.561-07:00")
 public class ClusterLifecycleEvents  {
 
   /**
@@ -119,7 +119,7 @@ public class ClusterLifecycleEvents  {
   private String instanceGroup = null;
 
   /**
-   * Status of the cluster.
+   * Status of the cluster. It always returns the same value as the stackStatus field. Deprecated.
    **/
   private String clusterStatus = null;
 
@@ -434,7 +434,7 @@ public class ClusterLifecycleEvents  {
 
   /**
    * Getter for clusterStatus.
-   * Status of the cluster.
+   * Status of the cluster. It always returns the same value as the stackStatus field. Deprecated.
    **/
   @JsonProperty("clusterStatus")
   public String getClusterStatus() {
@@ -443,7 +443,7 @@ public class ClusterLifecycleEvents  {
 
   /**
    * Setter for clusterStatus.
-   * Status of the cluster.
+   * Status of the cluster. It always returns the same value as the stackStatus field. Deprecated.
    **/
   public void setClusterStatus(String clusterStatus) {
     this.clusterStatus = clusterStatus;

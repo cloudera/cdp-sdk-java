@@ -29,7 +29,7 @@ import com.cloudera.cdp.datalake.model.InstanceTemplate;
 /**
  * The request object for Data Lake vertical scaling.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-16T07:43:43.337-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-26T09:46:34.917-07:00")
 public class StartDatalakeVerticalScalingRequest  {
 
   /**

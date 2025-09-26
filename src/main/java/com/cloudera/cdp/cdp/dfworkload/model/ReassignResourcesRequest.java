@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object to reassign resources.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-16T07:43:45.932-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-26T09:46:37.590-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class ReassignResourcesRequest  {
 

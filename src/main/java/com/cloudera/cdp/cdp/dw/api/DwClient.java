@@ -163,10 +163,6 @@ import com.cloudera.cdp.dw.model.RenewCertificatesRequest;
 import com.cloudera.cdp.dw.model.RenewCertificatesResponse;
 import com.cloudera.cdp.dw.model.ResetServerSettingsRequest;
 import com.cloudera.cdp.dw.model.ResetServerSettingsResponse;
-import com.cloudera.cdp.dw.model.RestartDbcRequest;
-import com.cloudera.cdp.dw.model.RestartDbcResponse;
-import com.cloudera.cdp.dw.model.RestartVwRequest;
-import com.cloudera.cdp.dw.model.RestartVwResponse;
 import com.cloudera.cdp.dw.model.RestoreBackupRequest;
 import com.cloudera.cdp.dw.model.RestoreBackupResponse;
 import com.cloudera.cdp.dw.model.RestoreClusterRequest;
@@ -209,7 +205,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-16T07:43:41.843-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-26T09:46:33.654-07:00")
 public class DwClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dw";
@@ -1110,34 +1106,6 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("resetServerSettings", "/api/v1/dw/resetServerSettings", input, new GenericType<ResetServerSettingsResponse>(){}, NO_EXTENSION);
-  }
-
-  /**
-   * Restart a Database Catalog.
-   * @param input
-   * @return RestartDbcResponse
-   */
-  @Deprecated
-  public RestartDbcResponse restartDbc(RestartDbcRequest input) {
-    if (input == null) {
-      throw new CdpClientException("Missing the required parameter 'input' when calling restartDbc");
-    }
-
-    return this.invokeAPI("restartDbc", "/api/v1/dw/restartDbc", input, new GenericType<RestartDbcResponse>(){}, NO_EXTENSION);
-  }
-
-  /**
-   * Restart a Virtual Warehouse.
-   * @param input
-   * @return RestartVwResponse
-   */
-  @Deprecated
-  public RestartVwResponse restartVw(RestartVwRequest input) {
-    if (input == null) {
-      throw new CdpClientException("Missing the required parameter 'input' when calling restartVw");
-    }
-
-    return this.invokeAPI("restartVw", "/api/v1/dw/restartVw", input, new GenericType<RestartVwResponse>(){}, NO_EXTENSION);
   }
 
   /**
