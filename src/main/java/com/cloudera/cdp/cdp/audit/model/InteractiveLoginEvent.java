@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * The model for a login event, as a part of CdpAuditEvent. CDP logs attempts to interactively login to the CDP console. This includes logins using Cloudera SSO and through any federated interactive login events.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-26T09:46:36.295-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-15T17:00:47.478-07:00")
 public class InteractiveLoginEvent  {
 
   /**

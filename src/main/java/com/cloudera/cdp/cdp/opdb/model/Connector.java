@@ -29,7 +29,7 @@ import com.cloudera.cdp.opdb.model.DependencyManagement;
 /**
  * Information to use to connect to a database via some mechanism.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-26T09:46:36.150-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-15T17:00:47.320-07:00")
 public class Connector  {
 
   /**

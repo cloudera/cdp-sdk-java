@@ -37,7 +37,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-26T09:46:34.393-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-15T17:00:45.687-07:00")
 public class DatacatalogClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datacatalog";

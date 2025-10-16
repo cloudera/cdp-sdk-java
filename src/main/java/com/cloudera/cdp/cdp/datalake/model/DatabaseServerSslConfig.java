@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * SSL configuration for the database server
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-26T09:46:34.917-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-15T17:00:46.127-07:00")
 public class DatabaseServerSslConfig  {
 
   /**

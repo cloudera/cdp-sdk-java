@@ -48,6 +48,8 @@ import com.cloudera.cdp.iam.model.AssignUserRoleRequest;
 import com.cloudera.cdp.iam.model.AssignUserRoleResponse;
 import com.cloudera.cdp.iam.model.CreateGroupRequest;
 import com.cloudera.cdp.iam.model.CreateGroupResponse;
+import com.cloudera.cdp.iam.model.CreateLdapProviderRequest;
+import com.cloudera.cdp.iam.model.CreateLdapProviderResponse;
 import com.cloudera.cdp.iam.model.CreateMachineUserAccessKeyRequest;
 import com.cloudera.cdp.iam.model.CreateMachineUserAccessKeyResponse;
 import com.cloudera.cdp.iam.model.CreateMachineUserRequest;
@@ -175,6 +177,8 @@ import com.cloudera.cdp.iam.model.UpdateAccessKeyRequest;
 import com.cloudera.cdp.iam.model.UpdateAccessKeyResponse;
 import com.cloudera.cdp.iam.model.UpdateGroupRequest;
 import com.cloudera.cdp.iam.model.UpdateGroupResponse;
+import com.cloudera.cdp.iam.model.UpdateLdapProviderRequest;
+import com.cloudera.cdp.iam.model.UpdateLdapProviderResponse;
 import com.cloudera.cdp.iam.model.UpdateSamlProviderRequest;
 import com.cloudera.cdp.iam.model.UpdateSamlProviderResponse;
 import com.cloudera.cdp.iam.model.UpdateUserRequest;
@@ -185,7 +189,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-26T09:46:36.718-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-15T17:00:47.759-07:00")
 public class IamClient extends CdpClient {
 
   public static final String SERVICE_NAME = "iam";
@@ -344,6 +348,19 @@ public class IamClient extends CdpClient {
     }
 
     return this.invokeAPI("createGroup", "/iam/createGroup", input, new GenericType<CreateGroupResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * CreateLdapProvider
+   * @param input
+   * @return CreateLdapProviderResponse
+   */
+  public CreateLdapProviderResponse createLdapProvider(CreateLdapProviderRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createLdapProvider");
+    }
+
+    return this.invokeAPI("createLdapProvider", "/iam/createLdapProvider", input, new GenericType<CreateLdapProviderResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -1163,6 +1180,19 @@ public class IamClient extends CdpClient {
     }
 
     return this.invokeAPI("updateGroup", "/iam/updateGroup", input, new GenericType<UpdateGroupResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * UpdateLdapProvider
+   * @param input
+   * @return UpdateLdapProviderResponse
+   */
+  public UpdateLdapProviderResponse updateLdapProvider(UpdateLdapProviderRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateLdapProvider");
+    }
+
+    return this.invokeAPI("updateLdapProvider", "/iam/updateLdapProvider", input, new GenericType<UpdateLdapProviderResponse>(){}, NO_EXTENSION);
   }
 
   /**

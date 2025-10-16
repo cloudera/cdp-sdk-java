@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for creating ABFS cloud credentials. Currently supported cloud credentials: ABFS Access Key for Ambari clusters, ABFS Client Secret for CM clusters.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-26T09:46:38.244-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-15T17:00:49.407-07:00")
 public class CreateAbfsCredentialRequest  {
 
   /**

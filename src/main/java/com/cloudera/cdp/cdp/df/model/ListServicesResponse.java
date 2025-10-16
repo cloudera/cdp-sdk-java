@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for the ListServices method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-26T09:46:37.206-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-15T17:00:48.252-07:00")
 public class ListServicesResponse extends CdpResponse {
 
   /**

@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Response object for the Get Service Init Logs command.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-09-26T09:46:36.458-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-15T17:00:47.586-07:00")
 public class GetServiceInitLogsResponse extends CdpResponse {
 
   /**
