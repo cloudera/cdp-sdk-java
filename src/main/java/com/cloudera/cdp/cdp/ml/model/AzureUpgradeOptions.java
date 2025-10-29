@@ -28,7 +28,7 @@ import com.cloudera.cdp.ml.model.OverlayNetwork;
 /**
  * AzureUpgradeOptions upgrade options for model registry. This message contains configuration options specific to Azure deployments when using User Defined Routing (UDR).
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-15T17:00:45.776-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:27.700-07:00")
 public class AzureUpgradeOptions  {
 
   /**

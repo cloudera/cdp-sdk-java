@@ -83,6 +83,8 @@ import com.cloudera.cdp.environments.model.GetAccountTelemetryRequest;
 import com.cloudera.cdp.environments.model.GetAccountTelemetryResponse;
 import com.cloudera.cdp.environments.model.GetAuditCredentialPrerequisitesRequest;
 import com.cloudera.cdp.environments.model.GetAuditCredentialPrerequisitesResponse;
+import com.cloudera.cdp.environments.model.GetAutomatedSyncEnvironmentStatusRequest;
+import com.cloudera.cdp.environments.model.GetAutomatedSyncEnvironmentStatusResponse;
 import com.cloudera.cdp.environments.model.GetAzureImageTermsPolicyRequest;
 import com.cloudera.cdp.environments.model.GetAzureImageTermsPolicyResponse;
 import com.cloudera.cdp.environments.model.GetCredentialPrerequisitesRequest;
@@ -229,7 +231,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-15T17:00:46.664-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:28.895-07:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -609,6 +611,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("getAuditCredentialPrerequisites", "/api/v1/environments2/getAuditCredentialPrerequisites", input, new GenericType<GetAuditCredentialPrerequisitesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Gets the the automated sync status for the environment.
+   * @param input
+   * @return GetAutomatedSyncEnvironmentStatusResponse
+   */
+  public GetAutomatedSyncEnvironmentStatusResponse getAutomatedSyncEnvironmentStatus(GetAutomatedSyncEnvironmentStatusRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getAutomatedSyncEnvironmentStatus");
+    }
+
+    return this.invokeAPI("getAutomatedSyncEnvironmentStatus", "/api/v1/environments2/getAutomatedSyncEnvironmentStatus", input, new GenericType<GetAutomatedSyncEnvironmentStatusResponse>(){}, NO_EXTENSION);
   }
 
   /**

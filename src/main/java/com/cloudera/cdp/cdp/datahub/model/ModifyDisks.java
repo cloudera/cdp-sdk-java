@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Root or additional volume properties to modify.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-15T17:00:43.782-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:25.843-07:00")
 public class ModifyDisks  {
 
   /**
@@ -39,6 +39,11 @@ public class ModifyDisks  {
    * Type of disks to modify on all the instances in a group.
    **/
   private String volumeType = null;
+
+  /**
+   * Whether to modify the root disk or additional disks.
+   **/
+  private String diskType = null;
 
   /**
    * Getter for size.
@@ -74,6 +79,23 @@ public class ModifyDisks  {
     this.volumeType = volumeType;
   }
 
+  /**
+   * Getter for diskType.
+   * Whether to modify the root disk or additional disks.
+   **/
+  @JsonProperty("diskType")
+  public String getDiskType() {
+    return diskType;
+  }
+
+  /**
+   * Setter for diskType.
+   * Whether to modify the root disk or additional disks.
+   **/
+  public void setDiskType(String diskType) {
+    this.diskType = diskType;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -89,12 +111,15 @@ public class ModifyDisks  {
     if (!Objects.equals(this.volumeType, modifyDisks.volumeType)) {
       return false;
     }
+    if (!Objects.equals(this.diskType, modifyDisks.diskType)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(size, volumeType);
+    return Objects.hash(size, volumeType, diskType);
   }
 
   @Override
@@ -103,6 +128,7 @@ public class ModifyDisks  {
     sb.append("class ModifyDisks {\n");
     sb.append("    size: ").append(toIndentedString(size)).append("\n");
     sb.append("    volumeType: ").append(toIndentedString(volumeType)).append("\n");
+    sb.append("    diskType: ").append(toIndentedString(diskType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

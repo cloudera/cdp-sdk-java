@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Runtime details necessary to use a connector.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-15T17:00:47.320-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:29.478-07:00")
 public class ConnectorConfiguration  {
 
   /**

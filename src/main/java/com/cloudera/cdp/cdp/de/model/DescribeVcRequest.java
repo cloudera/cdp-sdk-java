@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * DescribeVc request object.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-15T17:00:47.586-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:29.824-07:00")
 public class DescribeVcRequest  {
 
   /**
@@ -36,7 +36,7 @@ public class DescribeVcRequest  {
   private String clusterId = null;
 
   /**
-   * Virtual cluster id.
+   * Virtual Cluster ID.
    **/
   private String vcId = null;
 
@@ -59,7 +59,7 @@ public class DescribeVcRequest  {
 
   /**
    * Getter for vcId.
-   * Virtual cluster id.
+   * Virtual Cluster ID.
    **/
   @JsonProperty("vcId")
   public String getVcId() {
@@ -68,7 +68,7 @@ public class DescribeVcRequest  {
 
   /**
    * Setter for vcId.
-   * Virtual cluster id.
+   * Virtual Cluster ID.
    **/
   public void setVcId(String vcId) {
     this.vcId = vcId;

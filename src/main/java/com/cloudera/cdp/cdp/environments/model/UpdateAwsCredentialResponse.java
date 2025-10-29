@@ -28,7 +28,7 @@ import com.cloudera.cdp.environments.model.Credential;
 /**
  * Response object for an update AWS credential request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-15T17:00:46.664-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:28.895-07:00")
 public class UpdateAwsCredentialResponse extends CdpResponse {
 
   /**

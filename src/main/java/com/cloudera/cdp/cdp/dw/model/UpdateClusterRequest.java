@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object for the updateCluster method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-15T17:00:44.787-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:26.728-07:00")
 public class UpdateClusterRequest  {
 
   /**
@@ -70,7 +70,7 @@ public class UpdateClusterRequest  {
   private UpdateClusterRequestAzureUpdate azureUpdate = null;
 
   /**
-   * Cluster observability configurations to update. You can forward logs from environments activated in Cloudera Data Warehouse (CDW) to observability and monitoring systems such as Datadog, New Relic, or Splunk. Please refer to the following Cloudera documentation for more info. https://docs.cloudera.com/data-warehouse/cloud/monitoring/topics/dw-observability-log-forwarding.html
+   * DEPRECATED: This feature wil be removed in subsequent releases. Cluster observability configurations to update. You can forward logs from environments activated in Cloudera Data Warehouse (CDW) to observability and monitoring systems such as Datadog, New Relic, or Splunk. Please refer to the following Cloudera documentation for more info. https://docs.cloudera.com/data-warehouse/cloud/monitoring/topics/dw-observability-log-forwarding.html
    **/
   private UpdateClusterObservabilityConfig observabilityConfig = null;
 
@@ -195,7 +195,7 @@ public class UpdateClusterRequest  {
 
   /**
    * Getter for observabilityConfig.
-   * Cluster observability configurations to update. You can forward logs from environments activated in Cloudera Data Warehouse (CDW) to observability and monitoring systems such as Datadog, New Relic, or Splunk. Please refer to the following Cloudera documentation for more info. https://docs.cloudera.com/data-warehouse/cloud/monitoring/topics/dw-observability-log-forwarding.html
+   * DEPRECATED: This feature wil be removed in subsequent releases. Cluster observability configurations to update. You can forward logs from environments activated in Cloudera Data Warehouse (CDW) to observability and monitoring systems such as Datadog, New Relic, or Splunk. Please refer to the following Cloudera documentation for more info. https://docs.cloudera.com/data-warehouse/cloud/monitoring/topics/dw-observability-log-forwarding.html
    **/
   @JsonProperty("observabilityConfig")
   public UpdateClusterObservabilityConfig getObservabilityConfig() {
@@ -204,7 +204,7 @@ public class UpdateClusterRequest  {
 
   /**
    * Setter for observabilityConfig.
-   * Cluster observability configurations to update. You can forward logs from environments activated in Cloudera Data Warehouse (CDW) to observability and monitoring systems such as Datadog, New Relic, or Splunk. Please refer to the following Cloudera documentation for more info. https://docs.cloudera.com/data-warehouse/cloud/monitoring/topics/dw-observability-log-forwarding.html
+   * DEPRECATED: This feature wil be removed in subsequent releases. Cluster observability configurations to update. You can forward logs from environments activated in Cloudera Data Warehouse (CDW) to observability and monitoring systems such as Datadog, New Relic, or Splunk. Please refer to the following Cloudera documentation for more info. https://docs.cloudera.com/data-warehouse/cloud/monitoring/topics/dw-observability-log-forwarding.html
    **/
   public void setObservabilityConfig(UpdateClusterObservabilityConfig observabilityConfig) {
     this.observabilityConfig = observabilityConfig;

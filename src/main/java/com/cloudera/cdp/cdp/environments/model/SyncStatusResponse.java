@@ -24,12 +24,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.environments.model.SyncOperationDetails;
+import java.time.ZonedDateTime;
 import java.util.*;
 
 /**
  * Response object for Sync Operation.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-15T17:00:46.664-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:28.895-07:00")
 public class SyncStatusResponse extends CdpResponse {
 
   /**
@@ -71,6 +72,16 @@ public class SyncStatusResponse extends CdpResponse {
    * Sync operation end timestamp.
    **/
   private String endTime = null;
+
+  /**
+   * Date when the sync operation started.
+   **/
+  private ZonedDateTime startDate = null;
+
+  /**
+   * Date when the sync operation ended. Omitted if operation has not ended.
+   **/
+  private ZonedDateTime endDate = null;
 
   /**
    * Getter for operationId.
@@ -208,6 +219,40 @@ public class SyncStatusResponse extends CdpResponse {
     this.endTime = endTime;
   }
 
+  /**
+   * Getter for startDate.
+   * Date when the sync operation started.
+   **/
+  @JsonProperty("startDate")
+  public ZonedDateTime getStartDate() {
+    return startDate;
+  }
+
+  /**
+   * Setter for startDate.
+   * Date when the sync operation started.
+   **/
+  public void setStartDate(ZonedDateTime startDate) {
+    this.startDate = startDate;
+  }
+
+  /**
+   * Getter for endDate.
+   * Date when the sync operation ended. Omitted if operation has not ended.
+   **/
+  @JsonProperty("endDate")
+  public ZonedDateTime getEndDate() {
+    return endDate;
+  }
+
+  /**
+   * Setter for endDate.
+   * Date when the sync operation ended. Omitted if operation has not ended.
+   **/
+  public void setEndDate(ZonedDateTime endDate) {
+    this.endDate = endDate;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -241,6 +286,12 @@ public class SyncStatusResponse extends CdpResponse {
     if (!Objects.equals(this.endTime, syncStatusResponse.endTime)) {
       return false;
     }
+    if (!Objects.equals(this.startDate, syncStatusResponse.startDate)) {
+      return false;
+    }
+    if (!Objects.equals(this.endDate, syncStatusResponse.endDate)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -249,7 +300,7 @@ public class SyncStatusResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(operationId, operationType, status, success, failure, error, startTime, endTime, super.hashCode());
+    return Objects.hash(operationId, operationType, status, success, failure, error, startTime, endTime, startDate, endDate, super.hashCode());
   }
 
   @Override
@@ -265,6 +316,8 @@ public class SyncStatusResponse extends CdpResponse {
     sb.append("    error: ").append(toIndentedString(error)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    endTime: ").append(toIndentedString(endTime)).append("\n");
+    sb.append("    startDate: ").append(toIndentedString(startDate)).append("\n");
+    sb.append("    endDate: ").append(toIndentedString(endDate)).append("\n");
     sb.append("}");
     return sb.toString();
   }
