@@ -27,19 +27,19 @@ import com.cloudera.cdp.df.model.FilterOption;
 import java.util.*;
 
 /**
- * A response to list filter options
+ * A response to list filter options.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:30.597-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:08.545-08:00")
 public class ListFilterOptionsResponse extends CdpResponse {
 
   /**
-   * The filter options
+   * The filter options.
    **/
   private List<FilterOption> filterOptions = new ArrayList<FilterOption>();
 
   /**
    * Getter for filterOptions.
-   * The filter options
+   * The filter options.
    **/
   @JsonProperty("filterOptions")
   public List<FilterOption> getFilterOptions() {
@@ -48,7 +48,7 @@ public class ListFilterOptionsResponse extends CdpResponse {
 
   /**
    * Setter for filterOptions.
-   * The filter options
+   * The filter options.
    **/
   public void setFilterOptions(List<FilterOption> filterOptions) {
     this.filterOptions = filterOptions;

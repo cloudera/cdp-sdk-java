@@ -27,19 +27,19 @@ import com.cloudera.cdp.df.model.MetricChart;
 import java.util.*;
 
 /**
- * A response to list deployment KPIs
+ * A response to list deployment KPIs.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:30.597-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:08.545-08:00")
 public class ListDeploymentKPIsResponse extends CdpResponse {
 
   /**
-   * The metrics for the configured KPIs
+   * The metrics for the configured KPIs.
    **/
   private List<MetricChart> metricCharts = new ArrayList<MetricChart>();
 
   /**
    * Getter for metricCharts.
-   * The metrics for the configured KPIs
+   * The metrics for the configured KPIs.
    **/
   @JsonProperty("metricCharts")
   public List<MetricChart> getMetricCharts() {
@@ -48,7 +48,7 @@ public class ListDeploymentKPIsResponse extends CdpResponse {
 
   /**
    * Setter for metricCharts.
-   * The metrics for the configured KPIs
+   * The metrics for the configured KPIs.
    **/
   public void setMetricCharts(List<MetricChart> metricCharts) {
     this.metricCharts = metricCharts;

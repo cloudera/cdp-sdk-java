@@ -27,8 +27,30 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object for the deleteVw method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:26.728-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:04.824-08:00")
 public class DeleteVwResponse extends CdpResponse {
+
+  /**
+   * Warning message during Virtual Warehouse deletion
+   **/
+  private String warning = null;
+
+  /**
+   * Getter for warning.
+   * Warning message during Virtual Warehouse deletion
+   **/
+  @JsonProperty("warning")
+  public String getWarning() {
+    return warning;
+  }
+
+  /**
+   * Setter for warning.
+   * Warning message during Virtual Warehouse deletion
+   **/
+  public void setWarning(String warning) {
+    this.warning = warning;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -36,6 +58,10 @@ public class DeleteVwResponse extends CdpResponse {
       return true;
     }
     if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    DeleteVwResponse deleteVwResponse = (DeleteVwResponse) o;
+    if (!Objects.equals(this.warning, deleteVwResponse.warning)) {
       return false;
     }
     if (!super.equals(o)) {
@@ -46,7 +72,7 @@ public class DeleteVwResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash( super.hashCode());
+    return Objects.hash(warning, super.hashCode());
   }
 
   @Override
@@ -54,6 +80,7 @@ public class DeleteVwResponse extends CdpResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class DeleteVwResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
     return sb.toString();
   }

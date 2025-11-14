@@ -28,7 +28,7 @@ import com.cloudera.cdp.dw.model.VizConfig;
 /**
  * Request object for the createDataVisualization call.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:26.728-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:04.824-08:00")
 public class CreateDataVisualizationRequest  {
 
   /**
@@ -55,6 +55,11 @@ public class CreateDataVisualizationRequest  {
    * The name of the available resource template to use for the Cloudera Data Visualization.
    **/
   private String resourceTemplate = null;
+
+  /**
+   * The Resource Pool of the Cloudera Data Visualization.
+   **/
+  private String resourcePool = null;
 
   /**
    * Getter for clusterId.
@@ -141,6 +146,23 @@ public class CreateDataVisualizationRequest  {
     this.resourceTemplate = resourceTemplate;
   }
 
+  /**
+   * Getter for resourcePool.
+   * The Resource Pool of the Cloudera Data Visualization.
+   **/
+  @JsonProperty("resourcePool")
+  public String getResourcePool() {
+    return resourcePool;
+  }
+
+  /**
+   * Setter for resourcePool.
+   * The Resource Pool of the Cloudera Data Visualization.
+   **/
+  public void setResourcePool(String resourcePool) {
+    this.resourcePool = resourcePool;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -165,12 +187,15 @@ public class CreateDataVisualizationRequest  {
     if (!Objects.equals(this.resourceTemplate, createDataVisualizationRequest.resourceTemplate)) {
       return false;
     }
+    if (!Objects.equals(this.resourcePool, createDataVisualizationRequest.resourcePool)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, name, config, imageVersion, resourceTemplate);
+    return Objects.hash(clusterId, name, config, imageVersion, resourceTemplate, resourcePool);
   }
 
   @Override
@@ -182,6 +207,7 @@ public class CreateDataVisualizationRequest  {
     sb.append("    config: ").append(toIndentedString(config)).append("\n");
     sb.append("    imageVersion: ").append(toIndentedString(imageVersion)).append("\n");
     sb.append("    resourceTemplate: ").append(toIndentedString(resourceTemplate)).append("\n");
+    sb.append("    resourcePool: ").append(toIndentedString(resourcePool)).append("\n");
     sb.append("}");
     return sb.toString();
   }

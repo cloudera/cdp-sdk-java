@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for the restoreCluster method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:26.728-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:04.824-08:00")
 public class RestoreClusterResponse extends CdpResponse {
 
   /**
@@ -81,6 +81,11 @@ public class RestoreClusterResponse extends CdpResponse {
    * The plan for the restoration of the Hue Query Editors.
    **/
   private List<RestoreClusterEntityPlan> cdwHueRestorePlans = new ArrayList<RestoreClusterEntityPlan>();
+
+  /**
+   * The plan for the restoration of the DWX Secrets.
+   **/
+  private List<String> dwxSecretsRestorePlans = new ArrayList<String>();
 
   /**
    * Getter for clusterId.
@@ -252,6 +257,23 @@ public class RestoreClusterResponse extends CdpResponse {
     this.cdwHueRestorePlans = cdwHueRestorePlans;
   }
 
+  /**
+   * Getter for dwxSecretsRestorePlans.
+   * The plan for the restoration of the DWX Secrets.
+   **/
+  @JsonProperty("dwxSecretsRestorePlans")
+  public List<String> getDwxSecretsRestorePlans() {
+    return dwxSecretsRestorePlans;
+  }
+
+  /**
+   * Setter for dwxSecretsRestorePlans.
+   * The plan for the restoration of the DWX Secrets.
+   **/
+  public void setDwxSecretsRestorePlans(List<String> dwxSecretsRestorePlans) {
+    this.dwxSecretsRestorePlans = dwxSecretsRestorePlans;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -291,6 +313,9 @@ public class RestoreClusterResponse extends CdpResponse {
     if (!Objects.equals(this.cdwHueRestorePlans, restoreClusterResponse.cdwHueRestorePlans)) {
       return false;
     }
+    if (!Objects.equals(this.dwxSecretsRestorePlans, restoreClusterResponse.dwxSecretsRestorePlans)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -299,7 +324,7 @@ public class RestoreClusterResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, operationId, action, message, dbcRestorePlans, hueRestorePlans, hiveRestorePlans, impalaRestorePlans, vizRestorePlans, cdwHueRestorePlans, super.hashCode());
+    return Objects.hash(clusterId, operationId, action, message, dbcRestorePlans, hueRestorePlans, hiveRestorePlans, impalaRestorePlans, vizRestorePlans, cdwHueRestorePlans, dwxSecretsRestorePlans, super.hashCode());
   }
 
   @Override
@@ -317,6 +342,7 @@ public class RestoreClusterResponse extends CdpResponse {
     sb.append("    impalaRestorePlans: ").append(toIndentedString(impalaRestorePlans)).append("\n");
     sb.append("    vizRestorePlans: ").append(toIndentedString(vizRestorePlans)).append("\n");
     sb.append("    cdwHueRestorePlans: ").append(toIndentedString(cdwHueRestorePlans)).append("\n");
+    sb.append("    dwxSecretsRestorePlans: ").append(toIndentedString(dwxSecretsRestorePlans)).append("\n");
     sb.append("}");
     return sb.toString();
   }

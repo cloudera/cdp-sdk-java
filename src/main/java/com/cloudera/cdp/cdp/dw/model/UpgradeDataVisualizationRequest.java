@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the upgradeDataVisualization method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:26.728-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:04.824-08:00")
 public class UpgradeDataVisualizationRequest  {
 
   /**
@@ -44,6 +44,11 @@ public class UpgradeDataVisualizationRequest  {
    * Image version of the Cloudera Data Visualization to upgrade to.
    **/
   private String imageVersion = null;
+
+  /**
+   * The name of the Resource Pool the Cloudera Data Visualization will be assigned to.
+   **/
+  private String resourcePool = null;
 
   /**
    * Getter for clusterId.
@@ -96,6 +101,23 @@ public class UpgradeDataVisualizationRequest  {
     this.imageVersion = imageVersion;
   }
 
+  /**
+   * Getter for resourcePool.
+   * The name of the Resource Pool the Cloudera Data Visualization will be assigned to.
+   **/
+  @JsonProperty("resourcePool")
+  public String getResourcePool() {
+    return resourcePool;
+  }
+
+  /**
+   * Setter for resourcePool.
+   * The name of the Resource Pool the Cloudera Data Visualization will be assigned to.
+   **/
+  public void setResourcePool(String resourcePool) {
+    this.resourcePool = resourcePool;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -114,12 +136,15 @@ public class UpgradeDataVisualizationRequest  {
     if (!Objects.equals(this.imageVersion, upgradeDataVisualizationRequest.imageVersion)) {
       return false;
     }
+    if (!Objects.equals(this.resourcePool, upgradeDataVisualizationRequest.resourcePool)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, dataVisualizationId, imageVersion);
+    return Objects.hash(clusterId, dataVisualizationId, imageVersion, resourcePool);
   }
 
   @Override
@@ -129,6 +154,7 @@ public class UpgradeDataVisualizationRequest  {
     sb.append("    clusterId: ").append(toIndentedString(clusterId)).append("\n");
     sb.append("    dataVisualizationId: ").append(toIndentedString(dataVisualizationId)).append("\n");
     sb.append("    imageVersion: ").append(toIndentedString(imageVersion)).append("\n");
+    sb.append("    resourcePool: ").append(toIndentedString(resourcePool)).append("\n");
     sb.append("}");
     return sb.toString();
   }

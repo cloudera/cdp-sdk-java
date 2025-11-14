@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Information used to connect a CDP account to an external identity provider.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:29.956-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:08.152-08:00")
 public class SamlProvider  {
 
   /**
@@ -80,6 +80,46 @@ public class SamlProvider  {
    * The Service Provider SAML metadata specific to this CDP SAML provider. This field will only be set for createSamlProvider and describeSamlProvider API calls.
    **/
   private String cdpSpMetadata = null;
+
+  /**
+   * The date when SAML AuthnRequest signing key and verification certificates were set or cleared.
+   **/
+  private ZonedDateTime authnRequestConfigurationLastUpdated = null;
+
+  /**
+   * Whether the AuthnRequest signing key is set or cleared.
+   **/
+  private Boolean authnRequestSigningKeyDefined = null;
+
+  /**
+   * Whether the current AuthnRequest verification certificate is set or cleared.
+   **/
+  private Boolean currentAuthnRequestVerificationCertificateDefined = null;
+
+  /**
+   * Whether the next AuthnRequest verification certificate is set or cleared.
+   **/
+  private Boolean nextAuthnRequestVerificationCertificateDefined = null;
+
+  /**
+   * The date when SAML response encryption certificate and decryption keys were set or cleared.
+   **/
+  private ZonedDateTime samlResponseEncryptionDecryptionConfigurationLastUpdated = null;
+
+  /**
+   * Whether the SAML response encryption certificate is set or cleared.
+   **/
+  private Boolean samlResponseEncryptionCertificateDefined = null;
+
+  /**
+   * Whether the current decryption key for SAML response is set or cleared.
+   **/
+  private Boolean currentSamlResponseDecryptionKeyDefined = null;
+
+  /**
+   * Whether the next decryption key for SAML response is set or cleared.
+   **/
+  private Boolean nextSamlResponseDecryptionKeyDefined = null;
 
   /**
    * Getter for crn.
@@ -251,6 +291,142 @@ public class SamlProvider  {
     this.cdpSpMetadata = cdpSpMetadata;
   }
 
+  /**
+   * Getter for authnRequestConfigurationLastUpdated.
+   * The date when SAML AuthnRequest signing key and verification certificates were set or cleared.
+   **/
+  @JsonProperty("authnRequestConfigurationLastUpdated")
+  public ZonedDateTime getAuthnRequestConfigurationLastUpdated() {
+    return authnRequestConfigurationLastUpdated;
+  }
+
+  /**
+   * Setter for authnRequestConfigurationLastUpdated.
+   * The date when SAML AuthnRequest signing key and verification certificates were set or cleared.
+   **/
+  public void setAuthnRequestConfigurationLastUpdated(ZonedDateTime authnRequestConfigurationLastUpdated) {
+    this.authnRequestConfigurationLastUpdated = authnRequestConfigurationLastUpdated;
+  }
+
+  /**
+   * Getter for authnRequestSigningKeyDefined.
+   * Whether the AuthnRequest signing key is set or cleared.
+   **/
+  @JsonProperty("authnRequestSigningKeyDefined")
+  public Boolean getAuthnRequestSigningKeyDefined() {
+    return authnRequestSigningKeyDefined;
+  }
+
+  /**
+   * Setter for authnRequestSigningKeyDefined.
+   * Whether the AuthnRequest signing key is set or cleared.
+   **/
+  public void setAuthnRequestSigningKeyDefined(Boolean authnRequestSigningKeyDefined) {
+    this.authnRequestSigningKeyDefined = authnRequestSigningKeyDefined;
+  }
+
+  /**
+   * Getter for currentAuthnRequestVerificationCertificateDefined.
+   * Whether the current AuthnRequest verification certificate is set or cleared.
+   **/
+  @JsonProperty("currentAuthnRequestVerificationCertificateDefined")
+  public Boolean getCurrentAuthnRequestVerificationCertificateDefined() {
+    return currentAuthnRequestVerificationCertificateDefined;
+  }
+
+  /**
+   * Setter for currentAuthnRequestVerificationCertificateDefined.
+   * Whether the current AuthnRequest verification certificate is set or cleared.
+   **/
+  public void setCurrentAuthnRequestVerificationCertificateDefined(Boolean currentAuthnRequestVerificationCertificateDefined) {
+    this.currentAuthnRequestVerificationCertificateDefined = currentAuthnRequestVerificationCertificateDefined;
+  }
+
+  /**
+   * Getter for nextAuthnRequestVerificationCertificateDefined.
+   * Whether the next AuthnRequest verification certificate is set or cleared.
+   **/
+  @JsonProperty("nextAuthnRequestVerificationCertificateDefined")
+  public Boolean getNextAuthnRequestVerificationCertificateDefined() {
+    return nextAuthnRequestVerificationCertificateDefined;
+  }
+
+  /**
+   * Setter for nextAuthnRequestVerificationCertificateDefined.
+   * Whether the next AuthnRequest verification certificate is set or cleared.
+   **/
+  public void setNextAuthnRequestVerificationCertificateDefined(Boolean nextAuthnRequestVerificationCertificateDefined) {
+    this.nextAuthnRequestVerificationCertificateDefined = nextAuthnRequestVerificationCertificateDefined;
+  }
+
+  /**
+   * Getter for samlResponseEncryptionDecryptionConfigurationLastUpdated.
+   * The date when SAML response encryption certificate and decryption keys were set or cleared.
+   **/
+  @JsonProperty("samlResponseEncryptionDecryptionConfigurationLastUpdated")
+  public ZonedDateTime getSamlResponseEncryptionDecryptionConfigurationLastUpdated() {
+    return samlResponseEncryptionDecryptionConfigurationLastUpdated;
+  }
+
+  /**
+   * Setter for samlResponseEncryptionDecryptionConfigurationLastUpdated.
+   * The date when SAML response encryption certificate and decryption keys were set or cleared.
+   **/
+  public void setSamlResponseEncryptionDecryptionConfigurationLastUpdated(ZonedDateTime samlResponseEncryptionDecryptionConfigurationLastUpdated) {
+    this.samlResponseEncryptionDecryptionConfigurationLastUpdated = samlResponseEncryptionDecryptionConfigurationLastUpdated;
+  }
+
+  /**
+   * Getter for samlResponseEncryptionCertificateDefined.
+   * Whether the SAML response encryption certificate is set or cleared.
+   **/
+  @JsonProperty("samlResponseEncryptionCertificateDefined")
+  public Boolean getSamlResponseEncryptionCertificateDefined() {
+    return samlResponseEncryptionCertificateDefined;
+  }
+
+  /**
+   * Setter for samlResponseEncryptionCertificateDefined.
+   * Whether the SAML response encryption certificate is set or cleared.
+   **/
+  public void setSamlResponseEncryptionCertificateDefined(Boolean samlResponseEncryptionCertificateDefined) {
+    this.samlResponseEncryptionCertificateDefined = samlResponseEncryptionCertificateDefined;
+  }
+
+  /**
+   * Getter for currentSamlResponseDecryptionKeyDefined.
+   * Whether the current decryption key for SAML response is set or cleared.
+   **/
+  @JsonProperty("currentSamlResponseDecryptionKeyDefined")
+  public Boolean getCurrentSamlResponseDecryptionKeyDefined() {
+    return currentSamlResponseDecryptionKeyDefined;
+  }
+
+  /**
+   * Setter for currentSamlResponseDecryptionKeyDefined.
+   * Whether the current decryption key for SAML response is set or cleared.
+   **/
+  public void setCurrentSamlResponseDecryptionKeyDefined(Boolean currentSamlResponseDecryptionKeyDefined) {
+    this.currentSamlResponseDecryptionKeyDefined = currentSamlResponseDecryptionKeyDefined;
+  }
+
+  /**
+   * Getter for nextSamlResponseDecryptionKeyDefined.
+   * Whether the next decryption key for SAML response is set or cleared.
+   **/
+  @JsonProperty("nextSamlResponseDecryptionKeyDefined")
+  public Boolean getNextSamlResponseDecryptionKeyDefined() {
+    return nextSamlResponseDecryptionKeyDefined;
+  }
+
+  /**
+   * Setter for nextSamlResponseDecryptionKeyDefined.
+   * Whether the next decryption key for SAML response is set or cleared.
+   **/
+  public void setNextSamlResponseDecryptionKeyDefined(Boolean nextSamlResponseDecryptionKeyDefined) {
+    this.nextSamlResponseDecryptionKeyDefined = nextSamlResponseDecryptionKeyDefined;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -290,12 +466,36 @@ public class SamlProvider  {
     if (!Objects.equals(this.cdpSpMetadata, samlProvider.cdpSpMetadata)) {
       return false;
     }
+    if (!Objects.equals(this.authnRequestConfigurationLastUpdated, samlProvider.authnRequestConfigurationLastUpdated)) {
+      return false;
+    }
+    if (!Objects.equals(this.authnRequestSigningKeyDefined, samlProvider.authnRequestSigningKeyDefined)) {
+      return false;
+    }
+    if (!Objects.equals(this.currentAuthnRequestVerificationCertificateDefined, samlProvider.currentAuthnRequestVerificationCertificateDefined)) {
+      return false;
+    }
+    if (!Objects.equals(this.nextAuthnRequestVerificationCertificateDefined, samlProvider.nextAuthnRequestVerificationCertificateDefined)) {
+      return false;
+    }
+    if (!Objects.equals(this.samlResponseEncryptionDecryptionConfigurationLastUpdated, samlProvider.samlResponseEncryptionDecryptionConfigurationLastUpdated)) {
+      return false;
+    }
+    if (!Objects.equals(this.samlResponseEncryptionCertificateDefined, samlProvider.samlResponseEncryptionCertificateDefined)) {
+      return false;
+    }
+    if (!Objects.equals(this.currentSamlResponseDecryptionKeyDefined, samlProvider.currentSamlResponseDecryptionKeyDefined)) {
+      return false;
+    }
+    if (!Objects.equals(this.nextSamlResponseDecryptionKeyDefined, samlProvider.nextSamlResponseDecryptionKeyDefined)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, creationDate, samlProviderName, samlProviderId, syncGroupsOnLogin, generateWorkloadUsernameByEmail, enableScim, scimUrl, samlMetadataDocument, cdpSpMetadata);
+    return Objects.hash(crn, creationDate, samlProviderName, samlProviderId, syncGroupsOnLogin, generateWorkloadUsernameByEmail, enableScim, scimUrl, samlMetadataDocument, cdpSpMetadata, authnRequestConfigurationLastUpdated, authnRequestSigningKeyDefined, currentAuthnRequestVerificationCertificateDefined, nextAuthnRequestVerificationCertificateDefined, samlResponseEncryptionDecryptionConfigurationLastUpdated, samlResponseEncryptionCertificateDefined, currentSamlResponseDecryptionKeyDefined, nextSamlResponseDecryptionKeyDefined);
   }
 
   @Override
@@ -312,6 +512,14 @@ public class SamlProvider  {
     sb.append("    scimUrl: ").append(toIndentedString(scimUrl)).append("\n");
     sb.append("    samlMetadataDocument: ").append(toIndentedString(samlMetadataDocument)).append("\n");
     sb.append("    cdpSpMetadata: ").append(toIndentedString(cdpSpMetadata)).append("\n");
+    sb.append("    authnRequestConfigurationLastUpdated: ").append(toIndentedString(authnRequestConfigurationLastUpdated)).append("\n");
+    sb.append("    authnRequestSigningKeyDefined: ").append(toIndentedString(authnRequestSigningKeyDefined)).append("\n");
+    sb.append("    currentAuthnRequestVerificationCertificateDefined: ").append(toIndentedString(currentAuthnRequestVerificationCertificateDefined)).append("\n");
+    sb.append("    nextAuthnRequestVerificationCertificateDefined: ").append(toIndentedString(nextAuthnRequestVerificationCertificateDefined)).append("\n");
+    sb.append("    samlResponseEncryptionDecryptionConfigurationLastUpdated: ").append(toIndentedString(samlResponseEncryptionDecryptionConfigurationLastUpdated)).append("\n");
+    sb.append("    samlResponseEncryptionCertificateDefined: ").append(toIndentedString(samlResponseEncryptionCertificateDefined)).append("\n");
+    sb.append("    currentSamlResponseDecryptionKeyDefined: ").append(toIndentedString(currentSamlResponseDecryptionKeyDefined)).append("\n");
+    sb.append("    nextSamlResponseDecryptionKeyDefined: ").append(toIndentedString(nextSamlResponseDecryptionKeyDefined)).append("\n");
     sb.append("}");
     return sb.toString();
   }

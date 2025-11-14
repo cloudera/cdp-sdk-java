@@ -26,34 +26,34 @@ import com.cloudera.cdp.client.CdpResponse;
 import java.util.*;
 
 /**
- * A request to list event history for deployment
+ * A request to list event history for deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:30.597-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:08.545-08:00")
 public class ListDeploymentEventsRequest  {
 
   /**
-   * The deployment CRN
+   * The deployment CRN.
    **/
   private String deploymentCrn = null;
 
   /**
-   * Max number of rows to return
+   * Max number of rows to return.
    **/
   private Integer rows = null;
 
   /**
-   * Timestamp from when to list events prior
+   * Timestamp from when to list events prior.
    **/
   private Long timestampFrom = null;
 
   /**
-   * Filter criteria
+   * Filter criteria (see list-filter-options).
    **/
   private List<String> filters = new ArrayList<String>();
 
   /**
    * Getter for deploymentCrn.
-   * The deployment CRN
+   * The deployment CRN.
    **/
   @JsonProperty("deploymentCrn")
   public String getDeploymentCrn() {
@@ -62,7 +62,7 @@ public class ListDeploymentEventsRequest  {
 
   /**
    * Setter for deploymentCrn.
-   * The deployment CRN
+   * The deployment CRN.
    **/
   public void setDeploymentCrn(String deploymentCrn) {
     this.deploymentCrn = deploymentCrn;
@@ -70,7 +70,7 @@ public class ListDeploymentEventsRequest  {
 
   /**
    * Getter for rows.
-   * Max number of rows to return
+   * Max number of rows to return.
    **/
   @JsonProperty("rows")
   public Integer getRows() {
@@ -79,7 +79,7 @@ public class ListDeploymentEventsRequest  {
 
   /**
    * Setter for rows.
-   * Max number of rows to return
+   * Max number of rows to return.
    **/
   public void setRows(Integer rows) {
     this.rows = rows;
@@ -87,7 +87,7 @@ public class ListDeploymentEventsRequest  {
 
   /**
    * Getter for timestampFrom.
-   * Timestamp from when to list events prior
+   * Timestamp from when to list events prior.
    **/
   @JsonProperty("timestampFrom")
   public Long getTimestampFrom() {
@@ -96,7 +96,7 @@ public class ListDeploymentEventsRequest  {
 
   /**
    * Setter for timestampFrom.
-   * Timestamp from when to list events prior
+   * Timestamp from when to list events prior.
    **/
   public void setTimestampFrom(Long timestampFrom) {
     this.timestampFrom = timestampFrom;
@@ -104,7 +104,7 @@ public class ListDeploymentEventsRequest  {
 
   /**
    * Getter for filters.
-   * Filter criteria
+   * Filter criteria (see list-filter-options).
    **/
   @JsonProperty("filters")
   public List<String> getFilters() {
@@ -113,7 +113,7 @@ public class ListDeploymentEventsRequest  {
 
   /**
    * Setter for filters.
-   * Filter criteria
+   * Filter criteria (see list-filter-options).
    **/
   public void setFilters(List<String> filters) {
     this.filters = filters;

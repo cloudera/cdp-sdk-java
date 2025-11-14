@@ -35,6 +35,8 @@ import com.cloudera.cdp.cloudprivatelinks.model.CreatePrivateLinkEndpointRespons
 import com.cloudera.cdp.cloudprivatelinks.model.DeletePrivateLinkEndpointRequest;
 import com.cloudera.cdp.cloudprivatelinks.model.DeletePrivateLinkEndpointResponse;
 import com.cloudera.cdp.cloudprivatelinks.model.Error;
+import com.cloudera.cdp.cloudprivatelinks.model.GetPrivateLinkStatusRequest;
+import com.cloudera.cdp.cloudprivatelinks.model.GetPrivateLinkStatusResponse;
 import com.cloudera.cdp.cloudprivatelinks.model.ListPrivateLinkEndpointStatusesRequest;
 import com.cloudera.cdp.cloudprivatelinks.model.ListPrivateLinkEndpointStatusesResponse;
 import com.cloudera.cdp.cloudprivatelinks.model.ListPrivateLinkServicesForRegionRequest;
@@ -47,7 +49,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:32.006-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:09.998-08:00")
 public class CloudprivatelinksClient extends CdpClient {
 
   public static final String SERVICE_NAME = "cloudprivatelinks";
@@ -115,6 +117,19 @@ public class CloudprivatelinksClient extends CdpClient {
     }
 
     return this.invokeAPI("deletePrivateLinkEndpoint", "/api/v1/cloudprivatelinks/deletePrivateLinkEndpoint", input, new GenericType<DeletePrivateLinkEndpointResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Get the status of a Private Link.
+   * @param input
+   * @return GetPrivateLinkStatusResponse
+   */
+  public GetPrivateLinkStatusResponse getPrivateLinkStatus(GetPrivateLinkStatusRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getPrivateLinkStatus");
+    }
+
+    return this.invokeAPI("getPrivateLinkStatus", "/api/v1/cloudprivatelinks/getPrivateLinkStatus", input, new GenericType<GetPrivateLinkStatusResponse>(){}, NO_EXTENSION);
   }
 
   /**

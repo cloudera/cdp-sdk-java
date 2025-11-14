@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for the restore backup request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:26.728-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:04.824-08:00")
 public class RestoreBackupRequest  {
 
   /**
@@ -40,6 +40,11 @@ public class RestoreBackupRequest  {
    * A list of namespaces of the potential candidates for restore. If not set, all of the Data Warehouse namespaces within the backup CRN will be restored.
    **/
   private List<String> namespaceNames = new ArrayList<String>();
+
+  /**
+   * Rebuilds the Database Catalogs, Cloudera Data Visualizations, Hive Virtual Warehouses and Impala Virtual Warehouses restored from the backup. This option cannot be used for automatic backups.
+   **/
+  private Boolean rebuild = null;
 
   /**
    * Getter for backupCrn.
@@ -75,6 +80,23 @@ public class RestoreBackupRequest  {
     this.namespaceNames = namespaceNames;
   }
 
+  /**
+   * Getter for rebuild.
+   * Rebuilds the Database Catalogs, Cloudera Data Visualizations, Hive Virtual Warehouses and Impala Virtual Warehouses restored from the backup. This option cannot be used for automatic backups.
+   **/
+  @JsonProperty("rebuild")
+  public Boolean getRebuild() {
+    return rebuild;
+  }
+
+  /**
+   * Setter for rebuild.
+   * Rebuilds the Database Catalogs, Cloudera Data Visualizations, Hive Virtual Warehouses and Impala Virtual Warehouses restored from the backup. This option cannot be used for automatic backups.
+   **/
+  public void setRebuild(Boolean rebuild) {
+    this.rebuild = rebuild;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -90,12 +112,15 @@ public class RestoreBackupRequest  {
     if (!Objects.equals(this.namespaceNames, restoreBackupRequest.namespaceNames)) {
       return false;
     }
+    if (!Objects.equals(this.rebuild, restoreBackupRequest.rebuild)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupCrn, namespaceNames);
+    return Objects.hash(backupCrn, namespaceNames, rebuild);
   }
 
   @Override
@@ -104,6 +129,7 @@ public class RestoreBackupRequest  {
     sb.append("class RestoreBackupRequest {\n");
     sb.append("    backupCrn: ").append(toIndentedString(backupCrn)).append("\n");
     sb.append("    namespaceNames: ").append(toIndentedString(namespaceNames)).append("\n");
+    sb.append("    rebuild: ").append(toIndentedString(rebuild)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Configurations for a Cloudera Data Visualization
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:26.728-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:04.824-08:00")
 public class VizConfig  {
 
   /**
@@ -40,11 +40,6 @@ public class VizConfig  {
    * Admin groups to allow configuration access to Data Visualization for selected users
    **/
   private List<String> adminGroups = new ArrayList<String>();
-
-  /**
-   * DEPRECATED: This functionality for update will be removed in the next release. For create, please use the new resourcePool field. The Resource Pool of the Cloudera Data Visualization.
-   **/
-  private String resourcePool = null;
 
   /**
    * Getter for userGroups.
@@ -80,25 +75,6 @@ public class VizConfig  {
     this.adminGroups = adminGroups;
   }
 
-  /**
-   * Getter for resourcePool.
-   * DEPRECATED: This functionality for update will be removed in the next release. For create, please use the new resourcePool field. The Resource Pool of the Cloudera Data Visualization.
-   **/
-  @Deprecated
-  @JsonProperty("resourcePool")
-  public String getResourcePool() {
-    return resourcePool;
-  }
-
-  /**
-   * Setter for resourcePool.
-   * DEPRECATED: This functionality for update will be removed in the next release. For create, please use the new resourcePool field. The Resource Pool of the Cloudera Data Visualization.
-   **/
-  @Deprecated
-  public void setResourcePool(String resourcePool) {
-    this.resourcePool = resourcePool;
-  }
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -114,15 +90,12 @@ public class VizConfig  {
     if (!Objects.equals(this.adminGroups, vizConfig.adminGroups)) {
       return false;
     }
-    if (!Objects.equals(this.resourcePool, vizConfig.resourcePool)) {
-      return false;
-    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(userGroups, adminGroups, resourcePool);
+    return Objects.hash(userGroups, adminGroups);
   }
 
   @Override
@@ -131,7 +104,6 @@ public class VizConfig  {
     sb.append("class VizConfig {\n");
     sb.append("    userGroups: ").append(toIndentedString(userGroups)).append("\n");
     sb.append("    adminGroups: ").append(toIndentedString(adminGroups)).append("\n");
-    sb.append("    resourcePool: ").append(toIndentedString(resourcePool)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -27,13 +27,18 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object for the restore backup request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:26.728-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:04.824-08:00")
 public class RestoreBackupResponse extends CdpResponse {
 
   /**
    * The CRN of the restore.
    **/
   private String restoreCrn = null;
+
+  /**
+   * Additional message from the restore process.
+   **/
+  private String message = null;
 
   /**
    * Getter for restoreCrn.
@@ -52,6 +57,23 @@ public class RestoreBackupResponse extends CdpResponse {
     this.restoreCrn = restoreCrn;
   }
 
+  /**
+   * Getter for message.
+   * Additional message from the restore process.
+   **/
+  @JsonProperty("message")
+  public String getMessage() {
+    return message;
+  }
+
+  /**
+   * Setter for message.
+   * Additional message from the restore process.
+   **/
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -64,6 +86,9 @@ public class RestoreBackupResponse extends CdpResponse {
     if (!Objects.equals(this.restoreCrn, restoreBackupResponse.restoreCrn)) {
       return false;
     }
+    if (!Objects.equals(this.message, restoreBackupResponse.message)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -72,7 +97,7 @@ public class RestoreBackupResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(restoreCrn, super.hashCode());
+    return Objects.hash(restoreCrn, message, super.hashCode());
   }
 
   @Override
@@ -81,6 +106,7 @@ public class RestoreBackupResponse extends CdpResponse {
     sb.append("class RestoreBackupResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    restoreCrn: ").append(toIndentedString(restoreCrn)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("}");
     return sb.toString();
   }

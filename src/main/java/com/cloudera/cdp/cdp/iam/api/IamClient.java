@@ -149,6 +149,10 @@ import com.cloudera.cdp.iam.model.SetAccountMessagesRequest;
 import com.cloudera.cdp.iam.model.SetAccountMessagesResponse;
 import com.cloudera.cdp.iam.model.SetDefaultIdentityProviderRequest;
 import com.cloudera.cdp.iam.model.SetDefaultIdentityProviderResponse;
+import com.cloudera.cdp.iam.model.SetSamlAuthnRequestSigningKeyRequest;
+import com.cloudera.cdp.iam.model.SetSamlAuthnRequestSigningKeyResponse;
+import com.cloudera.cdp.iam.model.SetSamlResponseDecryptionKeyRequest;
+import com.cloudera.cdp.iam.model.SetSamlResponseDecryptionKeyResponse;
 import com.cloudera.cdp.iam.model.SetWorkloadPasswordPolicyRequest;
 import com.cloudera.cdp.iam.model.SetWorkloadPasswordPolicyResponse;
 import com.cloudera.cdp.iam.model.SetWorkloadPasswordRequest;
@@ -189,7 +193,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:29.956-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:08.152-08:00")
 public class IamClient extends CdpClient {
 
   public static final String SERVICE_NAME = "iam";
@@ -998,6 +1002,32 @@ public class IamClient extends CdpClient {
     }
 
     return this.invokeAPI("setDefaultIdentityProvider", "/iam/setDefaultIdentityProvider", input, new GenericType<SetDefaultIdentityProviderResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Sets the SAML AuthnRequest signing key and verification certificate.
+   * @param input
+   * @return SetSamlAuthnRequestSigningKeyResponse
+   */
+  public SetSamlAuthnRequestSigningKeyResponse setSamlAuthnRequestSigningKey(SetSamlAuthnRequestSigningKeyRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling setSamlAuthnRequestSigningKey");
+    }
+
+    return this.invokeAPI("setSamlAuthnRequestSigningKey", "/iam/setSamlAuthnRequestSigningKey", input, new GenericType<SetSamlAuthnRequestSigningKeyResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Sets encryption certificate and decryption key for SAML response sent from customer&#39;s Identity Provider to CDP.
+   * @param input
+   * @return SetSamlResponseDecryptionKeyResponse
+   */
+  public SetSamlResponseDecryptionKeyResponse setSamlResponseDecryptionKey(SetSamlResponseDecryptionKeyRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling setSamlResponseDecryptionKey");
+    }
+
+    return this.invokeAPI("setSamlResponseDecryptionKey", "/iam/setSamlResponseDecryptionKey", input, new GenericType<SetSamlResponseDecryptionKeyResponse>(){}, NO_EXTENSION);
   }
 
   /**

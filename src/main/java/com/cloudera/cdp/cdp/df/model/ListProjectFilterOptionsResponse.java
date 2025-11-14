@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * A response to list filter options
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:30.597-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:08.545-08:00")
 public class ListProjectFilterOptionsResponse extends CdpResponse {
 
   /**

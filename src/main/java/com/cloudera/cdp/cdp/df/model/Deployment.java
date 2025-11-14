@@ -28,83 +28,83 @@ import com.cloudera.cdp.df.model.ProjectMeta;
 import com.cloudera.cdp.df.model.ServiceMeta;
 
 /**
- * A deployment
+ * A deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:30.597-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:08.545-08:00")
 public class Deployment  {
 
   /**
-   * The deployment CRN
+   * The deployment CRN.
    **/
   private String crn = null;
 
   /**
-   * The deployment name
+   * The deployment name.
    **/
   private String name = null;
 
   /**
-   * The deployment status
+   * The deployment status.
    **/
   private DeploymentStatus status = null;
 
   /**
-   * The DataFlow service information of the deployment
+   * The DataFlow service information of the deployment.
    **/
   private ServiceMeta service = null;
 
   /**
-   * Timestamp of the last time the deployment was modified
+   * Timestamp of the last time the deployment was modified.
    **/
   private Long updated = null;
 
   /**
-   * The initial size of the deployment
+   * The initial size of the deployment.
    **/
   private String clusterSize = null;
 
   /**
-   * The deployment's current flow version CRN
+   * The deployment's current flow version CRN.
    **/
   private String flowVersionCrn = null;
 
   /**
-   * The deployment's current flow CRN
+   * The CRN of the flow definition.
    **/
   private String flowCrn = null;
 
   /**
-   * The url to open the deployed flow in NiFi
+   * The url to open the deployed flow in NiFi.
    **/
   private String nifiUrl = null;
 
   /**
-   * The maximum number of nodes that the deployment can scale up to, or null if autoscaling is not enabled for this deployment
+   * The maximum number of nodes that the deployment can scale up to, or null if autoscaling is not enabled for this deployment.
    **/
   private Integer autoscaleMaxNodes = null;
 
   /**
-   * The name of the flow
+   * The name of the flow.
    **/
   private String flowName = null;
 
   /**
-   * The version of the flow
+   * The version of the flow.
    **/
   private Integer flowVersion = null;
 
   /**
-   * The current node count
+   * The current node count.
    **/
   private Integer currentNodeCount = null;
 
   /**
-   * The actor CRN of the person who deployed the flow
+   * The actor CRN of the person who deployed the flow.
    **/
   private String deployedByCrn = null;
 
   /**
-   * The name of the person who deployed the flow
+   * The name of the person who deployed the flow.
    **/
   private String deployedByName = null;
 
@@ -119,17 +119,17 @@ public class Deployment  {
   private Integer autoscaleMinNodes = null;
 
   /**
-   * Current count of active alerts classified as an info
+   * Current count of active alerts classified as informational.
    **/
   private Long activeInfoAlertCount = null;
 
   /**
-   * Current count of active alerts classified as a warning
+   * Current count of active alerts classified as warnings.
    **/
   private Long activeWarningAlertCount = null;
 
   /**
-   * Current count of active alerts classified as an error
+   * Current count of active alerts classified as errors.
    **/
   private Long activeErrorAlertCount = null;
 
@@ -139,17 +139,17 @@ public class Deployment  {
   private Integer staticNodeCount = null;
 
   /**
-   * Base URL to the dfx-local instance running this deployment
+   * Base URL to the dfx-local instance running this deployment.
    **/
   private String dfxLocalUrl = null;
 
   /**
-   * The name of the person who last updated the deployment
+   * The name of the person who last updated the deployment.
    **/
   private String lastUpdatedByName = null;
 
   /**
-   * The version of the configuration for this deployment
+   * The version of the configuration for this deployment.
    **/
   private Long configurationVersion = null;
 
@@ -164,13 +164,13 @@ public class Deployment  {
   private Boolean flowMetricsScalingEnabled = null;
 
   /**
-   * The project information of the deployment
+   * The project information of the deployment.
    **/
   private ProjectMeta project = null;
 
   /**
    * Getter for crn.
-   * The deployment CRN
+   * The deployment CRN.
    **/
   @JsonProperty("crn")
   public String getCrn() {
@@ -179,7 +179,7 @@ public class Deployment  {
 
   /**
    * Setter for crn.
-   * The deployment CRN
+   * The deployment CRN.
    **/
   public void setCrn(String crn) {
     this.crn = crn;
@@ -187,7 +187,7 @@ public class Deployment  {
 
   /**
    * Getter for name.
-   * The deployment name
+   * The deployment name.
    **/
   @JsonProperty("name")
   public String getName() {
@@ -196,7 +196,7 @@ public class Deployment  {
 
   /**
    * Setter for name.
-   * The deployment name
+   * The deployment name.
    **/
   public void setName(String name) {
     this.name = name;
@@ -204,7 +204,7 @@ public class Deployment  {
 
   /**
    * Getter for status.
-   * The deployment status
+   * The deployment status.
    **/
   @JsonProperty("status")
   public DeploymentStatus getStatus() {
@@ -213,7 +213,7 @@ public class Deployment  {
 
   /**
    * Setter for status.
-   * The deployment status
+   * The deployment status.
    **/
   public void setStatus(DeploymentStatus status) {
     this.status = status;
@@ -221,7 +221,7 @@ public class Deployment  {
 
   /**
    * Getter for service.
-   * The DataFlow service information of the deployment
+   * The DataFlow service information of the deployment.
    **/
   @JsonProperty("service")
   public ServiceMeta getService() {
@@ -230,7 +230,7 @@ public class Deployment  {
 
   /**
    * Setter for service.
-   * The DataFlow service information of the deployment
+   * The DataFlow service information of the deployment.
    **/
   public void setService(ServiceMeta service) {
     this.service = service;
@@ -238,7 +238,7 @@ public class Deployment  {
 
   /**
    * Getter for updated.
-   * Timestamp of the last time the deployment was modified
+   * Timestamp of the last time the deployment was modified.
    **/
   @JsonProperty("updated")
   public Long getUpdated() {
@@ -247,7 +247,7 @@ public class Deployment  {
 
   /**
    * Setter for updated.
-   * Timestamp of the last time the deployment was modified
+   * Timestamp of the last time the deployment was modified.
    **/
   public void setUpdated(Long updated) {
     this.updated = updated;
@@ -255,7 +255,7 @@ public class Deployment  {
 
   /**
    * Getter for clusterSize.
-   * The initial size of the deployment
+   * The initial size of the deployment.
    **/
   @JsonProperty("clusterSize")
   public String getClusterSize() {
@@ -264,7 +264,7 @@ public class Deployment  {
 
   /**
    * Setter for clusterSize.
-   * The initial size of the deployment
+   * The initial size of the deployment.
    **/
   public void setClusterSize(String clusterSize) {
     this.clusterSize = clusterSize;
@@ -272,7 +272,7 @@ public class Deployment  {
 
   /**
    * Getter for flowVersionCrn.
-   * The deployment&#39;s current flow version CRN
+   * The deployment&#39;s current flow version CRN.
    **/
   @JsonProperty("flowVersionCrn")
   public String getFlowVersionCrn() {
@@ -281,7 +281,7 @@ public class Deployment  {
 
   /**
    * Setter for flowVersionCrn.
-   * The deployment&#39;s current flow version CRN
+   * The deployment&#39;s current flow version CRN.
    **/
   public void setFlowVersionCrn(String flowVersionCrn) {
     this.flowVersionCrn = flowVersionCrn;
@@ -289,7 +289,7 @@ public class Deployment  {
 
   /**
    * Getter for flowCrn.
-   * The deployment&#39;s current flow CRN
+   * The CRN of the flow definition.
    **/
   @JsonProperty("flowCrn")
   public String getFlowCrn() {
@@ -298,7 +298,7 @@ public class Deployment  {
 
   /**
    * Setter for flowCrn.
-   * The deployment&#39;s current flow CRN
+   * The CRN of the flow definition.
    **/
   public void setFlowCrn(String flowCrn) {
     this.flowCrn = flowCrn;
@@ -306,7 +306,7 @@ public class Deployment  {
 
   /**
    * Getter for nifiUrl.
-   * The url to open the deployed flow in NiFi
+   * The url to open the deployed flow in NiFi.
    **/
   @JsonProperty("nifiUrl")
   public String getNifiUrl() {
@@ -315,7 +315,7 @@ public class Deployment  {
 
   /**
    * Setter for nifiUrl.
-   * The url to open the deployed flow in NiFi
+   * The url to open the deployed flow in NiFi.
    **/
   public void setNifiUrl(String nifiUrl) {
     this.nifiUrl = nifiUrl;
@@ -323,7 +323,7 @@ public class Deployment  {
 
   /**
    * Getter for autoscaleMaxNodes.
-   * The maximum number of nodes that the deployment can scale up to, or null if autoscaling is not enabled for this deployment
+   * The maximum number of nodes that the deployment can scale up to, or null if autoscaling is not enabled for this deployment.
    **/
   @JsonProperty("autoscaleMaxNodes")
   public Integer getAutoscaleMaxNodes() {
@@ -332,7 +332,7 @@ public class Deployment  {
 
   /**
    * Setter for autoscaleMaxNodes.
-   * The maximum number of nodes that the deployment can scale up to, or null if autoscaling is not enabled for this deployment
+   * The maximum number of nodes that the deployment can scale up to, or null if autoscaling is not enabled for this deployment.
    **/
   public void setAutoscaleMaxNodes(Integer autoscaleMaxNodes) {
     this.autoscaleMaxNodes = autoscaleMaxNodes;
@@ -340,7 +340,7 @@ public class Deployment  {
 
   /**
    * Getter for flowName.
-   * The name of the flow
+   * The name of the flow.
    **/
   @JsonProperty("flowName")
   public String getFlowName() {
@@ -349,7 +349,7 @@ public class Deployment  {
 
   /**
    * Setter for flowName.
-   * The name of the flow
+   * The name of the flow.
    **/
   public void setFlowName(String flowName) {
     this.flowName = flowName;
@@ -357,7 +357,7 @@ public class Deployment  {
 
   /**
    * Getter for flowVersion.
-   * The version of the flow
+   * The version of the flow.
    **/
   @JsonProperty("flowVersion")
   public Integer getFlowVersion() {
@@ -366,7 +366,7 @@ public class Deployment  {
 
   /**
    * Setter for flowVersion.
-   * The version of the flow
+   * The version of the flow.
    **/
   public void setFlowVersion(Integer flowVersion) {
     this.flowVersion = flowVersion;
@@ -374,7 +374,7 @@ public class Deployment  {
 
   /**
    * Getter for currentNodeCount.
-   * The current node count
+   * The current node count.
    **/
   @JsonProperty("currentNodeCount")
   public Integer getCurrentNodeCount() {
@@ -383,7 +383,7 @@ public class Deployment  {
 
   /**
    * Setter for currentNodeCount.
-   * The current node count
+   * The current node count.
    **/
   public void setCurrentNodeCount(Integer currentNodeCount) {
     this.currentNodeCount = currentNodeCount;
@@ -391,7 +391,7 @@ public class Deployment  {
 
   /**
    * Getter for deployedByCrn.
-   * The actor CRN of the person who deployed the flow
+   * The actor CRN of the person who deployed the flow.
    **/
   @JsonProperty("deployedByCrn")
   public String getDeployedByCrn() {
@@ -400,7 +400,7 @@ public class Deployment  {
 
   /**
    * Setter for deployedByCrn.
-   * The actor CRN of the person who deployed the flow
+   * The actor CRN of the person who deployed the flow.
    **/
   public void setDeployedByCrn(String deployedByCrn) {
     this.deployedByCrn = deployedByCrn;
@@ -408,7 +408,7 @@ public class Deployment  {
 
   /**
    * Getter for deployedByName.
-   * The name of the person who deployed the flow
+   * The name of the person who deployed the flow.
    **/
   @JsonProperty("deployedByName")
   public String getDeployedByName() {
@@ -417,7 +417,7 @@ public class Deployment  {
 
   /**
    * Setter for deployedByName.
-   * The name of the person who deployed the flow
+   * The name of the person who deployed the flow.
    **/
   public void setDeployedByName(String deployedByName) {
     this.deployedByName = deployedByName;
@@ -459,7 +459,7 @@ public class Deployment  {
 
   /**
    * Getter for activeInfoAlertCount.
-   * Current count of active alerts classified as an info
+   * Current count of active alerts classified as informational.
    **/
   @JsonProperty("activeInfoAlertCount")
   public Long getActiveInfoAlertCount() {
@@ -468,7 +468,7 @@ public class Deployment  {
 
   /**
    * Setter for activeInfoAlertCount.
-   * Current count of active alerts classified as an info
+   * Current count of active alerts classified as informational.
    **/
   public void setActiveInfoAlertCount(Long activeInfoAlertCount) {
     this.activeInfoAlertCount = activeInfoAlertCount;
@@ -476,7 +476,7 @@ public class Deployment  {
 
   /**
    * Getter for activeWarningAlertCount.
-   * Current count of active alerts classified as a warning
+   * Current count of active alerts classified as warnings.
    **/
   @JsonProperty("activeWarningAlertCount")
   public Long getActiveWarningAlertCount() {
@@ -485,7 +485,7 @@ public class Deployment  {
 
   /**
    * Setter for activeWarningAlertCount.
-   * Current count of active alerts classified as a warning
+   * Current count of active alerts classified as warnings.
    **/
   public void setActiveWarningAlertCount(Long activeWarningAlertCount) {
     this.activeWarningAlertCount = activeWarningAlertCount;
@@ -493,7 +493,7 @@ public class Deployment  {
 
   /**
    * Getter for activeErrorAlertCount.
-   * Current count of active alerts classified as an error
+   * Current count of active alerts classified as errors.
    **/
   @JsonProperty("activeErrorAlertCount")
   public Long getActiveErrorAlertCount() {
@@ -502,7 +502,7 @@ public class Deployment  {
 
   /**
    * Setter for activeErrorAlertCount.
-   * Current count of active alerts classified as an error
+   * Current count of active alerts classified as errors.
    **/
   public void setActiveErrorAlertCount(Long activeErrorAlertCount) {
     this.activeErrorAlertCount = activeErrorAlertCount;
@@ -527,7 +527,7 @@ public class Deployment  {
 
   /**
    * Getter for dfxLocalUrl.
-   * Base URL to the dfx-local instance running this deployment
+   * Base URL to the dfx-local instance running this deployment.
    **/
   @JsonProperty("dfxLocalUrl")
   public String getDfxLocalUrl() {
@@ -536,7 +536,7 @@ public class Deployment  {
 
   /**
    * Setter for dfxLocalUrl.
-   * Base URL to the dfx-local instance running this deployment
+   * Base URL to the dfx-local instance running this deployment.
    **/
   public void setDfxLocalUrl(String dfxLocalUrl) {
     this.dfxLocalUrl = dfxLocalUrl;
@@ -544,7 +544,7 @@ public class Deployment  {
 
   /**
    * Getter for lastUpdatedByName.
-   * The name of the person who last updated the deployment
+   * The name of the person who last updated the deployment.
    **/
   @JsonProperty("lastUpdatedByName")
   public String getLastUpdatedByName() {
@@ -553,7 +553,7 @@ public class Deployment  {
 
   /**
    * Setter for lastUpdatedByName.
-   * The name of the person who last updated the deployment
+   * The name of the person who last updated the deployment.
    **/
   public void setLastUpdatedByName(String lastUpdatedByName) {
     this.lastUpdatedByName = lastUpdatedByName;
@@ -561,7 +561,7 @@ public class Deployment  {
 
   /**
    * Getter for configurationVersion.
-   * The version of the configuration for this deployment
+   * The version of the configuration for this deployment.
    **/
   @JsonProperty("configurationVersion")
   public Long getConfigurationVersion() {
@@ -570,7 +570,7 @@ public class Deployment  {
 
   /**
    * Setter for configurationVersion.
-   * The version of the configuration for this deployment
+   * The version of the configuration for this deployment.
    **/
   public void setConfigurationVersion(Long configurationVersion) {
     this.configurationVersion = configurationVersion;
@@ -612,7 +612,7 @@ public class Deployment  {
 
   /**
    * Getter for project.
-   * The project information of the deployment
+   * The project information of the deployment.
    **/
   @JsonProperty("project")
   public ProjectMeta getProject() {
@@ -621,7 +621,7 @@ public class Deployment  {
 
   /**
    * Setter for project.
-   * The project information of the deployment
+   * The project information of the deployment.
    **/
   public void setProject(ProjectMeta project) {
     this.project = project;

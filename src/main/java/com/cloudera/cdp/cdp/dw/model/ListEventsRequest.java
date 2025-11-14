@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the listEvents method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:26.728-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:04.824-08:00")
 public class ListEventsRequest  {
 
   /**
@@ -39,6 +39,11 @@ public class ListEventsRequest  {
    * Filters events based on the service ID. It can be Cluster ID, Database Catalog ID, Virtual Warehouse ID or Data Visualization App ID.
    **/
   private String serviceId = null;
+
+  /**
+   * Filters events based on the event. Case-insensitive filter, it matches sub-strings as well. Filtering for \"comp\" will return all the events containing the \"comp\" sub-string e.g.: \"Completed\".
+   **/
+  private String event = null;
 
   /**
    * Limit the number of returned rows. If not specified then the recent 20 events will be returned. The maximum is 500.
@@ -82,6 +87,23 @@ public class ListEventsRequest  {
    **/
   public void setServiceId(String serviceId) {
     this.serviceId = serviceId;
+  }
+
+  /**
+   * Getter for event.
+   * Filters events based on the event. Case-insensitive filter, it matches sub-strings as well. Filtering for \&quot;comp\&quot; will return all the events containing the \&quot;comp\&quot; sub-string e.g.: \&quot;Completed\&quot;.
+   **/
+  @JsonProperty("event")
+  public String getEvent() {
+    return event;
+  }
+
+  /**
+   * Setter for event.
+   * Filters events based on the event. Case-insensitive filter, it matches sub-strings as well. Filtering for \&quot;comp\&quot; will return all the events containing the \&quot;comp\&quot; sub-string e.g.: \&quot;Completed\&quot;.
+   **/
+  public void setEvent(String event) {
+    this.event = event;
   }
 
   /**
@@ -133,6 +155,9 @@ public class ListEventsRequest  {
     if (!Objects.equals(this.serviceId, listEventsRequest.serviceId)) {
       return false;
     }
+    if (!Objects.equals(this.event, listEventsRequest.event)) {
+      return false;
+    }
     if (!Objects.equals(this.limit, listEventsRequest.limit)) {
       return false;
     }
@@ -144,7 +169,7 @@ public class ListEventsRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(operationId, serviceId, limit, ascending);
+    return Objects.hash(operationId, serviceId, event, limit, ascending);
   }
 
   @Override
@@ -153,6 +178,7 @@ public class ListEventsRequest  {
     sb.append("class ListEventsRequest {\n");
     sb.append("    operationId: ").append(toIndentedString(operationId)).append("\n");
     sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
+    sb.append("    event: ").append(toIndentedString(event)).append("\n");
     sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
     sb.append("    ascending: ").append(toIndentedString(ascending)).append("\n");
     sb.append("}");

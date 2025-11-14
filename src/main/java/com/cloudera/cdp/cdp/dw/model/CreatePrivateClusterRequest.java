@@ -28,23 +28,13 @@ import com.cloudera.cdp.dw.model.KeyPairCredentials;
 /**
  * Request object for the createPrivateCluster method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:26.728-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:04.824-08:00")
 public class CreatePrivateClusterRequest  {
 
   /**
    * The CRN of the environment for the cluster to create.
    **/
   private String environmentCrn = null;
-
-  /**
-   * DEPRECATED: As of PVC 1.5.4 we no longer use delegation user. Name of delegation user. This user is used between Hue - Impala to create a session, as Hue should not pass the user credentials, instead Hue authenticates with the delegation user, then this user will impersonate the logged in user. This means that the Delegation User and Password should be able to authenticate through LDAP.
-   **/
-  private String delegationUsername = null;
-
-  /**
-   * DEPRECATED: As of PVC 1.5.4 we no longer use delegation user. Password of delegation user.
-   **/
-  private String delegationPassword = null;
 
   /**
    * The storage class for the Local Storage Operator.
@@ -76,44 +66,6 @@ public class CreatePrivateClusterRequest  {
    **/
   public void setEnvironmentCrn(String environmentCrn) {
     this.environmentCrn = environmentCrn;
-  }
-
-  /**
-   * Getter for delegationUsername.
-   * DEPRECATED: As of PVC 1.5.4 we no longer use delegation user. Name of delegation user. This user is used between Hue - Impala to create a session, as Hue should not pass the user credentials, instead Hue authenticates with the delegation user, then this user will impersonate the logged in user. This means that the Delegation User and Password should be able to authenticate through LDAP.
-   **/
-  @Deprecated
-  @JsonProperty("delegationUsername")
-  public String getDelegationUsername() {
-    return delegationUsername;
-  }
-
-  /**
-   * Setter for delegationUsername.
-   * DEPRECATED: As of PVC 1.5.4 we no longer use delegation user. Name of delegation user. This user is used between Hue - Impala to create a session, as Hue should not pass the user credentials, instead Hue authenticates with the delegation user, then this user will impersonate the logged in user. This means that the Delegation User and Password should be able to authenticate through LDAP.
-   **/
-  @Deprecated
-  public void setDelegationUsername(String delegationUsername) {
-    this.delegationUsername = delegationUsername;
-  }
-
-  /**
-   * Getter for delegationPassword.
-   * DEPRECATED: As of PVC 1.5.4 we no longer use delegation user. Password of delegation user.
-   **/
-  @Deprecated
-  @JsonProperty("delegationPassword")
-  public String getDelegationPassword() {
-    return delegationPassword;
-  }
-
-  /**
-   * Setter for delegationPassword.
-   * DEPRECATED: As of PVC 1.5.4 we no longer use delegation user. Password of delegation user.
-   **/
-  @Deprecated
-  public void setDelegationPassword(String delegationPassword) {
-    this.delegationPassword = delegationPassword;
   }
 
   /**
@@ -181,12 +133,6 @@ public class CreatePrivateClusterRequest  {
     if (!Objects.equals(this.environmentCrn, createPrivateClusterRequest.environmentCrn)) {
       return false;
     }
-    if (!Objects.equals(this.delegationUsername, createPrivateClusterRequest.delegationUsername)) {
-      return false;
-    }
-    if (!Objects.equals(this.delegationPassword, createPrivateClusterRequest.delegationPassword)) {
-      return false;
-    }
     if (!Objects.equals(this.storageClass, createPrivateClusterRequest.storageClass)) {
       return false;
     }
@@ -201,7 +147,7 @@ public class CreatePrivateClusterRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, delegationUsername, delegationPassword, storageClass, dedicatedExecutorNodes, dbClientCredentials);
+    return Objects.hash(environmentCrn, storageClass, dedicatedExecutorNodes, dbClientCredentials);
   }
 
   @Override
@@ -209,8 +155,6 @@ public class CreatePrivateClusterRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class CreatePrivateClusterRequest {\n");
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
-    sb.append("    delegationUsername: ").append(toIndentedString(delegationUsername)).append("\n");
-    sb.append("    delegationPassword: ").append(toIndentedString(delegationPassword)).append("\n");
     sb.append("    storageClass: ").append(toIndentedString(storageClass)).append("\n");
     sb.append("    dedicatedExecutorNodes: ").append(toIndentedString(dedicatedExecutorNodes)).append("\n");
     sb.append("    dbClientCredentials: ").append(toIndentedString(dbClientCredentials)).append("\n");

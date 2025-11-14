@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * Provides details about a deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:31.001-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:08.936-08:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcDeployment  {
 
@@ -153,7 +153,7 @@ public class RpcDeployment  {
   private String flowCrn = null;
 
   /**
-   * The CRN of the user who deployed the flow.
+   * The CRN of the user who deployed the first flow.
    **/
   private String creatorCrn = null;
 
@@ -168,12 +168,12 @@ public class RpcDeployment  {
   private Integer currentNodeCount = null;
 
   /**
-   * The username of the person who deployed the flow.
+   * The username of the person who deployed the first flow.
    **/
   private String deployedByUsername = null;
 
   /**
-   * The name of the person who deployed the flow.
+   * The name of the person who deployed the first flow.
    **/
   private String deployedByName = null;
 
@@ -640,7 +640,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for creatorCrn.
-   * The CRN of the user who deployed the flow.
+   * The CRN of the user who deployed the first flow.
    **/
   @JsonProperty("creatorCrn")
   public String getCreatorCrn() {
@@ -649,7 +649,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for creatorCrn.
-   * The CRN of the user who deployed the flow.
+   * The CRN of the user who deployed the first flow.
    **/
   public void setCreatorCrn(String creatorCrn) {
     this.creatorCrn = creatorCrn;
@@ -691,7 +691,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for deployedByUsername.
-   * The username of the person who deployed the flow.
+   * The username of the person who deployed the first flow.
    **/
   @JsonProperty("deployedByUsername")
   public String getDeployedByUsername() {
@@ -700,7 +700,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for deployedByUsername.
-   * The username of the person who deployed the flow.
+   * The username of the person who deployed the first flow.
    **/
   public void setDeployedByUsername(String deployedByUsername) {
     this.deployedByUsername = deployedByUsername;
@@ -708,7 +708,7 @@ public class RpcDeployment  {
 
   /**
    * Getter for deployedByName.
-   * The name of the person who deployed the flow.
+   * The name of the person who deployed the first flow.
    **/
   @JsonProperty("deployedByName")
   public String getDeployedByName() {
@@ -717,7 +717,7 @@ public class RpcDeployment  {
 
   /**
    * Setter for deployedByName.
-   * The name of the person who deployed the flow.
+   * The name of the person who deployed the first flow.
    **/
   public void setDeployedByName(String deployedByName) {
     this.deployedByName = deployedByName;

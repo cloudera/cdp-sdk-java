@@ -25,19 +25,19 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * A request to list filter options
+ * A request to list filter options.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:30.597-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:08.545-08:00")
 public class ListFilterOptionsRequest  {
 
   /**
-   * The type of filter
+   * The type of filter.
    **/
   private String filterType = null;
 
   /**
    * Getter for filterType.
-   * The type of filter
+   * The type of filter.
    **/
   @JsonProperty("filterType")
   public String getFilterType() {
@@ -46,7 +46,7 @@ public class ListFilterOptionsRequest  {
 
   /**
    * Setter for filterType.
-   * The type of filter
+   * The type of filter.
    **/
   public void setFilterType(String filterType) {
     this.filterType = filterType;

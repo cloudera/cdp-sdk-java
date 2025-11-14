@@ -28,48 +28,48 @@ import com.cloudera.cdp.df.model.ProjectMeta;
 import com.cloudera.cdp.df.model.ServiceMeta;
 
 /**
- * A deployment summary
+ * A deployment summary.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:30.597-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:08.545-08:00")
 public class DeploymentSummary  {
 
   /**
-   * The deployment CRN
+   * The deployment CRN.
    **/
   private String crn = null;
 
   /**
-   * The deployment name
+   * The deployment name.
    **/
   private String name = null;
 
   /**
-   * The deployment status
+   * The deployment status.
    **/
   private DeploymentStatus status = null;
 
   /**
-   * The DataFlow service information of the deployment
+   * The DataFlow service information of the deployment.
    **/
   private ServiceMeta service = null;
 
   /**
-   * Timestamp of the last time the deployment was modified
+   * Timestamp of the last time the deployment was modified.
    **/
   private Long updated = null;
 
   /**
-   * Current count of active alerts classified as an info
+   * Current count of active alerts classified as informational.
    **/
   private Long activeInfoAlertCount = null;
 
   /**
-   * Current count of active alerts classified as a warning
+   * Current count of active alerts classified as warnings.
    **/
   private Long activeWarningAlertCount = null;
 
   /**
-   * Current count of active alerts classified as an error
+   * Current count of active alerts classified as errors.
    **/
   private Long activeErrorAlertCount = null;
 
@@ -80,7 +80,7 @@ public class DeploymentSummary  {
 
   /**
    * Getter for crn.
-   * The deployment CRN
+   * The deployment CRN.
    **/
   @JsonProperty("crn")
   public String getCrn() {
@@ -89,7 +89,7 @@ public class DeploymentSummary  {
 
   /**
    * Setter for crn.
-   * The deployment CRN
+   * The deployment CRN.
    **/
   public void setCrn(String crn) {
     this.crn = crn;
@@ -97,7 +97,7 @@ public class DeploymentSummary  {
 
   /**
    * Getter for name.
-   * The deployment name
+   * The deployment name.
    **/
   @JsonProperty("name")
   public String getName() {
@@ -106,7 +106,7 @@ public class DeploymentSummary  {
 
   /**
    * Setter for name.
-   * The deployment name
+   * The deployment name.
    **/
   public void setName(String name) {
     this.name = name;
@@ -114,7 +114,7 @@ public class DeploymentSummary  {
 
   /**
    * Getter for status.
-   * The deployment status
+   * The deployment status.
    **/
   @JsonProperty("status")
   public DeploymentStatus getStatus() {
@@ -123,7 +123,7 @@ public class DeploymentSummary  {
 
   /**
    * Setter for status.
-   * The deployment status
+   * The deployment status.
    **/
   public void setStatus(DeploymentStatus status) {
     this.status = status;
@@ -131,7 +131,7 @@ public class DeploymentSummary  {
 
   /**
    * Getter for service.
-   * The DataFlow service information of the deployment
+   * The DataFlow service information of the deployment.
    **/
   @JsonProperty("service")
   public ServiceMeta getService() {
@@ -140,7 +140,7 @@ public class DeploymentSummary  {
 
   /**
    * Setter for service.
-   * The DataFlow service information of the deployment
+   * The DataFlow service information of the deployment.
    **/
   public void setService(ServiceMeta service) {
     this.service = service;
@@ -148,7 +148,7 @@ public class DeploymentSummary  {
 
   /**
    * Getter for updated.
-   * Timestamp of the last time the deployment was modified
+   * Timestamp of the last time the deployment was modified.
    **/
   @JsonProperty("updated")
   public Long getUpdated() {
@@ -157,7 +157,7 @@ public class DeploymentSummary  {
 
   /**
    * Setter for updated.
-   * Timestamp of the last time the deployment was modified
+   * Timestamp of the last time the deployment was modified.
    **/
   public void setUpdated(Long updated) {
     this.updated = updated;
@@ -165,7 +165,7 @@ public class DeploymentSummary  {
 
   /**
    * Getter for activeInfoAlertCount.
-   * Current count of active alerts classified as an info
+   * Current count of active alerts classified as informational.
    **/
   @JsonProperty("activeInfoAlertCount")
   public Long getActiveInfoAlertCount() {
@@ -174,7 +174,7 @@ public class DeploymentSummary  {
 
   /**
    * Setter for activeInfoAlertCount.
-   * Current count of active alerts classified as an info
+   * Current count of active alerts classified as informational.
    **/
   public void setActiveInfoAlertCount(Long activeInfoAlertCount) {
     this.activeInfoAlertCount = activeInfoAlertCount;
@@ -182,7 +182,7 @@ public class DeploymentSummary  {
 
   /**
    * Getter for activeWarningAlertCount.
-   * Current count of active alerts classified as a warning
+   * Current count of active alerts classified as warnings.
    **/
   @JsonProperty("activeWarningAlertCount")
   public Long getActiveWarningAlertCount() {
@@ -191,7 +191,7 @@ public class DeploymentSummary  {
 
   /**
    * Setter for activeWarningAlertCount.
-   * Current count of active alerts classified as a warning
+   * Current count of active alerts classified as warnings.
    **/
   public void setActiveWarningAlertCount(Long activeWarningAlertCount) {
     this.activeWarningAlertCount = activeWarningAlertCount;
@@ -199,7 +199,7 @@ public class DeploymentSummary  {
 
   /**
    * Getter for activeErrorAlertCount.
-   * Current count of active alerts classified as an error
+   * Current count of active alerts classified as errors.
    **/
   @JsonProperty("activeErrorAlertCount")
   public Long getActiveErrorAlertCount() {
@@ -208,7 +208,7 @@ public class DeploymentSummary  {
 
   /**
    * Setter for activeErrorAlertCount.
-   * Current count of active alerts classified as an error
+   * Current count of active alerts classified as errors.
    **/
   public void setActiveErrorAlertCount(Long activeErrorAlertCount) {
     this.activeErrorAlertCount = activeErrorAlertCount;

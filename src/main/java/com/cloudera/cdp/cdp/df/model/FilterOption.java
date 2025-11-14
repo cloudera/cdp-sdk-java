@@ -25,29 +25,29 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * A filter option
+ * A filter option.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:30.597-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:08.545-08:00")
 public class FilterOption  {
 
   /**
-   * The filter identifier
+   * The filter identifier.
    **/
   private String identifier = null;
 
   /**
-   * The filter label
+   * The filter label.
    **/
   private String label = null;
 
   /**
-   * The icon class
+   * The icon class.
    **/
   private String iconClass = null;
 
   /**
    * Getter for identifier.
-   * The filter identifier
+   * The filter identifier.
    **/
   @JsonProperty("identifier")
   public String getIdentifier() {
@@ -56,7 +56,7 @@ public class FilterOption  {
 
   /**
    * Setter for identifier.
-   * The filter identifier
+   * The filter identifier.
    **/
   public void setIdentifier(String identifier) {
     this.identifier = identifier;
@@ -64,7 +64,7 @@ public class FilterOption  {
 
   /**
    * Getter for label.
-   * The filter label
+   * The filter label.
    **/
   @JsonProperty("label")
   public String getLabel() {
@@ -73,7 +73,7 @@ public class FilterOption  {
 
   /**
    * Setter for label.
-   * The filter label
+   * The filter label.
    **/
   public void setLabel(String label) {
     this.label = label;
@@ -81,7 +81,7 @@ public class FilterOption  {
 
   /**
    * Getter for iconClass.
-   * The icon class
+   * The icon class.
    **/
   @JsonProperty("iconClass")
   public String getIconClass() {
@@ -90,7 +90,7 @@ public class FilterOption  {
 
   /**
    * Setter for iconClass.
-   * The icon class
+   * The icon class.
    **/
   public void setIconClass(String iconClass) {
     this.iconClass = iconClass;

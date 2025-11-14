@@ -29,9 +29,9 @@ import com.cloudera.cdp.dfworkload.model.FlowParameterGroup;
 import java.util.*;
 
 /**
- * Provides all of the configuration that dictates how a flow should be deployed.
+ * Provides all of the configuration that dictates how a deployment should be updated.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:31.001-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:08.936-08:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class UpdateDeploymentRequest  {
 
@@ -41,14 +41,24 @@ public class UpdateDeploymentRequest  {
   private String environmentCrn = null;
 
   /**
+   * The CRN of the existing deployment to be updated.
+   **/
+  private String deploymentCrn = null;
+
+  /**
    * The version of this configuration.
    **/
   private Integer configurationVersion = null;
 
   /**
-   * The CRN of the existing deployment to be updated.
+   * The CRN of the asset update request. Required when updating assets of an existing deployment.
    **/
-  private String deploymentCrn = null;
+  private String assetUpdateRequestCrn = null;
+
+  /**
+   * The deployment t-shirt size.
+   **/
+  private BasicClusterSize clusterSize = null;
 
   /**
    * The list of flow parameter groups.
@@ -81,19 +91,9 @@ public class UpdateDeploymentRequest  {
   private Integer staticNodeCount = null;
 
   /**
-   * The list of configured KPIs.
+   * The list of Key Performance Indicators (KPIs) with which to replace the current list of configured KPIs. Only deployment-level KPIs are allowed. To configure flow-level KPIs, use update-flow-in-deployment. If the list is empty, all KPIs are deleted; however, if it is not specified, the current KPI settings are not updated.
    **/
   private List<ConfiguredKpi> kpis = new ArrayList<ConfiguredKpi>();
-
-  /**
-   * The deployment t-shirt size.
-   **/
-  private BasicClusterSize clusterSize = null;
-
-  /**
-   * The CRN of the asset update request. Required when updating assets of an existing deployment.
-   **/
-  private String assetUpdateRequestCrn = null;
 
   /**
    * Getter for environmentCrn.
@@ -110,6 +110,23 @@ public class UpdateDeploymentRequest  {
    **/
   public void setEnvironmentCrn(String environmentCrn) {
     this.environmentCrn = environmentCrn;
+  }
+
+  /**
+   * Getter for deploymentCrn.
+   * The CRN of the existing deployment to be updated.
+   **/
+  @JsonProperty("deploymentCrn")
+  public String getDeploymentCrn() {
+    return deploymentCrn;
+  }
+
+  /**
+   * Setter for deploymentCrn.
+   * The CRN of the existing deployment to be updated.
+   **/
+  public void setDeploymentCrn(String deploymentCrn) {
+    this.deploymentCrn = deploymentCrn;
   }
 
   /**
@@ -130,20 +147,37 @@ public class UpdateDeploymentRequest  {
   }
 
   /**
-   * Getter for deploymentCrn.
-   * The CRN of the existing deployment to be updated.
+   * Getter for assetUpdateRequestCrn.
+   * The CRN of the asset update request. Required when updating assets of an existing deployment.
    **/
-  @JsonProperty("deploymentCrn")
-  public String getDeploymentCrn() {
-    return deploymentCrn;
+  @JsonProperty("assetUpdateRequestCrn")
+  public String getAssetUpdateRequestCrn() {
+    return assetUpdateRequestCrn;
   }
 
   /**
-   * Setter for deploymentCrn.
-   * The CRN of the existing deployment to be updated.
+   * Setter for assetUpdateRequestCrn.
+   * The CRN of the asset update request. Required when updating assets of an existing deployment.
    **/
-  public void setDeploymentCrn(String deploymentCrn) {
-    this.deploymentCrn = deploymentCrn;
+  public void setAssetUpdateRequestCrn(String assetUpdateRequestCrn) {
+    this.assetUpdateRequestCrn = assetUpdateRequestCrn;
+  }
+
+  /**
+   * Getter for clusterSize.
+   * The deployment t-shirt size.
+   **/
+  @JsonProperty("clusterSize")
+  public BasicClusterSize getClusterSize() {
+    return clusterSize;
+  }
+
+  /**
+   * Setter for clusterSize.
+   * The deployment t-shirt size.
+   **/
+  public void setClusterSize(BasicClusterSize clusterSize) {
+    this.clusterSize = clusterSize;
   }
 
   /**
@@ -250,7 +284,7 @@ public class UpdateDeploymentRequest  {
 
   /**
    * Getter for kpis.
-   * The list of configured KPIs.
+   * The list of Key Performance Indicators (KPIs) with which to replace the current list of configured KPIs. Only deployment-level KPIs are allowed. To configure flow-level KPIs, use update-flow-in-deployment. If the list is empty, all KPIs are deleted; however, if it is not specified, the current KPI settings are not updated.
    **/
   @JsonProperty("kpis")
   public List<ConfiguredKpi> getKpis() {
@@ -259,44 +293,10 @@ public class UpdateDeploymentRequest  {
 
   /**
    * Setter for kpis.
-   * The list of configured KPIs.
+   * The list of Key Performance Indicators (KPIs) with which to replace the current list of configured KPIs. Only deployment-level KPIs are allowed. To configure flow-level KPIs, use update-flow-in-deployment. If the list is empty, all KPIs are deleted; however, if it is not specified, the current KPI settings are not updated.
    **/
   public void setKpis(List<ConfiguredKpi> kpis) {
     this.kpis = kpis;
-  }
-
-  /**
-   * Getter for clusterSize.
-   * The deployment t-shirt size.
-   **/
-  @JsonProperty("clusterSize")
-  public BasicClusterSize getClusterSize() {
-    return clusterSize;
-  }
-
-  /**
-   * Setter for clusterSize.
-   * The deployment t-shirt size.
-   **/
-  public void setClusterSize(BasicClusterSize clusterSize) {
-    this.clusterSize = clusterSize;
-  }
-
-  /**
-   * Getter for assetUpdateRequestCrn.
-   * The CRN of the asset update request. Required when updating assets of an existing deployment.
-   **/
-  @JsonProperty("assetUpdateRequestCrn")
-  public String getAssetUpdateRequestCrn() {
-    return assetUpdateRequestCrn;
-  }
-
-  /**
-   * Setter for assetUpdateRequestCrn.
-   * The CRN of the asset update request. Required when updating assets of an existing deployment.
-   **/
-  public void setAssetUpdateRequestCrn(String assetUpdateRequestCrn) {
-    this.assetUpdateRequestCrn = assetUpdateRequestCrn;
   }
 
   @Override
@@ -311,10 +311,16 @@ public class UpdateDeploymentRequest  {
     if (!Objects.equals(this.environmentCrn, updateDeploymentRequest.environmentCrn)) {
       return false;
     }
+    if (!Objects.equals(this.deploymentCrn, updateDeploymentRequest.deploymentCrn)) {
+      return false;
+    }
     if (!Objects.equals(this.configurationVersion, updateDeploymentRequest.configurationVersion)) {
       return false;
     }
-    if (!Objects.equals(this.deploymentCrn, updateDeploymentRequest.deploymentCrn)) {
+    if (!Objects.equals(this.assetUpdateRequestCrn, updateDeploymentRequest.assetUpdateRequestCrn)) {
+      return false;
+    }
+    if (!Objects.equals(this.clusterSize, updateDeploymentRequest.clusterSize)) {
       return false;
     }
     if (!Objects.equals(this.parameterGroups, updateDeploymentRequest.parameterGroups)) {
@@ -338,18 +344,12 @@ public class UpdateDeploymentRequest  {
     if (!Objects.equals(this.kpis, updateDeploymentRequest.kpis)) {
       return false;
     }
-    if (!Objects.equals(this.clusterSize, updateDeploymentRequest.clusterSize)) {
-      return false;
-    }
-    if (!Objects.equals(this.assetUpdateRequestCrn, updateDeploymentRequest.assetUpdateRequestCrn)) {
-      return false;
-    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, configurationVersion, deploymentCrn, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, clusterSize, assetUpdateRequestCrn);
+    return Objects.hash(environmentCrn, deploymentCrn, configurationVersion, assetUpdateRequestCrn, clusterSize, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis);
   }
 
   @Override
@@ -357,8 +357,10 @@ public class UpdateDeploymentRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class UpdateDeploymentRequest {\n");
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
-    sb.append("    configurationVersion: ").append(toIndentedString(configurationVersion)).append("\n");
     sb.append("    deploymentCrn: ").append(toIndentedString(deploymentCrn)).append("\n");
+    sb.append("    configurationVersion: ").append(toIndentedString(configurationVersion)).append("\n");
+    sb.append("    assetUpdateRequestCrn: ").append(toIndentedString(assetUpdateRequestCrn)).append("\n");
+    sb.append("    clusterSize: ").append(toIndentedString(clusterSize)).append("\n");
     sb.append("    parameterGroups: ").append(toIndentedString(parameterGroups)).append("\n");
     sb.append("    autoScalingEnabled: ").append(toIndentedString(autoScalingEnabled)).append("\n");
     sb.append("    flowMetricsScalingEnabled: ").append(toIndentedString(flowMetricsScalingEnabled)).append("\n");
@@ -366,8 +368,6 @@ public class UpdateDeploymentRequest  {
     sb.append("    autoScaleMaxNodes: ").append(toIndentedString(autoScaleMaxNodes)).append("\n");
     sb.append("    staticNodeCount: ").append(toIndentedString(staticNodeCount)).append("\n");
     sb.append("    kpis: ").append(toIndentedString(kpis)).append("\n");
-    sb.append("    clusterSize: ").append(toIndentedString(clusterSize)).append("\n");
-    sb.append("    assetUpdateRequestCrn: ").append(toIndentedString(assetUpdateRequestCrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

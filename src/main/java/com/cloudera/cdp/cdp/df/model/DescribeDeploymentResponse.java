@@ -26,19 +26,19 @@ import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.df.model.Deployment;
 
 /**
- * A response to describe a deployment
+ * A response to describe a deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:30.597-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:08.545-08:00")
 public class DescribeDeploymentResponse extends CdpResponse {
 
   /**
-   * The deployment
+   * The deployment.
    **/
   private Deployment deployment = null;
 
   /**
    * Getter for deployment.
-   * The deployment
+   * The deployment.
    **/
   @JsonProperty("deployment")
   public Deployment getDeployment() {
@@ -47,7 +47,7 @@ public class DescribeDeploymentResponse extends CdpResponse {
 
   /**
    * Setter for deployment.
-   * The deployment
+   * The deployment.
    **/
   public void setDeployment(Deployment deployment) {
     this.deployment = deployment;

@@ -25,24 +25,24 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * A request to list active alerts for deployment
+ * A request to list active alerts for deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:30.597-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:08.545-08:00")
 public class ListDeploymentActiveAlertsRequest  {
 
   /**
-   * The deployment CRN
+   * The deployment CRN.
    **/
   private String deploymentCrn = null;
 
   /**
-   * Sort criteria
+   * Sort criteria.
    **/
   private String sort = null;
 
   /**
    * Getter for deploymentCrn.
-   * The deployment CRN
+   * The deployment CRN.
    **/
   @JsonProperty("deploymentCrn")
   public String getDeploymentCrn() {
@@ -51,7 +51,7 @@ public class ListDeploymentActiveAlertsRequest  {
 
   /**
    * Setter for deploymentCrn.
-   * The deployment CRN
+   * The deployment CRN.
    **/
   public void setDeploymentCrn(String deploymentCrn) {
     this.deploymentCrn = deploymentCrn;
@@ -59,7 +59,7 @@ public class ListDeploymentActiveAlertsRequest  {
 
   /**
    * Getter for sort.
-   * Sort criteria
+   * Sort criteria.
    **/
   @JsonProperty("sort")
   public String getSort() {
@@ -68,7 +68,7 @@ public class ListDeploymentActiveAlertsRequest  {
 
   /**
    * Setter for sort.
-   * Sort criteria
+   * Sort criteria.
    **/
   public void setSort(String sort) {
     this.sort = sort;

@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object for the upgradeVw method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:26.728-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:04.824-08:00")
 public class UpgradeVwResponse extends CdpResponse {
 
   /**
@@ -49,6 +49,11 @@ public class UpgradeVwResponse extends CdpResponse {
    * True, if the service is in unhealthy state, false or omitted otherwise.
    **/
   private Boolean serviceUnhealthy = null;
+
+  /**
+   * Warning message during Virtual Warehouse upgrade.
+   **/
+  private String warning = null;
 
   /**
    * Getter for status.
@@ -118,6 +123,23 @@ public class UpgradeVwResponse extends CdpResponse {
     this.serviceUnhealthy = serviceUnhealthy;
   }
 
+  /**
+   * Getter for warning.
+   * Warning message during Virtual Warehouse upgrade.
+   **/
+  @JsonProperty("warning")
+  public String getWarning() {
+    return warning;
+  }
+
+  /**
+   * Setter for warning.
+   * Warning message during Virtual Warehouse upgrade.
+   **/
+  public void setWarning(String warning) {
+    this.warning = warning;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -139,6 +161,9 @@ public class UpgradeVwResponse extends CdpResponse {
     if (!Objects.equals(this.serviceUnhealthy, upgradeVwResponse.serviceUnhealthy)) {
       return false;
     }
+    if (!Objects.equals(this.warning, upgradeVwResponse.warning)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -147,7 +172,7 @@ public class UpgradeVwResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(status, message, timedOut, serviceUnhealthy, super.hashCode());
+    return Objects.hash(status, message, timedOut, serviceUnhealthy, warning, super.hashCode());
   }
 
   @Override
@@ -159,6 +184,7 @@ public class UpgradeVwResponse extends CdpResponse {
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    timedOut: ").append(toIndentedString(timedOut)).append("\n");
     sb.append("    serviceUnhealthy: ").append(toIndentedString(serviceUnhealthy)).append("\n");
+    sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -26,9 +26,9 @@ import com.cloudera.cdp.client.CdpResponse;
 import java.util.*;
 
 /**
- * A request to list deployments
+ * A request to list deployments.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:30.597-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:08.545-08:00")
 public class ListDeploymentsRequest  {
 
   /**
@@ -42,12 +42,12 @@ public class ListDeploymentsRequest  {
   private String startingToken = null;
 
   /**
-   * The sort criteria
+   * The sort criteria (updated|name|state|dataSent|dataReceived):(asc|desc) e.g., name:asc.
    **/
   private List<String> sorts = new ArrayList<String>();
 
   /**
-   * The filter criteria
+   * The filter criteria (see list-filter-options).
    **/
   private List<String> filters = new ArrayList<String>();
 
@@ -87,7 +87,7 @@ public class ListDeploymentsRequest  {
 
   /**
    * Getter for sorts.
-   * The sort criteria
+   * The sort criteria (updated|name|state|dataSent|dataReceived):(asc|desc) e.g., name:asc.
    **/
   @JsonProperty("sorts")
   public List<String> getSorts() {
@@ -96,7 +96,7 @@ public class ListDeploymentsRequest  {
 
   /**
    * Setter for sorts.
-   * The sort criteria
+   * The sort criteria (updated|name|state|dataSent|dataReceived):(asc|desc) e.g., name:asc.
    **/
   public void setSorts(List<String> sorts) {
     this.sorts = sorts;
@@ -104,7 +104,7 @@ public class ListDeploymentsRequest  {
 
   /**
    * Getter for filters.
-   * The filter criteria
+   * The filter criteria (see list-filter-options).
    **/
   @JsonProperty("filters")
   public List<String> getFilters() {
@@ -113,7 +113,7 @@ public class ListDeploymentsRequest  {
 
   /**
    * Setter for filters.
-   * The filter criteria
+   * The filter criteria (see list-filter-options).
    **/
   public void setFilters(List<String> filters) {
     this.filters = filters;

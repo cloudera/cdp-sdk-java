@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the upgradeVw method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:26.728-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:04.824-08:00")
 public class UpgradeVwRequest  {
 
   /**
@@ -49,6 +49,11 @@ public class UpgradeVwRequest  {
    * The version to which the Virtual Warehouse should be upgraded.
    **/
   private String imageVersion = null;
+
+  /**
+   * The name of the Resource Pool the Cloudera Data Visualization will be assigned to.
+   **/
+  private String resourcePool = null;
 
   /**
    * Getter for clusterId.
@@ -118,6 +123,23 @@ public class UpgradeVwRequest  {
     this.imageVersion = imageVersion;
   }
 
+  /**
+   * Getter for resourcePool.
+   * The name of the Resource Pool the Cloudera Data Visualization will be assigned to.
+   **/
+  @JsonProperty("resourcePool")
+  public String getResourcePool() {
+    return resourcePool;
+  }
+
+  /**
+   * Setter for resourcePool.
+   * The name of the Resource Pool the Cloudera Data Visualization will be assigned to.
+   **/
+  public void setResourcePool(String resourcePool) {
+    this.resourcePool = resourcePool;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -139,12 +161,15 @@ public class UpgradeVwRequest  {
     if (!Objects.equals(this.imageVersion, upgradeVwRequest.imageVersion)) {
       return false;
     }
+    if (!Objects.equals(this.resourcePool, upgradeVwRequest.resourcePool)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, vwId, dbcId, imageVersion);
+    return Objects.hash(clusterId, vwId, dbcId, imageVersion, resourcePool);
   }
 
   @Override
@@ -155,6 +180,7 @@ public class UpgradeVwRequest  {
     sb.append("    vwId: ").append(toIndentedString(vwId)).append("\n");
     sb.append("    dbcId: ").append(toIndentedString(dbcId)).append("\n");
     sb.append("    imageVersion: ").append(toIndentedString(imageVersion)).append("\n");
+    sb.append("    resourcePool: ").append(toIndentedString(resourcePool)).append("\n");
     sb.append("}");
     return sb.toString();
   }

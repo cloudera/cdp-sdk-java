@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * Provides all of the configuration that dictates how a flow should be deployed.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:31.001-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:08.936-08:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcDeploymentConfiguration  {
 
@@ -43,7 +43,7 @@ public class RpcDeploymentConfiguration  {
   private Integer configurationVersion = null;
 
   /**
-   * The list of flow parameter groups.
+   * The list of flow parameter groups, for the first deployed flow.
    **/
   private List<FlowParameterGroup> parameterGroups = new ArrayList<FlowParameterGroup>();
 
@@ -118,7 +118,7 @@ public class RpcDeploymentConfiguration  {
   private Boolean parametersDirty = null;
 
   /**
-   * Indicates whether or not the current KPIs have successfully been deployed as alert rules.
+   * Indicates whether or not the current KPIs have successfully been deployed as alert rules, at the deployment level. Use kpisDirty inside deployedFlowConfigurations for any flow-level KPIs.
    **/
   private Boolean kpisDirty = null;
 
@@ -181,7 +181,7 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Getter for parameterGroups.
-   * The list of flow parameter groups.
+   * The list of flow parameter groups, for the first deployed flow.
    **/
   @JsonProperty("parameterGroups")
   public List<FlowParameterGroup> getParameterGroups() {
@@ -190,7 +190,7 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Setter for parameterGroups.
-   * The list of flow parameter groups.
+   * The list of flow parameter groups, for the first deployed flow.
    **/
   public void setParameterGroups(List<FlowParameterGroup> parameterGroups) {
     this.parameterGroups = parameterGroups;
@@ -436,7 +436,7 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Getter for kpisDirty.
-   * Indicates whether or not the current KPIs have successfully been deployed as alert rules.
+   * Indicates whether or not the current KPIs have successfully been deployed as alert rules, at the deployment level. Use kpisDirty inside deployedFlowConfigurations for any flow-level KPIs.
    **/
   @JsonProperty("kpisDirty")
   public Boolean getKpisDirty() {
@@ -445,7 +445,7 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Setter for kpisDirty.
-   * Indicates whether or not the current KPIs have successfully been deployed as alert rules.
+   * Indicates whether or not the current KPIs have successfully been deployed as alert rules, at the deployment level. Use kpisDirty inside deployedFlowConfigurations for any flow-level KPIs.
    **/
   public void setKpisDirty(Boolean kpisDirty) {
     this.kpisDirty = kpisDirty;

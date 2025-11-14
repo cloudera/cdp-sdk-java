@@ -25,29 +25,29 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * The status of a deployment
+ * The status of a deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:30.597-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:08.545-08:00")
 public class DeploymentStatus  {
 
   /**
-   * The detailed state that the deployment is currently in
+   * The detailed state that the deployment is currently in.
    **/
   private String detailedState = null;
 
   /**
-   * Detail message relating to the current status of the deployment
+   * Detail message relating to the current status of the deployment.
    **/
   private String message = null;
 
   /**
-   * The state that the deployment is currently in
+   * The state that the deployment is currently in.
    **/
   private String state = null;
 
   /**
    * Getter for detailedState.
-   * The detailed state that the deployment is currently in
+   * The detailed state that the deployment is currently in.
    **/
   @JsonProperty("detailedState")
   public String getDetailedState() {
@@ -56,7 +56,7 @@ public class DeploymentStatus  {
 
   /**
    * Setter for detailedState.
-   * The detailed state that the deployment is currently in
+   * The detailed state that the deployment is currently in.
    **/
   public void setDetailedState(String detailedState) {
     this.detailedState = detailedState;
@@ -64,7 +64,7 @@ public class DeploymentStatus  {
 
   /**
    * Getter for message.
-   * Detail message relating to the current status of the deployment
+   * Detail message relating to the current status of the deployment.
    **/
   @JsonProperty("message")
   public String getMessage() {
@@ -73,7 +73,7 @@ public class DeploymentStatus  {
 
   /**
    * Setter for message.
-   * Detail message relating to the current status of the deployment
+   * Detail message relating to the current status of the deployment.
    **/
   public void setMessage(String message) {
     this.message = message;
@@ -81,7 +81,7 @@ public class DeploymentStatus  {
 
   /**
    * Getter for state.
-   * The state that the deployment is currently in
+   * The state that the deployment is currently in.
    **/
   @JsonProperty("state")
   public String getState() {
@@ -90,7 +90,7 @@ public class DeploymentStatus  {
 
   /**
    * Setter for state.
-   * The state that the deployment is currently in
+   * The state that the deployment is currently in.
    **/
   public void setState(String state) {
     this.state = state;

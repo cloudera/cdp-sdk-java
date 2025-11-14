@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object of the cluster AWS settings.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:26.728-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:04.824-08:00")
 public class AwsOptionsResponse extends CdpResponse {
 
   /**
@@ -66,6 +66,11 @@ public class AwsOptionsResponse extends CdpResponse {
    * Non-transparent proxy settings.
    **/
   private AwsOptionsNonTransparentProxyResponse nonTransparentProxy = null;
+
+  /**
+   * KMS key used in encryption of EBS, EFS, RDS and EKS Secrets.
+   **/
+  private String kmsKey = null;
 
   /**
    * Getter for subnetIds.
@@ -186,6 +191,23 @@ public class AwsOptionsResponse extends CdpResponse {
     this.nonTransparentProxy = nonTransparentProxy;
   }
 
+  /**
+   * Getter for kmsKey.
+   * KMS key used in encryption of EBS, EFS, RDS and EKS Secrets.
+   **/
+  @JsonProperty("kmsKey")
+  public String getKmsKey() {
+    return kmsKey;
+  }
+
+  /**
+   * Setter for kmsKey.
+   * KMS key used in encryption of EBS, EFS, RDS and EKS Secrets.
+   **/
+  public void setKmsKey(String kmsKey) {
+    this.kmsKey = kmsKey;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -216,6 +238,9 @@ public class AwsOptionsResponse extends CdpResponse {
     if (!Objects.equals(this.nonTransparentProxy, awsOptionsResponse.nonTransparentProxy)) {
       return false;
     }
+    if (!Objects.equals(this.kmsKey, awsOptionsResponse.kmsKey)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -224,7 +249,7 @@ public class AwsOptionsResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(subnetIds, workerSubnetIds, lbSubnetIds, availabilityZones, customAmiId, reducedPermissionMode, nonTransparentProxy, super.hashCode());
+    return Objects.hash(subnetIds, workerSubnetIds, lbSubnetIds, availabilityZones, customAmiId, reducedPermissionMode, nonTransparentProxy, kmsKey, super.hashCode());
   }
 
   @Override
@@ -239,6 +264,7 @@ public class AwsOptionsResponse extends CdpResponse {
     sb.append("    customAmiId: ").append(toIndentedString(customAmiId)).append("\n");
     sb.append("    reducedPermissionMode: ").append(toIndentedString(reducedPermissionMode)).append("\n");
     sb.append("    nonTransparentProxy: ").append(toIndentedString(nonTransparentProxy)).append("\n");
+    sb.append("    kmsKey: ").append(toIndentedString(kmsKey)).append("\n");
     sb.append("}");
     return sb.toString();
   }

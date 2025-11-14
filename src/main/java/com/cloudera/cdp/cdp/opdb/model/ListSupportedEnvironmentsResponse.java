@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * A response which contains a list of available environments
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:29.478-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:07.608-08:00")
 public class ListSupportedEnvironmentsResponse extends CdpResponse {
 
   /**

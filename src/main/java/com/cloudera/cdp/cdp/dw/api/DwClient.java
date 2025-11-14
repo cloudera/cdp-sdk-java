@@ -70,6 +70,8 @@ import com.cloudera.cdp.dw.model.DeleteDbcRequest;
 import com.cloudera.cdp.dw.model.DeleteDbcResponse;
 import com.cloudera.cdp.dw.model.DeleteResourceTemplateRequest;
 import com.cloudera.cdp.dw.model.DeleteResourceTemplateResponse;
+import com.cloudera.cdp.dw.model.DeleteSecretRequest;
+import com.cloudera.cdp.dw.model.DeleteSecretResponse;
 import com.cloudera.cdp.dw.model.DeleteUserRequest;
 import com.cloudera.cdp.dw.model.DeleteUserResponse;
 import com.cloudera.cdp.dw.model.DeleteVwDiagnosticDataJobRequest;
@@ -145,6 +147,8 @@ import com.cloudera.cdp.dw.model.ListResourceTemplatesRequest;
 import com.cloudera.cdp.dw.model.ListResourceTemplatesResponse;
 import com.cloudera.cdp.dw.model.ListRestoresRequest;
 import com.cloudera.cdp.dw.model.ListRestoresResponse;
+import com.cloudera.cdp.dw.model.ListSecretsRequest;
+import com.cloudera.cdp.dw.model.ListSecretsResponse;
 import com.cloudera.cdp.dw.model.ListUsersRequest;
 import com.cloudera.cdp.dw.model.ListUsersResponse;
 import com.cloudera.cdp.dw.model.ListVwConfigsRequest;
@@ -159,6 +163,8 @@ import com.cloudera.cdp.dw.model.RebuildDbcRequest;
 import com.cloudera.cdp.dw.model.RebuildDbcResponse;
 import com.cloudera.cdp.dw.model.RebuildVwRequest;
 import com.cloudera.cdp.dw.model.RebuildVwResponse;
+import com.cloudera.cdp.dw.model.RegisterSecretRequest;
+import com.cloudera.cdp.dw.model.RegisterSecretResponse;
 import com.cloudera.cdp.dw.model.RenewCertificatesRequest;
 import com.cloudera.cdp.dw.model.RenewCertificatesResponse;
 import com.cloudera.cdp.dw.model.ResetServerSettingsRequest;
@@ -205,7 +211,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:26.728-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:04.824-08:00")
 public class DwClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dw";
@@ -508,6 +514,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("deleteResourceTemplate", "/api/v1/dw/deleteResourceTemplate", input, new GenericType<DeleteResourceTemplateResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Deletes a secret.
+   * @param input
+   * @return DeleteSecretResponse
+   */
+  public DeleteSecretResponse deleteSecret(DeleteSecretRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteSecret");
+    }
+
+    return this.invokeAPI("deleteSecret", "/api/v1/dw/deleteSecret", input, new GenericType<DeleteSecretResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -992,6 +1011,19 @@ public class DwClient extends CdpClient {
   }
 
   /**
+   * Lists all secrets.
+   * @param input
+   * @return ListSecretsResponse
+   */
+  public ListSecretsResponse listSecrets(ListSecretsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listSecrets");
+    }
+
+    return this.invokeAPI("listSecrets", "/api/v1/dw/listSecrets", input, new GenericType<ListSecretsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Lists the users who have access to the cluster.
    * @param input
    * @return ListUsersResponse
@@ -1080,6 +1112,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("rebuildVw", "/api/v1/dw/rebuildVw", input, new GenericType<RebuildVwResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Registers a reference to a secret stored in the vault of the cloud provider.
+   * @param input
+   * @return RegisterSecretResponse
+   */
+  public RegisterSecretResponse registerSecret(RegisterSecretRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling registerSecret");
+    }
+
+    return this.invokeAPI("registerSecret", "/api/v1/dw/registerSecret", input, new GenericType<RegisterSecretResponse>(){}, NO_EXTENSION);
   }
 
   /**

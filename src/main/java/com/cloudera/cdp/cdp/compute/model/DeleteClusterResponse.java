@@ -29,7 +29,7 @@ import com.cloudera.cdp.compute.model.ValidationResponse;
 /**
  * Delete cluster response.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:31.430-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:09.511-08:00")
 public class DeleteClusterResponse extends CdpResponse {
 
   /**

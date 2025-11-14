@@ -28,18 +28,8 @@ import com.cloudera.cdp.dw.model.KeyPairCredentials;
 /**
  * Options for activating a Private Cloud environment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:26.728-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:04.824-08:00")
 public class PrivateCloudActivationOptions  {
-
-  /**
-   * DEPRECATED: As of PVC 1.5.4 we no longer use delegation user. Name of delegation user. This user is used between Hue - Impala to create a session, as Hue should not pass the user credentials, instead Hue authenticates with the delegation user, then this user will impersonate the logged in user. This means that the Delegation User and Password should be able to authenticate through LDAP.
-   **/
-  private String delegationUsername = null;
-
-  /**
-   * DEPRECATED: As of PVC 1.5.4 we no longer use delegation user. Password of delegation user.
-   **/
-  private String delegationPassword = null;
 
   /**
    * The storage class for the Local Storage Operator.
@@ -55,44 +45,6 @@ public class PrivateCloudActivationOptions  {
    * A certificate and private key pair belonging together for mutual SSL handshake when Database Catalog (aka DBC) connects to the metastore database.
    **/
   private KeyPairCredentials dbClientCredentials = null;
-
-  /**
-   * Getter for delegationUsername.
-   * DEPRECATED: As of PVC 1.5.4 we no longer use delegation user. Name of delegation user. This user is used between Hue - Impala to create a session, as Hue should not pass the user credentials, instead Hue authenticates with the delegation user, then this user will impersonate the logged in user. This means that the Delegation User and Password should be able to authenticate through LDAP.
-   **/
-  @Deprecated
-  @JsonProperty("delegationUsername")
-  public String getDelegationUsername() {
-    return delegationUsername;
-  }
-
-  /**
-   * Setter for delegationUsername.
-   * DEPRECATED: As of PVC 1.5.4 we no longer use delegation user. Name of delegation user. This user is used between Hue - Impala to create a session, as Hue should not pass the user credentials, instead Hue authenticates with the delegation user, then this user will impersonate the logged in user. This means that the Delegation User and Password should be able to authenticate through LDAP.
-   **/
-  @Deprecated
-  public void setDelegationUsername(String delegationUsername) {
-    this.delegationUsername = delegationUsername;
-  }
-
-  /**
-   * Getter for delegationPassword.
-   * DEPRECATED: As of PVC 1.5.4 we no longer use delegation user. Password of delegation user.
-   **/
-  @Deprecated
-  @JsonProperty("delegationPassword")
-  public String getDelegationPassword() {
-    return delegationPassword;
-  }
-
-  /**
-   * Setter for delegationPassword.
-   * DEPRECATED: As of PVC 1.5.4 we no longer use delegation user. Password of delegation user.
-   **/
-  @Deprecated
-  public void setDelegationPassword(String delegationPassword) {
-    this.delegationPassword = delegationPassword;
-  }
 
   /**
    * Getter for storageClass.
@@ -156,12 +108,6 @@ public class PrivateCloudActivationOptions  {
       return false;
     }
     PrivateCloudActivationOptions privateCloudActivationOptions = (PrivateCloudActivationOptions) o;
-    if (!Objects.equals(this.delegationUsername, privateCloudActivationOptions.delegationUsername)) {
-      return false;
-    }
-    if (!Objects.equals(this.delegationPassword, privateCloudActivationOptions.delegationPassword)) {
-      return false;
-    }
     if (!Objects.equals(this.storageClass, privateCloudActivationOptions.storageClass)) {
       return false;
     }
@@ -176,15 +122,13 @@ public class PrivateCloudActivationOptions  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(delegationUsername, delegationPassword, storageClass, dedicatedExecutorNodes, dbClientCredentials);
+    return Objects.hash(storageClass, dedicatedExecutorNodes, dbClientCredentials);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PrivateCloudActivationOptions {\n");
-    sb.append("    delegationUsername: ").append(toIndentedString(delegationUsername)).append("\n");
-    sb.append("    delegationPassword: ").append(toIndentedString(delegationPassword)).append("\n");
     sb.append("    storageClass: ").append(toIndentedString(storageClass)).append("\n");
     sb.append("    dedicatedExecutorNodes: ").append(toIndentedString(dedicatedExecutorNodes)).append("\n");
     sb.append("    dbClientCredentials: ").append(toIndentedString(dbClientCredentials)).append("\n");

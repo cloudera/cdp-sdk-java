@@ -25,24 +25,24 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * A request to describe event details for development
+ * A request to describe event details for deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:30.597-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:08.545-08:00")
 public class DescribeDeploymentEventDetailRequest  {
 
   /**
-   * The CRN of the deployment
+   * The CRN of the deployment.
    **/
   private String deploymentCrn = null;
 
   /**
-   * The CRN of the event
+   * The CRN of the event.
    **/
   private String eventCrn = null;
 
   /**
    * Getter for deploymentCrn.
-   * The CRN of the deployment
+   * The CRN of the deployment.
    **/
   @JsonProperty("deploymentCrn")
   public String getDeploymentCrn() {
@@ -51,7 +51,7 @@ public class DescribeDeploymentEventDetailRequest  {
 
   /**
    * Setter for deploymentCrn.
-   * The CRN of the deployment
+   * The CRN of the deployment.
    **/
   public void setDeploymentCrn(String deploymentCrn) {
     this.deploymentCrn = deploymentCrn;
@@ -59,7 +59,7 @@ public class DescribeDeploymentEventDetailRequest  {
 
   /**
    * Getter for eventCrn.
-   * The CRN of the event
+   * The CRN of the event.
    **/
   @JsonProperty("eventCrn")
   public String getEventCrn() {
@@ -68,7 +68,7 @@ public class DescribeDeploymentEventDetailRequest  {
 
   /**
    * Setter for eventCrn.
-   * The CRN of the event
+   * The CRN of the event.
    **/
   public void setEventCrn(String eventCrn) {
     this.eventCrn = eventCrn;

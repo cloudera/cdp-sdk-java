@@ -27,24 +27,24 @@ import com.cloudera.cdp.df.model.Event;
 import com.cloudera.cdp.df.model.MetricSummary;
 
 /**
- * Event details
+ * Event details.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:30.597-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:08.545-08:00")
 public class EventDetail  {
 
   /**
-   * The event
+   * The event.
    **/
   private Event event = null;
 
   /**
-   * the metric summary
+   * the metric summary.
    **/
   private MetricSummary metricSummary = null;
 
   /**
    * Getter for event.
-   * The event
+   * The event.
    **/
   @JsonProperty("event")
   public Event getEvent() {
@@ -53,7 +53,7 @@ public class EventDetail  {
 
   /**
    * Setter for event.
-   * The event
+   * The event.
    **/
   public void setEvent(Event event) {
     this.event = event;
@@ -61,7 +61,7 @@ public class EventDetail  {
 
   /**
    * Getter for metricSummary.
-   * the metric summary
+   * the metric summary.
    **/
   @JsonProperty("metricSummary")
   public MetricSummary getMetricSummary() {
@@ -70,7 +70,7 @@ public class EventDetail  {
 
   /**
    * Setter for metricSummary.
-   * the metric summary
+   * the metric summary.
    **/
   public void setMetricSummary(MetricSummary metricSummary) {
     this.metricSummary = metricSummary;

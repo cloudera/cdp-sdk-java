@@ -25,9 +25,9 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * A response from initiating a deployment
+ * A response from initiating a deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:30.597-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:08.545-08:00")
 public class InitiateDeploymentResponse extends CdpResponse {
 
   /**
@@ -36,7 +36,7 @@ public class InitiateDeploymentResponse extends CdpResponse {
   private String deploymentRequestCrn = null;
 
   /**
-   * Base URL to the dfx-local instance running an eventually created deployment
+   * The base URL of the dfx-local instance where the deployment will eventually be created.
    **/
   private String dfxLocalUrl = null;
 
@@ -59,7 +59,7 @@ public class InitiateDeploymentResponse extends CdpResponse {
 
   /**
    * Getter for dfxLocalUrl.
-   * Base URL to the dfx-local instance running an eventually created deployment
+   * The base URL of the dfx-local instance where the deployment will eventually be created.
    **/
   @JsonProperty("dfxLocalUrl")
   public String getDfxLocalUrl() {
@@ -68,7 +68,7 @@ public class InitiateDeploymentResponse extends CdpResponse {
 
   /**
    * Setter for dfxLocalUrl.
-   * Base URL to the dfx-local instance running an eventually created deployment
+   * The base URL of the dfx-local instance where the deployment will eventually be created.
    **/
   public void setDfxLocalUrl(String dfxLocalUrl) {
     this.dfxLocalUrl = dfxLocalUrl;

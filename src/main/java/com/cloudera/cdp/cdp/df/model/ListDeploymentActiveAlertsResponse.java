@@ -27,19 +27,19 @@ import com.cloudera.cdp.df.model.EventSummary;
 import java.util.*;
 
 /**
- * A response to list active alerts for deployment
+ * A response to list active alerts for deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:30.597-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:08.545-08:00")
 public class ListDeploymentActiveAlertsResponse extends CdpResponse {
 
   /**
-   * The events for the specified deployment
+   * The events for the specified deployment.
    **/
   private List<EventSummary> eventSummaries = new ArrayList<EventSummary>();
 
   /**
    * Getter for eventSummaries.
-   * The events for the specified deployment
+   * The events for the specified deployment.
    **/
   @JsonProperty("eventSummaries")
   public List<EventSummary> getEventSummaries() {
@@ -48,7 +48,7 @@ public class ListDeploymentActiveAlertsResponse extends CdpResponse {
 
   /**
    * Setter for eventSummaries.
-   * The events for the specified deployment
+   * The events for the specified deployment.
    **/
   public void setEventSummaries(List<EventSummary> eventSummaries) {
     this.eventSummaries = eventSummaries;

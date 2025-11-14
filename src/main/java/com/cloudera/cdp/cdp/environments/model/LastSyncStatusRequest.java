@@ -27,18 +27,24 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for Sync Status.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:28.895-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:06.906-08:00")
 public class LastSyncStatusRequest  {
 
   /**
-   * Name or Crn of the environment.
+   * Deprecated. Please use 'environment' field instead.
    **/
   private String envNameOrCrn = null;
 
   /**
-   * Getter for envNameOrCrn.
-   * Name or Crn of the environment.
+   * The name or CRN of the environment.
    **/
+  private String environment = null;
+
+  /**
+   * Getter for envNameOrCrn.
+   * Deprecated. Please use &#39;environment&#39; field instead.
+   **/
+  @Deprecated
   @JsonProperty("envNameOrCrn")
   public String getEnvNameOrCrn() {
     return envNameOrCrn;
@@ -46,10 +52,28 @@ public class LastSyncStatusRequest  {
 
   /**
    * Setter for envNameOrCrn.
-   * Name or Crn of the environment.
+   * Deprecated. Please use &#39;environment&#39; field instead.
    **/
+  @Deprecated
   public void setEnvNameOrCrn(String envNameOrCrn) {
     this.envNameOrCrn = envNameOrCrn;
+  }
+
+  /**
+   * Getter for environment.
+   * The name or CRN of the environment.
+   **/
+  @JsonProperty("environment")
+  public String getEnvironment() {
+    return environment;
+  }
+
+  /**
+   * Setter for environment.
+   * The name or CRN of the environment.
+   **/
+  public void setEnvironment(String environment) {
+    this.environment = environment;
   }
 
   @Override
@@ -64,12 +88,15 @@ public class LastSyncStatusRequest  {
     if (!Objects.equals(this.envNameOrCrn, lastSyncStatusRequest.envNameOrCrn)) {
       return false;
     }
+    if (!Objects.equals(this.environment, lastSyncStatusRequest.environment)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(envNameOrCrn);
+    return Objects.hash(envNameOrCrn, environment);
   }
 
   @Override
@@ -77,6 +104,7 @@ public class LastSyncStatusRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class LastSyncStatusRequest {\n");
     sb.append("    envNameOrCrn: ").append(toIndentedString(envNameOrCrn)).append("\n");
+    sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
     sb.append("}");
     return sb.toString();
   }

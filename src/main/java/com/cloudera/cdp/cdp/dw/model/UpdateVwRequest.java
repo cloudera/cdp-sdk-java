@@ -31,7 +31,7 @@ import com.cloudera.cdp.dw.model.ServiceConfigReq;
 /**
  * Request object for the updateVw method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:26.728-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:04.824-08:00")
 public class UpdateVwRequest  {
 
   /**
@@ -93,11 +93,6 @@ public class UpdateVwRequest  {
    * Denotes whether the Hive Virtual Warehouse stores Hive query information for all completed queries in the sys.query_history system table. You can query this table using SQL to monitor and optimize the Hive engine.
    **/
   private Boolean logHiveQueries = null;
-
-  /**
-   * DEPRECATED: This functionality will be removed in the next release. Used to set the resource pool of the Virtual Warehouses that are not enrolled for quota management.
-   **/
-  private String resourcePool = null;
 
   /**
    * If specified, modifies Hive Server High Availability mode in Private Cloud: * `DISABLED` - Disables Hive Server high availability. * `ACTIVE_PASSIVE` - Runs two Hive Server instances, one active and one passive. Hive session failover is not supported in this setup.
@@ -311,25 +306,6 @@ public class UpdateVwRequest  {
   }
 
   /**
-   * Getter for resourcePool.
-   * DEPRECATED: This functionality will be removed in the next release. Used to set the resource pool of the Virtual Warehouses that are not enrolled for quota management.
-   **/
-  @Deprecated
-  @JsonProperty("resourcePool")
-  public String getResourcePool() {
-    return resourcePool;
-  }
-
-  /**
-   * Setter for resourcePool.
-   * DEPRECATED: This functionality will be removed in the next release. Used to set the resource pool of the Virtual Warehouses that are not enrolled for quota management.
-   **/
-  @Deprecated
-  public void setResourcePool(String resourcePool) {
-    this.resourcePool = resourcePool;
-  }
-
-  /**
    * Getter for hiveServerHaMode.
    * If specified, modifies Hive Server High Availability mode in Private Cloud: * &#x60;DISABLED&#x60; - Disables Hive Server high availability. * &#x60;ACTIVE_PASSIVE&#x60; - Runs two Hive Server instances, one active and one passive. Hive session failover is not supported in this setup.
    **/
@@ -391,9 +367,6 @@ public class UpdateVwRequest  {
     if (!Objects.equals(this.logHiveQueries, updateVwRequest.logHiveQueries)) {
       return false;
     }
-    if (!Objects.equals(this.resourcePool, updateVwRequest.resourcePool)) {
-      return false;
-    }
     if (!Objects.equals(this.hiveServerHaMode, updateVwRequest.hiveServerHaMode)) {
       return false;
     }
@@ -402,7 +375,7 @@ public class UpdateVwRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, vwId, tShirtSize, nodeCount, config, autoscaling, impalaHaSettings, queryIsolationOptions, hiveAuthenticationMode, platformJwtAuth, impalaQueryLog, logHiveQueries, resourcePool, hiveServerHaMode);
+    return Objects.hash(clusterId, vwId, tShirtSize, nodeCount, config, autoscaling, impalaHaSettings, queryIsolationOptions, hiveAuthenticationMode, platformJwtAuth, impalaQueryLog, logHiveQueries, hiveServerHaMode);
   }
 
   @Override
@@ -421,7 +394,6 @@ public class UpdateVwRequest  {
     sb.append("    platformJwtAuth: ").append(toIndentedString(platformJwtAuth)).append("\n");
     sb.append("    impalaQueryLog: ").append(toIndentedString(impalaQueryLog)).append("\n");
     sb.append("    logHiveQueries: ").append(toIndentedString(logHiveQueries)).append("\n");
-    sb.append("    resourcePool: ").append(toIndentedString(resourcePool)).append("\n");
     sb.append("    hiveServerHaMode: ").append(toIndentedString(hiveServerHaMode)).append("\n");
     sb.append("}");
     return sb.toString();

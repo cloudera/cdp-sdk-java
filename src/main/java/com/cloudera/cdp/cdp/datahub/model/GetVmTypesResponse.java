@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object from the VM type fetch operation.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:25.843-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:03.663-08:00")
 public class GetVmTypesResponse extends CdpResponse {
 
   /**

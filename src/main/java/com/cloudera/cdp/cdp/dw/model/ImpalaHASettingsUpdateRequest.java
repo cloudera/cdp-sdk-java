@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * High Availability settings update options for the Impala Virtual Warehouse.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:26.728-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:04.824-08:00")
 public class ImpalaHASettingsUpdateRequest  {
 
   /**
@@ -39,6 +39,11 @@ public class ImpalaHASettingsUpdateRequest  {
    * The number of active coordinators.
    **/
   private Integer numOfActiveCoordinators = null;
+
+  /**
+   * Set whether the Impala Global Admission Controller is enabled. Once disabled, it cannot be re-enabled.
+   **/
+  private Boolean impalaEnableGlobalAdmissionController = null;
 
   /**
    * Getter for shutdownOfCoordinatorDelaySeconds.
@@ -74,6 +79,23 @@ public class ImpalaHASettingsUpdateRequest  {
     this.numOfActiveCoordinators = numOfActiveCoordinators;
   }
 
+  /**
+   * Getter for impalaEnableGlobalAdmissionController.
+   * Set whether the Impala Global Admission Controller is enabled. Once disabled, it cannot be re-enabled.
+   **/
+  @JsonProperty("impalaEnableGlobalAdmissionController")
+  public Boolean getImpalaEnableGlobalAdmissionController() {
+    return impalaEnableGlobalAdmissionController;
+  }
+
+  /**
+   * Setter for impalaEnableGlobalAdmissionController.
+   * Set whether the Impala Global Admission Controller is enabled. Once disabled, it cannot be re-enabled.
+   **/
+  public void setImpalaEnableGlobalAdmissionController(Boolean impalaEnableGlobalAdmissionController) {
+    this.impalaEnableGlobalAdmissionController = impalaEnableGlobalAdmissionController;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -89,12 +111,15 @@ public class ImpalaHASettingsUpdateRequest  {
     if (!Objects.equals(this.numOfActiveCoordinators, impalaHASettingsUpdateRequest.numOfActiveCoordinators)) {
       return false;
     }
+    if (!Objects.equals(this.impalaEnableGlobalAdmissionController, impalaHASettingsUpdateRequest.impalaEnableGlobalAdmissionController)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(shutdownOfCoordinatorDelaySeconds, numOfActiveCoordinators);
+    return Objects.hash(shutdownOfCoordinatorDelaySeconds, numOfActiveCoordinators, impalaEnableGlobalAdmissionController);
   }
 
   @Override
@@ -103,6 +128,7 @@ public class ImpalaHASettingsUpdateRequest  {
     sb.append("class ImpalaHASettingsUpdateRequest {\n");
     sb.append("    shutdownOfCoordinatorDelaySeconds: ").append(toIndentedString(shutdownOfCoordinatorDelaySeconds)).append("\n");
     sb.append("    numOfActiveCoordinators: ").append(toIndentedString(numOfActiveCoordinators)).append("\n");
+    sb.append("    impalaEnableGlobalAdmissionController: ").append(toIndentedString(impalaEnableGlobalAdmissionController)).append("\n");
     sb.append("}");
     return sb.toString();
   }

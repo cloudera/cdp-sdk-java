@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response for listing the reporting tasks of a deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:31.001-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:08.936-08:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class ListReportingTasksResponse extends CdpResponse {
 

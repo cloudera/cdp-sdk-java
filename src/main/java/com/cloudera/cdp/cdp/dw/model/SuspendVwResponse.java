@@ -27,8 +27,52 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * The response object for the suspendVw method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:26.728-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:04.824-08:00")
 public class SuspendVwResponse extends CdpResponse {
+
+  /**
+   * Success message
+   **/
+  private String message = null;
+
+  /**
+   * Warning message during Virtual Warehouse suspend
+   **/
+  private String warning = null;
+
+  /**
+   * Getter for message.
+   * Success message
+   **/
+  @JsonProperty("message")
+  public String getMessage() {
+    return message;
+  }
+
+  /**
+   * Setter for message.
+   * Success message
+   **/
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
+  /**
+   * Getter for warning.
+   * Warning message during Virtual Warehouse suspend
+   **/
+  @JsonProperty("warning")
+  public String getWarning() {
+    return warning;
+  }
+
+  /**
+   * Setter for warning.
+   * Warning message during Virtual Warehouse suspend
+   **/
+  public void setWarning(String warning) {
+    this.warning = warning;
+  }
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -36,6 +80,13 @@ public class SuspendVwResponse extends CdpResponse {
       return true;
     }
     if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    SuspendVwResponse suspendVwResponse = (SuspendVwResponse) o;
+    if (!Objects.equals(this.message, suspendVwResponse.message)) {
+      return false;
+    }
+    if (!Objects.equals(this.warning, suspendVwResponse.warning)) {
       return false;
     }
     if (!super.equals(o)) {
@@ -46,7 +97,7 @@ public class SuspendVwResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash( super.hashCode());
+    return Objects.hash(message, warning, super.hashCode());
   }
 
   @Override
@@ -54,6 +105,8 @@ public class SuspendVwResponse extends CdpResponse {
     StringBuilder sb = new StringBuilder();
     sb.append("class SuspendVwResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    warning: ").append(toIndentedString(warning)).append("\n");
     sb.append("}");
     return sb.toString();
   }

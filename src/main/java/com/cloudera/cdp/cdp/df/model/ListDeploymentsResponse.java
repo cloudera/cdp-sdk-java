@@ -27,9 +27,9 @@ import com.cloudera.cdp.df.model.DeploymentSummary;
 import java.util.*;
 
 /**
- * A response from listing deployments
+ * A response from listing deployments.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:30.597-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:08.545-08:00")
 public class ListDeploymentsResponse extends CdpResponse {
 
   /**
@@ -38,7 +38,7 @@ public class ListDeploymentsResponse extends CdpResponse {
   private String nextToken = null;
 
   /**
-   * The listing of deployments in this page
+   * The listing of deployments in this page.
    **/
   private List<DeploymentSummary> deployments = new ArrayList<DeploymentSummary>();
 
@@ -61,7 +61,7 @@ public class ListDeploymentsResponse extends CdpResponse {
 
   /**
    * Getter for deployments.
-   * The listing of deployments in this page
+   * The listing of deployments in this page.
    **/
   @JsonProperty("deployments")
   public List<DeploymentSummary> getDeployments() {
@@ -70,7 +70,7 @@ public class ListDeploymentsResponse extends CdpResponse {
 
   /**
    * Setter for deployments.
-   * The listing of deployments in this page
+   * The listing of deployments in this page.
    **/
   public void setDeployments(List<DeploymentSummary> deployments) {
     this.deployments = deployments;

@@ -26,19 +26,19 @@ import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.df.model.EventDetail;
 
 /**
- * A response to describe event details for development
+ * A response to describe event details for deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-10-28T14:00:30.597-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:08.545-08:00")
 public class DescribeDeploymentEventDetailResponse extends CdpResponse {
 
   /**
-   * The event details
+   * The event details.
    **/
   private EventDetail eventDetail = null;
 
   /**
    * Getter for eventDetail.
-   * The event details
+   * The event details.
    **/
   @JsonProperty("eventDetail")
   public EventDetail getEventDetail() {
@@ -47,7 +47,7 @@ public class DescribeDeploymentEventDetailResponse extends CdpResponse {
 
   /**
    * Setter for eventDetail.
-   * The event details
+   * The event details.
    **/
   public void setEventDetail(EventDetail eventDetail) {
     this.eventDetail = eventDetail;
