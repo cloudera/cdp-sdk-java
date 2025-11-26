@@ -29,15 +29,19 @@ import com.cloudera.cdp.client.Pair;
 import com.cloudera.cdp.client.ResourceResponse;
 import com.cloudera.cdp.client.RestResponse;
 import com.cloudera.cdp.datacatalog.model.Error;
+import com.cloudera.cdp.datacatalog.model.GetSuggestedTagsRequest;
+import com.cloudera.cdp.datacatalog.model.GetSuggestedTagsResponse;
 import com.cloudera.cdp.datacatalog.model.LaunchProfilersRequest;
 import com.cloudera.cdp.datacatalog.model.LaunchProfilersResponse;
+import com.cloudera.cdp.datacatalog.model.ReviewSuggestedTagsRequest;
+import com.cloudera.cdp.datacatalog.model.ReviewSuggestedTagsResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:05.626-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:42.264-08:00")
 public class DatacatalogClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datacatalog";
@@ -69,6 +73,19 @@ public class DatacatalogClient extends CdpClient {
   }
 
   /**
+   * Get Suggested tags by the Data Compliance profiler.
+   * @param input
+   * @return GetSuggestedTagsResponse
+   */
+  public GetSuggestedTagsResponse getSuggestedTags(GetSuggestedTagsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getSuggestedTags");
+    }
+
+    return this.invokeAPI("getSuggestedTags", "/api/v1/datacatalog/getSuggestedTags", input, new GenericType<GetSuggestedTagsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Launches DataCatalog profilers in a given datalake.
    * @param input
    * @return LaunchProfilersResponse
@@ -79,5 +96,18 @@ public class DatacatalogClient extends CdpClient {
     }
 
     return this.invokeAPI("launchProfilers", "/api/v1/datacatalog/launchProfilers", input, new GenericType<LaunchProfilersResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Review tags suggested by Data Compliance Profiler
+   * @param input
+   * @return ReviewSuggestedTagsResponse
+   */
+  public ReviewSuggestedTagsResponse reviewSuggestedTags(ReviewSuggestedTagsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling reviewSuggestedTags");
+    }
+
+    return this.invokeAPI("reviewSuggestedTags", "/api/v1/datacatalog/reviewSuggestedTags", input, new GenericType<ReviewSuggestedTagsResponse>(){}, NO_EXTENSION);
   }
 }

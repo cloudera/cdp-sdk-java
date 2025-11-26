@@ -29,7 +29,7 @@ import com.cloudera.cdp.compute.model.CommonResourceLimitsResp;
 /**
  * Monitoring response structure.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:09.511-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:45.766-08:00")
 public class CommonMonitoringResp  {
 
   /**

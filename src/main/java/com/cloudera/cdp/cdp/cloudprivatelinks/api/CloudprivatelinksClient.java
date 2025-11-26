@@ -41,6 +41,8 @@ import com.cloudera.cdp.cloudprivatelinks.model.ListPrivateLinkEndpointStatusesR
 import com.cloudera.cdp.cloudprivatelinks.model.ListPrivateLinkEndpointStatusesResponse;
 import com.cloudera.cdp.cloudprivatelinks.model.ListPrivateLinkServicesForRegionRequest;
 import com.cloudera.cdp.cloudprivatelinks.model.ListPrivateLinkServicesForRegionResponse;
+import com.cloudera.cdp.cloudprivatelinks.model.MigratePrivateLinkEndpointsRequest;
+import com.cloudera.cdp.cloudprivatelinks.model.MigratePrivateLinkEndpointsResponse;
 import com.cloudera.cdp.cloudprivatelinks.model.RevokePrivateLinkServiceAccessRequest;
 import com.cloudera.cdp.cloudprivatelinks.model.RevokePrivateLinkServiceAccessResponse;
 import java.util.ArrayList;
@@ -49,7 +51,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:09.998-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:46.268-08:00")
 public class CloudprivatelinksClient extends CdpClient {
 
   public static final String SERVICE_NAME = "cloudprivatelinks";
@@ -156,6 +158,19 @@ public class CloudprivatelinksClient extends CdpClient {
     }
 
     return this.invokeAPI("listPrivateLinkServicesForRegion", "/api/v1/cloudprivatelinks/listPrivateLinkServicesForRegion", input, new GenericType<ListPrivateLinkServicesForRegionResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Migrates PrivateLink endpoints to fallback VPCE services.
+   * @param input
+   * @return MigratePrivateLinkEndpointsResponse
+   */
+  public MigratePrivateLinkEndpointsResponse migratePrivateLinkEndpoints(MigratePrivateLinkEndpointsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling migratePrivateLinkEndpoints");
+    }
+
+    return this.invokeAPI("migratePrivateLinkEndpoints", "/api/v1/cloudprivatelinks/migratePrivateLinkEndpoints", input, new GenericType<MigratePrivateLinkEndpointsResponse>(){}, NO_EXTENSION);
   }
 
   /**

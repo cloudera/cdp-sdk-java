@@ -28,7 +28,7 @@ import com.cloudera.cdp.datahub.model.CustomConfigurations;
 /**
  * The response object for create custom configurations request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:03.663-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:40.396-08:00")
 public class CreateCustomConfigurationsResponse extends CdpResponse {
 
   /**

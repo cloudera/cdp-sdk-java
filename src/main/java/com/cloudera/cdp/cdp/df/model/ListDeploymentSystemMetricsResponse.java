@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * A response to list deployment system metrics.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:08.545-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:44.984-08:00")
 public class ListDeploymentSystemMetricsResponse extends CdpResponse {
 
   /**

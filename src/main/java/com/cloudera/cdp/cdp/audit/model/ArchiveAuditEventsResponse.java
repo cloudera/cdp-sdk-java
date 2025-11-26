@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response from archiving audit events.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:07.875-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:44.240-08:00")
 public class ArchiveAuditEventsResponse extends CdpResponse {
 
   /**

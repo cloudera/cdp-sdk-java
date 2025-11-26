@@ -28,11 +28,11 @@ import java.util.*;
 /**
  * Request object for retrieving the status of a Private Link.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:09.998-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:46.268-08:00")
 public class GetPrivateLinkStatusRequest  {
 
   /**
-   * List of subnets in the given cloud network to query PrivateLink status.
+   * List of subnets in the given cloud network to query PrivateLink status. This field has been deprecated.
    **/
   private List<String> subnetIds = new ArrayList<String>();
 
@@ -53,8 +53,9 @@ public class GetPrivateLinkStatusRequest  {
 
   /**
    * Getter for subnetIds.
-   * List of subnets in the given cloud network to query PrivateLink status.
+   * List of subnets in the given cloud network to query PrivateLink status. This field has been deprecated.
    **/
+  @Deprecated
   @JsonProperty("subnetIds")
   public List<String> getSubnetIds() {
     return subnetIds;
@@ -62,8 +63,9 @@ public class GetPrivateLinkStatusRequest  {
 
   /**
    * Setter for subnetIds.
-   * List of subnets in the given cloud network to query PrivateLink status.
+   * List of subnets in the given cloud network to query PrivateLink status. This field has been deprecated.
    **/
+  @Deprecated
   public void setSubnetIds(List<String> subnetIds) {
     this.subnetIds = subnetIds;
   }

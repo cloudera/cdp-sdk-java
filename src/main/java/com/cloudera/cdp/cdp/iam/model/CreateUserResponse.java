@@ -28,7 +28,7 @@ import com.cloudera.cdp.iam.model.User;
 /**
  * Response object for a create user request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:08.152-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:44.591-08:00")
 public class CreateUserResponse extends CdpResponse {
 
   /**

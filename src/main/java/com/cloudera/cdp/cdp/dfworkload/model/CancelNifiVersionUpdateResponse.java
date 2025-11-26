@@ -28,7 +28,7 @@ import com.cloudera.cdp.dfworkload.model.RpcDeployment;
 /**
  * Response object for cancelling a NiFi version update for a deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:08.936-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:45.357-08:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class CancelNifiVersionUpdateResponse extends CdpResponse {
 

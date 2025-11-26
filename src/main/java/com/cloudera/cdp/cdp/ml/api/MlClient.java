@@ -113,6 +113,10 @@ import com.cloudera.cdp.ml.model.ModifyMlServingAppRequest;
 import com.cloudera.cdp.ml.model.ModifyMlServingAppResponse;
 import com.cloudera.cdp.ml.model.ModifyWorkspaceLoadBalancerRequest;
 import com.cloudera.cdp.ml.model.ModifyWorkspaceLoadBalancerResponse;
+import com.cloudera.cdp.ml.model.RefreshAiInferenceRequest;
+import com.cloudera.cdp.ml.model.RefreshAiInferenceResponse;
+import com.cloudera.cdp.ml.model.RefreshAiRegistryRequest;
+import com.cloudera.cdp.ml.model.RefreshAiRegistryResponse;
 import com.cloudera.cdp.ml.model.RefreshModelRegistryConfigmapRequest;
 import com.cloudera.cdp.ml.model.RefreshModelRegistryConfigmapResponse;
 import com.cloudera.cdp.ml.model.RequestWorkflowCancellationRequest;
@@ -131,6 +135,8 @@ import com.cloudera.cdp.ml.model.RollbackModelRegistryUpgradeRequest;
 import com.cloudera.cdp.ml.model.RollbackModelRegistryUpgradeResponse;
 import com.cloudera.cdp.ml.model.SuspendWorkspaceRequest;
 import com.cloudera.cdp.ml.model.SuspendWorkspaceResponse;
+import com.cloudera.cdp.ml.model.UpdateMlServingAppS3CredsRequest;
+import com.cloudera.cdp.ml.model.UpdateMlServingAppS3CredsResponse;
 import com.cloudera.cdp.ml.model.UpgradeMlServingAppRequest;
 import com.cloudera.cdp.ml.model.UpgradeMlServingAppResponse;
 import com.cloudera.cdp.ml.model.UpgradeModelRegistryRequest;
@@ -143,7 +149,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:05.724-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:42.408-08:00")
 public class MlClient extends CdpClient {
 
   public static final String SERVICE_NAME = "ml";
@@ -721,6 +727,32 @@ public class MlClient extends CdpClient {
   }
 
   /**
+   * Refresh AI Inference trust store.
+   * @param input
+   * @return RefreshAiInferenceResponse
+   */
+  public RefreshAiInferenceResponse refreshAiInference(RefreshAiInferenceRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling refreshAiInference");
+    }
+
+    return this.invokeAPI("refreshAiInference", "/api/v1/ml/refreshAiInference", input, new GenericType<RefreshAiInferenceResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Refreshes the AI Registry with the latest trust store certificates for the selected instance.
+   * @param input
+   * @return RefreshAiRegistryResponse
+   */
+  public RefreshAiRegistryResponse refreshAiRegistry(RefreshAiRegistryRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling refreshAiRegistry");
+    }
+
+    return this.invokeAPI("refreshAiRegistry", "/api/v1/ml/refreshAiRegistry", input, new GenericType<RefreshAiRegistryResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Refreshes the model registry configmap of the workbench.
    * @param input
    * @return RefreshModelRegistryConfigmapResponse
@@ -835,6 +867,19 @@ public class MlClient extends CdpClient {
     }
 
     return this.invokeAPI("suspendWorkspace", "/api/v1/ml/suspendWorkspace", input, new GenericType<SuspendWorkspaceResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Update S3 credentials for a Cloudera AI Inference Service.
+   * @param input
+   * @return UpdateMlServingAppS3CredsResponse
+   */
+  public UpdateMlServingAppS3CredsResponse updateMlServingAppS3Creds(UpdateMlServingAppS3CredsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateMlServingAppS3Creds");
+    }
+
+    return this.invokeAPI("updateMlServingAppS3Creds", "/api/v1/ml/updateMlServingAppS3Creds", input, new GenericType<UpdateMlServingAppS3CredsResponse>(){}, NO_EXTENSION);
   }
 
   /**

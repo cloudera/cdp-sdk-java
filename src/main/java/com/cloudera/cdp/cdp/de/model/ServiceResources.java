@@ -28,7 +28,7 @@ import com.cloudera.cdp.de.model.AllPurposeInstanceGroupDetailsResponse;
 /**
  * Object to store resources for a CDE service.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-14T06:50:08.005-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:44.394-08:00")
 public class ServiceResources  {
 
   /**
