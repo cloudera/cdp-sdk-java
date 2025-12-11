@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object containing PL service name and CDP service component.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:46.268-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-12-11T09:59:34.007-08:00")
 public class ListPrivateLinkServicesForRegionResult  {
 
   /**
@@ -36,7 +36,7 @@ public class ListPrivateLinkServicesForRegionResult  {
   private String serviceComponent = null;
 
   /**
-   * Name of the Private link service.
+   * Name of the Private Link service.
    **/
   private String privateLinkService = null;
 
@@ -74,7 +74,7 @@ public class ListPrivateLinkServicesForRegionResult  {
 
   /**
    * Getter for privateLinkService.
-   * Name of the Private link service.
+   * Name of the Private Link service.
    **/
   @JsonProperty("privateLinkService")
   public String getPrivateLinkService() {
@@ -83,7 +83,7 @@ public class ListPrivateLinkServicesForRegionResult  {
 
   /**
    * Setter for privateLinkService.
-   * Name of the Private link service.
+   * Name of the Private Link service.
    **/
   public void setPrivateLinkService(String privateLinkService) {
     this.privateLinkService = privateLinkService;

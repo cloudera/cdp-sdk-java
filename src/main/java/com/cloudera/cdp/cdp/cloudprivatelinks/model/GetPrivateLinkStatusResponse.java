@@ -27,17 +27,17 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object for GetPrivateLinkStatus method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:46.268-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-12-11T09:59:34.007-08:00")
 public class GetPrivateLinkStatusResponse extends CdpResponse {
 
   /**
-   * Status of PrivateLink - enabled or disabled.
+   * Status of Private Link - enabled or disabled.
    **/
   private String status = null;
 
   /**
    * Getter for status.
-   * Status of PrivateLink - enabled or disabled.
+   * Status of Private Link - enabled or disabled.
    **/
   @JsonProperty("status")
   public String getStatus() {
@@ -46,7 +46,7 @@ public class GetPrivateLinkStatusResponse extends CdpResponse {
 
   /**
    * Setter for status.
-   * Status of PrivateLink - enabled or disabled.
+   * Status of Private Link - enabled or disabled.
    **/
   public void setStatus(String status) {
     this.status = status;

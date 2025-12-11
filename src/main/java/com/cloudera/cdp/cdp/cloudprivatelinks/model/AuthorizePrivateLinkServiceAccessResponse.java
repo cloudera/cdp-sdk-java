@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for the AuthorizePrivateLinkServicesAccess method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:46.268-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-12-11T09:59:34.007-08:00")
 public class AuthorizePrivateLinkServiceAccessResponse extends CdpResponse {
 
   /**
@@ -38,7 +38,7 @@ public class AuthorizePrivateLinkServiceAccessResponse extends CdpResponse {
   private List<AuthorizePrivateLinkServiceAccessResult> authorizePrivateLinkServiceAccessResults = new ArrayList<AuthorizePrivateLinkServiceAccessResult>();
 
   /**
-   * Status of private link service access authorization.
+   * Status of Private Link service access authorization.
    **/
   private String status = null;
 
@@ -61,7 +61,7 @@ public class AuthorizePrivateLinkServiceAccessResponse extends CdpResponse {
 
   /**
    * Getter for status.
-   * Status of private link service access authorization.
+   * Status of Private Link service access authorization.
    **/
   @JsonProperty("status")
   public String getStatus() {
@@ -70,7 +70,7 @@ public class AuthorizePrivateLinkServiceAccessResponse extends CdpResponse {
 
   /**
    * Setter for status.
-   * Status of private link service access authorization.
+   * Status of Private Link service access authorization.
    **/
   public void setStatus(String status) {
     this.status = status;

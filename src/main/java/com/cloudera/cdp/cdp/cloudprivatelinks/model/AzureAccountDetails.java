@@ -26,9 +26,9 @@ import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.cloudprivatelinks.model.AzureClientSecretCredential;
 
 /**
- * Details of the cloud network and the cross-account role required to create the PrivateLink endpoint.
+ * Details of the cloud network and the cross-account role required to create the Private Link endpoint.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:46.268-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-12-11T09:59:34.007-08:00")
 public class AzureAccountDetails  {
 
   /**
@@ -42,12 +42,12 @@ public class AzureAccountDetails  {
   private String credentialCrn = null;
 
   /**
-   * The Subscription for which the Private link service to be allowed/accessible.
+   * The Subscription for which the Private Link service to be allowed/accessible.
    **/
   private String subscriptionId = null;
 
   /**
-   * The Resource group under which the Private endpoint to be created.
+   * The resource group under which the private endpoint is to be created.
    **/
   private String resourceGroup = null;
 
@@ -57,12 +57,12 @@ public class AzureAccountDetails  {
   private String location = null;
 
   /**
-   * vNet ID in which the private link should be created.
+   * vNet ID in which the Private Link should be created.
    **/
   private String vNetId = null;
 
   /**
-   * ID of the private subnet in which the private link should be created.
+   * ID of the private subnet in which the Private Link should be created.
    **/
   private String subnetId = null;
 
@@ -102,7 +102,7 @@ public class AzureAccountDetails  {
 
   /**
    * Getter for subscriptionId.
-   * The Subscription for which the Private link service to be allowed/accessible.
+   * The Subscription for which the Private Link service to be allowed/accessible.
    **/
   @JsonProperty("subscriptionId")
   public String getSubscriptionId() {
@@ -111,7 +111,7 @@ public class AzureAccountDetails  {
 
   /**
    * Setter for subscriptionId.
-   * The Subscription for which the Private link service to be allowed/accessible.
+   * The Subscription for which the Private Link service to be allowed/accessible.
    **/
   public void setSubscriptionId(String subscriptionId) {
     this.subscriptionId = subscriptionId;
@@ -119,7 +119,7 @@ public class AzureAccountDetails  {
 
   /**
    * Getter for resourceGroup.
-   * The Resource group under which the Private endpoint to be created.
+   * The resource group under which the private endpoint is to be created.
    **/
   @JsonProperty("resourceGroup")
   public String getResourceGroup() {
@@ -128,7 +128,7 @@ public class AzureAccountDetails  {
 
   /**
    * Setter for resourceGroup.
-   * The Resource group under which the Private endpoint to be created.
+   * The resource group under which the private endpoint is to be created.
    **/
   public void setResourceGroup(String resourceGroup) {
     this.resourceGroup = resourceGroup;
@@ -153,7 +153,7 @@ public class AzureAccountDetails  {
 
   /**
    * Getter for vNetId.
-   * vNet ID in which the private link should be created.
+   * vNet ID in which the Private Link should be created.
    **/
   @JsonProperty("vNetId")
   public String getVNetId() {
@@ -162,7 +162,7 @@ public class AzureAccountDetails  {
 
   /**
    * Setter for vNetId.
-   * vNet ID in which the private link should be created.
+   * vNet ID in which the Private Link should be created.
    **/
   public void setVNetId(String vNetId) {
     this.vNetId = vNetId;
@@ -170,7 +170,7 @@ public class AzureAccountDetails  {
 
   /**
    * Getter for subnetId.
-   * ID of the private subnet in which the private link should be created.
+   * ID of the private subnet in which the Private Link should be created.
    **/
   @JsonProperty("subnetId")
   public String getSubnetId() {
@@ -179,7 +179,7 @@ public class AzureAccountDetails  {
 
   /**
    * Setter for subnetId.
-   * ID of the private subnet in which the private link should be created.
+   * ID of the private subnet in which the Private Link should be created.
    **/
   public void setSubnetId(String subnetId) {
     this.subnetId = subnetId;

@@ -29,11 +29,11 @@ import java.util.*;
 /**
  * Response object for the RevokePrivateLinkServiceAccess method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:46.268-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-12-11T09:59:34.007-08:00")
 public class RevokePrivateLinkServiceAccessResponse extends CdpResponse {
 
   /**
-   * Status of private link service access revoke.
+   * Status of Private Link service access revoke.
    **/
   private String status = null;
 
@@ -44,7 +44,7 @@ public class RevokePrivateLinkServiceAccessResponse extends CdpResponse {
 
   /**
    * Getter for status.
-   * Status of private link service access revoke.
+   * Status of Private Link service access revoke.
    **/
   @JsonProperty("status")
   public String getStatus() {
@@ -53,7 +53,7 @@ public class RevokePrivateLinkServiceAccessResponse extends CdpResponse {
 
   /**
    * Setter for status.
-   * Status of private link service access revoke.
+   * Status of Private Link service access revoke.
    **/
   public void setStatus(String status) {
     this.status = status;

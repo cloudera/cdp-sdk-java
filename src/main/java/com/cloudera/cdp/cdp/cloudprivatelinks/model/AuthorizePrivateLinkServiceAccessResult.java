@@ -25,13 +25,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 
 /**
- * Authorization response containing PrivateLink service name, service component and its authorization status.
+ * Authorization response containing Private Link service name, service component and its authorization status.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:46.268-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-12-11T09:59:34.007-08:00")
 public class AuthorizePrivateLinkServiceAccessResult  {
 
   /**
-   * Name of the Private link service.
+   * Name of the Private Link service.
    **/
   private String privateLinkService = null;
 
@@ -41,7 +41,7 @@ public class AuthorizePrivateLinkServiceAccessResult  {
   private String serviceComponent = null;
 
   /**
-   * Authorization status for the private link service.
+   * Authorization status for the Private Link service.
    **/
   private String authorizationStatus = null;
 
@@ -62,7 +62,7 @@ public class AuthorizePrivateLinkServiceAccessResult  {
 
   /**
    * Getter for privateLinkService.
-   * Name of the Private link service.
+   * Name of the Private Link service.
    **/
   @JsonProperty("privateLinkService")
   public String getPrivateLinkService() {
@@ -71,7 +71,7 @@ public class AuthorizePrivateLinkServiceAccessResult  {
 
   /**
    * Setter for privateLinkService.
-   * Name of the Private link service.
+   * Name of the Private Link service.
    **/
   public void setPrivateLinkService(String privateLinkService) {
     this.privateLinkService = privateLinkService;
@@ -96,7 +96,7 @@ public class AuthorizePrivateLinkServiceAccessResult  {
 
   /**
    * Getter for authorizationStatus.
-   * Authorization status for the private link service.
+   * Authorization status for the Private Link service.
    **/
   @JsonProperty("authorizationStatus")
   public String getAuthorizationStatus() {
@@ -105,7 +105,7 @@ public class AuthorizePrivateLinkServiceAccessResult  {
 
   /**
    * Setter for authorizationStatus.
-   * Authorization status for the private link service.
+   * Authorization status for the Private Link service.
    **/
   public void setAuthorizationStatus(String authorizationStatus) {
     this.authorizationStatus = authorizationStatus;

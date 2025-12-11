@@ -28,17 +28,17 @@ import com.cloudera.cdp.cloudprivatelinks.model.AWSAccountInfo;
 /**
  * Request object for the MigratePrivateLinkEndpoints method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:46.268-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-12-11T09:59:34.007-08:00")
 public class MigratePrivateLinkEndpointsRequest  {
 
   /**
-   * Migration is for AWS-only. AWS account info for the PrivateLink endpoint migration. Only VPC ID, region, and credentials are required. Subnets and other details are retrieved from DB.
+   * Migration is AWS-only. AWS account information for the Private Link endpoint migration. Only the VPC ID, region, and credentials are required; subnet and other details are retrieved from the database.
    **/
   private AWSAccountInfo awsAccountInfo = null;
 
   /**
    * Getter for awsAccountInfo.
-   * Migration is for AWS-only. AWS account info for the PrivateLink endpoint migration. Only VPC ID, region, and credentials are required. Subnets and other details are retrieved from DB.
+   * Migration is AWS-only. AWS account information for the Private Link endpoint migration. Only the VPC ID, region, and credentials are required; subnet and other details are retrieved from the database.
    **/
   @JsonProperty("awsAccountInfo")
   public AWSAccountInfo getAwsAccountInfo() {
@@ -47,7 +47,7 @@ public class MigratePrivateLinkEndpointsRequest  {
 
   /**
    * Setter for awsAccountInfo.
-   * Migration is for AWS-only. AWS account info for the PrivateLink endpoint migration. Only VPC ID, region, and credentials are required. Subnets and other details are retrieved from DB.
+   * Migration is AWS-only. AWS account information for the Private Link endpoint migration. Only the VPC ID, region, and credentials are required; subnet and other details are retrieved from the database.
    **/
   public void setAwsAccountInfo(AWSAccountInfo awsAccountInfo) {
     this.awsAccountInfo = awsAccountInfo;

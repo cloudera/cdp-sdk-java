@@ -30,7 +30,7 @@ import com.cloudera.cdp.df.model.ServiceMeta;
 /**
  * A deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:44.984-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-12-11T09:59:32.242-08:00")
 public class Deployment  {
 
   /**

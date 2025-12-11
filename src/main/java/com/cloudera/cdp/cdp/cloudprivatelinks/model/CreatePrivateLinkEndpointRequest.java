@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object for the CreatePrivateLinkEndpoint method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:46.268-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-12-11T09:59:34.007-08:00")
 public class CreatePrivateLinkEndpointRequest  {
 
   /**
@@ -40,7 +40,7 @@ public class CreatePrivateLinkEndpointRequest  {
   private String cloudServiceProvider = null;
 
   /**
-   * Enable Private DNS for PrivateLink endpoint.
+   * Enable Private DNS for Private Link endpoint.
    **/
   private Boolean enablePrivateDns = null;
 
@@ -50,12 +50,12 @@ public class CreatePrivateLinkEndpointRequest  {
   private String serviceGroup = null;
 
   /**
-   * AWS account details where the PrivateLink endpoint is created.
+   * AWS account details where the Private Link endpoint is created.
    **/
   private AWSAccountDetails awsAccountDetails = null;
 
   /**
-   * Azure account details where PrivateLink endpoint is created.
+   * Azure account details where Private Link endpoint is created.
    **/
   private AzureAccountDetails azureAccountDetails = null;
 
@@ -83,7 +83,7 @@ public class CreatePrivateLinkEndpointRequest  {
 
   /**
    * Getter for enablePrivateDns.
-   * Enable Private DNS for PrivateLink endpoint.
+   * Enable Private DNS for Private Link endpoint.
    **/
   @JsonProperty("enablePrivateDns")
   public Boolean getEnablePrivateDns() {
@@ -92,7 +92,7 @@ public class CreatePrivateLinkEndpointRequest  {
 
   /**
    * Setter for enablePrivateDns.
-   * Enable Private DNS for PrivateLink endpoint.
+   * Enable Private DNS for Private Link endpoint.
    **/
   public void setEnablePrivateDns(Boolean enablePrivateDns) {
     this.enablePrivateDns = enablePrivateDns;
@@ -117,7 +117,7 @@ public class CreatePrivateLinkEndpointRequest  {
 
   /**
    * Getter for awsAccountDetails.
-   * AWS account details where the PrivateLink endpoint is created.
+   * AWS account details where the Private Link endpoint is created.
    **/
   @JsonProperty("awsAccountDetails")
   public AWSAccountDetails getAwsAccountDetails() {
@@ -126,7 +126,7 @@ public class CreatePrivateLinkEndpointRequest  {
 
   /**
    * Setter for awsAccountDetails.
-   * AWS account details where the PrivateLink endpoint is created.
+   * AWS account details where the Private Link endpoint is created.
    **/
   public void setAwsAccountDetails(AWSAccountDetails awsAccountDetails) {
     this.awsAccountDetails = awsAccountDetails;
@@ -134,7 +134,7 @@ public class CreatePrivateLinkEndpointRequest  {
 
   /**
    * Getter for azureAccountDetails.
-   * Azure account details where PrivateLink endpoint is created.
+   * Azure account details where Private Link endpoint is created.
    **/
   @JsonProperty("azureAccountDetails")
   public AzureAccountDetails getAzureAccountDetails() {
@@ -143,7 +143,7 @@ public class CreatePrivateLinkEndpointRequest  {
 
   /**
    * Setter for azureAccountDetails.
-   * Azure account details where PrivateLink endpoint is created.
+   * Azure account details where Private Link endpoint is created.
    **/
   public void setAzureAccountDetails(AzureAccountDetails azureAccountDetails) {
     this.azureAccountDetails = azureAccountDetails;

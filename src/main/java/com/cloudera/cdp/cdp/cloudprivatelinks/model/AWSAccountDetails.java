@@ -27,13 +27,13 @@ import com.cloudera.cdp.cloudprivatelinks.model.CrossAccountRoleDetails;
 import java.util.*;
 
 /**
- * Details of the cloud network and the cross-account role required to create the PrivateLink endpoint.
+ * Details of the cloud network and the cross-account role required to create the Private Link endpoint.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:46.268-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-12-11T09:59:34.007-08:00")
 public class AWSAccountDetails  {
 
   /**
-   * Account ID to authorize access for PrivateLink.
+   * Account ID to authorize access for Private Link.
    **/
   private String cloudAccountId = null;
 
@@ -53,18 +53,18 @@ public class AWSAccountDetails  {
   private String region = null;
 
   /**
-   * VPC ID in which the private link should be created.
+   * VPC ID in which the Private Link should be created.
    **/
   private String vpcId = null;
 
   /**
-   * IDs of the private subnets in which the private link should be created.
+   * IDs of the private subnets in which the Private Link should be created.
    **/
   private List<String> subnetIds = new ArrayList<String>();
 
   /**
    * Getter for cloudAccountId.
-   * Account ID to authorize access for PrivateLink.
+   * Account ID to authorize access for Private Link.
    **/
   @JsonProperty("cloudAccountId")
   public String getCloudAccountId() {
@@ -73,7 +73,7 @@ public class AWSAccountDetails  {
 
   /**
    * Setter for cloudAccountId.
-   * Account ID to authorize access for PrivateLink.
+   * Account ID to authorize access for Private Link.
    **/
   public void setCloudAccountId(String cloudAccountId) {
     this.cloudAccountId = cloudAccountId;
@@ -132,7 +132,7 @@ public class AWSAccountDetails  {
 
   /**
    * Getter for vpcId.
-   * VPC ID in which the private link should be created.
+   * VPC ID in which the Private Link should be created.
    **/
   @JsonProperty("vpcId")
   public String getVpcId() {
@@ -141,7 +141,7 @@ public class AWSAccountDetails  {
 
   /**
    * Setter for vpcId.
-   * VPC ID in which the private link should be created.
+   * VPC ID in which the Private Link should be created.
    **/
   public void setVpcId(String vpcId) {
     this.vpcId = vpcId;
@@ -149,7 +149,7 @@ public class AWSAccountDetails  {
 
   /**
    * Getter for subnetIds.
-   * IDs of the private subnets in which the private link should be created.
+   * IDs of the private subnets in which the Private Link should be created.
    **/
   @JsonProperty("subnetIds")
   public List<String> getSubnetIds() {
@@ -158,7 +158,7 @@ public class AWSAccountDetails  {
 
   /**
    * Setter for subnetIds.
-   * IDs of the private subnets in which the private link should be created.
+   * IDs of the private subnets in which the Private Link should be created.
    **/
   public void setSubnetIds(List<String> subnetIds) {
     this.subnetIds = subnetIds;

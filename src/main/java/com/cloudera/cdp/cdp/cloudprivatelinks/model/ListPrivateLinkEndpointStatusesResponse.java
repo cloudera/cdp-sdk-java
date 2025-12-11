@@ -29,17 +29,17 @@ import java.util.*;
 /**
  * Response object for listPrivateLinkEndpointStatuses method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:46.268-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-12-11T09:59:34.007-08:00")
 public class ListPrivateLinkEndpointStatusesResponse extends CdpResponse {
 
   /**
-   * List of statuses of PrivateLink endpoints.
+   * List of statuses of Private Link endpoints.
    **/
   private List<PrivateLinkEndpointStatus> privatelinkEndpoints = new ArrayList<PrivateLinkEndpointStatus>();
 
   /**
    * Getter for privatelinkEndpoints.
-   * List of statuses of PrivateLink endpoints.
+   * List of statuses of Private Link endpoints.
    **/
   @JsonProperty("privatelinkEndpoints")
   public List<PrivateLinkEndpointStatus> getPrivatelinkEndpoints() {
@@ -48,7 +48,7 @@ public class ListPrivateLinkEndpointStatusesResponse extends CdpResponse {
 
   /**
    * Setter for privatelinkEndpoints.
-   * List of statuses of PrivateLink endpoints.
+   * List of statuses of Private Link endpoints.
    **/
   public void setPrivatelinkEndpoints(List<PrivateLinkEndpointStatus> privatelinkEndpoints) {
     this.privatelinkEndpoints = privatelinkEndpoints;

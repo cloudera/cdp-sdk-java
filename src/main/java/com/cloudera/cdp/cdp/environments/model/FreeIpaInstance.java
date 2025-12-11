@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Object for a FreeIPA instance providing specific information about the instance.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:43.397-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-12-11T09:59:30.729-08:00")
 public class FreeIpaInstance  {
 
   /**

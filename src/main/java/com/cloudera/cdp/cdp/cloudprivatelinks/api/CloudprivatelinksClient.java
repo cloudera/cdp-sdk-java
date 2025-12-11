@@ -51,7 +51,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:46.268-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-12-11T09:59:34.007-08:00")
 public class CloudprivatelinksClient extends CdpClient {
 
   public static final String SERVICE_NAME = "cloudprivatelinks";
@@ -83,7 +83,7 @@ public class CloudprivatelinksClient extends CdpClient {
   }
 
   /**
-   * Authorize private link services access for the cloud account id.
+   * Authorize Private Link services access for the cloud account id.
    * @param input
    * @return AuthorizePrivateLinkServiceAccessResponse
    */
@@ -96,7 +96,7 @@ public class CloudprivatelinksClient extends CdpClient {
   }
 
   /**
-   * Creates PrivateLink endpoints.
+   * Creates Private Link endpoints.
    * @param input
    * @return CreatePrivateLinkEndpointResponse
    */
@@ -109,7 +109,7 @@ public class CloudprivatelinksClient extends CdpClient {
   }
 
   /**
-   * Deletes PrivateLink endpoints.
+   * Deletes Private Link endpoints.
    * @param input
    * @return DeletePrivateLinkEndpointResponse
    */
@@ -135,7 +135,7 @@ public class CloudprivatelinksClient extends CdpClient {
   }
 
   /**
-   * Lists the statuses of the PrivateLink endpoints that are in creation/deletion status.
+   * Lists the statuses of the Private Link endpoints that are in creation/deletion status.
    * @param input
    * @return ListPrivateLinkEndpointStatusesResponse
    */
@@ -148,7 +148,7 @@ public class CloudprivatelinksClient extends CdpClient {
   }
 
   /**
-   * Lists the PrivateLink services that are supported for the region and service group.
+   * Lists the Private Link services that are supported for the region and service group.
    * @param input
    * @return ListPrivateLinkServicesForRegionResponse
    */
@@ -161,7 +161,7 @@ public class CloudprivatelinksClient extends CdpClient {
   }
 
   /**
-   * Migrates PrivateLink endpoints to fallback VPCE services.
+   * Migrates Private Link endpoints to fallback VPCE services.
    * @param input
    * @return MigratePrivateLinkEndpointsResponse
    */
@@ -174,7 +174,7 @@ public class CloudprivatelinksClient extends CdpClient {
   }
 
   /**
-   * Revoke private link services access for the cloud account id.
+   * Revoke Private Link services access for the cloud account ID.
    * @param input
    * @return RevokePrivateLinkServiceAccessResponse
    */

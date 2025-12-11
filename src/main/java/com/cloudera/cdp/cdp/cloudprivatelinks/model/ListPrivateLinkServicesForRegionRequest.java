@@ -27,22 +27,22 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the ListPrivateLinkServicesForTheRegion method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:46.268-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-12-11T09:59:34.007-08:00")
 public class ListPrivateLinkServicesForRegionRequest  {
 
   /**
-   * Region for which the private link services to be queried.
+   * Region for which the Private Link services are to be queried.
    **/
   private String region = null;
 
   /**
-   * CDP service group. Currently supported \"CDP-CONTROL-PLANE\" for PaaS.
+   * CDP service group. Currently supports \"CDP-CONTROL-PLANE\" for PaaS.
    **/
   private String serviceGroup = null;
 
   /**
    * Getter for region.
-   * Region for which the private link services to be queried.
+   * Region for which the Private Link services are to be queried.
    **/
   @JsonProperty("region")
   public String getRegion() {
@@ -51,7 +51,7 @@ public class ListPrivateLinkServicesForRegionRequest  {
 
   /**
    * Setter for region.
-   * Region for which the private link services to be queried.
+   * Region for which the Private Link services are to be queried.
    **/
   public void setRegion(String region) {
     this.region = region;
@@ -59,7 +59,7 @@ public class ListPrivateLinkServicesForRegionRequest  {
 
   /**
    * Getter for serviceGroup.
-   * CDP service group. Currently supported \&quot;CDP-CONTROL-PLANE\&quot; for PaaS.
+   * CDP service group. Currently supports \&quot;CDP-CONTROL-PLANE\&quot; for PaaS.
    **/
   @JsonProperty("serviceGroup")
   public String getServiceGroup() {
@@ -68,7 +68,7 @@ public class ListPrivateLinkServicesForRegionRequest  {
 
   /**
    * Setter for serviceGroup.
-   * CDP service group. Currently supported \&quot;CDP-CONTROL-PLANE\&quot; for PaaS.
+   * CDP service group. Currently supports \&quot;CDP-CONTROL-PLANE\&quot; for PaaS.
    **/
   public void setServiceGroup(String serviceGroup) {
     this.serviceGroup = serviceGroup;

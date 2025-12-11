@@ -28,7 +28,7 @@ import com.cloudera.cdp.ml.model.MlServingOzoneCreds;
 /**
  * Request object for the UpdateMlServingAppS3Creds method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:42.408-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-12-11T09:59:29.659-08:00")
 public class UpdateMlServingAppS3CredsRequest  {
 
   /**

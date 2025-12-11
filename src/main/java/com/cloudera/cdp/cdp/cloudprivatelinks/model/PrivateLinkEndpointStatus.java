@@ -26,9 +26,9 @@ import com.cloudera.cdp.client.CdpResponse;
 import java.util.*;
 
 /**
- * Details of the PrivateLink endpoints.
+ * Details of the Private Link endpoints.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:46.268-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-12-11T09:59:34.007-08:00")
 public class PrivateLinkEndpointStatus  {
 
   /**
@@ -37,7 +37,7 @@ public class PrivateLinkEndpointStatus  {
   private String serviceComponent = null;
 
   /**
-   * Status of the PrivateLink endpoints. The status is set to SUCCESS on successful creation of endpoint, IN_PROGRESS on endpoint creation is in progress and ERROR on failing to create the endpoint.
+   * Status of the Private Link endpoints. The status is set to SUCCESS when endpoint is created successfully, IN_PROGRESS when the endpoint creation is underway and ERROR when endpoint creation fails.
    **/
   private String status = null;
 
@@ -47,12 +47,12 @@ public class PrivateLinkEndpointStatus  {
   private String error = null;
 
   /**
-   * PrivateLink endpoint ID on success.
+   * Private Link endpoint ID on success.
    **/
   private String endpointId = null;
 
   /**
-   * List of PrivateLink endpoint DNS names on successful creation.
+   * List of Private Link endpoint DNS names on successful creation.
    **/
   private List<String> dnsNames = new ArrayList<String>();
 
@@ -80,7 +80,7 @@ public class PrivateLinkEndpointStatus  {
 
   /**
    * Getter for status.
-   * Status of the PrivateLink endpoints. The status is set to SUCCESS on successful creation of endpoint, IN_PROGRESS on endpoint creation is in progress and ERROR on failing to create the endpoint.
+   * Status of the Private Link endpoints. The status is set to SUCCESS when endpoint is created successfully, IN_PROGRESS when the endpoint creation is underway and ERROR when endpoint creation fails.
    **/
   @JsonProperty("status")
   public String getStatus() {
@@ -89,7 +89,7 @@ public class PrivateLinkEndpointStatus  {
 
   /**
    * Setter for status.
-   * Status of the PrivateLink endpoints. The status is set to SUCCESS on successful creation of endpoint, IN_PROGRESS on endpoint creation is in progress and ERROR on failing to create the endpoint.
+   * Status of the Private Link endpoints. The status is set to SUCCESS when endpoint is created successfully, IN_PROGRESS when the endpoint creation is underway and ERROR when endpoint creation fails.
    **/
   public void setStatus(String status) {
     this.status = status;
@@ -114,7 +114,7 @@ public class PrivateLinkEndpointStatus  {
 
   /**
    * Getter for endpointId.
-   * PrivateLink endpoint ID on success.
+   * Private Link endpoint ID on success.
    **/
   @JsonProperty("endpointId")
   public String getEndpointId() {
@@ -123,7 +123,7 @@ public class PrivateLinkEndpointStatus  {
 
   /**
    * Setter for endpointId.
-   * PrivateLink endpoint ID on success.
+   * Private Link endpoint ID on success.
    **/
   public void setEndpointId(String endpointId) {
     this.endpointId = endpointId;
@@ -131,7 +131,7 @@ public class PrivateLinkEndpointStatus  {
 
   /**
    * Getter for dnsNames.
-   * List of PrivateLink endpoint DNS names on successful creation.
+   * List of Private Link endpoint DNS names on successful creation.
    **/
   @JsonProperty("dnsNames")
   public List<String> getDnsNames() {
@@ -140,7 +140,7 @@ public class PrivateLinkEndpointStatus  {
 
   /**
    * Setter for dnsNames.
-   * List of PrivateLink endpoint DNS names on successful creation.
+   * List of Private Link endpoint DNS names on successful creation.
    **/
   public void setDnsNames(List<String> dnsNames) {
     this.dnsNames = dnsNames;

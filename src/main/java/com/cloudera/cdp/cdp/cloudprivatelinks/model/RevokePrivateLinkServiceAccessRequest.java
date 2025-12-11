@@ -27,26 +27,26 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the RevokePrivateLinkServiceAccess method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:46.268-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-12-11T09:59:34.007-08:00")
 public class RevokePrivateLinkServiceAccessRequest  {
 
   /**
-   * AWS account ID to authorize access for PrivateLink.
+   * AWS account ID to authorize access for Private Link.
    **/
   private String cloudAccountId = null;
 
   /**
-   * Azure subscription ID to authorize access for PrivateLink.
+   * Azure subscription ID to authorize access for Private Link.
    **/
   private String subscriptionId = null;
 
   /**
-   * Region where the private link service exists.
+   * Region where the Private Link service exists.
    **/
   private String region = null;
 
   /**
-   * CDP service group. Currently supported \"CDP-CONTROL-PLANE\" for PaaS.
+   * CDP service group. Currently supports \"CDP-CONTROL-PLANE\" for PaaS.
    **/
   private String serviceGroup = null;
 
@@ -57,7 +57,7 @@ public class RevokePrivateLinkServiceAccessRequest  {
 
   /**
    * Getter for cloudAccountId.
-   * AWS account ID to authorize access for PrivateLink.
+   * AWS account ID to authorize access for Private Link.
    **/
   @JsonProperty("cloudAccountId")
   public String getCloudAccountId() {
@@ -66,7 +66,7 @@ public class RevokePrivateLinkServiceAccessRequest  {
 
   /**
    * Setter for cloudAccountId.
-   * AWS account ID to authorize access for PrivateLink.
+   * AWS account ID to authorize access for Private Link.
    **/
   public void setCloudAccountId(String cloudAccountId) {
     this.cloudAccountId = cloudAccountId;
@@ -74,7 +74,7 @@ public class RevokePrivateLinkServiceAccessRequest  {
 
   /**
    * Getter for subscriptionId.
-   * Azure subscription ID to authorize access for PrivateLink.
+   * Azure subscription ID to authorize access for Private Link.
    **/
   @JsonProperty("subscriptionId")
   public String getSubscriptionId() {
@@ -83,7 +83,7 @@ public class RevokePrivateLinkServiceAccessRequest  {
 
   /**
    * Setter for subscriptionId.
-   * Azure subscription ID to authorize access for PrivateLink.
+   * Azure subscription ID to authorize access for Private Link.
    **/
   public void setSubscriptionId(String subscriptionId) {
     this.subscriptionId = subscriptionId;
@@ -91,7 +91,7 @@ public class RevokePrivateLinkServiceAccessRequest  {
 
   /**
    * Getter for region.
-   * Region where the private link service exists.
+   * Region where the Private Link service exists.
    **/
   @JsonProperty("region")
   public String getRegion() {
@@ -100,7 +100,7 @@ public class RevokePrivateLinkServiceAccessRequest  {
 
   /**
    * Setter for region.
-   * Region where the private link service exists.
+   * Region where the Private Link service exists.
    **/
   public void setRegion(String region) {
     this.region = region;
@@ -108,7 +108,7 @@ public class RevokePrivateLinkServiceAccessRequest  {
 
   /**
    * Getter for serviceGroup.
-   * CDP service group. Currently supported \&quot;CDP-CONTROL-PLANE\&quot; for PaaS.
+   * CDP service group. Currently supports \&quot;CDP-CONTROL-PLANE\&quot; for PaaS.
    **/
   @JsonProperty("serviceGroup")
   public String getServiceGroup() {
@@ -117,7 +117,7 @@ public class RevokePrivateLinkServiceAccessRequest  {
 
   /**
    * Setter for serviceGroup.
-   * CDP service group. Currently supported \&quot;CDP-CONTROL-PLANE\&quot; for PaaS.
+   * CDP service group. Currently supports \&quot;CDP-CONTROL-PLANE\&quot; for PaaS.
    **/
   public void setServiceGroup(String serviceGroup) {
     this.serviceGroup = serviceGroup;

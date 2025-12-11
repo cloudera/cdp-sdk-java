@@ -37,14 +37,22 @@ import com.cloudera.cdp.compute.model.DescribeClusterResponse;
 import com.cloudera.cdp.compute.model.DescribeDeploymentRequest;
 import com.cloudera.cdp.compute.model.DescribeDeploymentResponse;
 import com.cloudera.cdp.compute.model.Error;
+import com.cloudera.cdp.compute.model.GetOperationDetailsRequest;
+import com.cloudera.cdp.compute.model.GetOperationDetailsResponse;
+import com.cloudera.cdp.compute.model.GetOperationStatusRequest;
+import com.cloudera.cdp.compute.model.GetOperationStatusResponse;
 import com.cloudera.cdp.compute.model.ListClustersRequest;
 import com.cloudera.cdp.compute.model.ListClustersResponse;
 import com.cloudera.cdp.compute.model.ListDeploymentsRequest;
 import com.cloudera.cdp.compute.model.ListDeploymentsResponse;
 import com.cloudera.cdp.compute.model.ResumeClusterRequest;
 import com.cloudera.cdp.compute.model.ResumeClusterResponse;
+import com.cloudera.cdp.compute.model.RetryOperationRequest;
+import com.cloudera.cdp.compute.model.RetryOperationResponse;
 import com.cloudera.cdp.compute.model.SuspendClusterRequest;
 import com.cloudera.cdp.compute.model.SuspendClusterResponse;
+import com.cloudera.cdp.compute.model.UpgradeClusterRequest;
+import com.cloudera.cdp.compute.model.UpgradeClusterResponse;
 import com.cloudera.cdp.compute.model.UpgradeDeploymentRequest;
 import com.cloudera.cdp.compute.model.UpgradeDeploymentResponse;
 import com.cloudera.cdp.compute.model.ValidateClusterRequest;
@@ -55,7 +63,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:45.766-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-12-11T09:59:33.212-08:00")
 public class ComputeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "compute";
@@ -139,6 +147,32 @@ public class ComputeClient extends CdpClient {
   }
 
   /**
+   * GetOperationDetails
+   * @param input
+   * @return GetOperationDetailsResponse
+   */
+  public GetOperationDetailsResponse getOperationDetails(GetOperationDetailsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getOperationDetails");
+    }
+
+    return this.invokeAPI("getOperationDetails", "/api/v1/compute/getOperationDetails", input, new GenericType<GetOperationDetailsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * GetOperationStatus
+   * @param input
+   * @return GetOperationStatusResponse
+   */
+  public GetOperationStatusResponse getOperationStatus(GetOperationStatusRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getOperationStatus");
+    }
+
+    return this.invokeAPI("getOperationStatus", "/api/v1/compute/getOperationStatus", input, new GenericType<GetOperationStatusResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * List compute clusters
    * @param input
    * @return ListClustersResponse
@@ -178,6 +212,19 @@ public class ComputeClient extends CdpClient {
   }
 
   /**
+   * ResetOperation
+   * @param input
+   * @return RetryOperationResponse
+   */
+  public RetryOperationResponse retryOperation(RetryOperationRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling retryOperation");
+    }
+
+    return this.invokeAPI("retryOperation", "/api/v1/compute/retryOperation", input, new GenericType<RetryOperationResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Suspend Cluster
    * @param input
    * @return SuspendClusterResponse
@@ -188,6 +235,19 @@ public class ComputeClient extends CdpClient {
     }
 
     return this.invokeAPI("suspendCluster", "/api/v1/compute/suspendCluster", input, new GenericType<SuspendClusterResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Upgrade kubernetes version of the cluster
+   * @param input
+   * @return UpgradeClusterResponse
+   */
+  public UpgradeClusterResponse upgradeCluster(UpgradeClusterRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling upgradeCluster");
+    }
+
+    return this.invokeAPI("upgradeCluster", "/api/v1/compute/upgradeCluster", input, new GenericType<UpgradeClusterResponse>(){}, NO_EXTENSION);
   }
 
   /**

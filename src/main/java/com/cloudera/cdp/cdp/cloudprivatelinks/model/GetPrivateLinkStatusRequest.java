@@ -28,16 +28,16 @@ import java.util.*;
 /**
  * Request object for retrieving the status of a Private Link.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-11-26T08:05:46.268-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-12-11T09:59:34.007-08:00")
 public class GetPrivateLinkStatusRequest  {
 
   /**
-   * List of subnets in the given cloud network to query PrivateLink status. This field has been deprecated.
+   * List of subnets in the given cloud network to query Private Link status. This field has been deprecated.
    **/
   private List<String> subnetIds = new ArrayList<String>();
 
   /**
-   * Virtual Network Id to query the status of PrivateLink in Azure.
+   * Virtual Network Id to query the status of Private Link in Azure.
    **/
   private String vNetId = null;
 
@@ -53,7 +53,7 @@ public class GetPrivateLinkStatusRequest  {
 
   /**
    * Getter for subnetIds.
-   * List of subnets in the given cloud network to query PrivateLink status. This field has been deprecated.
+   * List of subnets in the given cloud network to query Private Link status. This field has been deprecated.
    **/
   @Deprecated
   @JsonProperty("subnetIds")
@@ -63,7 +63,7 @@ public class GetPrivateLinkStatusRequest  {
 
   /**
    * Setter for subnetIds.
-   * List of subnets in the given cloud network to query PrivateLink status. This field has been deprecated.
+   * List of subnets in the given cloud network to query Private Link status. This field has been deprecated.
    **/
   @Deprecated
   public void setSubnetIds(List<String> subnetIds) {
@@ -72,7 +72,7 @@ public class GetPrivateLinkStatusRequest  {
 
   /**
    * Getter for vNetId.
-   * Virtual Network Id to query the status of PrivateLink in Azure.
+   * Virtual Network Id to query the status of Private Link in Azure.
    **/
   @JsonProperty("vNetId")
   public String getVNetId() {
@@ -81,7 +81,7 @@ public class GetPrivateLinkStatusRequest  {
 
   /**
    * Setter for vNetId.
-   * Virtual Network Id to query the status of PrivateLink in Azure.
+   * Virtual Network Id to query the status of Private Link in Azure.
    **/
   public void setVNetId(String vNetId) {
     this.vNetId = vNetId;
