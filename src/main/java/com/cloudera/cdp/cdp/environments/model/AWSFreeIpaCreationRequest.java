@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for creating FreeIPA in the environment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-12-11T09:59:30.729-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-07T06:42:40.351-08:00")
 public class AWSFreeIpaCreationRequest  {
 
   /**
@@ -50,6 +50,11 @@ public class AWSFreeIpaCreationRequest  {
    * Flag which marks that the FreeIPA will be deployed in a multi-availability zone way or not.
    **/
   private Boolean multiAz = null;
+
+  /**
+   * Specifies the CPU architecture of freeipa instance type. Values are ARM64, X86_64.
+   **/
+  private String architecture = null;
 
   /**
    * Getter for instanceCountByGroup.
@@ -119,6 +124,23 @@ public class AWSFreeIpaCreationRequest  {
     this.multiAz = multiAz;
   }
 
+  /**
+   * Getter for architecture.
+   * Specifies the CPU architecture of freeipa instance type. Values are ARM64, X86_64.
+   **/
+  @JsonProperty("architecture")
+  public String getArchitecture() {
+    return architecture;
+  }
+
+  /**
+   * Setter for architecture.
+   * Specifies the CPU architecture of freeipa instance type. Values are ARM64, X86_64.
+   **/
+  public void setArchitecture(String architecture) {
+    this.architecture = architecture;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -140,12 +162,15 @@ public class AWSFreeIpaCreationRequest  {
     if (!Objects.equals(this.multiAz, aWSFreeIpaCreationRequest.multiAz)) {
       return false;
     }
+    if (!Objects.equals(this.architecture, aWSFreeIpaCreationRequest.architecture)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceCountByGroup, recipes, instanceType, multiAz);
+    return Objects.hash(instanceCountByGroup, recipes, instanceType, multiAz, architecture);
   }
 
   @Override
@@ -156,6 +181,7 @@ public class AWSFreeIpaCreationRequest  {
     sb.append("    recipes: ").append(toIndentedString(recipes)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    multiAz: ").append(toIndentedString(multiAz)).append("\n");
+    sb.append("    architecture: ").append(toIndentedString(architecture)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Details of phase workflow.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-12-11T09:59:33.212-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-07T06:42:43.012-08:00")
 public class PhaseWorkflowDetail  {
 
   /**

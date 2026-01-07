@@ -27,12 +27,12 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Provides subset of metadata of a Listen* component
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-12-11T09:59:32.597-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-07T06:42:42.551-08:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class ListenComponent  {
 
   /**
-   * Inbound protocol
+   * Inbound protocol.
    **/
   private String protocol = null;
 
@@ -42,13 +42,13 @@ public class ListenComponent  {
   private String listenComponentType = null;
 
   /**
-   * Inbound port
+   * Inbound port.
    **/
   private String port = null;
 
   /**
    * Getter for protocol.
-   * Inbound protocol
+   * Inbound protocol.
    **/
   @JsonProperty("protocol")
   public String getProtocol() {
@@ -57,7 +57,7 @@ public class ListenComponent  {
 
   /**
    * Setter for protocol.
-   * Inbound protocol
+   * Inbound protocol.
    **/
   public void setProtocol(String protocol) {
     this.protocol = protocol;
@@ -82,7 +82,7 @@ public class ListenComponent  {
 
   /**
    * Getter for port.
-   * Inbound port
+   * Inbound port.
    **/
   @JsonProperty("port")
   public String getPort() {
@@ -91,7 +91,7 @@ public class ListenComponent  {
 
   /**
    * Setter for port.
-   * Inbound port
+   * Inbound port.
    **/
   public void setPort(String port) {
     this.port = port;

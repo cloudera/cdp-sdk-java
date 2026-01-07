@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object to update a custom NAR configuration.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-12-11T09:59:32.597-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-07T06:42:42.551-08:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class UpdateCustomNarConfigurationRequest  {
 
@@ -37,22 +37,22 @@ public class UpdateCustomNarConfigurationRequest  {
   private String environmentCrn = null;
 
   /**
-   * The username used to access the storage location
+   * The username used to access the storage location.
    **/
   private String username = null;
 
   /**
-   * The password used to access the storage location
+   * The password used to access the storage location.
    **/
   private String password = null;
 
   /**
-   * The storage location, such as an S3 bucket or ADLS container
+   * The storage location, such as an S3 bucket or ADLS container.
    **/
   private String storageLocation = null;
 
   /**
-   * The version of the configuration
+   * The version of the configuration.
    **/
   private Integer configurationVersion = null;
 
@@ -85,7 +85,7 @@ public class UpdateCustomNarConfigurationRequest  {
 
   /**
    * Getter for username.
-   * The username used to access the storage location
+   * The username used to access the storage location.
    **/
   @JsonProperty("username")
   public String getUsername() {
@@ -94,7 +94,7 @@ public class UpdateCustomNarConfigurationRequest  {
 
   /**
    * Setter for username.
-   * The username used to access the storage location
+   * The username used to access the storage location.
    **/
   public void setUsername(String username) {
     this.username = username;
@@ -102,7 +102,7 @@ public class UpdateCustomNarConfigurationRequest  {
 
   /**
    * Getter for password.
-   * The password used to access the storage location
+   * The password used to access the storage location.
    **/
   @JsonProperty("password")
   public String getPassword() {
@@ -111,7 +111,7 @@ public class UpdateCustomNarConfigurationRequest  {
 
   /**
    * Setter for password.
-   * The password used to access the storage location
+   * The password used to access the storage location.
    **/
   public void setPassword(String password) {
     this.password = password;
@@ -119,7 +119,7 @@ public class UpdateCustomNarConfigurationRequest  {
 
   /**
    * Getter for storageLocation.
-   * The storage location, such as an S3 bucket or ADLS container
+   * The storage location, such as an S3 bucket or ADLS container.
    **/
   @JsonProperty("storageLocation")
   public String getStorageLocation() {
@@ -128,7 +128,7 @@ public class UpdateCustomNarConfigurationRequest  {
 
   /**
    * Setter for storageLocation.
-   * The storage location, such as an S3 bucket or ADLS container
+   * The storage location, such as an S3 bucket or ADLS container.
    **/
   public void setStorageLocation(String storageLocation) {
     this.storageLocation = storageLocation;
@@ -136,7 +136,7 @@ public class UpdateCustomNarConfigurationRequest  {
 
   /**
    * Getter for configurationVersion.
-   * The version of the configuration
+   * The version of the configuration.
    **/
   @JsonProperty("configurationVersion")
   public Integer getConfigurationVersion() {
@@ -145,7 +145,7 @@ public class UpdateCustomNarConfigurationRequest  {
 
   /**
    * Setter for configurationVersion.
-   * The version of the configuration
+   * The version of the configuration.
    **/
   public void setConfigurationVersion(Integer configurationVersion) {
     this.configurationVersion = configurationVersion;

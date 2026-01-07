@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * Request object for create AWS datalake request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-12-11T09:59:30.099-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-07T06:42:39.743-08:00")
 public class CreateAWSDatalakeRequest  {
 
   /**
@@ -100,6 +100,11 @@ public class CreateAWSDatalakeRequest  {
    * Configure the major version of Java on the cluster.
    **/
   private Integer javaVersion = null;
+
+  /**
+   * Specifies the CPU architecture of the data lake cluster. Values are ARM64, X86_64.
+   **/
+  private String architecture = null;
 
   /**
    * Getter for datalakeName.
@@ -322,6 +327,23 @@ public class CreateAWSDatalakeRequest  {
     this.javaVersion = javaVersion;
   }
 
+  /**
+   * Getter for architecture.
+   * Specifies the CPU architecture of the data lake cluster. Values are ARM64, X86_64.
+   **/
+  @JsonProperty("architecture")
+  public String getArchitecture() {
+    return architecture;
+  }
+
+  /**
+   * Setter for architecture.
+   * Specifies the CPU architecture of the data lake cluster. Values are ARM64, X86_64.
+   **/
+  public void setArchitecture(String architecture) {
+    this.architecture = architecture;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -370,12 +392,15 @@ public class CreateAWSDatalakeRequest  {
     if (!Objects.equals(this.javaVersion, createAWSDatalakeRequest.javaVersion)) {
       return false;
     }
+    if (!Objects.equals(this.architecture, createAWSDatalakeRequest.architecture)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, scale, tags, runtime, image, enableRangerRaz, enableRangerRms, multiAz, recipes, customInstanceGroups, javaVersion);
+    return Objects.hash(datalakeName, environmentName, cloudProviderConfiguration, scale, tags, runtime, image, enableRangerRaz, enableRangerRms, multiAz, recipes, customInstanceGroups, javaVersion, architecture);
   }
 
   @Override
@@ -395,6 +420,7 @@ public class CreateAWSDatalakeRequest  {
     sb.append("    recipes: ").append(toIndentedString(recipes)).append("\n");
     sb.append("    customInstanceGroups: ").append(toIndentedString(customInstanceGroups)).append("\n");
     sb.append("    javaVersion: ").append(toIndentedString(javaVersion)).append("\n");
+    sb.append("    architecture: ").append(toIndentedString(architecture)).append("\n");
     sb.append("}");
     return sb.toString();
   }

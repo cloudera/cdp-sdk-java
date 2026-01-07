@@ -27,27 +27,27 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object for updating a custom Python configuration.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-12-11T09:59:32.597-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-07T06:42:42.551-08:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class UpdateCustomPythonConfigurationResponse extends CdpResponse {
 
   /**
-   * The username used to access the storage location
+   * The username used to access the storage location.
    **/
   private String username = null;
 
   /**
-   * The password used to access the storage location
+   * The password used to access the storage location.
    **/
   private String password = null;
 
   /**
-   * The storage location, such as an S3 bucket or ADLS container
+   * The storage location, such as an S3 bucket or ADLS container.
    **/
   private String storageLocation = null;
 
   /**
-   * The version of the configuration
+   * The version of the configuration.
    **/
   private Integer configurationVersion = null;
 
@@ -63,7 +63,7 @@ public class UpdateCustomPythonConfigurationResponse extends CdpResponse {
 
   /**
    * Getter for username.
-   * The username used to access the storage location
+   * The username used to access the storage location.
    **/
   @JsonProperty("username")
   public String getUsername() {
@@ -72,7 +72,7 @@ public class UpdateCustomPythonConfigurationResponse extends CdpResponse {
 
   /**
    * Setter for username.
-   * The username used to access the storage location
+   * The username used to access the storage location.
    **/
   public void setUsername(String username) {
     this.username = username;
@@ -80,7 +80,7 @@ public class UpdateCustomPythonConfigurationResponse extends CdpResponse {
 
   /**
    * Getter for password.
-   * The password used to access the storage location
+   * The password used to access the storage location.
    **/
   @JsonProperty("password")
   public String getPassword() {
@@ -89,7 +89,7 @@ public class UpdateCustomPythonConfigurationResponse extends CdpResponse {
 
   /**
    * Setter for password.
-   * The password used to access the storage location
+   * The password used to access the storage location.
    **/
   public void setPassword(String password) {
     this.password = password;
@@ -97,7 +97,7 @@ public class UpdateCustomPythonConfigurationResponse extends CdpResponse {
 
   /**
    * Getter for storageLocation.
-   * The storage location, such as an S3 bucket or ADLS container
+   * The storage location, such as an S3 bucket or ADLS container.
    **/
   @JsonProperty("storageLocation")
   public String getStorageLocation() {
@@ -106,7 +106,7 @@ public class UpdateCustomPythonConfigurationResponse extends CdpResponse {
 
   /**
    * Setter for storageLocation.
-   * The storage location, such as an S3 bucket or ADLS container
+   * The storage location, such as an S3 bucket or ADLS container.
    **/
   public void setStorageLocation(String storageLocation) {
     this.storageLocation = storageLocation;
@@ -114,7 +114,7 @@ public class UpdateCustomPythonConfigurationResponse extends CdpResponse {
 
   /**
    * Getter for configurationVersion.
-   * The version of the configuration
+   * The version of the configuration.
    **/
   @JsonProperty("configurationVersion")
   public Integer getConfigurationVersion() {
@@ -123,7 +123,7 @@ public class UpdateCustomPythonConfigurationResponse extends CdpResponse {
 
   /**
    * Setter for configurationVersion.
-   * The version of the configuration
+   * The version of the configuration.
    **/
   public void setConfigurationVersion(Integer configurationVersion) {
     this.configurationVersion = configurationVersion;

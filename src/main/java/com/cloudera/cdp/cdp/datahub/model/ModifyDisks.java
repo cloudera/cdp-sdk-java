@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Root or additional volume properties to modify.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2025-12-11T09:59:27.883-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-07T06:42:37.156-08:00")
 public class ModifyDisks  {
 
   /**
@@ -41,7 +41,7 @@ public class ModifyDisks  {
   private String volumeType = null;
 
   /**
-   * Whether to modify the root disk or additional disks.
+   * Whether to modify the root disk, database disk or additional disks.
    **/
   private String diskType = null;
 
@@ -81,7 +81,7 @@ public class ModifyDisks  {
 
   /**
    * Getter for diskType.
-   * Whether to modify the root disk or additional disks.
+   * Whether to modify the root disk, database disk or additional disks.
    **/
   @JsonProperty("diskType")
   public String getDiskType() {
@@ -90,7 +90,7 @@ public class ModifyDisks  {
 
   /**
    * Setter for diskType.
-   * Whether to modify the root disk or additional disks.
+   * Whether to modify the root disk, database disk or additional disks.
    **/
   public void setDiskType(String diskType) {
     this.diskType = diskType;
