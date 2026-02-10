@@ -49,6 +49,7 @@ public class CdpClientConfigurationTest {
     assertEquals(Duration.ofSeconds(2), config.getValidateAfterInactivity());
     assertEquals(SimpleRetryHandler.class,config.getRetryHandler().getClass());
     assertFalse(config.getIgnoreTls());
+    assertFalse(config.getDisableCookies());
     assertTrue(config.getTrustedCertificates().isEmpty());
     assertTrue(config.getTrustedCertificates() instanceof ImmutableList);
     assertTrue(config.getRequestHeaders().isEmpty());
@@ -85,6 +86,8 @@ public class CdpClientConfigurationTest {
             .withProxyUri("proxyUri")
             .withProxyUsername("proxyUsername")
             .withProxyPassword("proxyPassword")
+            .withIgnoreTls(true)
+            .withDisableCookies(true)
             .addRequestHeader("foo", "bar")
             .build();
 
@@ -101,6 +104,8 @@ public class CdpClientConfigurationTest {
     assertEquals("proxyUri", config.getProxyUri());
     assertEquals("proxyUsername", config.getProxyUsername());
     assertEquals("proxyPassword", config.getProxyPassword());
+    assertTrue(config.getIgnoreTls());
+    assertTrue(config.getDisableCookies());
     assertEquals(1, config.getRequestHeaders().size());
     assertEquals("bar", config.getRequestHeaders().get("foo"));
   }

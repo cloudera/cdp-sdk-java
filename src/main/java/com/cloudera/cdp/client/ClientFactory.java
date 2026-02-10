@@ -91,6 +91,9 @@ public class ClientFactory {
         ApacheClientProperties.KEEPALIVE_STRATEGY,
         keepAliveStrategy);
     clientConfig.property(
+        ApacheClientProperties.DISABLE_COOKIES,
+        config.getDisableCookies());
+    clientConfig.property(
         ClientProperties.REQUEST_ENTITY_PROCESSING,
         RequestEntityProcessing.BUFFERED);
     clientConfig.property(

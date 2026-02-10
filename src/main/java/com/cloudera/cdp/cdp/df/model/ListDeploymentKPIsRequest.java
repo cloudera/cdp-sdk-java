@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * A request to list deployment KPIs.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-07T06:42:42.138-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-28T12:21:17.803-08:00")
 public class ListDeploymentKPIsRequest  {
 
   /**
@@ -36,7 +36,7 @@ public class ListDeploymentKPIsRequest  {
   private String deploymentCrn = null;
 
   /**
-   * The metrics time period.
+   * The metrics time period (LAST_THIRTY_MINUTES|LAST_ONE_HOUR|LAST_TWELVE_HOURS|LAST_ONE_DAY).
    **/
   private String metricsTimePeriod = null;
 
@@ -59,7 +59,7 @@ public class ListDeploymentKPIsRequest  {
 
   /**
    * Getter for metricsTimePeriod.
-   * The metrics time period.
+   * The metrics time period (LAST_THIRTY_MINUTES|LAST_ONE_HOUR|LAST_TWELVE_HOURS|LAST_ONE_DAY).
    **/
   @JsonProperty("metricsTimePeriod")
   public String getMetricsTimePeriod() {
@@ -68,7 +68,7 @@ public class ListDeploymentKPIsRequest  {
 
   /**
    * Setter for metricsTimePeriod.
-   * The metrics time period.
+   * The metrics time period (LAST_THIRTY_MINUTES|LAST_ONE_HOUR|LAST_TWELVE_HOURS|LAST_ONE_DAY).
    **/
   public void setMetricsTimePeriod(String metricsTimePeriod) {
     this.metricsTimePeriod = metricsTimePeriod;

@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Tags suggested by the Data Compliance Profiler.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-07T06:42:39.086-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-28T12:21:14.803-08:00")
 public class GetSuggestedTagsResponse extends CdpResponse {
 
   /**

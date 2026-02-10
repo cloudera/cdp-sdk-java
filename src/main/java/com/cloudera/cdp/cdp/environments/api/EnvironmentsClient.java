@@ -32,6 +32,8 @@ import com.cloudera.cdp.environments.model.AttachFreeIpaRecipesRequest;
 import com.cloudera.cdp.environments.model.AttachFreeIpaRecipesResponse;
 import com.cloudera.cdp.environments.model.CancelFreeipaDiagnosticsRequest;
 import com.cloudera.cdp.environments.model.CancelFreeipaDiagnosticsResponse;
+import com.cloudera.cdp.environments.model.CancelTrustRequest;
+import com.cloudera.cdp.environments.model.CancelTrustResponse;
 import com.cloudera.cdp.environments.model.ChangeEnvironmentCredentialRequest;
 import com.cloudera.cdp.environments.model.ChangeEnvironmentCredentialResponse;
 import com.cloudera.cdp.environments.model.CheckDatabaseConnectivityRequest;
@@ -77,6 +79,8 @@ import com.cloudera.cdp.environments.model.DetachFreeIpaRecipesResponse;
 import com.cloudera.cdp.environments.model.DownscaleFreeipaRequest;
 import com.cloudera.cdp.environments.model.DownscaleFreeipaResponse;
 import com.cloudera.cdp.environments.model.Error;
+import com.cloudera.cdp.environments.model.FinishSetupTrustRequest;
+import com.cloudera.cdp.environments.model.FinishSetupTrustResponse;
 import com.cloudera.cdp.environments.model.GetAccountTelemetryDefaultRequest;
 import com.cloudera.cdp.environments.model.GetAccountTelemetryDefaultResponse;
 import com.cloudera.cdp.environments.model.GetAccountTelemetryRequest;
@@ -115,6 +119,10 @@ import com.cloudera.cdp.environments.model.GetRepairFreeipaStatusRequest;
 import com.cloudera.cdp.environments.model.GetRepairFreeipaStatusResponse;
 import com.cloudera.cdp.environments.model.GetRootCertificateRequest;
 import com.cloudera.cdp.environments.model.GetRootCertificateResponse;
+import com.cloudera.cdp.environments.model.GetTrustCleanupCommandsRequest;
+import com.cloudera.cdp.environments.model.GetTrustCleanupCommandsResponse;
+import com.cloudera.cdp.environments.model.GetTrustSetupCommandsRequest;
+import com.cloudera.cdp.environments.model.GetTrustSetupCommandsResponse;
 import com.cloudera.cdp.environments.model.InitializeAWSComputeClusterRequest;
 import com.cloudera.cdp.environments.model.InitializeAWSComputeClusterResponse;
 import com.cloudera.cdp.environments.model.InitializeAzureComputeClusterRequest;
@@ -137,6 +145,8 @@ import com.cloudera.cdp.environments.model.ListProxyConfigsRequest;
 import com.cloudera.cdp.environments.model.ListProxyConfigsResponse;
 import com.cloudera.cdp.environments.model.RepairFreeipaRequest;
 import com.cloudera.cdp.environments.model.RepairFreeipaResponse;
+import com.cloudera.cdp.environments.model.RepairTrustRequest;
+import com.cloudera.cdp.environments.model.RepairTrustResponse;
 import com.cloudera.cdp.environments.model.RetryFreeipaRequest;
 import com.cloudera.cdp.environments.model.RetryFreeipaResponse;
 import com.cloudera.cdp.environments.model.RotateFreeipaSecretsRequest;
@@ -165,6 +175,8 @@ import com.cloudera.cdp.environments.model.SetPasswordRequest;
 import com.cloudera.cdp.environments.model.SetPasswordResponse;
 import com.cloudera.cdp.environments.model.SetTelemetryFeaturesRequest;
 import com.cloudera.cdp.environments.model.SetTelemetryFeaturesResponse;
+import com.cloudera.cdp.environments.model.SetupActiveDirectoryTrustRequest;
+import com.cloudera.cdp.environments.model.SetupActiveDirectoryTrustResponse;
 import com.cloudera.cdp.environments.model.StartEnvironmentRequest;
 import com.cloudera.cdp.environments.model.StartEnvironmentResponse;
 import com.cloudera.cdp.environments.model.StartFreeIpaVerticalScalingRequest;
@@ -231,7 +243,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-07T06:42:40.351-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-28T12:21:16.014-08:00")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -286,6 +298,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("cancelFreeipaDiagnostics", "/api/v1/environments2/cancelFreeipaDiagnostics", input, new GenericType<CancelFreeipaDiagnosticsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Cancel cross-realm trust for FreeIPA.
+   * @param input
+   * @return CancelTrustResponse
+   */
+  public CancelTrustResponse cancelTrust(CancelTrustRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling cancelTrust");
+    }
+
+    return this.invokeAPI("cancelTrust", "/api/v1/environments2/cancelTrust", input, new GenericType<CancelTrustResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -575,6 +600,19 @@ public class EnvironmentsClient extends CdpClient {
   }
 
   /**
+   * Complete cross-realm trust setup for FreeIPA.
+   * @param input
+   * @return FinishSetupTrustResponse
+   */
+  public FinishSetupTrustResponse finishSetupTrust(FinishSetupTrustRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling finishSetupTrust");
+    }
+
+    return this.invokeAPI("finishSetupTrust", "/api/v1/environments2/finishSetupTrust", input, new GenericType<FinishSetupTrustResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Get account level telemetry settings. (telemetry features and anonymization rules)
    * @param input
    * @return GetAccountTelemetryResponse
@@ -822,6 +860,32 @@ public class EnvironmentsClient extends CdpClient {
   }
 
   /**
+   * Gets the commands to be run for cross-realm trust clean up.
+   * @param input
+   * @return GetTrustCleanupCommandsResponse
+   */
+  public GetTrustCleanupCommandsResponse getTrustCleanupCommands(GetTrustCleanupCommandsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getTrustCleanupCommands");
+    }
+
+    return this.invokeAPI("getTrustCleanupCommands", "/api/v1/environments2/getTrustCleanupCommands", input, new GenericType<GetTrustCleanupCommandsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Lists the commands to be executed for cross-realm trust setup.
+   * @param input
+   * @return GetTrustSetupCommandsResponse
+   */
+  public GetTrustSetupCommandsResponse getTrustSetupCommands(GetTrustSetupCommandsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getTrustSetupCommands");
+    }
+
+    return this.invokeAPI("getTrustSetupCommands", "/api/v1/environments2/getTrustSetupCommands", input, new GenericType<GetTrustSetupCommandsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Initialize compute cluster for AWS environment.
    * @param input
    * @return InitializeAWSComputeClusterResponse
@@ -962,6 +1026,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("repairFreeipa", "/api/v1/environments2/repairFreeipa", input, new GenericType<RepairFreeipaResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Repair cross-realm trust of FreeIPA with an Active Directory Server.
+   * @param input
+   * @return RepairTrustResponse
+   */
+  public RepairTrustResponse repairTrust(RepairTrustRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling repairTrust");
+    }
+
+    return this.invokeAPI("repairTrust", "/api/v1/environments2/repairTrust", input, new GenericType<RepairTrustResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -1146,6 +1223,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("setTelemetryFeatures", "/api/v1/environments2/setTelemetryFeatures", input, new GenericType<SetTelemetryFeaturesResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Setup cross-realm trust between FreeIPA and Active Directory.
+   * @param input
+   * @return SetupActiveDirectoryTrustResponse
+   */
+  public SetupActiveDirectoryTrustResponse setupActiveDirectoryTrust(SetupActiveDirectoryTrustRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling setupActiveDirectoryTrust");
+    }
+
+    return this.invokeAPI("setupActiveDirectoryTrust", "/api/v1/environments2/setupActiveDirectoryTrust", input, new GenericType<SetupActiveDirectoryTrustResponse>(){}, NO_EXTENSION);
   }
 
   /**

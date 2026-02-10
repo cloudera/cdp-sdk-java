@@ -19,6 +19,7 @@
 
 package com.cloudera.cdp.client;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
@@ -89,6 +90,26 @@ public class ClientFactoryTest {
     testHttps("https://untrusted-root.badssl.com/", config, NO_ERROR);
   }
 
+  @Test
+  public void testDefaultDisableCookies() {
+    Client client = new ClientFactory().create(
+        CdpClientConfigurationBuilder
+            .defaultBuilder()
+            .build());
+    assertFalse((Boolean) client.getConfiguration().getProperty(
+        ApacheClientProperties.DISABLE_COOKIES));
+  }
+
+  @Test
+  public void testDisableCookies() {
+    Client client = new ClientFactory().create(
+        CdpClientConfigurationBuilder
+            .defaultBuilder()
+            .withDisableCookies(true)
+            .build());
+    assertTrue((Boolean) client.getConfiguration().getProperty(
+        ApacheClientProperties.DISABLE_COOKIES));
+  }
 
   @Test
   @Ignore

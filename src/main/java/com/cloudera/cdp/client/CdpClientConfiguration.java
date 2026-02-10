@@ -48,6 +48,7 @@ public class CdpClientConfiguration {
   private final String proxyUsername;
   private final String proxyPassword;
   private final boolean ignoreTls;
+  private final boolean disableCookies;
   private final ImmutableList<X509Certificate> trustedCertificates;
   private final Map<String, String> requestHeaders;
 
@@ -68,6 +69,7 @@ public class CdpClientConfiguration {
     proxyUsername = builder.getProxyUsername();
     proxyPassword = builder.getProxyPassword();
     ignoreTls = builder.getIgnoreTls();
+    disableCookies = builder.getDisableCookies();
     trustedCertificates = ImmutableList.copyOf(builder.getTrustedCertificates());
     requestHeaders = ImmutableMap.copyOf(builder.getRequestHeaders());
   }
@@ -89,6 +91,7 @@ public class CdpClientConfiguration {
         .withProxyUsername(proxyUsername)
         .withProxyPassword(proxyPassword)
         .withIgnoreTls(ignoreTls)
+        .withDisableCookies(disableCookies)
         .withTrustedCertificates(new ArrayList<>(trustedCertificates))
         .withRequestHeaders(new HashMap<>(requestHeaders));
   }
@@ -168,6 +171,13 @@ public class CdpClientConfiguration {
    */
   public boolean getIgnoreTls() {
     return this.ignoreTls;
+  }
+
+  /**
+   * see: {@link CdpClientConfigurationBuilder#getDisableCookies()}.
+   */
+  public boolean getDisableCookies() {
+    return this.disableCookies;
   }
 
   /**

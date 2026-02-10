@@ -28,7 +28,7 @@ import com.cloudera.cdp.opdb.model.DiagnosticsBundle;
 /**
  * Information about diagnostic bundle generation.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-07T06:42:41.114-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-28T12:21:16.832-08:00")
 public class CollectDiagnosticsResponse extends CdpResponse {
 
   /**

@@ -120,6 +120,13 @@ public class CdpClientConfigurationBuilderTest {
   }
 
   @Test
+  public void testDefaultDisableCookies() {
+    CdpClientConfigurationBuilder builder =
+        CdpClientConfigurationBuilder.defaultBuilder();
+    assertFalse(builder.getDisableCookies());
+  }
+
+  @Test
   public void testDefaultTrustedCertificates() {
     CdpClientConfigurationBuilder builder =
         CdpClientConfigurationBuilder.defaultBuilder();
@@ -224,5 +231,25 @@ public class CdpClientConfigurationBuilderTest {
     assertEquals(proxyUri, cc.getProxyUri());
     assertEquals(proxyUsername, cc.getProxyUsername());
     assertEquals(proxyPassword, cc.getProxyPassword());
+  }
+
+  @Test
+  public void testDisableCookies() {
+    CdpClientConfigurationBuilder builder =
+        CdpClientConfigurationBuilder.defaultBuilder();
+    assertFalse(builder.getDisableCookies());
+    builder.withDisableCookies(true);
+    assertTrue(builder.getDisableCookies());
+    CdpClientConfiguration cc = builder.build();
+    assertTrue(cc.getDisableCookies());
+  }
+
+  @Test
+  public void testDisableCookiesClientConfiguration() {
+    CdpClientConfiguration cc = CdpClientConfigurationBuilder
+        .defaultBuilder()
+        .withDisableCookies(true)
+        .build();
+    assertTrue(cc.getDisableCookies());
   }
 }

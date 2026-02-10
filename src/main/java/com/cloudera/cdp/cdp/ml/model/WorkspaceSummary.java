@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * A Cloudera AI workbench which includes the deployed configuration details.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-07T06:42:39.237-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-28T12:21:14.908-08:00")
 public class WorkspaceSummary  {
 
   /**

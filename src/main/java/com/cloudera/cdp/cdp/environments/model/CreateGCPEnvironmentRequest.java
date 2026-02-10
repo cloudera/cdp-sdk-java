@@ -34,7 +34,7 @@ import java.util.*;
 /**
  * Request object for a create GCP environment request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-07T06:42:40.351-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-28T12:21:16.014-08:00")
 public class CreateGCPEnvironmentRequest  {
 
   /**
@@ -136,6 +136,11 @@ public class CreateGCPEnvironmentRequest  {
    * Configures the desired custom docker registry for data services.
    **/
   private CustomDockerRegistryRequest customDockerRegistry = null;
+
+  /**
+   * Environment type which can be hybrid or public cloud.
+   **/
+  private String environmentType = null;
 
   /**
    * Getter for environmentName.
@@ -479,6 +484,23 @@ public class CreateGCPEnvironmentRequest  {
     this.customDockerRegistry = customDockerRegistry;
   }
 
+  /**
+   * Getter for environmentType.
+   * Environment type which can be hybrid or public cloud.
+   **/
+  @JsonProperty("environmentType")
+  public String getEnvironmentType() {
+    return environmentType;
+  }
+
+  /**
+   * Setter for environmentType.
+   * Environment type which can be hybrid or public cloud.
+   **/
+  public void setEnvironmentType(String environmentType) {
+    this.environmentType = environmentType;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -548,12 +570,15 @@ public class CreateGCPEnvironmentRequest  {
     if (!Objects.equals(this.customDockerRegistry, createGCPEnvironmentRequest.customDockerRegistry)) {
       return false;
     }
+    if (!Objects.equals(this.environmentType, createGCPEnvironmentRequest.environmentType)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, publicKey, usePublicIp, existingNetworkParams, securityAccess, logStorage, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, tags, proxyConfigName, encryptionKey, availabilityZones, customDockerRegistry);
+    return Objects.hash(environmentName, credentialName, region, publicKey, usePublicIp, existingNetworkParams, securityAccess, logStorage, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, tags, proxyConfigName, encryptionKey, availabilityZones, customDockerRegistry, environmentType);
   }
 
   @Override
@@ -580,6 +605,7 @@ public class CreateGCPEnvironmentRequest  {
     sb.append("    encryptionKey: ").append(toIndentedString(encryptionKey)).append("\n");
     sb.append("    availabilityZones: ").append(toIndentedString(availabilityZones)).append("\n");
     sb.append("    customDockerRegistry: ").append(toIndentedString(customDockerRegistry)).append("\n");
+    sb.append("    environmentType: ").append(toIndentedString(environmentType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

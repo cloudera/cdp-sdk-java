@@ -37,7 +37,7 @@ import java.util.*;
 /**
  * Request object for a create Azure environment request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-07T06:42:40.351-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-28T12:21:16.014-08:00")
 public class CreateAzureEnvironmentRequest  {
 
   /**
@@ -199,6 +199,11 @@ public class CreateAzureEnvironmentRequest  {
    * Configures the desired custom docker registry for data services.
    **/
   private CustomDockerRegistryRequest customDockerRegistry = null;
+
+  /**
+   * Environment type which can be hybrid or public cloud.
+   **/
+  private String environmentType = null;
 
   /**
    * Getter for environmentName.
@@ -748,6 +753,23 @@ public class CreateAzureEnvironmentRequest  {
     this.customDockerRegistry = customDockerRegistry;
   }
 
+  /**
+   * Getter for environmentType.
+   * Environment type which can be hybrid or public cloud.
+   **/
+  @JsonProperty("environmentType")
+  public String getEnvironmentType() {
+    return environmentType;
+  }
+
+  /**
+   * Setter for environmentType.
+   * Environment type which can be hybrid or public cloud.
+   **/
+  public void setEnvironmentType(String environmentType) {
+    this.environmentType = environmentType;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -853,12 +875,15 @@ public class CreateAzureEnvironmentRequest  {
     if (!Objects.equals(this.customDockerRegistry, createAzureEnvironmentRequest.customDockerRegistry)) {
       return false;
     }
+    if (!Objects.equals(this.environmentType, createAzureEnvironmentRequest.environmentType)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, enableComputeCluster, computeClusterConfiguration, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, encryptionAtHost, userManagedIdentity, encryptionUserManagedIdentity, encryptionKeyUrl, encryptionKeyResourceGroupName, enableOutboundLoadBalancer, availabilityZones, flexibleServerSubnetIds, dataServices, customDockerRegistry);
+    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, enableComputeCluster, computeClusterConfiguration, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, encryptionAtHost, userManagedIdentity, encryptionUserManagedIdentity, encryptionKeyUrl, encryptionKeyResourceGroupName, enableOutboundLoadBalancer, availabilityZones, flexibleServerSubnetIds, dataServices, customDockerRegistry, environmentType);
   }
 
   @Override
@@ -897,6 +922,7 @@ public class CreateAzureEnvironmentRequest  {
     sb.append("    flexibleServerSubnetIds: ").append(toIndentedString(flexibleServerSubnetIds)).append("\n");
     sb.append("    dataServices: ").append(toIndentedString(dataServices)).append("\n");
     sb.append("    customDockerRegistry: ").append(toIndentedString(customDockerRegistry)).append("\n");
+    sb.append("    environmentType: ").append(toIndentedString(environmentType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

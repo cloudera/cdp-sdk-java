@@ -163,6 +163,8 @@ import com.cloudera.cdp.datahub.model.UpdateAutoScaleRulesRequest;
 import com.cloudera.cdp.datahub.model.UpdateAutoScaleRulesResponse;
 import com.cloudera.cdp.datahub.model.UpdateOrchestratorStateRequest;
 import com.cloudera.cdp.datahub.model.UpdateOrchestratorStateResponse;
+import com.cloudera.cdp.datahub.model.UpdatePublicDnsEntriesRequest;
+import com.cloudera.cdp.datahub.model.UpdatePublicDnsEntriesResponse;
 import com.cloudera.cdp.datahub.model.UpdateToAwsImdsV1Request;
 import com.cloudera.cdp.datahub.model.UpdateToAwsImdsV1Response;
 import com.cloudera.cdp.datahub.model.UpdateToAwsImdsV2Request;
@@ -175,7 +177,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-07T06:42:37.156-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-28T12:21:12.738-08:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datahub";
@@ -1078,6 +1080,19 @@ public class DatahubClient extends CdpClient {
     }
 
     return this.invokeAPI("updateOrchestratorState", "/api/v1/datahub/updateOrchestratorState", input, new GenericType<UpdateOrchestratorStateResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Update public DNS entries of a Data Hub cluster by name or CRN.
+   * @param input
+   * @return UpdatePublicDnsEntriesResponse
+   */
+  public UpdatePublicDnsEntriesResponse updatePublicDnsEntries(UpdatePublicDnsEntriesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updatePublicDnsEntries");
+    }
+
+    return this.invokeAPI("updatePublicDnsEntries", "/api/v1/datahub/updatePublicDnsEntries", input, new GenericType<UpdatePublicDnsEntriesResponse>(){}, NO_EXTENSION);
   }
 
   /**

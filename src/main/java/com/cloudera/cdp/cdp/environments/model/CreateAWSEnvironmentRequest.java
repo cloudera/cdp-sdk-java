@@ -36,7 +36,7 @@ import java.util.*;
 /**
  * Request object for a create AWS environment request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-07T06:42:40.351-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-28T12:21:16.014-08:00")
 public class CreateAWSEnvironmentRequest  {
 
   /**
@@ -163,6 +163,11 @@ public class CreateAWSEnvironmentRequest  {
    * Configures the desired custom docker registry for data services.
    **/
   private CustomDockerRegistryRequest customDockerRegistry = null;
+
+  /**
+   * Environment type which can be hybrid or public cloud.
+   **/
+  private String environmentType = null;
 
   /**
    * Getter for environmentName.
@@ -593,6 +598,23 @@ public class CreateAWSEnvironmentRequest  {
     this.customDockerRegistry = customDockerRegistry;
   }
 
+  /**
+   * Getter for environmentType.
+   * Environment type which can be hybrid or public cloud.
+   **/
+  @JsonProperty("environmentType")
+  public String getEnvironmentType() {
+    return environmentType;
+  }
+
+  /**
+   * Setter for environmentType.
+   * Environment type which can be hybrid or public cloud.
+   **/
+  public void setEnvironmentType(String environmentType) {
+    this.environmentType = environmentType;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -677,12 +699,15 @@ public class CreateAWSEnvironmentRequest  {
     if (!Objects.equals(this.customDockerRegistry, createAWSEnvironmentRequest.customDockerRegistry)) {
       return false;
     }
+    if (!Objects.equals(this.environmentType, createAWSEnvironmentRequest.environmentType)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, securityAccess, authentication, logStorage, vpcId, subnetIds, createPrivateSubnets, createServiceEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, s3GuardTableName, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, enableComputeCluster, computeClusterConfiguration, image, tags, proxyConfigName, encryptionKeyArn, customDockerRegistry);
+    return Objects.hash(environmentName, credentialName, region, securityAccess, authentication, logStorage, vpcId, subnetIds, createPrivateSubnets, createServiceEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, s3GuardTableName, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, enableComputeCluster, computeClusterConfiguration, image, tags, proxyConfigName, encryptionKeyArn, customDockerRegistry, environmentType);
   }
 
   @Override
@@ -714,6 +739,7 @@ public class CreateAWSEnvironmentRequest  {
     sb.append("    proxyConfigName: ").append(toIndentedString(proxyConfigName)).append("\n");
     sb.append("    encryptionKeyArn: ").append(toIndentedString(encryptionKeyArn)).append("\n");
     sb.append("    customDockerRegistry: ").append(toIndentedString(customDockerRegistry)).append("\n");
+    sb.append("    environmentType: ").append(toIndentedString(environmentType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

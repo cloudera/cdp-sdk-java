@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * Request object for CreateVc method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-07T06:42:41.451-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-28T12:21:17.184-08:00")
 public class CreateVcRequest  {
 
   /**

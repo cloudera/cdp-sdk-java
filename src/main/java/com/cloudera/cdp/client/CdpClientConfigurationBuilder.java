@@ -59,6 +59,7 @@ public class CdpClientConfigurationBuilder {
       new ExponentialBackoffDelayPolicy(2, Duration.ofMillis(10), 5),
       13);
   private boolean ignoreTls = false;
+  private boolean disableCookies = false;
   private List<X509Certificate> trustedCertificates = new ArrayList<>();
   private Map<String, String> requestHeaders = new HashMap<>();
 
@@ -323,6 +324,28 @@ public class CdpClientConfigurationBuilder {
   }
 
   /**
+   * Sets whether cookie management should be disabled on the underlying HTTP client.
+   * When disabled, the client will not store cookies from responses and will not
+   * send cookies on subsequent requests.
+   *
+   * @param disableCookies The switch to disable cookies
+   * @return a reference to the CdpClientConfiguration object so
+   * that method calls can be chained together
+   */
+  public CdpClientConfigurationBuilder withDisableCookies(boolean disableCookies) {
+    this.disableCookies = disableCookies;
+    return this;
+  }
+
+  /**
+   * Gets whether cookie management is disabled on the underlying HTTP client.
+   * @return the switch to disable cookies
+   */
+  public boolean getDisableCookies() {
+    return this.disableCookies;
+  }
+
+  /**
    * Sets the trusted certificates.
    *
    * @param trustedCertificates The trusted certificates
@@ -422,6 +445,7 @@ public class CdpClientConfigurationBuilder {
         .add("Proxy Username", this.getProxyUsername())
         .add("Proxy Password", "<hidden>")
         .add("Ignore TLS", this.getIgnoreTls())
+        .add("Disable Cookies", this.getDisableCookies())
         .add("Trusted Certs", "<hidden>")
         .add("Request Headers", "<hidden>")
         .toString();

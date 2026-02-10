@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * A request to list active alerts for deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-07T06:42:42.138-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-28T12:21:17.803-08:00")
 public class ListDeploymentActiveAlertsRequest  {
 
   /**
@@ -36,7 +36,7 @@ public class ListDeploymentActiveAlertsRequest  {
   private String deploymentCrn = null;
 
   /**
-   * Sort criteria.
+   * Sort criteria (firstOccurrence|name|eventType):(asc|desc). Defaults to firstOccurrence:asc.
    **/
   private String sort = null;
 
@@ -59,7 +59,7 @@ public class ListDeploymentActiveAlertsRequest  {
 
   /**
    * Getter for sort.
-   * Sort criteria.
+   * Sort criteria (firstOccurrence|name|eventType):(asc|desc). Defaults to firstOccurrence:asc.
    **/
   @JsonProperty("sort")
   public String getSort() {
@@ -68,7 +68,7 @@ public class ListDeploymentActiveAlertsRequest  {
 
   /**
    * Setter for sort.
-   * Sort criteria.
+   * Sort criteria (firstOccurrence|name|eventType):(asc|desc). Defaults to firstOccurrence:asc.
    **/
   public void setSort(String sort) {
     this.sort = sort;
