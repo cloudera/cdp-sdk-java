@@ -26,12 +26,13 @@ import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.dw.model.AutoscalingOptionsUpdateRequest;
 import com.cloudera.cdp.dw.model.ImpalaHASettingsUpdateRequest;
 import com.cloudera.cdp.dw.model.QueryIsolationOptionsRequest;
+import com.cloudera.cdp.dw.model.QuotaRequest;
 import com.cloudera.cdp.dw.model.ServiceConfigReq;
 
 /**
  * Request object for the updateVw method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-28T12:21:13.882-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:48.889-08:00")
 public class UpdateVwRequest  {
 
   /**
@@ -98,6 +99,11 @@ public class UpdateVwRequest  {
    * If specified, modifies Hive Server High Availability mode in Private Cloud: * `DISABLED` - Disables Hive Server high availability. * `ACTIVE_PASSIVE` - Runs two Hive Server instances, one active and one passive. Hive session failover is not supported in this setup.
    **/
   private String hiveServerHaMode = null;
+
+  /**
+   * Setting the quota for the 3rd party services injected into the Virtual Warehouse namespace.
+   **/
+  private QuotaRequest additionalQuota = null;
 
   /**
    * Getter for clusterId.
@@ -322,6 +328,23 @@ public class UpdateVwRequest  {
     this.hiveServerHaMode = hiveServerHaMode;
   }
 
+  /**
+   * Getter for additionalQuota.
+   * Setting the quota for the 3rd party services injected into the Virtual Warehouse namespace.
+   **/
+  @JsonProperty("additionalQuota")
+  public QuotaRequest getAdditionalQuota() {
+    return additionalQuota;
+  }
+
+  /**
+   * Setter for additionalQuota.
+   * Setting the quota for the 3rd party services injected into the Virtual Warehouse namespace.
+   **/
+  public void setAdditionalQuota(QuotaRequest additionalQuota) {
+    this.additionalQuota = additionalQuota;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -370,12 +393,15 @@ public class UpdateVwRequest  {
     if (!Objects.equals(this.hiveServerHaMode, updateVwRequest.hiveServerHaMode)) {
       return false;
     }
+    if (!Objects.equals(this.additionalQuota, updateVwRequest.additionalQuota)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, vwId, tShirtSize, nodeCount, config, autoscaling, impalaHaSettings, queryIsolationOptions, hiveAuthenticationMode, platformJwtAuth, impalaQueryLog, logHiveQueries, hiveServerHaMode);
+    return Objects.hash(clusterId, vwId, tShirtSize, nodeCount, config, autoscaling, impalaHaSettings, queryIsolationOptions, hiveAuthenticationMode, platformJwtAuth, impalaQueryLog, logHiveQueries, hiveServerHaMode, additionalQuota);
   }
 
   @Override
@@ -395,6 +421,7 @@ public class UpdateVwRequest  {
     sb.append("    impalaQueryLog: ").append(toIndentedString(impalaQueryLog)).append("\n");
     sb.append("    logHiveQueries: ").append(toIndentedString(logHiveQueries)).append("\n");
     sb.append("    hiveServerHaMode: ").append(toIndentedString(hiveServerHaMode)).append("\n");
+    sb.append("    additionalQuota: ").append(toIndentedString(additionalQuota)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -24,13 +24,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.ml.model.KubernetesCluster;
+import com.cloudera.cdp.ml.model.VersionCompatibilityInfo;
 import java.time.ZonedDateTime;
 import java.util.*;
 
 /**
  * The Cloudera AI Inference Service instance.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-28T12:21:14.908-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:49.976-08:00")
 public class MlServingApp  {
 
   /**
@@ -112,6 +113,11 @@ public class MlServingApp  {
    * The allowed list of IPs for the load balancer.
    **/
   private String loadBalancerIPWhitelists = null;
+
+  /**
+   * Version compatibility information between control plane and this instance.
+   **/
+  private VersionCompatibilityInfo versionCompatibility = null;
 
   /**
    * Getter for cloudPlatform.
@@ -385,6 +391,23 @@ public class MlServingApp  {
     this.loadBalancerIPWhitelists = loadBalancerIPWhitelists;
   }
 
+  /**
+   * Getter for versionCompatibility.
+   * Version compatibility information between control plane and this instance.
+   **/
+  @JsonProperty("versionCompatibility")
+  public VersionCompatibilityInfo getVersionCompatibility() {
+    return versionCompatibility;
+  }
+
+  /**
+   * Setter for versionCompatibility.
+   * Version compatibility information between control plane and this instance.
+   **/
+  public void setVersionCompatibility(VersionCompatibilityInfo versionCompatibility) {
+    this.versionCompatibility = versionCompatibility;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -442,12 +465,15 @@ public class MlServingApp  {
     if (!Objects.equals(this.loadBalancerIPWhitelists, mlServingApp.loadBalancerIPWhitelists)) {
       return false;
     }
+    if (!Objects.equals(this.versionCompatibility, mlServingApp.versionCompatibility)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(cloudPlatform, appName, appCrn, environmentCrn, environmentName, namespace, ownerEmail, mlServingVersion, isPrivateCluster, creationDate, cluster, status, usePublicLoadBalancer, httpsEnabled, subnetsForLoadBalancers, loadBalancerIPWhitelists);
+    return Objects.hash(cloudPlatform, appName, appCrn, environmentCrn, environmentName, namespace, ownerEmail, mlServingVersion, isPrivateCluster, creationDate, cluster, status, usePublicLoadBalancer, httpsEnabled, subnetsForLoadBalancers, loadBalancerIPWhitelists, versionCompatibility);
   }
 
   @Override
@@ -470,6 +496,7 @@ public class MlServingApp  {
     sb.append("    httpsEnabled: ").append(toIndentedString(httpsEnabled)).append("\n");
     sb.append("    subnetsForLoadBalancers: ").append(toIndentedString(subnetsForLoadBalancers)).append("\n");
     sb.append("    loadBalancerIPWhitelists: ").append(toIndentedString(loadBalancerIPWhitelists)).append("\n");
+    sb.append("    versionCompatibility: ").append(toIndentedString(versionCompatibility)).append("\n");
     sb.append("}");
     return sb.toString();
   }

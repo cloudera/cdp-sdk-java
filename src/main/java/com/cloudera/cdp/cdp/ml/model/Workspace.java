@@ -35,7 +35,7 @@ import java.util.*;
 /**
  * A ML workbench, which includes the cluster and storage.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-28T12:21:14.908-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:49.976-08:00")
 public class Workspace  {
 
   /**
@@ -232,6 +232,11 @@ public class Workspace  {
    * Enable global access to the load balancer so the workbench is accessible from other regions.
    **/
   private Boolean enableGlobalAccessLoadBalancer = null;
+
+  /**
+   * The type of upgrade used for the workbench: \"Inplace\" or \"RestoreBased\". Only visible when set.
+   **/
+  private String upgradeType = null;
 
   /**
    * Getter for instanceName.
@@ -896,6 +901,23 @@ public class Workspace  {
     this.enableGlobalAccessLoadBalancer = enableGlobalAccessLoadBalancer;
   }
 
+  /**
+   * Getter for upgradeType.
+   * The type of upgrade used for the workbench: \&quot;Inplace\&quot; or \&quot;RestoreBased\&quot;. Only visible when set.
+   **/
+  @JsonProperty("upgradeType")
+  public String getUpgradeType() {
+    return upgradeType;
+  }
+
+  /**
+   * Setter for upgradeType.
+   * The type of upgrade used for the workbench: \&quot;Inplace\&quot; or \&quot;RestoreBased\&quot;. Only visible when set.
+   **/
+  public void setUpgradeType(String upgradeType) {
+    this.upgradeType = upgradeType;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -1022,12 +1044,15 @@ public class Workspace  {
     if (!Objects.equals(this.enableGlobalAccessLoadBalancer, workspace.enableGlobalAccessLoadBalancer)) {
       return false;
     }
+    if (!Objects.equals(this.upgradeType, workspace.upgradeType)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, endpointPublicAccess, filesystemID, tags, instanceGroups, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, healthInfoLists, failureMessage, clusterBaseDomain, modelMetricsEnabled, governanceEnabled, subnets, whitelistAuthorizedIPRanges, authorizedIPRanges, nfsVersion, subnetsForLoadBalancers, upgradeState, backupMetadata, clusterID, isPrivate, resourcePoolName, parentResourcePoolName, quota, availableQuota, isRestored, secondaryPodRangeNames, enableGlobalAccessLoadBalancer);
+    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, endpointPublicAccess, filesystemID, tags, instanceGroups, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, healthInfoLists, failureMessage, clusterBaseDomain, modelMetricsEnabled, governanceEnabled, subnets, whitelistAuthorizedIPRanges, authorizedIPRanges, nfsVersion, subnetsForLoadBalancers, upgradeState, backupMetadata, clusterID, isPrivate, resourcePoolName, parentResourcePoolName, quota, availableQuota, isRestored, secondaryPodRangeNames, enableGlobalAccessLoadBalancer, upgradeType);
   }
 
   @Override
@@ -1073,6 +1098,7 @@ public class Workspace  {
     sb.append("    isRestored: ").append(toIndentedString(isRestored)).append("\n");
     sb.append("    secondaryPodRangeNames: ").append(toIndentedString(secondaryPodRangeNames)).append("\n");
     sb.append("    enableGlobalAccessLoadBalancer: ").append(toIndentedString(enableGlobalAccessLoadBalancer)).append("\n");
+    sb.append("    upgradeType: ").append(toIndentedString(upgradeType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

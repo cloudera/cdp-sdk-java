@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * The alert frequency tolerance unit choices, including a default
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-28T12:21:18.124-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:52.868-08:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class AlertFrequencyTolerance  {
 

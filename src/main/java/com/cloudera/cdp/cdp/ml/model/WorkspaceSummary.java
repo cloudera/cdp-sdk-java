@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * A Cloudera AI workbench which includes the deployed configuration details.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-28T12:21:14.908-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:49.976-08:00")
 public class WorkspaceSummary  {
 
   /**
@@ -149,6 +149,11 @@ public class WorkspaceSummary  {
    * The value to indicate if the workbench is restored one or not
    **/
   private Boolean isRestored = null;
+
+  /**
+   * The type of upgrade used for the workbench: \"Inplace\" or \"RestoreBased\". Only visible when set.
+   **/
+  private String upgradeType = null;
 
   /**
    * Getter for instanceName.
@@ -541,6 +546,23 @@ public class WorkspaceSummary  {
     this.isRestored = isRestored;
   }
 
+  /**
+   * Getter for upgradeType.
+   * The type of upgrade used for the workbench: \&quot;Inplace\&quot; or \&quot;RestoreBased\&quot;. Only visible when set.
+   **/
+  @JsonProperty("upgradeType")
+  public String getUpgradeType() {
+    return upgradeType;
+  }
+
+  /**
+   * Setter for upgradeType.
+   * The type of upgrade used for the workbench: \&quot;Inplace\&quot; or \&quot;RestoreBased\&quot;. Only visible when set.
+   **/
+  public void setUpgradeType(String upgradeType) {
+    this.upgradeType = upgradeType;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -619,12 +641,15 @@ public class WorkspaceSummary  {
     if (!Objects.equals(this.isRestored, workspaceSummary.isRestored)) {
       return false;
     }
+    if (!Objects.equals(this.upgradeType, workspaceSummary.upgradeType)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, filesystemID, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, failureMessage, healthInfoLists, upgradeState, nfsVersion, backupMetadata, clusterID, isPrivate, isRestored);
+    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, filesystemID, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, failureMessage, healthInfoLists, upgradeState, nfsVersion, backupMetadata, clusterID, isPrivate, isRestored, upgradeType);
   }
 
   @Override
@@ -654,6 +679,7 @@ public class WorkspaceSummary  {
     sb.append("    clusterID: ").append(toIndentedString(clusterID)).append("\n");
     sb.append("    isPrivate: ").append(toIndentedString(isPrivate)).append("\n");
     sb.append("    isRestored: ").append(toIndentedString(isRestored)).append("\n");
+    sb.append("    upgradeType: ").append(toIndentedString(upgradeType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

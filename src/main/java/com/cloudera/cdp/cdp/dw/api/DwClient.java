@@ -52,6 +52,8 @@ import com.cloudera.cdp.dw.model.CreatePrivateClusterRequest;
 import com.cloudera.cdp.dw.model.CreatePrivateClusterResponse;
 import com.cloudera.cdp.dw.model.CreateResourceTemplateRequest;
 import com.cloudera.cdp.dw.model.CreateResourceTemplateResponse;
+import com.cloudera.cdp.dw.model.CreateSecretRequest;
+import com.cloudera.cdp.dw.model.CreateSecretResponse;
 import com.cloudera.cdp.dw.model.CreateVwDiagnosticDataJobRequest;
 import com.cloudera.cdp.dw.model.CreateVwDiagnosticDataJobResponse;
 import com.cloudera.cdp.dw.model.CreateVwRequest;
@@ -211,7 +213,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-28T12:21:13.882-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:48.889-08:00")
 public class DwClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dw";
@@ -397,6 +399,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("createResourceTemplate", "/api/v1/dw/createResourceTemplate", input, new GenericType<CreateResourceTemplateResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Creates a secret in the user&#39;s kubernetes cluster.
+   * @param input
+   * @return CreateSecretResponse
+   */
+  public CreateSecretResponse createSecret(CreateSecretRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createSecret");
+    }
+
+    return this.invokeAPI("createSecret", "/api/v1/dw/createSecret", input, new GenericType<CreateSecretResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -1128,7 +1143,7 @@ public class DwClient extends CdpClient {
   }
 
   /**
-   * Renew certificates for a Cloudera Data Warehouse Azure cluster.
+   * Renew certificates for a Cloudera Data Warehouse public cloud cluster.
    * @param input
    * @return RenewCertificatesResponse
    */

@@ -27,17 +27,17 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the renewCertificates method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-28T12:21:13.882-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:48.889-08:00")
 public class RenewCertificatesRequest  {
 
   /**
-   * The ID of the Azure cluster to renew certificates for.
+   * The ID of the public cloud cluster to renew certificates for.
    **/
   private String clusterId = null;
 
   /**
    * Getter for clusterId.
-   * The ID of the Azure cluster to renew certificates for.
+   * The ID of the public cloud cluster to renew certificates for.
    **/
   @JsonProperty("clusterId")
   public String getClusterId() {
@@ -46,7 +46,7 @@ public class RenewCertificatesRequest  {
 
   /**
    * Setter for clusterId.
-   * The ID of the Azure cluster to renew certificates for.
+   * The ID of the public cloud cluster to renew certificates for.
    **/
   public void setClusterId(String clusterId) {
     this.clusterId = clusterId;

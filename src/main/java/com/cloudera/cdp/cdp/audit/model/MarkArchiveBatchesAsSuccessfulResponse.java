@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response from marking archive batches as successful.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-28T12:21:17.040-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:51.848-08:00")
 public class MarkArchiveBatchesAsSuccessfulResponse extends CdpResponse {
 
   /**

@@ -27,6 +27,7 @@ import com.cloudera.cdp.dw.model.AutoscalingOptionsCreateRequest;
 import com.cloudera.cdp.dw.model.ImpalaHASettingsCreateRequest;
 import com.cloudera.cdp.dw.model.ImpalaOptionsCreateRequest;
 import com.cloudera.cdp.dw.model.QueryIsolationOptionsRequest;
+import com.cloudera.cdp.dw.model.QuotaRequest;
 import com.cloudera.cdp.dw.model.ServiceConfigReq;
 import com.cloudera.cdp.dw.model.TagRequest;
 import java.util.*;
@@ -34,7 +35,7 @@ import java.util.*;
 /**
  * Request object for the createVw method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-28T12:21:13.882-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:48.889-08:00")
 public class CreateVwRequest  {
 
   /**
@@ -121,6 +122,11 @@ public class CreateVwRequest  {
    * The Resource Pool of the Virtual Warehouse.
    **/
   private String resourcePool = null;
+
+  /**
+   * Setting the quota for the 3rd party services injected into the Virtual Warehouse namespace.
+   **/
+  private QuotaRequest additionalQuota = null;
 
   /**
    * DEPRECATED - Sets the authentication mode to use by Hive Server: * `LDAP` * `KERBEROS` Default: `LDAP` if not specified
@@ -444,6 +450,23 @@ public class CreateVwRequest  {
   }
 
   /**
+   * Getter for additionalQuota.
+   * Setting the quota for the 3rd party services injected into the Virtual Warehouse namespace.
+   **/
+  @JsonProperty("additionalQuota")
+  public QuotaRequest getAdditionalQuota() {
+    return additionalQuota;
+  }
+
+  /**
+   * Setter for additionalQuota.
+   * Setting the quota for the 3rd party services injected into the Virtual Warehouse namespace.
+   **/
+  public void setAdditionalQuota(QuotaRequest additionalQuota) {
+    this.additionalQuota = additionalQuota;
+  }
+
+  /**
    * Getter for hiveAuthenticationMode.
    * DEPRECATED - Sets the authentication mode to use by Hive Server: * &#x60;LDAP&#x60; * &#x60;KERBEROS&#x60; Default: &#x60;LDAP&#x60; if not specified
    **/
@@ -607,6 +630,9 @@ public class CreateVwRequest  {
     if (!Objects.equals(this.resourcePool, createVwRequest.resourcePool)) {
       return false;
     }
+    if (!Objects.equals(this.additionalQuota, createVwRequest.additionalQuota)) {
+      return false;
+    }
     if (!Objects.equals(this.hiveAuthenticationMode, createVwRequest.hiveAuthenticationMode)) {
       return false;
     }
@@ -630,7 +656,7 @@ public class CreateVwRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, dbcId, vwType, name, instanceType, imageVersion, tShirtSize, nodeCount, availabilityZone, enableUnifiedAnalytics, impalaOptions, impalaHaSettings, autoscaling, config, queryIsolationOptions, tags, resourcePool, hiveAuthenticationMode, platformJwtAuth, impalaQueryLog, logHiveQueries, ebsLLAPSpillGB, hiveServerHaMode);
+    return Objects.hash(clusterId, dbcId, vwType, name, instanceType, imageVersion, tShirtSize, nodeCount, availabilityZone, enableUnifiedAnalytics, impalaOptions, impalaHaSettings, autoscaling, config, queryIsolationOptions, tags, resourcePool, additionalQuota, hiveAuthenticationMode, platformJwtAuth, impalaQueryLog, logHiveQueries, ebsLLAPSpillGB, hiveServerHaMode);
   }
 
   @Override
@@ -654,6 +680,7 @@ public class CreateVwRequest  {
     sb.append("    queryIsolationOptions: ").append(toIndentedString(queryIsolationOptions)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    resourcePool: ").append(toIndentedString(resourcePool)).append("\n");
+    sb.append("    additionalQuota: ").append(toIndentedString(additionalQuota)).append("\n");
     sb.append("    hiveAuthenticationMode: ").append(toIndentedString(hiveAuthenticationMode)).append("\n");
     sb.append("    platformJwtAuth: ").append(toIndentedString(platformJwtAuth)).append("\n");
     sb.append("    impalaQueryLog: ").append(toIndentedString(impalaQueryLog)).append("\n");

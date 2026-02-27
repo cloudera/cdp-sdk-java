@@ -28,7 +28,7 @@ import com.cloudera.cdp.dw.model.KeyPairCredentials;
 /**
  * Options for activating a Private Cloud environment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-28T12:21:13.882-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:48.889-08:00")
 public class PrivateCloudActivationOptions  {
 
   /**
@@ -45,6 +45,11 @@ public class PrivateCloudActivationOptions  {
    * A certificate and private key pair belonging together for mutual SSL handshake when Database Catalog (aka DBC) connects to the metastore database.
    **/
   private KeyPairCredentials dbClientCredentials = null;
+
+  /**
+   * Optional hostname parameter. If not empty, this hostname will be used in the Kerberos service principal required by Cloudera Data Warehouse on Premises runtime components (Database Catalog, Virtual Warehouses).
+   **/
+  private String customKerberosPrincipalHostname = null;
 
   /**
    * Getter for storageClass.
@@ -99,6 +104,23 @@ public class PrivateCloudActivationOptions  {
     this.dbClientCredentials = dbClientCredentials;
   }
 
+  /**
+   * Getter for customKerberosPrincipalHostname.
+   * Optional hostname parameter. If not empty, this hostname will be used in the Kerberos service principal required by Cloudera Data Warehouse on Premises runtime components (Database Catalog, Virtual Warehouses).
+   **/
+  @JsonProperty("customKerberosPrincipalHostname")
+  public String getCustomKerberosPrincipalHostname() {
+    return customKerberosPrincipalHostname;
+  }
+
+  /**
+   * Setter for customKerberosPrincipalHostname.
+   * Optional hostname parameter. If not empty, this hostname will be used in the Kerberos service principal required by Cloudera Data Warehouse on Premises runtime components (Database Catalog, Virtual Warehouses).
+   **/
+  public void setCustomKerberosPrincipalHostname(String customKerberosPrincipalHostname) {
+    this.customKerberosPrincipalHostname = customKerberosPrincipalHostname;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -117,12 +139,15 @@ public class PrivateCloudActivationOptions  {
     if (!Objects.equals(this.dbClientCredentials, privateCloudActivationOptions.dbClientCredentials)) {
       return false;
     }
+    if (!Objects.equals(this.customKerberosPrincipalHostname, privateCloudActivationOptions.customKerberosPrincipalHostname)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(storageClass, dedicatedExecutorNodes, dbClientCredentials);
+    return Objects.hash(storageClass, dedicatedExecutorNodes, dbClientCredentials, customKerberosPrincipalHostname);
   }
 
   @Override
@@ -132,6 +157,7 @@ public class PrivateCloudActivationOptions  {
     sb.append("    storageClass: ").append(toIndentedString(storageClass)).append("\n");
     sb.append("    dedicatedExecutorNodes: ").append(toIndentedString(dedicatedExecutorNodes)).append("\n");
     sb.append("    dbClientCredentials: ").append(toIndentedString(dbClientCredentials)).append("\n");
+    sb.append("    customKerberosPrincipalHostname: ").append(toIndentedString(customKerberosPrincipalHostname)).append("\n");
     sb.append("}");
     return sb.toString();
   }

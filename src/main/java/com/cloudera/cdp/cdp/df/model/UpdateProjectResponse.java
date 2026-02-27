@@ -28,7 +28,7 @@ import com.cloudera.cdp.df.model.Project;
 /**
  * A response to describe a Project
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-28T12:21:17.803-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:52.503-08:00")
 public class UpdateProjectResponse extends CdpResponse {
 
   /**

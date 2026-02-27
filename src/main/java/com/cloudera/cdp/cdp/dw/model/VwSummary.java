@@ -29,6 +29,7 @@ import com.cloudera.cdp.dw.model.AutoscalingOptionsResponse;
 import com.cloudera.cdp.dw.model.ImpalaHASettingsOptionsResponse;
 import com.cloudera.cdp.dw.model.ImpalaOptionsResponse;
 import com.cloudera.cdp.dw.model.QueryIsolationOptionsResponse;
+import com.cloudera.cdp.dw.model.Quota;
 import com.cloudera.cdp.dw.model.ReplicaStatus;
 import com.cloudera.cdp.dw.model.TagResponse;
 import com.cloudera.cdp.dw.model.VwSummaryEndpoints;
@@ -41,7 +42,7 @@ import java.util.Map;
 /**
  * A Virtual Warehouse.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-28T12:21:13.882-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:48.889-08:00")
 public class VwSummary  {
 
   /**
@@ -198,6 +199,11 @@ public class VwSummary  {
    * The name of the Resource Pool the Virtual Warehouse is in.
    **/
   private String resourcePool = null;
+
+  /**
+   * Setting the quota for the 3rd party services injected into the Virtual Warehouse namespace.
+   **/
+  private Quota additionalQuota = null;
 
   /**
    * DEPRECATED - Authentication mode used by Hive Server: * `LDAP` * `KERBEROS`
@@ -749,6 +755,23 @@ public class VwSummary  {
   }
 
   /**
+   * Getter for additionalQuota.
+   * Setting the quota for the 3rd party services injected into the Virtual Warehouse namespace.
+   **/
+  @JsonProperty("additionalQuota")
+  public Quota getAdditionalQuota() {
+    return additionalQuota;
+  }
+
+  /**
+   * Setter for additionalQuota.
+   * Setting the quota for the 3rd party services injected into the Virtual Warehouse namespace.
+   **/
+  public void setAdditionalQuota(Quota additionalQuota) {
+    this.additionalQuota = additionalQuota;
+  }
+
+  /**
    * Getter for hiveAuthenticationMode.
    * DEPRECATED - Authentication mode used by Hive Server: * &#x60;LDAP&#x60; * &#x60;KERBEROS&#x60;
    **/
@@ -920,6 +943,9 @@ public class VwSummary  {
     if (!Objects.equals(this.resourcePool, vwSummary.resourcePool)) {
       return false;
     }
+    if (!Objects.equals(this.additionalQuota, vwSummary.additionalQuota)) {
+      return false;
+    }
     if (!Objects.equals(this.hiveAuthenticationMode, vwSummary.hiveAuthenticationMode)) {
       return false;
     }
@@ -937,7 +963,7 @@ public class VwSummary  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, name, vwType, instanceType, dbcId, status, statusChangedAt, creator, creationDate, configId, cdhVersion, numOfCores, memoryCapacity, nodeCount, availabilityZone, endpoints, supportedAuthMethods, jwtAuth, impalaQueryLog, logHiveQueries, tags, compactor, viz, enableUnifiedAnalytics, autoscalingOptions, impalaOptions, impalaHaSettingsOptions, queryIsolationOptions, replicaStatus, resourcePool, hiveAuthenticationMode, ebsLLAPSpillGB, hiveServerHaMode, resources);
+    return Objects.hash(crn, id, name, vwType, instanceType, dbcId, status, statusChangedAt, creator, creationDate, configId, cdhVersion, numOfCores, memoryCapacity, nodeCount, availabilityZone, endpoints, supportedAuthMethods, jwtAuth, impalaQueryLog, logHiveQueries, tags, compactor, viz, enableUnifiedAnalytics, autoscalingOptions, impalaOptions, impalaHaSettingsOptions, queryIsolationOptions, replicaStatus, resourcePool, additionalQuota, hiveAuthenticationMode, ebsLLAPSpillGB, hiveServerHaMode, resources);
   }
 
   @Override
@@ -975,6 +1001,7 @@ public class VwSummary  {
     sb.append("    queryIsolationOptions: ").append(toIndentedString(queryIsolationOptions)).append("\n");
     sb.append("    replicaStatus: ").append(toIndentedString(replicaStatus)).append("\n");
     sb.append("    resourcePool: ").append(toIndentedString(resourcePool)).append("\n");
+    sb.append("    additionalQuota: ").append(toIndentedString(additionalQuota)).append("\n");
     sb.append("    hiveAuthenticationMode: ").append(toIndentedString(hiveAuthenticationMode)).append("\n");
     sb.append("    ebsLLAPSpillGB: ").append(toIndentedString(ebsLLAPSpillGB)).append("\n");
     sb.append("    hiveServerHaMode: ").append(toIndentedString(hiveServerHaMode)).append("\n");

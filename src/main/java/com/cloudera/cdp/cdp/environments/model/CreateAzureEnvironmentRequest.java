@@ -37,7 +37,7 @@ import java.util.*;
 /**
  * Request object for a create Azure environment request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-28T12:21:16.014-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:50.883-08:00")
 public class CreateAzureEnvironmentRequest  {
 
   /**
@@ -154,11 +154,6 @@ public class CreateAzureEnvironmentRequest  {
    * When this is enabled, we will provision resources with host encrypted true flag.
    **/
   private Boolean encryptionAtHost = null;
-
-  /**
-   * User managed identity for encryption. (deprecated)
-   **/
-  private String userManagedIdentity = null;
 
   /**
    * User managed identity for encryption.
@@ -599,25 +594,6 @@ public class CreateAzureEnvironmentRequest  {
   }
 
   /**
-   * Getter for userManagedIdentity.
-   * User managed identity for encryption. (deprecated)
-   **/
-  @Deprecated
-  @JsonProperty("userManagedIdentity")
-  public String getUserManagedIdentity() {
-    return userManagedIdentity;
-  }
-
-  /**
-   * Setter for userManagedIdentity.
-   * User managed identity for encryption. (deprecated)
-   **/
-  @Deprecated
-  public void setUserManagedIdentity(String userManagedIdentity) {
-    this.userManagedIdentity = userManagedIdentity;
-  }
-
-  /**
    * Getter for encryptionUserManagedIdentity.
    * User managed identity for encryption.
    **/
@@ -848,9 +824,6 @@ public class CreateAzureEnvironmentRequest  {
     if (!Objects.equals(this.encryptionAtHost, createAzureEnvironmentRequest.encryptionAtHost)) {
       return false;
     }
-    if (!Objects.equals(this.userManagedIdentity, createAzureEnvironmentRequest.userManagedIdentity)) {
-      return false;
-    }
     if (!Objects.equals(this.encryptionUserManagedIdentity, createAzureEnvironmentRequest.encryptionUserManagedIdentity)) {
       return false;
     }
@@ -883,7 +856,7 @@ public class CreateAzureEnvironmentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, enableComputeCluster, computeClusterConfiguration, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, encryptionAtHost, userManagedIdentity, encryptionUserManagedIdentity, encryptionKeyUrl, encryptionKeyResourceGroupName, enableOutboundLoadBalancer, availabilityZones, flexibleServerSubnetIds, dataServices, customDockerRegistry, environmentType);
+    return Objects.hash(environmentName, credentialName, region, publicKey, securityAccess, usePublicIp, logStorage, existingNetworkParams, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, enableComputeCluster, computeClusterConfiguration, image, tags, proxyConfigName, resourceGroupName, createPrivateEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, encryptionAtHost, encryptionUserManagedIdentity, encryptionKeyUrl, encryptionKeyResourceGroupName, enableOutboundLoadBalancer, availabilityZones, flexibleServerSubnetIds, dataServices, customDockerRegistry, environmentType);
   }
 
   @Override
@@ -913,7 +886,6 @@ public class CreateAzureEnvironmentRequest  {
     sb.append("    endpointAccessGatewayScheme: ").append(toIndentedString(endpointAccessGatewayScheme)).append("\n");
     sb.append("    endpointAccessGatewaySubnetIds: ").append(toIndentedString(endpointAccessGatewaySubnetIds)).append("\n");
     sb.append("    encryptionAtHost: ").append(toIndentedString(encryptionAtHost)).append("\n");
-    sb.append("    userManagedIdentity: ").append(toIndentedString(userManagedIdentity)).append("\n");
     sb.append("    encryptionUserManagedIdentity: ").append(toIndentedString(encryptionUserManagedIdentity)).append("\n");
     sb.append("    encryptionKeyUrl: ").append(toIndentedString(encryptionKeyUrl)).append("\n");
     sb.append("    encryptionKeyResourceGroupName: ").append(toIndentedString(encryptionKeyResourceGroupName)).append("\n");

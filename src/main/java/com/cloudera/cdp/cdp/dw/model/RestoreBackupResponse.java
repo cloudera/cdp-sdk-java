@@ -23,11 +23,12 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.dw.model.RestoreBackupResponseRestorePlan;
 
 /**
  * Response object for the restore backup request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-01-28T12:21:13.882-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:48.889-08:00")
 public class RestoreBackupResponse extends CdpResponse {
 
   /**
@@ -39,6 +40,11 @@ public class RestoreBackupResponse extends CdpResponse {
    * Additional message from the restore process.
    **/
   private String message = null;
+
+  /**
+   * 
+   **/
+  private RestoreBackupResponseRestorePlan restorePlan = null;
 
   /**
    * Getter for restoreCrn.
@@ -74,6 +80,23 @@ public class RestoreBackupResponse extends CdpResponse {
     this.message = message;
   }
 
+  /**
+   * Getter for restorePlan.
+   * 
+   **/
+  @JsonProperty("restorePlan")
+  public RestoreBackupResponseRestorePlan getRestorePlan() {
+    return restorePlan;
+  }
+
+  /**
+   * Setter for restorePlan.
+   * 
+   **/
+  public void setRestorePlan(RestoreBackupResponseRestorePlan restorePlan) {
+    this.restorePlan = restorePlan;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -89,6 +112,9 @@ public class RestoreBackupResponse extends CdpResponse {
     if (!Objects.equals(this.message, restoreBackupResponse.message)) {
       return false;
     }
+    if (!Objects.equals(this.restorePlan, restoreBackupResponse.restorePlan)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -97,7 +123,7 @@ public class RestoreBackupResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(restoreCrn, message, super.hashCode());
+    return Objects.hash(restoreCrn, message, restorePlan, super.hashCode());
   }
 
   @Override
@@ -107,6 +133,7 @@ public class RestoreBackupResponse extends CdpResponse {
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    restoreCrn: ").append(toIndentedString(restoreCrn)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    restorePlan: ").append(toIndentedString(restorePlan)).append("\n");
     sb.append("}");
     return sb.toString();
   }
