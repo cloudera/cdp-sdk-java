@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for retrieving a custom NAR configuration by configuration CRN or deployment CRN.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:52.868-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:08.000-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class GetCustomNarConfigurationRequest  {
 
@@ -35,6 +35,11 @@ public class GetCustomNarConfigurationRequest  {
    * The CRN of an environment to execute the command.
    **/
   private String environmentCrn = null;
+
+  /**
+   * The CRN of the deployment whose custom resource configuration should be retrieved.
+   **/
+  private String deploymentCrn = null;
 
   /**
    * The CRN of the custom NAR configuration to retrieve.
@@ -56,6 +61,23 @@ public class GetCustomNarConfigurationRequest  {
    **/
   public void setEnvironmentCrn(String environmentCrn) {
     this.environmentCrn = environmentCrn;
+  }
+
+  /**
+   * Getter for deploymentCrn.
+   * The CRN of the deployment whose custom resource configuration should be retrieved.
+   **/
+  @JsonProperty("deploymentCrn")
+  public String getDeploymentCrn() {
+    return deploymentCrn;
+  }
+
+  /**
+   * Setter for deploymentCrn.
+   * The CRN of the deployment whose custom resource configuration should be retrieved.
+   **/
+  public void setDeploymentCrn(String deploymentCrn) {
+    this.deploymentCrn = deploymentCrn;
   }
 
   /**
@@ -87,6 +109,9 @@ public class GetCustomNarConfigurationRequest  {
     if (!Objects.equals(this.environmentCrn, getCustomNarConfigurationRequest.environmentCrn)) {
       return false;
     }
+    if (!Objects.equals(this.deploymentCrn, getCustomNarConfigurationRequest.deploymentCrn)) {
+      return false;
+    }
     if (!Objects.equals(this.customNarConfigurationCrn, getCustomNarConfigurationRequest.customNarConfigurationCrn)) {
       return false;
     }
@@ -95,7 +120,7 @@ public class GetCustomNarConfigurationRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, customNarConfigurationCrn);
+    return Objects.hash(environmentCrn, deploymentCrn, customNarConfigurationCrn);
   }
 
   @Override
@@ -103,6 +128,7 @@ public class GetCustomNarConfigurationRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class GetCustomNarConfigurationRequest {\n");
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
+    sb.append("    deploymentCrn: ").append(toIndentedString(deploymentCrn)).append("\n");
     sb.append("    customNarConfigurationCrn: ").append(toIndentedString(customNarConfigurationCrn)).append("\n");
     sb.append("}");
     return sb.toString();

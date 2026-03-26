@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * The summary of the DF Service enabled in a CDP Environment
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:52.503-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:07.561-07:00")
 public class ServiceSummary  {
 
   /**
@@ -121,6 +121,11 @@ public class ServiceSummary  {
    * The name of the proxy that is configured for the CDP environment
    **/
   private String proxyName = null;
+
+  /**
+   * Indicates whether to enforce project or not.
+   **/
+  private Boolean enforceProject = null;
 
   /**
    * Getter for crn.
@@ -428,6 +433,23 @@ public class ServiceSummary  {
     this.proxyName = proxyName;
   }
 
+  /**
+   * Getter for enforceProject.
+   * Indicates whether to enforce project or not.
+   **/
+  @JsonProperty("enforceProject")
+  public Boolean getEnforceProject() {
+    return enforceProject;
+  }
+
+  /**
+   * Setter for enforceProject.
+   * Indicates whether to enforce project or not.
+   **/
+  public void setEnforceProject(Boolean enforceProject) {
+    this.enforceProject = enforceProject;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -491,12 +513,15 @@ public class ServiceSummary  {
     if (!Objects.equals(this.proxyName, serviceSummary.proxyName)) {
       return false;
     }
+    if (!Objects.equals(this.enforceProject, serviceSummary.enforceProject)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, environmentCrn, name, cloudPlatform, region, deploymentCount, maxK8sNodeCount, status, workloadVersion, upgradeDeploymentsNiFiVersion, runningK8sNodeCount, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, clusterId, instanceType, validActions, proxyName);
+    return Objects.hash(crn, environmentCrn, name, cloudPlatform, region, deploymentCount, maxK8sNodeCount, status, workloadVersion, upgradeDeploymentsNiFiVersion, runningK8sNodeCount, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, clusterId, instanceType, validActions, proxyName, enforceProject);
   }
 
   @Override
@@ -521,6 +546,7 @@ public class ServiceSummary  {
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
     sb.append("    validActions: ").append(toIndentedString(validActions)).append("\n");
     sb.append("    proxyName: ").append(toIndentedString(proxyName)).append("\n");
+    sb.append("    enforceProject: ").append(toIndentedString(enforceProject)).append("\n");
     sb.append("}");
     return sb.toString();
   }

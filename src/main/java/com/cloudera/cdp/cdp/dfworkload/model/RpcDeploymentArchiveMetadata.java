@@ -23,11 +23,13 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.dfworkload.model.DeployedFlowMetadata;
+import java.util.*;
 
 /**
  * Provides the metadata about deployment exported archive
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:52.868-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:08.000-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcDeploymentArchiveMetadata  {
 
@@ -45,6 +47,11 @@ public class RpcDeploymentArchiveMetadata  {
    * The name of the flow
    **/
   private String flowName = null;
+
+  /**
+   * The list of the deployed flows and flow definition names tuples exported as part of deployment configuration
+   **/
+  private List<DeployedFlowMetadata> deployedFlows = new ArrayList<DeployedFlowMetadata>();
 
   /**
    * The name of the exported deployment archive
@@ -120,6 +127,23 @@ public class RpcDeploymentArchiveMetadata  {
    **/
   public void setFlowName(String flowName) {
     this.flowName = flowName;
+  }
+
+  /**
+   * Getter for deployedFlows.
+   * The list of the deployed flows and flow definition names tuples exported as part of deployment configuration
+   **/
+  @JsonProperty("deployedFlows")
+  public List<DeployedFlowMetadata> getDeployedFlows() {
+    return deployedFlows;
+  }
+
+  /**
+   * Setter for deployedFlows.
+   * The list of the deployed flows and flow definition names tuples exported as part of deployment configuration
+   **/
+  public void setDeployedFlows(List<DeployedFlowMetadata> deployedFlows) {
+    this.deployedFlows = deployedFlows;
   }
 
   /**
@@ -225,6 +249,9 @@ public class RpcDeploymentArchiveMetadata  {
     if (!Objects.equals(this.flowName, rpcDeploymentArchiveMetadata.flowName)) {
       return false;
     }
+    if (!Objects.equals(this.deployedFlows, rpcDeploymentArchiveMetadata.deployedFlows)) {
+      return false;
+    }
     if (!Objects.equals(this.archiveName, rpcDeploymentArchiveMetadata.archiveName)) {
       return false;
     }
@@ -245,7 +272,7 @@ public class RpcDeploymentArchiveMetadata  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(workloadVersion, deploymentName, flowName, archiveName, modifiedTime, archiveDescription, uploadTime, projectCrn);
+    return Objects.hash(workloadVersion, deploymentName, flowName, deployedFlows, archiveName, modifiedTime, archiveDescription, uploadTime, projectCrn);
   }
 
   @Override
@@ -255,6 +282,7 @@ public class RpcDeploymentArchiveMetadata  {
     sb.append("    workloadVersion: ").append(toIndentedString(workloadVersion)).append("\n");
     sb.append("    deploymentName: ").append(toIndentedString(deploymentName)).append("\n");
     sb.append("    flowName: ").append(toIndentedString(flowName)).append("\n");
+    sb.append("    deployedFlows: ").append(toIndentedString(deployedFlows)).append("\n");
     sb.append("    archiveName: ").append(toIndentedString(archiveName)).append("\n");
     sb.append("    modifiedTime: ").append(toIndentedString(modifiedTime)).append("\n");
     sb.append("    archiveDescription: ").append(toIndentedString(archiveDescription)).append("\n");

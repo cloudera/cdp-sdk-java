@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for creating an asset update request
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:52.868-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:08.000-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class CreateAssetUpdateRequestRequest  {
 
@@ -40,6 +40,11 @@ public class CreateAssetUpdateRequestRequest  {
    * The deployment crn.
    **/
   private String deploymentCrn = null;
+
+  /**
+   * The CRN of the deployed flow.  If unspecified and there is exactly one flow in the deployment, the asset will be uploaded to that flow.
+   **/
+  private String deployedFlowCrn = null;
 
   /**
    * Getter for environmentCrn.
@@ -75,6 +80,23 @@ public class CreateAssetUpdateRequestRequest  {
     this.deploymentCrn = deploymentCrn;
   }
 
+  /**
+   * Getter for deployedFlowCrn.
+   * The CRN of the deployed flow.  If unspecified and there is exactly one flow in the deployment, the asset will be uploaded to that flow.
+   **/
+  @JsonProperty("deployedFlowCrn")
+  public String getDeployedFlowCrn() {
+    return deployedFlowCrn;
+  }
+
+  /**
+   * Setter for deployedFlowCrn.
+   * The CRN of the deployed flow.  If unspecified and there is exactly one flow in the deployment, the asset will be uploaded to that flow.
+   **/
+  public void setDeployedFlowCrn(String deployedFlowCrn) {
+    this.deployedFlowCrn = deployedFlowCrn;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -90,12 +112,15 @@ public class CreateAssetUpdateRequestRequest  {
     if (!Objects.equals(this.deploymentCrn, createAssetUpdateRequestRequest.deploymentCrn)) {
       return false;
     }
+    if (!Objects.equals(this.deployedFlowCrn, createAssetUpdateRequestRequest.deployedFlowCrn)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, deploymentCrn);
+    return Objects.hash(environmentCrn, deploymentCrn, deployedFlowCrn);
   }
 
   @Override
@@ -104,6 +129,7 @@ public class CreateAssetUpdateRequestRequest  {
     sb.append("class CreateAssetUpdateRequestRequest {\n");
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
     sb.append("    deploymentCrn: ").append(toIndentedString(deploymentCrn)).append("\n");
+    sb.append("    deployedFlowCrn: ").append(toIndentedString(deployedFlowCrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

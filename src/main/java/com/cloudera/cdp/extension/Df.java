@@ -130,8 +130,8 @@ public class Df implements CdpClientMiddleware {
     String parameterName = uploadAssetRequest.getParameterName();
     String deploymentRequestCrn = uploadAssetRequest.getDeploymentRequestCrn();
     String deploymentName = uploadAssetRequest.getDeploymentName();
-    // assetUpdateRequestCrn was removed temporarily.
-    // String assetUpdateRequestCrn = uploadAssetRequest.getAssetUpdateRequestCrn();
+    String deployedFlowName = uploadAssetRequest.getDeployedFlowName();
+    String assetUpdateRequestCrn = uploadAssetRequest.getAssetUpdateRequestCrn();
     String filePath = uploadAssetRequest.getFilePath();
 
     if (Strings.isNullOrEmpty(parameterGroup)) {
@@ -155,10 +155,12 @@ public class Df implements CdpClientMiddleware {
     if (deploymentName != null) {
       headers.put("Deployment-Name", deploymentName);
     }
-    // assetUpdateRequestCrn was removed temporarily.
-    // if (assetUpdateRequestCrn != null) {
-    //   headers.put("Asset-Update-Request-Crn", assetUpdateRequestCrn);
-    // }
+    if (assetUpdateRequestCrn != null) {
+      headers.put("Asset-Update-Request-Crn", assetUpdateRequestCrn);
+    }
+    if (deployedFlowName != null) {
+      headers.put("Deployed-Flow-Name", deployedFlowName);
+    }
     if (filePath != null) {
       headers.put("File-Path", filePath);
     }

@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * Contains the configuration data imported from exported archive.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:52.868-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:08.000-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcImportedDeploymentConfiguration  {
 
@@ -71,6 +71,11 @@ public class RpcImportedDeploymentConfiguration  {
    * The list of configured KPIs imported from archive.
    **/
   private List<ConfiguredKpi> kpis = new ArrayList<ConfiguredKpi>();
+
+  /**
+   * The list of configured component KPIs imported from archive.
+   **/
+  private List<ConfiguredKpi> deployedFlowKpis = new ArrayList<ConfiguredKpi>();
 
   /**
    * The flow parameter groups with values imported from archive.
@@ -239,6 +244,23 @@ public class RpcImportedDeploymentConfiguration  {
    **/
   public void setKpis(List<ConfiguredKpi> kpis) {
     this.kpis = kpis;
+  }
+
+  /**
+   * Getter for deployedFlowKpis.
+   * The list of configured component KPIs imported from archive.
+   **/
+  @JsonProperty("deployedFlowKpis")
+  public List<ConfiguredKpi> getDeployedFlowKpis() {
+    return deployedFlowKpis;
+  }
+
+  /**
+   * Setter for deployedFlowKpis.
+   * The list of configured component KPIs imported from archive.
+   **/
+  public void setDeployedFlowKpis(List<ConfiguredKpi> deployedFlowKpis) {
+    this.deployedFlowKpis = deployedFlowKpis;
   }
 
   /**
@@ -441,6 +463,9 @@ public class RpcImportedDeploymentConfiguration  {
     if (!Objects.equals(this.kpis, rpcImportedDeploymentConfiguration.kpis)) {
       return false;
     }
+    if (!Objects.equals(this.deployedFlowKpis, rpcImportedDeploymentConfiguration.deployedFlowKpis)) {
+      return false;
+    }
     if (!Objects.equals(this.flowParameterGroups, rpcImportedDeploymentConfiguration.flowParameterGroups)) {
       return false;
     }
@@ -476,7 +501,7 @@ public class RpcImportedDeploymentConfiguration  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, clusterSize, kpis, flowParameterGroups, cfmNifiVersion, inboundHostName, listenComponents, inboundConnectionAuthorizedIpRanges, nodeStorageProfile, nodeStorage, projectCrn, customNarConfigurationCrn, customPythonConfigurationCrn);
+    return Objects.hash(autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, clusterSize, kpis, deployedFlowKpis, flowParameterGroups, cfmNifiVersion, inboundHostName, listenComponents, inboundConnectionAuthorizedIpRanges, nodeStorageProfile, nodeStorage, projectCrn, customNarConfigurationCrn, customPythonConfigurationCrn);
   }
 
   @Override
@@ -490,6 +515,7 @@ public class RpcImportedDeploymentConfiguration  {
     sb.append("    staticNodeCount: ").append(toIndentedString(staticNodeCount)).append("\n");
     sb.append("    clusterSize: ").append(toIndentedString(clusterSize)).append("\n");
     sb.append("    kpis: ").append(toIndentedString(kpis)).append("\n");
+    sb.append("    deployedFlowKpis: ").append(toIndentedString(deployedFlowKpis)).append("\n");
     sb.append("    flowParameterGroups: ").append(toIndentedString(flowParameterGroups)).append("\n");
     sb.append("    cfmNifiVersion: ").append(toIndentedString(cfmNifiVersion)).append("\n");
     sb.append("    inboundHostName: ").append(toIndentedString(inboundHostName)).append("\n");

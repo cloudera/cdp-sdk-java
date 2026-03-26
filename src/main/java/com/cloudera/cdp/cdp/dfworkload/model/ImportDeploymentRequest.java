@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object to import deployment configuration.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:52.868-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:08.000-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class ImportDeploymentRequest  {
 
@@ -45,6 +45,11 @@ public class ImportDeploymentRequest  {
    * Search term to filter exported archives by deployment name.
    **/
   private String archiveName = null;
+
+  /**
+   * The name of the deployed flow in the exported archive.
+   **/
+  private String flowName = null;
 
   /**
    * Getter for environmentCrn.
@@ -97,6 +102,23 @@ public class ImportDeploymentRequest  {
     this.archiveName = archiveName;
   }
 
+  /**
+   * Getter for flowName.
+   * The name of the deployed flow in the exported archive.
+   **/
+  @JsonProperty("flowName")
+  public String getFlowName() {
+    return flowName;
+  }
+
+  /**
+   * Setter for flowName.
+   * The name of the deployed flow in the exported archive.
+   **/
+  public void setFlowName(String flowName) {
+    this.flowName = flowName;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -115,12 +137,15 @@ public class ImportDeploymentRequest  {
     if (!Objects.equals(this.archiveName, importDeploymentRequest.archiveName)) {
       return false;
     }
+    if (!Objects.equals(this.flowName, importDeploymentRequest.flowName)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, deploymentRequestCrn, archiveName);
+    return Objects.hash(environmentCrn, deploymentRequestCrn, archiveName, flowName);
   }
 
   @Override
@@ -130,6 +155,7 @@ public class ImportDeploymentRequest  {
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
     sb.append("    deploymentRequestCrn: ").append(toIndentedString(deploymentRequestCrn)).append("\n");
     sb.append("    archiveName: ").append(toIndentedString(archiveName)).append("\n");
+    sb.append("    flowName: ").append(toIndentedString(flowName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

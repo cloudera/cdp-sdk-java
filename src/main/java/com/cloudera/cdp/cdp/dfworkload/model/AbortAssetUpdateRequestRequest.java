@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for aborting an asset update request
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:52.868-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:08.000-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class AbortAssetUpdateRequestRequest  {
 
@@ -45,6 +45,11 @@ public class AbortAssetUpdateRequestRequest  {
    * The CRN of the asset update request
    **/
   private String assetUpdateRequestCrn = null;
+
+  /**
+   * The CRN of the deployed flow.  If specified, this is used to validate that the specified asset update request indeed applies to this flow.
+   **/
+  private String deployedFlowCrn = null;
 
   /**
    * Getter for environmentCrn.
@@ -97,6 +102,23 @@ public class AbortAssetUpdateRequestRequest  {
     this.assetUpdateRequestCrn = assetUpdateRequestCrn;
   }
 
+  /**
+   * Getter for deployedFlowCrn.
+   * The CRN of the deployed flow.  If specified, this is used to validate that the specified asset update request indeed applies to this flow.
+   **/
+  @JsonProperty("deployedFlowCrn")
+  public String getDeployedFlowCrn() {
+    return deployedFlowCrn;
+  }
+
+  /**
+   * Setter for deployedFlowCrn.
+   * The CRN of the deployed flow.  If specified, this is used to validate that the specified asset update request indeed applies to this flow.
+   **/
+  public void setDeployedFlowCrn(String deployedFlowCrn) {
+    this.deployedFlowCrn = deployedFlowCrn;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -115,12 +137,15 @@ public class AbortAssetUpdateRequestRequest  {
     if (!Objects.equals(this.assetUpdateRequestCrn, abortAssetUpdateRequestRequest.assetUpdateRequestCrn)) {
       return false;
     }
+    if (!Objects.equals(this.deployedFlowCrn, abortAssetUpdateRequestRequest.deployedFlowCrn)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, deploymentCrn, assetUpdateRequestCrn);
+    return Objects.hash(environmentCrn, deploymentCrn, assetUpdateRequestCrn, deployedFlowCrn);
   }
 
   @Override
@@ -130,6 +155,7 @@ public class AbortAssetUpdateRequestRequest  {
     sb.append("    environmentCrn: ").append(toIndentedString(environmentCrn)).append("\n");
     sb.append("    deploymentCrn: ").append(toIndentedString(deploymentCrn)).append("\n");
     sb.append("    assetUpdateRequestCrn: ").append(toIndentedString(assetUpdateRequestCrn)).append("\n");
+    sb.append("    deployedFlowCrn: ").append(toIndentedString(deployedFlowCrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

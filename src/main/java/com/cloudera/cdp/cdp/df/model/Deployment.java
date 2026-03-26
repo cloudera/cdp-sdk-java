@@ -30,7 +30,7 @@ import com.cloudera.cdp.df.model.ServiceMeta;
 /**
  * A deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:52.503-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:07.561-07:00")
 public class Deployment  {
 
   /**
@@ -64,12 +64,12 @@ public class Deployment  {
   private String clusterSize = null;
 
   /**
-   * The deployment's current flow version CRN.
+   * The deployment's current flow version CRN. Deprecated, use flowVersionCrn in DeployedFlow
    **/
   private String flowVersionCrn = null;
 
   /**
-   * The CRN of the flow definition.
+   * The CRN of the flow definition. Deprecated, use flowCrn in DeployedFlow
    **/
   private String flowCrn = null;
 
@@ -84,12 +84,12 @@ public class Deployment  {
   private Integer autoscaleMaxNodes = null;
 
   /**
-   * The name of the flow.
+   * The name of the flow. Deprecated, use artifactName in DeployedFlow
    **/
   private String flowName = null;
 
   /**
-   * The version of the flow.
+   * The version of the flow. Deprecated, use flowVersion in DeployedFlow
    **/
   private Integer flowVersion = null;
 
@@ -272,8 +272,9 @@ public class Deployment  {
 
   /**
    * Getter for flowVersionCrn.
-   * The deployment&#39;s current flow version CRN.
+   * The deployment&#39;s current flow version CRN. Deprecated, use flowVersionCrn in DeployedFlow
    **/
+  @Deprecated
   @JsonProperty("flowVersionCrn")
   public String getFlowVersionCrn() {
     return flowVersionCrn;
@@ -281,16 +282,18 @@ public class Deployment  {
 
   /**
    * Setter for flowVersionCrn.
-   * The deployment&#39;s current flow version CRN.
+   * The deployment&#39;s current flow version CRN. Deprecated, use flowVersionCrn in DeployedFlow
    **/
+  @Deprecated
   public void setFlowVersionCrn(String flowVersionCrn) {
     this.flowVersionCrn = flowVersionCrn;
   }
 
   /**
    * Getter for flowCrn.
-   * The CRN of the flow definition.
+   * The CRN of the flow definition. Deprecated, use flowCrn in DeployedFlow
    **/
+  @Deprecated
   @JsonProperty("flowCrn")
   public String getFlowCrn() {
     return flowCrn;
@@ -298,8 +301,9 @@ public class Deployment  {
 
   /**
    * Setter for flowCrn.
-   * The CRN of the flow definition.
+   * The CRN of the flow definition. Deprecated, use flowCrn in DeployedFlow
    **/
+  @Deprecated
   public void setFlowCrn(String flowCrn) {
     this.flowCrn = flowCrn;
   }
@@ -340,8 +344,9 @@ public class Deployment  {
 
   /**
    * Getter for flowName.
-   * The name of the flow.
+   * The name of the flow. Deprecated, use artifactName in DeployedFlow
    **/
+  @Deprecated
   @JsonProperty("flowName")
   public String getFlowName() {
     return flowName;
@@ -349,16 +354,18 @@ public class Deployment  {
 
   /**
    * Setter for flowName.
-   * The name of the flow.
+   * The name of the flow. Deprecated, use artifactName in DeployedFlow
    **/
+  @Deprecated
   public void setFlowName(String flowName) {
     this.flowName = flowName;
   }
 
   /**
    * Getter for flowVersion.
-   * The version of the flow.
+   * The version of the flow. Deprecated, use flowVersion in DeployedFlow
    **/
+  @Deprecated
   @JsonProperty("flowVersion")
   public Integer getFlowVersion() {
     return flowVersion;
@@ -366,8 +373,9 @@ public class Deployment  {
 
   /**
    * Setter for flowVersion.
-   * The version of the flow.
+   * The version of the flow. Deprecated, use flowVersion in DeployedFlow
    **/
+  @Deprecated
   public void setFlowVersion(Integer flowVersion) {
     this.flowVersion = flowVersion;
   }

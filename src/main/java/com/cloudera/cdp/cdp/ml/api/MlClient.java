@@ -121,6 +121,8 @@ import com.cloudera.cdp.ml.model.RefreshModelRegistryConfigmapRequest;
 import com.cloudera.cdp.ml.model.RefreshModelRegistryConfigmapResponse;
 import com.cloudera.cdp.ml.model.RequestWorkflowCancellationRequest;
 import com.cloudera.cdp.ml.model.RequestWorkflowCancellationResponse;
+import com.cloudera.cdp.ml.model.RequestWorkflowRollbackRequest;
+import com.cloudera.cdp.ml.model.RequestWorkflowRollbackResponse;
 import com.cloudera.cdp.ml.model.RestoreWorkspaceRequest;
 import com.cloudera.cdp.ml.model.RestoreWorkspaceResponse;
 import com.cloudera.cdp.ml.model.ResumeWorkspaceRequest;
@@ -149,7 +151,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:49.976-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:04.780-07:00")
 public class MlClient extends CdpClient {
 
   public static final String SERVICE_NAME = "ml";
@@ -776,6 +778,19 @@ public class MlClient extends CdpClient {
     }
 
     return this.invokeAPI("requestWorkflowCancellation", "/api/v1/ml/requestWorkflowCancellation", input, new GenericType<RequestWorkflowCancellationResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Request a workflow rollback
+   * @param input
+   * @return RequestWorkflowRollbackResponse
+   */
+  public RequestWorkflowRollbackResponse requestWorkflowRollback(RequestWorkflowRollbackRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling requestWorkflowRollback");
+    }
+
+    return this.invokeAPI("requestWorkflowRollback", "/api/v1/ml/requestWorkflowRollback", input, new GenericType<RequestWorkflowRollbackResponse>(){}, NO_EXTENSION);
   }
 
   /**

@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * The DataFlow view of a CDP service.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:52.503-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:07.561-07:00")
 public class Service  {
 
   /**
@@ -208,6 +208,11 @@ public class Service  {
    * The encryption parameters used by DataFlow service for encrypting K8s secrets and EBS volumes.
    **/
   private EncryptionParameters encryptionParameters = null;
+
+  /**
+   * Indicates whether to enforce project or not.
+   **/
+  private Boolean enforceProject = null;
 
   /**
    * Getter for crn.
@@ -804,6 +809,23 @@ public class Service  {
     this.encryptionParameters = encryptionParameters;
   }
 
+  /**
+   * Getter for enforceProject.
+   * Indicates whether to enforce project or not.
+   **/
+  @JsonProperty("enforceProject")
+  public Boolean getEnforceProject() {
+    return enforceProject;
+  }
+
+  /**
+   * Setter for enforceProject.
+   * Indicates whether to enforce project or not.
+   **/
+  public void setEnforceProject(Boolean enforceProject) {
+    this.enforceProject = enforceProject;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -918,12 +940,15 @@ public class Service  {
     if (!Objects.equals(this.encryptionParameters, service.encryptionParameters)) {
       return false;
     }
+    if (!Objects.equals(this.enforceProject, service.enforceProject)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, environmentCrn, name, cloudPlatform, region, deploymentCount, minK8sNodeCount, maxK8sNodeCount, status, workloadVersion, upgradeDeploymentsNiFiVersion, runningK8sNodeCount, instanceType, dfLocalUrl, kubeApiAuthorizedIpRanges, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, clusterId, validActions, usePublicLoadBalancer, tags, loadBalancerAuthorizedIpRanges, clusterSubnets, creatingK8sNodeCount, terminatingK8sNodeCount, loadBalancerSubnets, privateCluster, proxyName, k8sServerVersion, availableK8sVersionUpgrade, userDefinedRouting, podCidr, serviceCidr, encryptionParameters);
+    return Objects.hash(crn, environmentCrn, name, cloudPlatform, region, deploymentCount, minK8sNodeCount, maxK8sNodeCount, status, workloadVersion, upgradeDeploymentsNiFiVersion, runningK8sNodeCount, instanceType, dfLocalUrl, kubeApiAuthorizedIpRanges, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, clusterId, validActions, usePublicLoadBalancer, tags, loadBalancerAuthorizedIpRanges, clusterSubnets, creatingK8sNodeCount, terminatingK8sNodeCount, loadBalancerSubnets, privateCluster, proxyName, k8sServerVersion, availableK8sVersionUpgrade, userDefinedRouting, podCidr, serviceCidr, encryptionParameters, enforceProject);
   }
 
   @Override
@@ -965,6 +990,7 @@ public class Service  {
     sb.append("    podCidr: ").append(toIndentedString(podCidr)).append("\n");
     sb.append("    serviceCidr: ").append(toIndentedString(serviceCidr)).append("\n");
     sb.append("    encryptionParameters: ").append(toIndentedString(encryptionParameters)).append("\n");
+    sb.append("    enforceProject: ").append(toIndentedString(enforceProject)).append("\n");
     sb.append("}");
     return sb.toString();
   }

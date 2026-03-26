@@ -434,8 +434,7 @@ public class DfExtensionTest {
     input.setParameterName("param-name");
     input.setDeploymentName("deployment-name");
     input.setDeploymentRequestCrn("deployment-request-crn");
-    // assetUpdateRequestCrn is removed temporarily.
-    // input.setAssetUpdateRequestCrn("asset-update-request-crn");
+    input.setAssetUpdateRequestCrn("asset-update-request-crn");
     input.setFilePath(Resources.getResource("df-workload.asset.bin").getPath());
     UploadAssetResponse output = new UploadAssetResponse();
     Client client = createMockClient(output);
@@ -443,7 +442,7 @@ public class DfExtensionTest {
     Df dfExtension = new Df(INNER_MIDDLEWARE);
     dfExtension.invokeAPI(context);
     assertEquals(output, context.getResponse());
-    verifyDfxLocalUploadAssetRequestHeaders(context.getHeaders(), "param-group", "param-name", "deployment-request-crn", "deployment-name", null, Resources.getResource("df-workload.asset.bin").getPath());
+    verifyDfxLocalUploadAssetRequestHeaders(context.getHeaders(), "param-group", "param-name", "deployment-request-crn", "deployment-name", "asset-update-request-crn", Resources.getResource("df-workload.asset.bin").getPath());
     verify(client, only()).target(URI.create("http://dfx-local.com/dfx/api/rpc-v1/deployments/upload-asset-content"));
   }
 

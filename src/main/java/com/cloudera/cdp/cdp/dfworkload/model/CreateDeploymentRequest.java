@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * Request object to create a deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:52.868-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:08.000-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class CreateDeploymentRequest  {
 
@@ -93,6 +93,11 @@ public class CreateDeploymentRequest  {
   private List<ConfiguredKpi> kpis = new ArrayList<ConfiguredKpi>();
 
   /**
+   * The name of the deployed flow.
+   **/
+  private String deployedFlowName = null;
+
+  /**
    * The CFM NiFi version associated with the deployment.
    **/
   private String cfmNifiVersion = null;
@@ -136,6 +141,11 @@ public class CreateDeploymentRequest  {
    * The size of the extra volume mounted for flows containing python.
    **/
   private Integer pythonWorkDirectorySize = null;
+
+  /**
+   * When specified, ignore the check to validate if deployment has inbound connection configured for all listen components.
+   **/
+  private Boolean ignoreDeploymentInboundConfigurationChecks = null;
 
   /**
    * The CRN of the custom NAR configuration.
@@ -340,6 +350,23 @@ public class CreateDeploymentRequest  {
   }
 
   /**
+   * Getter for deployedFlowName.
+   * The name of the deployed flow.
+   **/
+  @JsonProperty("deployedFlowName")
+  public String getDeployedFlowName() {
+    return deployedFlowName;
+  }
+
+  /**
+   * Setter for deployedFlowName.
+   * The name of the deployed flow.
+   **/
+  public void setDeployedFlowName(String deployedFlowName) {
+    this.deployedFlowName = deployedFlowName;
+  }
+
+  /**
    * Getter for cfmNifiVersion.
    * The CFM NiFi version associated with the deployment.
    **/
@@ -493,6 +520,23 @@ public class CreateDeploymentRequest  {
   }
 
   /**
+   * Getter for ignoreDeploymentInboundConfigurationChecks.
+   * When specified, ignore the check to validate if deployment has inbound connection configured for all listen components.
+   **/
+  @JsonProperty("ignoreDeploymentInboundConfigurationChecks")
+  public Boolean getIgnoreDeploymentInboundConfigurationChecks() {
+    return ignoreDeploymentInboundConfigurationChecks;
+  }
+
+  /**
+   * Setter for ignoreDeploymentInboundConfigurationChecks.
+   * When specified, ignore the check to validate if deployment has inbound connection configured for all listen components.
+   **/
+  public void setIgnoreDeploymentInboundConfigurationChecks(Boolean ignoreDeploymentInboundConfigurationChecks) {
+    this.ignoreDeploymentInboundConfigurationChecks = ignoreDeploymentInboundConfigurationChecks;
+  }
+
+  /**
    * Getter for customNarConfigurationCrn.
    * The CRN of the custom NAR configuration.
    **/
@@ -585,6 +629,9 @@ public class CreateDeploymentRequest  {
     if (!Objects.equals(this.kpis, createDeploymentRequest.kpis)) {
       return false;
     }
+    if (!Objects.equals(this.deployedFlowName, createDeploymentRequest.deployedFlowName)) {
+      return false;
+    }
     if (!Objects.equals(this.cfmNifiVersion, createDeploymentRequest.cfmNifiVersion)) {
       return false;
     }
@@ -612,6 +659,9 @@ public class CreateDeploymentRequest  {
     if (!Objects.equals(this.pythonWorkDirectorySize, createDeploymentRequest.pythonWorkDirectorySize)) {
       return false;
     }
+    if (!Objects.equals(this.ignoreDeploymentInboundConfigurationChecks, createDeploymentRequest.ignoreDeploymentInboundConfigurationChecks)) {
+      return false;
+    }
     if (!Objects.equals(this.customNarConfigurationCrn, createDeploymentRequest.customNarConfigurationCrn)) {
       return false;
     }
@@ -626,7 +676,7 @@ public class CreateDeploymentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, configurationVersion, name, deploymentRequestCrn, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, cfmNifiVersion, autoStartFlow, clusterSize, inboundHostname, listenComponents, inboundConnectionAuthorizedIpRanges, nodeStorageProfileName, nodeStorage, pythonWorkDirectorySize, customNarConfigurationCrn, customPythonConfigurationCrn, projectCrn);
+    return Objects.hash(environmentCrn, configurationVersion, name, deploymentRequestCrn, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, deployedFlowName, cfmNifiVersion, autoStartFlow, clusterSize, inboundHostname, listenComponents, inboundConnectionAuthorizedIpRanges, nodeStorageProfileName, nodeStorage, pythonWorkDirectorySize, ignoreDeploymentInboundConfigurationChecks, customNarConfigurationCrn, customPythonConfigurationCrn, projectCrn);
   }
 
   @Override
@@ -644,6 +694,7 @@ public class CreateDeploymentRequest  {
     sb.append("    autoScaleMaxNodes: ").append(toIndentedString(autoScaleMaxNodes)).append("\n");
     sb.append("    staticNodeCount: ").append(toIndentedString(staticNodeCount)).append("\n");
     sb.append("    kpis: ").append(toIndentedString(kpis)).append("\n");
+    sb.append("    deployedFlowName: ").append(toIndentedString(deployedFlowName)).append("\n");
     sb.append("    cfmNifiVersion: ").append(toIndentedString(cfmNifiVersion)).append("\n");
     sb.append("    autoStartFlow: ").append(toIndentedString(autoStartFlow)).append("\n");
     sb.append("    clusterSize: ").append(toIndentedString(clusterSize)).append("\n");
@@ -653,6 +704,7 @@ public class CreateDeploymentRequest  {
     sb.append("    nodeStorageProfileName: ").append(toIndentedString(nodeStorageProfileName)).append("\n");
     sb.append("    nodeStorage: ").append(toIndentedString(nodeStorage)).append("\n");
     sb.append("    pythonWorkDirectorySize: ").append(toIndentedString(pythonWorkDirectorySize)).append("\n");
+    sb.append("    ignoreDeploymentInboundConfigurationChecks: ").append(toIndentedString(ignoreDeploymentInboundConfigurationChecks)).append("\n");
     sb.append("    customNarConfigurationCrn: ").append(toIndentedString(customNarConfigurationCrn)).append("\n");
     sb.append("    customPythonConfigurationCrn: ").append(toIndentedString(customPythonConfigurationCrn)).append("\n");
     sb.append("    projectCrn: ").append(toIndentedString(projectCrn)).append("\n");

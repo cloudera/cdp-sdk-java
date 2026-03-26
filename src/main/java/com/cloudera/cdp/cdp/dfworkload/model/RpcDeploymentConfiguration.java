@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * Provides all of the configuration that dictates how a flow should be deployed.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:52.868-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:08.000-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcDeploymentConfiguration  {
 
@@ -113,7 +113,7 @@ public class RpcDeploymentConfiguration  {
   private String nodeStorageProfileName = null;
 
   /**
-   * Indicates whether or not all current parameter values have successfully been applied to NiFi.
+   * Indicates whether or not all current parameter values have successfully been applied to NiFi, for the first deployed flow. Deprecated, use parametersDirty inside deployedFlowConfigurations instead.
    **/
   private Boolean parametersDirty = null;
 
@@ -126,6 +126,16 @@ public class RpcDeploymentConfiguration  {
    * Indicates whether or not the current sizing and scaling configuration has been successfully applied in Kubernetes.
    **/
   private Boolean sizingAndScalingDirty = null;
+
+  /**
+   * Indicates whether or not the current custom NAR configuration has been successfully applied.
+   **/
+  private Boolean customNarConfigurationDirty = null;
+
+  /**
+   * Indicates whether or not the current custom Python configuration has been successfully applied.
+   **/
+  private Boolean customPythonConfigurationDirty = null;
 
   /**
    * The username of the last person to update the deployment configuration.
@@ -161,6 +171,16 @@ public class RpcDeploymentConfiguration  {
    * The size of the extra volume mounted for flows containing python.
    **/
   private Integer pythonWorkDirectorySize = null;
+
+  /**
+   * The id of the custom NAR configuration associated with the deployment.
+   **/
+  private String customNarConfigurationId = null;
+
+  /**
+   * The id of the custom Python configuration associated with the deployment.
+   **/
+  private String customPythonConfigurationId = null;
 
   /**
    * Getter for configurationVersion.
@@ -419,8 +439,9 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Getter for parametersDirty.
-   * Indicates whether or not all current parameter values have successfully been applied to NiFi.
+   * Indicates whether or not all current parameter values have successfully been applied to NiFi, for the first deployed flow. Deprecated, use parametersDirty inside deployedFlowConfigurations instead.
    **/
+  @Deprecated
   @JsonProperty("parametersDirty")
   public Boolean getParametersDirty() {
     return parametersDirty;
@@ -428,8 +449,9 @@ public class RpcDeploymentConfiguration  {
 
   /**
    * Setter for parametersDirty.
-   * Indicates whether or not all current parameter values have successfully been applied to NiFi.
+   * Indicates whether or not all current parameter values have successfully been applied to NiFi, for the first deployed flow. Deprecated, use parametersDirty inside deployedFlowConfigurations instead.
    **/
+  @Deprecated
   public void setParametersDirty(Boolean parametersDirty) {
     this.parametersDirty = parametersDirty;
   }
@@ -466,6 +488,40 @@ public class RpcDeploymentConfiguration  {
    **/
   public void setSizingAndScalingDirty(Boolean sizingAndScalingDirty) {
     this.sizingAndScalingDirty = sizingAndScalingDirty;
+  }
+
+  /**
+   * Getter for customNarConfigurationDirty.
+   * Indicates whether or not the current custom NAR configuration has been successfully applied.
+   **/
+  @JsonProperty("customNarConfigurationDirty")
+  public Boolean getCustomNarConfigurationDirty() {
+    return customNarConfigurationDirty;
+  }
+
+  /**
+   * Setter for customNarConfigurationDirty.
+   * Indicates whether or not the current custom NAR configuration has been successfully applied.
+   **/
+  public void setCustomNarConfigurationDirty(Boolean customNarConfigurationDirty) {
+    this.customNarConfigurationDirty = customNarConfigurationDirty;
+  }
+
+  /**
+   * Getter for customPythonConfigurationDirty.
+   * Indicates whether or not the current custom Python configuration has been successfully applied.
+   **/
+  @JsonProperty("customPythonConfigurationDirty")
+  public Boolean getCustomPythonConfigurationDirty() {
+    return customPythonConfigurationDirty;
+  }
+
+  /**
+   * Setter for customPythonConfigurationDirty.
+   * Indicates whether or not the current custom Python configuration has been successfully applied.
+   **/
+  public void setCustomPythonConfigurationDirty(Boolean customPythonConfigurationDirty) {
+    this.customPythonConfigurationDirty = customPythonConfigurationDirty;
   }
 
   /**
@@ -587,6 +643,40 @@ public class RpcDeploymentConfiguration  {
     this.pythonWorkDirectorySize = pythonWorkDirectorySize;
   }
 
+  /**
+   * Getter for customNarConfigurationId.
+   * The id of the custom NAR configuration associated with the deployment.
+   **/
+  @JsonProperty("customNarConfigurationId")
+  public String getCustomNarConfigurationId() {
+    return customNarConfigurationId;
+  }
+
+  /**
+   * Setter for customNarConfigurationId.
+   * The id of the custom NAR configuration associated with the deployment.
+   **/
+  public void setCustomNarConfigurationId(String customNarConfigurationId) {
+    this.customNarConfigurationId = customNarConfigurationId;
+  }
+
+  /**
+   * Getter for customPythonConfigurationId.
+   * The id of the custom Python configuration associated with the deployment.
+   **/
+  @JsonProperty("customPythonConfigurationId")
+  public String getCustomPythonConfigurationId() {
+    return customPythonConfigurationId;
+  }
+
+  /**
+   * Setter for customPythonConfigurationId.
+   * The id of the custom Python configuration associated with the deployment.
+   **/
+  public void setCustomPythonConfigurationId(String customPythonConfigurationId) {
+    this.customPythonConfigurationId = customPythonConfigurationId;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -650,6 +740,12 @@ public class RpcDeploymentConfiguration  {
     if (!Objects.equals(this.sizingAndScalingDirty, rpcDeploymentConfiguration.sizingAndScalingDirty)) {
       return false;
     }
+    if (!Objects.equals(this.customNarConfigurationDirty, rpcDeploymentConfiguration.customNarConfigurationDirty)) {
+      return false;
+    }
+    if (!Objects.equals(this.customPythonConfigurationDirty, rpcDeploymentConfiguration.customPythonConfigurationDirty)) {
+      return false;
+    }
     if (!Objects.equals(this.lastUpdatedByUsername, rpcDeploymentConfiguration.lastUpdatedByUsername)) {
       return false;
     }
@@ -671,12 +767,18 @@ public class RpcDeploymentConfiguration  {
     if (!Objects.equals(this.pythonWorkDirectorySize, rpcDeploymentConfiguration.pythonWorkDirectorySize)) {
       return false;
     }
+    if (!Objects.equals(this.customNarConfigurationId, rpcDeploymentConfiguration.customNarConfigurationId)) {
+      return false;
+    }
+    if (!Objects.equals(this.customPythonConfigurationId, rpcDeploymentConfiguration.customPythonConfigurationId)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(configurationVersion, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, deploymentId, deploymentCrn, name, cfmNifiVersion, autoStartFlow, clusterSize, nodeStorageProfileName, parametersDirty, kpisDirty, sizingAndScalingDirty, lastUpdatedByUsername, inboundHostname, listenComponents, projectCrn, assetConfigurationAvailable, nodeStorage, pythonWorkDirectorySize);
+    return Objects.hash(configurationVersion, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, deploymentId, deploymentCrn, name, cfmNifiVersion, autoStartFlow, clusterSize, nodeStorageProfileName, parametersDirty, kpisDirty, sizingAndScalingDirty, customNarConfigurationDirty, customPythonConfigurationDirty, lastUpdatedByUsername, inboundHostname, listenComponents, projectCrn, assetConfigurationAvailable, nodeStorage, pythonWorkDirectorySize, customNarConfigurationId, customPythonConfigurationId);
   }
 
   @Override
@@ -701,6 +803,8 @@ public class RpcDeploymentConfiguration  {
     sb.append("    parametersDirty: ").append(toIndentedString(parametersDirty)).append("\n");
     sb.append("    kpisDirty: ").append(toIndentedString(kpisDirty)).append("\n");
     sb.append("    sizingAndScalingDirty: ").append(toIndentedString(sizingAndScalingDirty)).append("\n");
+    sb.append("    customNarConfigurationDirty: ").append(toIndentedString(customNarConfigurationDirty)).append("\n");
+    sb.append("    customPythonConfigurationDirty: ").append(toIndentedString(customPythonConfigurationDirty)).append("\n");
     sb.append("    lastUpdatedByUsername: ").append(toIndentedString(lastUpdatedByUsername)).append("\n");
     sb.append("    inboundHostname: ").append(toIndentedString(inboundHostname)).append("\n");
     sb.append("    listenComponents: ").append(toIndentedString(listenComponents)).append("\n");
@@ -708,6 +812,8 @@ public class RpcDeploymentConfiguration  {
     sb.append("    assetConfigurationAvailable: ").append(toIndentedString(assetConfigurationAvailable)).append("\n");
     sb.append("    nodeStorage: ").append(toIndentedString(nodeStorage)).append("\n");
     sb.append("    pythonWorkDirectorySize: ").append(toIndentedString(pythonWorkDirectorySize)).append("\n");
+    sb.append("    customNarConfigurationId: ").append(toIndentedString(customNarConfigurationId)).append("\n");
+    sb.append("    customPythonConfigurationId: ").append(toIndentedString(customPythonConfigurationId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

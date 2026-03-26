@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.dfworkload.model.ClusterSize;
+import com.cloudera.cdp.dfworkload.model.DeployedFlow;
 import com.cloudera.cdp.dfworkload.model.DeploymentStatus;
 import com.cloudera.cdp.dfworkload.model.NodeStorage;
 import com.cloudera.cdp.dfworkload.model.ProjectMeta;
@@ -33,7 +34,7 @@ import java.util.*;
 /**
  * Provides details about a deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:52.868-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:08.000-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcDeployment  {
 
@@ -133,22 +134,22 @@ public class RpcDeployment  {
   private Integer staticNodeCount = null;
 
   /**
-   * The name of the flow.
+   * The artifact name of the first deployed flow. Deprecated, use flowName inside deployedFlows.
    **/
   private String flowName = null;
 
   /**
-   * The version of the flow.
+   * The version of the first deployed flow. Deprecated, use flowVersion inside deployedFlows.
    **/
   private Integer flowVersion = null;
 
   /**
-   * The deployment's current flow version CRN.
+   * The current flow version CRN of the first deployed flow. Deprecated, use flowVersionCrn inside deployedFlows.
    **/
   private String flowVersionCrn = null;
 
   /**
-   * The deployment's current flow CRN.
+   * The current flow CRN of the first deployed flow. Deprecated, use flowCrn inside deployedFlows.
    **/
   private String flowCrn = null;
 
@@ -158,7 +159,7 @@ public class RpcDeployment  {
   private String creatorCrn = null;
 
   /**
-   * The type of artifact of the flow.
+   * The type of artifact of the first deployed flow. Deprecated, use artifactTypeName inside deployedFlows.
    **/
   private String artifactTypeName = null;
 
@@ -233,7 +234,7 @@ public class RpcDeployment  {
   private NodeStorage nodeStorage = null;
 
   /**
-   * The target process group ID of the deployment.
+   * The target process group ID of the first deployed flow. Deprecated, use targetProcessGroupId inside deployedFlows.
    **/
   private String targetProcessGroupId = null;
 
@@ -241,6 +242,11 @@ public class RpcDeployment  {
    * Set of authorized IP ranges for the inbound connections.
    **/
   private List<String> inboundConnectionAuthorizedIpRanges = new ArrayList<String>();
+
+  /**
+   * The details about the flows that are deployed into the NiFi cluster.
+   **/
+  private List<DeployedFlow> deployedFlows = new ArrayList<DeployedFlow>();
 
   /**
    * The crn of the project this deployment belongs to, or null if does not belong to a project.
@@ -572,8 +578,9 @@ public class RpcDeployment  {
 
   /**
    * Getter for flowName.
-   * The name of the flow.
+   * The artifact name of the first deployed flow. Deprecated, use flowName inside deployedFlows.
    **/
+  @Deprecated
   @JsonProperty("flowName")
   public String getFlowName() {
     return flowName;
@@ -581,16 +588,18 @@ public class RpcDeployment  {
 
   /**
    * Setter for flowName.
-   * The name of the flow.
+   * The artifact name of the first deployed flow. Deprecated, use flowName inside deployedFlows.
    **/
+  @Deprecated
   public void setFlowName(String flowName) {
     this.flowName = flowName;
   }
 
   /**
    * Getter for flowVersion.
-   * The version of the flow.
+   * The version of the first deployed flow. Deprecated, use flowVersion inside deployedFlows.
    **/
+  @Deprecated
   @JsonProperty("flowVersion")
   public Integer getFlowVersion() {
     return flowVersion;
@@ -598,16 +607,18 @@ public class RpcDeployment  {
 
   /**
    * Setter for flowVersion.
-   * The version of the flow.
+   * The version of the first deployed flow. Deprecated, use flowVersion inside deployedFlows.
    **/
+  @Deprecated
   public void setFlowVersion(Integer flowVersion) {
     this.flowVersion = flowVersion;
   }
 
   /**
    * Getter for flowVersionCrn.
-   * The deployment&#39;s current flow version CRN.
+   * The current flow version CRN of the first deployed flow. Deprecated, use flowVersionCrn inside deployedFlows.
    **/
+  @Deprecated
   @JsonProperty("flowVersionCrn")
   public String getFlowVersionCrn() {
     return flowVersionCrn;
@@ -615,16 +626,18 @@ public class RpcDeployment  {
 
   /**
    * Setter for flowVersionCrn.
-   * The deployment&#39;s current flow version CRN.
+   * The current flow version CRN of the first deployed flow. Deprecated, use flowVersionCrn inside deployedFlows.
    **/
+  @Deprecated
   public void setFlowVersionCrn(String flowVersionCrn) {
     this.flowVersionCrn = flowVersionCrn;
   }
 
   /**
    * Getter for flowCrn.
-   * The deployment&#39;s current flow CRN.
+   * The current flow CRN of the first deployed flow. Deprecated, use flowCrn inside deployedFlows.
    **/
+  @Deprecated
   @JsonProperty("flowCrn")
   public String getFlowCrn() {
     return flowCrn;
@@ -632,8 +645,9 @@ public class RpcDeployment  {
 
   /**
    * Setter for flowCrn.
-   * The deployment&#39;s current flow CRN.
+   * The current flow CRN of the first deployed flow. Deprecated, use flowCrn inside deployedFlows.
    **/
+  @Deprecated
   public void setFlowCrn(String flowCrn) {
     this.flowCrn = flowCrn;
   }
@@ -657,8 +671,9 @@ public class RpcDeployment  {
 
   /**
    * Getter for artifactTypeName.
-   * The type of artifact of the flow.
+   * The type of artifact of the first deployed flow. Deprecated, use artifactTypeName inside deployedFlows.
    **/
+  @Deprecated
   @JsonProperty("artifactTypeName")
   public String getArtifactTypeName() {
     return artifactTypeName;
@@ -666,8 +681,9 @@ public class RpcDeployment  {
 
   /**
    * Setter for artifactTypeName.
-   * The type of artifact of the flow.
+   * The type of artifact of the first deployed flow. Deprecated, use artifactTypeName inside deployedFlows.
    **/
+  @Deprecated
   public void setArtifactTypeName(String artifactTypeName) {
     this.artifactTypeName = artifactTypeName;
   }
@@ -912,8 +928,9 @@ public class RpcDeployment  {
 
   /**
    * Getter for targetProcessGroupId.
-   * The target process group ID of the deployment.
+   * The target process group ID of the first deployed flow. Deprecated, use targetProcessGroupId inside deployedFlows.
    **/
+  @Deprecated
   @JsonProperty("targetProcessGroupId")
   public String getTargetProcessGroupId() {
     return targetProcessGroupId;
@@ -921,8 +938,9 @@ public class RpcDeployment  {
 
   /**
    * Setter for targetProcessGroupId.
-   * The target process group ID of the deployment.
+   * The target process group ID of the first deployed flow. Deprecated, use targetProcessGroupId inside deployedFlows.
    **/
+  @Deprecated
   public void setTargetProcessGroupId(String targetProcessGroupId) {
     this.targetProcessGroupId = targetProcessGroupId;
   }
@@ -942,6 +960,23 @@ public class RpcDeployment  {
    **/
   public void setInboundConnectionAuthorizedIpRanges(List<String> inboundConnectionAuthorizedIpRanges) {
     this.inboundConnectionAuthorizedIpRanges = inboundConnectionAuthorizedIpRanges;
+  }
+
+  /**
+   * Getter for deployedFlows.
+   * The details about the flows that are deployed into the NiFi cluster.
+   **/
+  @JsonProperty("deployedFlows")
+  public List<DeployedFlow> getDeployedFlows() {
+    return deployedFlows;
+  }
+
+  /**
+   * Setter for deployedFlows.
+   * The details about the flows that are deployed into the NiFi cluster.
+   **/
+  public void setDeployedFlows(List<DeployedFlow> deployedFlows) {
+    this.deployedFlows = deployedFlows;
   }
 
   /**
@@ -1093,6 +1128,9 @@ public class RpcDeployment  {
     if (!Objects.equals(this.inboundConnectionAuthorizedIpRanges, rpcDeployment.inboundConnectionAuthorizedIpRanges)) {
       return false;
     }
+    if (!Objects.equals(this.deployedFlows, rpcDeployment.deployedFlows)) {
+      return false;
+    }
     if (!Objects.equals(this.projectCrn, rpcDeployment.projectCrn)) {
       return false;
     }
@@ -1101,7 +1139,7 @@ public class RpcDeployment  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, status, service, crn, runtimeStatus, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, created, updated, validActions, project, nifiUrl, clusterSizeParams, autoscalingEnabled, flowMetricsScalingEnabled, autoscaleMinNodes, autoscaleMaxNodes, staticNodeCount, flowName, flowVersion, flowVersionCrn, flowCrn, creatorCrn, artifactTypeName, currentNodeCount, deployedByUsername, deployedByName, dfxLocalUrl, configurationVersion, lastUpdatedByUsername, cfmNifiVersion, inboundConnectionEndpointId, testSession, flowDesignerId, customNarConfigurationId, customPythonConfigurationId, nodeStorageProfile, nodeStorage, targetProcessGroupId, inboundConnectionAuthorizedIpRanges, projectCrn);
+    return Objects.hash(name, status, service, crn, runtimeStatus, activeInfoAlertCount, activeWarningAlertCount, activeErrorAlertCount, created, updated, validActions, project, nifiUrl, clusterSizeParams, autoscalingEnabled, flowMetricsScalingEnabled, autoscaleMinNodes, autoscaleMaxNodes, staticNodeCount, flowName, flowVersion, flowVersionCrn, flowCrn, creatorCrn, artifactTypeName, currentNodeCount, deployedByUsername, deployedByName, dfxLocalUrl, configurationVersion, lastUpdatedByUsername, cfmNifiVersion, inboundConnectionEndpointId, testSession, flowDesignerId, customNarConfigurationId, customPythonConfigurationId, nodeStorageProfile, nodeStorage, targetProcessGroupId, inboundConnectionAuthorizedIpRanges, deployedFlows, projectCrn);
   }
 
   @Override
@@ -1149,6 +1187,7 @@ public class RpcDeployment  {
     sb.append("    nodeStorage: ").append(toIndentedString(nodeStorage)).append("\n");
     sb.append("    targetProcessGroupId: ").append(toIndentedString(targetProcessGroupId)).append("\n");
     sb.append("    inboundConnectionAuthorizedIpRanges: ").append(toIndentedString(inboundConnectionAuthorizedIpRanges)).append("\n");
+    sb.append("    deployedFlows: ").append(toIndentedString(deployedFlows)).append("\n");
     sb.append("    projectCrn: ").append(toIndentedString(projectCrn)).append("\n");
     sb.append("}");
     return sb.toString();

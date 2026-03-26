@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * A request to list deployments.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:52.503-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:07.561-07:00")
 public class ListDeploymentsRequest  {
 
   /**
@@ -50,6 +50,11 @@ public class ListDeploymentsRequest  {
    * The filter criteria (see list-filter-options).
    **/
   private List<String> filters = new ArrayList<String>();
+
+  /**
+   * A search term by which to filter the name field.
+   **/
+  private String searchTerm = null;
 
   /**
    * Getter for pageSize.
@@ -119,6 +124,23 @@ public class ListDeploymentsRequest  {
     this.filters = filters;
   }
 
+  /**
+   * Getter for searchTerm.
+   * A search term by which to filter the name field.
+   **/
+  @JsonProperty("searchTerm")
+  public String getSearchTerm() {
+    return searchTerm;
+  }
+
+  /**
+   * Setter for searchTerm.
+   * A search term by which to filter the name field.
+   **/
+  public void setSearchTerm(String searchTerm) {
+    this.searchTerm = searchTerm;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -140,12 +162,15 @@ public class ListDeploymentsRequest  {
     if (!Objects.equals(this.filters, listDeploymentsRequest.filters)) {
       return false;
     }
+    if (!Objects.equals(this.searchTerm, listDeploymentsRequest.searchTerm)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(pageSize, startingToken, sorts, filters);
+    return Objects.hash(pageSize, startingToken, sorts, filters, searchTerm);
   }
 
   @Override
@@ -156,6 +181,7 @@ public class ListDeploymentsRequest  {
     sb.append("    startingToken: ").append(toIndentedString(startingToken)).append("\n");
     sb.append("    sorts: ").append(toIndentedString(sorts)).append("\n");
     sb.append("    filters: ").append(toIndentedString(filters)).append("\n");
+    sb.append("    searchTerm: ").append(toIndentedString(searchTerm)).append("\n");
     sb.append("}");
     return sb.toString();
   }

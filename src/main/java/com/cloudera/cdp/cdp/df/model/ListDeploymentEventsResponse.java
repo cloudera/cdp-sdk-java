@@ -29,13 +29,18 @@ import java.util.*;
 /**
  * A response to list event history for deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:52.503-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:07.561-07:00")
 public class ListDeploymentEventsResponse extends CdpResponse {
 
   /**
    * The list of events.
    **/
   private List<EventSummary> eventSummaries = new ArrayList<EventSummary>();
+
+  /**
+   * The page token for requesting the next page of results.
+   **/
+  private String nextToken = null;
 
   /**
    * Getter for eventSummaries.
@@ -54,6 +59,23 @@ public class ListDeploymentEventsResponse extends CdpResponse {
     this.eventSummaries = eventSummaries;
   }
 
+  /**
+   * Getter for nextToken.
+   * The page token for requesting the next page of results.
+   **/
+  @JsonProperty("nextToken")
+  public String getNextToken() {
+    return nextToken;
+  }
+
+  /**
+   * Setter for nextToken.
+   * The page token for requesting the next page of results.
+   **/
+  public void setNextToken(String nextToken) {
+    this.nextToken = nextToken;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -66,6 +88,9 @@ public class ListDeploymentEventsResponse extends CdpResponse {
     if (!Objects.equals(this.eventSummaries, listDeploymentEventsResponse.eventSummaries)) {
       return false;
     }
+    if (!Objects.equals(this.nextToken, listDeploymentEventsResponse.nextToken)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -74,7 +99,7 @@ public class ListDeploymentEventsResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(eventSummaries, super.hashCode());
+    return Objects.hash(eventSummaries, nextToken, super.hashCode());
   }
 
   @Override
@@ -83,6 +108,7 @@ public class ListDeploymentEventsResponse extends CdpResponse {
     sb.append("class ListDeploymentEventsResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    eventSummaries: ").append(toIndentedString(eventSummaries)).append("\n");
+    sb.append("    nextToken: ").append(toIndentedString(nextToken)).append("\n");
     sb.append("}");
     return sb.toString();
   }

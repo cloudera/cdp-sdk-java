@@ -32,10 +32,18 @@ import com.cloudera.cdp.dfworkload.model.AbortAssetUpdateRequestRequest;
 import com.cloudera.cdp.dfworkload.model.AbortAssetUpdateRequestResponse;
 import com.cloudera.cdp.dfworkload.model.AbortDeploymentRequestRequest;
 import com.cloudera.cdp.dfworkload.model.AbortDeploymentRequestResponse;
+import com.cloudera.cdp.dfworkload.model.AbortFlowRequestInDeploymentRequest;
+import com.cloudera.cdp.dfworkload.model.AbortFlowRequestInDeploymentResponse;
+import com.cloudera.cdp.dfworkload.model.AddFlowToDeploymentRequest;
+import com.cloudera.cdp.dfworkload.model.AddFlowToDeploymentResponse;
+import com.cloudera.cdp.dfworkload.model.CancelChangeFlowVersionInDeploymentRequest;
+import com.cloudera.cdp.dfworkload.model.CancelChangeFlowVersionInDeploymentResponse;
 import com.cloudera.cdp.dfworkload.model.CancelChangeFlowVersionRequest;
 import com.cloudera.cdp.dfworkload.model.CancelChangeFlowVersionResponse;
 import com.cloudera.cdp.dfworkload.model.CancelNifiVersionUpdateRequest;
 import com.cloudera.cdp.dfworkload.model.CancelNifiVersionUpdateResponse;
+import com.cloudera.cdp.dfworkload.model.ChangeFlowVersionInDeploymentRequest;
+import com.cloudera.cdp.dfworkload.model.ChangeFlowVersionInDeploymentResponse;
 import com.cloudera.cdp.dfworkload.model.ChangeFlowVersionRequest;
 import com.cloudera.cdp.dfworkload.model.ChangeFlowVersionResponse;
 import com.cloudera.cdp.dfworkload.model.CreateAssetUpdateRequestRequest;
@@ -75,9 +83,17 @@ import com.cloudera.cdp.dfworkload.model.GetDeploymentConfigurationRequest;
 import com.cloudera.cdp.dfworkload.model.GetDeploymentConfigurationResponse;
 import com.cloudera.cdp.dfworkload.model.GetDeploymentRequestDetailsRequest;
 import com.cloudera.cdp.dfworkload.model.GetDeploymentRequestDetailsResponse;
+import com.cloudera.cdp.dfworkload.model.GetFlowConfigurationInDeploymentRequest;
+import com.cloudera.cdp.dfworkload.model.GetFlowConfigurationInDeploymentResponse;
+import com.cloudera.cdp.dfworkload.model.GetFlowConfigurationMetadataInDeploymentRequest;
+import com.cloudera.cdp.dfworkload.model.GetFlowConfigurationMetadataInDeploymentResponse;
+import com.cloudera.cdp.dfworkload.model.GetFlowDeploymentRequestDetailsRequest;
+import com.cloudera.cdp.dfworkload.model.GetFlowRequestDetailsInDeploymentResponse;
 import com.google.common.collect.ImmutableList;
 import com.cloudera.cdp.dfworkload.model.ImportDeploymentRequest;
 import com.cloudera.cdp.dfworkload.model.ImportDeploymentResponse;
+import com.cloudera.cdp.dfworkload.model.ImportFlowIntoDeploymentRequest;
+import com.cloudera.cdp.dfworkload.model.ImportFlowIntoDeploymentResponse;
 import com.cloudera.cdp.dfworkload.model.InboundConnectionEndpointClientCertificatesRequest;
 import com.cloudera.cdp.dfworkload.model.InboundConnectionEndpointClientCertificatesResponse;
 import com.cloudera.cdp.dfworkload.model.ListDeploymentArchivesRequest;
@@ -96,20 +112,32 @@ import com.cloudera.cdp.dfworkload.model.RestartDeploymentRequest;
 import com.cloudera.cdp.dfworkload.model.RestartDeploymentResponse;
 import com.cloudera.cdp.dfworkload.model.ResumeDeploymentRequest;
 import com.cloudera.cdp.dfworkload.model.ResumeDeploymentResponse;
+import com.cloudera.cdp.dfworkload.model.StartAllFlowsInDeploymentRequest;
+import com.cloudera.cdp.dfworkload.model.StartAllFlowsInDeploymentResponse;
+import com.cloudera.cdp.dfworkload.model.StartFlowInDeploymentRequest;
+import com.cloudera.cdp.dfworkload.model.StartFlowInDeploymentResponse;
 import com.cloudera.cdp.dfworkload.model.StartFlowRequest;
 import com.cloudera.cdp.dfworkload.model.StartFlowResponse;
+import com.cloudera.cdp.dfworkload.model.StopAllFlowsInDeploymentRequest;
+import com.cloudera.cdp.dfworkload.model.StopAllFlowsInDeploymentResponse;
+import com.cloudera.cdp.dfworkload.model.StopFlowInDeploymentRequest;
+import com.cloudera.cdp.dfworkload.model.StopFlowInDeploymentResponse;
 import com.cloudera.cdp.dfworkload.model.StopFlowRequest;
 import com.cloudera.cdp.dfworkload.model.StopFlowResponse;
 import com.cloudera.cdp.dfworkload.model.SuspendDeploymentRequest;
 import com.cloudera.cdp.dfworkload.model.SuspendDeploymentResponse;
 import com.cloudera.cdp.dfworkload.model.TerminateDeploymentRequest;
 import com.cloudera.cdp.dfworkload.model.TerminateDeploymentResponse;
+import com.cloudera.cdp.dfworkload.model.TerminateFlowInDeploymentRequest;
+import com.cloudera.cdp.dfworkload.model.TerminateFlowInDeploymentResponse;
 import com.cloudera.cdp.dfworkload.model.UpdateCustomNarConfigurationRequest;
 import com.cloudera.cdp.dfworkload.model.UpdateCustomNarConfigurationResponse;
 import com.cloudera.cdp.dfworkload.model.UpdateCustomPythonConfigurationRequest;
 import com.cloudera.cdp.dfworkload.model.UpdateCustomPythonConfigurationResponse;
 import com.cloudera.cdp.dfworkload.model.UpdateDeploymentRequest;
 import com.cloudera.cdp.dfworkload.model.UpdateDeploymentResponse;
+import com.cloudera.cdp.dfworkload.model.UpdateFlowInDeploymentRequest;
+import com.cloudera.cdp.dfworkload.model.UpdateFlowInDeploymentResponse;
 import com.cloudera.cdp.dfworkload.model.UpdateNifiVersionRequest;
 import com.cloudera.cdp.dfworkload.model.UpdateNifiVersionResponse;
 import com.cloudera.cdp.dfworkload.model.UploadAssetRequest;
@@ -124,7 +152,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:52.868-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:08.000-07:00")
 public class DfworkloadClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dfworkload";
@@ -184,17 +212,60 @@ public class DfworkloadClient extends CdpClient {
   }
 
   /**
-   * Cancel change flow version for an existing deployment.
+   * Aborts a flow request in deployment.
+   * @param input Abort Flow Request In Deployment
+   * @return AbortFlowRequestInDeploymentResponse
+   */
+  @WorkloadApi
+  public AbortFlowRequestInDeploymentResponse abortFlowRequestInDeployment(AbortFlowRequestInDeploymentRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling abortFlowRequestInDeployment");
+    }
+
+    return this.invokeAPI("abortFlowRequestInDeployment", "/dfx/api/rpc-v1/deployed-flows/abort-flow-request-in-deployment", input, new GenericType<AbortFlowRequestInDeploymentResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Adds a flow to an existing deployment.
+   * @param input Add Flow to Deployment Request
+   * @return AddFlowToDeploymentResponse
+   */
+  @WorkloadApi
+  public AddFlowToDeploymentResponse addFlowToDeployment(AddFlowToDeploymentRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling addFlowToDeployment");
+    }
+
+    return this.invokeAPI("addFlowToDeployment", "/dfx/api/rpc-v1/deployed-flows/add-flow-to-deployment", input, new GenericType<AddFlowToDeploymentResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Cancel change flow version for an existing deployment. Deprecated, use cancel-change-flow-version-in-deployment.
    * @param input Cancel Change Flow Version Request
    * @return CancelChangeFlowVersionResponse
    */
   @WorkloadApi
+  @Deprecated
   public CancelChangeFlowVersionResponse cancelChangeFlowVersion(CancelChangeFlowVersionRequest input) {
     if (input == null) {
       throw new CdpClientException("Missing the required parameter 'input' when calling cancelChangeFlowVersion");
     }
 
     return this.invokeAPI("cancelChangeFlowVersion", "/dfx/api/rpc-v1/deployments/cancel-change-flow-version", input, new GenericType<CancelChangeFlowVersionResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Cancel change flow version for an existing flow deployment.
+   * @param input Cancel Change Flow Version In Deployment Request
+   * @return CancelChangeFlowVersionInDeploymentResponse
+   */
+  @WorkloadApi
+  public CancelChangeFlowVersionInDeploymentResponse cancelChangeFlowVersionInDeployment(CancelChangeFlowVersionInDeploymentRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling cancelChangeFlowVersionInDeployment");
+    }
+
+    return this.invokeAPI("cancelChangeFlowVersionInDeployment", "/dfx/api/rpc-v1/deployed-flows/cancel-change-flow-version-in-deployment", input, new GenericType<CancelChangeFlowVersionInDeploymentResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
   }
 
   /**
@@ -212,17 +283,32 @@ public class DfworkloadClient extends CdpClient {
   }
 
   /**
-   * Change flow version of a running deployment.
+   * Change flow version of a running deployment. Deprecated, use change-flow-version-in-deployment.
    * @param input Change Flow Version Request
    * @return ChangeFlowVersionResponse
    */
   @WorkloadApi
+  @Deprecated
   public ChangeFlowVersionResponse changeFlowVersion(ChangeFlowVersionRequest input) {
     if (input == null) {
       throw new CdpClientException("Missing the required parameter 'input' when calling changeFlowVersion");
     }
 
     return this.invokeAPI("changeFlowVersion", "/dfx/api/rpc-v1/deployments/change-flow-version", input, new GenericType<ChangeFlowVersionResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Change flow version of a running deployed flow.
+   * @param input Change Flow Version In Deployment Request
+   * @return ChangeFlowVersionInDeploymentResponse
+   */
+  @WorkloadApi
+  public ChangeFlowVersionInDeploymentResponse changeFlowVersionInDeployment(ChangeFlowVersionInDeploymentRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling changeFlowVersionInDeployment");
+    }
+
+    return this.invokeAPI("changeFlowVersionInDeployment", "/dfx/api/rpc-v1/deployed-flows/change-flow-version-in-deployment", input, new GenericType<ChangeFlowVersionInDeploymentResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
   }
 
   /**
@@ -436,11 +522,12 @@ public class DfworkloadClient extends CdpClient {
   }
 
   /**
-   * Get the default custom NAR configuration.
+   * Get the default custom NAR configuration. Deprecated, no longer supported.
    * @param input Get Default Custom NAR Configuration Request
    * @return GetDefaultCustomNarConfigurationResponse
    */
   @WorkloadApi
+  @Deprecated
   public GetDefaultCustomNarConfigurationResponse getDefaultCustomNarConfiguration(GetDefaultCustomNarConfigurationRequest input) {
     if (input == null) {
       throw new CdpClientException("Missing the required parameter 'input' when calling getDefaultCustomNarConfiguration");
@@ -492,6 +579,48 @@ public class DfworkloadClient extends CdpClient {
   }
 
   /**
+   * Retrieves the deployed flow configuration in a deployment.
+   * @param input Get Flow Configuration In Deployment Request
+   * @return GetFlowConfigurationInDeploymentResponse
+   */
+  @WorkloadApi
+  public GetFlowConfigurationInDeploymentResponse getFlowConfigurationInDeployment(GetFlowConfigurationInDeploymentRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getFlowConfigurationInDeployment");
+    }
+
+    return this.invokeAPI("getFlowConfigurationInDeployment", "/dfx/api/rpc-v1/deployed-flows/get-flow-configuration-in-deployment", input, new GenericType<GetFlowConfigurationInDeploymentResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Retrieves the deployed flow configuration metadata in a deployment.
+   * @param input Get Flow Configuration Metadata In Deployment Request
+   * @return GetFlowConfigurationMetadataInDeploymentResponse
+   */
+  @WorkloadApi
+  public GetFlowConfigurationMetadataInDeploymentResponse getFlowConfigurationMetadataInDeployment(GetFlowConfigurationMetadataInDeploymentRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getFlowConfigurationMetadataInDeployment");
+    }
+
+    return this.invokeAPI("getFlowConfigurationMetadataInDeployment", "/dfx/api/rpc-v1/deployed-flows/get-flow-configuration-metadata-in-deployment", input, new GenericType<GetFlowConfigurationMetadataInDeploymentResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Retrieves flow request details and registers the flow deployment request.
+   * @param input Get Flow Request Details in Deployment
+   * @return GetFlowRequestDetailsInDeploymentResponse
+   */
+  @WorkloadApi
+  public GetFlowRequestDetailsInDeploymentResponse getFlowRequestDetailsInDeployment(GetFlowDeploymentRequestDetailsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getFlowRequestDetailsInDeployment");
+    }
+
+    return this.invokeAPI("getFlowRequestDetailsInDeployment", "/dfx/api/rpc-v1/deployed-flows/get-flow-request-details-in-deployment", input, new GenericType<GetFlowRequestDetailsInDeploymentResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
    * Import deployment configuration.
    * @param input Import Deployment Configuration Request
    * @return ImportDeploymentResponse
@@ -503,6 +632,20 @@ public class DfworkloadClient extends CdpClient {
     }
 
     return this.invokeAPI("importDeployment", "/dfx/api/rpc-v1/deployments/import-deployment", input, new GenericType<ImportDeploymentResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Import flow deployment configuration.
+   * @param input Import Flow Into Deployment Request
+   * @return ImportFlowIntoDeploymentResponse
+   */
+  @WorkloadApi
+  public ImportFlowIntoDeploymentResponse importFlowIntoDeployment(ImportFlowIntoDeploymentRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling importFlowIntoDeployment");
+    }
+
+    return this.invokeAPI("importFlowIntoDeployment", "/dfx/api/rpc-v1/deployed-flows/import-flow-into-deployment", input, new GenericType<ImportFlowIntoDeploymentResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
   }
 
   /**
@@ -618,11 +761,26 @@ public class DfworkloadClient extends CdpClient {
   }
 
   /**
-   * Starts a flow.
+   * Starts all flows in a deployment.
+   * @param input Start All Flows In Deployment Request
+   * @return StartAllFlowsInDeploymentResponse
+   */
+  @WorkloadApi
+  public StartAllFlowsInDeploymentResponse startAllFlowsInDeployment(StartAllFlowsInDeploymentRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling startAllFlowsInDeployment");
+    }
+
+    return this.invokeAPI("startAllFlowsInDeployment", "/dfx/api/rpc-v1/deployments/start-all-flows-in-deployment", input, new GenericType<StartAllFlowsInDeploymentResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Starts a flow. Deprecated, use start-flow-in-deployment.
    * @param input Start Flow
    * @return StartFlowResponse
    */
   @WorkloadApi
+  @Deprecated
   public StartFlowResponse startFlow(StartFlowRequest input) {
     if (input == null) {
       throw new CdpClientException("Missing the required parameter 'input' when calling startFlow");
@@ -632,17 +790,60 @@ public class DfworkloadClient extends CdpClient {
   }
 
   /**
-   * Stops a flow.
+   * Starts a flow in a deployment.
+   * @param input Start Flow In Deployment Request
+   * @return StartFlowInDeploymentResponse
+   */
+  @WorkloadApi
+  public StartFlowInDeploymentResponse startFlowInDeployment(StartFlowInDeploymentRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling startFlowInDeployment");
+    }
+
+    return this.invokeAPI("startFlowInDeployment", "/dfx/api/rpc-v1/deployed-flows/start-flow-in-deployment", input, new GenericType<StartFlowInDeploymentResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Stops all flows in a deployment.
+   * @param input Stop All Flows In Deployment Request
+   * @return StopAllFlowsInDeploymentResponse
+   */
+  @WorkloadApi
+  public StopAllFlowsInDeploymentResponse stopAllFlowsInDeployment(StopAllFlowsInDeploymentRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling stopAllFlowsInDeployment");
+    }
+
+    return this.invokeAPI("stopAllFlowsInDeployment", "/dfx/api/rpc-v1/deployments/stop-all-flows-in-deployment", input, new GenericType<StopAllFlowsInDeploymentResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Stops a flow. Deprecated, use stop-flow-in-deployment.
    * @param input Stop Flow
    * @return StopFlowResponse
    */
   @WorkloadApi
+  @Deprecated
   public StopFlowResponse stopFlow(StopFlowRequest input) {
     if (input == null) {
       throw new CdpClientException("Missing the required parameter 'input' when calling stopFlow");
     }
 
     return this.invokeAPI("stopFlow", "/dfx/api/rpc-v1/deployments/stop-flow", input, new GenericType<StopFlowResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Stops a flow in a deployment.
+   * @param input Stop Flow In Deployment Request
+   * @return StopFlowInDeploymentResponse
+   */
+  @WorkloadApi
+  public StopFlowInDeploymentResponse stopFlowInDeployment(StopFlowInDeploymentRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling stopFlowInDeployment");
+    }
+
+    return this.invokeAPI("stopFlowInDeployment", "/dfx/api/rpc-v1/deployed-flows/stop-flow-in-deployment", input, new GenericType<StopFlowInDeploymentResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
   }
 
   /**
@@ -671,6 +872,20 @@ public class DfworkloadClient extends CdpClient {
     }
 
     return this.invokeAPI("terminateDeployment", "/dfx/api/rpc-v1/deployments/terminate-deployment", input, new GenericType<TerminateDeploymentResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Terminates a flow in a deployment.
+   * @param input Terminate Flow In Deployment Request
+   * @return TerminateFlowInDeploymentResponse
+   */
+  @WorkloadApi
+  public TerminateFlowInDeploymentResponse terminateFlowInDeployment(TerminateFlowInDeploymentRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling terminateFlowInDeployment");
+    }
+
+    return this.invokeAPI("terminateFlowInDeployment", "/dfx/api/rpc-v1/deployed-flows/terminate-flow-in-deployment", input, new GenericType<TerminateFlowInDeploymentResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
   }
 
   /**
@@ -713,6 +928,20 @@ public class DfworkloadClient extends CdpClient {
     }
 
     return this.invokeAPI("updateDeployment", "/dfx/api/rpc-v1/deployments/update-deployment", input, new GenericType<UpdateDeploymentResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class, com.cloudera.cdp.extension.Df.class));
+  }
+
+  /**
+   * Updates a flow deployment.
+   * @param input Update Flow In Deployment Request
+   * @return UpdateFlowInDeploymentResponse
+   */
+  @WorkloadApi
+  public UpdateFlowInDeploymentResponse updateFlowInDeployment(UpdateFlowInDeploymentRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateFlowInDeployment");
+    }
+
+    return this.invokeAPI("updateFlowInDeployment", "/dfx/api/rpc-v1/deployed-flows/update-flow-in-deployment", input, new GenericType<UpdateFlowInDeploymentResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class, com.cloudera.cdp.extension.Df.class));
   }
 
   /**

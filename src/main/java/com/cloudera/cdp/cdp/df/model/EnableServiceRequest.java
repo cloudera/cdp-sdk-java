@@ -29,7 +29,7 @@ import java.util.Map;
 /**
  * Request object for EnableService
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:52.503-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:07.561-07:00")
 public class EnableServiceRequest  {
 
   /**
@@ -106,6 +106,11 @@ public class EnableServiceRequest  {
    * CIDR range from which to assign IPs to internal services in the kubernetes cluster.
    **/
   private String serviceCidr = null;
+
+  /**
+   * Indicates whether to enforce project or not.
+   **/
+  private Boolean enforceProject = null;
 
   /**
    * Getter for environmentCrn.
@@ -362,6 +367,23 @@ public class EnableServiceRequest  {
     this.serviceCidr = serviceCidr;
   }
 
+  /**
+   * Getter for enforceProject.
+   * Indicates whether to enforce project or not.
+   **/
+  @JsonProperty("enforceProject")
+  public Boolean getEnforceProject() {
+    return enforceProject;
+  }
+
+  /**
+   * Setter for enforceProject.
+   * Indicates whether to enforce project or not.
+   **/
+  public void setEnforceProject(Boolean enforceProject) {
+    this.enforceProject = enforceProject;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -416,12 +438,15 @@ public class EnableServiceRequest  {
     if (!Objects.equals(this.serviceCidr, enableServiceRequest.serviceCidr)) {
       return false;
     }
+    if (!Objects.equals(this.enforceProject, enableServiceRequest.enforceProject)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, minK8sNodeCount, maxK8sNodeCount, usePublicLoadBalancer, kubeApiAuthorizedIpRanges, tags, loadBalancerAuthorizedIpRanges, clusterSubnets, loadBalancerSubnets, privateCluster, instanceType, skipPreflightChecks, userDefinedRouting, podCidr, serviceCidr);
+    return Objects.hash(environmentCrn, minK8sNodeCount, maxK8sNodeCount, usePublicLoadBalancer, kubeApiAuthorizedIpRanges, tags, loadBalancerAuthorizedIpRanges, clusterSubnets, loadBalancerSubnets, privateCluster, instanceType, skipPreflightChecks, userDefinedRouting, podCidr, serviceCidr, enforceProject);
   }
 
   @Override
@@ -443,6 +468,7 @@ public class EnableServiceRequest  {
     sb.append("    userDefinedRouting: ").append(toIndentedString(userDefinedRouting)).append("\n");
     sb.append("    podCidr: ").append(toIndentedString(podCidr)).append("\n");
     sb.append("    serviceCidr: ").append(toIndentedString(serviceCidr)).append("\n");
+    sb.append("    enforceProject: ").append(toIndentedString(enforceProject)).append("\n");
     sb.append("}");
     return sb.toString();
   }

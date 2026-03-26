@@ -33,27 +33,27 @@ import java.util.*;
 /**
  * Provides details about the deployment and all of the different configuration items that are available.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:52.868-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:08.000-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcDeploymentConfigurationMetadata  {
 
   /**
-   * The CRN of the flow to deploy
+   * The flow CRN of the first deployed flow. Deprecated, use flowCrn inside DeployedFlow.
    **/
   private String flowCrn = null;
 
   /**
-   * The name of the flow to deploy
+   * The artifact name of the first deployed flow. Deprecated, use flowName inside DeployedFlow.
    **/
   private String flowName = null;
 
   /**
-   * The version of the flow to deploy
+   * The version of the first deployed flow. Deprecated, use flowVersion inside DeployedFlow.
    **/
   private Integer flowVersion = null;
 
   /**
-   * The CRN for the flow version
+   * The current flow version CRN of the first deployed flow. Deprecated, use flowVersionCrn inside DeployedFlow.
    **/
   private String flowVersionCrn = null;
 
@@ -68,7 +68,7 @@ public class RpcDeploymentConfigurationMetadata  {
   private Boolean requiresEnvironmentSslContextService = null;
 
   /**
-   * The type of the artifact of the flow.
+   * The type of artifact of the first deployed flow. Deprecated, use artifactTypeName inside DeployedFlow.
    **/
   private String artifactTypeName = null;
 
@@ -94,8 +94,9 @@ public class RpcDeploymentConfigurationMetadata  {
 
   /**
    * Getter for flowCrn.
-   * The CRN of the flow to deploy
+   * The flow CRN of the first deployed flow. Deprecated, use flowCrn inside DeployedFlow.
    **/
+  @Deprecated
   @JsonProperty("flowCrn")
   public String getFlowCrn() {
     return flowCrn;
@@ -103,16 +104,18 @@ public class RpcDeploymentConfigurationMetadata  {
 
   /**
    * Setter for flowCrn.
-   * The CRN of the flow to deploy
+   * The flow CRN of the first deployed flow. Deprecated, use flowCrn inside DeployedFlow.
    **/
+  @Deprecated
   public void setFlowCrn(String flowCrn) {
     this.flowCrn = flowCrn;
   }
 
   /**
    * Getter for flowName.
-   * The name of the flow to deploy
+   * The artifact name of the first deployed flow. Deprecated, use flowName inside DeployedFlow.
    **/
+  @Deprecated
   @JsonProperty("flowName")
   public String getFlowName() {
     return flowName;
@@ -120,16 +123,18 @@ public class RpcDeploymentConfigurationMetadata  {
 
   /**
    * Setter for flowName.
-   * The name of the flow to deploy
+   * The artifact name of the first deployed flow. Deprecated, use flowName inside DeployedFlow.
    **/
+  @Deprecated
   public void setFlowName(String flowName) {
     this.flowName = flowName;
   }
 
   /**
    * Getter for flowVersion.
-   * The version of the flow to deploy
+   * The version of the first deployed flow. Deprecated, use flowVersion inside DeployedFlow.
    **/
+  @Deprecated
   @JsonProperty("flowVersion")
   public Integer getFlowVersion() {
     return flowVersion;
@@ -137,16 +142,18 @@ public class RpcDeploymentConfigurationMetadata  {
 
   /**
    * Setter for flowVersion.
-   * The version of the flow to deploy
+   * The version of the first deployed flow. Deprecated, use flowVersion inside DeployedFlow.
    **/
+  @Deprecated
   public void setFlowVersion(Integer flowVersion) {
     this.flowVersion = flowVersion;
   }
 
   /**
    * Getter for flowVersionCrn.
-   * The CRN for the flow version
+   * The current flow version CRN of the first deployed flow. Deprecated, use flowVersionCrn inside DeployedFlow.
    **/
+  @Deprecated
   @JsonProperty("flowVersionCrn")
   public String getFlowVersionCrn() {
     return flowVersionCrn;
@@ -154,8 +161,9 @@ public class RpcDeploymentConfigurationMetadata  {
 
   /**
    * Setter for flowVersionCrn.
-   * The CRN for the flow version
+   * The current flow version CRN of the first deployed flow. Deprecated, use flowVersionCrn inside DeployedFlow.
    **/
+  @Deprecated
   public void setFlowVersionCrn(String flowVersionCrn) {
     this.flowVersionCrn = flowVersionCrn;
   }
@@ -196,8 +204,9 @@ public class RpcDeploymentConfigurationMetadata  {
 
   /**
    * Getter for artifactTypeName.
-   * The type of the artifact of the flow.
+   * The type of artifact of the first deployed flow. Deprecated, use artifactTypeName inside DeployedFlow.
    **/
+  @Deprecated
   @JsonProperty("artifactTypeName")
   public String getArtifactTypeName() {
     return artifactTypeName;
@@ -205,8 +214,9 @@ public class RpcDeploymentConfigurationMetadata  {
 
   /**
    * Setter for artifactTypeName.
-   * The type of the artifact of the flow.
+   * The type of artifact of the first deployed flow. Deprecated, use artifactTypeName inside DeployedFlow.
    **/
+  @Deprecated
   public void setArtifactTypeName(String artifactTypeName) {
     this.artifactTypeName = artifactTypeName;
   }

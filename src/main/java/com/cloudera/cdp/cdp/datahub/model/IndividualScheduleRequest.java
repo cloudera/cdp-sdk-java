@@ -28,7 +28,7 @@ import com.cloudera.cdp.datahub.model.IndividualScheduleRequestConfiguration;
 /**
  * An individual schedule based policy
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:48.013-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:03.036-07:00")
 public class IndividualScheduleRequest  {
 
   /**

@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for uploading an asset
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:52.868-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:08.000-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class UploadAssetRequest  {
 
@@ -55,6 +55,11 @@ public class UploadAssetRequest  {
    * The CRN of the deployment request. Required during initial deployment.
    **/
   private String deploymentRequestCrn = null;
+
+  /**
+   * The name of the deployed flow.  If unspecified, the deployment name will be used.
+   **/
+  private String deployedFlowName = null;
 
   /**
    * The name of the deployment. Required during initial deployment.
@@ -152,6 +157,23 @@ public class UploadAssetRequest  {
   }
 
   /**
+   * Getter for deployedFlowName.
+   * The name of the deployed flow.  If unspecified, the deployment name will be used.
+   **/
+  @JsonProperty("deployedFlowName")
+  public String getDeployedFlowName() {
+    return deployedFlowName;
+  }
+
+  /**
+   * Setter for deployedFlowName.
+   * The name of the deployed flow.  If unspecified, the deployment name will be used.
+   **/
+  public void setDeployedFlowName(String deployedFlowName) {
+    this.deployedFlowName = deployedFlowName;
+  }
+
+  /**
    * Getter for deploymentName.
    * The name of the deployment. Required during initial deployment.
    **/
@@ -209,6 +231,9 @@ public class UploadAssetRequest  {
     if (!Objects.equals(this.deploymentRequestCrn, uploadAssetRequest.deploymentRequestCrn)) {
       return false;
     }
+    if (!Objects.equals(this.deployedFlowName, uploadAssetRequest.deployedFlowName)) {
+      return false;
+    }
     if (!Objects.equals(this.deploymentName, uploadAssetRequest.deploymentName)) {
       return false;
     }
@@ -220,7 +245,7 @@ public class UploadAssetRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, parameterGroup, parameterName, filePath, deploymentRequestCrn, deploymentName, assetUpdateRequestCrn);
+    return Objects.hash(environmentCrn, parameterGroup, parameterName, filePath, deploymentRequestCrn, deployedFlowName, deploymentName, assetUpdateRequestCrn);
   }
 
   @Override
@@ -232,6 +257,7 @@ public class UploadAssetRequest  {
     sb.append("    parameterName: ").append(toIndentedString(parameterName)).append("\n");
     sb.append("    filePath: ").append(toIndentedString(filePath)).append("\n");
     sb.append("    deploymentRequestCrn: ").append(toIndentedString(deploymentRequestCrn)).append("\n");
+    sb.append("    deployedFlowName: ").append(toIndentedString(deployedFlowName)).append("\n");
     sb.append("    deploymentName: ").append(toIndentedString(deploymentName)).append("\n");
     sb.append("    assetUpdateRequestCrn: ").append(toIndentedString(assetUpdateRequestCrn)).append("\n");
     sb.append("}");

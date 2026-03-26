@@ -58,6 +58,10 @@ import com.cloudera.cdp.df.model.DescribeDeploymentEventDetailRequest;
 import com.cloudera.cdp.df.model.DescribeDeploymentEventDetailResponse;
 import com.cloudera.cdp.df.model.DescribeDeploymentRequest;
 import com.cloudera.cdp.df.model.DescribeDeploymentResponse;
+import com.cloudera.cdp.df.model.DescribeFlowEventDetailInDeploymentRequest;
+import com.cloudera.cdp.df.model.DescribeFlowEventDetailInDeploymentResponse;
+import com.cloudera.cdp.df.model.DescribeFlowInDeploymentRequest;
+import com.cloudera.cdp.df.model.DescribeFlowInDeploymentResponse;
 import com.cloudera.cdp.df.model.DescribeFlowRequest;
 import com.cloudera.cdp.df.model.DescribeFlowResponse;
 import com.cloudera.cdp.df.model.DescribeProjectRequest;
@@ -86,6 +90,8 @@ import com.cloudera.cdp.df.model.ImportFlowDefinitionVersionRequest;
 import com.cloudera.cdp.df.model.ImportFlowDefinitionVersionResponse;
 import com.cloudera.cdp.df.model.InitiateDeploymentRequest;
 import com.cloudera.cdp.df.model.InitiateDeploymentResponse;
+import com.cloudera.cdp.df.model.InitiateFlowInDeploymentRequest;
+import com.cloudera.cdp.df.model.InitiateFlowInDeploymentResponse;
 import com.cloudera.cdp.df.model.ListCollectionsRequest;
 import com.cloudera.cdp.df.model.ListCollectionsResponse;
 import com.cloudera.cdp.df.model.ListDeployableServicesForNewDeploymentsRequest;
@@ -104,12 +110,20 @@ import com.cloudera.cdp.df.model.ListDiagnosticsRequest;
 import com.cloudera.cdp.df.model.ListDiagnosticsResponse;
 import com.cloudera.cdp.df.model.ListFilterOptionsRequest;
 import com.cloudera.cdp.df.model.ListFilterOptionsResponse;
+import com.cloudera.cdp.df.model.ListFlowActiveAlertsInDeploymentRequest;
+import com.cloudera.cdp.df.model.ListFlowActiveAlertsInDeploymentResponse;
 import com.cloudera.cdp.df.model.ListFlowDefinitionVersionsRequest;
 import com.cloudera.cdp.df.model.ListFlowDefinitionVersionsResponse;
 import com.cloudera.cdp.df.model.ListFlowDefinitionsRequest;
 import com.cloudera.cdp.df.model.ListFlowDefinitionsResponse;
+import com.cloudera.cdp.df.model.ListFlowEventsInDeploymentRequest;
+import com.cloudera.cdp.df.model.ListFlowEventsInDeploymentResponse;
+import com.cloudera.cdp.df.model.ListFlowKpisInDeploymentRequest;
+import com.cloudera.cdp.df.model.ListFlowKpisInDeploymentResponse;
 import com.cloudera.cdp.df.model.ListFlowVersionTagsRequest;
 import com.cloudera.cdp.df.model.ListFlowVersionTagsResponse;
+import com.cloudera.cdp.df.model.ListFlowsInDeploymentRequest;
+import com.cloudera.cdp.df.model.ListFlowsInDeploymentResponse;
 import com.cloudera.cdp.df.model.ListNotificationsRequest;
 import com.cloudera.cdp.df.model.ListNotificationsResponse;
 import com.cloudera.cdp.df.model.ListProjectFilterOptionsRequest;
@@ -140,6 +154,8 @@ import com.cloudera.cdp.df.model.StartGetDiagnosticsCollectionRequest;
 import com.cloudera.cdp.df.model.StartGetDiagnosticsCollectionResponse;
 import com.cloudera.cdp.df.model.UpdateCollectionRequest;
 import com.cloudera.cdp.df.model.UpdateCollectionResponse;
+import com.cloudera.cdp.df.model.UpdateNodeImagesRequest;
+import com.cloudera.cdp.df.model.UpdateNodeImagesResponse;
 import com.cloudera.cdp.df.model.UpdateProjectRequest;
 import com.cloudera.cdp.df.model.UpdateProjectResponse;
 import com.cloudera.cdp.df.model.UpdateServiceRequest;
@@ -152,7 +168,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:52.503-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:07.561-07:00")
 public class DfClient extends CdpClient {
 
   public static final String SERVICE_NAME = "df";
@@ -392,6 +408,32 @@ public class DfClient extends CdpClient {
   }
 
   /**
+   * Describe flow event detail in a deployment.
+   * @param input
+   * @return DescribeFlowEventDetailInDeploymentResponse
+   */
+  public DescribeFlowEventDetailInDeploymentResponse describeFlowEventDetailInDeployment(DescribeFlowEventDetailInDeploymentRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeFlowEventDetailInDeployment");
+    }
+
+    return this.invokeAPI("describeFlowEventDetailInDeployment", "/api/v1/df/describeFlowEventDetailInDeployment", input, new GenericType<DescribeFlowEventDetailInDeploymentResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Describe flow in a deployment.
+   * @param input
+   * @return DescribeFlowInDeploymentResponse
+   */
+  public DescribeFlowInDeploymentResponse describeFlowInDeployment(DescribeFlowInDeploymentRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeFlowInDeployment");
+    }
+
+    return this.invokeAPI("describeFlowInDeployment", "/api/v1/df/describeFlowInDeployment", input, new GenericType<DescribeFlowInDeploymentResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Describes a Project.
    * @param input
    * @return DescribeProjectResponse
@@ -548,6 +590,19 @@ public class DfClient extends CdpClient {
   }
 
   /**
+   * Initiate the flow creation process in a deployment.
+   * @param input
+   * @return InitiateFlowInDeploymentResponse
+   */
+  public InitiateFlowInDeploymentResponse initiateFlowInDeployment(InitiateFlowInDeploymentRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling initiateFlowInDeployment");
+    }
+
+    return this.invokeAPI("initiateFlowInDeployment", "/api/v1/df/initiateFlowInDeployment", input, new GenericType<InitiateFlowInDeploymentResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * List catalog collections.
    * @param input
    * @return ListCollectionsResponse
@@ -665,6 +720,19 @@ public class DfClient extends CdpClient {
   }
 
   /**
+   * List active alerts for a flow in a deployment.
+   * @param input
+   * @return ListFlowActiveAlertsInDeploymentResponse
+   */
+  public ListFlowActiveAlertsInDeploymentResponse listFlowActiveAlertsInDeployment(ListFlowActiveAlertsInDeploymentRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listFlowActiveAlertsInDeployment");
+    }
+
+    return this.invokeAPI("listFlowActiveAlertsInDeployment", "/api/v1/df/listFlowActiveAlertsInDeployment", input, new GenericType<ListFlowActiveAlertsInDeploymentResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * List flow definition versions.
    * @param input
    * @return ListFlowDefinitionVersionsResponse
@@ -691,6 +759,32 @@ public class DfClient extends CdpClient {
   }
 
   /**
+   * List event history for a flow in a deployment.
+   * @param input
+   * @return ListFlowEventsInDeploymentResponse
+   */
+  public ListFlowEventsInDeploymentResponse listFlowEventsInDeployment(ListFlowEventsInDeploymentRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listFlowEventsInDeployment");
+    }
+
+    return this.invokeAPI("listFlowEventsInDeployment", "/api/v1/df/listFlowEventsInDeployment", input, new GenericType<ListFlowEventsInDeploymentResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * List KPI metrics for a flow in a deployment.
+   * @param input
+   * @return ListFlowKpisInDeploymentResponse
+   */
+  public ListFlowKpisInDeploymentResponse listFlowKpisInDeployment(ListFlowKpisInDeploymentRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listFlowKpisInDeployment");
+    }
+
+    return this.invokeAPI("listFlowKpisInDeployment", "/api/v1/df/listFlowKpisInDeployment", input, new GenericType<ListFlowKpisInDeploymentResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * List flow version tags.
    * @param input
    * @return ListFlowVersionTagsResponse
@@ -701,6 +795,19 @@ public class DfClient extends CdpClient {
     }
 
     return this.invokeAPI("listFlowVersionTags", "/api/v1/df/listFlowVersionTags", input, new GenericType<ListFlowVersionTagsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * List flows in a deployment.
+   * @param input
+   * @return ListFlowsInDeploymentResponse
+   */
+  public ListFlowsInDeploymentResponse listFlowsInDeployment(ListFlowsInDeploymentRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listFlowsInDeployment");
+    }
+
+    return this.invokeAPI("listFlowsInDeployment", "/api/v1/df/listFlowsInDeployment", input, new GenericType<ListFlowsInDeploymentResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -896,6 +1003,19 @@ public class DfClient extends CdpClient {
     }
 
     return this.invokeAPI("updateCollection", "/api/v1/df/updateCollection", input, new GenericType<UpdateCollectionResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Update cloud provider node images.
+   * @param input
+   * @return UpdateNodeImagesResponse
+   */
+  public UpdateNodeImagesResponse updateNodeImages(UpdateNodeImagesRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateNodeImages");
+    }
+
+    return this.invokeAPI("updateNodeImages", "/api/v1/df/updateNodeImages", input, new GenericType<UpdateNodeImagesResponse>(){}, NO_EXTENSION);
   }
 
   /**

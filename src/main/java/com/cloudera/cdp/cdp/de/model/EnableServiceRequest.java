@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * Request object for Enable Service method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:52.016-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:06.938-07:00")
 public class EnableServiceRequest  {
 
   /**
@@ -198,6 +198,21 @@ public class EnableServiceRequest  {
    * EBS volume size in GB for the All Purpose Instance Group.
    **/
   private Integer allPurposeRootVolumeSize = null;
+
+  /**
+   * When set to true, disables ARM64 (Graviton) instances for the CDE service database. When set to false (default), Graviton instances may be used for the database. If Graviton instances are not available, the system falls back to x86.
+   **/
+  private Boolean disableArm64 = null;
+
+  /**
+   * Azure managed identity resource ID for service.
+   **/
+  private String azureServiceManagedIdentity = null;
+
+  /**
+   * Azure managed identity resource IDs for virtual cluster.
+   **/
+  private String azureVirtualClusterManagedIdentities = null;
 
   /**
    * Getter for name.
@@ -760,6 +775,57 @@ public class EnableServiceRequest  {
     this.allPurposeRootVolumeSize = allPurposeRootVolumeSize;
   }
 
+  /**
+   * Getter for disableArm64.
+   * When set to true, disables ARM64 (Graviton) instances for the CDE service database. When set to false (default), Graviton instances may be used for the database. If Graviton instances are not available, the system falls back to x86.
+   **/
+  @JsonProperty("disableArm64")
+  public Boolean getDisableArm64() {
+    return disableArm64;
+  }
+
+  /**
+   * Setter for disableArm64.
+   * When set to true, disables ARM64 (Graviton) instances for the CDE service database. When set to false (default), Graviton instances may be used for the database. If Graviton instances are not available, the system falls back to x86.
+   **/
+  public void setDisableArm64(Boolean disableArm64) {
+    this.disableArm64 = disableArm64;
+  }
+
+  /**
+   * Getter for azureServiceManagedIdentity.
+   * Azure managed identity resource ID for service.
+   **/
+  @JsonProperty("azureServiceManagedIdentity")
+  public String getAzureServiceManagedIdentity() {
+    return azureServiceManagedIdentity;
+  }
+
+  /**
+   * Setter for azureServiceManagedIdentity.
+   * Azure managed identity resource ID for service.
+   **/
+  public void setAzureServiceManagedIdentity(String azureServiceManagedIdentity) {
+    this.azureServiceManagedIdentity = azureServiceManagedIdentity;
+  }
+
+  /**
+   * Getter for azureVirtualClusterManagedIdentities.
+   * Azure managed identity resource IDs for virtual cluster.
+   **/
+  @JsonProperty("azureVirtualClusterManagedIdentities")
+  public String getAzureVirtualClusterManagedIdentities() {
+    return azureVirtualClusterManagedIdentities;
+  }
+
+  /**
+   * Setter for azureVirtualClusterManagedIdentities.
+   * Azure managed identity resource IDs for virtual cluster.
+   **/
+  public void setAzureVirtualClusterManagedIdentities(String azureVirtualClusterManagedIdentities) {
+    this.azureVirtualClusterManagedIdentities = azureVirtualClusterManagedIdentities;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -868,12 +934,21 @@ public class EnableServiceRequest  {
     if (!Objects.equals(this.allPurposeRootVolumeSize, enableServiceRequest.allPurposeRootVolumeSize)) {
       return false;
     }
+    if (!Objects.equals(this.disableArm64, enableServiceRequest.disableArm64)) {
+      return false;
+    }
+    if (!Objects.equals(this.azureServiceManagedIdentity, enableServiceRequest.azureServiceManagedIdentity)) {
+      return false;
+    }
+    if (!Objects.equals(this.azureVirtualClusterManagedIdentities, enableServiceRequest.azureVirtualClusterManagedIdentities)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, env, instanceType, minimumInstances, maximumInstances, minimumSpotInstances, maximumSpotInstances, initialInstances, initialSpotInstances, rootVolumeSize, enablePublicEndpoint, deployPreviousVersion, enableWorkloadAnalytics, useSsd, chartValueOverrides, whitelistIps, loadbalancerAllowlist, tags, skipValidation, enablePrivateNetwork, subnets, azureFilesharePrivateDNSZoneId, azureDatabasePrivateDNSZoneId, customAzureFilesConfigs, networkOutboundType, allPurposeInstanceType, allPurposeMinimumInstances, allPurposeMaximumInstances, allPurposeMinimumSpotInstances, allPurposeMaximumSpotInstances, allPurposeInitialInstances, allPurposeInitialSpotInstances, allPurposeRootVolumeSize);
+    return Objects.hash(name, env, instanceType, minimumInstances, maximumInstances, minimumSpotInstances, maximumSpotInstances, initialInstances, initialSpotInstances, rootVolumeSize, enablePublicEndpoint, deployPreviousVersion, enableWorkloadAnalytics, useSsd, chartValueOverrides, whitelistIps, loadbalancerAllowlist, tags, skipValidation, enablePrivateNetwork, subnets, azureFilesharePrivateDNSZoneId, azureDatabasePrivateDNSZoneId, customAzureFilesConfigs, networkOutboundType, allPurposeInstanceType, allPurposeMinimumInstances, allPurposeMaximumInstances, allPurposeMinimumSpotInstances, allPurposeMaximumSpotInstances, allPurposeInitialInstances, allPurposeInitialSpotInstances, allPurposeRootVolumeSize, disableArm64, azureServiceManagedIdentity, azureVirtualClusterManagedIdentities);
   }
 
   @Override
@@ -913,6 +988,9 @@ public class EnableServiceRequest  {
     sb.append("    allPurposeInitialInstances: ").append(toIndentedString(allPurposeInitialInstances)).append("\n");
     sb.append("    allPurposeInitialSpotInstances: ").append(toIndentedString(allPurposeInitialSpotInstances)).append("\n");
     sb.append("    allPurposeRootVolumeSize: ").append(toIndentedString(allPurposeRootVolumeSize)).append("\n");
+    sb.append("    disableArm64: ").append(toIndentedString(disableArm64)).append("\n");
+    sb.append("    azureServiceManagedIdentity: ").append(toIndentedString(azureServiceManagedIdentity)).append("\n");
+    sb.append("    azureVirtualClusterManagedIdentities: ").append(toIndentedString(azureVirtualClusterManagedIdentities)).append("\n");
     sb.append("}");
     return sb.toString();
   }

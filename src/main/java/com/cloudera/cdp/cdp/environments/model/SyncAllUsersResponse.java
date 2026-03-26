@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * All Users and Groups Sync Response Object
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:50.883-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:05.855-07:00")
 public class SyncAllUsersResponse extends CdpResponse {
 
   /**

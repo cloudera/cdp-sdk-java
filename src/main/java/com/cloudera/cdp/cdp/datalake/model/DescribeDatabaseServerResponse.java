@@ -29,7 +29,7 @@ import java.time.ZonedDateTime;
 /**
  * Response object for obtaining Database Server details.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:50.363-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:05.195-07:00")
 public class DescribeDatabaseServerResponse extends CdpResponse {
 
   /**

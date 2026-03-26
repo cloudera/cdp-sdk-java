@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the UpgradeWorkspace method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:49.976-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:04.780-07:00")
 public class UpgradeWorkspaceRequest  {
 
   /**
@@ -49,6 +49,11 @@ public class UpgradeWorkspaceRequest  {
    * The CRN of the workbench. If CRN is specified only the CRN is used for identifying the workbench, environment and name arguments are ignored.
    **/
   private String workspaceCrn = null;
+
+  /**
+   * Whether to skip pre-flight validations before performing the restore-based upgrade.
+   **/
+  private Boolean skipValidation = null;
 
   /**
    * Getter for environmentName.
@@ -118,6 +123,23 @@ public class UpgradeWorkspaceRequest  {
     this.workspaceCrn = workspaceCrn;
   }
 
+  /**
+   * Getter for skipValidation.
+   * Whether to skip pre-flight validations before performing the restore-based upgrade.
+   **/
+  @JsonProperty("skipValidation")
+  public Boolean getSkipValidation() {
+    return skipValidation;
+  }
+
+  /**
+   * Setter for skipValidation.
+   * Whether to skip pre-flight validations before performing the restore-based upgrade.
+   **/
+  public void setSkipValidation(Boolean skipValidation) {
+    this.skipValidation = skipValidation;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -139,12 +161,15 @@ public class UpgradeWorkspaceRequest  {
     if (!Objects.equals(this.workspaceCrn, upgradeWorkspaceRequest.workspaceCrn)) {
       return false;
     }
+    if (!Objects.equals(this.skipValidation, upgradeWorkspaceRequest.skipValidation)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, workspaceName, mlVersion, workspaceCrn);
+    return Objects.hash(environmentName, workspaceName, mlVersion, workspaceCrn, skipValidation);
   }
 
   @Override
@@ -155,6 +180,7 @@ public class UpgradeWorkspaceRequest  {
     sb.append("    workspaceName: ").append(toIndentedString(workspaceName)).append("\n");
     sb.append("    mlVersion: ").append(toIndentedString(mlVersion)).append("\n");
     sb.append("    workspaceCrn: ").append(toIndentedString(workspaceCrn)).append("\n");
+    sb.append("    skipValidation: ").append(toIndentedString(skipValidation)).append("\n");
     sb.append("}");
     return sb.toString();
   }

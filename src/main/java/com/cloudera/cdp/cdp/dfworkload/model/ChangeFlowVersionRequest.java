@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for change flow version of a deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-02-26T14:34:52.868-08:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:08.000-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class ChangeFlowVersionRequest  {
 
@@ -63,6 +63,21 @@ public class ChangeFlowVersionRequest  {
    * The max time in minutes to wait for the flow to process data.
    **/
   private Integer waitForFlowToStopInMinutes = null;
+
+  /**
+   * When specified, ignore the check to validate if deployment has custom NARs configured when the flow definition contains custom components.
+   **/
+  private Boolean ignoreCustomNarConfigurationCheck = null;
+
+  /**
+   * When specified, ignore the check to validate if deployment has custom Python configured when the flow definition contains custom Python processors.
+   **/
+  private Boolean ignoreCustomPythonConfigurationCheck = null;
+
+  /**
+   * When specified, ignore the check to validate if deployment has inbound connection configured for all listen components.
+   **/
+  private Boolean ignoreDeploymentInboundConfigurationChecks = null;
 
   /**
    * The CRN of the deployment request.
@@ -177,6 +192,57 @@ public class ChangeFlowVersionRequest  {
   }
 
   /**
+   * Getter for ignoreCustomNarConfigurationCheck.
+   * When specified, ignore the check to validate if deployment has custom NARs configured when the flow definition contains custom components.
+   **/
+  @JsonProperty("ignoreCustomNarConfigurationCheck")
+  public Boolean getIgnoreCustomNarConfigurationCheck() {
+    return ignoreCustomNarConfigurationCheck;
+  }
+
+  /**
+   * Setter for ignoreCustomNarConfigurationCheck.
+   * When specified, ignore the check to validate if deployment has custom NARs configured when the flow definition contains custom components.
+   **/
+  public void setIgnoreCustomNarConfigurationCheck(Boolean ignoreCustomNarConfigurationCheck) {
+    this.ignoreCustomNarConfigurationCheck = ignoreCustomNarConfigurationCheck;
+  }
+
+  /**
+   * Getter for ignoreCustomPythonConfigurationCheck.
+   * When specified, ignore the check to validate if deployment has custom Python configured when the flow definition contains custom Python processors.
+   **/
+  @JsonProperty("ignoreCustomPythonConfigurationCheck")
+  public Boolean getIgnoreCustomPythonConfigurationCheck() {
+    return ignoreCustomPythonConfigurationCheck;
+  }
+
+  /**
+   * Setter for ignoreCustomPythonConfigurationCheck.
+   * When specified, ignore the check to validate if deployment has custom Python configured when the flow definition contains custom Python processors.
+   **/
+  public void setIgnoreCustomPythonConfigurationCheck(Boolean ignoreCustomPythonConfigurationCheck) {
+    this.ignoreCustomPythonConfigurationCheck = ignoreCustomPythonConfigurationCheck;
+  }
+
+  /**
+   * Getter for ignoreDeploymentInboundConfigurationChecks.
+   * When specified, ignore the check to validate if deployment has inbound connection configured for all listen components.
+   **/
+  @JsonProperty("ignoreDeploymentInboundConfigurationChecks")
+  public Boolean getIgnoreDeploymentInboundConfigurationChecks() {
+    return ignoreDeploymentInboundConfigurationChecks;
+  }
+
+  /**
+   * Setter for ignoreDeploymentInboundConfigurationChecks.
+   * When specified, ignore the check to validate if deployment has inbound connection configured for all listen components.
+   **/
+  public void setIgnoreDeploymentInboundConfigurationChecks(Boolean ignoreDeploymentInboundConfigurationChecks) {
+    this.ignoreDeploymentInboundConfigurationChecks = ignoreDeploymentInboundConfigurationChecks;
+  }
+
+  /**
    * Getter for deploymentRequestCrn.
    * The CRN of the deployment request.
    **/
@@ -237,6 +303,15 @@ public class ChangeFlowVersionRequest  {
     if (!Objects.equals(this.waitForFlowToStopInMinutes, changeFlowVersionRequest.waitForFlowToStopInMinutes)) {
       return false;
     }
+    if (!Objects.equals(this.ignoreCustomNarConfigurationCheck, changeFlowVersionRequest.ignoreCustomNarConfigurationCheck)) {
+      return false;
+    }
+    if (!Objects.equals(this.ignoreCustomPythonConfigurationCheck, changeFlowVersionRequest.ignoreCustomPythonConfigurationCheck)) {
+      return false;
+    }
+    if (!Objects.equals(this.ignoreDeploymentInboundConfigurationChecks, changeFlowVersionRequest.ignoreDeploymentInboundConfigurationChecks)) {
+      return false;
+    }
     if (!Objects.equals(this.deploymentRequestCrn, changeFlowVersionRequest.deploymentRequestCrn)) {
       return false;
     }
@@ -248,7 +323,7 @@ public class ChangeFlowVersionRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, deploymentCrn, parameterGroups, kpis, strategy, waitForFlowToStopInMinutes, deploymentRequestCrn, assetUpdateRequestCrn);
+    return Objects.hash(environmentCrn, deploymentCrn, parameterGroups, kpis, strategy, waitForFlowToStopInMinutes, ignoreCustomNarConfigurationCheck, ignoreCustomPythonConfigurationCheck, ignoreDeploymentInboundConfigurationChecks, deploymentRequestCrn, assetUpdateRequestCrn);
   }
 
   @Override
@@ -261,6 +336,9 @@ public class ChangeFlowVersionRequest  {
     sb.append("    kpis: ").append(toIndentedString(kpis)).append("\n");
     sb.append("    strategy: ").append(toIndentedString(strategy)).append("\n");
     sb.append("    waitForFlowToStopInMinutes: ").append(toIndentedString(waitForFlowToStopInMinutes)).append("\n");
+    sb.append("    ignoreCustomNarConfigurationCheck: ").append(toIndentedString(ignoreCustomNarConfigurationCheck)).append("\n");
+    sb.append("    ignoreCustomPythonConfigurationCheck: ").append(toIndentedString(ignoreCustomPythonConfigurationCheck)).append("\n");
+    sb.append("    ignoreDeploymentInboundConfigurationChecks: ").append(toIndentedString(ignoreDeploymentInboundConfigurationChecks)).append("\n");
     sb.append("    deploymentRequestCrn: ").append(toIndentedString(deploymentRequestCrn)).append("\n");
     sb.append("    assetUpdateRequestCrn: ").append(toIndentedString(assetUpdateRequestCrn)).append("\n");
     sb.append("}");
