@@ -24,7 +24,7 @@ import com.cloudera.cdp.client.CdpClientBuilder;
 /**
 * This class can be used to build a AuditClient object.
 **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:06.793-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-31T14:25:32.899-07:00")
 public class AuditClientBuilder extends CdpClientBuilder<AuditClientBuilder> {
 
   private AuditClientBuilder() {

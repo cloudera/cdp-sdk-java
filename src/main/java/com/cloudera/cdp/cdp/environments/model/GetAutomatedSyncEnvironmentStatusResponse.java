@@ -28,7 +28,7 @@ import com.cloudera.cdp.environments.model.LastAutomatedSyncDetails;
 /**
  * Response object for getting automated sync environment status.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:05.855-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-31T14:25:32.123-07:00")
 public class GetAutomatedSyncEnvironmentStatusResponse extends CdpResponse {
 
   /**

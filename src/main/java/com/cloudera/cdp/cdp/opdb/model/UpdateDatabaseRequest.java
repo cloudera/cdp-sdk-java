@@ -28,7 +28,7 @@ import com.cloudera.cdp.opdb.model.AutoScalingParameters;
 /**
  * A request to update the database
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:06.573-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-31T14:25:32.730-07:00")
 public class UpdateDatabaseRequest  {
 
   /**

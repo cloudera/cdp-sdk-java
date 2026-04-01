@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Accelerator Configurations structure
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:08.660-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-31T14:25:34.900-07:00")
 public class AcceleratorConfigResp  {
 
   /**

@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * Cloud credential details for by-name or by-id cloud credential request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:08.912-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-31T14:25:35.225-07:00")
 public class CredentialDetails  {
 
   /**

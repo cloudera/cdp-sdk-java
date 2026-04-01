@@ -55,6 +55,8 @@ import com.cloudera.cdp.de.model.GetKubeconfigRequest;
 import com.cloudera.cdp.de.model.GetKubeconfigResponse;
 import com.cloudera.cdp.de.model.GetServiceInitLogsRequest;
 import com.cloudera.cdp.de.model.GetServiceInitLogsResponse;
+import com.cloudera.cdp.de.model.GetSuspendResumeStatusRequest;
+import com.cloudera.cdp.de.model.GetSuspendResumeStatusResponse;
 import com.cloudera.cdp.de.model.GetUpgradeStatusRequest;
 import com.cloudera.cdp.de.model.GetUpgradeStatusResponse;
 import com.cloudera.cdp.de.model.ListBackupsRequest;
@@ -65,6 +67,10 @@ import com.cloudera.cdp.de.model.ListVcsRequest;
 import com.cloudera.cdp.de.model.ListVcsResponse;
 import com.cloudera.cdp.de.model.RestoreServiceRequest;
 import com.cloudera.cdp.de.model.RestoreServiceResponse;
+import com.cloudera.cdp.de.model.ResumeVcRequest;
+import com.cloudera.cdp.de.model.ResumeVcResponse;
+import com.cloudera.cdp.de.model.SuspendVcRequest;
+import com.cloudera.cdp.de.model.SuspendVcResponse;
 import com.cloudera.cdp.de.model.UpdateServiceRequest;
 import com.cloudera.cdp.de.model.UpdateServiceResponse;
 import com.cloudera.cdp.de.model.UpdateVcRequest;
@@ -77,7 +83,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:06.938-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-31T14:25:33.115-07:00")
 public class DeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "de";
@@ -278,6 +284,19 @@ public class DeClient extends CdpClient {
   }
 
   /**
+   * Get CDE Service Suspend Resume Status.
+   * @param input
+   * @return GetSuspendResumeStatusResponse
+   */
+  public GetSuspendResumeStatusResponse getSuspendResumeStatus(GetSuspendResumeStatusRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getSuspendResumeStatus");
+    }
+
+    return this.invokeAPI("getSuspendResumeStatus", "/api/v1/de/getSuspendResumeStatus", input, new GenericType<GetSuspendResumeStatusResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Get CDE Service Upgrade Status.
    * @param input
    * @return GetUpgradeStatusResponse
@@ -340,6 +359,32 @@ public class DeClient extends CdpClient {
     }
 
     return this.invokeAPI("restoreService", "/api/v1/de/restoreService", input, new GenericType<RestoreServiceResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Initiates resume on the requested VC.
+   * @param input
+   * @return ResumeVcResponse
+   */
+  public ResumeVcResponse resumeVc(ResumeVcRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling resumeVc");
+    }
+
+    return this.invokeAPI("resumeVc", "/api/v1/de/resumeVc", input, new GenericType<ResumeVcResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Initiates suspend on the requested VC.
+   * @param input
+   * @return SuspendVcResponse
+   */
+  public SuspendVcResponse suspendVc(SuspendVcRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling suspendVc");
+    }
+
+    return this.invokeAPI("suspendVc", "/api/v1/de/suspendVc", input, new GenericType<SuspendVcResponse>(){}, NO_EXTENSION);
   }
 
   /**

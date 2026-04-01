@@ -24,7 +24,7 @@ import com.cloudera.cdp.client.CdpClientBuilder;
 /**
 * This class can be used to build a DwClient object.
 **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:04.017-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-31T14:25:30.057-07:00")
 public class DwClientBuilder extends CdpClientBuilder<DwClientBuilder> {
 
   private DwClientBuilder() {

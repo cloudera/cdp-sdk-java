@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Response object for setting the SAML AuthnRequest signing key and verification certificate.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:07.111-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-31T14:25:33.347-07:00")
 public class SetSamlAuthnRequestSigningKeyResponse extends CdpResponse {
 
   /**

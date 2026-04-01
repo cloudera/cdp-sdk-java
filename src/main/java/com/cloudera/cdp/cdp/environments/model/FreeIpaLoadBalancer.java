@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Details of a FreeIPA load balancer.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:05.855-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-31T14:25:32.123-07:00")
 public class FreeIpaLoadBalancer  {
 
   /**

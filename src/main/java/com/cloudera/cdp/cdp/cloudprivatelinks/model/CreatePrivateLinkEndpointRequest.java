@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object for the CreatePrivateLinkEndpoint method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:09.131-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-31T14:25:35.389-07:00")
 public class CreatePrivateLinkEndpointRequest  {
 
   /**

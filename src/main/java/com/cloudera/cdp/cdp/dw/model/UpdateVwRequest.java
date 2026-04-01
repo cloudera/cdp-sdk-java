@@ -32,7 +32,7 @@ import com.cloudera.cdp.dw.model.ServiceConfigReq;
 /**
  * Request object for the updateVw method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:04.017-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-31T14:25:30.057-07:00")
 public class UpdateVwRequest  {
 
   /**

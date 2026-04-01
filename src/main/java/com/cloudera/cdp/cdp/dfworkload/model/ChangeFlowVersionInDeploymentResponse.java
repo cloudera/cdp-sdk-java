@@ -28,7 +28,7 @@ import com.cloudera.cdp.dfworkload.model.RpcDeployedFlowConfiguration;
 /**
  * Response object for change flow version of a flow deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:08.000-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-31T14:25:34.176-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class ChangeFlowVersionInDeploymentResponse extends CdpResponse {
 

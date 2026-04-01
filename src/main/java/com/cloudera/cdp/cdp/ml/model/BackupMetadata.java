@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Backup metadata response object for the workbench summary.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-25T09:53:04.780-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-31T14:25:30.949-07:00")
 public class BackupMetadata  {
 
   /**
