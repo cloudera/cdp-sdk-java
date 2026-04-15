@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * High Availability settings update options for the Impala Virtual Warehouse.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-31T14:25:30.057-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-04-15T08:44:50.231-07:00")
 public class ImpalaHASettingsUpdateRequest  {
 
   /**
@@ -41,7 +41,7 @@ public class ImpalaHASettingsUpdateRequest  {
   private Integer numOfActiveCoordinators = null;
 
   /**
-   * Set whether the Impala Global Admission Controller is enabled. Once disabled, it cannot be re-enabled.
+   * Set whether the Impala Global Admission Controller is enabled. This feature can only be used with high-availability mode ACTIVE_ACTIVE.
    **/
   private Boolean impalaEnableGlobalAdmissionController = null;
 
@@ -81,7 +81,7 @@ public class ImpalaHASettingsUpdateRequest  {
 
   /**
    * Getter for impalaEnableGlobalAdmissionController.
-   * Set whether the Impala Global Admission Controller is enabled. Once disabled, it cannot be re-enabled.
+   * Set whether the Impala Global Admission Controller is enabled. This feature can only be used with high-availability mode ACTIVE_ACTIVE.
    **/
   @JsonProperty("impalaEnableGlobalAdmissionController")
   public Boolean getImpalaEnableGlobalAdmissionController() {
@@ -90,7 +90,7 @@ public class ImpalaHASettingsUpdateRequest  {
 
   /**
    * Setter for impalaEnableGlobalAdmissionController.
-   * Set whether the Impala Global Admission Controller is enabled. Once disabled, it cannot be re-enabled.
+   * Set whether the Impala Global Admission Controller is enabled. This feature can only be used with high-availability mode ACTIVE_ACTIVE.
    **/
   public void setImpalaEnableGlobalAdmissionController(Boolean impalaEnableGlobalAdmissionController) {
     this.impalaEnableGlobalAdmissionController = impalaEnableGlobalAdmissionController;

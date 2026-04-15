@@ -28,7 +28,7 @@ import com.cloudera.cdp.drscp.model.Backup;
 /**
  * Request object for the describe backup request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-31T14:25:31.933-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-04-15T08:44:52.052-07:00")
 public class DescribeBackupResponse extends CdpResponse {
 
   /**

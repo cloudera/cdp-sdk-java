@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * High Availability settings for the Impala Virtual Warehouse. The values are disregarded for Hive.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-31T14:25:30.057-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-04-15T08:44:50.231-07:00")
 public class ImpalaHASettingsCreateRequest  {
 
   /**
@@ -59,6 +59,11 @@ public class ImpalaHASettingsCreateRequest  {
    * Enables a backup instance for Impala Statestore to ensure high availability.
    **/
   private Boolean enableStatestoreHighAvailability = null;
+
+  /**
+   * Set whether the Impala Global Admission Controller is enabled. This feature can only be used with high-availability mode ACTIVE_ACTIVE.
+   **/
+  private Boolean impalaEnableGlobalAdmissionController = null;
 
   /**
    * Getter for highAvailabilityMode.
@@ -162,6 +167,23 @@ public class ImpalaHASettingsCreateRequest  {
     this.enableStatestoreHighAvailability = enableStatestoreHighAvailability;
   }
 
+  /**
+   * Getter for impalaEnableGlobalAdmissionController.
+   * Set whether the Impala Global Admission Controller is enabled. This feature can only be used with high-availability mode ACTIVE_ACTIVE.
+   **/
+  @JsonProperty("impalaEnableGlobalAdmissionController")
+  public Boolean getImpalaEnableGlobalAdmissionController() {
+    return impalaEnableGlobalAdmissionController;
+  }
+
+  /**
+   * Setter for impalaEnableGlobalAdmissionController.
+   * Set whether the Impala Global Admission Controller is enabled. This feature can only be used with high-availability mode ACTIVE_ACTIVE.
+   **/
+  public void setImpalaEnableGlobalAdmissionController(Boolean impalaEnableGlobalAdmissionController) {
+    this.impalaEnableGlobalAdmissionController = impalaEnableGlobalAdmissionController;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -189,12 +211,15 @@ public class ImpalaHASettingsCreateRequest  {
     if (!Objects.equals(this.enableStatestoreHighAvailability, impalaHASettingsCreateRequest.enableStatestoreHighAvailability)) {
       return false;
     }
+    if (!Objects.equals(this.impalaEnableGlobalAdmissionController, impalaHASettingsCreateRequest.impalaEnableGlobalAdmissionController)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(highAvailabilityMode, enableShutdownOfCoordinator, shutdownOfCoordinatorDelaySeconds, numOfActiveCoordinators, enableCatalogHighAvailability, enableStatestoreHighAvailability);
+    return Objects.hash(highAvailabilityMode, enableShutdownOfCoordinator, shutdownOfCoordinatorDelaySeconds, numOfActiveCoordinators, enableCatalogHighAvailability, enableStatestoreHighAvailability, impalaEnableGlobalAdmissionController);
   }
 
   @Override
@@ -207,6 +232,7 @@ public class ImpalaHASettingsCreateRequest  {
     sb.append("    numOfActiveCoordinators: ").append(toIndentedString(numOfActiveCoordinators)).append("\n");
     sb.append("    enableCatalogHighAvailability: ").append(toIndentedString(enableCatalogHighAvailability)).append("\n");
     sb.append("    enableStatestoreHighAvailability: ").append(toIndentedString(enableStatestoreHighAvailability)).append("\n");
+    sb.append("    impalaEnableGlobalAdmissionController: ").append(toIndentedString(impalaEnableGlobalAdmissionController)).append("\n");
     sb.append("}");
     return sb.toString();
   }

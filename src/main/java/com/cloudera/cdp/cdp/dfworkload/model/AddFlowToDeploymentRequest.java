@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object to add a flow to an existing deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-31T14:25:34.176-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-04-15T08:44:54.268-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class AddFlowToDeploymentRequest  {
 

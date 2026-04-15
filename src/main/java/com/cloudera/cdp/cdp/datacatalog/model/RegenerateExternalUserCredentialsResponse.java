@@ -28,7 +28,7 @@ import com.cloudera.cdp.datacatalog.model.ExternalUser;
 /**
  * Response of the Regenerate external user credentials operation.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-31T14:25:30.688-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-04-15T08:44:50.980-07:00")
 public class RegenerateExternalUserCredentialsResponse extends CdpResponse {
 
   /**

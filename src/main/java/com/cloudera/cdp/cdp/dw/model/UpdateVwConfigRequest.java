@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object for the updateVwConfig method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-31T14:25:30.057-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-04-15T08:44:50.231-07:00")
 public class UpdateVwConfigRequest  {
 
   /**
@@ -43,7 +43,7 @@ public class UpdateVwConfigRequest  {
   private String vwId = null;
 
   /**
-   * Configuration component to update. Hive components are [DasWebapp, Hiveserver2, QueryCoordinator, QueryExecutor, StandaloneQueryExecutor, TokenAuth, Hue]. Impala components are [Hue, ImpalaAutoscaler, ImpalaCatalogd, ImpalaCoordinator, ImpalaExecutor, ImpalaProxy, ImpalaStatestored, ImpalaTokenAuth].
+   * Configuration component to update. Hive components are [DasWebapp, Hiveserver2, QueryCoordinator, QueryExecutor, StandaloneQueryExecutor, TokenAuth, Hue]. Impala components are [Hue, ImpalaAutoscaler, ImpalaCatalogd, ImpalaCoordinator, ImpalaExecutor, ImpalaProxy, ImpalaStatestored, ImpalaTokenAuth, ImpalaAdmissiond].
    **/
   private String component = null;
 
@@ -88,7 +88,7 @@ public class UpdateVwConfigRequest  {
 
   /**
    * Getter for component.
-   * Configuration component to update. Hive components are [DasWebapp, Hiveserver2, QueryCoordinator, QueryExecutor, StandaloneQueryExecutor, TokenAuth, Hue]. Impala components are [Hue, ImpalaAutoscaler, ImpalaCatalogd, ImpalaCoordinator, ImpalaExecutor, ImpalaProxy, ImpalaStatestored, ImpalaTokenAuth].
+   * Configuration component to update. Hive components are [DasWebapp, Hiveserver2, QueryCoordinator, QueryExecutor, StandaloneQueryExecutor, TokenAuth, Hue]. Impala components are [Hue, ImpalaAutoscaler, ImpalaCatalogd, ImpalaCoordinator, ImpalaExecutor, ImpalaProxy, ImpalaStatestored, ImpalaTokenAuth, ImpalaAdmissiond].
    **/
   @JsonProperty("component")
   public String getComponent() {
@@ -97,7 +97,7 @@ public class UpdateVwConfigRequest  {
 
   /**
    * Setter for component.
-   * Configuration component to update. Hive components are [DasWebapp, Hiveserver2, QueryCoordinator, QueryExecutor, StandaloneQueryExecutor, TokenAuth, Hue]. Impala components are [Hue, ImpalaAutoscaler, ImpalaCatalogd, ImpalaCoordinator, ImpalaExecutor, ImpalaProxy, ImpalaStatestored, ImpalaTokenAuth].
+   * Configuration component to update. Hive components are [DasWebapp, Hiveserver2, QueryCoordinator, QueryExecutor, StandaloneQueryExecutor, TokenAuth, Hue]. Impala components are [Hue, ImpalaAutoscaler, ImpalaCatalogd, ImpalaCoordinator, ImpalaExecutor, ImpalaProxy, ImpalaStatestored, ImpalaTokenAuth, ImpalaAdmissiond].
    **/
   public void setComponent(String component) {
     this.component = component;

@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Details of an external user with access to a Data Share.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-31T14:25:30.688-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-04-15T08:44:50.980-07:00")
 public class DataShareExternalUser  {
 
   /**

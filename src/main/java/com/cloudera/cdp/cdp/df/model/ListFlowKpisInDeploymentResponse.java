@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * A response to list KPI metrics for a flow in a deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-31T14:25:33.758-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-04-15T08:44:53.893-07:00")
 public class ListFlowKpisInDeploymentResponse extends CdpResponse {
 
   /**

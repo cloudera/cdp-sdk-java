@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Activation options for an AWS environment to enable non-transparent proxy. Read more: https://docs.cloudera.com/data-warehouse/cloud/aws-environments/topics/dw-aws-use-non-transparent-proxy.html
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-31T14:25:30.057-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-04-15T08:44:50.231-07:00")
 public class CreateAwsClusterNonTransparentProxyRequest  {
 
   /**

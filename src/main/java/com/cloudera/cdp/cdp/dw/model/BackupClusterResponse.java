@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Response object for the backupCluster method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-03-31T14:25:30.057-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-04-15T08:44:50.231-07:00")
 public class BackupClusterResponse extends CdpResponse {
 
   /**
