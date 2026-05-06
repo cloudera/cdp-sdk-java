@@ -81,6 +81,8 @@ import com.cloudera.cdp.datahub.model.DescribeRecipeResponse;
 import com.cloudera.cdp.datahub.model.DescribeScalingActivityRequest;
 import com.cloudera.cdp.datahub.model.DescribeScalingActivityResponse;
 import com.cloudera.cdp.datahub.model.Error;
+import com.cloudera.cdp.datahub.model.FinalizeZookeeperToKraftMigrationRequest;
+import com.cloudera.cdp.datahub.model.FinalizeZookeeperToKraftMigrationResponse;
 import com.cloudera.cdp.datahub.model.GetClusterHostStatusRequest;
 import com.cloudera.cdp.datahub.model.GetClusterHostStatusResponse;
 import com.cloudera.cdp.datahub.model.GetClusterServiceStatusRequest;
@@ -115,6 +117,8 @@ import com.cloudera.cdp.datahub.model.ListScalingActivitiesRequest;
 import com.cloudera.cdp.datahub.model.ListScalingActivitiesResponse;
 import com.cloudera.cdp.datahub.model.MigrateSkusRequest;
 import com.cloudera.cdp.datahub.model.MigrateSkusResponse;
+import com.cloudera.cdp.datahub.model.MigrateZookeeperToKraftRequest;
+import com.cloudera.cdp.datahub.model.MigrateZookeeperToKraftResponse;
 import com.cloudera.cdp.datahub.model.PrepareClusterUpgradeRequest;
 import com.cloudera.cdp.datahub.model.PrepareClusterUpgradeResponse;
 import com.cloudera.cdp.datahub.model.RenewCertificateRequest;
@@ -129,6 +133,8 @@ import com.cloudera.cdp.datahub.model.RestartClusterInstancesRequest;
 import com.cloudera.cdp.datahub.model.RestartClusterInstancesResponse;
 import com.cloudera.cdp.datahub.model.RetryClusterRequest;
 import com.cloudera.cdp.datahub.model.RetryClusterResponse;
+import com.cloudera.cdp.datahub.model.RollbackZookeeperToKraftMigrationRequest;
+import com.cloudera.cdp.datahub.model.RollbackZookeeperToKraftMigrationResponse;
 import com.cloudera.cdp.datahub.model.RotateAutoTlsCertificatesRequest;
 import com.cloudera.cdp.datahub.model.RotateAutoTlsCertificatesResponse;
 import com.cloudera.cdp.datahub.model.RotateDbCertificateRequest;
@@ -177,7 +183,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-04-15T08:44:49.121-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:25.135-07:00")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datahub";
@@ -547,6 +553,19 @@ public class DatahubClient extends CdpClient {
   }
 
   /**
+   * Finalize the migration from Zookeeper to KRaft broker.
+   * @param input
+   * @return FinalizeZookeeperToKraftMigrationResponse
+   */
+  public FinalizeZookeeperToKraftMigrationResponse finalizeZookeeperToKraftMigration(FinalizeZookeeperToKraftMigrationRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling finalizeZookeeperToKraftMigration");
+    }
+
+    return this.invokeAPI("finalizeZookeeperToKraftMigration", "/api/v1/datahub/finalizeZookeeperToKraftMigration", input, new GenericType<FinalizeZookeeperToKraftMigrationResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Get cluster host status.
    * @param input
    * @return GetClusterHostStatusResponse
@@ -768,6 +787,19 @@ public class DatahubClient extends CdpClient {
   }
 
   /**
+   * Migrate from Zookeeper to KRaft broker.
+   * @param input
+   * @return MigrateZookeeperToKraftResponse
+   */
+  public MigrateZookeeperToKraftResponse migrateZookeeperToKraft(MigrateZookeeperToKraftRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling migrateZookeeperToKraft");
+    }
+
+    return this.invokeAPI("migrateZookeeperToKraft", "/api/v1/datahub/migrateZookeeperToKraft", input, new GenericType<MigrateZookeeperToKraftResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Running upgrade related validations and prepares the required parcels for the upgrade.
    * @param input
    * @return PrepareClusterUpgradeResponse
@@ -857,6 +889,19 @@ public class DatahubClient extends CdpClient {
     }
 
     return this.invokeAPI("retryCluster", "/api/v1/datahub/retryCluster", input, new GenericType<RetryClusterResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Rollback the migration from Zookeeper to KRaft broker.
+   * @param input
+   * @return RollbackZookeeperToKraftMigrationResponse
+   */
+  public RollbackZookeeperToKraftMigrationResponse rollbackZookeeperToKraftMigration(RollbackZookeeperToKraftMigrationRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling rollbackZookeeperToKraftMigration");
+    }
+
+    return this.invokeAPI("rollbackZookeeperToKraftMigration", "/api/v1/datahub/rollbackZookeeperToKraftMigration", input, new GenericType<RollbackZookeeperToKraftMigrationResponse>(){}, NO_EXTENSION);
   }
 
   /**

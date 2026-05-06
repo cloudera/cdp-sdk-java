@@ -25,13 +25,14 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.ml.model.Accelerator;
 import com.cloudera.cdp.ml.model.Autoscaling;
+import com.cloudera.cdp.ml.model.AwsCrConfig;
 import com.cloudera.cdp.ml.model.RootVolume;
 import java.util.*;
 
 /**
  * Contains the necessary info for an instance group.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-04-15T08:44:51.180-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:27.506-07:00")
 public class InstanceGroup  {
 
   /**
@@ -73,6 +74,16 @@ public class InstanceGroup  {
    * The accelerator, which refers to the GPU type configuration.
    **/
   private Accelerator accelerator = null;
+
+  /**
+   * The boolean flag to provision single zone or multi zone cluster.
+   **/
+  private Boolean singleZone = null;
+
+  /**
+   * The capacity reservation config for EKS.
+   **/
+  private AwsCrConfig aws = null;
 
   /**
    * Getter for instanceType.
@@ -210,6 +221,40 @@ public class InstanceGroup  {
     this.accelerator = accelerator;
   }
 
+  /**
+   * Getter for singleZone.
+   * The boolean flag to provision single zone or multi zone cluster.
+   **/
+  @JsonProperty("singleZone")
+  public Boolean getSingleZone() {
+    return singleZone;
+  }
+
+  /**
+   * Setter for singleZone.
+   * The boolean flag to provision single zone or multi zone cluster.
+   **/
+  public void setSingleZone(Boolean singleZone) {
+    this.singleZone = singleZone;
+  }
+
+  /**
+   * Getter for aws.
+   * The capacity reservation config for EKS.
+   **/
+  @JsonProperty("aws")
+  public AwsCrConfig getAws() {
+    return aws;
+  }
+
+  /**
+   * Setter for aws.
+   * The capacity reservation config for EKS.
+   **/
+  public void setAws(AwsCrConfig aws) {
+    this.aws = aws;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -243,12 +288,18 @@ public class InstanceGroup  {
     if (!Objects.equals(this.accelerator, instanceGroup.accelerator)) {
       return false;
     }
+    if (!Objects.equals(this.singleZone, instanceGroup.singleZone)) {
+      return false;
+    }
+    if (!Objects.equals(this.aws, instanceGroup.aws)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceType, instanceTier, instanceCount, name, ingressRules, rootVolume, autoscaling, accelerator);
+    return Objects.hash(instanceType, instanceTier, instanceCount, name, ingressRules, rootVolume, autoscaling, accelerator, singleZone, aws);
   }
 
   @Override
@@ -263,6 +314,8 @@ public class InstanceGroup  {
     sb.append("    rootVolume: ").append(toIndentedString(rootVolume)).append("\n");
     sb.append("    autoscaling: ").append(toIndentedString(autoscaling)).append("\n");
     sb.append("    accelerator: ").append(toIndentedString(accelerator)).append("\n");
+    sb.append("    singleZone: ").append(toIndentedString(singleZone)).append("\n");
+    sb.append("    aws: ").append(toIndentedString(aws)).append("\n");
     sb.append("}");
     return sb.toString();
   }

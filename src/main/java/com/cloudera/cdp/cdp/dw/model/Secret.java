@@ -28,7 +28,7 @@ import com.cloudera.cdp.dw.model.SecretProperties;
 /**
  * Details of a single DWX secret.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-04-15T08:44:50.231-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:26.289-07:00")
 public class Secret  {
 
   /**

@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Response object for updating corresponding FreeIPA of the given environment to AWS IMDSv1.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-04-15T08:44:52.207-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:28.422-07:00")
 public class UpdateFreeipaToAwsImdsV1Response extends CdpResponse {
 
   /**

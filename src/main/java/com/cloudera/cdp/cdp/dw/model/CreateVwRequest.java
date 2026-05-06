@@ -35,7 +35,7 @@ import java.util.*;
 /**
  * Request object for the createVw method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-04-15T08:44:50.231-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:26.289-07:00")
 public class CreateVwRequest  {
 
   /**
@@ -82,11 +82,6 @@ public class CreateVwRequest  {
    * This feature works only for AWS cluster type. An availability zone to host compute instances. If not specified, defaults to a randomly selected availability zone inferred from available subnets. In order to query possible options, see \"availabilityZones\" field of describe-cluster or list-clusters command response.
    **/
   private String availabilityZone = null;
-
-  /**
-   * DEPRECATED: Enable Unified Analytics. In the case of Hive Virtual Warehouses, this cannot be provided, because this value is inferred. In the case of Impala, this can be set. Passing --query-isolation-options will be considered only if this flag is set to true. If Unified Analytics is enabled then the \"enableShutdownOfCoordinator\" in --impala-ha-settings is explicitly disabled (ignored) and should not be provided, furthermore the \"highAvailabilityMode\" in --impala-ha-settings cannot be set to ACTIVE_ACTIVE. FENG support will be removed in subsequent releases.
-   **/
-  private Boolean enableUnifiedAnalytics = null;
 
   /**
    * Impala specific options. It cannot be provided for Virtual Warehouse types other than Impala.
@@ -309,25 +304,6 @@ public class CreateVwRequest  {
    **/
   public void setAvailabilityZone(String availabilityZone) {
     this.availabilityZone = availabilityZone;
-  }
-
-  /**
-   * Getter for enableUnifiedAnalytics.
-   * DEPRECATED: Enable Unified Analytics. In the case of Hive Virtual Warehouses, this cannot be provided, because this value is inferred. In the case of Impala, this can be set. Passing --query-isolation-options will be considered only if this flag is set to true. If Unified Analytics is enabled then the \&quot;enableShutdownOfCoordinator\&quot; in --impala-ha-settings is explicitly disabled (ignored) and should not be provided, furthermore the \&quot;highAvailabilityMode\&quot; in --impala-ha-settings cannot be set to ACTIVE_ACTIVE. FENG support will be removed in subsequent releases.
-   **/
-  @Deprecated
-  @JsonProperty("enableUnifiedAnalytics")
-  public Boolean getEnableUnifiedAnalytics() {
-    return enableUnifiedAnalytics;
-  }
-
-  /**
-   * Setter for enableUnifiedAnalytics.
-   * DEPRECATED: Enable Unified Analytics. In the case of Hive Virtual Warehouses, this cannot be provided, because this value is inferred. In the case of Impala, this can be set. Passing --query-isolation-options will be considered only if this flag is set to true. If Unified Analytics is enabled then the \&quot;enableShutdownOfCoordinator\&quot; in --impala-ha-settings is explicitly disabled (ignored) and should not be provided, furthermore the \&quot;highAvailabilityMode\&quot; in --impala-ha-settings cannot be set to ACTIVE_ACTIVE. FENG support will be removed in subsequent releases.
-   **/
-  @Deprecated
-  public void setEnableUnifiedAnalytics(Boolean enableUnifiedAnalytics) {
-    this.enableUnifiedAnalytics = enableUnifiedAnalytics;
   }
 
   /**
@@ -606,9 +582,6 @@ public class CreateVwRequest  {
     if (!Objects.equals(this.availabilityZone, createVwRequest.availabilityZone)) {
       return false;
     }
-    if (!Objects.equals(this.enableUnifiedAnalytics, createVwRequest.enableUnifiedAnalytics)) {
-      return false;
-    }
     if (!Objects.equals(this.impalaOptions, createVwRequest.impalaOptions)) {
       return false;
     }
@@ -656,7 +629,7 @@ public class CreateVwRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, dbcId, vwType, name, instanceType, imageVersion, tShirtSize, nodeCount, availabilityZone, enableUnifiedAnalytics, impalaOptions, impalaHaSettings, autoscaling, config, queryIsolationOptions, tags, resourcePool, additionalQuota, hiveAuthenticationMode, platformJwtAuth, impalaQueryLog, logHiveQueries, ebsLLAPSpillGB, hiveServerHaMode);
+    return Objects.hash(clusterId, dbcId, vwType, name, instanceType, imageVersion, tShirtSize, nodeCount, availabilityZone, impalaOptions, impalaHaSettings, autoscaling, config, queryIsolationOptions, tags, resourcePool, additionalQuota, hiveAuthenticationMode, platformJwtAuth, impalaQueryLog, logHiveQueries, ebsLLAPSpillGB, hiveServerHaMode);
   }
 
   @Override
@@ -672,7 +645,6 @@ public class CreateVwRequest  {
     sb.append("    tShirtSize: ").append(toIndentedString(tShirtSize)).append("\n");
     sb.append("    nodeCount: ").append(toIndentedString(nodeCount)).append("\n");
     sb.append("    availabilityZone: ").append(toIndentedString(availabilityZone)).append("\n");
-    sb.append("    enableUnifiedAnalytics: ").append(toIndentedString(enableUnifiedAnalytics)).append("\n");
     sb.append("    impalaOptions: ").append(toIndentedString(impalaOptions)).append("\n");
     sb.append("    impalaHaSettings: ").append(toIndentedString(impalaHaSettings)).append("\n");
     sb.append("    autoscaling: ").append(toIndentedString(autoscaling)).append("\n");

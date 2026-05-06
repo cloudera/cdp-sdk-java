@@ -42,7 +42,7 @@ import java.util.Map;
 /**
  * A Virtual Warehouse.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-04-15T08:44:50.231-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:26.289-07:00")
 public class VwSummary  {
 
   /**
@@ -164,11 +164,6 @@ public class VwSummary  {
    * Denotes whether the Virtual Warehouse has Data Visualisation or not.
    **/
   private Boolean viz = null;
-
-  /**
-   * DEPRECATED: Denotes whether the Unified Analytics is enabled. FENG support will be removed in subsequent releases.
-   **/
-  private Boolean enableUnifiedAnalytics = null;
 
   /**
    * The current settings stored for autoscaling.
@@ -634,25 +629,6 @@ public class VwSummary  {
   }
 
   /**
-   * Getter for enableUnifiedAnalytics.
-   * DEPRECATED: Denotes whether the Unified Analytics is enabled. FENG support will be removed in subsequent releases.
-   **/
-  @Deprecated
-  @JsonProperty("enableUnifiedAnalytics")
-  public Boolean getEnableUnifiedAnalytics() {
-    return enableUnifiedAnalytics;
-  }
-
-  /**
-   * Setter for enableUnifiedAnalytics.
-   * DEPRECATED: Denotes whether the Unified Analytics is enabled. FENG support will be removed in subsequent releases.
-   **/
-  @Deprecated
-  public void setEnableUnifiedAnalytics(Boolean enableUnifiedAnalytics) {
-    this.enableUnifiedAnalytics = enableUnifiedAnalytics;
-  }
-
-  /**
    * Getter for autoscalingOptions.
    * The current settings stored for autoscaling.
    **/
@@ -922,9 +898,6 @@ public class VwSummary  {
     if (!Objects.equals(this.viz, vwSummary.viz)) {
       return false;
     }
-    if (!Objects.equals(this.enableUnifiedAnalytics, vwSummary.enableUnifiedAnalytics)) {
-      return false;
-    }
     if (!Objects.equals(this.autoscalingOptions, vwSummary.autoscalingOptions)) {
       return false;
     }
@@ -963,7 +936,7 @@ public class VwSummary  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, name, vwType, instanceType, dbcId, status, statusChangedAt, creator, creationDate, configId, cdhVersion, numOfCores, memoryCapacity, nodeCount, availabilityZone, endpoints, supportedAuthMethods, jwtAuth, impalaQueryLog, logHiveQueries, tags, compactor, viz, enableUnifiedAnalytics, autoscalingOptions, impalaOptions, impalaHaSettingsOptions, queryIsolationOptions, replicaStatus, resourcePool, additionalQuota, hiveAuthenticationMode, ebsLLAPSpillGB, hiveServerHaMode, resources);
+    return Objects.hash(crn, id, name, vwType, instanceType, dbcId, status, statusChangedAt, creator, creationDate, configId, cdhVersion, numOfCores, memoryCapacity, nodeCount, availabilityZone, endpoints, supportedAuthMethods, jwtAuth, impalaQueryLog, logHiveQueries, tags, compactor, viz, autoscalingOptions, impalaOptions, impalaHaSettingsOptions, queryIsolationOptions, replicaStatus, resourcePool, additionalQuota, hiveAuthenticationMode, ebsLLAPSpillGB, hiveServerHaMode, resources);
   }
 
   @Override
@@ -994,7 +967,6 @@ public class VwSummary  {
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("    compactor: ").append(toIndentedString(compactor)).append("\n");
     sb.append("    viz: ").append(toIndentedString(viz)).append("\n");
-    sb.append("    enableUnifiedAnalytics: ").append(toIndentedString(enableUnifiedAnalytics)).append("\n");
     sb.append("    autoscalingOptions: ").append(toIndentedString(autoscalingOptions)).append("\n");
     sb.append("    impalaOptions: ").append(toIndentedString(impalaOptions)).append("\n");
     sb.append("    impalaHaSettingsOptions: ").append(toIndentedString(impalaHaSettingsOptions)).append("\n");

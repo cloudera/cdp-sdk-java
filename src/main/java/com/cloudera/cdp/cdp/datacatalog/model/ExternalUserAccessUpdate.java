@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Specifies the updated access expiration time for an external user on a specific Data Share.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-04-15T08:44:50.980-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:27.241-07:00")
 public class ExternalUserAccessUpdate  {
 
   /**

@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * The DataFlow view of a CDP service.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-04-15T08:44:53.893-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:30.145-07:00")
 public class Service  {
 
   /**

@@ -28,7 +28,7 @@ import com.cloudera.cdp.dw.model.ImpalaExecutorGroupSetsResponse;
 /**
  * Auto-scaling configuration for a Virtual Warehouse.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-04-15T08:44:50.231-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:26.289-07:00")
 public class AutoscalingOptionsResponse extends CdpResponse {
 
   /**
@@ -50,11 +50,6 @@ public class AutoscalingOptionsResponse extends CdpResponse {
    * Auto suspend threshold for Virtual Warehouse.
    **/
   private Integer autoSuspendTimeoutSeconds = null;
-
-  /**
-   * DEPRECATED: in favor of the top level enableUnifiedAnalytics flag. Whether the Unified Analytics is enabled. FENG support will be removed in subsequent releases.
-   **/
-  private Boolean enableUnifiedAnalytics = null;
 
   /**
    * Wait time before a scale event happens.
@@ -172,25 +167,6 @@ public class AutoscalingOptionsResponse extends CdpResponse {
    **/
   public void setAutoSuspendTimeoutSeconds(Integer autoSuspendTimeoutSeconds) {
     this.autoSuspendTimeoutSeconds = autoSuspendTimeoutSeconds;
-  }
-
-  /**
-   * Getter for enableUnifiedAnalytics.
-   * DEPRECATED: in favor of the top level enableUnifiedAnalytics flag. Whether the Unified Analytics is enabled. FENG support will be removed in subsequent releases.
-   **/
-  @Deprecated
-  @JsonProperty("enableUnifiedAnalytics")
-  public Boolean getEnableUnifiedAnalytics() {
-    return enableUnifiedAnalytics;
-  }
-
-  /**
-   * Setter for enableUnifiedAnalytics.
-   * DEPRECATED: in favor of the top level enableUnifiedAnalytics flag. Whether the Unified Analytics is enabled. FENG support will be removed in subsequent releases.
-   **/
-  @Deprecated
-  public void setEnableUnifiedAnalytics(Boolean enableUnifiedAnalytics) {
-    this.enableUnifiedAnalytics = enableUnifiedAnalytics;
   }
 
   /**
@@ -394,9 +370,6 @@ public class AutoscalingOptionsResponse extends CdpResponse {
     if (!Objects.equals(this.autoSuspendTimeoutSeconds, autoscalingOptionsResponse.autoSuspendTimeoutSeconds)) {
       return false;
     }
-    if (!Objects.equals(this.enableUnifiedAnalytics, autoscalingOptionsResponse.enableUnifiedAnalytics)) {
-      return false;
-    }
     if (!Objects.equals(this.hiveScaleWaitTimeSeconds, autoscalingOptionsResponse.hiveScaleWaitTimeSeconds)) {
       return false;
     }
@@ -435,7 +408,7 @@ public class AutoscalingOptionsResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(minClusters, maxClusters, disableAutoSuspend, autoSuspendTimeoutSeconds, enableUnifiedAnalytics, hiveScaleWaitTimeSeconds, hiveDesiredFreeCapacity, impalaHighAvailabilityMode, impalaScaleUpDelaySeconds, impalaScaleDownDelaySeconds, impalaEnableShutdownOfCoordinator, impalaNumOfActiveCoordinators, impalaShutdownOfCoordinatorDelaySeconds, impalaEnableCatalogHighAvailability, impalaExecutorGroupSets, super.hashCode());
+    return Objects.hash(minClusters, maxClusters, disableAutoSuspend, autoSuspendTimeoutSeconds, hiveScaleWaitTimeSeconds, hiveDesiredFreeCapacity, impalaHighAvailabilityMode, impalaScaleUpDelaySeconds, impalaScaleDownDelaySeconds, impalaEnableShutdownOfCoordinator, impalaNumOfActiveCoordinators, impalaShutdownOfCoordinatorDelaySeconds, impalaEnableCatalogHighAvailability, impalaExecutorGroupSets, super.hashCode());
   }
 
   @Override
@@ -447,7 +420,6 @@ public class AutoscalingOptionsResponse extends CdpResponse {
     sb.append("    maxClusters: ").append(toIndentedString(maxClusters)).append("\n");
     sb.append("    disableAutoSuspend: ").append(toIndentedString(disableAutoSuspend)).append("\n");
     sb.append("    autoSuspendTimeoutSeconds: ").append(toIndentedString(autoSuspendTimeoutSeconds)).append("\n");
-    sb.append("    enableUnifiedAnalytics: ").append(toIndentedString(enableUnifiedAnalytics)).append("\n");
     sb.append("    hiveScaleWaitTimeSeconds: ").append(toIndentedString(hiveScaleWaitTimeSeconds)).append("\n");
     sb.append("    hiveDesiredFreeCapacity: ").append(toIndentedString(hiveDesiredFreeCapacity)).append("\n");
     sb.append("    impalaHighAvailabilityMode: ").append(toIndentedString(impalaHighAvailabilityMode)).append("\n");

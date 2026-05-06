@@ -28,7 +28,7 @@ import com.cloudera.cdp.de.model.BackupContentOptions;
 /**
  * Request object for Create Backup command.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-04-15T08:44:53.384-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:29.490-07:00")
 public class CreateBackupRequest  {
 
   /**

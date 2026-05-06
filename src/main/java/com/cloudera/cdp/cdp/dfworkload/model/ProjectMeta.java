@@ -27,28 +27,28 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * The meta information about a project.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-04-15T08:44:54.268-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:30.563-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class ProjectMeta  {
 
   /**
-   * The id of the project
+   * The ID of the project.
    **/
   private String id = null;
 
   /**
-   * The CRN of the project
+   * The CRN of the project.
    **/
   private String crn = null;
 
   /**
-   * The name of the group
+   * The name of the group.
    **/
   private String name = null;
 
   /**
    * Getter for id.
-   * The id of the project
+   * The ID of the project.
    **/
   @JsonProperty("id")
   public String getId() {
@@ -57,7 +57,7 @@ public class ProjectMeta  {
 
   /**
    * Setter for id.
-   * The id of the project
+   * The ID of the project.
    **/
   public void setId(String id) {
     this.id = id;
@@ -65,7 +65,7 @@ public class ProjectMeta  {
 
   /**
    * Getter for crn.
-   * The CRN of the project
+   * The CRN of the project.
    **/
   @JsonProperty("crn")
   public String getCrn() {
@@ -74,7 +74,7 @@ public class ProjectMeta  {
 
   /**
    * Setter for crn.
-   * The CRN of the project
+   * The CRN of the project.
    **/
   public void setCrn(String crn) {
     this.crn = crn;
@@ -82,7 +82,7 @@ public class ProjectMeta  {
 
   /**
    * Getter for name.
-   * The name of the group
+   * The name of the group.
    **/
   @JsonProperty("name")
   public String getName() {
@@ -91,7 +91,7 @@ public class ProjectMeta  {
 
   /**
    * Setter for name.
-   * The name of the group
+   * The name of the group.
    **/
   public void setName(String name) {
     this.name = name;

@@ -28,7 +28,7 @@ import com.cloudera.cdp.replicationmanager.model.VerificationSteps;
 /**
  * Manual steps to perform after HBase policy creation.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-04-15T08:44:55.108-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:31.276-07:00")
 public class VerifyHbaseClusterPairResponseAfterPolicySteps  {
 
   /**

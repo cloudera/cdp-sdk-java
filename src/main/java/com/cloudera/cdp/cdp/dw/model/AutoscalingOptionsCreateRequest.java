@@ -28,7 +28,7 @@ import com.cloudera.cdp.dw.model.ImpalaExecutorGroupSetsCreateRequest;
 /**
  * Auto-scaling configuration for a Virtual Warehouse.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-04-15T08:44:50.231-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:26.289-07:00")
 public class AutoscalingOptionsCreateRequest  {
 
   /**
@@ -50,11 +50,6 @@ public class AutoscalingOptionsCreateRequest  {
    * Auto suspend threshold for Virtual Warehouse.
    **/
   private Integer autoSuspendTimeoutSeconds = null;
-
-  /**
-   * DEPRECATED: in favor of the top level enableUnifiedAnalytics flag. Enable Unified Analytics. In case of Hive Virtual Warehouses this cannot be provided, because this value is inferred. In case of Impala this can be set. Passing --query-isolation-options will be considered if this flag is set to true. If Unified Analytics enabled then the \"impalaEnableShutdownOfCoordinator\" explicitly disabled and should not be provided, furthermore the \"impalaHighAvailabilityMode\" cannot be set to ACTIVE_ACTIVE. FENG support will be removed in subsequent releases.
-   **/
-  private Boolean enableUnifiedAnalytics = null;
 
   /**
    * Set wait time before a scale event happens. Either \"hiveScaleWaitTimeSeconds\" or \"hiveDesiredFreeCapacity\" can be provided.
@@ -82,7 +77,7 @@ public class AutoscalingOptionsCreateRequest  {
   private Integer impalaScaleDownDelaySeconds = null;
 
   /**
-   * DEPRECATED: in favor of the top level impalaHASettings object. Enables a shutdown of the coordinator. If Unified Analytics enabled then this setting explicitly disabled and should not be provided. FENG support will be removed in subsequent .
+   * DEPRECATED: in favor of the top level impalaHASettings object. Enables a shutdown of the coordinator.
    **/
   private Boolean impalaEnableShutdownOfCoordinator = null;
 
@@ -175,25 +170,6 @@ public class AutoscalingOptionsCreateRequest  {
   }
 
   /**
-   * Getter for enableUnifiedAnalytics.
-   * DEPRECATED: in favor of the top level enableUnifiedAnalytics flag. Enable Unified Analytics. In case of Hive Virtual Warehouses this cannot be provided, because this value is inferred. In case of Impala this can be set. Passing --query-isolation-options will be considered if this flag is set to true. If Unified Analytics enabled then the \&quot;impalaEnableShutdownOfCoordinator\&quot; explicitly disabled and should not be provided, furthermore the \&quot;impalaHighAvailabilityMode\&quot; cannot be set to ACTIVE_ACTIVE. FENG support will be removed in subsequent releases.
-   **/
-  @Deprecated
-  @JsonProperty("enableUnifiedAnalytics")
-  public Boolean getEnableUnifiedAnalytics() {
-    return enableUnifiedAnalytics;
-  }
-
-  /**
-   * Setter for enableUnifiedAnalytics.
-   * DEPRECATED: in favor of the top level enableUnifiedAnalytics flag. Enable Unified Analytics. In case of Hive Virtual Warehouses this cannot be provided, because this value is inferred. In case of Impala this can be set. Passing --query-isolation-options will be considered if this flag is set to true. If Unified Analytics enabled then the \&quot;impalaEnableShutdownOfCoordinator\&quot; explicitly disabled and should not be provided, furthermore the \&quot;impalaHighAvailabilityMode\&quot; cannot be set to ACTIVE_ACTIVE. FENG support will be removed in subsequent releases.
-   **/
-  @Deprecated
-  public void setEnableUnifiedAnalytics(Boolean enableUnifiedAnalytics) {
-    this.enableUnifiedAnalytics = enableUnifiedAnalytics;
-  }
-
-  /**
    * Getter for hiveScaleWaitTimeSeconds.
    * Set wait time before a scale event happens. Either \&quot;hiveScaleWaitTimeSeconds\&quot; or \&quot;hiveDesiredFreeCapacity\&quot; can be provided.
    **/
@@ -282,7 +258,7 @@ public class AutoscalingOptionsCreateRequest  {
 
   /**
    * Getter for impalaEnableShutdownOfCoordinator.
-   * DEPRECATED: in favor of the top level impalaHASettings object. Enables a shutdown of the coordinator. If Unified Analytics enabled then this setting explicitly disabled and should not be provided. FENG support will be removed in subsequent .
+   * DEPRECATED: in favor of the top level impalaHASettings object. Enables a shutdown of the coordinator.
    **/
   @Deprecated
   @JsonProperty("impalaEnableShutdownOfCoordinator")
@@ -292,7 +268,7 @@ public class AutoscalingOptionsCreateRequest  {
 
   /**
    * Setter for impalaEnableShutdownOfCoordinator.
-   * DEPRECATED: in favor of the top level impalaHASettings object. Enables a shutdown of the coordinator. If Unified Analytics enabled then this setting explicitly disabled and should not be provided. FENG support will be removed in subsequent .
+   * DEPRECATED: in favor of the top level impalaHASettings object. Enables a shutdown of the coordinator.
    **/
   @Deprecated
   public void setImpalaEnableShutdownOfCoordinator(Boolean impalaEnableShutdownOfCoordinator) {
@@ -394,9 +370,6 @@ public class AutoscalingOptionsCreateRequest  {
     if (!Objects.equals(this.autoSuspendTimeoutSeconds, autoscalingOptionsCreateRequest.autoSuspendTimeoutSeconds)) {
       return false;
     }
-    if (!Objects.equals(this.enableUnifiedAnalytics, autoscalingOptionsCreateRequest.enableUnifiedAnalytics)) {
-      return false;
-    }
     if (!Objects.equals(this.hiveScaleWaitTimeSeconds, autoscalingOptionsCreateRequest.hiveScaleWaitTimeSeconds)) {
       return false;
     }
@@ -432,7 +405,7 @@ public class AutoscalingOptionsCreateRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(minClusters, maxClusters, disableAutoSuspend, autoSuspendTimeoutSeconds, enableUnifiedAnalytics, hiveScaleWaitTimeSeconds, hiveDesiredFreeCapacity, impalaHighAvailabilityMode, impalaScaleUpDelaySeconds, impalaScaleDownDelaySeconds, impalaEnableShutdownOfCoordinator, impalaShutdownOfCoordinatorDelaySeconds, impalaNumOfActiveCoordinators, impalaEnableCatalogHighAvailability, impalaExecutorGroupSets);
+    return Objects.hash(minClusters, maxClusters, disableAutoSuspend, autoSuspendTimeoutSeconds, hiveScaleWaitTimeSeconds, hiveDesiredFreeCapacity, impalaHighAvailabilityMode, impalaScaleUpDelaySeconds, impalaScaleDownDelaySeconds, impalaEnableShutdownOfCoordinator, impalaShutdownOfCoordinatorDelaySeconds, impalaNumOfActiveCoordinators, impalaEnableCatalogHighAvailability, impalaExecutorGroupSets);
   }
 
   @Override
@@ -443,7 +416,6 @@ public class AutoscalingOptionsCreateRequest  {
     sb.append("    maxClusters: ").append(toIndentedString(maxClusters)).append("\n");
     sb.append("    disableAutoSuspend: ").append(toIndentedString(disableAutoSuspend)).append("\n");
     sb.append("    autoSuspendTimeoutSeconds: ").append(toIndentedString(autoSuspendTimeoutSeconds)).append("\n");
-    sb.append("    enableUnifiedAnalytics: ").append(toIndentedString(enableUnifiedAnalytics)).append("\n");
     sb.append("    hiveScaleWaitTimeSeconds: ").append(toIndentedString(hiveScaleWaitTimeSeconds)).append("\n");
     sb.append("    hiveDesiredFreeCapacity: ").append(toIndentedString(hiveDesiredFreeCapacity)).append("\n");
     sb.append("    impalaHighAvailabilityMode: ").append(toIndentedString(impalaHighAvailabilityMode)).append("\n");

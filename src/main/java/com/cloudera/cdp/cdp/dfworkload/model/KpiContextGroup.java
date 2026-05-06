@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Captures the use of a KPI in the context of a process group
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-04-15T08:44:54.268-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:30.563-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class KpiContextGroup  {
 
