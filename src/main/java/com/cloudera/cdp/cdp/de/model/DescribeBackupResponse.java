@@ -28,7 +28,7 @@ import com.cloudera.cdp.de.model.Backup;
 /**
  * Response object for Describe Backup command.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:29.490-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:29:02.976-07:00")
 public class DescribeBackupResponse extends CdpResponse {
 
   /**

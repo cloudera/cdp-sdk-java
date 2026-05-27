@@ -48,6 +48,8 @@ import com.cloudera.cdp.df.model.ImportFlowDefinitionVersionRequest;
 import com.cloudera.cdp.df.model.ImportFlowDefinitionVersionResponse;
 import com.cloudera.cdp.dfworkload.model.UploadAssetRequest;
 import com.cloudera.cdp.dfworkload.model.UploadAssetResponse;
+import com.cloudera.cdp.dfworkload.model.UploadParameterAssetRequest;
+import com.cloudera.cdp.dfworkload.model.UploadParameterAssetResponse;
 import com.cloudera.cdp.http.NeverRetryHandler;
 import com.cloudera.cdp.util.CdpSDKTestUtils;
 import com.google.common.collect.ImmutableMap;
@@ -91,6 +93,7 @@ public class DfExtensionTest {
     when(client.target(eq(URI.create("http://dfx-global.com/dfx/api/flows")))).thenReturn(webTarget);
     when(client.target(eq(URI.create("http://dfx-global.com/dfx/api/flows/flow-crn")))).thenReturn(webTarget);
     when(client.target(eq(URI.create("http://dfx-local.com/dfx/api/rpc-v1/deployments/upload-asset-content")))).thenReturn(webTarget);
+    when(client.target(eq(URI.create("http://dfx-local.com/dfx/api/rpc-v1/parameter-groups/upload-parameter-asset-content")))).thenReturn(webTarget);
     when(client.target(eq(URI.create("http://dfx-global.com/api/v1/df/getFlowVersion")))).thenReturn(webTarget);
     return client;
   }
@@ -498,6 +501,140 @@ public class DfExtensionTest {
     when(response.readEntity(eq(String.class))).thenReturn("{\"error\":\"test error message\"}");
     Client client = createMockClient(response);
     CdpRequestContext<UploadAssetResponse> context = createContext(client, input);
+    Df dfExtension = new Df(INNER_MIDDLEWARE);
+    CdpClientException e = assertThrows(CdpClientException.class, () -> dfExtension.invokeAPI(context));
+    assertEquals("com.cloudera.cdp.CdpServiceException: 400: unknown: test error message unknown", e.getMessage());
+  }
+
+  private static Response createSuccessfulResponse(UploadParameterAssetResponse uploadParameterAssetResponse) {
+    Response response = mock(Response.class);
+    when(response.getStatusInfo()).thenReturn(Response.Status.OK);
+    when(response.getHeaders()).thenReturn(new MultivaluedHashMap<>());
+    when(response.readEntity(argThat((ArgumentMatcher<GenericType>) t -> t.getRawType().equals(UploadParameterAssetResponse.class)))).thenReturn(uploadParameterAssetResponse);
+    return response;
+  }
+
+  private static Client createMockClient(UploadParameterAssetResponse uploadParameterAssetResponse) {
+    Response response = createSuccessfulResponse(uploadParameterAssetResponse);
+    return createMockClient(response);
+  }
+
+  private static CdpRequestContext<UploadParameterAssetResponse> createContext(Client client, UploadParameterAssetRequest input) {
+    CdpRequestContext<UploadParameterAssetResponse> context = new CdpRequestContext<>(
+        client,
+        "dfworkload",
+        "uploadParameterAsset",
+        new GenericType<UploadParameterAssetResponse>(){});
+    context.setRetryHandler(new NeverRetryHandler());
+    context.setRequestContentType(MediaType.APPLICATION_JSON);
+    context.setResponseContentType(MediaType.APPLICATION_JSON);
+    context.setCredentials(new BasicCdpCredentials("access-token"));
+    context.setEndpoint("http://dfx-local.com");
+    context.setMethod("POST");
+    context.setPath("/dfx/api/upload-parameter-asset");
+    context.setBody(input);
+    return context;
+  }
+
+  private static boolean verifyDfxLocalUploadParameterAssetRequestHeaders(
+      Map<String, String> headers,
+      String expectedParameterGroupCrn,
+      String expectedParameterName,
+      String expectedFilePath) {
+    assertNotNull(headers);
+    assertTrue(headers.containsKey(HttpHeaders.AUTHORIZATION));
+    assertEquals("access-token", headers.get(HttpHeaders.AUTHORIZATION));
+    assertTrue(headers.containsKey(HttpHeaders.USER_AGENT));
+    assertTrue(headers.containsKey(HttpHeaders.CONTENT_TYPE));
+    assertEquals(MediaType.APPLICATION_OCTET_STREAM, headers.get(HttpHeaders.CONTENT_TYPE));
+    if (expectedParameterGroupCrn != null) {
+      assertEquals(expectedParameterGroupCrn, headers.get("Parameter-Group-Crn"));
+    } else {
+      assertFalse(headers.containsKey("Parameter-Group-Crn"));
+    }
+    if (expectedParameterName != null) {
+      assertEquals(expectedParameterName, headers.get("Parameter-Name"));
+    } else {
+      assertFalse(headers.containsKey("Parameter-Name"));
+    }
+    if (expectedFilePath != null) {
+      assertEquals(expectedFilePath, headers.get("File-Path"));
+    } else {
+      assertFalse(headers.containsKey("File-Path"));
+    }
+    return true;
+  }
+
+  @Test
+  public void testUploadParameterAssetToDfxLocal() {
+    UploadParameterAssetRequest input = new UploadParameterAssetRequest();
+    input.setParameterGroupCrn("crn:cdp:df:us-west-1:test:parameterGroup:id1");
+    input.setParameterName("param-name");
+    input.setFilePath(Resources.getResource("df-workload.asset.bin").getPath());
+    UploadParameterAssetResponse output = new UploadParameterAssetResponse();
+    Client client = createMockClient(output);
+    CdpRequestContext<UploadParameterAssetResponse> context = createContext(client, input);
+    Df dfExtension = new Df(INNER_MIDDLEWARE);
+    dfExtension.invokeAPI(context);
+    assertEquals(output, context.getResponse());
+    verifyDfxLocalUploadParameterAssetRequestHeaders(context.getHeaders(),
+        "crn:cdp:df:us-west-1:test:parameterGroup:id1", "param-name",
+        Resources.getResource("df-workload.asset.bin").getPath());
+    verify(client, only()).target(URI.create("http://dfx-local.com/dfx/api/rpc-v1/parameter-groups/upload-parameter-asset-content"));
+  }
+
+  @Test
+  public void testUploadParameterAssetToDfxLocalNoParameterGroupCrn() {
+    UploadParameterAssetRequest input = new UploadParameterAssetRequest();
+    input.setParameterName("param-name");
+    input.setFilePath(Resources.getResource("df-workload.asset.bin").getPath());
+    UploadParameterAssetResponse output = new UploadParameterAssetResponse();
+    Client client = createMockClient(output);
+    CdpRequestContext<UploadParameterAssetResponse> context = createContext(client, input);
+    Df dfExtension = new Df(INNER_MIDDLEWARE);
+    CdpClientException e = assertThrows(CdpClientException.class, () -> dfExtension.invokeAPI(context));
+    assertEquals("ParameterGroupCrn argument is null", e.getMessage());
+  }
+
+  @Test
+  public void testUploadParameterAssetToDfxLocalNoParameterName() {
+    UploadParameterAssetRequest input = new UploadParameterAssetRequest();
+    input.setParameterGroupCrn("crn:cdp:df:us-west-1:test:parameterGroup:id1");
+    input.setFilePath(Resources.getResource("df-workload.asset.bin").getPath());
+    UploadParameterAssetResponse output = new UploadParameterAssetResponse();
+    Client client = createMockClient(output);
+    CdpRequestContext<UploadParameterAssetResponse> context = createContext(client, input);
+    Df dfExtension = new Df(INNER_MIDDLEWARE);
+    CdpClientException e = assertThrows(CdpClientException.class, () -> dfExtension.invokeAPI(context));
+    assertEquals("ParameterName argument is null", e.getMessage());
+  }
+
+  @Test
+  public void testUploadParameterAssetToDfxLocalFileNotExist() {
+    UploadParameterAssetRequest input = new UploadParameterAssetRequest();
+    input.setParameterGroupCrn("crn:cdp:df:us-west-1:test:parameterGroup:id1");
+    input.setParameterName("param-name");
+    input.setFilePath("file-not-exist");
+    UploadParameterAssetResponse output = new UploadParameterAssetResponse();
+    Client client = createMockClient(output);
+    CdpRequestContext<UploadParameterAssetResponse> context = createContext(client, input);
+    Df dfExtension = new Df(INNER_MIDDLEWARE);
+    CdpClientException e = assertThrows(CdpClientException.class, () -> dfExtension.invokeAPI(context));
+    assertEquals("Unable to load file at file-not-exist", e.getMessage());
+  }
+
+  @Test
+  public void testUploadParameterAssetToDfxLocalUploadFailed() {
+    UploadParameterAssetRequest input = new UploadParameterAssetRequest();
+    input.setParameterGroupCrn("crn:cdp:df:us-west-1:test:parameterGroup:id1");
+    input.setParameterName("param-name");
+    input.setFilePath(Resources.getResource("df-workload.asset.bin").getPath());
+    Response response = mock(Response.class);
+    when(response.getStatusInfo()).thenReturn(Response.Status.BAD_REQUEST);
+    when(response.getHeaders()).thenReturn(new MultivaluedHashMap<>());
+    when(response.readEntity(eq(String.class))).thenReturn("{\"error\":\"test error message\"}");
+    Client client = createMockClient(response);
+    CdpRequestContext<UploadParameterAssetResponse> context = createContext(client, input);
     Df dfExtension = new Df(INNER_MIDDLEWARE);
     CdpClientException e = assertThrows(CdpClientException.class, () -> dfExtension.invokeAPI(context));
     assertEquals("com.cloudera.cdp.CdpServiceException: 400: unknown: test error message unknown", e.getMessage());

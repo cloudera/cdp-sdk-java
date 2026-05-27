@@ -32,7 +32,7 @@ import java.util.Map;
 /**
  * AKS state response structure.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:31.009-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:29:04.783-07:00")
 public class AksState  {
 
   /**

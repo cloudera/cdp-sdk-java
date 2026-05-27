@@ -26,6 +26,7 @@ import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.dw.model.ActorResponse;
 import com.cloudera.cdp.dw.model.ApplicationResources;
 import com.cloudera.cdp.dw.model.AutoscalingOptionsResponse;
+import com.cloudera.cdp.dw.model.ConnectorData;
 import com.cloudera.cdp.dw.model.ImpalaHASettingsOptionsResponse;
 import com.cloudera.cdp.dw.model.ImpalaOptionsResponse;
 import com.cloudera.cdp.dw.model.QueryIsolationOptionsResponse;
@@ -42,7 +43,7 @@ import java.util.Map;
 /**
  * A Virtual Warehouse.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:26.289-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:28:59.612-07:00")
 public class VwSummary  {
 
   /**
@@ -69,6 +70,11 @@ public class VwSummary  {
    * The underlying instance type for this Virtual Warehouse.
    **/
   private String instanceType = null;
+
+  /**
+   * Version of the Virtual Warehouse.
+   **/
+  private String imageVersion = null;
 
   /**
    * ID of Database Catalog that the Virtual Warehouse is attached to.
@@ -221,6 +227,11 @@ public class VwSummary  {
   private Map<String, ApplicationResources> resources = new HashMap<String, ApplicationResources>();
 
   /**
+   * Map of connector ID to connector information for the Virtual Warehouse.
+   **/
+  private Map<String, ConnectorData> associatedConnectors = new HashMap<String, ConnectorData>();
+
+  /**
    * Getter for crn.
    * The CRN of the Virtual Warehouse.
    **/
@@ -303,6 +314,23 @@ public class VwSummary  {
    **/
   public void setInstanceType(String instanceType) {
     this.instanceType = instanceType;
+  }
+
+  /**
+   * Getter for imageVersion.
+   * Version of the Virtual Warehouse.
+   **/
+  @JsonProperty("imageVersion")
+  public String getImageVersion() {
+    return imageVersion;
+  }
+
+  /**
+   * Setter for imageVersion.
+   * Version of the Virtual Warehouse.
+   **/
+  public void setImageVersion(String imageVersion) {
+    this.imageVersion = imageVersion;
   }
 
   /**
@@ -817,6 +845,23 @@ public class VwSummary  {
     this.resources = resources;
   }
 
+  /**
+   * Getter for associatedConnectors.
+   * Map of connector ID to connector information for the Virtual Warehouse.
+   **/
+  @JsonProperty("associatedConnectors")
+  public Map<String, ConnectorData> getAssociatedConnectors() {
+    return associatedConnectors;
+  }
+
+  /**
+   * Setter for associatedConnectors.
+   * Map of connector ID to connector information for the Virtual Warehouse.
+   **/
+  public void setAssociatedConnectors(Map<String, ConnectorData> associatedConnectors) {
+    this.associatedConnectors = associatedConnectors;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -839,6 +884,9 @@ public class VwSummary  {
       return false;
     }
     if (!Objects.equals(this.instanceType, vwSummary.instanceType)) {
+      return false;
+    }
+    if (!Objects.equals(this.imageVersion, vwSummary.imageVersion)) {
       return false;
     }
     if (!Objects.equals(this.dbcId, vwSummary.dbcId)) {
@@ -931,12 +979,15 @@ public class VwSummary  {
     if (!Objects.equals(this.resources, vwSummary.resources)) {
       return false;
     }
+    if (!Objects.equals(this.associatedConnectors, vwSummary.associatedConnectors)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(crn, id, name, vwType, instanceType, dbcId, status, statusChangedAt, creator, creationDate, configId, cdhVersion, numOfCores, memoryCapacity, nodeCount, availabilityZone, endpoints, supportedAuthMethods, jwtAuth, impalaQueryLog, logHiveQueries, tags, compactor, viz, autoscalingOptions, impalaOptions, impalaHaSettingsOptions, queryIsolationOptions, replicaStatus, resourcePool, additionalQuota, hiveAuthenticationMode, ebsLLAPSpillGB, hiveServerHaMode, resources);
+    return Objects.hash(crn, id, name, vwType, instanceType, imageVersion, dbcId, status, statusChangedAt, creator, creationDate, configId, cdhVersion, numOfCores, memoryCapacity, nodeCount, availabilityZone, endpoints, supportedAuthMethods, jwtAuth, impalaQueryLog, logHiveQueries, tags, compactor, viz, autoscalingOptions, impalaOptions, impalaHaSettingsOptions, queryIsolationOptions, replicaStatus, resourcePool, additionalQuota, hiveAuthenticationMode, ebsLLAPSpillGB, hiveServerHaMode, resources, associatedConnectors);
   }
 
   @Override
@@ -948,6 +999,7 @@ public class VwSummary  {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    vwType: ").append(toIndentedString(vwType)).append("\n");
     sb.append("    instanceType: ").append(toIndentedString(instanceType)).append("\n");
+    sb.append("    imageVersion: ").append(toIndentedString(imageVersion)).append("\n");
     sb.append("    dbcId: ").append(toIndentedString(dbcId)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    statusChangedAt: ").append(toIndentedString(statusChangedAt)).append("\n");
@@ -978,6 +1030,7 @@ public class VwSummary  {
     sb.append("    ebsLLAPSpillGB: ").append(toIndentedString(ebsLLAPSpillGB)).append("\n");
     sb.append("    hiveServerHaMode: ").append(toIndentedString(hiveServerHaMode)).append("\n");
     sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
+    sb.append("    associatedConnectors: ").append(toIndentedString(associatedConnectors)).append("\n");
     sb.append("}");
     return sb.toString();
   }

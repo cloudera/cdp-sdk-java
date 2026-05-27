@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object to add a flow to an existing deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:30.563-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:29:04.223-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class AddFlowToDeploymentRequest  {
 
@@ -93,6 +93,11 @@ public class AddFlowToDeploymentRequest  {
    * The CRN of the project to which the deployment belongs, used for authorization.
    **/
   private String projectCrn = null;
+
+  /**
+   * The CRN of the shared group to use. All parameters of the flow should be present in the provided shared parameter group.
+   **/
+  private String useSharedParameterGroupCrn = null;
 
   /**
    * Getter for environmentCrn.
@@ -298,6 +303,23 @@ public class AddFlowToDeploymentRequest  {
     this.projectCrn = projectCrn;
   }
 
+  /**
+   * Getter for useSharedParameterGroupCrn.
+   * The CRN of the shared group to use. All parameters of the flow should be present in the provided shared parameter group.
+   **/
+  @JsonProperty("useSharedParameterGroupCrn")
+  public String getUseSharedParameterGroupCrn() {
+    return useSharedParameterGroupCrn;
+  }
+
+  /**
+   * Setter for useSharedParameterGroupCrn.
+   * The CRN of the shared group to use. All parameters of the flow should be present in the provided shared parameter group.
+   **/
+  public void setUseSharedParameterGroupCrn(String useSharedParameterGroupCrn) {
+    this.useSharedParameterGroupCrn = useSharedParameterGroupCrn;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -343,12 +365,15 @@ public class AddFlowToDeploymentRequest  {
     if (!Objects.equals(this.projectCrn, addFlowToDeploymentRequest.projectCrn)) {
       return false;
     }
+    if (!Objects.equals(this.useSharedParameterGroupCrn, addFlowToDeploymentRequest.useSharedParameterGroupCrn)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, name, configurationVersion, deploymentCrn, deployedFlowRequestCrn, parameterGroups, kpis, autoStartFlow, ignoreCustomNarConfigurationCheck, ignoreCustomPythonConfigurationCheck, ignoreDeploymentInboundConfigurationChecks, projectCrn);
+    return Objects.hash(environmentCrn, name, configurationVersion, deploymentCrn, deployedFlowRequestCrn, parameterGroups, kpis, autoStartFlow, ignoreCustomNarConfigurationCheck, ignoreCustomPythonConfigurationCheck, ignoreDeploymentInboundConfigurationChecks, projectCrn, useSharedParameterGroupCrn);
   }
 
   @Override
@@ -367,6 +392,7 @@ public class AddFlowToDeploymentRequest  {
     sb.append("    ignoreCustomPythonConfigurationCheck: ").append(toIndentedString(ignoreCustomPythonConfigurationCheck)).append("\n");
     sb.append("    ignoreDeploymentInboundConfigurationChecks: ").append(toIndentedString(ignoreDeploymentInboundConfigurationChecks)).append("\n");
     sb.append("    projectCrn: ").append(toIndentedString(projectCrn)).append("\n");
+    sb.append("    useSharedParameterGroupCrn: ").append(toIndentedString(useSharedParameterGroupCrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

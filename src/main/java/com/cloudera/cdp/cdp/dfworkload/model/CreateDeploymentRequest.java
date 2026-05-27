@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * Request object to create a deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:30.563-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:29:04.223-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class CreateDeploymentRequest  {
 
@@ -161,6 +161,11 @@ public class CreateDeploymentRequest  {
    * The CRN of the project.
    **/
   private String projectCrn = null;
+
+  /**
+   * The CRN of the shared group to use. All parameters of the flow should be present in the provided shared parameter group.
+   **/
+  private String useSharedParameterGroupCrn = null;
 
   /**
    * Getter for environmentCrn.
@@ -587,6 +592,23 @@ public class CreateDeploymentRequest  {
     this.projectCrn = projectCrn;
   }
 
+  /**
+   * Getter for useSharedParameterGroupCrn.
+   * The CRN of the shared group to use. All parameters of the flow should be present in the provided shared parameter group.
+   **/
+  @JsonProperty("useSharedParameterGroupCrn")
+  public String getUseSharedParameterGroupCrn() {
+    return useSharedParameterGroupCrn;
+  }
+
+  /**
+   * Setter for useSharedParameterGroupCrn.
+   * The CRN of the shared group to use. All parameters of the flow should be present in the provided shared parameter group.
+   **/
+  public void setUseSharedParameterGroupCrn(String useSharedParameterGroupCrn) {
+    this.useSharedParameterGroupCrn = useSharedParameterGroupCrn;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -671,12 +693,15 @@ public class CreateDeploymentRequest  {
     if (!Objects.equals(this.projectCrn, createDeploymentRequest.projectCrn)) {
       return false;
     }
+    if (!Objects.equals(this.useSharedParameterGroupCrn, createDeploymentRequest.useSharedParameterGroupCrn)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, configurationVersion, name, deploymentRequestCrn, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, deployedFlowName, cfmNifiVersion, autoStartFlow, clusterSize, inboundHostname, listenComponents, inboundConnectionAuthorizedIpRanges, nodeStorageProfileName, nodeStorage, pythonWorkDirectorySize, ignoreDeploymentInboundConfigurationChecks, customNarConfigurationCrn, customPythonConfigurationCrn, projectCrn);
+    return Objects.hash(environmentCrn, configurationVersion, name, deploymentRequestCrn, parameterGroups, autoScalingEnabled, flowMetricsScalingEnabled, autoScaleMinNodes, autoScaleMaxNodes, staticNodeCount, kpis, deployedFlowName, cfmNifiVersion, autoStartFlow, clusterSize, inboundHostname, listenComponents, inboundConnectionAuthorizedIpRanges, nodeStorageProfileName, nodeStorage, pythonWorkDirectorySize, ignoreDeploymentInboundConfigurationChecks, customNarConfigurationCrn, customPythonConfigurationCrn, projectCrn, useSharedParameterGroupCrn);
   }
 
   @Override
@@ -708,6 +733,7 @@ public class CreateDeploymentRequest  {
     sb.append("    customNarConfigurationCrn: ").append(toIndentedString(customNarConfigurationCrn)).append("\n");
     sb.append("    customPythonConfigurationCrn: ").append(toIndentedString(customPythonConfigurationCrn)).append("\n");
     sb.append("    projectCrn: ").append(toIndentedString(projectCrn)).append("\n");
+    sb.append("    useSharedParameterGroupCrn: ").append(toIndentedString(useSharedParameterGroupCrn)).append("\n");
     sb.append("}");
     return sb.toString();
   }

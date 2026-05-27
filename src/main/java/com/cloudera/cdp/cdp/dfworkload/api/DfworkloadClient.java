@@ -56,18 +56,28 @@ import com.cloudera.cdp.dfworkload.model.CreateDeploymentRequest;
 import com.cloudera.cdp.dfworkload.model.CreateDeploymentResponse;
 import com.cloudera.cdp.dfworkload.model.CreateInboundConnectionEndpointRequest;
 import com.cloudera.cdp.dfworkload.model.CreateInboundConnectionEndpointResponse;
+import com.cloudera.cdp.dfworkload.model.CreateParameterGroupRequest;
+import com.cloudera.cdp.dfworkload.model.CreateParameterGroupResponse;
 import com.cloudera.cdp.dfworkload.model.CreateReportingTaskRequest;
 import com.cloudera.cdp.dfworkload.model.CreateReportingTaskResponse;
 import com.cloudera.cdp.dfworkload.model.DeleteCustomNarConfigurationRequest;
 import com.cloudera.cdp.dfworkload.model.DeleteCustomNarConfigurationResponse;
 import com.cloudera.cdp.dfworkload.model.DeleteCustomPythonConfigurationRequest;
 import com.cloudera.cdp.dfworkload.model.DeleteCustomPythonConfigurationResponse;
+import com.cloudera.cdp.dfworkload.model.DeleteFlowDraftRequest;
+import com.cloudera.cdp.dfworkload.model.DeleteFlowDraftResponse;
 import com.cloudera.cdp.dfworkload.model.DeleteInboundConnectionEndpointRequest;
 import com.cloudera.cdp.dfworkload.model.DeleteInboundConnectionEndpointResponse;
+import com.cloudera.cdp.dfworkload.model.DeleteParameterGroupRequest;
+import com.cloudera.cdp.dfworkload.model.DeleteParameterGroupResponse;
 import com.cloudera.cdp.dfworkload.model.DeleteReportingTaskRequest;
 import com.cloudera.cdp.dfworkload.model.DeleteReportingTaskResponse;
 import com.cloudera.cdp.dfworkload.model.DescribeInboundConnectionEndpointRequest;
 import com.cloudera.cdp.dfworkload.model.DescribeInboundConnectionEndpointResponse;
+import com.cloudera.cdp.dfworkload.model.DescribeParameterGroupRequest;
+import com.cloudera.cdp.dfworkload.model.DescribeParameterGroupResponse;
+import com.cloudera.cdp.dfworkload.model.DuplicateParameterGroupRequest;
+import com.cloudera.cdp.dfworkload.model.DuplicateParameterGroupResponse;
 import com.cloudera.cdp.dfworkload.model.Error;
 import com.cloudera.cdp.dfworkload.model.ExportDeploymentRequest;
 import com.cloudera.cdp.dfworkload.model.ExportDeploymentResponse;
@@ -98,18 +108,26 @@ import com.cloudera.cdp.dfworkload.model.InboundConnectionEndpointClientCertific
 import com.cloudera.cdp.dfworkload.model.InboundConnectionEndpointClientCertificatesResponse;
 import com.cloudera.cdp.dfworkload.model.ListDeploymentArchivesRequest;
 import com.cloudera.cdp.dfworkload.model.ListDeploymentArchivesResponse;
+import com.cloudera.cdp.dfworkload.model.ListFlowDraftsRequest;
+import com.cloudera.cdp.dfworkload.model.ListFlowDraftsResponse;
 import com.cloudera.cdp.dfworkload.model.ListInboundConnectionEndpointsRequest;
 import com.cloudera.cdp.dfworkload.model.ListInboundConnectionEndpointsResponse;
 import com.cloudera.cdp.dfworkload.model.ListNifiVersionsRequest;
 import com.cloudera.cdp.dfworkload.model.ListNifiVersionsResponse;
+import com.cloudera.cdp.dfworkload.model.ListParameterGroupsRequest;
+import com.cloudera.cdp.dfworkload.model.ListParameterGroupsResponse;
 import com.cloudera.cdp.dfworkload.model.ListReportingTasksRequest;
 import com.cloudera.cdp.dfworkload.model.ListReportingTasksResponse;
+import com.cloudera.cdp.dfworkload.model.ListTestSessionsRequest;
+import com.cloudera.cdp.dfworkload.model.ListTestSessionsResponse;
 import com.cloudera.cdp.dfworkload.model.ReassignResourcesRequest;
 import com.cloudera.cdp.dfworkload.model.ReassignResourcesResponse;
 import com.cloudera.cdp.dfworkload.model.RenewInboundConnectionEndpointCertificateRequest;
 import com.cloudera.cdp.dfworkload.model.RenewInboundConnectionEndpointCertificateResponse;
 import com.cloudera.cdp.dfworkload.model.RestartDeploymentRequest;
 import com.cloudera.cdp.dfworkload.model.RestartDeploymentResponse;
+import com.cloudera.cdp.dfworkload.model.RestartTestSessionRequest;
+import com.cloudera.cdp.dfworkload.model.RestartTestSessionResponse;
 import com.cloudera.cdp.dfworkload.model.ResumeDeploymentRequest;
 import com.cloudera.cdp.dfworkload.model.ResumeDeploymentResponse;
 import com.cloudera.cdp.dfworkload.model.StartAllFlowsInDeploymentRequest;
@@ -126,10 +144,14 @@ import com.cloudera.cdp.dfworkload.model.StopFlowRequest;
 import com.cloudera.cdp.dfworkload.model.StopFlowResponse;
 import com.cloudera.cdp.dfworkload.model.SuspendDeploymentRequest;
 import com.cloudera.cdp.dfworkload.model.SuspendDeploymentResponse;
+import com.cloudera.cdp.dfworkload.model.SuspendTestSessionRequest;
+import com.cloudera.cdp.dfworkload.model.SuspendTestSessionResponse;
 import com.cloudera.cdp.dfworkload.model.TerminateDeploymentRequest;
 import com.cloudera.cdp.dfworkload.model.TerminateDeploymentResponse;
 import com.cloudera.cdp.dfworkload.model.TerminateFlowInDeploymentRequest;
 import com.cloudera.cdp.dfworkload.model.TerminateFlowInDeploymentResponse;
+import com.cloudera.cdp.dfworkload.model.TerminateTestSessionRequest;
+import com.cloudera.cdp.dfworkload.model.TerminateTestSessionResponse;
 import com.cloudera.cdp.dfworkload.model.UpdateCustomNarConfigurationRequest;
 import com.cloudera.cdp.dfworkload.model.UpdateCustomNarConfigurationResponse;
 import com.cloudera.cdp.dfworkload.model.UpdateCustomPythonConfigurationRequest;
@@ -140,8 +162,12 @@ import com.cloudera.cdp.dfworkload.model.UpdateFlowInDeploymentRequest;
 import com.cloudera.cdp.dfworkload.model.UpdateFlowInDeploymentResponse;
 import com.cloudera.cdp.dfworkload.model.UpdateNifiVersionRequest;
 import com.cloudera.cdp.dfworkload.model.UpdateNifiVersionResponse;
+import com.cloudera.cdp.dfworkload.model.UpdateParameterGroupRequest;
+import com.cloudera.cdp.dfworkload.model.UpdateParameterGroupResponse;
 import com.cloudera.cdp.dfworkload.model.UploadAssetRequest;
 import com.cloudera.cdp.dfworkload.model.UploadAssetResponse;
+import com.cloudera.cdp.dfworkload.model.UploadParameterAssetRequest;
+import com.cloudera.cdp.dfworkload.model.UploadParameterAssetResponse;
 import com.cloudera.cdp.dfworkload.model.ValidateCustomNarConfigurationRequest;
 import com.cloudera.cdp.dfworkload.model.ValidateCustomNarConfigurationResponse;
 import com.cloudera.cdp.dfworkload.model.ValidateCustomPythonConfigurationRequest;
@@ -152,7 +178,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:30.563-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:29:04.223-07:00")
 public class DfworkloadClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dfworkload";
@@ -382,6 +408,20 @@ public class DfworkloadClient extends CdpClient {
   }
 
   /**
+   * Creates a new parameter group.
+   * @param input Create Parameter Group Request.
+   * @return CreateParameterGroupResponse
+   */
+  @WorkloadApi
+  public CreateParameterGroupResponse createParameterGroup(CreateParameterGroupRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createParameterGroup");
+    }
+
+    return this.invokeAPI("createParameterGroup", "/dfx/api/rpc-v1/parameter-groups/create-parameter-group", input, new GenericType<CreateParameterGroupResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class, com.cloudera.cdp.extension.Df.class));
+  }
+
+  /**
    * Creates a reporting task.
    * @param input Create Reporting Task
    * @return CreateReportingTaskResponse
@@ -424,6 +464,20 @@ public class DfworkloadClient extends CdpClient {
   }
 
   /**
+   * Deletes flow draft.
+   * @param input Delete Flow Draft Request.
+   * @return DeleteFlowDraftResponse
+   */
+  @WorkloadApi
+  public DeleteFlowDraftResponse deleteFlowDraft(DeleteFlowDraftRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteFlowDraft");
+    }
+
+    return this.invokeAPI("deleteFlowDraft", "/dfx/api/rpc-v1/fd-proxy/delete-flow-draft", input, new GenericType<DeleteFlowDraftResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
    * Delete Inbound Connection Endpoint
    * @param input Delete Inbound Connection Endpoint request
    * @return DeleteInboundConnectionEndpointResponse
@@ -435,6 +489,20 @@ public class DfworkloadClient extends CdpClient {
     }
 
     return this.invokeAPI("deleteInboundConnectionEndpoint", "/dfx/api/rpc-v1/inbound-connection-endpoints/delete-inbound-connection-endpoint", input, new GenericType<DeleteInboundConnectionEndpointResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Deletes the parameter group.
+   * @param input Delete Parameter Group Request.
+   * @return DeleteParameterGroupResponse
+   */
+  @WorkloadApi
+  public DeleteParameterGroupResponse deleteParameterGroup(DeleteParameterGroupRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteParameterGroup");
+    }
+
+    return this.invokeAPI("deleteParameterGroup", "/dfx/api/rpc-v1/parameter-groups/delete-parameter-group", input, new GenericType<DeleteParameterGroupResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
   }
 
   /**
@@ -463,6 +531,34 @@ public class DfworkloadClient extends CdpClient {
     }
 
     return this.invokeAPI("describeInboundConnectionEndpoint", "/dfx/api/rpc-v1/inbound-connection-endpoints/describe-inbound-connection-endpoint", input, new GenericType<DescribeInboundConnectionEndpointResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Describes the parameter group with the given parameter group CRN.
+   * @param input Describe Parameter Group Request.
+   * @return DescribeParameterGroupResponse
+   */
+  @WorkloadApi
+  public DescribeParameterGroupResponse describeParameterGroup(DescribeParameterGroupRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling describeParameterGroup");
+    }
+
+    return this.invokeAPI("describeParameterGroup", "/dfx/api/rpc-v1/parameter-groups/describe-parameter-group", input, new GenericType<DescribeParameterGroupResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Duplicates the parameter group with the given CRN under the given new name.
+   * @param input Duplicate Parameter Group Request.
+   * @return DuplicateParameterGroupResponse
+   */
+  @WorkloadApi
+  public DuplicateParameterGroupResponse duplicateParameterGroup(DuplicateParameterGroupRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling duplicateParameterGroup");
+    }
+
+    return this.invokeAPI("duplicateParameterGroup", "/dfx/api/rpc-v1/parameter-groups/duplicate-parameter-group", input, new GenericType<DuplicateParameterGroupResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
   }
 
   /**
@@ -663,6 +759,20 @@ public class DfworkloadClient extends CdpClient {
   }
 
   /**
+   * Lists flow drafts.
+   * @param input List Flow Drafts Request.
+   * @return ListFlowDraftsResponse
+   */
+  @WorkloadApi
+  public ListFlowDraftsResponse listFlowDrafts(ListFlowDraftsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listFlowDrafts");
+    }
+
+    return this.invokeAPI("listFlowDrafts", "/dfx/api/rpc-v1/fd-proxy/list-flow-drafts", input, new GenericType<ListFlowDraftsResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
    * List Inbound Connection Endpoints
    * @param input List Inbound Connection Endpoints request
    * @return ListInboundConnectionEndpointsResponse
@@ -691,6 +801,20 @@ public class DfworkloadClient extends CdpClient {
   }
 
   /**
+   * Lists all known parameter groups.
+   * @param input List Parameter Groups Request.
+   * @return ListParameterGroupsResponse
+   */
+  @WorkloadApi
+  public ListParameterGroupsResponse listParameterGroups(ListParameterGroupsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listParameterGroups");
+    }
+
+    return this.invokeAPI("listParameterGroups", "/dfx/api/rpc-v1/parameter-groups/list-parameter-groups", input, new GenericType<ListParameterGroupsResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
    * Lists all reporting tasks for a deployment.
    * @param input List Reporting Tasks Request
    * @return ListReportingTasksResponse
@@ -702,6 +826,20 @@ public class DfworkloadClient extends CdpClient {
     }
 
     return this.invokeAPI("listReportingTasks", "/dfx/api/rpc-v1/deployments/list-reporting-tasks", input, new GenericType<ListReportingTasksResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Lists test sessions.
+   * @param input List Test Sessions Request.
+   * @return ListTestSessionsResponse
+   */
+  @WorkloadApi
+  public ListTestSessionsResponse listTestSessions(ListTestSessionsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listTestSessions");
+    }
+
+    return this.invokeAPI("listTestSessions", "/dfx/api/rpc-v1/fd-proxy/list-test-sessions", input, new GenericType<ListTestSessionsResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
   }
 
   /**
@@ -744,6 +882,20 @@ public class DfworkloadClient extends CdpClient {
     }
 
     return this.invokeAPI("restartDeployment", "/dfx/api/rpc-v1/deployments/restart-deployment", input, new GenericType<RestartDeploymentResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Restarts test session.
+   * @param input Restart Test Session Request.
+   * @return RestartTestSessionResponse
+   */
+  @WorkloadApi
+  public RestartTestSessionResponse restartTestSession(RestartTestSessionRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling restartTestSession");
+    }
+
+    return this.invokeAPI("restartTestSession", "/dfx/api/rpc-v1/fd-proxy/restart-test-session", input, new GenericType<RestartTestSessionResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
   }
 
   /**
@@ -861,6 +1013,20 @@ public class DfworkloadClient extends CdpClient {
   }
 
   /**
+   * Suspends test session.
+   * @param input Suspend Test Session Request.
+   * @return SuspendTestSessionResponse
+   */
+  @WorkloadApi
+  public SuspendTestSessionResponse suspendTestSession(SuspendTestSessionRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling suspendTestSession");
+    }
+
+    return this.invokeAPI("suspendTestSession", "/dfx/api/rpc-v1/fd-proxy/suspend-test-session", input, new GenericType<SuspendTestSessionResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
    * Terminates a deployment.
    * @param input Terminate Deployment Request
    * @return TerminateDeploymentResponse
@@ -886,6 +1052,20 @@ public class DfworkloadClient extends CdpClient {
     }
 
     return this.invokeAPI("terminateFlowInDeployment", "/dfx/api/rpc-v1/deployed-flows/terminate-flow-in-deployment", input, new GenericType<TerminateFlowInDeploymentResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
+  }
+
+  /**
+   * Terminates test session.
+   * @param input Terminate Test Session Request.
+   * @return TerminateTestSessionResponse
+   */
+  @WorkloadApi
+  public TerminateTestSessionResponse terminateTestSession(TerminateTestSessionRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling terminateTestSession");
+    }
+
+    return this.invokeAPI("terminateTestSession", "/dfx/api/rpc-v1/fd-proxy/terminate-test-session", input, new GenericType<TerminateTestSessionResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class));
   }
 
   /**
@@ -959,6 +1139,20 @@ public class DfworkloadClient extends CdpClient {
   }
 
   /**
+   * Updates the parameter group for the given parameter group CRN.
+   * @param input Update Parameter Group Request.
+   * @return UpdateParameterGroupResponse
+   */
+  @WorkloadApi
+  public UpdateParameterGroupResponse updateParameterGroup(UpdateParameterGroupRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateParameterGroup");
+    }
+
+    return this.invokeAPI("updateParameterGroup", "/dfx/api/rpc-v1/parameter-groups/update-parameter-group", input, new GenericType<UpdateParameterGroupResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class, com.cloudera.cdp.extension.Df.class));
+  }
+
+  /**
    * Upload an asset.
    * @param input Upload Asset
    * @return UploadAssetResponse
@@ -970,6 +1164,20 @@ public class DfworkloadClient extends CdpClient {
     }
 
     return this.invokeAPI("uploadAsset", "/dfx/api/rpc-v1/deployments/upload-asset", input, new GenericType<UploadAssetResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class, com.cloudera.cdp.extension.Df.class));
+  }
+
+  /**
+   * Uploads a parameter asset.
+   * @param input Upload Parameter Asset Request.
+   * @return UploadParameterAssetResponse
+   */
+  @WorkloadApi
+  public UploadParameterAssetResponse uploadParameterAsset(UploadParameterAssetRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling uploadParameterAsset");
+    }
+
+    return this.invokeAPI("uploadParameterAsset", "/dfx/api/rpc-v1/parameter-groups/upload-parameter-asset", input, new GenericType<UploadParameterAssetResponse>(){}, ImmutableList.of(com.cloudera.cdp.extension.Workload.class, com.cloudera.cdp.extension.Df.class));
   }
 
   /**

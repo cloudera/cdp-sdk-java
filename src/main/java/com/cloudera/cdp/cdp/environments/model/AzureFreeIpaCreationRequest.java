@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for creating FreeIPA in the environment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:28.422-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:29:01.873-07:00")
 public class AzureFreeIpaCreationRequest  {
 
   /**

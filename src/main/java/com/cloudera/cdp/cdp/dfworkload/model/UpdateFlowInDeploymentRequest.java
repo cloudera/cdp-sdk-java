@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Provides all of the configuration that dictates how a deployed flow should be updated.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:30.563-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:29:04.223-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class UpdateFlowInDeploymentRequest  {
 
@@ -60,7 +60,7 @@ public class UpdateFlowInDeploymentRequest  {
   private String assetUpdateRequestCrn = null;
 
   /**
-   * The list of flow parameter groups.
+   * The list of flow parameter groups. When updating shared parameters, individual shared parameters cannot be updated. All parameters referencing a given shared parameter group need to be updated simultaneously by providing the group id under inheritedParameterGroups, and also explicitly providing these parameters with the sourceParameterGroupId populated.
    **/
   private List<FlowParameterGroup> parameterGroups = new ArrayList<FlowParameterGroup>();
 
@@ -68,6 +68,11 @@ public class UpdateFlowInDeploymentRequest  {
    * The list of configured KPIs.
    **/
   private List<ConfiguredKpi> kpis = new ArrayList<ConfiguredKpi>();
+
+  /**
+   * The CRNs of the shared parameter groups to update. They will be updated across all parameter groups.
+   **/
+  private List<String> updateSharedParameterGroupCrns = new ArrayList<String>();
 
   /**
    * Getter for environmentCrn.
@@ -158,7 +163,7 @@ public class UpdateFlowInDeploymentRequest  {
 
   /**
    * Getter for parameterGroups.
-   * The list of flow parameter groups.
+   * The list of flow parameter groups. When updating shared parameters, individual shared parameters cannot be updated. All parameters referencing a given shared parameter group need to be updated simultaneously by providing the group id under inheritedParameterGroups, and also explicitly providing these parameters with the sourceParameterGroupId populated.
    **/
   @JsonProperty("parameterGroups")
   public List<FlowParameterGroup> getParameterGroups() {
@@ -167,7 +172,7 @@ public class UpdateFlowInDeploymentRequest  {
 
   /**
    * Setter for parameterGroups.
-   * The list of flow parameter groups.
+   * The list of flow parameter groups. When updating shared parameters, individual shared parameters cannot be updated. All parameters referencing a given shared parameter group need to be updated simultaneously by providing the group id under inheritedParameterGroups, and also explicitly providing these parameters with the sourceParameterGroupId populated.
    **/
   public void setParameterGroups(List<FlowParameterGroup> parameterGroups) {
     this.parameterGroups = parameterGroups;
@@ -188,6 +193,23 @@ public class UpdateFlowInDeploymentRequest  {
    **/
   public void setKpis(List<ConfiguredKpi> kpis) {
     this.kpis = kpis;
+  }
+
+  /**
+   * Getter for updateSharedParameterGroupCrns.
+   * The CRNs of the shared parameter groups to update. They will be updated across all parameter groups.
+   **/
+  @JsonProperty("updateSharedParameterGroupCrns")
+  public List<String> getUpdateSharedParameterGroupCrns() {
+    return updateSharedParameterGroupCrns;
+  }
+
+  /**
+   * Setter for updateSharedParameterGroupCrns.
+   * The CRNs of the shared parameter groups to update. They will be updated across all parameter groups.
+   **/
+  public void setUpdateSharedParameterGroupCrns(List<String> updateSharedParameterGroupCrns) {
+    this.updateSharedParameterGroupCrns = updateSharedParameterGroupCrns;
   }
 
   @Override
@@ -220,12 +242,15 @@ public class UpdateFlowInDeploymentRequest  {
     if (!Objects.equals(this.kpis, updateFlowInDeploymentRequest.kpis)) {
       return false;
     }
+    if (!Objects.equals(this.updateSharedParameterGroupCrns, updateFlowInDeploymentRequest.updateSharedParameterGroupCrns)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, deploymentCrn, deployedFlowCrn, configurationVersion, assetUpdateRequestCrn, parameterGroups, kpis);
+    return Objects.hash(environmentCrn, deploymentCrn, deployedFlowCrn, configurationVersion, assetUpdateRequestCrn, parameterGroups, kpis, updateSharedParameterGroupCrns);
   }
 
   @Override
@@ -239,6 +264,7 @@ public class UpdateFlowInDeploymentRequest  {
     sb.append("    assetUpdateRequestCrn: ").append(toIndentedString(assetUpdateRequestCrn)).append("\n");
     sb.append("    parameterGroups: ").append(toIndentedString(parameterGroups)).append("\n");
     sb.append("    kpis: ").append(toIndentedString(kpis)).append("\n");
+    sb.append("    updateSharedParameterGroupCrns: ").append(toIndentedString(updateSharedParameterGroupCrns)).append("\n");
     sb.append("}");
     return sb.toString();
   }

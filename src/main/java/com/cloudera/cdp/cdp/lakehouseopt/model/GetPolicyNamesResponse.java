@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Response object containing list of policy names for a namespace or across all namespaces.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:31.533-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:29:05.230-07:00")
 public class GetPolicyNamesResponse extends CdpResponse {
 
   /**

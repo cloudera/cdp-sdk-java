@@ -33,7 +33,7 @@ import java.util.*;
 /**
  * Request object for create AWS datalake request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:27.966-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:29:01.349-07:00")
 public class CreateAWSDatalakeRequest  {
 
   /**

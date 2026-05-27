@@ -36,6 +36,8 @@ import com.cloudera.cdp.dfworkload.model.UploadAssetRequest;
 import com.cloudera.cdp.dfworkload.model.UploadAssetResponse;
 import com.cloudera.cdp.dfworkload.model.CreateReportingTaskRequest;
 import com.cloudera.cdp.dfworkload.model.CreateReportingTaskResponse;
+import com.cloudera.cdp.dfworkload.model.UploadParameterAssetRequest;
+import com.cloudera.cdp.dfworkload.model.UploadParameterAssetResponse;
 import com.google.common.base.Strings;
 
 import java.io.FileInputStream;
@@ -65,6 +67,8 @@ public class Df implements CdpClientMiddleware {
       dfGetFlowVersion((CdpRequestContext<GetFlowVersionResponse>) context);
     } else if (context.getServiceName().equals("dfworkload") && context.getOperationName().equals("uploadAsset")) {
       dfWorkloadUploadAsset((CdpRequestContext<UploadAssetResponse>) context);
+    } else if (context.getServiceName().equals("dfworkload") && context.getOperationName().equals("uploadParameterAsset")) {
+      dfWorkloadUploadParameterAsset((CdpRequestContext<UploadParameterAssetResponse>) context);
     } else if (context.getServiceName().equals("dfworkload") && context.getOperationName().equals("createReportingTask")) {
       dfWorkloadCreateReportingTask((CdpRequestContext<CreateReportingTaskResponse>) context);
     } else {
@@ -166,6 +170,37 @@ public class Df implements CdpClientMiddleware {
     }
     try (FileInputStream body = new FileInputStream(filePath)) {
       context.setPath("/dfx/api/rpc-v1/deployments/upload-asset-content");
+      context.setRequestContentType(MediaType.APPLICATION_OCTET_STREAM);
+      context.setHeaders(headers);
+      context.setBody(body);
+      next.invokeAPI(context);
+    } catch (IOException ioe) {
+      throw new CdpClientException("Unable to load file at " + filePath, ioe);
+    }
+  }
+
+  private void dfWorkloadUploadParameterAsset(CdpRequestContext<UploadParameterAssetResponse> context) {
+    UploadParameterAssetRequest uploadParameterAssetRequest = (UploadParameterAssetRequest) context.getBody();
+    String parameterGroupCrn = uploadParameterAssetRequest.getParameterGroupCrn();
+    String parameterName = uploadParameterAssetRequest.getParameterName();
+    String filePath = uploadParameterAssetRequest.getFilePath();
+
+    if (Strings.isNullOrEmpty(parameterGroupCrn)) {
+      throw new CdpClientException("ParameterGroupCrn argument is null");
+    }
+
+    if (Strings.isNullOrEmpty(parameterName)) {
+      throw new CdpClientException("ParameterName argument is null");
+    }
+
+    Map<String, String> headers = new HashMap<>();
+    headers.put("Parameter-Group-Crn", parameterGroupCrn);
+    headers.put("Parameter-Name", parameterName);
+    if (filePath != null) {
+      headers.put("File-Path", filePath);
+    }
+    try (FileInputStream body = new FileInputStream(filePath)) {
+      context.setPath("/dfx/api/rpc-v1/parameter-groups/upload-parameter-asset-content");
       context.setRequestContentType(MediaType.APPLICATION_OCTET_STREAM);
       context.setHeaders(headers);
       context.setBody(body);

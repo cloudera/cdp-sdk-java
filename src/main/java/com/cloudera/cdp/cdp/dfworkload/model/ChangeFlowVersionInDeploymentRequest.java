@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for change flow version of a flow deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:30.563-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:29:04.223-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class ChangeFlowVersionInDeploymentRequest  {
 
@@ -93,6 +93,11 @@ public class ChangeFlowVersionInDeploymentRequest  {
    * The CRN of the asset update request. Required when updating assets of an existing deployment.
    **/
   private String assetUpdateRequestCrn = null;
+
+  /**
+   * The CRNs of the shared parameter groups to update. They will be updated across all parameter groups.
+   **/
+  private List<String> updateSharedParameterGroupCrns = new ArrayList<String>();
 
   /**
    * Getter for environmentCrn.
@@ -298,6 +303,23 @@ public class ChangeFlowVersionInDeploymentRequest  {
     this.assetUpdateRequestCrn = assetUpdateRequestCrn;
   }
 
+  /**
+   * Getter for updateSharedParameterGroupCrns.
+   * The CRNs of the shared parameter groups to update. They will be updated across all parameter groups.
+   **/
+  @JsonProperty("updateSharedParameterGroupCrns")
+  public List<String> getUpdateSharedParameterGroupCrns() {
+    return updateSharedParameterGroupCrns;
+  }
+
+  /**
+   * Setter for updateSharedParameterGroupCrns.
+   * The CRNs of the shared parameter groups to update. They will be updated across all parameter groups.
+   **/
+  public void setUpdateSharedParameterGroupCrns(List<String> updateSharedParameterGroupCrns) {
+    this.updateSharedParameterGroupCrns = updateSharedParameterGroupCrns;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -343,12 +365,15 @@ public class ChangeFlowVersionInDeploymentRequest  {
     if (!Objects.equals(this.assetUpdateRequestCrn, changeFlowVersionInDeploymentRequest.assetUpdateRequestCrn)) {
       return false;
     }
+    if (!Objects.equals(this.updateSharedParameterGroupCrns, changeFlowVersionInDeploymentRequest.updateSharedParameterGroupCrns)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentCrn, deploymentCrn, deployedFlowCrn, parameterGroups, kpis, strategy, waitForFlowToStopInMinutes, ignoreCustomNarConfigurationCheck, ignoreCustomPythonConfigurationCheck, ignoreDeploymentInboundConfigurationChecks, deploymentRequestCrn, assetUpdateRequestCrn);
+    return Objects.hash(environmentCrn, deploymentCrn, deployedFlowCrn, parameterGroups, kpis, strategy, waitForFlowToStopInMinutes, ignoreCustomNarConfigurationCheck, ignoreCustomPythonConfigurationCheck, ignoreDeploymentInboundConfigurationChecks, deploymentRequestCrn, assetUpdateRequestCrn, updateSharedParameterGroupCrns);
   }
 
   @Override
@@ -367,6 +392,7 @@ public class ChangeFlowVersionInDeploymentRequest  {
     sb.append("    ignoreDeploymentInboundConfigurationChecks: ").append(toIndentedString(ignoreDeploymentInboundConfigurationChecks)).append("\n");
     sb.append("    deploymentRequestCrn: ").append(toIndentedString(deploymentRequestCrn)).append("\n");
     sb.append("    assetUpdateRequestCrn: ").append(toIndentedString(assetUpdateRequestCrn)).append("\n");
+    sb.append("    updateSharedParameterGroupCrns: ").append(toIndentedString(updateSharedParameterGroupCrns)).append("\n");
     sb.append("}");
     return sb.toString();
   }

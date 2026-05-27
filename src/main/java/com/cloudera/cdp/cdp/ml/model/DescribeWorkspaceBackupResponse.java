@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Response object for DescribeWorkspaceBackup method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:27.506-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:29:00.715-07:00")
 public class DescribeWorkspaceBackupResponse extends CdpResponse {
 
   /**

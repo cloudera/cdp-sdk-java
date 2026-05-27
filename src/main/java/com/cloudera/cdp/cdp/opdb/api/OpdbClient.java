@@ -55,6 +55,8 @@ import com.cloudera.cdp.opdb.model.ListSnapshotsRequest;
 import com.cloudera.cdp.opdb.model.ListSnapshotsResponse;
 import com.cloudera.cdp.opdb.model.ListSupportedEnvironmentsRequest;
 import com.cloudera.cdp.opdb.model.ListSupportedEnvironmentsResponse;
+import com.cloudera.cdp.opdb.model.PrepareUpgradeDatabaseRequest;
+import com.cloudera.cdp.opdb.model.PrepareUpgradeDatabaseResponse;
 import com.cloudera.cdp.opdb.model.RestoreSnapshotRequest;
 import com.cloudera.cdp.opdb.model.RestoreSnapshotResponse;
 import com.cloudera.cdp.opdb.model.StartDatabaseRequest;
@@ -71,7 +73,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:29.164-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:29:02.617-07:00")
 public class OpdbClient extends CdpClient {
 
   public static final String SERVICE_NAME = "opdb";
@@ -269,6 +271,19 @@ public class OpdbClient extends CdpClient {
     }
 
     return this.invokeAPI("listSupportedEnvironments", "/api/v1/opdb/listSupportedEnvironments", input, new GenericType<ListSupportedEnvironmentsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Prepare database upgrade.
+   * @param input
+   * @return PrepareUpgradeDatabaseResponse
+   */
+  public PrepareUpgradeDatabaseResponse prepareUpgradeDatabase(PrepareUpgradeDatabaseRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling prepareUpgradeDatabase");
+    }
+
+    return this.invokeAPI("prepareUpgradeDatabase", "/api/v1/opdb/prepareUpgradeDatabase", input, new GenericType<PrepareUpgradeDatabaseResponse>(){}, NO_EXTENSION);
   }
 
   /**

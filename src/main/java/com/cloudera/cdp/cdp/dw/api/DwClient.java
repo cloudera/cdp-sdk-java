@@ -42,6 +42,8 @@ import com.cloudera.cdp.dw.model.CreateClusterDiagnosticDataJobRequest;
 import com.cloudera.cdp.dw.model.CreateClusterDiagnosticDataJobResponse;
 import com.cloudera.cdp.dw.model.CreateClusterRequest;
 import com.cloudera.cdp.dw.model.CreateClusterResponse;
+import com.cloudera.cdp.dw.model.CreateConnectorRequest;
+import com.cloudera.cdp.dw.model.CreateConnectorResponse;
 import com.cloudera.cdp.dw.model.CreateDataVisualizationRequest;
 import com.cloudera.cdp.dw.model.CreateDataVisualizationResponse;
 import com.cloudera.cdp.dw.model.CreateDbcDiagnosticDataJobRequest;
@@ -64,6 +66,8 @@ import com.cloudera.cdp.dw.model.DeleteClusterDiagnosticDataJobRequest;
 import com.cloudera.cdp.dw.model.DeleteClusterDiagnosticDataJobResponse;
 import com.cloudera.cdp.dw.model.DeleteClusterRequest;
 import com.cloudera.cdp.dw.model.DeleteClusterResponse;
+import com.cloudera.cdp.dw.model.DeleteConnectorRequest;
+import com.cloudera.cdp.dw.model.DeleteConnectorResponse;
 import com.cloudera.cdp.dw.model.DeleteDataVisualizationRequest;
 import com.cloudera.cdp.dw.model.DeleteDataVisualizationResponse;
 import com.cloudera.cdp.dw.model.DeleteDbcDiagnosticDataJobRequest;
@@ -131,6 +135,8 @@ import com.cloudera.cdp.dw.model.ListClusterDiagnosticDataJobsRequest;
 import com.cloudera.cdp.dw.model.ListClusterDiagnosticDataJobsResponse;
 import com.cloudera.cdp.dw.model.ListClustersRequest;
 import com.cloudera.cdp.dw.model.ListClustersResponse;
+import com.cloudera.cdp.dw.model.ListConnectorsRequest;
+import com.cloudera.cdp.dw.model.ListConnectorsResponse;
 import com.cloudera.cdp.dw.model.ListDataVisualizationsRequest;
 import com.cloudera.cdp.dw.model.ListDataVisualizationsResponse;
 import com.cloudera.cdp.dw.model.ListDbcConfigsRequest;
@@ -185,6 +191,8 @@ import com.cloudera.cdp.dw.model.SuspendVwRequest;
 import com.cloudera.cdp.dw.model.SuspendVwResponse;
 import com.cloudera.cdp.dw.model.UpdateClusterRequest;
 import com.cloudera.cdp.dw.model.UpdateClusterResponse;
+import com.cloudera.cdp.dw.model.UpdateConnectorRequest;
+import com.cloudera.cdp.dw.model.UpdateConnectorResponse;
 import com.cloudera.cdp.dw.model.UpdateDataVisualizationRequest;
 import com.cloudera.cdp.dw.model.UpdateDataVisualizationResponse;
 import com.cloudera.cdp.dw.model.UpdateDbcConfigRequest;
@@ -213,7 +221,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:26.289-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:28:59.612-07:00")
 public class DwClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dw";
@@ -333,6 +341,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("createClusterDiagnosticDataJob", "/api/v1/dw/createClusterDiagnosticDataJob", input, new GenericType<CreateClusterDiagnosticDataJobResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Creates a Connector
+   * @param input
+   * @return CreateConnectorResponse
+   */
+  public CreateConnectorResponse createConnector(CreateConnectorRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createConnector");
+    }
+
+    return this.invokeAPI("createConnector", "/api/v1/dw/createConnector", input, new GenericType<CreateConnectorResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -477,6 +498,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("deleteClusterDiagnosticDataJob", "/api/v1/dw/deleteClusterDiagnosticDataJob", input, new GenericType<DeleteClusterDiagnosticDataJobResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Deletes a Database connector.
+   * @param input
+   * @return DeleteConnectorResponse
+   */
+  public DeleteConnectorResponse deleteConnector(DeleteConnectorRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling deleteConnector");
+    }
+
+    return this.invokeAPI("deleteConnector", "/api/v1/dw/deleteConnector", input, new GenericType<DeleteConnectorResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -909,6 +943,19 @@ public class DwClient extends CdpClient {
   }
 
   /**
+   * Lists Database Connectors.
+   * @param input
+   * @return ListConnectorsResponse
+   */
+  public ListConnectorsResponse listConnectors(ListConnectorsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listConnectors");
+    }
+
+    return this.invokeAPI("listConnectors", "/api/v1/dw/listConnectors", input, new GenericType<ListConnectorsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
    * Lists Cloudera Data Visualization in the provided CDW cluster.
    * @param input
    * @return ListDataVisualizationsResponse
@@ -1257,6 +1304,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("updateCluster", "/api/v1/dw/updateCluster", input, new GenericType<UpdateClusterResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Updates the Cloudera Data Warehouse connector.
+   * @param input
+   * @return UpdateConnectorResponse
+   */
+  public UpdateConnectorResponse updateConnector(UpdateConnectorRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateConnector");
+    }
+
+    return this.invokeAPI("updateConnector", "/api/v1/dw/updateConnector", input, new GenericType<UpdateConnectorResponse>(){}, NO_EXTENSION);
   }
 
   /**

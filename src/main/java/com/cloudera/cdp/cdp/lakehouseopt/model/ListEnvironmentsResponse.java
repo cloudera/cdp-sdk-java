@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * The response object containing environment and CLO Data Hub details.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:31.533-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:29:05.230-07:00")
 public class ListEnvironmentsResponse extends CdpResponse {
 
   /**

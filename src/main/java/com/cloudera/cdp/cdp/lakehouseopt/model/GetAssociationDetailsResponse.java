@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Response object containing the association details. It contains direct table to policy associations and policy to entire namespace associations.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:31.533-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:29:05.230-07:00")
 public class GetAssociationDetailsResponse extends CdpResponse {
 
   /**

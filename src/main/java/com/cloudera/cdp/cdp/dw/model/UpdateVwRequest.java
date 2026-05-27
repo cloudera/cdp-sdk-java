@@ -24,15 +24,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import com.cloudera.cdp.dw.model.AutoscalingOptionsUpdateRequest;
+import com.cloudera.cdp.dw.model.ConnectorData;
 import com.cloudera.cdp.dw.model.ImpalaHASettingsUpdateRequest;
 import com.cloudera.cdp.dw.model.QueryIsolationOptionsRequest;
 import com.cloudera.cdp.dw.model.QuotaRequest;
 import com.cloudera.cdp.dw.model.ServiceConfigReq;
+import java.util.*;
+import java.util.Map;
 
 /**
  * Request object for the updateVw method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:26.289-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:28:59.612-07:00")
 public class UpdateVwRequest  {
 
   /**
@@ -99,6 +102,11 @@ public class UpdateVwRequest  {
    * If specified, modifies Hive Server High Availability mode in Private Cloud: * `DISABLED` - Disables Hive Server high availability. * `ACTIVE_PASSIVE` - Runs two Hive Server instances, one active and one passive. Hive session failover is not supported in this setup.
    **/
   private String hiveServerHaMode = null;
+
+  /**
+   * Map of connector ID to connector information for the VW.
+   **/
+  private Map<String, ConnectorData> associatedConnectors = new HashMap<String, ConnectorData>();
 
   /**
    * Setting the quota for the 3rd party services injected into the Virtual Warehouse namespace.
@@ -329,6 +337,23 @@ public class UpdateVwRequest  {
   }
 
   /**
+   * Getter for associatedConnectors.
+   * Map of connector ID to connector information for the VW.
+   **/
+  @JsonProperty("associatedConnectors")
+  public Map<String, ConnectorData> getAssociatedConnectors() {
+    return associatedConnectors;
+  }
+
+  /**
+   * Setter for associatedConnectors.
+   * Map of connector ID to connector information for the VW.
+   **/
+  public void setAssociatedConnectors(Map<String, ConnectorData> associatedConnectors) {
+    this.associatedConnectors = associatedConnectors;
+  }
+
+  /**
    * Getter for additionalQuota.
    * Setting the quota for the 3rd party services injected into the Virtual Warehouse namespace.
    **/
@@ -393,6 +418,9 @@ public class UpdateVwRequest  {
     if (!Objects.equals(this.hiveServerHaMode, updateVwRequest.hiveServerHaMode)) {
       return false;
     }
+    if (!Objects.equals(this.associatedConnectors, updateVwRequest.associatedConnectors)) {
+      return false;
+    }
     if (!Objects.equals(this.additionalQuota, updateVwRequest.additionalQuota)) {
       return false;
     }
@@ -401,7 +429,7 @@ public class UpdateVwRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, vwId, tShirtSize, nodeCount, config, autoscaling, impalaHaSettings, queryIsolationOptions, hiveAuthenticationMode, platformJwtAuth, impalaQueryLog, logHiveQueries, hiveServerHaMode, additionalQuota);
+    return Objects.hash(clusterId, vwId, tShirtSize, nodeCount, config, autoscaling, impalaHaSettings, queryIsolationOptions, hiveAuthenticationMode, platformJwtAuth, impalaQueryLog, logHiveQueries, hiveServerHaMode, associatedConnectors, additionalQuota);
   }
 
   @Override
@@ -421,6 +449,7 @@ public class UpdateVwRequest  {
     sb.append("    impalaQueryLog: ").append(toIndentedString(impalaQueryLog)).append("\n");
     sb.append("    logHiveQueries: ").append(toIndentedString(logHiveQueries)).append("\n");
     sb.append("    hiveServerHaMode: ").append(toIndentedString(hiveServerHaMode)).append("\n");
+    sb.append("    associatedConnectors: ").append(toIndentedString(associatedConnectors)).append("\n");
     sb.append("    additionalQuota: ").append(toIndentedString(additionalQuota)).append("\n");
     sb.append("}");
     return sb.toString();

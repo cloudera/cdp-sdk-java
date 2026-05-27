@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for the restoreCluster method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:26.289-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:28:59.612-07:00")
 public class RestoreClusterResponse extends CdpResponse {
 
   /**
@@ -71,6 +71,11 @@ public class RestoreClusterResponse extends CdpResponse {
    * Information about the restore-plan of the Impala Virtual Warehouses.
    **/
   private List<RestoreClusterEntityPlan> impalaRestorePlans = new ArrayList<RestoreClusterEntityPlan>();
+
+  /**
+   * Information about the restore-plan of the Trino Virtual Warehouses.
+   **/
+  private List<RestoreClusterEntityPlan> trinoRestorePlans = new ArrayList<RestoreClusterEntityPlan>();
 
   /**
    * Information about the restore-plan of the Data Visualization Apps.
@@ -224,6 +229,23 @@ public class RestoreClusterResponse extends CdpResponse {
   }
 
   /**
+   * Getter for trinoRestorePlans.
+   * Information about the restore-plan of the Trino Virtual Warehouses.
+   **/
+  @JsonProperty("trinoRestorePlans")
+  public List<RestoreClusterEntityPlan> getTrinoRestorePlans() {
+    return trinoRestorePlans;
+  }
+
+  /**
+   * Setter for trinoRestorePlans.
+   * Information about the restore-plan of the Trino Virtual Warehouses.
+   **/
+  public void setTrinoRestorePlans(List<RestoreClusterEntityPlan> trinoRestorePlans) {
+    this.trinoRestorePlans = trinoRestorePlans;
+  }
+
+  /**
    * Getter for vizRestorePlans.
    * Information about the restore-plan of the Data Visualization Apps.
    **/
@@ -307,6 +329,9 @@ public class RestoreClusterResponse extends CdpResponse {
     if (!Objects.equals(this.impalaRestorePlans, restoreClusterResponse.impalaRestorePlans)) {
       return false;
     }
+    if (!Objects.equals(this.trinoRestorePlans, restoreClusterResponse.trinoRestorePlans)) {
+      return false;
+    }
     if (!Objects.equals(this.vizRestorePlans, restoreClusterResponse.vizRestorePlans)) {
       return false;
     }
@@ -324,7 +349,7 @@ public class RestoreClusterResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, operationId, action, message, dbcRestorePlans, hueRestorePlans, hiveRestorePlans, impalaRestorePlans, vizRestorePlans, cdwHueRestorePlans, dwxSecretsRestorePlans, super.hashCode());
+    return Objects.hash(clusterId, operationId, action, message, dbcRestorePlans, hueRestorePlans, hiveRestorePlans, impalaRestorePlans, trinoRestorePlans, vizRestorePlans, cdwHueRestorePlans, dwxSecretsRestorePlans, super.hashCode());
   }
 
   @Override
@@ -340,6 +365,7 @@ public class RestoreClusterResponse extends CdpResponse {
     sb.append("    hueRestorePlans: ").append(toIndentedString(hueRestorePlans)).append("\n");
     sb.append("    hiveRestorePlans: ").append(toIndentedString(hiveRestorePlans)).append("\n");
     sb.append("    impalaRestorePlans: ").append(toIndentedString(impalaRestorePlans)).append("\n");
+    sb.append("    trinoRestorePlans: ").append(toIndentedString(trinoRestorePlans)).append("\n");
     sb.append("    vizRestorePlans: ").append(toIndentedString(vizRestorePlans)).append("\n");
     sb.append("    cdwHueRestorePlans: ").append(toIndentedString(cdwHueRestorePlans)).append("\n");
     sb.append("    dwxSecretsRestorePlans: ").append(toIndentedString(dwxSecretsRestorePlans)).append("\n");

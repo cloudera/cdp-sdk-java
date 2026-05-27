@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * A response with client API connectivity to a database.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:29.164-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:29:02.617-07:00")
 public class DescribeClientConnectivityResponse extends CdpResponse {
 
   /**

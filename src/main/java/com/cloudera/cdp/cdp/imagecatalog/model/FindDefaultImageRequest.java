@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * The request object to filter data that is used for retrieving an image from the default image catalog.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:30.909-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:29:04.633-07:00")
 public class FindDefaultImageRequest  {
 
   /**
@@ -44,6 +44,11 @@ public class FindDefaultImageRequest  {
    * Cloudera runtime version
    **/
   private String runtimeVersion = null;
+
+  /**
+   * Specifies the CPU architecture. Values are ARM64, X86_64. Default is X86_64.
+   **/
+  private String architecture = "X86_64";
 
   /**
    * Getter for provider.
@@ -96,6 +101,23 @@ public class FindDefaultImageRequest  {
     this.runtimeVersion = runtimeVersion;
   }
 
+  /**
+   * Getter for architecture.
+   * Specifies the CPU architecture. Values are ARM64, X86_64. Default is X86_64.
+   **/
+  @JsonProperty("architecture")
+  public String getArchitecture() {
+    return architecture;
+  }
+
+  /**
+   * Setter for architecture.
+   * Specifies the CPU architecture. Values are ARM64, X86_64. Default is X86_64.
+   **/
+  public void setArchitecture(String architecture) {
+    this.architecture = architecture;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -114,12 +136,15 @@ public class FindDefaultImageRequest  {
     if (!Objects.equals(this.runtimeVersion, findDefaultImageRequest.runtimeVersion)) {
       return false;
     }
+    if (!Objects.equals(this.architecture, findDefaultImageRequest.architecture)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(provider, imageType, runtimeVersion);
+    return Objects.hash(provider, imageType, runtimeVersion, architecture);
   }
 
   @Override
@@ -129,6 +154,7 @@ public class FindDefaultImageRequest  {
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
     sb.append("    imageType: ").append(toIndentedString(imageType)).append("\n");
     sb.append("    runtimeVersion: ").append(toIndentedString(runtimeVersion)).append("\n");
+    sb.append("    architecture: ").append(toIndentedString(architecture)).append("\n");
     sb.append("}");
     return sb.toString();
   }

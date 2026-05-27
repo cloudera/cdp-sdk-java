@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for the list backups request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:28.255-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:29:01.673-07:00")
 public class ListBackupsRequest  {
 
   /**

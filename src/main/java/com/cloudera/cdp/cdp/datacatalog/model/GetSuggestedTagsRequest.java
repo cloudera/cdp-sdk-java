@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Get the tags suggested by the Data Compliance Profiler.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-01T09:59:27.241-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:29:00.535-07:00")
 public class GetSuggestedTagsRequest  {
 
   /**
