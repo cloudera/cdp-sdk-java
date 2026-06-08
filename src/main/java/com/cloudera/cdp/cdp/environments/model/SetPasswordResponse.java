@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Response object for set password request. (deprecated)
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:29:01.873-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-05T07:54:43.135-07:00")
 public class SetPasswordResponse extends CdpResponse {
 
   /**

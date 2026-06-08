@@ -28,7 +28,7 @@ import com.cloudera.cdp.de.model.ServiceDescription;
 /**
  * Response object for DescribeService method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:29:02.976-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-05T07:54:44.292-07:00")
 public class DescribeServiceResponse extends CdpResponse {
 
   /**

@@ -29,7 +29,7 @@ import java.util.Map;
 /**
  * Request object for updateVc method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:29:02.976-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-05T07:54:44.292-07:00")
 public class UpdateVcRequest  {
 
   /**
@@ -76,6 +76,11 @@ public class UpdateVcRequest  {
    * Discard the Spark configs inside a VC.
    **/
   private Boolean discardSparkConfigs = false;
+
+  /**
+   * Whether to enable job-level override for how drivers and executors run in the Virtual Cluster.
+   **/
+  private Boolean enableComputeOverride = null;
 
   /**
    * Getter for clusterId.
@@ -230,6 +235,23 @@ public class UpdateVcRequest  {
     this.discardSparkConfigs = discardSparkConfigs;
   }
 
+  /**
+   * Getter for enableComputeOverride.
+   * Whether to enable job-level override for how drivers and executors run in the Virtual Cluster.
+   **/
+  @JsonProperty("enableComputeOverride")
+  public Boolean getEnableComputeOverride() {
+    return enableComputeOverride;
+  }
+
+  /**
+   * Setter for enableComputeOverride.
+   * Whether to enable job-level override for how drivers and executors run in the Virtual Cluster.
+   **/
+  public void setEnableComputeOverride(Boolean enableComputeOverride) {
+    this.enableComputeOverride = enableComputeOverride;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -266,12 +288,15 @@ public class UpdateVcRequest  {
     if (!Objects.equals(this.discardSparkConfigs, updateVcRequest.discardSparkConfigs)) {
       return false;
     }
+    if (!Objects.equals(this.enableComputeOverride, updateVcRequest.enableComputeOverride)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, vcId, aclUsers, fullAccessUsers, fullAccessGroups, viewOnlyUsers, viewOnlyGroups, sparkConfigs, discardSparkConfigs);
+    return Objects.hash(clusterId, vcId, aclUsers, fullAccessUsers, fullAccessGroups, viewOnlyUsers, viewOnlyGroups, sparkConfigs, discardSparkConfigs, enableComputeOverride);
   }
 
   @Override
@@ -287,6 +312,7 @@ public class UpdateVcRequest  {
     sb.append("    viewOnlyGroups: ").append(toIndentedString(viewOnlyGroups)).append("\n");
     sb.append("    sparkConfigs: ").append(toIndentedString(sparkConfigs)).append("\n");
     sb.append("    discardSparkConfigs: ").append(toIndentedString(discardSparkConfigs)).append("\n");
+    sb.append("    enableComputeOverride: ").append(toIndentedString(enableComputeOverride)).append("\n");
     sb.append("}");
     return sb.toString();
   }

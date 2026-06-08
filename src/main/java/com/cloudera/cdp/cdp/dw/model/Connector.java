@@ -29,7 +29,7 @@ import java.util.Map;
 /**
  * Represents the details of a connector used to integrate external systems or data sources with Cloudera Data Warehouse. A connector defines the configuration, and connection properties required to establish and manage connectivity.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:28:59.612-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-05T07:54:41.156-07:00")
 public class Connector  {
 
   /**

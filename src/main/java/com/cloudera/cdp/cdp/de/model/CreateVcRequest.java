@@ -31,7 +31,7 @@ import java.util.Map;
 /**
  * Request object for CreateVc method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:29:02.976-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-05T07:54:44.292-07:00")
 public class CreateVcRequest  {
 
   /**
@@ -118,6 +118,11 @@ public class CreateVcRequest  {
    * Spark configs that will be applied to all the spark jobs inside a virtual cluster.
    **/
   private Map<String, String> sparkConfigs = new HashMap<String, String>();
+
+  /**
+   * Whether to enable job-level override for how drivers and executors run in the Virtual Cluster.
+   **/
+  private Boolean enableComputeOverride = null;
 
   /**
    * Getter for name.
@@ -408,6 +413,23 @@ public class CreateVcRequest  {
     this.sparkConfigs = sparkConfigs;
   }
 
+  /**
+   * Getter for enableComputeOverride.
+   * Whether to enable job-level override for how drivers and executors run in the Virtual Cluster.
+   **/
+  @JsonProperty("enableComputeOverride")
+  public Boolean getEnableComputeOverride() {
+    return enableComputeOverride;
+  }
+
+  /**
+   * Setter for enableComputeOverride.
+   * Whether to enable job-level override for how drivers and executors run in the Virtual Cluster.
+   **/
+  public void setEnableComputeOverride(Boolean enableComputeOverride) {
+    this.enableComputeOverride = enableComputeOverride;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -468,12 +490,15 @@ public class CreateVcRequest  {
     if (!Objects.equals(this.sparkConfigs, createVcRequest.sparkConfigs)) {
       return false;
     }
+    if (!Objects.equals(this.enableComputeOverride, createVcRequest.enableComputeOverride)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, clusterId, cpuRequests, memoryRequests, chartValueOverrides, smtpConfigs, runtimeSpotComponent, sparkVersion, sparkOSName, vcTier, sessionTimeout, aclUsers, fullAccessUsers, fullAccessGroups, viewOnlyUsers, viewOnlyGroups, sparkConfigs);
+    return Objects.hash(name, clusterId, cpuRequests, memoryRequests, chartValueOverrides, smtpConfigs, runtimeSpotComponent, sparkVersion, sparkOSName, vcTier, sessionTimeout, aclUsers, fullAccessUsers, fullAccessGroups, viewOnlyUsers, viewOnlyGroups, sparkConfigs, enableComputeOverride);
   }
 
   @Override
@@ -497,6 +522,7 @@ public class CreateVcRequest  {
     sb.append("    viewOnlyUsers: ").append(toIndentedString(viewOnlyUsers)).append("\n");
     sb.append("    viewOnlyGroups: ").append(toIndentedString(viewOnlyGroups)).append("\n");
     sb.append("    sparkConfigs: ").append(toIndentedString(sparkConfigs)).append("\n");
+    sb.append("    enableComputeOverride: ").append(toIndentedString(enableComputeOverride)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -51,6 +51,8 @@ import com.cloudera.cdp.compute.model.RetryOperationRequest;
 import com.cloudera.cdp.compute.model.RetryOperationResponse;
 import com.cloudera.cdp.compute.model.SuspendClusterRequest;
 import com.cloudera.cdp.compute.model.SuspendClusterResponse;
+import com.cloudera.cdp.compute.model.UpdateClusterRequest;
+import com.cloudera.cdp.compute.model.UpdateClusterResponse;
 import com.cloudera.cdp.compute.model.UpgradeClusterRequest;
 import com.cloudera.cdp.compute.model.UpgradeClusterResponse;
 import com.cloudera.cdp.compute.model.UpgradeDeploymentRequest;
@@ -63,7 +65,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:29:04.783-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-05T07:54:46.022-07:00")
 public class ComputeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "compute";
@@ -235,6 +237,19 @@ public class ComputeClient extends CdpClient {
     }
 
     return this.invokeAPI("suspendCluster", "/api/v1/compute/suspendCluster", input, new GenericType<SuspendClusterResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Update cluster
+   * @param input
+   * @return UpdateClusterResponse
+   */
+  public UpdateClusterResponse updateCluster(UpdateClusterRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling updateCluster");
+    }
+
+    return this.invokeAPI("updateCluster", "/api/v1/compute/updateCluster", input, new GenericType<UpdateClusterResponse>(){}, NO_EXTENSION);
   }
 
   /**

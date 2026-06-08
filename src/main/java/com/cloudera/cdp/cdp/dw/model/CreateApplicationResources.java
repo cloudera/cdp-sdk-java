@@ -29,7 +29,7 @@ import com.cloudera.cdp.dw.model.CreateApplicationResourcesLocalStorageSize;
 /**
  * The resource requirements of a component.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:28:59.612-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-05T07:54:41.156-07:00")
 public class CreateApplicationResources  {
 
   /**

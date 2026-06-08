@@ -28,7 +28,7 @@ import com.cloudera.cdp.datalake.model.BackupRestoreOperationStatus;
 /**
  * The state of Cloudera Manager admin operations.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:29:01.349-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-05T07:54:42.621-07:00")
 public class AdminOperationsBackupRestoreState  {
 
   /**

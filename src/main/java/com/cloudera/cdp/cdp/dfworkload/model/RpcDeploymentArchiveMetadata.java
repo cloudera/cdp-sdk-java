@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Provides the metadata about deployment exported archive
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:29:04.223-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-05T07:54:45.482-07:00")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class RpcDeploymentArchiveMetadata  {
 

@@ -44,6 +44,8 @@ import com.cloudera.cdp.dw.model.CreateClusterRequest;
 import com.cloudera.cdp.dw.model.CreateClusterResponse;
 import com.cloudera.cdp.dw.model.CreateConnectorRequest;
 import com.cloudera.cdp.dw.model.CreateConnectorResponse;
+import com.cloudera.cdp.dw.model.CreateConnectorTestJobRequest;
+import com.cloudera.cdp.dw.model.CreateConnectorTestJobResponse;
 import com.cloudera.cdp.dw.model.CreateDataVisualizationRequest;
 import com.cloudera.cdp.dw.model.CreateDataVisualizationResponse;
 import com.cloudera.cdp.dw.model.CreateDbcDiagnosticDataJobRequest;
@@ -135,6 +137,8 @@ import com.cloudera.cdp.dw.model.ListClusterDiagnosticDataJobsRequest;
 import com.cloudera.cdp.dw.model.ListClusterDiagnosticDataJobsResponse;
 import com.cloudera.cdp.dw.model.ListClustersRequest;
 import com.cloudera.cdp.dw.model.ListClustersResponse;
+import com.cloudera.cdp.dw.model.ListConnectorTestJobsRequest;
+import com.cloudera.cdp.dw.model.ListConnectorTestJobsResponse;
 import com.cloudera.cdp.dw.model.ListConnectorsRequest;
 import com.cloudera.cdp.dw.model.ListConnectorsResponse;
 import com.cloudera.cdp.dw.model.ListDataVisualizationsRequest;
@@ -221,7 +225,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:28:59.612-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-05T07:54:41.156-07:00")
 public class DwClient extends CdpClient {
 
   public static final String SERVICE_NAME = "dw";
@@ -354,6 +358,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("createConnector", "/api/v1/dw/createConnector", input, new GenericType<CreateConnectorResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Test Trino Connector in a CDW cluster.
+   * @param input
+   * @return CreateConnectorTestJobResponse
+   */
+  public CreateConnectorTestJobResponse createConnectorTestJob(CreateConnectorTestJobRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling createConnectorTestJob");
+    }
+
+    return this.invokeAPI("createConnectorTestJob", "/api/v1/dw/createConnectorTestJob", input, new GenericType<CreateConnectorTestJobResponse>(){}, NO_EXTENSION);
   }
 
   /**
@@ -940,6 +957,19 @@ public class DwClient extends CdpClient {
     }
 
     return this.invokeAPI("listClusters", "/api/v1/dw/listClusters", input, new GenericType<ListClustersResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * List test connector jobs.
+   * @param input
+   * @return ListConnectorTestJobsResponse
+   */
+  public ListConnectorTestJobsResponse listConnectorTestJobs(ListConnectorTestJobsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling listConnectorTestJobs");
+    }
+
+    return this.invokeAPI("listConnectorTestJobs", "/api/v1/dw/listConnectorTestJobs", input, new GenericType<ListConnectorTestJobsResponse>(){}, NO_EXTENSION);
   }
 
   /**

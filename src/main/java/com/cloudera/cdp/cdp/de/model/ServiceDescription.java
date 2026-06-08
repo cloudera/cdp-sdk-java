@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Detailed description of a CDE service.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-05-27T09:29:02.976-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-05T07:54:44.292-07:00")
 public class ServiceDescription  {
 
   /**
@@ -162,6 +162,11 @@ public class ServiceDescription  {
    * If true, SSD would have been be used for workload filesystem.
    **/
   private Boolean ssdUsed = null;
+
+  /**
+   * The version of the CDE service.
+   **/
+  private String version = null;
 
   /**
    * Getter for name.
@@ -605,6 +610,23 @@ public class ServiceDescription  {
     this.ssdUsed = ssdUsed;
   }
 
+  /**
+   * Getter for version.
+   * The version of the CDE service.
+   **/
+  @JsonProperty("version")
+  public String getVersion() {
+    return version;
+  }
+
+  /**
+   * Setter for version.
+   * The version of the CDE service.
+   **/
+  public void setVersion(String version) {
+    this.version = version;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -692,12 +714,15 @@ public class ServiceDescription  {
     if (!Objects.equals(this.ssdUsed, serviceDescription.ssdUsed)) {
       return false;
     }
+    if (!Objects.equals(this.version, serviceDescription.version)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, clusterId, environmentName, environmentCrn, tenantId, resources, status, creatorEmail, creatorCrn, enablingTime, clusterFqdn, cloudPlatform, dataLakeFileSystems, logLocation, backupLocation, dataLakeAtlasUIEndpoint, chartValueOverrides, whitelistIps, loadbalancerAllowlist, subnets, privateClusterEnabled, publicEndpointEnabled, networkOutboundType, previousVersionDeployed, workloadAnalyticsEnabled, ssdUsed);
+    return Objects.hash(name, clusterId, environmentName, environmentCrn, tenantId, resources, status, creatorEmail, creatorCrn, enablingTime, clusterFqdn, cloudPlatform, dataLakeFileSystems, logLocation, backupLocation, dataLakeAtlasUIEndpoint, chartValueOverrides, whitelistIps, loadbalancerAllowlist, subnets, privateClusterEnabled, publicEndpointEnabled, networkOutboundType, previousVersionDeployed, workloadAnalyticsEnabled, ssdUsed, version);
   }
 
   @Override
@@ -730,6 +755,7 @@ public class ServiceDescription  {
     sb.append("    previousVersionDeployed: ").append(toIndentedString(previousVersionDeployed)).append("\n");
     sb.append("    workloadAnalyticsEnabled: ").append(toIndentedString(workloadAnalyticsEnabled)).append("\n");
     sb.append("    ssdUsed: ").append(toIndentedString(ssdUsed)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("}");
     return sb.toString();
   }
