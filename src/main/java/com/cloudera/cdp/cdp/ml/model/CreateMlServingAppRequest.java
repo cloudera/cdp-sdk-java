@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Request object for the CreateMlServingApp method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-05T07:54:42.291-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:49.791Z")
 public class CreateMlServingAppRequest  {
 
   /**
@@ -87,16 +87,6 @@ public class CreateMlServingAppRequest  {
    * The boolean flag to enable fine-grained access control. By default, this flag is disabled.
    **/
   private Boolean enableFineGrainedAccessControl = null;
-
-  /**
-   * Custom Ranger service principal for fine-grained authorization. If not provided, defaults to the machine user workload username.
-   **/
-  private String rangerServicePrincipal = null;
-
-  /**
-   * Custom Knox topology name for API key generation. If not provided, defaults to \"cdp-proxy-api\".
-   **/
-  private String knoxTopologyName = null;
 
   /**
    * Getter for appName.
@@ -285,40 +275,6 @@ public class CreateMlServingAppRequest  {
     this.enableFineGrainedAccessControl = enableFineGrainedAccessControl;
   }
 
-  /**
-   * Getter for rangerServicePrincipal.
-   * Custom Ranger service principal for fine-grained authorization. If not provided, defaults to the machine user workload username.
-   **/
-  @JsonProperty("rangerServicePrincipal")
-  public String getRangerServicePrincipal() {
-    return rangerServicePrincipal;
-  }
-
-  /**
-   * Setter for rangerServicePrincipal.
-   * Custom Ranger service principal for fine-grained authorization. If not provided, defaults to the machine user workload username.
-   **/
-  public void setRangerServicePrincipal(String rangerServicePrincipal) {
-    this.rangerServicePrincipal = rangerServicePrincipal;
-  }
-
-  /**
-   * Getter for knoxTopologyName.
-   * Custom Knox topology name for API key generation. If not provided, defaults to \&quot;cdp-proxy-api\&quot;.
-   **/
-  @JsonProperty("knoxTopologyName")
-  public String getKnoxTopologyName() {
-    return knoxTopologyName;
-  }
-
-  /**
-   * Setter for knoxTopologyName.
-   * Custom Knox topology name for API key generation. If not provided, defaults to \&quot;cdp-proxy-api\&quot;.
-   **/
-  public void setKnoxTopologyName(String knoxTopologyName) {
-    this.knoxTopologyName = knoxTopologyName;
-  }
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -361,18 +317,12 @@ public class CreateMlServingAppRequest  {
     if (!Objects.equals(this.enableFineGrainedAccessControl, createMlServingAppRequest.enableFineGrainedAccessControl)) {
       return false;
     }
-    if (!Objects.equals(this.rangerServicePrincipal, createMlServingAppRequest.rangerServicePrincipal)) {
-      return false;
-    }
-    if (!Objects.equals(this.knoxTopologyName, createMlServingAppRequest.knoxTopologyName)) {
-      return false;
-    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(appName, environmentCrn, clusterCrn, provisionK8sRequest, usePublicLoadBalancer, skipValidation, loadBalancerIPWhitelists, subnetsForLoadBalancers, staticSubdomain, ozoneS3Creds, enableFineGrainedAccessControl, rangerServicePrincipal, knoxTopologyName);
+    return Objects.hash(appName, environmentCrn, clusterCrn, provisionK8sRequest, usePublicLoadBalancer, skipValidation, loadBalancerIPWhitelists, subnetsForLoadBalancers, staticSubdomain, ozoneS3Creds, enableFineGrainedAccessControl);
   }
 
   @Override
@@ -390,8 +340,6 @@ public class CreateMlServingAppRequest  {
     sb.append("    staticSubdomain: ").append(toIndentedString(staticSubdomain)).append("\n");
     sb.append("    ozoneS3Creds: ").append(toIndentedString(ozoneS3Creds)).append("\n");
     sb.append("    enableFineGrainedAccessControl: ").append(toIndentedString(enableFineGrainedAccessControl)).append("\n");
-    sb.append("    rangerServicePrincipal: ").append(toIndentedString(rangerServicePrincipal)).append("\n");
-    sb.append("    knoxTopologyName: ").append(toIndentedString(knoxTopologyName)).append("\n");
     sb.append("}");
     return sb.toString();
   }

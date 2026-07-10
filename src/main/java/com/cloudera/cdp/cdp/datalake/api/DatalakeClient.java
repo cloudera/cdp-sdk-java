@@ -115,6 +115,8 @@ import com.cloudera.cdp.datalake.model.ScaleHorizontallyRequest;
 import com.cloudera.cdp.datalake.model.ScaleHorizontallyResponse;
 import com.cloudera.cdp.datalake.model.SetCatalogRequest;
 import com.cloudera.cdp.datalake.model.SetCatalogResponse;
+import com.cloudera.cdp.datalake.model.SetDefaultJavaVersionRequest;
+import com.cloudera.cdp.datalake.model.SetDefaultJavaVersionResponse;
 import com.cloudera.cdp.datalake.model.StartDatabaseUpgradeRequest;
 import com.cloudera.cdp.datalake.model.StartDatabaseUpgradeResponse;
 import com.cloudera.cdp.datalake.model.StartDatalakeRequest;
@@ -145,7 +147,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-05T07:54:42.621-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:50.953Z")
 public class DatalakeClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datalake";
@@ -736,6 +738,19 @@ public class DatalakeClient extends CdpClient {
     }
 
     return this.invokeAPI("setCatalog", "/api/v1/datalake/setCatalog", input, new GenericType<SetCatalogResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Configures the default Java version for the Data Lake.
+   * @param input
+   * @return SetDefaultJavaVersionResponse
+   */
+  public SetDefaultJavaVersionResponse setDefaultJavaVersion(SetDefaultJavaVersionRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling setDefaultJavaVersion");
+    }
+
+    return this.invokeAPI("setDefaultJavaVersion", "/api/v1/datalake/setDefaultJavaVersion", input, new GenericType<SetDefaultJavaVersionResponse>(){}, NO_EXTENSION);
   }
 
   /**

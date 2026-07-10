@@ -67,6 +67,8 @@ import com.cloudera.cdp.ml.model.DescribeWorkspaceResponse;
 import com.cloudera.cdp.ml.model.Error;
 import com.cloudera.cdp.ml.model.FailOverFileSystemRequest;
 import com.cloudera.cdp.ml.model.FailOverFileSystemResponse;
+import com.cloudera.cdp.ml.model.FetchAiRegistriesStorageConfigRequest;
+import com.cloudera.cdp.ml.model.FetchAiRegistriesStorageConfigResponse;
 import com.cloudera.cdp.ml.model.GetAuditEventsRequest;
 import com.cloudera.cdp.ml.model.GetAuditEventsResponse;
 import com.cloudera.cdp.ml.model.GetKubeconfigRequest;
@@ -151,7 +153,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-05T07:54:42.291-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:49.791Z")
 public class MlClient extends CdpClient {
 
   public static final String SERVICE_NAME = "ml";
@@ -427,6 +429,19 @@ public class MlClient extends CdpClient {
     }
 
     return this.invokeAPI("failOverFileSystem", "/api/v1/ml/failOverFileSystem", input, new GenericType<FailOverFileSystemResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Fetch AI Registry storage configuration for a Cloudera AI Inference Service.
+   * @param input
+   * @return FetchAiRegistriesStorageConfigResponse
+   */
+  public FetchAiRegistriesStorageConfigResponse fetchAiRegistriesStorageConfig(FetchAiRegistriesStorageConfigRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling fetchAiRegistriesStorageConfig");
+    }
+
+    return this.invokeAPI("fetchAiRegistriesStorageConfig", "/api/v1/ml/fetchAiRegistriesStorageConfig", input, new GenericType<FetchAiRegistriesStorageConfigResponse>(){}, NO_EXTENSION);
   }
 
   /**

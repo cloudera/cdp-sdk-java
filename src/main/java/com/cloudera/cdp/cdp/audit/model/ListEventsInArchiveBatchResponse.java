@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response from listing events contained in a single archive batch.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-05T07:54:44.120-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:54.216Z")
 public class ListEventsInArchiveBatchResponse extends CdpResponse {
 
   /**

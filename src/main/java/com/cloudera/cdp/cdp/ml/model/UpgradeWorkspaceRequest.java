@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for the UpgradeWorkspace method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-05T07:54:42.291-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:49.791Z")
 public class UpgradeWorkspaceRequest  {
 
   /**
@@ -49,6 +49,11 @@ public class UpgradeWorkspaceRequest  {
    * The CRN of the workbench. If CRN is specified only the CRN is used for identifying the workbench, environment and name arguments are ignored.
    **/
   private String workspaceCrn = null;
+
+  /**
+   * Override parameter to perform Upgrade via Restore Based Upgrade
+   **/
+  private Boolean overrideUpgrade = null;
 
   /**
    * Whether to skip pre-flight validations before performing the restore-based upgrade.
@@ -124,6 +129,23 @@ public class UpgradeWorkspaceRequest  {
   }
 
   /**
+   * Getter for overrideUpgrade.
+   * Override parameter to perform Upgrade via Restore Based Upgrade
+   **/
+  @JsonProperty("overrideUpgrade")
+  public Boolean getOverrideUpgrade() {
+    return overrideUpgrade;
+  }
+
+  /**
+   * Setter for overrideUpgrade.
+   * Override parameter to perform Upgrade via Restore Based Upgrade
+   **/
+  public void setOverrideUpgrade(Boolean overrideUpgrade) {
+    this.overrideUpgrade = overrideUpgrade;
+  }
+
+  /**
    * Getter for skipValidation.
    * Whether to skip pre-flight validations before performing the restore-based upgrade.
    **/
@@ -161,6 +183,9 @@ public class UpgradeWorkspaceRequest  {
     if (!Objects.equals(this.workspaceCrn, upgradeWorkspaceRequest.workspaceCrn)) {
       return false;
     }
+    if (!Objects.equals(this.overrideUpgrade, upgradeWorkspaceRequest.overrideUpgrade)) {
+      return false;
+    }
     if (!Objects.equals(this.skipValidation, upgradeWorkspaceRequest.skipValidation)) {
       return false;
     }
@@ -169,7 +194,7 @@ public class UpgradeWorkspaceRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, workspaceName, mlVersion, workspaceCrn, skipValidation);
+    return Objects.hash(environmentName, workspaceName, mlVersion, workspaceCrn, overrideUpgrade, skipValidation);
   }
 
   @Override
@@ -180,6 +205,7 @@ public class UpgradeWorkspaceRequest  {
     sb.append("    workspaceName: ").append(toIndentedString(workspaceName)).append("\n");
     sb.append("    mlVersion: ").append(toIndentedString(mlVersion)).append("\n");
     sb.append("    workspaceCrn: ").append(toIndentedString(workspaceCrn)).append("\n");
+    sb.append("    overrideUpgrade: ").append(toIndentedString(overrideUpgrade)).append("\n");
     sb.append("    skipValidation: ").append(toIndentedString(skipValidation)).append("\n");
     sb.append("}");
     return sb.toString();

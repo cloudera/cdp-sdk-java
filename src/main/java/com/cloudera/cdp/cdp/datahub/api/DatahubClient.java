@@ -149,6 +149,8 @@ import com.cloudera.cdp.datahub.model.ScaleClusterRequest;
 import com.cloudera.cdp.datahub.model.ScaleClusterResponse;
 import com.cloudera.cdp.datahub.model.SetCatalogRequest;
 import com.cloudera.cdp.datahub.model.SetCatalogResponse;
+import com.cloudera.cdp.datahub.model.SetDefaultJavaVersionRequest;
+import com.cloudera.cdp.datahub.model.SetDefaultJavaVersionResponse;
 import com.cloudera.cdp.datahub.model.StartClusterRequest;
 import com.cloudera.cdp.datahub.model.StartClusterResponse;
 import com.cloudera.cdp.datahub.model.StartClusterVerticalScalingRequest;
@@ -183,7 +185,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-05T07:54:40.018-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:46.479Z")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datahub";
@@ -995,6 +997,19 @@ public class DatahubClient extends CdpClient {
     }
 
     return this.invokeAPI("setCatalog", "/api/v1/datahub/setCatalog", input, new GenericType<SetCatalogResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Configures the default Java version for the Data Hub.
+   * @param input
+   * @return SetDefaultJavaVersionResponse
+   */
+  public SetDefaultJavaVersionResponse setDefaultJavaVersion(SetDefaultJavaVersionRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling setDefaultJavaVersion");
+    }
+
+    return this.invokeAPI("setDefaultJavaVersion", "/api/v1/datahub/setDefaultJavaVersion", input, new GenericType<SetDefaultJavaVersionResponse>(){}, NO_EXTENSION);
   }
 
   /**

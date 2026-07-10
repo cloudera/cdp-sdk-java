@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for the ListPrivateLinkServicesForTheRegion method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-05T07:54:46.937-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:59.059Z")
 public class ListPrivateLinkServicesForRegionResponse extends CdpResponse {
 
   /**

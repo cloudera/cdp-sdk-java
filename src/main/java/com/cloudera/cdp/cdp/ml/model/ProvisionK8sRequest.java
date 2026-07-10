@@ -31,7 +31,7 @@ import java.util.*;
 /**
  * Request object for workbench provision. Required in public cloud.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-05T07:54:42.291-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:49.791Z")
 public class ProvisionK8sRequest  {
 
   /**

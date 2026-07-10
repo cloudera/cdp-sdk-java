@@ -28,7 +28,7 @@ import com.cloudera.cdp.ml.model.MlServingOzoneCreds;
 /**
  * Request object for the UpdateMlServingAppS3Creds method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-05T07:54:42.291-07:00")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:49.791Z")
 public class UpdateMlServingAppS3CredsRequest  {
 
   /**
@@ -40,6 +40,21 @@ public class UpdateMlServingAppS3CredsRequest  {
    * The S3 credentials to update.
    **/
   private MlServingOzoneCreds s3Creds = null;
+
+  /**
+   * The namespace of the AI Registry
+   **/
+  private String registryNamespace = null;
+
+  /**
+   * Whether to link the registry
+   **/
+  private Boolean linkRegistry = null;
+
+  /**
+   * The environment name of the linked registry
+   **/
+  private String envName = null;
 
   /**
    * Getter for appCrn.
@@ -75,6 +90,57 @@ public class UpdateMlServingAppS3CredsRequest  {
     this.s3Creds = s3Creds;
   }
 
+  /**
+   * Getter for registryNamespace.
+   * The namespace of the AI Registry
+   **/
+  @JsonProperty("registryNamespace")
+  public String getRegistryNamespace() {
+    return registryNamespace;
+  }
+
+  /**
+   * Setter for registryNamespace.
+   * The namespace of the AI Registry
+   **/
+  public void setRegistryNamespace(String registryNamespace) {
+    this.registryNamespace = registryNamespace;
+  }
+
+  /**
+   * Getter for linkRegistry.
+   * Whether to link the registry
+   **/
+  @JsonProperty("linkRegistry")
+  public Boolean getLinkRegistry() {
+    return linkRegistry;
+  }
+
+  /**
+   * Setter for linkRegistry.
+   * Whether to link the registry
+   **/
+  public void setLinkRegistry(Boolean linkRegistry) {
+    this.linkRegistry = linkRegistry;
+  }
+
+  /**
+   * Getter for envName.
+   * The environment name of the linked registry
+   **/
+  @JsonProperty("envName")
+  public String getEnvName() {
+    return envName;
+  }
+
+  /**
+   * Setter for envName.
+   * The environment name of the linked registry
+   **/
+  public void setEnvName(String envName) {
+    this.envName = envName;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -90,12 +156,21 @@ public class UpdateMlServingAppS3CredsRequest  {
     if (!Objects.equals(this.s3Creds, updateMlServingAppS3CredsRequest.s3Creds)) {
       return false;
     }
+    if (!Objects.equals(this.registryNamespace, updateMlServingAppS3CredsRequest.registryNamespace)) {
+      return false;
+    }
+    if (!Objects.equals(this.linkRegistry, updateMlServingAppS3CredsRequest.linkRegistry)) {
+      return false;
+    }
+    if (!Objects.equals(this.envName, updateMlServingAppS3CredsRequest.envName)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(appCrn, s3Creds);
+    return Objects.hash(appCrn, s3Creds, registryNamespace, linkRegistry, envName);
   }
 
   @Override
@@ -104,6 +179,9 @@ public class UpdateMlServingAppS3CredsRequest  {
     sb.append("class UpdateMlServingAppS3CredsRequest {\n");
     sb.append("    appCrn: ").append(toIndentedString(appCrn)).append("\n");
     sb.append("    s3Creds: ").append(toIndentedString(s3Creds)).append("\n");
+    sb.append("    registryNamespace: ").append(toIndentedString(registryNamespace)).append("\n");
+    sb.append("    linkRegistry: ").append(toIndentedString(linkRegistry)).append("\n");
+    sb.append("    envName: ").append(toIndentedString(envName)).append("\n");
     sb.append("}");
     return sb.toString();
   }
