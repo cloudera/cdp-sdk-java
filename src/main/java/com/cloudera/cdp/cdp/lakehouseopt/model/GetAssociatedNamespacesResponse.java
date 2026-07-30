@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object containing all namespaces and a flag to indicate if it&#39;s associated with the particular namespace.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:58.300Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:07.581Z")
 public class GetAssociatedNamespacesResponse extends CdpResponse {
 
   /**

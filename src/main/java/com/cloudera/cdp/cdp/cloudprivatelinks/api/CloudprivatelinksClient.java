@@ -53,7 +53,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:59.059Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:08.053Z")
 public class CloudprivatelinksClient extends CdpClient {
 
   public static final String SERVICE_NAME = "cloudprivatelinks";

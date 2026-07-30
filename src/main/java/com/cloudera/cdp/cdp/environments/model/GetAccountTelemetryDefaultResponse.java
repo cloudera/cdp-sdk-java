@@ -29,18 +29,13 @@ import java.util.*;
 /**
  * Response object for get default account level telemetry settings.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:52.151Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:01.416Z")
 public class GetAccountTelemetryDefaultResponse extends CdpResponse {
 
   /**
    * Flag to enable account level workload analytics. (that will be used as a default for environment)
    **/
   private Boolean workloadAnalytics = null;
-
-  /**
-   * [Deprecated] Flag to enable account level deployment log collection. (that will be used as a default for environment)
-   **/
-  private Boolean reportDeploymentLogs = false;
 
   /**
    * List of anonymization rules that are applied on logs that are shipped to Cloudera
@@ -62,25 +57,6 @@ public class GetAccountTelemetryDefaultResponse extends CdpResponse {
    **/
   public void setWorkloadAnalytics(Boolean workloadAnalytics) {
     this.workloadAnalytics = workloadAnalytics;
-  }
-
-  /**
-   * Getter for reportDeploymentLogs.
-   * [Deprecated] Flag to enable account level deployment log collection. (that will be used as a default for environment)
-   **/
-  @Deprecated
-  @JsonProperty("reportDeploymentLogs")
-  public Boolean getReportDeploymentLogs() {
-    return reportDeploymentLogs;
-  }
-
-  /**
-   * Setter for reportDeploymentLogs.
-   * [Deprecated] Flag to enable account level deployment log collection. (that will be used as a default for environment)
-   **/
-  @Deprecated
-  public void setReportDeploymentLogs(Boolean reportDeploymentLogs) {
-    this.reportDeploymentLogs = reportDeploymentLogs;
   }
 
   /**
@@ -112,9 +88,6 @@ public class GetAccountTelemetryDefaultResponse extends CdpResponse {
     if (!Objects.equals(this.workloadAnalytics, getAccountTelemetryDefaultResponse.workloadAnalytics)) {
       return false;
     }
-    if (!Objects.equals(this.reportDeploymentLogs, getAccountTelemetryDefaultResponse.reportDeploymentLogs)) {
-      return false;
-    }
     if (!Objects.equals(this.rules, getAccountTelemetryDefaultResponse.rules)) {
       return false;
     }
@@ -126,7 +99,7 @@ public class GetAccountTelemetryDefaultResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(workloadAnalytics, reportDeploymentLogs, rules, super.hashCode());
+    return Objects.hash(workloadAnalytics, rules, super.hashCode());
   }
 
   @Override
@@ -135,7 +108,6 @@ public class GetAccountTelemetryDefaultResponse extends CdpResponse {
     sb.append("class GetAccountTelemetryDefaultResponse {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
     sb.append("    workloadAnalytics: ").append(toIndentedString(workloadAnalytics)).append("\n");
-    sb.append("    reportDeploymentLogs: ").append(toIndentedString(reportDeploymentLogs)).append("\n");
     sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
     sb.append("}");
     return sb.toString();

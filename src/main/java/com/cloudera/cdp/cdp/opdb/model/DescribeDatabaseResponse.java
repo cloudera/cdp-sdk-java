@@ -28,7 +28,7 @@ import com.cloudera.cdp.opdb.model.DatabaseDetails;
 /**
  * Details of the database.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:53.916Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:03.679Z")
 public class DescribeDatabaseResponse extends CdpResponse {
 
   /**

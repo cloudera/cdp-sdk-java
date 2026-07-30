@@ -30,7 +30,7 @@ import java.util.Map;
 /**
  * Additional properties for AWS clusters.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:47.832Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:11:57.172Z")
 public class UpdateClusterRequestAwsUpdate  {
 
   /**

@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object to prepare Data Lake upgrade. This command indicates the upgrade preparation for a specific image or a selected runtime version. Important to note that the imageId or the runtime parameter must be present in the request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:50.953Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:11:59.771Z")
 public class PrepareDatalakeUpgradeRequest  {
 
   /**

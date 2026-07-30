@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for creating an Azure environment using existing VNet and subnets.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:52.151Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:01.416Z")
 public class ExistingAzureNetworkRequest  {
 
   /**

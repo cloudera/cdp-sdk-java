@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object to list the SCIM access tokens.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:54.708Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:04.374Z")
 public class ListScimAccessTokensResponse extends CdpResponse {
 
   /**

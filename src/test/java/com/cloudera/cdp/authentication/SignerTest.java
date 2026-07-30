@@ -21,11 +21,13 @@ package com.cloudera.cdp.authentication;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 import com.cloudera.cdp.CdpClientException;
 import com.cloudera.cdp.util.CdpSDKTestUtils;
 
 import java.security.KeyPair;
+import java.security.KeyPairGenerator;
 import java.security.PrivateKey;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
@@ -97,6 +99,33 @@ public class SignerTest {
         "/iam/listUsers",
         "abcde-fghij-klmno-pqrst",
         CdpSDKTestUtils.getECDSAPrivateKey());
+  }
+
+  @Test
+  public void testValidJdkEd25519Key() throws Exception {
+    KeyPairGenerator generator = KeyPairGenerator.getInstance("Ed25519");
+    PrivateKey privateKey = generator.generateKeyPair().getPrivate();
+
+    new Signer().computeAuthHeader(
+        "foo",
+        "foo",
+        "foo",
+        "foo",
+        "foo",
+        privateKey);
+  }
+
+  @Test
+  public void testUnsupportedKeyAlgorithm() {
+    PrivateKey privateKey = mock(PrivateKey.class);
+    when(privateKey.getAlgorithm()).thenReturn("Unsupported");
+
+    Signer signer = new Signer();
+
+    assertThrows(
+        CdpClientException.class,
+        () -> signer.computeAuthHeader(
+            "foo", "foo", "foo", "foo", "foo", privateKey));
   }
 
   private PrivateKey mockPrivateKey() {

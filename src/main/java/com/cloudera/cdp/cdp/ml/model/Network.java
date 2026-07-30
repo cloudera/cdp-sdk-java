@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * The network config for capacity reservation.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:49.791Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:11:58.795Z")
 public class Network  {
 
   /**

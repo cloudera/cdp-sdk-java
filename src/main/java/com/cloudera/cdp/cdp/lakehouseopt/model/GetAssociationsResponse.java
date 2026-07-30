@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object containing table associations per namespace.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:58.300Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:07.581Z")
 public class GetAssociationsResponse extends CdpResponse {
 
   /**

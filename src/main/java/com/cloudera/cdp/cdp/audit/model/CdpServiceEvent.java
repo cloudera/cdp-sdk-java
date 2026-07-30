@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * The model for a service event, as a part of CdpAuditEvent. These events are created by Cloudera CDP services, but are not directly triggered by a request to a public CDP API service.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:54.216Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:03.865Z")
 public class CdpServiceEvent  {
 
   /**

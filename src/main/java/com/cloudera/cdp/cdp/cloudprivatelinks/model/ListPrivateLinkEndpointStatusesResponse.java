@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for listPrivateLinkEndpointStatuses method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:59.059Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:08.053Z")
 public class ListPrivateLinkEndpointStatusesResponse extends CdpResponse {
 
   /**

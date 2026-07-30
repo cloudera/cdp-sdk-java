@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Object which holds some details of an instance for the given cluster.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:46.479Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:11:55.925Z")
 public class Instance  {
 
   /**

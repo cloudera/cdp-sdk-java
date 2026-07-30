@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object with the list of backup operations performed on a datalake.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:50.953Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:11:59.771Z")
 public class ListDatalakeBackupsResponse extends CdpResponse {
 
   /**

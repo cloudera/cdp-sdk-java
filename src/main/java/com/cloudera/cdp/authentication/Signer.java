@@ -50,6 +50,7 @@ public class Signer {
   private static final String ECDSA_ALGORITHM = "EC";
   private static final String ECDSA_AUTH_METHOD = "ecdsav1";
   private static final String ECDSA_SIGNATURE_ALGORITHM = "SHA512withECDSA";
+  private static final String EDDSA_ALGORITHM = "EdDSA";
 
   /**
    * Computes the value for the x-altus-auth header for a request.
@@ -82,6 +83,7 @@ public class Signer {
       sigAlgo = RSA_SIGNATURE_ALGORITHM;
       break;
     case ED25519_ALGORITHM:
+    case EDDSA_ALGORITHM:
       authMethod = ED25519_AUTH_METHOD;
       sigAlgo = ED25519_SIGNATURE_ALGORITHM;
       break;

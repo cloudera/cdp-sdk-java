@@ -36,7 +36,7 @@ import java.util.*;
 /**
  * Request object for a create AWS environment request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:52.151Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:01.416Z")
 public class CreateAWSEnvironmentRequest  {
 
   /**
@@ -118,11 +118,6 @@ public class CreateAWSEnvironmentRequest  {
    * When this is enabled, diagnostic information about job and query execution is sent to Workload Manager for Data Hub clusters created within this environment.
    **/
   private Boolean workloadAnalytics = null;
-
-  /**
-   * [Deprecated] When true, this will report additional diagnostic information back to Cloudera.
-   **/
-  private Boolean reportDeploymentLogs = false;
 
   /**
    * The FreeIPA creation request for the environment
@@ -444,25 +439,6 @@ public class CreateAWSEnvironmentRequest  {
   }
 
   /**
-   * Getter for reportDeploymentLogs.
-   * [Deprecated] When true, this will report additional diagnostic information back to Cloudera.
-   **/
-  @Deprecated
-  @JsonProperty("reportDeploymentLogs")
-  public Boolean getReportDeploymentLogs() {
-    return reportDeploymentLogs;
-  }
-
-  /**
-   * Setter for reportDeploymentLogs.
-   * [Deprecated] When true, this will report additional diagnostic information back to Cloudera.
-   **/
-  @Deprecated
-  public void setReportDeploymentLogs(Boolean reportDeploymentLogs) {
-    this.reportDeploymentLogs = reportDeploymentLogs;
-  }
-
-  /**
    * Getter for freeIpa.
    * The FreeIPA creation request for the environment
    **/
@@ -672,9 +648,6 @@ public class CreateAWSEnvironmentRequest  {
     if (!Objects.equals(this.workloadAnalytics, createAWSEnvironmentRequest.workloadAnalytics)) {
       return false;
     }
-    if (!Objects.equals(this.reportDeploymentLogs, createAWSEnvironmentRequest.reportDeploymentLogs)) {
-      return false;
-    }
     if (!Objects.equals(this.freeIpa, createAWSEnvironmentRequest.freeIpa)) {
       return false;
     }
@@ -707,7 +680,7 @@ public class CreateAWSEnvironmentRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, credentialName, region, securityAccess, authentication, logStorage, vpcId, subnetIds, createPrivateSubnets, createServiceEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, s3GuardTableName, description, enableTunnel, workloadAnalytics, reportDeploymentLogs, freeIpa, enableComputeCluster, computeClusterConfiguration, image, tags, proxyConfigName, encryptionKeyArn, customDockerRegistry, environmentType);
+    return Objects.hash(environmentName, credentialName, region, securityAccess, authentication, logStorage, vpcId, subnetIds, createPrivateSubnets, createServiceEndpoints, endpointAccessGatewayScheme, endpointAccessGatewaySubnetIds, s3GuardTableName, description, enableTunnel, workloadAnalytics, freeIpa, enableComputeCluster, computeClusterConfiguration, image, tags, proxyConfigName, encryptionKeyArn, customDockerRegistry, environmentType);
   }
 
   @Override
@@ -730,7 +703,6 @@ public class CreateAWSEnvironmentRequest  {
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    enableTunnel: ").append(toIndentedString(enableTunnel)).append("\n");
     sb.append("    workloadAnalytics: ").append(toIndentedString(workloadAnalytics)).append("\n");
-    sb.append("    reportDeploymentLogs: ").append(toIndentedString(reportDeploymentLogs)).append("\n");
     sb.append("    freeIpa: ").append(toIndentedString(freeIpa)).append("\n");
     sb.append("    enableComputeCluster: ").append(toIndentedString(enableComputeCluster)).append("\n");
     sb.append("    computeClusterConfiguration: ").append(toIndentedString(computeClusterConfiguration)).append("\n");

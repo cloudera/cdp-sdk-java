@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * The type of the instance group which also contains the actual instance(s)
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:50.953Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:11:59.771Z")
 public class InstanceGroup  {
 
   /**

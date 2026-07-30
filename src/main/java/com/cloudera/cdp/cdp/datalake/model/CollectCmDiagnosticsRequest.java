@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object for collecting DataLake diagnostics.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:50.953Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:11:59.771Z")
 public class CollectCmDiagnosticsRequest  {
 
   /**

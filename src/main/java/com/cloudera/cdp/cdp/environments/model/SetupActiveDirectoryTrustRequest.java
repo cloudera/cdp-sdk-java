@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object to Setting up Active Directory Trust.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:52.151Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:01.416Z")
 public class SetupActiveDirectoryTrustRequest  {
 
   /**

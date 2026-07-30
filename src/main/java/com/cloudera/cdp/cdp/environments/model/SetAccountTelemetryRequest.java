@@ -29,18 +29,13 @@ import java.util.*;
 /**
  * Request object to enable environment level telemetry features.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:52.151Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:01.416Z")
 public class SetAccountTelemetryRequest  {
 
   /**
    * Flag to enable account level workload analytics. (that will be used as a default for environment)
    **/
   private Boolean workloadAnalytics = null;
-
-  /**
-   * [Deprecated] Flag to enable environment level deployment log collection.
-   **/
-  private Boolean reportDeploymentLogs = false;
 
   /**
    * List of anonymization rules that are applied on logs that are shipped to Cloudera
@@ -62,25 +57,6 @@ public class SetAccountTelemetryRequest  {
    **/
   public void setWorkloadAnalytics(Boolean workloadAnalytics) {
     this.workloadAnalytics = workloadAnalytics;
-  }
-
-  /**
-   * Getter for reportDeploymentLogs.
-   * [Deprecated] Flag to enable environment level deployment log collection.
-   **/
-  @Deprecated
-  @JsonProperty("reportDeploymentLogs")
-  public Boolean getReportDeploymentLogs() {
-    return reportDeploymentLogs;
-  }
-
-  /**
-   * Setter for reportDeploymentLogs.
-   * [Deprecated] Flag to enable environment level deployment log collection.
-   **/
-  @Deprecated
-  public void setReportDeploymentLogs(Boolean reportDeploymentLogs) {
-    this.reportDeploymentLogs = reportDeploymentLogs;
   }
 
   /**
@@ -112,9 +88,6 @@ public class SetAccountTelemetryRequest  {
     if (!Objects.equals(this.workloadAnalytics, setAccountTelemetryRequest.workloadAnalytics)) {
       return false;
     }
-    if (!Objects.equals(this.reportDeploymentLogs, setAccountTelemetryRequest.reportDeploymentLogs)) {
-      return false;
-    }
     if (!Objects.equals(this.rules, setAccountTelemetryRequest.rules)) {
       return false;
     }
@@ -123,7 +96,7 @@ public class SetAccountTelemetryRequest  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(workloadAnalytics, reportDeploymentLogs, rules);
+    return Objects.hash(workloadAnalytics, rules);
   }
 
   @Override
@@ -131,7 +104,6 @@ public class SetAccountTelemetryRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class SetAccountTelemetryRequest {\n");
     sb.append("    workloadAnalytics: ").append(toIndentedString(workloadAnalytics)).append("\n");
-    sb.append("    reportDeploymentLogs: ").append(toIndentedString(reportDeploymentLogs)).append("\n");
     sb.append("    rules: ").append(toIndentedString(rules)).append("\n");
     sb.append("}");
     return sb.toString();

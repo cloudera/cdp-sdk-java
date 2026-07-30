@@ -43,7 +43,7 @@ import java.time.ZonedDateTime;
 /**
  * The environment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:52.151Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:01.416Z")
 public class Environment  {
 
   /**
@@ -140,11 +140,6 @@ public class Environment  {
    * When this is enabled, diagnostic information about job and query execution is sent to Workload Manager for Data Hub clusters created within this environment.
    **/
   private Boolean workloadAnalytics = null;
-
-  /**
-   * [Deprecated] When true, this will report additional diagnostic information back to Cloudera.
-   **/
-  private Boolean reportDeploymentLogs = false;
 
   /**
    * Details of FreeIPA instance associated with this environment.
@@ -515,25 +510,6 @@ public class Environment  {
   }
 
   /**
-   * Getter for reportDeploymentLogs.
-   * [Deprecated] When true, this will report additional diagnostic information back to Cloudera.
-   **/
-  @Deprecated
-  @JsonProperty("reportDeploymentLogs")
-  public Boolean getReportDeploymentLogs() {
-    return reportDeploymentLogs;
-  }
-
-  /**
-   * Setter for reportDeploymentLogs.
-   * [Deprecated] When true, this will report additional diagnostic information back to Cloudera.
-   **/
-  @Deprecated
-  public void setReportDeploymentLogs(Boolean reportDeploymentLogs) {
-    this.reportDeploymentLogs = reportDeploymentLogs;
-  }
-
-  /**
    * Getter for freeipa.
    * Details of FreeIPA instance associated with this environment.
    **/
@@ -752,9 +728,6 @@ public class Environment  {
     if (!Objects.equals(this.workloadAnalytics, environment.workloadAnalytics)) {
       return false;
     }
-    if (!Objects.equals(this.reportDeploymentLogs, environment.reportDeploymentLogs)) {
-      return false;
-    }
     if (!Objects.equals(this.freeipa, environment.freeipa)) {
       return false;
     }
@@ -787,7 +760,7 @@ public class Environment  {
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, network, logStorage, backupStorage, authentication, securityAccess, description, statusReason, created, creator, awsDetails, azureDetails, gcpDetails, workloadAnalytics, reportDeploymentLogs, freeipa, proxyConfig, tags, dataServices, customDockerRegistry, awsComputeClusterConfiguration, azureComputeClusterConfiguration, computeClusterEnabled, environmentType);
+    return Objects.hash(environmentName, crn, status, region, cloudPlatform, credentialName, network, logStorage, backupStorage, authentication, securityAccess, description, statusReason, created, creator, awsDetails, azureDetails, gcpDetails, workloadAnalytics, freeipa, proxyConfig, tags, dataServices, customDockerRegistry, awsComputeClusterConfiguration, azureComputeClusterConfiguration, computeClusterEnabled, environmentType);
   }
 
   @Override
@@ -813,7 +786,6 @@ public class Environment  {
     sb.append("    azureDetails: ").append(toIndentedString(azureDetails)).append("\n");
     sb.append("    gcpDetails: ").append(toIndentedString(gcpDetails)).append("\n");
     sb.append("    workloadAnalytics: ").append(toIndentedString(workloadAnalytics)).append("\n");
-    sb.append("    reportDeploymentLogs: ").append(toIndentedString(reportDeploymentLogs)).append("\n");
     sb.append("    freeipa: ").append(toIndentedString(freeipa)).append("\n");
     sb.append("    proxyConfig: ").append(toIndentedString(proxyConfig)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");

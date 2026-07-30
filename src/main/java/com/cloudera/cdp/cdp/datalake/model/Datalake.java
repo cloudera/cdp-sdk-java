@@ -30,7 +30,7 @@ import java.util.*;
 /**
  * Information about a datalake.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:50.953Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:11:59.771Z")
 public class Datalake  {
 
   /**
@@ -69,7 +69,7 @@ public class Datalake  {
   private Boolean enableRangerRaz = null;
 
   /**
-   * Indicates the certificate status on the cluster.
+   * Indicates the certificate expiration status on the cluster.
    **/
   private String certificateExpirationState = null;
 
@@ -204,7 +204,7 @@ public class Datalake  {
 
   /**
    * Getter for certificateExpirationState.
-   * Indicates the certificate status on the cluster.
+   * Indicates the certificate expiration status on the cluster.
    **/
   @JsonProperty("certificateExpirationState")
   public String getCertificateExpirationState() {
@@ -213,7 +213,7 @@ public class Datalake  {
 
   /**
    * Setter for certificateExpirationState.
-   * Indicates the certificate status on the cluster.
+   * Indicates the certificate expiration status on the cluster.
    **/
   public void setCertificateExpirationState(String certificateExpirationState) {
     this.certificateExpirationState = certificateExpirationState;

@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Information about a cluster.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:46.479Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:11:55.925Z")
 public class ClusterSummary  {
 
   /**
@@ -87,7 +87,7 @@ public class ClusterSummary  {
   private String clusterTemplateCrn = null;
 
   /**
-   * Indicates the certificate status on the cluster.
+   * Indicates the certificate expiration status on the cluster.
    **/
   private String certificateExpirationState = null;
 
@@ -280,7 +280,7 @@ public class ClusterSummary  {
 
   /**
    * Getter for certificateExpirationState.
-   * Indicates the certificate status on the cluster.
+   * Indicates the certificate expiration status on the cluster.
    **/
   @JsonProperty("certificateExpirationState")
   public String getCertificateExpirationState() {
@@ -289,7 +289,7 @@ public class ClusterSummary  {
 
   /**
    * Setter for certificateExpirationState.
-   * Indicates the certificate status on the cluster.
+   * Indicates the certificate expiration status on the cluster.
    **/
   public void setCertificateExpirationState(String certificateExpirationState) {
     this.certificateExpirationState = certificateExpirationState;

@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Describes policy to entire namespace association details per catalog.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:58.300Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:07.581Z")
 public class StarAssociationDetails  {
 
   /**

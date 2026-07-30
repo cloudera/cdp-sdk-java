@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Custom AWS node storage limits.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:56.373Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:05.866Z")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class AWSNodeStorageProfileMetaData  {
 

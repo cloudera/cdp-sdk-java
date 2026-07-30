@@ -28,7 +28,7 @@ import com.cloudera.cdp.iam.model.LdapProvider;
 /**
  * Update LDAP provider response
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-06-24T07:36:54.708Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:04.374Z")
 public class UpdateLdapProviderResponse extends CdpResponse {
 
   /**
