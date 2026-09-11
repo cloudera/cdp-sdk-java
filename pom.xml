@@ -18,7 +18,7 @@
     <commons-codec.version>1.16.1</commons-codec.version>
     <commons-lang3.version>3.18.0</commons-lang3.version>
     <guava.version>32.0.1-jre</guava.version>
-    <httpclient.version>5.3.1</httpclient.version>
+    <httpclient.version>5.6.3</httpclient.version>
     <jackson.version>2.21.5</jackson.version>
     <jakarta-ws-rs.version>3.1.0</jakarta-ws-rs.version>
     <jakarta-servlet.version>6.1.0</jakarta-servlet.version>
