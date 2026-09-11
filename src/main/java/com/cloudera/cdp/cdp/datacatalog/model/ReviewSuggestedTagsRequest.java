@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request to review suggested tags.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:11:58.386Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:44.071Z")
 public class ReviewSuggestedTagsRequest  {
 
   /**

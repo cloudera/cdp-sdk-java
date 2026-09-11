@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for the ListMlServingApps method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:11:58.795Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:44.354Z")
 public class ListMlServingAppsRequest  {
 
   /**

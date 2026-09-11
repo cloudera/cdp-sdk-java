@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object containing all supported timezones to define policy schedule.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:07.581Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:51.430Z")
 public class GetTimezonesResponse extends CdpResponse {
 
   /**

@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object containing the policy detail which includes version IDs, associations, scope and status.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:07.581Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:51.430Z")
 public class GetPolicyResponse extends CdpResponse {
 
   /**

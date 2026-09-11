@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object containing namespace wise table names and a flag to indicate if it&#39;s associated with the table.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:07.581Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:51.430Z")
 public class GetAssociatedTablesResponse extends CdpResponse {
 
   /**

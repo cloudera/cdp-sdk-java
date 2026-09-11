@@ -143,6 +143,8 @@ import com.cloudera.cdp.environments.model.ListFreeipaSecretTypesRequest;
 import com.cloudera.cdp.environments.model.ListFreeipaSecretTypesResponse;
 import com.cloudera.cdp.environments.model.ListProxyConfigsRequest;
 import com.cloudera.cdp.environments.model.ListProxyConfigsResponse;
+import com.cloudera.cdp.environments.model.PrepareFreeipaUpgradeRequest;
+import com.cloudera.cdp.environments.model.PrepareFreeipaUpgradeResponse;
 import com.cloudera.cdp.environments.model.RepairFreeipaRequest;
 import com.cloudera.cdp.environments.model.RepairFreeipaResponse;
 import com.cloudera.cdp.environments.model.RepairTrustRequest;
@@ -243,7 +245,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:01.416Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:46.101Z")
 public class EnvironmentsClient extends CdpClient {
 
   public static final String SERVICE_NAME = "environments2";
@@ -1013,6 +1015,19 @@ public class EnvironmentsClient extends CdpClient {
     }
 
     return this.invokeAPI("listProxyConfigs", "/api/v1/environments2/listProxyConfigs", input, new GenericType<ListProxyConfigsResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Prepares and validates an environment for FreeIPA upgrade.
+   * @param input
+   * @return PrepareFreeipaUpgradeResponse
+   */
+  public PrepareFreeipaUpgradeResponse prepareFreeipaUpgrade(PrepareFreeipaUpgradeRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling prepareFreeipaUpgrade");
+    }
+
+    return this.invokeAPI("prepareFreeipaUpgrade", "/api/v1/environments2/prepareFreeipaUpgrade", input, new GenericType<PrepareFreeipaUpgradeResponse>(){}, NO_EXTENSION);
   }
 
   /**

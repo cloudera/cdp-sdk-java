@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for retrieving the status of a Private Link.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:08.053Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:51.705Z")
 public class GetPrivateLinkStatusRequest  {
 
   /**

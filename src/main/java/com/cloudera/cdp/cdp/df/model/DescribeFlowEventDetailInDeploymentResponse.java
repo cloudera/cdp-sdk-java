@@ -28,7 +28,7 @@ import com.cloudera.cdp.df.model.EventDetail;
 /**
  * A response to describe flow event details in a deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:05.164Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:49.234Z")
 public class DescribeFlowEventDetailInDeploymentResponse extends CdpResponse {
 
   /**

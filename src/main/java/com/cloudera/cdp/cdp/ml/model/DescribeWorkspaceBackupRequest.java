@@ -27,17 +27,17 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for DescribeWorkspaceBackup method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:11:58.795Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:44.354Z")
 public class DescribeWorkspaceBackupRequest  {
 
   /**
-   * The CRN of the backup snaphot.
+   * The CRN of the backup snapshot.
    **/
   private String backupCrn = null;
 
   /**
    * Getter for backupCrn.
-   * The CRN of the backup snaphot.
+   * The CRN of the backup snapshot.
    **/
   @JsonProperty("backupCrn")
   public String getBackupCrn() {
@@ -46,7 +46,7 @@ public class DescribeWorkspaceBackupRequest  {
 
   /**
    * Setter for backupCrn.
-   * The CRN of the backup snaphot.
+   * The CRN of the backup snapshot.
    **/
   public void setBackupCrn(String backupCrn) {
     this.backupCrn = backupCrn;

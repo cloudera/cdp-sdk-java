@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * A response to list event history for deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:05.164Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:49.234Z")
 public class ListDeploymentEventsResponse extends CdpResponse {
 
   /**

@@ -147,13 +147,17 @@ import com.cloudera.cdp.ml.model.UpgradeModelRegistryRequest;
 import com.cloudera.cdp.ml.model.UpgradeModelRegistryResponse;
 import com.cloudera.cdp.ml.model.UpgradeWorkspaceRequest;
 import com.cloudera.cdp.ml.model.UpgradeWorkspaceResponse;
+import com.cloudera.cdp.ml.model.UploadCertificateRequest;
+import com.cloudera.cdp.ml.model.UploadCertificateResponse;
+import com.cloudera.cdp.ml.model.UploadModelRegistryCertificateRequest;
+import com.cloudera.cdp.ml.model.UploadModelRegistryCertificateResponse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:11:58.795Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:44.354Z")
 public class MlClient extends CdpClient {
 
   public static final String SERVICE_NAME = "ml";
@@ -406,7 +410,7 @@ public class MlClient extends CdpClient {
   }
 
   /**
-   * Describe backup snaphot of a workbench.
+   * Describe backup snapshot of a workbench.
    * @param input
    * @return DescribeWorkspaceBackupResponse
    */
@@ -949,5 +953,31 @@ public class MlClient extends CdpClient {
     }
 
     return this.invokeAPI("upgradeWorkspace", "/api/v1/ml/upgradeWorkspace", input, new GenericType<UpgradeWorkspaceResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Upload custom CA certificate for AI Inference Service.
+   * @param input
+   * @return UploadCertificateResponse
+   */
+  public UploadCertificateResponse uploadCertificate(UploadCertificateRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling uploadCertificate");
+    }
+
+    return this.invokeAPI("uploadCertificate", "/api/v1/ml/uploadCertificate", input, new GenericType<UploadCertificateResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Upload custom CA certificate for an AI Registry instance.
+   * @param input
+   * @return UploadModelRegistryCertificateResponse
+   */
+  public UploadModelRegistryCertificateResponse uploadModelRegistryCertificate(UploadModelRegistryCertificateRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling uploadModelRegistryCertificate");
+    }
+
+    return this.invokeAPI("uploadModelRegistryCertificate", "/api/v1/ml/uploadModelRegistryCertificate", input, new GenericType<UploadModelRegistryCertificateResponse>(){}, NO_EXTENSION);
   }
 }

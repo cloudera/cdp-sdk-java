@@ -35,7 +35,7 @@ import java.util.*;
 /**
  * A request to create the database
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:03.679Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:47.965Z")
 public class CreateDatabaseRequest  {
 
   /**
@@ -147,6 +147,11 @@ public class CreateDatabaseRequest  {
    * Provide custom VM instance types for master, worker, gateway, leader, edge and compute groups.
    **/
   private CustomInstanceTypes customInstanceTypes = null;
+
+  /**
+   * The encryption profile name or CRN that manages the encryption.
+   **/
+  private String encryptionProfile = null;
 
   /**
    * Getter for environmentName.
@@ -522,6 +527,23 @@ public class CreateDatabaseRequest  {
     this.customInstanceTypes = customInstanceTypes;
   }
 
+  /**
+   * Getter for encryptionProfile.
+   * The encryption profile name or CRN that manages the encryption.
+   **/
+  @JsonProperty("encryptionProfile")
+  public String getEncryptionProfile() {
+    return encryptionProfile;
+  }
+
+  /**
+   * Setter for encryptionProfile.
+   * The encryption profile name or CRN that manages the encryption.
+   **/
+  public void setEncryptionProfile(String encryptionProfile) {
+    this.encryptionProfile = encryptionProfile;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -597,12 +619,15 @@ public class CreateDatabaseRequest  {
     if (!Objects.equals(this.customInstanceTypes, createDatabaseRequest.customInstanceTypes)) {
       return false;
     }
+    if (!Objects.equals(this.encryptionProfile, createDatabaseRequest.encryptionProfile)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environmentName, databaseName, autoScalingParameters, subnetId, customUserTags, disableMultiAz, attachedStorageForWorkers, disableKerberos, numEdgeNodes, image, disableJwtAuth, enableRegionCanary, scaleType, storageType, recipes, enableGrafana, rootVolumeSize, volumeEncryptions, gatewayNodesCount, restworkerNodesCount, architecture, customInstanceTypes);
+    return Objects.hash(environmentName, databaseName, autoScalingParameters, subnetId, customUserTags, disableMultiAz, attachedStorageForWorkers, disableKerberos, numEdgeNodes, image, disableJwtAuth, enableRegionCanary, scaleType, storageType, recipes, enableGrafana, rootVolumeSize, volumeEncryptions, gatewayNodesCount, restworkerNodesCount, architecture, customInstanceTypes, encryptionProfile);
   }
 
   @Override
@@ -631,6 +656,7 @@ public class CreateDatabaseRequest  {
     sb.append("    restworkerNodesCount: ").append(toIndentedString(restworkerNodesCount)).append("\n");
     sb.append("    architecture: ").append(toIndentedString(architecture)).append("\n");
     sb.append("    customInstanceTypes: ").append(toIndentedString(customInstanceTypes)).append("\n");
+    sb.append("    encryptionProfile: ").append(toIndentedString(encryptionProfile)).append("\n");
     sb.append("}");
     return sb.toString();
   }

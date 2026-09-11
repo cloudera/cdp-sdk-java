@@ -28,7 +28,7 @@ import com.cloudera.cdp.compute.model.AzureVolumeEncryptionResp;
 /**
  * Volume encryption response structure.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:06.931Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:50.817Z")
 public class CommonVolumeEncryptionResp  {
 
   /**

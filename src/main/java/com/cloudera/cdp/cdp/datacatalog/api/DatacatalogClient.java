@@ -41,6 +41,8 @@ import com.cloudera.cdp.datacatalog.model.DeleteExternalUserResponse;
 import com.cloudera.cdp.datacatalog.model.Error;
 import com.cloudera.cdp.datacatalog.model.GetDataShareRequest;
 import com.cloudera.cdp.datacatalog.model.GetDataShareResponse;
+import com.cloudera.cdp.datacatalog.model.GetFgacStatusByAssetsRequest;
+import com.cloudera.cdp.datacatalog.model.GetFgacStatusByAssetsResponse;
 import com.cloudera.cdp.datacatalog.model.GetSuggestedTagsRequest;
 import com.cloudera.cdp.datacatalog.model.GetSuggestedTagsResponse;
 import com.cloudera.cdp.datacatalog.model.GrantAccessToExternalUsersOnDataShareRequest;
@@ -75,7 +77,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:11:58.386Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:44.071Z")
 public class DatacatalogClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datacatalog";
@@ -182,6 +184,19 @@ public class DatacatalogClient extends CdpClient {
     }
 
     return this.invokeAPI("getDataShare", "/api/v1/datacatalog/getDataShare", input, new GenericType<GetDataShareResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * get FGAC (Fine-Grained Access Control) status by assets.
+   * @param input
+   * @return GetFgacStatusByAssetsResponse
+   */
+  public GetFgacStatusByAssetsResponse getFgacStatusByAssets(GetFgacStatusByAssetsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling getFgacStatusByAssets");
+    }
+
+    return this.invokeAPI("getFgacStatusByAssets", "/api/v1/datacatalog/getFgacStatusByAssets", input, new GenericType<GetFgacStatusByAssetsResponse>(){}, NO_EXTENSION);
   }
 
   /**

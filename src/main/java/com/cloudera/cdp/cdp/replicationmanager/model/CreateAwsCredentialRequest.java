@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for creating AWS IAM or Access &amp; Secret Key cloud credentials.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:07.296Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:51.123Z")
 public class CreateAwsCredentialRequest  {
 
   /**

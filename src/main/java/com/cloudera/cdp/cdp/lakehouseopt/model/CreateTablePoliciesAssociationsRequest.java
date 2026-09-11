@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object to associate a table with set of policies.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:07.581Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:51.430Z")
 public class CreateTablePoliciesAssociationsRequest  {
 
   /**

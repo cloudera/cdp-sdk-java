@@ -29,7 +29,7 @@ import com.cloudera.cdp.datahub.model.InstanceTemplate;
 /**
  * The request object for Data Hub vertical scaling.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:11:55.925Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:41.364Z")
 public class StartClusterVerticalScalingRequest  {
 
   /**

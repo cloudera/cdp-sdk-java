@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * A list of databases in response
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:03.679Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:47.965Z")
 public class ListDatabasesResponse extends CdpResponse {
 
   /**

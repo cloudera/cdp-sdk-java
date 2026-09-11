@@ -35,7 +35,7 @@ import java.util.*;
 /**
  * A ML workbench, which includes the cluster and storage.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:11:58.795Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:44.354Z")
 public class Workspace  {
 
   /**
@@ -237,6 +237,16 @@ public class Workspace  {
    * The type of upgrade used for the workbench: \"Inplace\" or \"RestoreBased\". Only visible when set.
    **/
   private String upgradeType = null;
+
+  /**
+   * Quota configured for the cml service resource pool.
+   **/
+  private ResourceQuota serviceQuota = null;
+
+  /**
+   * Available quota for the cml service resource pool.
+   **/
+  private ResourceQuota serviceAvailableQuota = null;
 
   /**
    * Getter for instanceName.
@@ -918,6 +928,40 @@ public class Workspace  {
     this.upgradeType = upgradeType;
   }
 
+  /**
+   * Getter for serviceQuota.
+   * Quota configured for the cml service resource pool.
+   **/
+  @JsonProperty("serviceQuota")
+  public ResourceQuota getServiceQuota() {
+    return serviceQuota;
+  }
+
+  /**
+   * Setter for serviceQuota.
+   * Quota configured for the cml service resource pool.
+   **/
+  public void setServiceQuota(ResourceQuota serviceQuota) {
+    this.serviceQuota = serviceQuota;
+  }
+
+  /**
+   * Getter for serviceAvailableQuota.
+   * Available quota for the cml service resource pool.
+   **/
+  @JsonProperty("serviceAvailableQuota")
+  public ResourceQuota getServiceAvailableQuota() {
+    return serviceAvailableQuota;
+  }
+
+  /**
+   * Setter for serviceAvailableQuota.
+   * Available quota for the cml service resource pool.
+   **/
+  public void setServiceAvailableQuota(ResourceQuota serviceAvailableQuota) {
+    this.serviceAvailableQuota = serviceAvailableQuota;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -1047,12 +1091,18 @@ public class Workspace  {
     if (!Objects.equals(this.upgradeType, workspace.upgradeType)) {
       return false;
     }
+    if (!Objects.equals(this.serviceQuota, workspace.serviceQuota)) {
+      return false;
+    }
+    if (!Objects.equals(this.serviceAvailableQuota, workspace.serviceAvailableQuota)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, endpointPublicAccess, filesystemID, tags, instanceGroups, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, healthInfoLists, failureMessage, clusterBaseDomain, modelMetricsEnabled, governanceEnabled, subnets, whitelistAuthorizedIPRanges, authorizedIPRanges, nfsVersion, subnetsForLoadBalancers, upgradeState, backupMetadata, clusterID, isPrivate, resourcePoolName, parentResourcePoolName, quota, availableQuota, isRestored, secondaryPodRangeNames, enableGlobalAccessLoadBalancer, upgradeType);
+    return Objects.hash(instanceName, environmentName, instanceStatus, instanceUrl, environmentCrn, crn, k8sClusterName, creatorCrn, version, httpsEnabled, endpointPublicAccess, filesystemID, tags, instanceGroups, cloudPlatform, monitoringEnabled, loadBalancerIPWhitelists, creationDate, healthInfoLists, failureMessage, clusterBaseDomain, modelMetricsEnabled, governanceEnabled, subnets, whitelistAuthorizedIPRanges, authorizedIPRanges, nfsVersion, subnetsForLoadBalancers, upgradeState, backupMetadata, clusterID, isPrivate, resourcePoolName, parentResourcePoolName, quota, availableQuota, isRestored, secondaryPodRangeNames, enableGlobalAccessLoadBalancer, upgradeType, serviceQuota, serviceAvailableQuota);
   }
 
   @Override
@@ -1099,6 +1149,8 @@ public class Workspace  {
     sb.append("    secondaryPodRangeNames: ").append(toIndentedString(secondaryPodRangeNames)).append("\n");
     sb.append("    enableGlobalAccessLoadBalancer: ").append(toIndentedString(enableGlobalAccessLoadBalancer)).append("\n");
     sb.append("    upgradeType: ").append(toIndentedString(upgradeType)).append("\n");
+    sb.append("    serviceQuota: ").append(toIndentedString(serviceQuota)).append("\n");
+    sb.append("    serviceAvailableQuota: ").append(toIndentedString(serviceAvailableQuota)).append("\n");
     sb.append("}");
     return sb.toString();
   }

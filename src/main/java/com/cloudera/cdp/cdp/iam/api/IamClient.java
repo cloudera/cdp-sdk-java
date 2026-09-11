@@ -149,6 +149,8 @@ import com.cloudera.cdp.iam.model.SetAccountMessagesRequest;
 import com.cloudera.cdp.iam.model.SetAccountMessagesResponse;
 import com.cloudera.cdp.iam.model.SetDefaultIdentityProviderRequest;
 import com.cloudera.cdp.iam.model.SetDefaultIdentityProviderResponse;
+import com.cloudera.cdp.iam.model.SetLocalAdminUsernameRequest;
+import com.cloudera.cdp.iam.model.SetLocalAdminUsernameResponse;
 import com.cloudera.cdp.iam.model.SetSamlAuthnRequestSigningKeyRequest;
 import com.cloudera.cdp.iam.model.SetSamlAuthnRequestSigningKeyResponse;
 import com.cloudera.cdp.iam.model.SetSamlResponseDecryptionKeyRequest;
@@ -193,7 +195,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:12:04.374Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:48.572Z")
 public class IamClient extends CdpClient {
 
   public static final String SERVICE_NAME = "iam";
@@ -1002,6 +1004,19 @@ public class IamClient extends CdpClient {
     }
 
     return this.invokeAPI("setDefaultIdentityProvider", "/iam/setDefaultIdentityProvider", input, new GenericType<SetDefaultIdentityProviderResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Sets username of the local admin.
+   * @param input
+   * @return SetLocalAdminUsernameResponse
+   */
+  public SetLocalAdminUsernameResponse setLocalAdminUsername(SetLocalAdminUsernameRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling setLocalAdminUsername");
+    }
+
+    return this.invokeAPI("setLocalAdminUsername", "/iam/setLocalAdminUsername", input, new GenericType<SetLocalAdminUsernameResponse>(){}, NO_EXTENSION);
   }
 
   /**

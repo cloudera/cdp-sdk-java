@@ -28,7 +28,7 @@ import com.cloudera.cdp.dw.model.AllowedInstanceTypes;
 /**
  * Response object for the describeAllowedInstanceTypes method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-07-29T18:11:57.172Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:42.551Z")
 public class DescribeAllowedInstanceTypesResponse extends CdpResponse {
 
   /**
