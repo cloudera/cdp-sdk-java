@@ -28,7 +28,7 @@ import com.cloudera.cdp.df.model.Deployment;
 /**
  * A response to describe a deployment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:49.234Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:55.218Z")
 public class DescribeDeploymentResponse extends CdpResponse {
 
   /**

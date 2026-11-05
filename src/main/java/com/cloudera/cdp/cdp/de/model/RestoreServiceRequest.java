@@ -29,7 +29,7 @@ import java.util.Map;
 /**
  * Request object for Restore Service command.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:48.308Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:54.246Z")
 public class RestoreServiceRequest  {
 
   /**
@@ -56,6 +56,11 @@ public class RestoreServiceRequest  {
    * Optional service property override. Specified properties will be merged with backup properties.
    **/
   private Map<String, String> servicePropertyOverride = new HashMap<String, String>();
+
+  /**
+   * Optional final service config override as a JSON string, passed through to the restore backend as-is. At most one of serviceConfigReplacement or servicePropertyOverride may be specified.
+   **/
+  private String serviceConfigReplacement = null;
 
   /**
    * Getter for backupID.
@@ -142,6 +147,23 @@ public class RestoreServiceRequest  {
     this.servicePropertyOverride = servicePropertyOverride;
   }
 
+  /**
+   * Getter for serviceConfigReplacement.
+   * Optional final service config override as a JSON string, passed through to the restore backend as-is. At most one of serviceConfigReplacement or servicePropertyOverride may be specified.
+   **/
+  @JsonProperty("serviceConfigReplacement")
+  public String getServiceConfigReplacement() {
+    return serviceConfigReplacement;
+  }
+
+  /**
+   * Setter for serviceConfigReplacement.
+   * Optional final service config override as a JSON string, passed through to the restore backend as-is. At most one of serviceConfigReplacement or servicePropertyOverride may be specified.
+   **/
+  public void setServiceConfigReplacement(String serviceConfigReplacement) {
+    this.serviceConfigReplacement = serviceConfigReplacement;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -166,12 +188,15 @@ public class RestoreServiceRequest  {
     if (!Objects.equals(this.servicePropertyOverride, restoreServiceRequest.servicePropertyOverride)) {
       return false;
     }
+    if (!Objects.equals(this.serviceConfigReplacement, restoreServiceRequest.serviceConfigReplacement)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupID, environmentCrn, serviceId, serviceName, servicePropertyOverride);
+    return Objects.hash(backupID, environmentCrn, serviceId, serviceName, servicePropertyOverride, serviceConfigReplacement);
   }
 
   @Override
@@ -183,6 +208,7 @@ public class RestoreServiceRequest  {
     sb.append("    serviceId: ").append(toIndentedString(serviceId)).append("\n");
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
     sb.append("    servicePropertyOverride: ").append(toIndentedString(servicePropertyOverride)).append("\n");
+    sb.append("    serviceConfigReplacement: ").append(toIndentedString(serviceConfigReplacement)).append("\n");
     sb.append("}");
     return sb.toString();
   }

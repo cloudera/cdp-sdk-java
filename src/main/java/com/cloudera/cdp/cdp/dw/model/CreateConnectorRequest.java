@@ -29,7 +29,7 @@ import java.util.Map;
 /**
  * Request object to create a new connector for integrating external systems or data sources with Cloudera Data Warehouse.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:42.551Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:49.632Z")
 public class CreateConnectorRequest  {
 
   /**

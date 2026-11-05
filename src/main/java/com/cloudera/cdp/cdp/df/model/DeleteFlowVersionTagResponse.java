@@ -28,7 +28,7 @@ import com.cloudera.cdp.df.model.FlowVersionTag;
 /**
  * Response object for the DeleteVersionTag method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:49.234Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:55.218Z")
 public class DeleteFlowVersionTagResponse extends CdpResponse {
 
   /**

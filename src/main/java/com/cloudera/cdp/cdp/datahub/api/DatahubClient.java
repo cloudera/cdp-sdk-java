@@ -121,6 +121,8 @@ import com.cloudera.cdp.datahub.model.MigrateZookeeperToKraftRequest;
 import com.cloudera.cdp.datahub.model.MigrateZookeeperToKraftResponse;
 import com.cloudera.cdp.datahub.model.PrepareClusterUpgradeRequest;
 import com.cloudera.cdp.datahub.model.PrepareClusterUpgradeResponse;
+import com.cloudera.cdp.datahub.model.RefreshDatalakeConfigurationsRequest;
+import com.cloudera.cdp.datahub.model.RefreshDatalakeConfigurationsResponse;
 import com.cloudera.cdp.datahub.model.RenewCertificateRequest;
 import com.cloudera.cdp.datahub.model.RenewCertificateResponse;
 import com.cloudera.cdp.datahub.model.RenewPublicCertificateRequest;
@@ -185,7 +187,7 @@ import java.util.List;
 import java.util.Map;
 import jakarta.ws.rs.core.GenericType;
 
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:41.364Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:48.474Z")
 public class DatahubClient extends CdpClient {
 
   public static final String SERVICE_NAME = "datahub";
@@ -812,6 +814,19 @@ public class DatahubClient extends CdpClient {
     }
 
     return this.invokeAPI("prepareClusterUpgrade", "/api/v1/datahub/prepareClusterUpgrade", input, new GenericType<PrepareClusterUpgradeResponse>(){}, NO_EXTENSION);
+  }
+
+  /**
+   * Refresh configurations from the Data Lake of a Data Hub cluster by name or CRN.
+   * @param input
+   * @return RefreshDatalakeConfigurationsResponse
+   */
+  public RefreshDatalakeConfigurationsResponse refreshDatalakeConfigurations(RefreshDatalakeConfigurationsRequest input) {
+    if (input == null) {
+      throw new CdpClientException("Missing the required parameter 'input' when calling refreshDatalakeConfigurations");
+    }
+
+    return this.invokeAPI("refreshDatalakeConfigurations", "/api/v1/datahub/refreshDatalakeConfigurations", input, new GenericType<RefreshDatalakeConfigurationsResponse>(){}, NO_EXTENSION);
   }
 
   /**

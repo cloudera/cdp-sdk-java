@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Remove access of external users on Data Share request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:44.071Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:50.733Z")
 public class RemoveAccessOfExternalUsersOnDataShareRequest  {
 
   /**

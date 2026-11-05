@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * The environment summary.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:46.101Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:52.723Z")
 public class EnvironmentSummary  {
 
   /**

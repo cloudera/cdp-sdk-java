@@ -42,5 +42,7 @@ com.cloudera.cdp.ml.api
 com.cloudera.cdp.ml.model
 com.cloudera.cdp.opdb.api
 com.cloudera.cdp.opdb.model
+com.cloudera.cdp.publicendpointmanagement.api
+com.cloudera.cdp.publicendpointmanagement.model
 com.cloudera.cdp.replicationmanager.api
 com.cloudera.cdp.replicationmanager.model

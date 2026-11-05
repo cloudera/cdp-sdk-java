@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Request object for updating a parameter group. A parameter with only its name set indicates deletion. A parameter matching an existing name indicates an update. A parameter with a new name indicates an addition.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:49.810Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:56.063Z")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class UpdateParameterGroupRequest  {
 

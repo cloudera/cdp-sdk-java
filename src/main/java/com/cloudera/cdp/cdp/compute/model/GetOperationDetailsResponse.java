@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * Represents the response containing the details of an operation.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:50.817Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:57.005Z")
 public class GetOperationDetailsResponse extends CdpResponse {
 
   /**

@@ -27,13 +27,18 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Request object for Describe Backup command.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:48.308Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:54.246Z")
 public class DescribeBackupRequest  {
 
   /**
    * The ID of the backup to describe.
    **/
   private Long backupID = null;
+
+  /**
+   * When true, the backup restoreRequest is included in the response.
+   **/
+  private Boolean includeRestoreRequest = false;
 
   /**
    * Getter for backupID.
@@ -52,6 +57,23 @@ public class DescribeBackupRequest  {
     this.backupID = backupID;
   }
 
+  /**
+   * Getter for includeRestoreRequest.
+   * When true, the backup restoreRequest is included in the response.
+   **/
+  @JsonProperty("includeRestoreRequest")
+  public Boolean getIncludeRestoreRequest() {
+    return includeRestoreRequest;
+  }
+
+  /**
+   * Setter for includeRestoreRequest.
+   * When true, the backup restoreRequest is included in the response.
+   **/
+  public void setIncludeRestoreRequest(Boolean includeRestoreRequest) {
+    this.includeRestoreRequest = includeRestoreRequest;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -64,12 +86,15 @@ public class DescribeBackupRequest  {
     if (!Objects.equals(this.backupID, describeBackupRequest.backupID)) {
       return false;
     }
+    if (!Objects.equals(this.includeRestoreRequest, describeBackupRequest.includeRestoreRequest)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupID);
+    return Objects.hash(backupID, includeRestoreRequest);
   }
 
   @Override
@@ -77,6 +102,7 @@ public class DescribeBackupRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeBackupRequest {\n");
     sb.append("    backupID: ").append(toIndentedString(backupID)).append("\n");
+    sb.append("    includeRestoreRequest: ").append(toIndentedString(includeRestoreRequest)).append("\n");
     sb.append("}");
     return sb.toString();
   }

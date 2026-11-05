@@ -27,7 +27,7 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * Service backup object.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:48.308Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:54.246Z")
 public class Backup  {
 
   /**
@@ -104,6 +104,11 @@ public class Backup  {
    * Archive location under the base path.
    **/
   private String archiveLocation = null;
+
+  /**
+   * The backup restore request. Only populated when describe-backup is called with includeRestoreRequest set to true.
+   **/
+  private String restoreRequest = null;
 
   /**
    * Getter for id.
@@ -360,6 +365,23 @@ public class Backup  {
     this.archiveLocation = archiveLocation;
   }
 
+  /**
+   * Getter for restoreRequest.
+   * The backup restore request. Only populated when describe-backup is called with includeRestoreRequest set to true.
+   **/
+  @JsonProperty("restoreRequest")
+  public String getRestoreRequest() {
+    return restoreRequest;
+  }
+
+  /**
+   * Setter for restoreRequest.
+   * The backup restore request. Only populated when describe-backup is called with includeRestoreRequest set to true.
+   **/
+  public void setRestoreRequest(String restoreRequest) {
+    this.restoreRequest = restoreRequest;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -414,12 +436,15 @@ public class Backup  {
     if (!Objects.equals(this.archiveLocation, backup.archiveLocation)) {
       return false;
     }
+    if (!Objects.equals(this.restoreRequest, backup.restoreRequest)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, serviceID, serviceName, serviceVersion, environmentName, environmentCrn, creator, creatorCrn, cloudPlatform, status, created, description, errorMessage, archiveBasePath, archiveLocation);
+    return Objects.hash(id, serviceID, serviceName, serviceVersion, environmentName, environmentCrn, creator, creatorCrn, cloudPlatform, status, created, description, errorMessage, archiveBasePath, archiveLocation, restoreRequest);
   }
 
   @Override
@@ -441,6 +466,7 @@ public class Backup  {
     sb.append("    errorMessage: ").append(toIndentedString(errorMessage)).append("\n");
     sb.append("    archiveBasePath: ").append(toIndentedString(archiveBasePath)).append("\n");
     sb.append("    archiveLocation: ").append(toIndentedString(archiveLocation)).append("\n");
+    sb.append("    restoreRequest: ").append(toIndentedString(restoreRequest)).append("\n");
     sb.append("}");
     return sb.toString();
   }

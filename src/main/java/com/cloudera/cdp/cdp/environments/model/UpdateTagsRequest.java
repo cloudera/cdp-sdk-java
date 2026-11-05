@@ -29,7 +29,7 @@ import java.util.Map;
 /**
  * The request object for updating the tags of the given environment.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:46.101Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:52.723Z")
 public class UpdateTagsRequest  {
 
   /**
@@ -41,6 +41,11 @@ public class UpdateTagsRequest  {
    * Map of tag names to values for the environment.
    **/
   private Map<String, String> tags = new HashMap<String, String>();
+
+  /**
+   * When true, propagates the updated user-defined environment tags to existing resources in the environment. When false or omitted, tags on existing resources remain unchanged. Updating tags on existing cloud resources may require additional permissions in the environment credential.
+   **/
+  private Boolean updateTagsOnExistingResources = false;
 
   /**
    * Getter for environment.
@@ -76,6 +81,23 @@ public class UpdateTagsRequest  {
     this.tags = tags;
   }
 
+  /**
+   * Getter for updateTagsOnExistingResources.
+   * When true, propagates the updated user-defined environment tags to existing resources in the environment. When false or omitted, tags on existing resources remain unchanged. Updating tags on existing cloud resources may require additional permissions in the environment credential.
+   **/
+  @JsonProperty("updateTagsOnExistingResources")
+  public Boolean getUpdateTagsOnExistingResources() {
+    return updateTagsOnExistingResources;
+  }
+
+  /**
+   * Setter for updateTagsOnExistingResources.
+   * When true, propagates the updated user-defined environment tags to existing resources in the environment. When false or omitted, tags on existing resources remain unchanged. Updating tags on existing cloud resources may require additional permissions in the environment credential.
+   **/
+  public void setUpdateTagsOnExistingResources(Boolean updateTagsOnExistingResources) {
+    this.updateTagsOnExistingResources = updateTagsOnExistingResources;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -91,12 +113,15 @@ public class UpdateTagsRequest  {
     if (!Objects.equals(this.tags, updateTagsRequest.tags)) {
       return false;
     }
+    if (!Objects.equals(this.updateTagsOnExistingResources, updateTagsRequest.updateTagsOnExistingResources)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(environment, tags);
+    return Objects.hash(environment, tags, updateTagsOnExistingResources);
   }
 
   @Override
@@ -105,6 +130,7 @@ public class UpdateTagsRequest  {
     sb.append("class UpdateTagsRequest {\n");
     sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    updateTagsOnExistingResources: ").append(toIndentedString(updateTagsOnExistingResources)).append("\n");
     sb.append("}");
     return sb.toString();
   }

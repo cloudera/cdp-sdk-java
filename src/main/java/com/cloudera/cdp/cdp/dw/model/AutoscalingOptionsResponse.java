@@ -28,7 +28,7 @@ import com.cloudera.cdp.dw.model.ImpalaExecutorGroupSetsResponse;
 /**
  * Auto-scaling configuration for a Virtual Warehouse.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:42.551Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:49.632Z")
 public class AutoscalingOptionsResponse extends CdpResponse {
 
   /**
@@ -100,6 +100,36 @@ public class AutoscalingOptionsResponse extends CdpResponse {
    * Configurations of executor groups sets for workload aware autoscaling.
    **/
   private ImpalaExecutorGroupSetsResponse impalaExecutorGroupSets = null;
+
+  /**
+   * Disables Auto-scaling for Trino VW.
+   **/
+  private Boolean trinoDisableAutoScaling = null;
+
+  /**
+   * Maximum number of worker nodes in a Trino VW.
+   **/
+  private Integer trinoMaxWorkerCount = null;
+
+  /**
+   * Minimum number of worker nodes in a Trino VW.
+   **/
+  private Integer trinoMinWorkerCount = null;
+
+  /**
+   * Grace period in seconds before shutting down Trino workers.
+   **/
+  private Integer trinoShutdownGracePeriod = null;
+
+  /**
+   * Scale down threshold in seconds.
+   **/
+  private Integer trinoScaleDownDelaySeconds = null;
+
+  /**
+   * Scale up threshold in seconds.
+   **/
+  private Integer trinoScaleUpDelaySeconds = null;
 
   /**
    * Getter for minClusters.
@@ -349,6 +379,108 @@ public class AutoscalingOptionsResponse extends CdpResponse {
     this.impalaExecutorGroupSets = impalaExecutorGroupSets;
   }
 
+  /**
+   * Getter for trinoDisableAutoScaling.
+   * Disables Auto-scaling for Trino VW.
+   **/
+  @JsonProperty("trinoDisableAutoScaling")
+  public Boolean getTrinoDisableAutoScaling() {
+    return trinoDisableAutoScaling;
+  }
+
+  /**
+   * Setter for trinoDisableAutoScaling.
+   * Disables Auto-scaling for Trino VW.
+   **/
+  public void setTrinoDisableAutoScaling(Boolean trinoDisableAutoScaling) {
+    this.trinoDisableAutoScaling = trinoDisableAutoScaling;
+  }
+
+  /**
+   * Getter for trinoMaxWorkerCount.
+   * Maximum number of worker nodes in a Trino VW.
+   **/
+  @JsonProperty("trinoMaxWorkerCount")
+  public Integer getTrinoMaxWorkerCount() {
+    return trinoMaxWorkerCount;
+  }
+
+  /**
+   * Setter for trinoMaxWorkerCount.
+   * Maximum number of worker nodes in a Trino VW.
+   **/
+  public void setTrinoMaxWorkerCount(Integer trinoMaxWorkerCount) {
+    this.trinoMaxWorkerCount = trinoMaxWorkerCount;
+  }
+
+  /**
+   * Getter for trinoMinWorkerCount.
+   * Minimum number of worker nodes in a Trino VW.
+   **/
+  @JsonProperty("trinoMinWorkerCount")
+  public Integer getTrinoMinWorkerCount() {
+    return trinoMinWorkerCount;
+  }
+
+  /**
+   * Setter for trinoMinWorkerCount.
+   * Minimum number of worker nodes in a Trino VW.
+   **/
+  public void setTrinoMinWorkerCount(Integer trinoMinWorkerCount) {
+    this.trinoMinWorkerCount = trinoMinWorkerCount;
+  }
+
+  /**
+   * Getter for trinoShutdownGracePeriod.
+   * Grace period in seconds before shutting down Trino workers.
+   **/
+  @JsonProperty("trinoShutdownGracePeriod")
+  public Integer getTrinoShutdownGracePeriod() {
+    return trinoShutdownGracePeriod;
+  }
+
+  /**
+   * Setter for trinoShutdownGracePeriod.
+   * Grace period in seconds before shutting down Trino workers.
+   **/
+  public void setTrinoShutdownGracePeriod(Integer trinoShutdownGracePeriod) {
+    this.trinoShutdownGracePeriod = trinoShutdownGracePeriod;
+  }
+
+  /**
+   * Getter for trinoScaleDownDelaySeconds.
+   * Scale down threshold in seconds.
+   **/
+  @JsonProperty("trinoScaleDownDelaySeconds")
+  public Integer getTrinoScaleDownDelaySeconds() {
+    return trinoScaleDownDelaySeconds;
+  }
+
+  /**
+   * Setter for trinoScaleDownDelaySeconds.
+   * Scale down threshold in seconds.
+   **/
+  public void setTrinoScaleDownDelaySeconds(Integer trinoScaleDownDelaySeconds) {
+    this.trinoScaleDownDelaySeconds = trinoScaleDownDelaySeconds;
+  }
+
+  /**
+   * Getter for trinoScaleUpDelaySeconds.
+   * Scale up threshold in seconds.
+   **/
+  @JsonProperty("trinoScaleUpDelaySeconds")
+  public Integer getTrinoScaleUpDelaySeconds() {
+    return trinoScaleUpDelaySeconds;
+  }
+
+  /**
+   * Setter for trinoScaleUpDelaySeconds.
+   * Scale up threshold in seconds.
+   **/
+  public void setTrinoScaleUpDelaySeconds(Integer trinoScaleUpDelaySeconds) {
+    this.trinoScaleUpDelaySeconds = trinoScaleUpDelaySeconds;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -400,6 +532,24 @@ public class AutoscalingOptionsResponse extends CdpResponse {
     if (!Objects.equals(this.impalaExecutorGroupSets, autoscalingOptionsResponse.impalaExecutorGroupSets)) {
       return false;
     }
+    if (!Objects.equals(this.trinoDisableAutoScaling, autoscalingOptionsResponse.trinoDisableAutoScaling)) {
+      return false;
+    }
+    if (!Objects.equals(this.trinoMaxWorkerCount, autoscalingOptionsResponse.trinoMaxWorkerCount)) {
+      return false;
+    }
+    if (!Objects.equals(this.trinoMinWorkerCount, autoscalingOptionsResponse.trinoMinWorkerCount)) {
+      return false;
+    }
+    if (!Objects.equals(this.trinoShutdownGracePeriod, autoscalingOptionsResponse.trinoShutdownGracePeriod)) {
+      return false;
+    }
+    if (!Objects.equals(this.trinoScaleDownDelaySeconds, autoscalingOptionsResponse.trinoScaleDownDelaySeconds)) {
+      return false;
+    }
+    if (!Objects.equals(this.trinoScaleUpDelaySeconds, autoscalingOptionsResponse.trinoScaleUpDelaySeconds)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -408,7 +558,7 @@ public class AutoscalingOptionsResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(minClusters, maxClusters, disableAutoSuspend, autoSuspendTimeoutSeconds, hiveScaleWaitTimeSeconds, hiveDesiredFreeCapacity, impalaHighAvailabilityMode, impalaScaleUpDelaySeconds, impalaScaleDownDelaySeconds, impalaEnableShutdownOfCoordinator, impalaNumOfActiveCoordinators, impalaShutdownOfCoordinatorDelaySeconds, impalaEnableCatalogHighAvailability, impalaExecutorGroupSets, super.hashCode());
+    return Objects.hash(minClusters, maxClusters, disableAutoSuspend, autoSuspendTimeoutSeconds, hiveScaleWaitTimeSeconds, hiveDesiredFreeCapacity, impalaHighAvailabilityMode, impalaScaleUpDelaySeconds, impalaScaleDownDelaySeconds, impalaEnableShutdownOfCoordinator, impalaNumOfActiveCoordinators, impalaShutdownOfCoordinatorDelaySeconds, impalaEnableCatalogHighAvailability, impalaExecutorGroupSets, trinoDisableAutoScaling, trinoMaxWorkerCount, trinoMinWorkerCount, trinoShutdownGracePeriod, trinoScaleDownDelaySeconds, trinoScaleUpDelaySeconds, super.hashCode());
   }
 
   @Override
@@ -430,6 +580,12 @@ public class AutoscalingOptionsResponse extends CdpResponse {
     sb.append("    impalaShutdownOfCoordinatorDelaySeconds: ").append(toIndentedString(impalaShutdownOfCoordinatorDelaySeconds)).append("\n");
     sb.append("    impalaEnableCatalogHighAvailability: ").append(toIndentedString(impalaEnableCatalogHighAvailability)).append("\n");
     sb.append("    impalaExecutorGroupSets: ").append(toIndentedString(impalaExecutorGroupSets)).append("\n");
+    sb.append("    trinoDisableAutoScaling: ").append(toIndentedString(trinoDisableAutoScaling)).append("\n");
+    sb.append("    trinoMaxWorkerCount: ").append(toIndentedString(trinoMaxWorkerCount)).append("\n");
+    sb.append("    trinoMinWorkerCount: ").append(toIndentedString(trinoMinWorkerCount)).append("\n");
+    sb.append("    trinoShutdownGracePeriod: ").append(toIndentedString(trinoShutdownGracePeriod)).append("\n");
+    sb.append("    trinoScaleDownDelaySeconds: ").append(toIndentedString(trinoScaleDownDelaySeconds)).append("\n");
+    sb.append("    trinoScaleUpDelaySeconds: ").append(toIndentedString(trinoScaleUpDelaySeconds)).append("\n");
     sb.append("}");
     return sb.toString();
   }

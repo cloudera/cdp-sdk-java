@@ -30,7 +30,7 @@ import java.util.Map;
 /**
  * Response object for the FetchAiRegistriesStorageConfig method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:44.354Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:51.007Z")
 public class FetchAiRegistriesStorageConfigResponse extends CdpResponse {
 
   /**

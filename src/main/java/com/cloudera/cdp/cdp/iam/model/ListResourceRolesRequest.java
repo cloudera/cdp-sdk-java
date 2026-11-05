@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for a list resource roles request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:48.572Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:54.513Z")
 public class ListResourceRolesRequest  {
 
   /**

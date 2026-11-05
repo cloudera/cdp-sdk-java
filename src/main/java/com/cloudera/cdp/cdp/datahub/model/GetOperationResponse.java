@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Response object for tracking the latest (current/last) operation on the datahub resource.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:41.364Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:48.474Z")
 public class GetOperationResponse extends CdpResponse {
 
   /**

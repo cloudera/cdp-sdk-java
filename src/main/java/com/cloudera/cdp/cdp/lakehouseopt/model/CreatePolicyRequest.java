@@ -28,7 +28,7 @@ import com.cloudera.cdp.lakehouseopt.model.PolicyResource;
 /**
  * Request object to create a new policy.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-09-10T20:30:51.430Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:57.715Z")
 public class CreatePolicyRequest  {
 
   /**
