@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Show Restore Snapshots Response.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:53.872Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-11-25T15:42:49.726Z")
 public class ListRestoreSnapshotsResponse extends CdpResponse {
 
   /**

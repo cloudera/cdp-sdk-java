@@ -28,7 +28,7 @@ import java.util.*;
 /**
  * Request object for the list restores request.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:52.536Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-11-25T15:42:48.038Z")
 public class ListRestoresRequest  {
 
   /**

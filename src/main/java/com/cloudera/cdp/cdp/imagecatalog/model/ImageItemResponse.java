@@ -23,13 +23,14 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
+import com.cloudera.cdp.imagecatalog.model.VmImageResponse;
 import java.util.*;
 import java.util.Map;
 
 /**
  * Model holding detailed information about a custom VM image.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:56.883Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-11-25T15:42:53.218Z")
 public class ImageItemResponse extends CdpResponse {
 
   /**
@@ -66,6 +67,11 @@ public class ImageItemResponse extends CdpResponse {
    * Cloud provider - either AWS, AZURE or GCP
    **/
   private String provider = null;
+
+  /**
+   * Cloud provider specific VM image references (e.g. AMI IDs for AWS, image URNs for Azure, image names for GCP). Only populated when withVmImages is set to true in the request.
+   **/
+  private List<VmImageResponse> vmImages = new ArrayList<VmImageResponse>();
 
   /**
    * Getter for imageId.
@@ -186,6 +192,23 @@ public class ImageItemResponse extends CdpResponse {
     this.provider = provider;
   }
 
+  /**
+   * Getter for vmImages.
+   * Cloud provider specific VM image references (e.g. AMI IDs for AWS, image URNs for Azure, image names for GCP). Only populated when withVmImages is set to true in the request.
+   **/
+  @JsonProperty("vmImages")
+  public List<VmImageResponse> getVmImages() {
+    return vmImages;
+  }
+
+  /**
+   * Setter for vmImages.
+   * Cloud provider specific VM image references (e.g. AMI IDs for AWS, image URNs for Azure, image names for GCP). Only populated when withVmImages is set to true in the request.
+   **/
+  public void setVmImages(List<VmImageResponse> vmImages) {
+    this.vmImages = vmImages;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -216,6 +239,9 @@ public class ImageItemResponse extends CdpResponse {
     if (!Objects.equals(this.provider, imageItemResponse.provider)) {
       return false;
     }
+    if (!Objects.equals(this.vmImages, imageItemResponse.vmImages)) {
+      return false;
+    }
     if (!super.equals(o)) {
       return false;
     }
@@ -224,7 +250,7 @@ public class ImageItemResponse extends CdpResponse {
 
   @Override
   public int hashCode() {
-    return Objects.hash(imageId, imageDate, imageType, sourceImageId, sourceImageDate, versions, provider, super.hashCode());
+    return Objects.hash(imageId, imageDate, imageType, sourceImageId, sourceImageDate, versions, provider, vmImages, super.hashCode());
   }
 
   @Override
@@ -239,6 +265,7 @@ public class ImageItemResponse extends CdpResponse {
     sb.append("    sourceImageDate: ").append(toIndentedString(sourceImageDate)).append("\n");
     sb.append("    versions: ").append(toIndentedString(versions)).append("\n");
     sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
+    sb.append("    vmImages: ").append(toIndentedString(vmImages)).append("\n");
     sb.append("}");
     return sb.toString();
   }

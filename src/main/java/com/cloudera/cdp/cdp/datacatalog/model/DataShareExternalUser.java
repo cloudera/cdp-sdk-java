@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Details of an external user with access to a Data Share.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:50.733Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-11-25T15:42:46.305Z")
 public class DataShareExternalUser  {
 
   /**
@@ -53,7 +53,7 @@ public class DataShareExternalUser  {
   private String companyName = null;
 
   /**
-   * List of permissions granted to the external user for the Data Share.
+   * List of permissions granted to the external user for the Data Share. Allowed values are READ and WRITE.
    **/
   private List<String> permissions = new ArrayList<String>();
 
@@ -137,7 +137,7 @@ public class DataShareExternalUser  {
 
   /**
    * Getter for permissions.
-   * List of permissions granted to the external user for the Data Share.
+   * List of permissions granted to the external user for the Data Share. Allowed values are READ and WRITE.
    **/
   @JsonProperty("permissions")
   public List<String> getPermissions() {
@@ -146,7 +146,7 @@ public class DataShareExternalUser  {
 
   /**
    * Setter for permissions.
-   * List of permissions granted to the external user for the Data Share.
+   * List of permissions granted to the external user for the Data Share. Allowed values are READ and WRITE.
    **/
   public void setPermissions(List<String> permissions) {
     this.permissions = permissions;

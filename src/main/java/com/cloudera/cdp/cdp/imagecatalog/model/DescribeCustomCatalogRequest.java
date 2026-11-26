@@ -27,13 +27,18 @@ import com.cloudera.cdp.client.CdpResponse;
 /**
  * The request object to retrieve data about a custom catalog.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:56.883Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-11-25T15:42:53.218Z")
 public class DescribeCustomCatalogRequest  {
 
   /**
    * Image catalog name
    **/
   private String catalogName = null;
+
+  /**
+   * Whether to include VM images (cloud provider image references, e.g. AMI IDs for AWS) for each image in the response. Defaults to false.
+   **/
+  private Boolean withVmImages = false;
 
   /**
    * Getter for catalogName.
@@ -52,6 +57,23 @@ public class DescribeCustomCatalogRequest  {
     this.catalogName = catalogName;
   }
 
+  /**
+   * Getter for withVmImages.
+   * Whether to include VM images (cloud provider image references, e.g. AMI IDs for AWS) for each image in the response. Defaults to false.
+   **/
+  @JsonProperty("withVmImages")
+  public Boolean getWithVmImages() {
+    return withVmImages;
+  }
+
+  /**
+   * Setter for withVmImages.
+   * Whether to include VM images (cloud provider image references, e.g. AMI IDs for AWS) for each image in the response. Defaults to false.
+   **/
+  public void setWithVmImages(Boolean withVmImages) {
+    this.withVmImages = withVmImages;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -64,12 +86,15 @@ public class DescribeCustomCatalogRequest  {
     if (!Objects.equals(this.catalogName, describeCustomCatalogRequest.catalogName)) {
       return false;
     }
+    if (!Objects.equals(this.withVmImages, describeCustomCatalogRequest.withVmImages)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(catalogName);
+    return Objects.hash(catalogName, withVmImages);
   }
 
   @Override
@@ -77,6 +102,7 @@ public class DescribeCustomCatalogRequest  {
     StringBuilder sb = new StringBuilder();
     sb.append("class DescribeCustomCatalogRequest {\n");
     sb.append("    catalogName: ").append(toIndentedString(catalogName)).append("\n");
+    sb.append("    withVmImages: ").append(toIndentedString(withVmImages)).append("\n");
     sb.append("}");
     return sb.toString();
   }

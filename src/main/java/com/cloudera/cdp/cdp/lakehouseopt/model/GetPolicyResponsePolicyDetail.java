@@ -30,7 +30,7 @@ import java.util.Arrays;
 /**
  * Policy detail corresponding to a unique policy version.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:57.715Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-11-25T15:42:54.450Z")
 public class GetPolicyResponsePolicyDetail  {
 
   /**

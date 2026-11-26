@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Describes policy to entire namespace association details per catalog.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:57.715Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-11-25T15:42:54.450Z")
 public class StarAssociationDetails  {
 
   /**
@@ -38,7 +38,7 @@ public class StarAssociationDetails  {
   private String catalog = null;
 
   /**
-   * The catalog status.
+   * The catalog status. Possible values are ERROR, SUCCESS, AUTO_PAUSED, USER_PAUSED, PAUSED, WARNING and UNAVAILABLE. ERROR indicates that a recent task has failed or a table is paused due to exceptions, SUCCESS indicates that there are no recent task failures or paused tables, AUTO_PAUSED indicates that the catalog is paused automatically due to errors, USER_PAUSED indicates that the catalog is paused by a user, PAUSED indicates that the catalog is paused for maintenance actions, WARNING indicates that a table is paused by a user, UNAVAILABLE indicates that no tasks have run yet.
    **/
   private String status = "UNAVAILABLE";
 
@@ -66,7 +66,7 @@ public class StarAssociationDetails  {
 
   /**
    * Getter for status.
-   * The catalog status.
+   * The catalog status. Possible values are ERROR, SUCCESS, AUTO_PAUSED, USER_PAUSED, PAUSED, WARNING and UNAVAILABLE. ERROR indicates that a recent task has failed or a table is paused due to exceptions, SUCCESS indicates that there are no recent task failures or paused tables, AUTO_PAUSED indicates that the catalog is paused automatically due to errors, USER_PAUSED indicates that the catalog is paused by a user, PAUSED indicates that the catalog is paused for maintenance actions, WARNING indicates that a table is paused by a user, UNAVAILABLE indicates that no tasks have run yet.
    **/
   @JsonProperty("status")
   public String getStatus() {
@@ -75,7 +75,7 @@ public class StarAssociationDetails  {
 
   /**
    * Setter for status.
-   * The catalog status.
+   * The catalog status. Possible values are ERROR, SUCCESS, AUTO_PAUSED, USER_PAUSED, PAUSED, WARNING and UNAVAILABLE. ERROR indicates that a recent task has failed or a table is paused due to exceptions, SUCCESS indicates that there are no recent task failures or paused tables, AUTO_PAUSED indicates that the catalog is paused automatically due to errors, USER_PAUSED indicates that the catalog is paused by a user, PAUSED indicates that the catalog is paused for maintenance actions, WARNING indicates that a table is paused by a user, UNAVAILABLE indicates that no tasks have run yet.
    **/
   public void setStatus(String status) {
     this.status = status;

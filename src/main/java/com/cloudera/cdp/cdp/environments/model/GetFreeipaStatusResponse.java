@@ -30,7 +30,7 @@ import java.util.Map;
 /**
  * The overall status of the FreeIPA cluster.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:52.723Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-11-25T15:42:48.272Z")
 public class GetFreeipaStatusResponse extends CdpResponse {
 
   /**

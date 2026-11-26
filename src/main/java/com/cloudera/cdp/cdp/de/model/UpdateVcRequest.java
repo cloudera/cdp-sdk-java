@@ -29,7 +29,7 @@ import java.util.Map;
 /**
  * Request object for updateVc method.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:54.246Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-11-25T15:42:50.192Z")
 public class UpdateVcRequest  {
 
   /**
@@ -81,6 +81,26 @@ public class UpdateVcRequest  {
    * Whether to enable job-level override for how drivers and executors run in the Virtual Cluster.
    **/
   private Boolean enableComputeOverride = null;
+
+  /**
+   * Base64-encoded PEM certificate bundle applied to dex-app, Airflow, and Airflow API database connections. Cannot be used together with encodedDbCaCertApi, encodedDbCaCertAirflow, or encodedDbCaCertAirflowAPI.
+   **/
+  private String encodedDbCaCert = null;
+
+  /**
+   * Base64-encoded PEM certificate bundle for the dex-app API database connection. Cannot be used together with encodedDbCaCert.
+   **/
+  private String encodedDbCaCertApi = null;
+
+  /**
+   * Base64-encoded PEM certificate bundle for the Airflow database connection. Cannot be used together with encodedDbCaCert.
+   **/
+  private String encodedDbCaCertAirflow = null;
+
+  /**
+   * Base64-encoded PEM certificate bundle for the Airflow API database connection. Cannot be used together with encodedDbCaCert.
+   **/
+  private String encodedDbCaCertAirflowAPI = null;
 
   /**
    * Getter for clusterId.
@@ -252,6 +272,74 @@ public class UpdateVcRequest  {
     this.enableComputeOverride = enableComputeOverride;
   }
 
+  /**
+   * Getter for encodedDbCaCert.
+   * Base64-encoded PEM certificate bundle applied to dex-app, Airflow, and Airflow API database connections. Cannot be used together with encodedDbCaCertApi, encodedDbCaCertAirflow, or encodedDbCaCertAirflowAPI.
+   **/
+  @JsonProperty("encodedDbCaCert")
+  public String getEncodedDbCaCert() {
+    return encodedDbCaCert;
+  }
+
+  /**
+   * Setter for encodedDbCaCert.
+   * Base64-encoded PEM certificate bundle applied to dex-app, Airflow, and Airflow API database connections. Cannot be used together with encodedDbCaCertApi, encodedDbCaCertAirflow, or encodedDbCaCertAirflowAPI.
+   **/
+  public void setEncodedDbCaCert(String encodedDbCaCert) {
+    this.encodedDbCaCert = encodedDbCaCert;
+  }
+
+  /**
+   * Getter for encodedDbCaCertApi.
+   * Base64-encoded PEM certificate bundle for the dex-app API database connection. Cannot be used together with encodedDbCaCert.
+   **/
+  @JsonProperty("encodedDbCaCertApi")
+  public String getEncodedDbCaCertApi() {
+    return encodedDbCaCertApi;
+  }
+
+  /**
+   * Setter for encodedDbCaCertApi.
+   * Base64-encoded PEM certificate bundle for the dex-app API database connection. Cannot be used together with encodedDbCaCert.
+   **/
+  public void setEncodedDbCaCertApi(String encodedDbCaCertApi) {
+    this.encodedDbCaCertApi = encodedDbCaCertApi;
+  }
+
+  /**
+   * Getter for encodedDbCaCertAirflow.
+   * Base64-encoded PEM certificate bundle for the Airflow database connection. Cannot be used together with encodedDbCaCert.
+   **/
+  @JsonProperty("encodedDbCaCertAirflow")
+  public String getEncodedDbCaCertAirflow() {
+    return encodedDbCaCertAirflow;
+  }
+
+  /**
+   * Setter for encodedDbCaCertAirflow.
+   * Base64-encoded PEM certificate bundle for the Airflow database connection. Cannot be used together with encodedDbCaCert.
+   **/
+  public void setEncodedDbCaCertAirflow(String encodedDbCaCertAirflow) {
+    this.encodedDbCaCertAirflow = encodedDbCaCertAirflow;
+  }
+
+  /**
+   * Getter for encodedDbCaCertAirflowAPI.
+   * Base64-encoded PEM certificate bundle for the Airflow API database connection. Cannot be used together with encodedDbCaCert.
+   **/
+  @JsonProperty("encodedDbCaCertAirflowAPI")
+  public String getEncodedDbCaCertAirflowAPI() {
+    return encodedDbCaCertAirflowAPI;
+  }
+
+  /**
+   * Setter for encodedDbCaCertAirflowAPI.
+   * Base64-encoded PEM certificate bundle for the Airflow API database connection. Cannot be used together with encodedDbCaCert.
+   **/
+  public void setEncodedDbCaCertAirflowAPI(String encodedDbCaCertAirflowAPI) {
+    this.encodedDbCaCertAirflowAPI = encodedDbCaCertAirflowAPI;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -291,12 +379,24 @@ public class UpdateVcRequest  {
     if (!Objects.equals(this.enableComputeOverride, updateVcRequest.enableComputeOverride)) {
       return false;
     }
+    if (!Objects.equals(this.encodedDbCaCert, updateVcRequest.encodedDbCaCert)) {
+      return false;
+    }
+    if (!Objects.equals(this.encodedDbCaCertApi, updateVcRequest.encodedDbCaCertApi)) {
+      return false;
+    }
+    if (!Objects.equals(this.encodedDbCaCertAirflow, updateVcRequest.encodedDbCaCertAirflow)) {
+      return false;
+    }
+    if (!Objects.equals(this.encodedDbCaCertAirflowAPI, updateVcRequest.encodedDbCaCertAirflowAPI)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clusterId, vcId, aclUsers, fullAccessUsers, fullAccessGroups, viewOnlyUsers, viewOnlyGroups, sparkConfigs, discardSparkConfigs, enableComputeOverride);
+    return Objects.hash(clusterId, vcId, aclUsers, fullAccessUsers, fullAccessGroups, viewOnlyUsers, viewOnlyGroups, sparkConfigs, discardSparkConfigs, enableComputeOverride, encodedDbCaCert, encodedDbCaCertApi, encodedDbCaCertAirflow, encodedDbCaCertAirflowAPI);
   }
 
   @Override
@@ -313,6 +413,10 @@ public class UpdateVcRequest  {
     sb.append("    sparkConfigs: ").append(toIndentedString(sparkConfigs)).append("\n");
     sb.append("    discardSparkConfigs: ").append(toIndentedString(discardSparkConfigs)).append("\n");
     sb.append("    enableComputeOverride: ").append(toIndentedString(enableComputeOverride)).append("\n");
+    sb.append("    encodedDbCaCert: ").append(toIndentedString(encodedDbCaCert)).append("\n");
+    sb.append("    encodedDbCaCertApi: ").append(toIndentedString(encodedDbCaCertApi)).append("\n");
+    sb.append("    encodedDbCaCertAirflow: ").append(toIndentedString(encodedDbCaCertAirflow)).append("\n");
+    sb.append("    encodedDbCaCertAirflowAPI: ").append(toIndentedString(encodedDbCaCertAirflowAPI)).append("\n");
     sb.append("}");
     return sb.toString();
   }

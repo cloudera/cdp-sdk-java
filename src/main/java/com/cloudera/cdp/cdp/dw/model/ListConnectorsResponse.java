@@ -29,7 +29,7 @@ import java.util.*;
 /**
  * Response object for the listConnectors method. This object contains the list of all connectors configured in the specified Cloudera Data Warehouse cluster.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:49.632Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-11-25T15:42:45.087Z")
 public class ListConnectorsResponse extends CdpResponse {
 
   /**

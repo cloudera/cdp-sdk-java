@@ -28,7 +28,7 @@ import java.util.Arrays;
 /**
  * Response object containing the policy script and arguments.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:57.715Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-11-25T15:42:54.450Z")
 public class DownloadPolicyResponse extends CdpResponse {
 
   /**

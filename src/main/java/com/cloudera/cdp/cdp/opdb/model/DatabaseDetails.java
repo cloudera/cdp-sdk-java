@@ -28,7 +28,7 @@ import java.time.ZonedDateTime;
 /**
  * Details of the databases.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:53.872Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-11-25T15:42:49.726Z")
 public class DatabaseDetails  {
 
   /**
@@ -100,6 +100,11 @@ public class DatabaseDetails  {
    * Specifies the architecture of the cluster nodes.
    **/
   private String architecture = null;
+
+  /**
+   * The encryption profile name or CRN that manages the encryption of the database.
+   **/
+  private String encryptionProfile = null;
 
   /**
    * Getter for databaseName.
@@ -339,6 +344,23 @@ public class DatabaseDetails  {
     this.architecture = architecture;
   }
 
+  /**
+   * Getter for encryptionProfile.
+   * The encryption profile name or CRN that manages the encryption of the database.
+   **/
+  @JsonProperty("encryptionProfile")
+  public String getEncryptionProfile() {
+    return encryptionProfile;
+  }
+
+  /**
+   * Setter for encryptionProfile.
+   * The encryption profile name or CRN that manages the encryption of the database.
+   **/
+  public void setEncryptionProfile(String encryptionProfile) {
+    this.encryptionProfile = encryptionProfile;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -390,12 +412,15 @@ public class DatabaseDetails  {
     if (!Objects.equals(this.architecture, databaseDetails.architecture)) {
       return false;
     }
+    if (!Objects.equals(this.encryptionProfile, databaseDetails.encryptionProfile)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(databaseName, environmentCrn, crn, creationDate, status, creatorCrn, dbVersion, hueEndpoint, environmentName, storageLocation, internalName, gatewayNodesCount, restworkerNodesCount, architecture);
+    return Objects.hash(databaseName, environmentCrn, crn, creationDate, status, creatorCrn, dbVersion, hueEndpoint, environmentName, storageLocation, internalName, gatewayNodesCount, restworkerNodesCount, architecture, encryptionProfile);
   }
 
   @Override
@@ -416,6 +441,7 @@ public class DatabaseDetails  {
     sb.append("    gatewayNodesCount: ").append(toIndentedString(gatewayNodesCount)).append("\n");
     sb.append("    restworkerNodesCount: ").append(toIndentedString(restworkerNodesCount)).append("\n");
     sb.append("    architecture: ").append(toIndentedString(architecture)).append("\n");
+    sb.append("    encryptionProfile: ").append(toIndentedString(encryptionProfile)).append("\n");
     sb.append("}");
     return sb.toString();
   }

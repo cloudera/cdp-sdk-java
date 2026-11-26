@@ -24,11 +24,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.cloudera.cdp.client.CdpResponse;
 import java.time.ZonedDateTime;
+import java.util.*;
 
 /**
  * Specifies the updated access expiration time for an external user on a specific Data Share.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:50.733Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-11-25T15:42:46.305Z")
 public class ExternalUserAccessUpdate  {
 
   /**
@@ -40,6 +41,11 @@ public class ExternalUserAccessUpdate  {
    * The date and time when the access of Data Share will expire for the external user.
    **/
   private ZonedDateTime expiryTime = null;
+
+  /**
+   * List of permissions granted to the external user for the Data Share. Allowed values are READ and WRITE.
+   **/
+  private List<String> permissions = new ArrayList<String>();
 
   /**
    * Getter for externalUserId.
@@ -75,6 +81,23 @@ public class ExternalUserAccessUpdate  {
     this.expiryTime = expiryTime;
   }
 
+  /**
+   * Getter for permissions.
+   * List of permissions granted to the external user for the Data Share. Allowed values are READ and WRITE.
+   **/
+  @JsonProperty("permissions")
+  public List<String> getPermissions() {
+    return permissions;
+  }
+
+  /**
+   * Setter for permissions.
+   * List of permissions granted to the external user for the Data Share. Allowed values are READ and WRITE.
+   **/
+  public void setPermissions(List<String> permissions) {
+    this.permissions = permissions;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -90,12 +113,15 @@ public class ExternalUserAccessUpdate  {
     if (!Objects.equals(this.expiryTime, externalUserAccessUpdate.expiryTime)) {
       return false;
     }
+    if (!Objects.equals(this.permissions, externalUserAccessUpdate.permissions)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(externalUserId, expiryTime);
+    return Objects.hash(externalUserId, expiryTime, permissions);
   }
 
   @Override
@@ -104,6 +130,7 @@ public class ExternalUserAccessUpdate  {
     sb.append("class ExternalUserAccessUpdate {\n");
     sb.append("    externalUserId: ").append(toIndentedString(externalUserId)).append("\n");
     sb.append("    expiryTime: ").append(toIndentedString(expiryTime)).append("\n");
+    sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

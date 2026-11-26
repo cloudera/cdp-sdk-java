@@ -29,7 +29,7 @@ import com.cloudera.cdp.publicendpointmanagement.model.IPs;
 /**
  * DnsTarget represents the target of a DNS entry, which can be a set of IPs, a CNAME, or an AWS ELB DNS target.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:58.374Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-11-25T15:42:55.372Z")
 public class DnsTarget  {
 
   /**

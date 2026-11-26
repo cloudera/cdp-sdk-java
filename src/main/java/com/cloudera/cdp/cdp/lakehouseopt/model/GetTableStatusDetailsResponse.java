@@ -29,7 +29,7 @@ import com.cloudera.cdp.lakehouseopt.model.Task;
 /**
  * Returns the table&#39;s current status details.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:57.715Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-11-25T15:42:54.450Z")
 public class GetTableStatusDetailsResponse extends CdpResponse {
 
   /**

@@ -29,7 +29,7 @@ import java.util.Map;
 /**
  * Request object for Restore Service command.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:54.246Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-11-25T15:42:50.192Z")
 public class RestoreServiceRequest  {
 
   /**
@@ -61,6 +61,11 @@ public class RestoreServiceRequest  {
    * Optional final service config override as a JSON string, passed through to the restore backend as-is. At most one of serviceConfigReplacement or servicePropertyOverride may be specified.
    **/
   private String serviceConfigReplacement = null;
+
+  /**
+   * When true, sets spark.osname to the security-hardened on every restored virtual cluster. Defaults to false.
+   **/
+  private Boolean forceSecureSparkOs = false;
 
   /**
    * Getter for backupID.
@@ -164,6 +169,23 @@ public class RestoreServiceRequest  {
     this.serviceConfigReplacement = serviceConfigReplacement;
   }
 
+  /**
+   * Getter for forceSecureSparkOs.
+   * When true, sets spark.osname to the security-hardened on every restored virtual cluster. Defaults to false.
+   **/
+  @JsonProperty("forceSecureSparkOs")
+  public Boolean getForceSecureSparkOs() {
+    return forceSecureSparkOs;
+  }
+
+  /**
+   * Setter for forceSecureSparkOs.
+   * When true, sets spark.osname to the security-hardened on every restored virtual cluster. Defaults to false.
+   **/
+  public void setForceSecureSparkOs(Boolean forceSecureSparkOs) {
+    this.forceSecureSparkOs = forceSecureSparkOs;
+  }
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -191,12 +213,15 @@ public class RestoreServiceRequest  {
     if (!Objects.equals(this.serviceConfigReplacement, restoreServiceRequest.serviceConfigReplacement)) {
       return false;
     }
+    if (!Objects.equals(this.forceSecureSparkOs, restoreServiceRequest.forceSecureSparkOs)) {
+      return false;
+    }
     return true;
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(backupID, environmentCrn, serviceId, serviceName, servicePropertyOverride, serviceConfigReplacement);
+    return Objects.hash(backupID, environmentCrn, serviceId, serviceName, servicePropertyOverride, serviceConfigReplacement, forceSecureSparkOs);
   }
 
   @Override
@@ -209,6 +234,7 @@ public class RestoreServiceRequest  {
     sb.append("    serviceName: ").append(toIndentedString(serviceName)).append("\n");
     sb.append("    servicePropertyOverride: ").append(toIndentedString(servicePropertyOverride)).append("\n");
     sb.append("    serviceConfigReplacement: ").append(toIndentedString(serviceConfigReplacement)).append("\n");
+    sb.append("    forceSecureSparkOs: ").append(toIndentedString(forceSecureSparkOs)).append("\n");
     sb.append("}");
     return sb.toString();
   }

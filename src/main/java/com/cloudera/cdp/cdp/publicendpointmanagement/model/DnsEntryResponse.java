@@ -28,7 +28,7 @@ import com.cloudera.cdp.publicendpointmanagement.model.DnsTargetRecord;
 /**
  * DnsEntryResponse represents a DNS entry with its name, type, target records, and optional TTL.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:58.374Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-11-25T15:42:55.372Z")
 public class DnsEntryResponse extends CdpResponse {
 
   /**

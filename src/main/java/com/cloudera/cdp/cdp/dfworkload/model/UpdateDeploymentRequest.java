@@ -32,7 +32,7 @@ import java.util.*;
 /**
  * Provides all of the configuration that dictates how a deployment should be updated.
  **/
-@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-10-27T19:34:56.063Z")
+@jakarta.annotation.Generated(value = "com.cloudera.cdp.client.codegen.CdpSDKJavaCodegen", date = "2026-11-25T15:42:52.364Z")
 @com.cloudera.cdp.annotation.WorkloadApi
 public class UpdateDeploymentRequest  {
 
